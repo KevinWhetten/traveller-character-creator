@@ -1,0 +1,41 @@
+.flex-col {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  font-weight: 500;
+  width: 200px;
+  margin-right: 128px;
+}
+
+.characteristic {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex {
+  max-height: 1250px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.entry {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  margin-right: 16px;
+}
+
+.skill-name {
+  font-weight: 500;
+}
+
+.subskill-name {
+  background-color: lightgray;
+}

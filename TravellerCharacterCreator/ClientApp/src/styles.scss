@@ -1,0 +1,59 @@
+h1 {
+}
+
+h2 {
+  font-size: 20pt;
+}
+
+h3 {
+  font-size: 16pt;
+}
+
+h4 {
+  font-size: 14pt;
+}
+
+p {
+  font-size: 14pt;
+}
+
+button {
+  height: 50px;
+  min-width: 75px;
+  border: solid 2px black;
+  border-radius: 5px;
+  margin: 0 8px;
+
+  &.primary {
+    color: white;
+    background-color: darkred;
+    float: right;
+
+    &:hover {
+      background-color: #ab0000;
+    }
+  }
+
+  &.secondary {
+    color: white;
+    background-color: black;
+    float: left;
+
+    &:hover {
+      background-color: #444;
+    }
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-tooltip {
+  font-size: 10pt !important;
+}

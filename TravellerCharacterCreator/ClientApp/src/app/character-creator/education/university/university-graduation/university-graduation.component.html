@@ -1,0 +1,75 @@
+<h1>University</h1>
+<h2>Graduation!</h2>
+
+<div *ngIf="!success && !honors && !failure">
+  <p>Now we get to see if you graduate!</p>
+  <label for="acceptance">Roll 2d6</label>
+  <input class="number" type="number" id="acceptance" name="acceptance" [(ngModel)]="graduationRoll"
+         (ngModelChange)="updateGraduation($event)" min="2" max="12"/>
+  <button class="primary" (click)="submitGraduation()">Submit</button>
+</div>
+
+<div *ngIf="success">
+  <h3>Congratulations! You Graduated!</h3>
+  <h4>Your studies have paid off!</h4>
+  <ul>
+    <li class="main">You have gained [Skill1 2] and [Skill2 1]</li>
+    <li class="main">Your [EDU] has increased by 2!</li>
+    <li class="main">
+      You will gain a +1 bonus when applying for the following jobs:
+      <ul class="normal">
+        <div class="flex">
+          <div class="column">
+            <li>Agent</li>
+            <li>Citizen (corporate)</li>
+            <li>Entertainer (journalist)</li>
+            <li>Scholar</li>
+          </div>
+          <div class="column">
+            <span class="main">You can also make a Commission roll for the following jobs:</span>
+            <li>Army</li>
+            <li>Marines</li>
+            <li>Navy</li>
+            <li>Scouts</li>
+          </div>
+        </div>
+      </ul>
+    </li>
+  </ul>
+  <button class="primary" (click)="moveOn()">Huzzah!</button>
+</div>
+
+<div *ngIf="honors">
+  <h3>Congratulations! You Graduated!</h3>
+  <h4>Your studies have paid off!</h4>
+  <ul>
+    <li class="main">You have gained [Skill1 2] and [Skill2 1]</li>
+    <li class="main">Your [EDU] has increased by 2!</li>
+    <li class="main">
+      You will gain a +2 bonus when applying for the following jobs:
+      <ul class="normal">
+        <div class="flex">
+          <div class="column">
+            <li>Agent</li>
+            <li>Citizen (corporate)</li>
+            <li>Entertainer (journalist)</li>
+            <li>Scholar</li>
+          </div>
+          <div class="column">
+            <span class="main">You can also make a Commission roll (at +2) for the following jobs:</span>
+            <li>Army</li>
+            <li>Marines</li>
+            <li>Navy</li>
+            <li>Scouts</li>
+          </div>
+        </div>
+      </ul>
+    </li>
+  </ul>
+  <button class="primary" (click)="moveOn()">Huzzah!</button>
+</div>
+
+<div *ngIf="failure">
+  Failure...
+  <button class="primary" (click)="moveOn()">Dang!</button>
+</div>

@@ -1,0 +1,25 @@
+h2 {
+  font-size: 16pt;
+  margin-bottom: 36px;
+  font-weight: normal;
+}
+
+label {
+  margin-left: 16px;
+  font-size: 14pt;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.skill-list {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 56px;
+  row-gap: 32px;
+}
+
+.background-skills-container {
+  margin-bottom: 100px;
+}

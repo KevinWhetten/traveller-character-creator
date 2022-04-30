@@ -1,0 +1,24 @@
+.number {
+  height: 50px;
+  width: 75px;
+  margin: 0 32px 8px 0;
+}
+
+.flex {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+label {
+  width: 100px;
+}
+
+form {
+  margin-bottom: 32px;
+}
+
+.attr {
+  display: flex;
+  align-items: center;
+}

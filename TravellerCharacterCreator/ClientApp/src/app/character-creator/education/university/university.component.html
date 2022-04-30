@@ -1,0 +1,13 @@
+<h1>University</h1>
+<div>
+  <p>Most worlds have one or more universities within their major sttlements, but even citizens of the most remote
+    system can engage in university through the use of computer networks and interstellar communications. A
+    university education will channel a character's efforts into a narrow range of skills, but there are few other ways
+    to become more skillful with them so quickly.</p>
+  <h2>Let's see if you get accepted into University:</h2>
+  <div class="attr str">
+    <label for="acceptance">Roll 2d6</label>
+    <input class="number" type="number" id="acceptance" name="acceptance" [(ngModel)]="acceptanceRoll" min="2" max="12"/>
+    <button class="primary" (click)="submitEntry()">Submit</button>
+  </div>
+</div>

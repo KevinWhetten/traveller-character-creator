@@ -1,0 +1,54 @@
+<h1>Character Sheet</h1>
+
+<h2>Characteristics</h2>
+<div class="flex-col">
+  <div class="column">
+    <div class="characteristic">
+      <p>Strength:</p><p>{{character.characteristics.strength}} ({{strengthDm >= 0 ? '+' + strengthDm : strengthDm}})</p>
+    </div>
+    <div class="characteristic">
+      <p>Dexterity:</p><p>{{character.characteristics.dexterity}} ({{dexterityDm >= 0 ? '+' + dexterityDm : dexterityDm}})</p>
+    </div>
+    <div class="characteristic">
+      <p>Endurance:</p><p>{{character.characteristics.endurance}} ({{enduranceDm >= 0 ? '+' + enduranceDm : enduranceDm}})</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="characteristic">
+      <p>Intellect:</p><p>{{character.characteristics.intellect}} ({{intellectDm >= 0 ? '+' + intellectDm : intellectDm}})</p>
+    </div>
+    <div class="characteristic">
+      <p>Education:</p><p>{{character.characteristics.education}} ({{educationDm >= 0 ? '+' + educationDm : educationDm}})</p>
+    </div>
+    <div class="characteristic">
+      <p>Social Standing:</p><p>{{character.characteristics.socialStatus}} ({{socialDm >= 0 ? '+' + socialDm : socialDm}})</p>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<h2>Skills</h2>
+<div class="flex">
+  <div class="grid-item" *ngFor="let skill of character.Skills">
+    <div *ngIf="skill.name != jackOfAllTrades" class="entry">
+      <p class="skill-name">{{skill.name}}</p>
+      <p class="value">{{skill.score >= 0 ? skill.score : ''}}</p>
+    </div>
+    <div *ngFor="let subskill of skill.subskills">
+      <div class="entry subskill-name">
+        <p>> {{subskill.name}}</p>
+        <p class="value">{{subskill.score >= 0 ? subskill.score : ''}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="log">
+  <h2>Character Log</h2>
+  <ul>
+    <li *ngFor="let entry of character.log">{{entry}}</li>
+  </ul>
+</div>

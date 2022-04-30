@@ -1,0 +1,19 @@
+.flex {
+  display: flex;
+}
+
+.column {
+  margin-right: 128px;
+}
+
+.main {
+  font-weight: 500;
+}
+
+.normal {
+  font-weight: normal;
+}
+
+span {
+  margin-left: -36px;
+}
