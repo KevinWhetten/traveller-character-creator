@@ -1,0 +1,51 @@
+﻿h2 {
+  font-size: 16pt;
+  margin-bottom: 36px;
+  font-weight: normal;
+}
+
+label {
+  margin-left: 16px;
+  font-size: 14pt;
+
+&:hover {
+   cursor: pointer;
+ }
+}
+
+.skill-list {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 56px;
+  row-gap: 32px;
+}
+
+.background-skills-container {
+  margin-bottom: 100px;
+}
+
+ .custom-tooltip {
+   position: relative;
+   display: inline-block;
+ }
+
+.custom-tooltip .custom-tooltip-text {
+  visibility: hidden;
+  width: 300px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: -32px;
+  left: 150px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.custom-tooltip:hover .custom-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

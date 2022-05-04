@@ -2,14 +2,7 @@
   <h1>Background Skills</h1>
   <p>These skills represent the knowledge you have picked up during adolescence and will allow you to function at a
     basic level in a technological society.</p>
-  <h2>Directions: Please pick <strong>{{skillNum}}</strong> skills from the following
-    (<strong>{{skillNum - selectedSkillNum}}</strong> remaining):</h2>
-  <div class="skill-list">
-    <div *ngFor="let skill of availableSkillList">
-      <input type="checkbox" id="{{skill.name}}" (change)="change($event, skill)" color="primary"
-             matTooltip="{{skill.description}}">
-      <label for="{{skill.name}}">{{skill.name}}</label>
-    </div>
-  </div>
+  <app-skill-checkbox-select [skillNum]="skillNum"
+                             [availableSkillList]="availableSkills"
+                             (choseSkills)="submit($event)"></app-skill-checkbox-select>
 </div>
-<button class="primary" (click)="submit()">Next</button>

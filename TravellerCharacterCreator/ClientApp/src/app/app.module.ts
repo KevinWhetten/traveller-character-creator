@@ -1,9 +1,11 @@
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 import {AppComponent} from './app.component';
 import {NavMenuComponent} from './nav-menu/nav-menu.component';
@@ -46,6 +48,8 @@ import { CharacterSheetComponent } from './character-sheet/character-sheet.compo
 import { SkillSelectComponent } from './controls/skill-select/skill-select.component';
 import { PsionicTestComponent } from './character-creator/careers/psionic-test/psionic-test.component';
 import { LifeEventComponent } from './character-creator/careers/life-events/life-event.component';
+import { BasicInfoComponent } from './character-creator/basic-info/basic-info.component';
+import { SkillCheckboxSelectComponent } from './controls/skill-checkbox-select/skill-checkbox-select.component';
 
 @NgModule({
   declarations: [
@@ -90,15 +94,19 @@ import { LifeEventComponent } from './character-creator/careers/life-events/life
     SkillSelectComponent,
     PsionicTestComponent,
     LifeEventComponent,
+    BasicInfoComponent,
+    SkillCheckboxSelectComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     MatTooltipModule,
     RouterModule.forRoot([
       {path: 'character-sheet', component: CharacterSheetComponent},
       {path: 'character-creator', component: CharacterCreatorComponent},
+      {path: 'character-creator/basic-info', component: BasicInfoComponent},
       {path: 'character-creator/characteristics', component: CharacteristicsComponent},
       {path: 'character-creator/background-skills', component: BackgroundSkillsComponent},
       {path: 'character-creator/education', component: EducationComponent},
@@ -118,7 +126,8 @@ import { LifeEventComponent } from './character-creator/careers/life-events/life
       {path: 'character-creator/careers/drifter', component: DrifterComponent},
       {path: 'character-creator/careers/prison', component: PrisonComponent},
       {path: 'character-creator/final-steps', component: FinalStepsComponent}
-    ])
+    ]),
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

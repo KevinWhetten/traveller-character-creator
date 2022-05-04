@@ -1,9 +1,12 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Character} from "../../../models/Character";
 import {CharacterService} from "../../../services/character.service";
 import {Router} from "@angular/router";
-import {DmService} from "../../../services/dm.service";
-import {SkillService} from "../../../services/skill.service";
+import {DmService} from "../../../services/data-services/dm.service";
+import {SkillService} from "../../../services/data-services/skill.service";
+import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
+import {CharacterSkill} from "../../../models/character-skill";
+import {LoggingService} from "../../../services/metadata-services/logging.service";
+import {PercentageService} from "../../../services/data-services/percentage.service";
 
 @Component({
   selector: 'app-education-event',
@@ -28,193 +31,168 @@ export class EducationEventComponent implements OnInit {
   avoidDraftAttempt: boolean = false;
   avoidDraftFailure: boolean = false;
   specificEventNumber: number = 0;
-  character: Character;
   socialStandingDm: number;
   hobbySkill: string;
   private log: string;
 
-  constructor(private _router: Router,
-              private _characterService: CharacterService,
+  constructor(private _characterService: CharacterService,
+              private _characterMetadataService: CharacterMetadataService,
               private _dmService: DmService,
+              private _loggingService: LoggingService,
+              public _percentageService: PercentageService,
               private _skillService: SkillService) {
   }
 
   ngOnInit(): void {
-    this.character = this._characterService.getCharacter();
-    this.socialStandingDm = this._dmService.getDm(this.character.characteristics.socialStatus)
+    this.socialStandingDm = this._dmService.getDm(this._characterService.getSocialStatus());
   }
 
   submit() {
+    this._loggingService.addLog('----- Education Event -----');
     this.submitted = true;
   }
 
   testPsi() {
-    this._characterService.addLog('Decided to be tested for Psionics...');
-    this._characterService.updateCurrentUrl('character-creator/education/university/psionic-test');
-    this._router.navigate(['character-creator/education/university/psionic-test']);
+    this._loggingService.addLog('I was approached by an underground (and highly illegal) psionic group who sensed potential in me.  I got tested for Psi, and I can enter the \'Psion\' career in any subsequent term.');
+    this._characterMetadataService.setCurrentUrl('character-creator/education/university/psionic-test');
   }
 
   moveOn() {
-    this._characterService.addLog('Decided against being tested for Psionics.');
+    this._loggingService.addLog('I was approached by an underground (and highly illegal) psionic group who sensed potential in me, but decided against getting tested.');
     this.graduate();
   }
 
   skipGraduation() {
-    this._characterService.addLog('A tragedy occurred during my education years. I had to drop out early and didn\'t graduate.');
-    this._characterService.updateCurrentUrl('character-creator/careers');
-    this.character.termNumber++;
-    this._router.navigate(['character-creator/careers']);
+    this._loggingService.addLog('My time in education was not a happy one, and I suffered a deep tragedy. I crashed and failed to graduate.');
+    this._characterMetadataService.setCurrentUrl('character-creator/careers');
   }
 
   prank() {
+    this.log = 'A supposedly harmless prank went wrong and someone got hurt...';
     if (this.specificEventNumber == 2) {
+      this.log = ' I must take the Prisoner career next term.';
       this.prankJail = true;
-    } else if (this.specificEventNumber + this._dmService.getDm(this.character.characteristics.socialStatus) < 8) {
+    } else if (this.specificEventNumber + this._dmService.getDm(this._characterService.getCharacteristics().SocialStatus) < 8) {
       this.prankEnemy = true;
     } else {
       this.prankRival = true;
     }
+    this._loggingService.addLog(this.log);
   }
 
   gainPrankRival() {
-    this.character.Connections.Rivals.push('Someone I pranked during my Education.');
-    this._characterService.addLog('I pulled a prank that went wrong. Someone got hurt, but not too bad. Whoever it is is now my [Rival]')
-    this._characterService.updateCharacter(this.character);
+    this._characterService.addRival('Someone I pranked during my Education.');
     this.graduate();
   }
 
   gainPrankEnemy() {
-    this.character.Connections.Enemies.push('Someone I pranked during my Education.');
-    this._characterService.addLog('I pulled a prank that went seriously wrong. Someone got hurt. Whoever it is is now my [Enemy].');
-    this._characterService.updateCharacter(this.character);
+    this._characterService.addEnemy('Someone I pranked during my Education.');
     this.graduate();
   }
 
   jailed() {
-    this.character.Connections.Enemies.push('Someone I pranked during my Education.');
-    this.character.nextCareer = 'prison';
-    this._characterService.addLog('I pulled a prank that went seriously wrong. Someone got hurt. Whoever it is is now my [Enemy]. I also ended up going to prison!');
-    this._characterService.updateCurrentUrl('character-creator/careers/prison');
-    this._characterService.updateCharacter(this.character);
+    this._characterService.addEnemy('Someone I pranked during my Education.');
+    this._characterMetadataService.setCurrentUrl('character-creator/careers/prison');
     this.graduate();
   }
 
   party() {
-    this.log = 'I partied it up during my education!';
-    if (this._skillService.updateSkill('Carouse', 1)) {
-      this.log += ' I gained [Carouse 1].';
-    } else {
-      this.log += ' I already had [Carouse 1] or higher, so nothing happened.'
-    }
-    this._characterService.addLog(this.log);
-    this._characterService.updateCharacter(this.character);
+    this._loggingService.addLog('I took advantage of youth, and partied as much as I studied.');
+    this._characterService.addSkills([{Name: this._skillService.SkillNames.Carouse, Value: 0} as CharacterSkill]);
     this.graduate();
   }
 
   friends() {
+    this._loggingService.addLog('I became involved in a tightly knit clique or group and made a pact to remain friends forever, wherever in the galaxy we may end up.');
     for (let i = 0; i < this.specificEventNumber; i++) {
-      this.character.Connections.Allies.push('Someone in my clique/group during my education.');
+      this._characterService.addAlly('Someone in my clique/group during my education.');
     }
-    this._characterService.addLog(`I had a close group of friends during my education. I gained [${this.specificEventNumber} Allies]`);
-    this._characterService.updateCharacter(this.character);
     this.graduate();
   }
 
   lifeEvent() {
-    this._characterService.updateCurrentUrl('character-creator/education/university/life-event');
-    this._router.navigate(['character-creator/education/university/life-event']);
+    this._characterMetadataService.setCurrentUrl('character-creator/education/university/life-event');
   }
 
   politicalMovement() {
-    this.log = 'I joined a political movement during my education.';
-    if (this.specificEventNumber + this._dmService.getDm(this.character.characteristics.socialStatus) >= 8) {
+    this.log = 'I joined a political movement.';
+    if (this.specificEventNumber + this._dmService.getDm(this._characterService.getCharacteristics().SocialStatus) >= 8) {
+      this.log += ' And became a leading figure!';
       this.politicalLeader = true;
     }
     else {
       this.politicalGrunt = true;
     }
+    this._loggingService.addLog(this.log);
   }
 
   becamePoliticalLeader () {
-    this.character.Connections.Allies.push('One person in the political movement I joined during my education.');
-    this.character.Connections.Enemies.push('One person outside of the political movement I joined during my education.');
-    this.log += ' I quickly became a leading figure in the movement, and as a result I gained 1 [Ally] and 1 [Enemy].'
-    this._characterService.updateCharacter(this.character);
-    this._characterService.addLog(this.log);
+    this._characterService.addAlly('One person in the political movement I joined during my education.');
+    this._characterService.addEnemy('One person outside of the political movement I joined during my education.');
     this.graduate();
   }
 
   notPoliticalLeader() {
-    this.log += ' However, nothing really came of it.'
-    this._characterService.addLog(this.log);
     this.graduate();
   }
 
   hobby() {
-    this._skillService.updateSkill(this.hobbySkill, 0);
-    this._characterService.addLog(`I picked up a hobby or other area of study! I gained [${this.hobbySkill} 0]`);
-    this._characterService.updateCharacter(this.character);
+    this._loggingService.addLog('I developed a healthy interest in a hobby or other area of study.');
     this.graduate();
   }
 
   tutor() {
-    this.log = 'I had a tutor who rubbed me the wrong way. I worked hard to overturn their conclusions, '
+    this.log = 'A newly arrived tutor rubbed me the wrong way, and I worked hard to overturn their conclusions.';
     if(this.tutorSkill != '' && (this.specificEventNumber >= 2 && this.specificEventNumber <= 12)) {
-      let skillScore = this._skillService.getSkillScore(this.tutorSkill);
+      let skillScore = this._characterService.getSkills()[this.tutorSkill];
       if (this.specificEventNumber + skillScore >= 9) {
+        this.log += ' I provided a truly elegant proof that soon became accepted as the standard approach!';
         this.tutorBeaten = true;
       } else {
+        this.log += ' Nothing really came of it.';
         this.tutorWins = true;
       }
+      this._loggingService.addLog(this.log);
     }
   }
 
   beatTutor(){
-    let skillScore = this._skillService.getSkillScore(this.tutorSkill);
-    this._skillService.updateSkill(this.tutorSkill, skillScore > 0 ? skillScore + 1 : 1);
-    this.character.Connections.Rivals.push('My tutor who I 1-upped during my education.');
-    this._characterService.updateCharacter(this.character);
-    this.log += `and succeeded! I gained [${this.tutorSkill} ${skillScore > 0 ? skillScore + 1 : 1}], and the tutor became my [Rival].`;
-    this._characterService.addLog(this.log);
+    this._characterService.increaseSkills([{Name: this.tutorSkill, Value: 1}]);
+    this._characterService.addRival('My tutor who I 1-upped during my education.');
     this.graduate();
   }
 
   lostToTutor() {
-    this.log += 'but failed. Oh well.';
-    this._characterService.addLog(this.log);
     this.graduate();
   }
 
   drafted() {
-    this.character.termNumber++;
-    this._characterService.addLog('I was drafted in the middle of my education. Unfortunately, I did not graduate.')
-    this._characterService.updateCurrentUrl('character-creator/careers/draft');
-    this._router.navigate(['character-creator/careers/draft']);
-
+    // Add Term
+    this._loggingService.addLog('War came and a wide-ranging draft was instigated. I chose to be drafted, so I didn\'t graduate.');
+    this._characterMetadataService.setCurrentUrl('character-creator/careers/draft');
   }
 
   avoidDraft() {
-    if(this.specificEventNumber + this._dmService.getDm(this.character.characteristics.socialStatus) >= 9) {
-      this._characterService.addLog('Thanks to my social standing, I avoided the draft during my education.');
+    this.log ='War came and a wide-ranging draft was instigated. I tried to get enough strings pulled to avoid the draft and complete my education,';
+    if(this.specificEventNumber + this._dmService.getDm(this._characterService.getCharacteristics().SocialStatus) >= 9) {
+      this.log += ' and succeeded!';
       this.graduate();
     }
     else {
+      this.log += ' but failed.';
       this.avoidDraftFailure = true;
     }
+    this._loggingService.addLog(this.log);
   }
 
   fleeDraft() {
-    this.character.termNumber++;
-    this._characterService.updateCharacter(this.character);
-    this._characterService.addLog('I fled from the draft during my education.');
-    this._characterService.updateCurrentUrl('character-creator/careers/drifter');
-    this._router.navigate(['character-creator/careers/drifter']);
+    this._loggingService.addLog('War came and a wide-ranging draft was instigated. I chose to be flee and become a Drifter next term. I also didn\'t graduate.');
+    this._characterMetadataService.setCurrentUrl('character-creator/careers/drifter');
   }
 
   recognized() {
-    this.character.characteristics.socialStatus++;
-    this._characterService.updateCharacter(this.character);
-    this._characterService.addLog(`I was widely recognized for my initiative and innovative approach to study! I gained [SOC ${this.character.characteristics.socialStatus}]`);
+    this._loggingService.addLog('I gained wide-ranging recognition of my initiative and innovative approach to study.');
+    this._characterService.increaseSocialStatus(1);
     this.graduate();
   }
 

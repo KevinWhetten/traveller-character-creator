@@ -37,8 +37,4 @@ export class DmService {
         return 0;
     }
   }
-
-  getSkillDm(skill: string){
-    this._skillsService.getSkillScore(skill);
-  }
 }

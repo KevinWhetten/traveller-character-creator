@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Character} from "../models/Character";
 import {CharacterService} from "../services/character.service";
-import {DmService} from "../services/dm.service";
+import {DmService} from "../services/data-services/dm.service";
+import {SkillService} from "../services/data-services/skill.service";
+import {BaseSkill, Skill, Subskill} from "../models/skill";
+import {LoggingService} from "../services/metadata-services/logging.service";
 
 @Component({
   selector: 'app-counter-component',
@@ -9,8 +11,7 @@ import {DmService} from "../services/dm.service";
   styleUrls: ['./character-sheet.component.scss']
 })
 export class CharacterSheetComponent implements OnInit {
-  character: Character;
-  jackOfAllTrades = 'Jack-of-All-Trades';
+  jackOfAllTrades = this._skillService.SkillNames.JackOfAllTrades;
   strengthDm: number;
   dexterityDm: number;
   enduranceDm: number;
@@ -18,17 +19,31 @@ export class CharacterSheetComponent implements OnInit {
   educationDm: number;
   socialDm: number;
 
-  constructor(private _characterService: CharacterService,
-              private _dmService: DmService) {
+  constructor(public _characterService: CharacterService,
+              public _skillService: SkillService,
+              private _dmService: DmService,
+              public _loggingService: LoggingService) {
   }
 
   ngOnInit(): void {
-    this.character = this._characterService.getCharacter();
-    this.strengthDm = this._dmService.getDm(this.character.characteristics.strength);
-    this.dexterityDm = this._dmService.getDm(this.character.characteristics.dexterity);
-    this.enduranceDm = this._dmService.getDm(this.character.characteristics.endurance);
-    this.intellectDm = this._dmService.getDm(this.character.characteristics.intellect);
-    this.educationDm = this._dmService.getDm(this.character.characteristics.education);
-    this.socialDm = this._dmService.getDm(this.character.characteristics.socialStatus);
+    let characteristics =this._characterService.getCharacteristics()
+    this.strengthDm = this._dmService.getDm(characteristics.Strength);
+    this.dexterityDm = this._dmService.getDm(characteristics.Dexterity);
+    this.enduranceDm = this._dmService.getDm(characteristics.Endurance);
+    this.intellectDm = this._dmService.getDm(characteristics.Intellect);
+    this.educationDm = this._dmService.getDm(characteristics.Education);
+    this.socialDm = this._dmService.getDm(characteristics.SocialStatus);
+  }
+
+  getSubskills(skill: Skill): string[] {
+    if((<BaseSkill>skill).Subskills) {
+      return (<BaseSkill>skill).Subskills;
+    }
+    return [];
+  }
+
+  isBaseSkill(skill: Skill) {
+    let flag = !((<Subskill>skill).ParentSkill);
+    return flag;
   }
 }

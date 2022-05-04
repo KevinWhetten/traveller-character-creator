@@ -2,9 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {CharacterService} from "../../../services/character.service";
 import {Character} from "../../../models/Character";
 import {Router} from "@angular/router";
-import {DmService} from "../../../services/dm.service";
-import {PercentageService} from "../../../services/percentage.service";
-import {SkillService} from "../../../services/skill.service";
+import {DmService} from "../../../services/data-services/dm.service";
+import {PercentageService} from "../../../services/data-services/percentage.service";
+import {SkillService} from "../../../services/data-services/skill.service";
+import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
+import {CharacterSkill} from "../../../models/character-skill";
 
 @Component({
   selector: 'app-military-academy',
@@ -17,31 +19,29 @@ export class MilitaryAcademyComponent implements OnInit {
   armyAcademy: boolean = false;
   marinesAcademy: boolean = false;
   navyAcademy: boolean = false;
-  entryRoll: number = 2;
   armyChance: number;
   marinesChance: number;
   navyChance: number;
-  private character: Character;
-  private endDm: number;
-  private intDm: number;
-  armySkills = ['Athletics', 'Drive', 'GunCombat', 'HeavyWeapons',
-    'Melee', 'Recon', 'VaccSuit'];
-  marinesSkills = ['Athletics', 'GunCombat', 'HeavyWeapons', 'Tactics',
-    'Stealth', 'VaccSuit'];
-  navySkills = ['Athletics', 'Gunner', 'GunCombat', 'Mechanic',
-    'Pilot', 'VaccSuit'];
+  private endDm: number = 0;
+  private intDm: number = 0;
+  armySkills = [this._skillService.SkillNames.Athletics, this._skillService.SkillNames.Drive, this._skillService.SkillNames.GunCombat, this._skillService.SkillNames.HeavyWeapons,
+    this._skillService.SkillNames.Melee, this._skillService.SkillNames.Recon, 'VaccSuit'];
+  marinesSkills = [this._skillService.SkillNames.Athletics, this._skillService.SkillNames.GunCombat, this._skillService.SkillNames.HeavyWeapons, this._skillService.SkillNames.Tactics,
+    this._skillService.SkillNames.Stealth, 'VaccSuit'];
+  navySkills = [this._skillService.SkillNames.Athletics, this._skillService.SkillNames.Gunner, this._skillService.SkillNames.GunCombat, this._skillService.SkillNames.Mechanic,
+    this._skillService.SkillNames.Pilot, 'VaccSuit'];
 
-  constructor(private _router: Router,
-              private _characterService: CharacterService,
+  constructor(private _characterService: CharacterService,
+              private _characterMetadataService: CharacterMetadataService,
               private _dmService: DmService,
               private _percentageService: PercentageService,
               private _skillService: SkillService) {
   }
 
   ngOnInit(): void {
-    this.character = this._characterService.getCharacter();
-    this.endDm = this._dmService.getDm(this.character.characteristics.endurance) - (2 * (this.character.termNumber - 1));
-    this.intDm = this._dmService.getDm(this.character.characteristics.intellect) - (2 * (this.character.termNumber - 1));
+    this._characterService.startNewTerm();
+    this.endDm = this._dmService.getDm(this._characterService.getEndurance()) - (2 * (this._characterMetadataService.getTerm() - 1));
+    this.intDm = this._dmService.getDm(this._characterService.getIntellect()) - (2 * (this._characterMetadataService.getTerm() - 1));
     this.armyChance = this._percentageService.get2d6Percentage(8, this.endDm);
     this.marinesChance = this._percentageService.get2d6Percentage(9, this.endDm);
     this.navyChance = this._percentageService.get2d6Percentage(9, this.intDm);
@@ -52,9 +52,9 @@ export class MilitaryAcademyComponent implements OnInit {
       this.armyAcademy = true;
       let skills = [];
       for (let skill of this.armySkills) {
-        skills.push({skillName: skill, value: 0});
+        skills.push({Name: skill, Value: 0} as CharacterSkill);
       }
-      this._skillService.updateSkills(skills);
+      this._characterService.addSkills(skills);
     }
   }
 
@@ -63,9 +63,9 @@ export class MilitaryAcademyComponent implements OnInit {
       this.marinesAcademy = true;
       let skills = [];
       for (let skill of this.marinesSkills) {
-        skills.push({skillName: skill, value: 0});
+        skills.push({Name: skill, Value: 0} as CharacterSkill);
       }
-      this._skillService.updateSkills(skills);
+      this._characterService.addSkills(skills);
     }
   }
 
@@ -74,9 +74,9 @@ export class MilitaryAcademyComponent implements OnInit {
       this.navyAcademy = true;
       let skills = [];
       for (let skill of this.navySkills) {
-        skills.push({skillName: skill, value: 0});
+        skills.push({Name: skill, Value: 0} as CharacterSkill);
       }
-      this._skillService.updateSkills(skills);
+      this._characterService.addSkills(skills);
     }
   }
 
@@ -93,12 +93,8 @@ export class MilitaryAcademyComponent implements OnInit {
 
   moveOn() {
     if (!this.armyAcademy && !this.marinesAcademy && !this.navyAcademy) {
-      this.character.currentUrl = 'character-creator/careers';
-      this._characterService.updateCharacter(this.character);
-      this._router.navigate(['character-creator/careers']);
+      this._characterMetadataService.setCurrentUrl('character-creator/careers');
     }
-    this.character.currentUrl = 'character-creator/education/military-academy/event';
-    this._characterService.updateCharacter(this.character);
-    this._router.navigate(['character-creator/education/military-academy/event']);
+    this._characterMetadataService.setCurrentUrl('character-creator/education/military-academy/event');
   }
 }

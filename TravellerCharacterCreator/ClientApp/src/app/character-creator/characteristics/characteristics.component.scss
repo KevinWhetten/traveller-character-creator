@@ -1,0 +1,29 @@
+input {
+  height: 50px;
+  width: 64px;
+  margin: 0 64px 8px 0;
+}
+
+label {
+  width: 200px;
+}
+
+form {
+  margin-bottom: 32px;
+}
+
+.headers {
+  display: flex;
+
+  .characteristic {
+    width: 200px;
+  }
+  .roll-result {
+    width: 128px;
+  }
+}
+
+.attr {
+  display: flex;
+  align-items: center;
+}

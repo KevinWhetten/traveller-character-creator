@@ -1,7 +1,12 @@
 export interface Skill {
-  name: string;
-  description: string;
-  score: number;
-  subskills: Skill[];
-  learnedThisTerm: boolean;
+  Name: string;
+  Description: string;
+}
+
+export interface BaseSkill extends Skill {
+  Subskills: string[];
+}
+
+export interface Subskill extends Skill {
+  ParentSkill: string;
 }

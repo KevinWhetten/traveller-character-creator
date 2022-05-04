@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Group} from "../../models/group";
-import {SkillService} from "../../services/skill.service";
+import {SkillService} from "../../services/data-services/skill.service";
+import {CharacterService} from "../../services/character.service";
+import {CharacterMetadataService} from "../../services/metadata-services/character-metadata.service";
 
 @Component({
   selector: 'app-skill-select',
@@ -8,49 +9,51 @@ import {SkillService} from "../../services/skill.service";
   styleUrls: ['./skill-select.component.scss']
 })
 export class SkillSelectComponent implements OnInit {
-  @Input() groups: Group[] = [];
+  @Input() groups: Record<string, string[]> = {};
   @Input() label: string = 'Choose one';
   @Input() type: string = 'full';
-  @Input() targetSkillLevel: number = 0;
+  @Input() targetSkillLevel: number = 50;
   @Output() onChange = new EventEmitter<string>();
+  groupNames: string[];
   selectedSkill: string;
-  private universitySkills: string[] = ['Admin', 'Advocate', 'Animals', 'Training', 'Veterinary', 'Art', 'Performance',
-    'Holography', 'Instrument', 'VisualMedia', 'Write', 'Astrogation', 'Electronics', 'Comms', 'Computers', 'RemoteOps',
-    'Sensors', 'Engineer', 'MDrive', 'JDrive', 'LifeSupport', 'Power', 'Language', 'Language1', 'Language2',
-    'Language3', 'Language4', 'Language5', 'Medic', 'Navigation', 'Profession', 'Profession1', 'Profession2',
-    'Profession3', 'Profession4', 'Profession5', 'Science', 'Archaeology', 'Astronomy', 'Biology', 'Chemistry',
-    'Cosmology', 'Cybernetics', 'Economics', 'Genetics', 'History', 'Linguistics', 'Philosophy', 'Physics',
-    'Planetology', 'Psionicology', 'Psychology', 'Robotics', 'Sophontology', 'Xenology'];
+  characterSkills = this._characterService.getSkills();
+  private universitySkills: string[] = [this._skillService.SkillNames.Admin, this._skillService.SkillNames.Advocate,
+    this._skillService.SkillNames.Animals, this._skillService.SkillNames.AnimalsTraining, this._skillService.SkillNames.AnimalsVeterinary,
+    this._skillService.SkillNames.Art, this._skillService.SkillNames.ArtPerformer, this._skillService.SkillNames.ArtHolography,
+    this._skillService.SkillNames.ArtInstrument, this._skillService.SkillNames.ArtVisualMedia, this._skillService.SkillNames.ArtWrite,
+    this._skillService.SkillNames.Astrogation, this._skillService.SkillNames.Electronics, this._skillService.SkillNames.ElectronicsComms,
+    this._skillService.SkillNames.ElectronicsComputers, this._skillService.SkillNames.ElectronicsRemoteOps,
+    this._skillService.SkillNames.ElectronicsSensors, this._skillService.SkillNames.Engineer, this._skillService.SkillNames.EngineerMDrive,
+    this._skillService.SkillNames.EngineerJDrive, this._skillService.SkillNames.EngineerLifeSupport, this._skillService.SkillNames.EngineerPower,
+    this._skillService.SkillNames.Language, this._skillService.SkillNames.Language1, this._skillService.SkillNames.Language2,
+    this._skillService.SkillNames.Language3, this._skillService.SkillNames.Language4, this._skillService.SkillNames.Language5,
+    this._skillService.SkillNames.Medic, this._skillService.SkillNames.Navigation, this._skillService.SkillNames.Profession,
+    this._skillService.SkillNames.Profession1, this._skillService.SkillNames.Profession2, this._skillService.SkillNames.Profession3,
+    this._skillService.SkillNames.Profession4, this._skillService.SkillNames.Profession5, this._skillService.SkillNames.Science,
+    this._skillService.SkillNames.ScienceArchaeology, this._skillService.SkillNames.ScienceAstronomy, this._skillService.SkillNames.ScienceBiology,
+    this._skillService.SkillNames.ScienceChemistry, this._skillService.SkillNames.ScienceCosmology, this._skillService.SkillNames.ScienceCybernetics,
+    this._skillService.SkillNames.ScienceEconomics, this._skillService.SkillNames.ScienceGenetics, this._skillService.SkillNames.ScienceHistory,
+    this._skillService.SkillNames.ScienceLinguistics, this._skillService.SkillNames.SciencePhilosophy, this._skillService.SkillNames.SciencePhysics,
+    this._skillService.SkillNames.SciencePlanetology, this._skillService.SkillNames.SciencePsionicology, this._skillService.SkillNames.SciencePsychology,
+    this._skillService.SkillNames.ScienceRobotics, this._skillService.SkillNames.ScienceSophontology, this._skillService.SkillNames.ScienceXenology];
 
-  constructor(private _skillService: SkillService) {
+  constructor(private _characterService: CharacterService,
+              private _characterMetadataService: CharacterMetadataService,
+              private readonly _skillService: SkillService) {
   }
 
   ngOnInit(): void {
-    if (this.groups.length == 0) {
+    if (this.groups) {
       if (this.type == 'basic') {
-        this.groups = [
-          {
-            name: 'Basic Skills',
-            skills: []
-          }
-        ];
         this.populateBasicSkills();
       }
       if (this.type == 'basic-university') {
-        this.groups = [
-          {
-            name: 'Basic Skills',
-            skills: []
-          }
-        ];
         this.populateBasicUniversitySkills();
       }
       if (this.type == 'full') {
-        this.groups = [];
         this.populateFullSkills();
       }
       if (this.type == 'full-university') {
-        this.groups = [];
         this.populateFullUniversitySkills();
       }
       if (this.type == 'this-term') {
@@ -64,85 +67,50 @@ export class SkillSelectComponent implements OnInit {
   }
 
   private populateFullSkills() {
-    let characterSkills = this._skillService.getSkillset();
-
-    for (let baseSkill of characterSkills) {
-      if (baseSkill.subskills.length == 0) {
-        if (baseSkill.score == undefined || baseSkill.score < this.targetSkillLevel) {
-          this.groups.push({name: baseSkill.name, skills: [baseSkill]} as Group);
-        }
-      } else {
-        let group = {name: baseSkill.name, skills: []} as Group;
-        for (let subskill of baseSkill.subskills) {
-          if (subskill.score == undefined || subskill.score < this.targetSkillLevel) {
-            group.skills.push(subskill);
-          }
-        }
-      }
-    }
+    this.groups = this._skillService.getGroups(this._skillService.skills.map(x => x.Name));
+    this.groupNames = this._skillService.getGroupNames(this._skillService.skills.map(x => x.Name));
+    this.removeJackOfAllTrades();
   }
 
   private populateBasicSkills() {
-    let characterSkills = this._skillService.getSkillset();
-
-    for (let skill of characterSkills) {
-      if (skill.score < 0) {
-        this.groups[0].skills.push(skill);
-      }
-    }
+    this.groups = this._skillService.getBasicGroups(this._skillService.skills.map(x => x.Name));
+    this.groupNames = ['Basic Skills'];
+    this.removeJackOfAllTradesFromBasicList();
   }
 
   private populateFullUniversitySkills() {
-    let characterSkills = this._skillService.getSkillset();
-
-    for (let baseSkill of characterSkills) {
-      if (baseSkill.subskills == undefined) {
-        if (this.universitySkills.indexOf(baseSkill.name) != -1 && (baseSkill.score == undefined || baseSkill.score < this.targetSkillLevel)) {
-          this.groups.push({name: baseSkill.name, skills: [baseSkill]} as Group);
-        }
-      } else {
-        let group = {name: baseSkill.name, skills: []} as Group;
-        for (let subskill of baseSkill.subskills) {
-          if (this.universitySkills.indexOf(subskill.name) != -1 && (subskill.score == undefined || subskill.score < this.targetSkillLevel)) {
-            group.skills.push(subskill);
-          }
-        }
-        if (group.skills.length > 0) {
-          this.groups.push(group);
-        }
-      }
-    }
+    this.groups = this._skillService.getGroups(this.universitySkills);
+    this.groupNames = this._skillService.getGroupNames(this.universitySkills);
   }
 
   private populateBasicUniversitySkills() {
-    let characterSkills = this._skillService.getSkillset();
-
-    for (let skill of characterSkills) {
-      if (skill.score < 0 && this.universitySkills.indexOf(skill.name) != -1) {
-        this.groups[0].skills.push(skill);
-      }
-    }
+    this.groups = this._skillService.getBasicGroups(this.universitySkills);
+    this.groupNames = ['Basic Skills'];
   }
 
   private populateThisTermSkills() {
-    let characterSkills = this._skillService.getSkillset();
+    let skillsLearnedThisTerm = this._characterMetadataService.getSkillsLearnedThisTerm();
+    this.groups = this._skillService.getGroups(skillsLearnedThisTerm);
+    this.groupNames = this._skillService.getGroupNames(skillsLearnedThisTerm);
+  }
 
-    for (let baseSkill of characterSkills) {
-      if (baseSkill.subskills.length <= 0) {
-        if (baseSkill.learnedThisTerm) {
-          this.groups.push({name: baseSkill.name, skills: [baseSkill]} as Group);
-        }
-      } else {
-        let group = {name: baseSkill.name, skills: []} as Group;
-        for (let subskill of baseSkill.subskills) {
-          if (baseSkill.learnedThisTerm || subskill.learnedThisTerm) {
-            group.skills.push(subskill);
-          }
-        }
-        if (group.skills.length > 0) {
-          this.groups.push(group);
-        }
-      }
+  private removeJackOfAllTrades() {
+    if (this.groups[this._skillService.SkillNames.JackOfAllTrades]) {
+      this.groups[this._skillService.SkillNames.JackOfAllTrades] = [];
     }
+  }
+
+  private removeJackOfAllTradesFromBasicList() {
+    if (this.groups['Basic Skills'].indexOf(this._skillService.SkillNames.JackOfAllTrades) >= 0) {
+      this.groups['Basic Skills'].splice(this.groups['Basic Skills'].indexOf(this._skillService.SkillNames.JackOfAllTrades), 1)
+    }
+  }
+
+  getSkillDescription(skill: string) {
+    return this._skillService.getSkill(skill).Description;
+  }
+
+  getAvailableSkills(skills: string[]) {
+    return skills.filter(x => this.characterSkills[x] == undefined || this.characterSkills[x] < this.targetSkillLevel)
   }
 }

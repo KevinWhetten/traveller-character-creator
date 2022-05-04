@@ -1,23 +1,26 @@
 import {Characteristics} from "./characteristics";
+import {Weapon} from "./weapon";
+import {Augment} from "./augment";
 import {Equipment} from "./equipment";
-import {Finances} from "./finances";
 import {Connections} from "./connections";
-import {Skill} from "./skill";
+import {Finances} from "./finances";
+import {Armor} from "./armor";
+import {CharacterSkill} from "./character-skill";
 
-export interface Character {
-  log: string[];
-  name: string;
-  age: number;
-  termNumber: number;
-  Rads: number;
-  Species: string;
-  SpeciesTraits: string;
-  Homeworld: string;
-  characteristics: Characteristics;
-  Skills: Skill[];
-  Equipment: Equipment;
-  Finances: Finances;
-  Connections: Connections;
-  currentUrl: string;
-  nextCareer: string;
+export class Character {
+  Name: string = '';
+  Age: number = 14;
+  Rads: number = 0;
+  Species: string = 'Human';
+  SpeciesTraits: string = '';
+  Homeworld: string = '';
+  Characteristics: Characteristics = new Characteristics();
+  Skills: Record<string, number> = {} as Record<string, number>;
+  Weapons: Weapon[] = [];
+  Augments: Augment[] = [];
+  Equipment: Equipment[] = [];
+  CarriedMass: number = 0;
+  Armor: Armor[] = [];
+  Finances: Finances = new Finances();
+  Connections: Connections = new Connections();
 }

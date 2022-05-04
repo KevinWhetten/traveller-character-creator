@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
 import {CharacterService} from "../../../services/character.service";
-import {Character} from "../../../models/Character";
-import {DmService} from "../../../services/dm.service";
+import {DmService} from "../../../services/data-services/dm.service";
+import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
+import {LoggingService} from "../../../services/metadata-services/logging.service";
 
 @Component({
   selector: 'app-university',
@@ -11,35 +11,40 @@ import {DmService} from "../../../services/dm.service";
 })
 export class UniversityComponent implements OnInit {
   acceptanceRoll: number = 2;
-  private character: Character;
   private universityEntryDifficulty: number = 7;
+  failed: boolean = false;
 
-  constructor(private _router: Router,
-              private _characterService: CharacterService,
-              private _dmService: DmService) {
+  constructor(private _characterService: CharacterService,
+              private _characterMetadataService: CharacterMetadataService,
+              private _dmService: DmService,
+              private _loggingService: LoggingService) {
   }
 
   ngOnInit(): void {
-    this.character = this._characterService.getCharacter();
-    if (this.character.termNumber == 2) {
+    this._characterService.startNewTerm();
+    if (this._characterMetadataService.getTerm() == 2) {
       this.universityEntryDifficulty++;
     }
-    if (this.character.termNumber == 3) {
+    if (this._characterMetadataService.getTerm() == 3) {
       this.universityEntryDifficulty += 2;
     }
-    if (this.character.characteristics.socialStatus >= 9) {
+    if (this._characterService.getCharacteristics().SocialStatus >= 9) {
       this.universityEntryDifficulty--;
     }
   }
 
   submitEntry() {
-    if(this.acceptanceRoll + this._dmService.getDm(this.character.characteristics.education) >= this.universityEntryDifficulty){
-      let characteristics = this._characterService.getCharacteristics();
-      characteristics.education++;
-      this._characterService.updateCharacteristics(characteristics);
-      this._characterService.updateCurrentUrl('character-creator/education/university/skills');
-      this._characterService.addLog('Accepted to University!');
-      this._router.navigate(['character-creator/education/university/skills']);
+    if (this.acceptanceRoll + this._dmService.getDm(this._characterService.getCharacteristics().Education) >= this.universityEntryDifficulty) {
+      this._loggingService.addLog('I was accepted!');
+      this._characterService.increaseEducation(1);
+      this._characterMetadataService.setCurrentUrl('character-creator/education/university/skills');
+    } else {
+      this.failed = true;
+      this._loggingService.addLog('But I was rejected...');
     }
+  }
+
+  toCareer() {
+    this._characterMetadataService.setCurrentUrl('character-creator/careers');
   }
 }

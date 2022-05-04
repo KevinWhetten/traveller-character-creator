@@ -2,8 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {CharacterService} from "../../services/character.service";
 import {Router} from "@angular/router";
 import {Skill} from "../../models/skill";
-import {DmService} from "../../services/dm.service";
-import {SkillService} from "../../services/skill.service";
+import {DmService} from "../../services/data-services/dm.service";
+import {SkillService} from "../../services/data-services/skill.service";
+import {CharacterMetadataService} from "../../services/metadata-services/character-metadata.service";
+import {LoggingService} from "../../services/metadata-services/logging.service";
+import {CharacterSkill} from "../../models/character-skill";
 
 @Component({
   selector: 'app-background-skills',
@@ -12,68 +15,33 @@ import {SkillService} from "../../services/skill.service";
 })
 export class BackgroundSkillsComponent implements OnInit {
   skillNum: number;
-  selectedSkills: Skill[] = [];
-  availableSkillList: Skill[] = [];
-  availableSkillNames = ['Admin', 'Animals', 'Art', 'Athletics', 'Carouse',
-    'Drive', 'Electronics', 'Flyer', 'Language', 'Mechanic',
-    'Medic', 'Profession', 'Science', 'Seafarer', 'Streetwise',
-    'Survival', 'Vacc Suit'];
-  selectedSkillNum: number = 0;
-  private hasError: boolean;
+  availableSkills = [this._skillService.SkillNames.Admin, this._skillService.SkillNames.Animals, this._skillService.SkillNames.Art,
+    this._skillService.SkillNames.Athletics, this._skillService.SkillNames.Carouse, this._skillService.SkillNames.Drive,
+    this._skillService.SkillNames.Electronics, this._skillService.SkillNames.Flyer, this._skillService.SkillNames.Language,
+    this._skillService.SkillNames.Mechanic, this._skillService.SkillNames.Medic, this._skillService.SkillNames.Profession,
+    this._skillService.SkillNames.Science, this._skillService.SkillNames.Seafarer, this._skillService.SkillNames.Streetwise,
+    this._skillService.SkillNames.Survival, this._skillService.SkillNames.VaccSuit];
 
-  constructor(private _router: Router,
-              private _characterService: CharacterService,
+  constructor(private _characterService: CharacterService,
+              private _characterMetadataService: CharacterMetadataService,
               private _dmsService: DmService,
               private _skillService: SkillService) {
   }
 
   ngOnInit(): void {
-    this.skillNum = this._dmsService.getDm(this._characterService.getCharacteristics().education) + 3;
-    for (let x of this.availableSkillNames) {
-      this.availableSkillList.push(this._skillService.getSkill(x));
-    }
+    this.skillNum = this._dmsService.getDm(this._characterService.getCharacteristics().Education) + 3;
   }
 
-  change(checkbox: Event, skill: Skill) {
-    if (checkbox) {
-      this.selectedSkills.push(skill);
-      this.selectedSkillNum++;
-    } else {
-      const index = this.selectedSkills.indexOf(skill, 0);
-      if (index > -1) {
-        this.selectedSkills.splice(index, 1);
-      }
-      this.selectedSkillNum--;
-    }
+  submit(skills: string[]) {
+    this.updateSkills(skills);
   }
 
-  submit() {
-    if (this.selectedSkillNum != this.skillNum) {
-      this.hasError = true;
-    } else {
-      this.updateSkills();
-      this._characterService.updateCurrentUrl('character-creator/education');
-      this._characterService.addLog(this.getLog());
-      this._router.navigate(['character-creator/education']);
+  private updateSkills(skills: string[]) {
+    let characterSkills = [] as CharacterSkill[];
+    for (let x of skills) {
+      characterSkills.push({Name: x, Value: 0} as CharacterSkill);
     }
-  }
-
-  private updateSkills() {
-    let skillUpdates: { skillName: string, value: number }[] = [];
-    for (let x of this.selectedSkills) {
-      skillUpdates.push({skillName: x.name, value: 0});
-    }
-    this._skillService.updateSkills(skillUpdates);
-    this._characterService.updateCurrentUrl("character-creator/education/university/graduate")
-  }
-
-  private getLog() {
-    let log = 'Selected background skills: [';
-    for (let x of this.selectedSkills) {
-      log += `${x} 0, `
-    }
-    log = log.substring(0, log.lastIndexOf(', '));
-    log += ']';
-    return log;
+    this._characterService.addSkills(characterSkills);
+    this._characterMetadataService.setCurrentUrl("character-creator/education");
   }
 }

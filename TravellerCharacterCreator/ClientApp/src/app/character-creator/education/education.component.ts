@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {CharacterService} from "../../services/character.service";
+import {CharacterMetadataService} from "../../services/metadata-services/character-metadata.service";
+import {LoggingService} from "../../services/metadata-services/logging.service";
 
 @Component({
   selector: 'app-education',
@@ -9,28 +11,25 @@ import {CharacterService} from "../../services/character.service";
 })
 export class EducationComponent implements OnInit {
 
-  constructor(private _router: Router,
-              private _characterService: CharacterService) {
+  constructor(private _characterMetadataService: CharacterMetadataService,
+              private _characterService: CharacterService,
+              private _loggingService: LoggingService) {
   }
 
   ngOnInit(): void {
   }
 
   toUniversity() {
-    this._characterService.updateCurrentUrl('character-creator/education/university');
-    this._characterService.addLog('Chose to apply for University...');
-    this._characterService.startNewTerm();
-    this._router.navigate(['character-creator/education/university']);
+    this._loggingService.addLog('Decided to apply to University!');
+    this._characterMetadataService.setCurrentUrl('character-creator/education/university');
   }
 
   toMilitaryAcademy() {
-    this._characterService.updateCurrentUrl('character-creator/education/military-academy');
-    this._characterService.addLog('Chose to apply for Military Academy...');
-    this._characterService.startNewTerm();
-    this._router.navigate(['character-creator/education/military-academy']);
+    this._loggingService.addLog('Decided to apply to a Military Academy!');
+    this._characterMetadataService.setCurrentUrl('character-creator/education/military-academy');
   }
 
-  submit() {
-    this._characterService.startNewTerm();
+  skip() {
+    this._characterMetadataService.setCurrentUrl('character-creator/careers');
   }
 }

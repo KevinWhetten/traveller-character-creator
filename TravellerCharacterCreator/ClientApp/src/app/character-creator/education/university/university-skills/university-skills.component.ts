@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {Router} from "@angular/router";
-import {SkillService} from "../../../../services/skill.service";
+import {SkillService} from "../../../../services/data-services/skill.service";
+import {CharacterSkill} from "../../../../models/character-skill";
+import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 
 @Component({
   selector: 'app-accepted-university',
@@ -12,8 +14,8 @@ export class UniversitySkillsComponent implements OnInit {
   private level1Skill: string = '';
   private level0Skill: string = '';
 
-  constructor(private _router: Router,
-              private _characterService: CharacterService,
+  constructor(private _characterService: CharacterService,
+              private _characterMetadataService: CharacterMetadataService,
               private _skillService: SkillService) {
   }
 
@@ -29,9 +31,9 @@ export class UniversitySkillsComponent implements OnInit {
   }
 
   saveSkills() {
-    let selectedSkills = [{skillName: this.level0Skill, value: 0}, {skillName: this.level1Skill, value: 1}];
-    this._skillService.updateSkills(selectedSkills);
-    this._characterService.addLog(`Learned skills [${this.level0Skill} 0, ${this.level1Skill} 1] at university!`);
-    this._router.navigate(['character-creator/education/university/event']);
+    let selectedSkills = [{Name: this.level0Skill, Value: 0}, {Name: this.level1Skill, Value: 1}] as CharacterSkill[];
+    this._characterService.addSkills(selectedSkills);
+    this._characterMetadataService.setUniversitySkills(selectedSkills);
+    this._characterMetadataService.setCurrentUrl('character-creator/education/university/event');
   }
 }

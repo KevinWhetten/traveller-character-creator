@@ -2,14 +2,13 @@
 <div>
   <h2>Congratulations! You were accepted!</h2>
   <h3>Please choose a level 0 and a level 1 skill:</h3>
-  <p class="small">(note: choosing a level 1 skill will bring the base skill to level 0, so don't choose the same
-    skill twice)</p>
+  <p class="small">(note: choosing a level 1 skill will bring the base skill to level 0, so don't choose two skills with the same base skill)</p>
   <div class="flex">
     <div class="column">
       <app-skill-select (onChange)="level0SkillChanged($event)"
                         [label]="'Level 0'"
                         [targetSkillLevel]="0"
-                        [type]="'basic-university'"></app-skill-select>
+                        [type]="'full-university'"></app-skill-select>
     </div>
     <div class="column">
       <app-skill-select (onChange)="level1SkillChanged($event)"

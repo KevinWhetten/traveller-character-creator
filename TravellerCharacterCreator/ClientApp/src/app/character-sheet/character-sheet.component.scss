@@ -1,3 +1,19 @@
+.basic-data {
+  margin-bottom: 32px;
+
+  p {
+    margin-bottom: 0;
+  }
+  .name-age{
+    display: flex;
+    flex-direction: row;
+
+    p {
+      margin-right: 32px;
+    }
+  }
+}
+
 .flex-col {
   display: flex;
   flex-direction: row;
@@ -5,8 +21,11 @@
 
 .column {
   font-weight: 500;
-  width: 200px;
   margin-right: 128px;
+}
+
+.grid-item {
+  width: 18%;
 }
 
 .characteristic {
@@ -25,11 +44,10 @@
 }
 
 .entry {
-  width: 200px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 0 16px;
-  margin-right: 16px;
 }
 
 .skill-name {

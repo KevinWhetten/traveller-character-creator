@@ -1,10 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Character} from "../../../../models/Character";
-import {Router} from "@angular/router";
 import {CharacterService} from "../../../../services/character.service";
-import {MilitaryAcademyService} from "../../../../services/military-academy.service";
-import {CareerService} from "../../../../services/career.service";
-import {DmService} from "../../../../services/dm.service";
+import {DmService} from "../../../../services/data-services/dm.service";
+import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
+import {LoggingService} from "../../../../services/metadata-services/logging.service";
 
 @Component({
   selector: 'app-military-academy-graduation',
@@ -14,20 +12,17 @@ import {DmService} from "../../../../services/dm.service";
 export class MilitaryAcademyGraduationComponent implements OnInit {
   @Output() graduation = new EventEmitter();
   graduationRoll: number;
-  private character: Character;
   success: boolean = false;
   honors: boolean = false;
   failure: boolean = false;
 
-  constructor(private _router: Router,
-              private _careerService: CareerService,
-              private _characterService: CharacterService,
+  constructor(private _characterService: CharacterService,
+              private _characterMetadataService: CharacterMetadataService,
               private _dmService: DmService,
-              public _militaryAcademyService: MilitaryAcademyService,) {
+              private _loggingService: LoggingService) {
   }
 
   ngOnInit(): void {
-    this.character = this._characterService.getCharacter();
   }
 
   updateGraduation($event: number) {
@@ -35,28 +30,30 @@ export class MilitaryAcademyGraduationComponent implements OnInit {
   }
 
   submitGraduation() {
-    let graduationResult = this.graduationRoll + this._dmService.getDm(this.character.characteristics.intellect);
+    let graduationResult = this.graduationRoll + this._dmService.getDm(this._characterService.getCharacteristics().Intellect);
 
     if (graduationResult >= 11) {
       this.getHonorsBonus();
     } else if (graduationResult >= 7) {
       this.getGraduationBonus();
     } else {
+      this._loggingService.addLog('I didn\'t graduate from Military Academy.');
       this.failure = true;
     }
-    this.character.currentUrl = 'character-creator/careers';
-    this._characterService.updateCharacter(this.character);
+    this._characterMetadataService.setCurrentUrl('character-creator/careers');
   }
 
   private getGraduationBonus() {
+    this._loggingService.addLog('I graduated from Military Academy')
     this.success = true;
   }
 
   private getHonorsBonus() {
+    this._loggingService.addLog('I graduated from Military Academy with Honors!')
     this.honors = true;
   }
 
   moveOn() {
-    this._router.navigate(['character-creator/careers']);
+    this._characterMetadataService.setCurrentUrl('character-creator/careers');
   }
 }

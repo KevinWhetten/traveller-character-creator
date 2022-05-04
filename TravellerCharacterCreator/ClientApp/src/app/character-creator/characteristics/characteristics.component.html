@@ -1,11 +1,16 @@
 <h1>Characteristics</h1>
 <h2>Directions:</h2>
 <ul>
-  <li>Roll 3d6 twice</li>
+  <li>Roll 3d6 (keep 2) twice</li>
   <li>Roll 2d6 four times</li>
   <li>Input results into desired attributes.</li>
 </ul>
 <form class="attributes">
+  <div class="headers">
+    <h3 class="characteristic">Characteristic</h3>
+    <h3 class="roll-result">Roll Result</h3>
+    <h3 class="modifier">Modifier</h3>
+  </div>
   <div class="attr str">
     <label for="strength">Strength</label>
     <input type="number" id="strength" name="str" [(ngModel)]="strScore" (change)="strChange()" min="2" max="12"/>
@@ -36,5 +41,5 @@
     <input type="number" id="social" name="dex" [(ngModel)]="socScore" (change)="socChange()" min="2" max="12"/>
     <p class="dice-modifier">({{socDm >= 0 ? '+' + socDm : socDm}})</p>
   </div>
+  <button type="submit" class="primary" (submit)="submit()" (click)="submit()">Next</button>
 </form>
-<button class="primary" (click)="submit()">Next</button>

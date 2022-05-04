@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {CharacterService} from "../../../../services/character.service";
+import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 
 @Component({
   selector: 'app-military-academy-event',
@@ -9,24 +10,20 @@ import {CharacterService} from "../../../../services/character.service";
 })
 export class MilitaryAcademyEventComponent implements OnInit {
 
-  constructor(private _router: Router,
-              private _characterService: CharacterService) { }
+  constructor(private _characterMetadataService: CharacterMetadataService) { }
 
   ngOnInit(): void {
   }
 
   graduate() {
-    this._characterService.updateCurrentUrl('character-creator/education/military-academy/graduate');
-    this._router.navigate(['character-creator/education/military-academy/graduate']);
+    this._characterMetadataService.setCurrentUrl('character-creator/education/military-academy/graduate');
   }
 
   lifeEvent() {
-    this._characterService.updateCurrentUrl('character-creator/education/military-academy/life-event');
-    this._router.navigate(['character-creator/education/military-academy/graduate']);
+    this._characterMetadataService.setCurrentUrl('character-creator/education/military-academy/life-event');
   }
 
   psionicTest() {
-    this._characterService.updateCurrentUrl('character-creator/education/military-academy/psionic-test');
-    this._router.navigate(['character-creator/education/military-academy/graduate']);
+    this._characterMetadataService.setCurrentUrl('character-creator/education/military-academy/psionic-test');
   }
 }
