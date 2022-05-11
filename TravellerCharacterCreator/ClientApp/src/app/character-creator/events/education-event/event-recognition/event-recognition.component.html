@@ -1,0 +1,7 @@
+﻿<h2>Recognition</h2>
+<p>You gain wide-ranging recognition of your innovative approach to study. Your SOC increases by 1!</p>
+<div class="story-input">
+    <label for="recognition-story">Write a little about what you did (Optional)</label>
+    <textarea name="recognition-event" rows="10" id="recognition-story" type="text" [(ngModel)]="story"></textarea>
+</div>
+<button class="primary" type="submit" (submit)="recognized()" (click)="recognized()">Sweet!</button>

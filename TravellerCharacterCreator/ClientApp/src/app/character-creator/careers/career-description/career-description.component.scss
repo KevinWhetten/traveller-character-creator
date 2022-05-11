@@ -1,0 +1,64 @@
+﻿button {
+  float: right;
+  margin: 0;
+  height: 25px;
+  font-size: 10pt;
+  background-color: #00b0eb;
+}
+
+label {
+  margin-right: 32px;
+}
+
+select {
+  width: 128px;
+}
+
+.assignments {
+
+  h2 {
+    font-weight: bold;
+    color: black;
+    background-color: #00b0eb;
+    padding: 8px 16px;
+    margin: 32px -16px 32px -16px;
+  }
+}
+
+.description {
+  width: 100%;
+  border: solid 4px #00b0eb;
+  padding: 16px;
+  margin: 16px 0;
+
+  h3 {
+    background: #00b0eb;
+    color: black;
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+
+  .qualification {
+    display: flex;
+    justify-content: space-between;
+
+    label {
+      margin-right: 16px;
+    }
+  }
+
+  .assignments {
+    label {
+      margin: 0 16px;
+    }
+
+    .assignment-choice {
+      display: flex;
+      align-items: center;
+    }
+
+    .chosen-assignment {
+      text-decoration: underline;
+    }
+  }
+}

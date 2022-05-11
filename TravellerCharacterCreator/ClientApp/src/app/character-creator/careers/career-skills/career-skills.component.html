@@ -1,0 +1,32 @@
+﻿<div class="skills">
+    <h2>SKILLS AND TRAINING</h2>
+    <div class="skill-tables">
+        <div *ngFor="let table of career.TrainingTables; index as i">
+            <table>
+                <tr>
+                    <th class="small-width">1D</th>
+                    <th>
+                        <div class="skill-table-heading">
+                            <p>{{table.Name.toUpperCase()}}</p>
+                            <button *ngIf="isBasicTrainingStep() && table.Name == 'Service Skills' && isFirstTermInCareer"
+                                    (click)="basicTraining()">
+                                Basic Training
+                            </button>
+                        </div>
+                    </th>
+                </tr>
+                <tr *ngFor="let training of defineNumber(6)">
+                    <td>{{training}}</td>
+                    <td class="skill-selection">
+                        <input *ngIf="this.trainingTable == training"
+                               type="radio"
+                               name="selected-training"
+                               value="{{training}}"
+                               [ngModel]="basicTrainingSkill">
+                        <p>{{table.Trainings[training].BenefitName}}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

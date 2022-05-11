@@ -1,0 +1,13 @@
+﻿<div class="mishaps">
+    <h2>MISHAPS TABLE</h2>
+    <table>
+        <tr>
+            <th class="small-width">1D</th>
+            <th>MISHAP</th>
+        </tr>
+        <tr *ngFor="let mishap of defineNumber(6)">
+            <td>{{mishap}}</td>
+            <td [innerHTML]="career.Mishaps[mishap].Description"></td>
+        </tr>
+    </table>
+</div>

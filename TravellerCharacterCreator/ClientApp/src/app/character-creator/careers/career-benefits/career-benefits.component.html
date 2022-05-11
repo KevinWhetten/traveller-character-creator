@@ -1,0 +1,15 @@
+﻿<div class="mustering-out">
+    <h2>MUSTERING OUT BENEFITS</h2>
+    <table>
+        <tr>
+            <th>1D</th>
+            <th>CASH</th>
+            <th>BENEFITS</th>
+        </tr>
+        <tr *ngFor="let num of defineNumber(7)">
+            <td>{{num}}</td>
+            <td>Cr{{career.BenefitTable[num].Cash}}</td>
+            <td>{{career.BenefitTable[num].BenefitName}}</td>
+        </tr>
+    </table>
+</div>

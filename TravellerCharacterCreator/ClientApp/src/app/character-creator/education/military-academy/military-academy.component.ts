@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CharacterService} from "../../../services/character.service";
 import {Character} from "../../../models/Character";
 import {Router} from "@angular/router";
-import {DmService} from "../../../services/data-services/dm.service";
+import {RollingService} from "../../../services/data-services/rolling.service";
 import {PercentageService} from "../../../services/data-services/percentage.service";
 import {SkillService} from "../../../services/data-services/skill.service";
 import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
@@ -25,15 +25,15 @@ export class MilitaryAcademyComponent implements OnInit {
   private endDm: number = 0;
   private intDm: number = 0;
   armySkills = [this._skillService.SkillNames.Athletics, this._skillService.SkillNames.Drive, this._skillService.SkillNames.GunCombat, this._skillService.SkillNames.HeavyWeapons,
-    this._skillService.SkillNames.Melee, this._skillService.SkillNames.Recon, 'VaccSuit'];
+    this._skillService.SkillNames.Melee, this._skillService.SkillNames.Recon, this._skillService.SkillNames.VaccSuit];
   marinesSkills = [this._skillService.SkillNames.Athletics, this._skillService.SkillNames.GunCombat, this._skillService.SkillNames.HeavyWeapons, this._skillService.SkillNames.Tactics,
-    this._skillService.SkillNames.Stealth, 'VaccSuit'];
+    this._skillService.SkillNames.Stealth, this._skillService.SkillNames.VaccSuit];
   navySkills = [this._skillService.SkillNames.Athletics, this._skillService.SkillNames.Gunner, this._skillService.SkillNames.GunCombat, this._skillService.SkillNames.Mechanic,
-    this._skillService.SkillNames.Pilot, 'VaccSuit'];
+    this._skillService.SkillNames.Pilot, this._skillService.SkillNames.VaccSuit];
 
   constructor(private _characterService: CharacterService,
               private _characterMetadataService: CharacterMetadataService,
-              private _dmService: DmService,
+              private _dmService: RollingService,
               private _percentageService: PercentageService,
               private _skillService: SkillService) {
   }
@@ -50,6 +50,7 @@ export class MilitaryAcademyComponent implements OnInit {
   army() {
     if (this.acceptanceRoll + this.endDm >= 8) {
       this.armyAcademy = true;
+      this._characterMetadataService.setMilitaryAcademy('Army');
       let skills = [];
       for (let skill of this.armySkills) {
         skills.push({Name: skill, Value: 0} as CharacterSkill);
@@ -61,6 +62,7 @@ export class MilitaryAcademyComponent implements OnInit {
   marines() {
     if (this.acceptanceRoll + this.endDm >= 9) {
       this.marinesAcademy = true;
+      this._characterMetadataService.setMilitaryAcademy('Marines');
       let skills = [];
       for (let skill of this.marinesSkills) {
         skills.push({Name: skill, Value: 0} as CharacterSkill);
@@ -72,6 +74,7 @@ export class MilitaryAcademyComponent implements OnInit {
   navy() {
     if (this.acceptanceRoll + this.intDm > 9) {
       this.navyAcademy = true;
+      this._characterMetadataService.setMilitaryAcademy('Navy');
       let skills = [];
       for (let skill of this.navySkills) {
         skills.push({Name: skill, Value: 0} as CharacterSkill);

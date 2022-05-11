@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {CharacterService} from "../../services/character.service";
 import {Router} from "@angular/router";
-import {DmService} from "../../services/data-services/dm.service";
+import {RollingService} from "../../services/data-services/rolling.service";
 import {Characteristics} from "../../models/characteristics";
 import {CharacterMetadataService} from "../../services/metadata-services/character-metadata.service";
 
@@ -27,7 +27,7 @@ export class CharacteristicsComponent {
 
   constructor(private _characterService: CharacterService,
               private _characterMetadataService: CharacterMetadataService,
-              private _dmsService: DmService) {
+              private _dmsService: RollingService) {
   }
 
   strChange() {

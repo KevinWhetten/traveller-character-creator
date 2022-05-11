@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CharacterService} from "../../../services/character.service";
-import {DmService} from "../../../services/data-services/dm.service";
+import {RollingService} from "../../../services/data-services/rolling.service";
 import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
 import {LoggingService} from "../../../services/metadata-services/logging.service";
 
@@ -16,7 +16,7 @@ export class UniversityComponent implements OnInit {
 
   constructor(private _characterService: CharacterService,
               private _characterMetadataService: CharacterMetadataService,
-              private _dmService: DmService,
+              private _dmService: RollingService,
               private _loggingService: LoggingService) {
   }
 

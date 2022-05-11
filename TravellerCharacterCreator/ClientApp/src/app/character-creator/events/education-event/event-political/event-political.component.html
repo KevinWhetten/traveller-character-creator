@@ -1,0 +1,24 @@
+﻿<h2>Getting Political</h2>
+<p>You join a political movement!</p>
+<form *ngIf="!politicalLeader && !politicalGrunt">
+    <label for="politics">Roll 2d6</label>
+    <input name="politics-event" [(ngModel)]="politicalRoll" id="politics" type="number" min="2" max="12">
+    <button class="primary" type="submit" (submit)="politicalMovement()" (click)="politicalMovement()">Submit
+    </button>
+</form>
+<form *ngIf="politicalLeader">
+    <p>You soon became a leader in the movement! You gain 1 [Ally] from within the movement, and 1 [Enemy] from
+        outside the movement.</p>
+    <div class="story-input">
+        <label for="leader-story">Write about what happened and/or about your Ally and Enemy (Optional)</label>
+        <textarea name="leader-event" rows="10" id="leader-story" type="text" [(ngModel)]="story"></textarea>
+    </div>
+    <button class="primary" type="submit" (submit)="becamePoliticalLeader()" (click)="becamePoliticalLeader()">
+        Cool!
+    </button>
+</form>
+<form *ngIf="politicalGrunt">
+    <p>But nothing really happened.</p>
+    <button class="primary" type="submit" (submit)="notPoliticalLeader()" (click)="notPoliticalLeader()">Oh...
+    </button>
+</form>

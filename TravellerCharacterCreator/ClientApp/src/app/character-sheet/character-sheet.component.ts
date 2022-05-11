@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CharacterService} from "../services/character.service";
-import {DmService} from "../services/data-services/dm.service";
+import {RollingService} from "../services/data-services/rolling.service";
 import {SkillService} from "../services/data-services/skill.service";
 import {BaseSkill, Skill, Subskill} from "../models/skill";
 import {LoggingService} from "../services/metadata-services/logging.service";
@@ -21,7 +21,7 @@ export class CharacterSheetComponent implements OnInit {
 
   constructor(public _characterService: CharacterService,
               public _skillService: SkillService,
-              private _dmService: DmService,
+              private _dmService: RollingService,
               public _loggingService: LoggingService) {
   }
 

@@ -1,0 +1,22 @@
+﻿<h2>Tutor Trouble</h2>
+<p>A newly arrived tutor rubs you up the wrong way and you work hard to overturn their conclusions.</p>
+<form *ngIf="!tutorBeaten && !tutorWins">
+    <app-skill-select (onChange)="this.tutorSkill = $event" [type]="'this-term'"
+                      [label]="'Choose a skill to challenge the tutor in:'"></app-skill-select>
+    <label for="tutor">Roll 2d6</label>
+    <input name="tutor-event" [ngModel]="skillRoll" id="tutor" type="number" min="2" max="12">
+    <button class="primary" type="submit" (submit)="tutor()" (click)="tutor()">Submit</button>
+</form>
+<form *ngIf="tutorBeaten">
+    <p>You provide a truly elegant proof that soon becomes accepted as the standard approach. You gained a level
+        in {{this.tutorSkill}}, and the tutor as your [Rival]</p>
+    <div class="story-input">
+        <label for="tutor-story">Write about what happened and/or about your Rival(Optional)</label>
+        <textarea name="tutor-story-event" rows="10" id="tutor-story" type="text" [ngModel]="story"></textarea>
+    </div>
+    <button class="primary" type="submit" (submit)="beatTutor()" (click)="beatTutor()">Cool!</button>
+</form>
+<form *ngIf="tutorWins">
+    <p>You didn't really accomplish much, but that's okay.</p>
+    <button class="primary" type="submit" (submit)="lostToTutor()" (click)="lostToTutor()">I guess...</button>
+</form>

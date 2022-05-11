@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
-import {DmService} from "../../../../services/data-services/dm.service";
+import {RollingService} from "../../../../services/data-services/rolling.service";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 import {LoggingService} from "../../../../services/metadata-services/logging.service";
 
@@ -18,15 +18,11 @@ export class MilitaryAcademyGraduationComponent implements OnInit {
 
   constructor(private _characterService: CharacterService,
               private _characterMetadataService: CharacterMetadataService,
-              private _dmService: DmService,
+              private _dmService: RollingService,
               private _loggingService: LoggingService) {
   }
 
   ngOnInit(): void {
-  }
-
-  updateGraduation($event: number) {
-    this.graduationRoll = $event;
   }
 
   submitGraduation() {
@@ -40,20 +36,28 @@ export class MilitaryAcademyGraduationComponent implements OnInit {
       this._loggingService.addLog('I didn\'t graduate from Military Academy.');
       this.failure = true;
     }
-    this._characterMetadataService.setCurrentUrl('character-creator/careers');
   }
 
   private getGraduationBonus() {
-    this._loggingService.addLog('I graduated from Military Academy')
+    this._characterService.increaseEducation(1);
+    this._loggingService.addLog('I graduated from Military Academy');
+    this._characterMetadataService.graduatedMilitaryAcademy();
     this.success = true;
   }
 
   private getHonorsBonus() {
+    this._characterService.increaseEducation(1);
+    this._characterService.increaseSocialStatus(1);
     this._loggingService.addLog('I graduated from Military Academy with Honors!')
+    this._characterMetadataService.graduatedMilitaryAcademyWithHonors();
     this.honors = true;
   }
 
   moveOn() {
     this._characterMetadataService.setCurrentUrl('character-creator/careers');
+  }
+
+  getAcademy() {
+    return this._characterMetadataService.getMilitaryAcademy();
   }
 }

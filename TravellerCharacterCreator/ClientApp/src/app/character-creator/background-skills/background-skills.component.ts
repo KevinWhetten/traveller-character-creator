@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CharacterService} from "../../services/character.service";
 import {Router} from "@angular/router";
 import {Skill} from "../../models/skill";
-import {DmService} from "../../services/data-services/dm.service";
+import {RollingService} from "../../services/data-services/rolling.service";
 import {SkillService} from "../../services/data-services/skill.service";
 import {CharacterMetadataService} from "../../services/metadata-services/character-metadata.service";
 import {LoggingService} from "../../services/metadata-services/logging.service";
@@ -24,7 +24,7 @@ export class BackgroundSkillsComponent implements OnInit {
 
   constructor(private _characterService: CharacterService,
               private _characterMetadataService: CharacterMetadataService,
-              private _dmsService: DmService,
+              private _dmsService: RollingService,
               private _skillService: SkillService) {
   }
 

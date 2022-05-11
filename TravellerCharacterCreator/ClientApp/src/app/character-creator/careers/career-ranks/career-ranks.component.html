@@ -1,0 +1,19 @@
+﻿<div class="ranks">
+    <h2>RANKS AND BONUSES</h2>
+    <div class="rank-tables">
+        <div *ngFor="let table of career.RankTables">
+            <table>
+                <tr>
+                    <th class="small-width">RANK</th>
+                    <th>{{table.Name.toUpperCase()}}</th>
+                    <th>SKILL OR BONUS</th>
+                </tr>
+                <tr *ngFor="let rank of defineNumber(7); index as i">
+                    <td>{{rank - 1}}</td>
+                    <td>{{table.Ranks[rank - 1].Name}}</td>
+                    <td>{{table.Ranks[rank - 1].Bonus}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

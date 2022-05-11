@@ -4,8 +4,7 @@
 <div *ngIf="!success && !honors && !failure">
   <p>Now we get to see if you graduate!</p>
   <label for="acceptance">Roll 2d6</label>
-  <input class="number" type="number" id="acceptance" name="acceptance" [(ngModel)]="graduationRoll"
-         (ngModelChange)="updateGraduation($event)" min="2" max="12"/>
+  <input class="number" type="number" id="acceptance" name="acceptance" [(ngModel)]="graduationRoll" min="2" max="12"/>
   <button class="primary" (click)="submitGraduation()">Submit</button>
 </div>
 
