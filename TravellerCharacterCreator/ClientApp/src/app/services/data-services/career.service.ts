@@ -77,6 +77,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Law Enforcement', 'Intelligence', 'Corporate'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.gunCombatTraining,
             2: this._trainingService.dexterityTraining,
@@ -88,6 +90,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Law Enforcement', 'Intelligence', 'Corporate'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.streetwiseTraining,
             2: this._trainingService.driveTraining,
@@ -99,6 +103,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Advanced Education (Min EDU 8)`,
+          Assignments: ['Law Enforcement', 'Intelligence', 'Corporate'],
+          MinEDU: 8,
           Trainings: {
             1: this._trainingService.advocateTraining,
             2: this._trainingService.languageTraining,
@@ -110,6 +116,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Law Enforcement`,
+          Assignments: ['Law Enforcement'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.investigateTraining,
             2: this._trainingService.reconTraining,
@@ -121,6 +129,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Intelligence`,
+          Assignments: ['Intelligence'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.investigateTraining,
             2: this._trainingService.reconTraining,
@@ -132,6 +142,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Corporate`,
+          Assignments: ['Corporate'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.investigateTraining,
             2: this._trainingService.computersTraining,
@@ -327,6 +339,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Support', 'Infantry', 'Cavalry'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.strengthTraining,
             2: this._trainingService.dexterityTraining,
@@ -338,6 +352,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Support', 'Infantry', 'Cavalry'],
+          MinEDU: 0,
           Trainings: {
             1: {
               BenefitName: `${this._skillService.SkillNames.Drive} or ${this._skillService.SkillNames.VaccSuit}`,
@@ -360,6 +376,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 8)`,
+          Assignments: ['Support', 'Infantry', 'Cavalry'],
+          MinEDU: 8,
           Trainings: {
             1: this._trainingService.militaryTraining,
             2: this._trainingService.electronicsTraining,
@@ -371,6 +389,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Officer (Commissioned Only)`,
+          Assignments: ['Support Officer', 'Infantry Officer', 'Cavalry Officer'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.militaryTraining,
             2: this._trainingService.leadershipTraining,
@@ -382,6 +402,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Support`,
+          Assignments: ['Support'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.mechanicTraining,
             2: {
@@ -408,6 +430,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Infantry`,
+          Assignments: ['Infantry'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.gunCombatTraining,
             2: this._trainingService.meleeTraining,
@@ -419,6 +443,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Cavalry`,
+          Assignments: ['Cavalry'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.mechanicTraining,
             2: this._trainingService.driveTraining,
@@ -611,6 +637,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Corporate', 'Worker', 'Colonist'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.educationTraining,
             2: this._trainingService.intelligenceTraining,
@@ -622,6 +650,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Corporate', 'Worker', 'Colonist'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.driveTraining,
             2: this._trainingService.flyerTraining,
@@ -633,6 +663,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Advanced Education (Min EDU 10)`,
+          Assignments: ['Corporate', 'Worker', 'Colonist'],
+          MinEDU: 10,
           Trainings: {
             1: this._trainingService.artTraining,
             2: this._trainingService.advocateTraining,
@@ -644,6 +676,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Corporate`,
+          Assignments: ['Corporate'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.advocateTraining,
             2: this._trainingService.adminTraining,
@@ -655,6 +689,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Worker`,
+          Assignments: ['Worker'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.driveTraining,
             2: this._trainingService.mechanicTraining,
@@ -665,7 +701,9 @@ export class CareerService {
           }
         } as TrainingTable,
         {
-          Name: `Citizen`,
+          Name: `Colonist`,
+          Assignments: ['Colonist'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.animalsTraining,
             2: this._trainingService.athleticsTraining,
@@ -910,6 +948,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Barbarian', 'Wanderer', 'Scavenger'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.strengthTraining,
             2: this._trainingService.enduranceTraining,
@@ -921,6 +961,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Barbarian', 'Wanderer', 'Scavenger'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.athleticsTraining,
             2: this._trainingService.unarmedTraining,
@@ -932,6 +974,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: ``,
+          Assignments: [],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.dummyTraining,
             2: this._trainingService.dummyTraining,
@@ -943,6 +987,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Barbarian`,
+          Assignments: ['Barbarian'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.animalsTraining,
             2: this._trainingService.carouseTraining,
@@ -962,6 +1008,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Wanderer`,
+          Assignments: ['Wanderer'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.driveTraining,
             2: this._trainingService.deceptionTraining,
@@ -973,6 +1021,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Scavenger`,
+          Assignments: ['Scavenger'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.smallCraftTraining,
             2: this._trainingService.mechanicTraining,
@@ -1217,6 +1267,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Artist', 'Journalist', 'Performer'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.dexterityTraining,
             2: this._trainingService.intelligenceTraining,
@@ -1228,6 +1280,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Artist', 'Journalist', 'Performer'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.artTraining,
             2: this._trainingService.carouseTraining,
@@ -1239,6 +1293,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 10)`,
+          Assignments: ['Artist', 'Journalist', 'Performer'],
+          MinEDU: 10,
           Trainings: {
             1: this._trainingService.advocateTraining,
             2: this._trainingService.brokerTraining,
@@ -1250,6 +1306,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Artist`,
+          Assignments: ['Artist'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.artTraining,
             2: this._trainingService.carouseTraining,
@@ -1261,6 +1319,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Journalist`,
+          Assignments: ['Journalist'],
+          MinEDU: 0,
           Trainings: {
             1: {
               BenefitName: `${this._skillService.SkillNames.Art} (${this._skillService.SkillNames.ArtHolography} or
@@ -1280,6 +1340,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Performer`,
+          Assignments: ['Performer'],
+          MinEDU: 0,
           Trainings: {
             1: {
               BenefitName: `${this._skillService.SkillNames.Art} (${this._skillService.SkillNames.ArtPerformer} or ${this._skillService.SkillNames.ArtInstrument})`,
@@ -1533,6 +1595,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Support', 'Star Marine', 'Ground Assault'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.strengthTraining,
             2: this._trainingService.dexterityTraining,
@@ -1544,6 +1608,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Support', 'Star Marine', 'Ground Assault'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.athleticsTraining,
             2: this._trainingService.vaccSuitTraining,
@@ -1555,6 +1621,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 8)`,
+          Assignments: ['Support', 'Star Marine', 'Ground Assault'],
+          MinEDU: 8,
           Trainings: {
             1: this._trainingService.medicTraining,
             2: this._trainingService.survivalTraining,
@@ -1566,6 +1634,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Support`,
+          Assignments: ['Support'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.electronicsTraining,
             2: this._trainingService.mechanicTraining,
@@ -1592,6 +1662,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Star Marine`,
+          Assignments: ['Star Marine'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.vaccSuitTraining,
             2: this._trainingService.athleticsTraining,
@@ -1603,6 +1675,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Ground Assault`,
+          Assignments: ['Ground Assault'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.vaccSuitTraining,
             2: this._trainingService.heavyWeaponsTraining,
@@ -1614,6 +1688,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Officer (Commissioned Only)`,
+          Assignments: ['Support Officer', 'Star Marine Officer', 'Ground Assault Officer'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.electronicsTraining,
             2: this._trainingService.tacticsTraining,
@@ -1625,6 +1701,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: ``,
+          Assignments: [],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.dummyTraining,
             2: this._trainingService.dummyTraining,
@@ -1636,6 +1714,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: ``,
+          Assignments: [],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.dummyTraining,
             2: this._trainingService.dummyTraining,
@@ -1850,6 +1930,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Merchant Marine', 'Free Trader', 'Broker'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.strengthTraining,
             2: this._trainingService.dexterityTraining,
@@ -1861,6 +1943,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Merchant Marine', 'Free Trader', 'Broker'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.driveTraining,
             2: this._trainingService.vaccSuitTraining,
@@ -1872,6 +1956,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 10)`,
+          Assignments: ['Merchant Marine', 'Free Trader', 'Broker'],
+          MinEDU: 10,
           Trainings: {
             1: this._trainingService.engineerTraining,
             2: this._trainingService.astrogationTraining,
@@ -1883,6 +1969,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Merchant Marine`,
+          Assignments: ['Merchant Marine'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.pilotTraining,
             2: this._trainingService.vaccSuitTraining,
@@ -1894,6 +1982,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Free Trader`,
+          Assignments: ['Free Trader'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.spacecraftTraining,
             2: this._trainingService.vaccSuitTraining,
@@ -1905,6 +1995,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Broker`,
+          Assignments: ['Broker'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.adminTraining,
             2: this._trainingService.advocateTraining,
@@ -2193,6 +2285,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Line/Crew', 'Engineer/Gunner', 'Flight'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.strengthTraining,
             2: this._trainingService.dexterityTraining,
@@ -2204,6 +2298,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Line/Crew', 'Engineer/Gunner', 'Flight'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.pilotTraining,
             2: this._trainingService.vaccSuitTraining,
@@ -2215,6 +2311,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 10)`,
+          Assignments: ['Line/Crew', 'Engineer/Gunner', 'Flight'],
+          MinEDU: 10,
           Trainings: {
             1: this._trainingService.leadershipTraining,
             2: this._trainingService.electronicsTraining,
@@ -2226,6 +2324,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Line/Crew`,
+          Assignments: ['Line/Crew'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.electronicsTraining,
             2: this._trainingService.mechanicTraining,
@@ -2237,6 +2337,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Engineer/Gunner`,
+          Assignments: ['Engineer/Gunner'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.engineerTraining,
             2: this._trainingService.mechanicTraining,
@@ -2248,6 +2350,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Flight`,
+          Assignments: ['Flight'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.pilotTraining,
             2: this._trainingService.flyerTraining,
@@ -2259,6 +2363,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Officer (Commissioned Only)`,
+          Assignments: ['Line/Crew Officer', 'Engineer/Gunner Officer', 'Flight Officer'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.leadershipTraining,
             2: this._trainingService.electronicsTraining,
@@ -2270,6 +2376,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: ``,
+          Assignments: [],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.dummyTraining,
             2: this._trainingService.dummyTraining,
@@ -2281,6 +2389,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: ``,
+          Assignments: [],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.dummyTraining,
             2: this._trainingService.dummyTraining,
@@ -2501,6 +2611,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Administrator', 'Diplomat', 'Dilettante'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.strengthTraining,
             2: this._trainingService.dexterityTraining,
@@ -2512,6 +2624,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Administrator', 'Diplomat', 'Dilettante'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.adminTraining,
             2: this._trainingService.advocateTraining,
@@ -2523,6 +2637,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Advanced Education (Min EDU 8)`,
+          Assignments: ['Administrator', 'Diplomat', 'Dilettante'],
+          MinEDU: 8,
           Trainings: {
             1: this._trainingService.adminTraining,
             2: this._trainingService.advocateTraining,
@@ -2534,6 +2650,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Administrator`,
+          Assignments: ['Administrator'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.adminTraining,
             2: this._trainingService.advocateTraining,
@@ -2545,6 +2663,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Diplomat`,
+          Assignments: ['Diplomat'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.advocateTraining,
             2: this._trainingService.carouseTraining,
@@ -2556,6 +2676,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Dilettante`,
+          Assignments: ['Dilettante'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.carouseTraining,
             2: this._trainingService.deceptionTraining,
@@ -2842,6 +2964,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Thief', 'Enforcer', 'Pirate'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.carouseTraining,
             2: this._trainingService.dexterityTraining,
@@ -2853,6 +2977,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Thief', 'Enforcer', 'Pirate'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.deceptionTraining,
             2: this._trainingService.reconTraining,
@@ -2864,6 +2990,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 10)`,
+          Assignments: ['Thief', 'Enforcer', 'Pirate'],
+          MinEDU: 10,
           Trainings: {
             1: this._trainingService.electronicsTraining,
             2: this._trainingService.navigationTraining,
@@ -2875,6 +3003,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Thief`,
+          Assignments: ['Thief'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.stealthTraining,
             2: this._trainingService.electronicsTraining,
@@ -2886,6 +3016,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Enforcer`,
+          Assignments: ['Enforcer'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.gunCombatTraining,
             2: this._trainingService.meleeTraining,
@@ -2897,6 +3029,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Pirate`,
+          Assignments: ['Pirate'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.pilotTraining,
             2: this._trainingService.astrogationTraining,
@@ -3180,6 +3314,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Field Researcher', 'Scientist', 'Physician'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.intelligenceTraining,
             2: this._trainingService.educationTraining,
@@ -3191,6 +3327,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Field Researcher', 'Scientist', 'Physician'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.driveTraining,
             2: this._trainingService.electronicsTraining,
@@ -3202,6 +3340,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 10)`,
+          Assignments: ['Field Researcher', 'Scientist', 'Physician'],
+          MinEDU: 10,
           Trainings: {
             1: this._trainingService.artTraining,
             2: this._trainingService.advocateTraining,
@@ -3213,6 +3353,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Field Researcher`,
+          Assignments: ['Field Researcher'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.electronicsTraining,
             2: this._trainingService.vaccSuitTraining,
@@ -3224,6 +3366,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Scientist`,
+          Assignments: ['Scientist'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.adminTraining,
             2: this._trainingService.engineerTraining,
@@ -3235,6 +3379,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Physician`,
+          Assignments: ['Physician'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.medicTraining,
             2: this._trainingService.electronicsTraining,
@@ -3523,6 +3669,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Courier', 'Surveyor', 'Explorer'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.strengthTraining,
             2: this._trainingService.dexterityTraining,
@@ -3534,6 +3682,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Courier', 'Surveyor', 'Explorer'],
+          MinEDU: 0,
           Trainings: {
             1: {
               BenefitName: `${this._skillService.SkillNames.Pilot} (${this._skillService.SkillNames.PilotSmallCraft} or ${this._skillService.SkillNames.PilotSpacecraft})`,
@@ -3552,6 +3702,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 8)`,
+          Assignments: ['Courier', 'Surveyor', 'Explorer'],
+          MinEDU: 8,
           Trainings: {
             1: this._trainingService.medicTraining,
             2: this._trainingService.navigationTraining,
@@ -3563,6 +3715,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Courier`,
+          Assignments: ['Courier'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.electronicsTraining,
             2: this._trainingService.flyerTraining,
@@ -3574,6 +3728,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Surveyor`,
+          Assignments: ['Surveyor'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.electronicsTraining,
             2: this._trainingService.persuadeTraining,
@@ -3585,6 +3741,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Explorer`,
+          Assignments: ['Explorer'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.electronicsTraining,
             2: this._trainingService.pilotTraining,
@@ -3801,6 +3959,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Inmate', 'Thug', 'Fixer'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.strengthTraining,
             2: this._trainingService.unarmedTraining,
@@ -3812,6 +3972,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Inmate', 'Thug', 'Fixer'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.athleticsTraining,
             2: this._trainingService.deceptionTraining,
@@ -3823,6 +3985,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: ``,
+          Assignments: [],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.dummyTraining,
             2: this._trainingService.dummyTraining,
@@ -3834,6 +3998,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Inmate`,
+          Assignments: ['Inmate'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.stealthTraining,
             2: this._trainingService.unarmedTraining,
@@ -3845,6 +4011,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Thug`,
+          Assignments: ['Thug'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.persuadeTraining,
             2: this._trainingService.unarmedTraining,
@@ -3856,6 +4024,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Fixer`,
+          Assignments: ['Fixer'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.investigateTraining,
             2: this._trainingService.brokerTraining,
@@ -4078,6 +4248,8 @@ export class CareerService {
       TrainingTables: [
         {
           Name: `Personal Development`,
+          Assignments: ['Wild Talent', 'Adept', 'Psi-Warrior'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.educationTraining,
             2: this._trainingService.intelligenceTraining,
@@ -4089,6 +4261,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Service Skills`,
+          Assignments: ['Wild Talent', 'Adept', 'Psi-Warrior'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.telepathyTraining,
             2: this._trainingService.clairvoyanceTraining,
@@ -4102,6 +4276,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 8)`,
+          Assignments: ['Wild Talent', 'Adept', 'Psi-Warrior'],
+          MinEDU: 8,
           Trainings: {
             1: this._trainingService.languageTraining,
             2: this._trainingService.artTraining,
@@ -4113,6 +4289,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Wild Talent`,
+          Assignments: ['Wild Talent'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.telepathyTraining,
             2: this._trainingService.telekinesisTraining,
@@ -4135,6 +4313,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Adept`,
+          Assignments: ['Adept'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.telepathyTraining,
             2: this._trainingService.clairvoyanceTraining,
@@ -4146,6 +4326,8 @@ export class CareerService {
         } as TrainingTable,
         {
           Name: `Psi-Warrior`,
+          Assignments: ['Psi-Warrior'],
+          MinEDU: 0,
           Trainings: {
             1: this._trainingService.telepathyTraining,
             2: this._trainingService.awarenessTraining,

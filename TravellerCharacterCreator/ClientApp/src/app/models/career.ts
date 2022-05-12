@@ -18,6 +18,8 @@ export interface Training {
 
 export interface TrainingTable {
   Name: string;
+  Assignments: string[];
+  MinEDU:number;
   Trainings: Record<number, Training>;
 }
 
