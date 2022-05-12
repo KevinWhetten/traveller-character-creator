@@ -1,0 +1,13 @@
+﻿<div class="events">
+  <h2>EVENTS TABLE</h2>
+  <table>
+    <tr>
+      <th class="small-width">2D</th>
+      <th>EVENT</th>
+    </tr>
+    <tr *ngFor="let event of defineNumber(11)">
+      <td>{{event + 1}}</td>
+      <td [innerHTML]="career.Events[event + 1].Description"></td>
+    </tr>
+  </table>
+</div>

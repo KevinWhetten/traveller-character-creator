@@ -1,0 +1,30 @@
+<div class="container">
+  <label for="career-select">Select a Career: </label>
+  <select id="career-select" [(ngModel)]="careerName" (change)="changeCareer()">
+    <option *ngFor="let careerName of getCareerNames()">{{careerName}}</option>
+  </select>
+
+  <div class="career-header">
+    <div class="career-name">
+      <h1 class="designation">{{career.Designation}}</h1>
+      <h1>{{career.Name.toUpperCase()}}</h1>
+    </div>
+    <button (click)="chooseCareer()">Choose this Career</button>
+  </div>
+
+  <div class="flex-row">
+    <app-career-description [career]="career"></app-career-description>
+
+    <div class="right">
+      <app-career-progress [career]="career"></app-career-progress>
+      <app-career-benefits [career]="career"></app-career-benefits>
+    </div>
+  </div>
+
+  <app-career-skills [career]="career"></app-career-skills>
+
+  <app-career-events [career]="career"></app-career-events>
+  <app-career-mishaps [career]="career"></app-career-mishaps>
+
+  <app-career-ranks [career]="career"></app-career-ranks>
+</div>

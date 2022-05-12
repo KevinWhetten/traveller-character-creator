@@ -1,47 +1,32 @@
 import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
 import {CharacterSkill} from "../../models/character-skill";
+import {Career} from "../../models/career";
 
-interface Metadata {
-  currentUrl: string;
-  term: number;
-  universitySkills: CharacterSkill[];
-  skillsLearnedThisTerm: string[];
-  eventChoice: number;
-  jailed: boolean;
-  universityTerm: number;
-  graduatedUniversity: boolean;
-  graduatedWithHonors: boolean;
-  militaryAcademy: string;
-  graduatedMilitaryAcademy: boolean;
-  militaryAcademyTerm: number;
-  careers: string[];
+class Metadata {
+  currentUrl: string = '';
+  term: number = 0;
+  universitySkills: CharacterSkill[] = [];
+  skillsLearnedThisTerm: string[] = [];
+  eventChoice: number = 0;
+  jailed: boolean = false;
+  universityTerm: number = 0;
+  graduatedUniversity: boolean = false;
+  graduatedWithHonors: boolean = false;
+  militaryAcademy: string = '';
+  graduatedMilitaryAcademy: boolean = false;
+  militaryAcademyTerm: number = 0;
+  careers: string[] = [];
+  currentCareer: string = '';
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterMetadataService {
-  private metadata: Metadata;
+  private metadata: Metadata = new Metadata();
 
-  constructor(private _router: Router) {
-    this.metadata = {
-      currentUrl: 'character-creator/basic-info',
-      term: 0,
-      universitySkills: [],
-      skillsLearnedThisTerm: [],
-      eventChoice: 0,
-      jailed: false,
-      graduatedUniversity: false,
-      graduatedWithHonors: false,
-      universityTerm: 0,
-      militaryAcademy: '',
-      graduatedMilitaryAcademy: false,
-      militaryAcademyTerm: 0,
-      careers: []
-    }
-    this.save()
-  }
+  constructor(private _router: Router) {}
 
   //region Current URL
   setCurrentUrl(url: string) {
@@ -103,6 +88,17 @@ export class CharacterMetadataService {
     this.load();
     this.metadata.careers.push(Name);
     this.save();
+  }
+
+  setCurrentCareer(career: Career) {
+    this.load();
+    this.metadata.currentCareer = career.Name;
+    this.save();
+  }
+
+  getCurrentCareer() {
+    this.load();
+    return this.metadata.currentCareer;
   }
 
   //endregion

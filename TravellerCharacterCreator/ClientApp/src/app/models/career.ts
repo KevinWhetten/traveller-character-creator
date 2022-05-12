@@ -12,6 +12,8 @@ export interface Benefit {
 
 export interface Training {
   BenefitName: string;
+  Type: string;
+  Increase: string;
 }
 
 export interface TrainingTable {

@@ -1,0 +1,16 @@
+﻿<div class="description">
+  <p>{{career.Description}}</p>
+  <div class="qualification">
+    <p><strong>Qualification:</strong>
+      {{career.Qualification.characteristic}} {{career.Qualification.characteristic != 'Automatic' ? career.Qualification.target + '+' : ''}}
+      <br><span [innerHTML]="career.Qualification.special"></span>
+    </p>
+  </div>
+  <div class="assignments">
+    <h2 class="assignments">ASSIGNMENTS</h2>
+    <p>Choose one of the following:</p>
+    <div class="assignment-choice" *ngFor="let careerAssignment of career.Assignments; index as i">
+      <p><strong>{{careerAssignment.Name}}:</strong> {{careerAssignment.Description}}</p>
+    </div>
+  </div>
+</div>

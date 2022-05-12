@@ -78,21 +78,33 @@ export class CareerService {
           Trainings: {
             1: {
               BenefitName: this._skillService.SkillNames.GunCombat,
+              Type: 'base-skill',
+              Increase: this._skillService.SkillNames.GunCombat
             } as Training,
             2: {
               BenefitName: `DEX +1`,
+              Type: 'characteristic',
+              Increase: 'DEX'
             } as Training,
             3: {
               BenefitName: `END +1`,
+              Type: 'characteristic',
+              Increase: 'END'
             } as Training,
             4: {
               BenefitName: this._skillService.SkillNames.Melee,
+              Type: 'base-skill',
+              Increase: this._skillService.SkillNames.Melee
             } as Training,
             5: {
               BenefitName: `INT +1`,
+              Type: 'characteristic',
+              Increase: 'INT'
             } as Training,
             6: {
               BenefitName: this._skillService.SkillNames.Athletics,
+              Type: 'base-skill',
+              Increase: this._skillService.SkillNames.Athletics
             } as Training
           }
         } as TrainingTable,
@@ -101,21 +113,33 @@ export class CareerService {
           Trainings: {
             1: {
               BenefitName: this._skillService.SkillNames.Streetwise,
+              Type: 'skill',
+              Increase: this._skillService.SkillNames.Streetwise
             } as Training,
             2: {
               BenefitName: this._skillService.SkillNames.Drive,
+              Type: 'base-skill',
+              Increase: this._skillService.SkillNames.Drive
             } as Training,
             3: {
               BenefitName: this._skillService.SkillNames.Investigate,
+              Type: 'skill',
+              Increase: this._skillService.SkillNames.Investigate
             } as Training,
             4: {
               BenefitName: this._skillService.SkillNames.Flyer,
+              Type: 'base-skill',
+              Increase: this._skillService.SkillNames.Flyer
             } as Training,
             5: {
               BenefitName: this._skillService.SkillNames.Recon,
+              Type: 'skill',
+              Increase: this._skillService.SkillNames.Recon
             } as Training,
             6: {
               BenefitName: this._skillService.SkillNames.GunCombat,
+              Type: 'base-skill',
+              Increase: this._skillService.SkillNames.GunCombat
             } as Training
           }
         } as TrainingTable,

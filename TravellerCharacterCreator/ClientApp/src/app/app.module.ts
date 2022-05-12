@@ -11,7 +11,7 @@ import {AppComponent} from './app.component';
 import {NavMenuComponent} from './nav-menu/nav-menu.component';
 import { CharacterCreatorComponent } from './character-creator/character-creator.component';
 import { BackgroundSkillsComponent } from './character-creator/background-skills/background-skills.component';
-import { CareersComponent } from './character-creator/careers/careers.component';
+import { CareerSelectionComponent } from './character-creator/careers/career-selection/career-selection.component';
 import { CharacteristicsComponent } from './character-creator/characteristics/characteristics.component';
 import { EducationComponent } from './character-creator/education/education.component';
 import { EducationEventComponent } from './character-creator/events/education-event/education-event.component';
@@ -45,13 +45,23 @@ import {EventTutorComponent} from "./character-creator/events/education-event/ev
 import {EventDraftComponent} from "./character-creator/events/education-event/event-draft/event-draft.component";
 import { LifeEventComponent } from './character-creator/events/life-event/life-event.component';
 import { PsionicTestComponent } from './character-creator/events/psionic-test/psionic-test.component';
-import { CareerDescriptionComponent } from './character-creator/careers/career-description/career-description.component';
-import { CareerMishapsComponent } from './character-creator/careers/career-mishaps/career-mishaps.component';
-import {CareerBenefitsComponent} from "./character-creator/careers/career-benefits/career-benefits.component";
-import {CareerEventsComponent} from "./character-creator/careers/career-events/career-events.component";
-import {CareerProgressComponent} from "./character-creator/careers/career-progress/career-progress.component";
-import {CareerSkillsComponent} from "./character-creator/careers/career-skills/career-skills.component";
-import { CareerRanksComponent } from './character-creator/careers/career-ranks/career-ranks.component';
+import { CareerDescriptionComponent } from './character-creator/careers/career-selection/career-description/career-description.component';
+import { CareerMishapsComponent } from './character-creator/careers/career-selection/career-mishaps/career-mishaps.component';
+import {CareerBenefitsComponent} from "./character-creator/careers/career-selection/career-benefits/career-benefits.component";
+import {CareerEventsComponent} from "./character-creator/careers/career-selection/career-events/career-events.component";
+import {CareerProgressComponent} from "./character-creator/careers/career-selection/career-progress/career-progress.component";
+import {CareerSkillsComponent} from "./character-creator/careers/career-selection/career-skills/career-skills.component";
+import { CareerRanksComponent } from './character-creator/careers/career-selection/career-ranks/career-ranks.component';
+import { CareerBasicTrainingComponent } from './character-creator/careers/career-basic-training/career-basic-training.component';
+import { CareerQualificationComponent } from './character-creator/careers/career-qualification/career-qualification.component';
+import { CareerAssignmentComponent } from './character-creator/careers/career-assignment/career-assignment.component';
+import { CareerSkillGenerationComponent } from './character-creator/careers/career-skill-generation/career-skill-generation.component';
+import { CareerSurvivalComponent } from './character-creator/careers/career-survival/career-survival.component';
+import { CareerEventComponent } from './character-creator/careers/career-event/career-event.component';
+import { CareerMishapComponent } from './character-creator/careers/career-mishap/career-mishap.component';
+import { CareerCommissionComponent } from './character-creator/careers/career-commission/career-commission.component';
+import { CareerAdvancementComponent } from './character-creator/careers/career-advancement/career-advancement.component';
+import { CareerLeavingComponent } from './character-creator/careers/career-leaving/career-leaving.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +69,7 @@ import { CareerRanksComponent } from './character-creator/careers/career-ranks/c
     NavMenuComponent,
     CharacterCreatorComponent,
     BackgroundSkillsComponent,
-    CareersComponent,
+    CareerSelectionComponent,
     CharacteristicsComponent,
     EducationComponent,
     EducationEventComponent,
@@ -100,7 +110,18 @@ import { CareerRanksComponent } from './character-creator/careers/career-ranks/c
     CareerSkillsComponent,
     CareerDescriptionComponent,
     CareerMishapsComponent,
-    CareerRanksComponent
+    CareerRanksComponent,
+    CareerBasicTrainingComponent,
+    CareerBasicTrainingComponent,
+    CareerQualificationComponent,
+    CareerAssignmentComponent,
+    CareerSkillGenerationComponent,
+    CareerSurvivalComponent,
+    CareerEventComponent,
+    CareerMishapComponent,
+    CareerCommissionComponent,
+    CareerAdvancementComponent,
+    CareerLeavingComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -126,7 +147,18 @@ import { CareerRanksComponent } from './character-creator/careers/career-ranks/c
       {path: 'character-creator/education/military-academy/graduate', component: MilitaryAcademyGraduationComponent},
       {path: 'character-creator/education/military-academy/psionic-test', component: UniversityPsionicTestComponent},
       {path: 'character-creator/education/military-academy/life-event', component: UniversityLifeEventComponent},
-      {path: 'character-creator/careers', component: CareersComponent},
+      {path: 'character-creator/careers', component: CareerSelectionComponent},
+      {path: 'character-creator/careers/qualification', component: CareerQualificationComponent},
+      {path: 'character-creator/careers/assignment', component: CareerAssignmentComponent},
+      {path: 'character-creator/careers/basic-training', component: CareerBasicTrainingComponent},
+      {path: 'character-creator/careers/skill-generation', component: CareerSkillGenerationComponent},
+      {path: 'character-creator/careers/survival', component: CareerSurvivalComponent},
+      {path: 'character-creator/careers/event', component: CareerEventComponent},
+      {path: 'character-creator/careers/mishap', component: CareerMishapComponent},
+      {path: 'character-creator/careers/commission', component: CareerCommissionComponent},
+      {path: 'character-creator/careers/advancement', component: CareerAdvancementComponent},
+      {path: 'character-creator/careers/leaving', component: CareerLeavingComponent},
+      {path: 'character-creator/careers/benefits', component: CareerBenefitsComponent},
       {path: 'character-creator/final-steps', component: FinalStepsComponent}
     ], {
       anchorScrolling: 'enabled'

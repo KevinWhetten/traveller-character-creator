@@ -1,0 +1,15 @@
+﻿<div class="career-progress">
+    <h2>CAREER PROGRESS</h2>
+    <table>
+        <tr>
+            <th></th>
+            <th>SURVIVAL</th>
+            <th>ADVANCEMENT</th>
+        </tr>
+        <tr *ngFor="let assignment of career.Assignments">
+            <td>{{assignment.Name}}</td>
+            <td>{{assignment.Survival.characteristic}} {{assignment.Survival.target}}+</td>
+            <td>{{assignment.Advancement.characteristic}} {{assignment.Advancement.target}}+</td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,17 @@
+﻿<div class="skills">
+  <h2>SKILLS AND TRAINING</h2>
+  <div class="skill-tables">
+    <div *ngFor="let table of career.TrainingTables; index as i">
+      <table>
+        <tr>
+          <th class="small-width">1D</th>
+          <th>{{table.Name.toUpperCase()}}</th>
+        </tr>
+        <tr *ngFor="let training of defineNumber(6)">
+          <td>{{training}}</td>
+          <td>{{table.Trainings[training].BenefitName}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
