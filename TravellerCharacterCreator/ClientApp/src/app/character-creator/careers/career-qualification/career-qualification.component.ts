@@ -13,7 +13,6 @@ import {RollingService} from "../../../services/data-services/rolling.service";
 export class CareerQualificationComponent implements OnInit {
   career: Career;
   qualificationRoll: number;
-  failedToQualify: boolean = false;
 
   constructor(private _careerService: CareerService,
               private _characterService: CharacterService,

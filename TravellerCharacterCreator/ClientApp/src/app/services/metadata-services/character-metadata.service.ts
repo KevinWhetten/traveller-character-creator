@@ -113,6 +113,10 @@ export class CharacterMetadataService {
     this.metadata.currentAssignment = assignmentName;
     this.save();
   }
+  getAssignment() {
+    this.load();
+    return this.metadata.currentAssignment;
+  }
 
   //endregion
 

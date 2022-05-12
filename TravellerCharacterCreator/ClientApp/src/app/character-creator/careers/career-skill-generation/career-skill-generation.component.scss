@@ -1,0 +1,44 @@
+table{
+  width: 100%;
+
+  th {
+    background-color: #00b0eb;
+    height: 42px;
+  }
+
+  select {
+    width: 128px;
+  }
+
+  label {
+    margin-left: 16px;
+  }
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 128px;
+  height: 32px;
+  background-color: #00b0eb;
+  font-size: 11pt;
+  padding: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.d6 {
+  width: 10%;
+}
+
+.table-name {
+  width: 80%;
+}
+
+.skill-select {
+  width: 20%;
+}
