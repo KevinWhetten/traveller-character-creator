@@ -15,6 +15,407 @@ import {SkillService} from "./skill.service";
   providedIn: `root`
 })
 export class CareerService {
+  private dummyTraining = {
+    BenefitName: ``,
+  } as Training;
+
+  // ----- CHARACTERISTIC TRAINING -----
+  private strengthTraining = {
+    BenefitName: `STR +1`,
+    Type: 'characteristic',
+    SkillNames: ['STR']
+  } as Training;
+  private dexterityTraining = {
+    BenefitName: `DEX +1`,
+    Type: 'characteristic',
+    SkillNames: ['DEX']
+  } as Training;
+  private enduranceTraining = {
+    BenefitName: `END +1`,
+    Type: 'characteristic',
+    SkillNames: ['END']
+  } as Training;
+  private intelligenceTraining = {
+    BenefitName: `INT +1`,
+    Type: 'characteristic',
+    SkillNames: ['INT']
+  } as Training;
+  private educationTraining = {
+    BenefitName: `EDU +1`,
+    Type: 'characteristic',
+    SkillNames: ['EDU']
+  } as Training;
+  private socialStatusTraining = {
+    BenefitName: `SOC +1`,
+    Type: 'characteristic',
+    SkillNames: ['SOC']
+  } as Training;
+  private psiTraining = {
+    BenefitName: `PSI +1`,
+    Type: 'characteristic',
+    SkillNames: ['PSI']
+  } as Training;
+
+  // ----- SKILL TRAINING -----
+  private adminTraining = {
+    BenefitName: `${this._skillService.SkillNames.Admin}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Admin]
+  } as Training;
+  private advocateTraining = {
+    BenefitName: `${this._skillService.SkillNames.Advocate}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Advocate]
+  } as Training;
+  private animalsTraining = {
+    BenefitName: `${this._skillService.SkillNames.Animals}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.AnimalsHandling,
+      this._skillService.SkillNames.AnimalsTraining,
+      this._skillService.SkillNames.AnimalsVeterinary,
+    ]
+  } as Training;
+  private artTraining = {
+    BenefitName: `${this._skillService.SkillNames.Art}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.ArtPerformer,
+      this._skillService.SkillNames.ArtHolography,
+      this._skillService.SkillNames.ArtInstrument,
+      this._skillService.SkillNames.ArtVisualMedia,
+      this._skillService.SkillNames.ArtWrite,
+    ]
+  } as Training;
+  private astrogationTraining = {
+    BenefitName: `${this._skillService.SkillNames.Astrogation}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Astrogation]
+  } as Training;
+  private athleticsTraining = {
+    BenefitName: `${this._skillService.SkillNames.Athletics}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.AthleticsStrength,
+      this._skillService.SkillNames.AthleticsDexterity,
+      this._skillService.SkillNames.AthleticsEndurance,
+    ]
+  } as Training;
+  private athleticsStrengthTraining = {
+    BenefitName: `${this._skillService.SkillNames.Athletics} (${this._skillService.SkillNames.AthleticsStrength})`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.AthleticsStrength]
+  } as Training;
+  private brokerTraining = {
+    BenefitName: `${this._skillService.SkillNames.Broker}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Broker]
+  } as Training;
+  private carouseTraining = {
+    BenefitName: `${this._skillService.SkillNames.Carouse}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Carouse]
+  } as Training;
+  private deceptionTraining = {
+    BenefitName: `${this._skillService.SkillNames.Deception}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Deception]
+  } as Training;
+  private diplomatTraining = {
+    BenefitName: `${this._skillService.SkillNames.Diplomat}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Diplomat]
+  } as Training;
+  private driveTraining = {
+    BenefitName: `${this._skillService.SkillNames.Drive}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.DriveHovercraft,
+      this._skillService.SkillNames.DriveMole,
+      this._skillService.SkillNames.DriveTrack,
+      this._skillService.SkillNames.DriveWalker,
+      this._skillService.SkillNames.DriveWheel,
+    ]
+  } as Training;
+  private electronicsTraining = {
+    BenefitName: `${this._skillService.SkillNames.Electronics}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.ElectronicsComms,
+      this._skillService.SkillNames.ElectronicsComputers,
+      this._skillService.SkillNames.ElectronicsRemoteOps,
+      this._skillService.SkillNames.ElectronicsSensors,
+    ]
+  } as Training;
+  private commsTraining = {
+    BenefitName: `${this._skillService.SkillNames.Electronics} (${this._skillService.SkillNames.ElectronicsComms})`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.ElectronicsComms]
+  } as Training;
+  private computersTraining = {
+    BenefitName: `${this._skillService.SkillNames.Electronics} (${this._skillService.SkillNames.ElectronicsComputers})`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.ElectronicsComputers]
+  } as Training;
+  private sensorsTraining = {
+    BenefitName: `${this._skillService.SkillNames.Electronics} (${this._skillService.SkillNames.ElectronicsSensors})`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.ElectronicsSensors]
+  } as Training;
+  private engineerTraining = {
+    BenefitName: `${this._skillService.SkillNames.Engineer}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.EngineerMDrive,
+      this._skillService.SkillNames.EngineerJDrive,
+      this._skillService.SkillNames.EngineerLifeSupport,
+      this._skillService.SkillNames.EngineerPower
+    ]
+  } as Training;
+  private explosivesTraining = {
+    BenefitName: `${this._skillService.SkillNames.Explosives}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Explosives]
+  } as Training;
+  private flyerTraining = {
+    BenefitName: `${this._skillService.SkillNames.Flyer}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.FlyerAirship,
+      this._skillService.SkillNames.FlyerGrav,
+      this._skillService.SkillNames.FlyerOrnithopter,
+      this._skillService.SkillNames.FlyerRotor,
+      this._skillService.SkillNames.FlyerWing,
+    ]
+  } as Training;
+  private gamblerTraining = {
+    BenefitName: `${this._skillService.SkillNames.Gambler}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Gambler]
+  } as Training;
+  private gunnerTraining = {
+    BenefitName: `${this._skillService.SkillNames.Gunner}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Gunner]
+  } as Training;
+  private gunCombatTraining = {
+    BenefitName: `${this._skillService.SkillNames.GunCombat}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.GunCombatArchaic,
+      this._skillService.SkillNames.GunCombatEnergy,
+      this._skillService.SkillNames.GunCombatSlug,
+    ]
+  } as Training;
+  private heavyWeaponsTraining = {
+    BenefitName: `${this._skillService.SkillNames.HeavyWeapons}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.HeavyWeaponsArtillery,
+      this._skillService.SkillNames.HeavyWeaponsManPortable,
+      this._skillService.SkillNames.HeavyWeaponsVehicle,
+    ]
+  } as Training;
+  private vehicleTraining = {
+    BenefitName: `${this._skillService.SkillNames.HeavyWeapons} (${this._skillService.SkillNames.HeavyWeaponsVehicle})`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.HeavyWeaponsVehicle]
+  } as Training;
+  private investigateTraining = {
+    BenefitName: `${this._skillService.SkillNames.Investigate}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Investigate]
+  } as Training;
+  private jackOfAllTradesTraining = {
+    BenefitName: `${this._skillService.SkillNames.JackOfAllTrades}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.JackOfAllTrades]
+  } as Training;
+  private languageTraining = {
+    BenefitName: `${this._skillService.SkillNames.Language}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.Language1,
+      this._skillService.SkillNames.Language2,
+      this._skillService.SkillNames.Language3,
+      this._skillService.SkillNames.Language4,
+      this._skillService.SkillNames.Language5,
+    ]
+  } as Training;
+  private leadershipTraining = {
+    BenefitName: `${this._skillService.SkillNames.Leadership}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Leadership]
+  } as Training;
+  private mechanicTraining = {
+    BenefitName: `${this._skillService.SkillNames.Mechanic}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Mechanic]
+  } as Training;
+  private medicTraining = {
+    BenefitName: `${this._skillService.SkillNames.Medic}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Medic]
+  } as Training;
+  private meleeTraining = {
+    BenefitName: `${this._skillService.SkillNames.Melee}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.MeleeBlade,
+      this._skillService.SkillNames.MeleeBludgeon,
+      this._skillService.SkillNames.MeleeUnarmed,
+    ]
+  } as Training;
+  private unarmedTraining = {
+    BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeUnarmed})`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.MeleeUnarmed]
+  } as Training;
+  private bladeTraining = {
+    BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeBlade})`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.MeleeBlade]
+  } as Training;
+  private navigationTraining = {
+    BenefitName: `${this._skillService.SkillNames.Navigation}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Navigation]
+  } as Training;
+  private persuadeTraining = {
+    BenefitName: `${this._skillService.SkillNames.Persuade}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Persuade]
+  } as Training;
+  private pilotTraining = {
+    BenefitName: `${this._skillService.SkillNames.Pilot}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.PilotSmallCraft,
+      this._skillService.SkillNames.PilotSpacecraft,
+      this._skillService.SkillNames.PilotCapitalShips,
+    ]
+  } as Training;
+  private smallCraftTraining = {
+    BenefitName: `${this._skillService.SkillNames.Pilot} (${this._skillService.SkillNames.PilotSmallCraft})`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.PilotSmallCraft]
+  } as Training;
+  private spacecraftTraining = {
+    BenefitName: `${this._skillService.SkillNames.Pilot} (${this._skillService.SkillNames.PilotSpacecraft})`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.PilotSpacecraft]
+  } as Training;
+  private professionTraining = {
+    BenefitName: `${this._skillService.SkillNames.Profession}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.Profession1,
+      this._skillService.SkillNames.Profession2,
+      this._skillService.SkillNames.Profession3,
+      this._skillService.SkillNames.Profession4,
+      this._skillService.SkillNames.Profession5,
+    ]
+  } as Training;
+  private reconTraining = {
+    BenefitName: `${this._skillService.SkillNames.Recon}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Recon]
+  } as Training;
+  private scienceTraining = {
+    BenefitName: `${this._skillService.SkillNames.Science}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.ScienceArchaeology,
+      this._skillService.SkillNames.ScienceAstronomy,
+      this._skillService.SkillNames.ScienceBiology,
+      this._skillService.SkillNames.ScienceChemistry,
+      this._skillService.SkillNames.ScienceCosmology,
+      this._skillService.SkillNames.ScienceCybernetics,
+      this._skillService.SkillNames.ScienceEconomics,
+      this._skillService.SkillNames.ScienceGenetics,
+      this._skillService.SkillNames.ScienceHistory,
+      this._skillService.SkillNames.ScienceLinguistics,
+      this._skillService.SkillNames.SciencePhilosophy,
+      this._skillService.SkillNames.SciencePhysics,
+      this._skillService.SkillNames.SciencePlanetology,
+      this._skillService.SkillNames.SciencePsionicology,
+      this._skillService.SkillNames.SciencePsychology,
+      this._skillService.SkillNames.ScienceRobotics,
+      this._skillService.SkillNames.ScienceSophontology,
+      this._skillService.SkillNames.ScienceXenology,
+    ]
+  } as Training;
+  private seafarerTraining = {
+    BenefitName: `${this._skillService.SkillNames.Seafarer}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.SeafarerOceanShips,
+      this._skillService.SkillNames.SeafarerPersonal,
+      this._skillService.SkillNames.SeafarerSail,
+      this._skillService.SkillNames.SeafarerSubmarine,
+    ]
+  } as Training;
+  private stealthTraining = {
+    BenefitName: `${this._skillService.SkillNames.Stealth}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Stealth]
+  } as Training;
+  private stewardTraining = {
+    BenefitName: `${this._skillService.SkillNames.Steward}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Steward]
+  } as Training;
+  private streetwiseTraining = {
+    BenefitName: `${this._skillService.SkillNames.Streetwise}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Streetwise]
+  } as Training;
+  private survivalTraining = {
+    BenefitName: `${this._skillService.SkillNames.Survival}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.Survival]
+  } as Training;
+  private tacticsTraining = {
+    BenefitName: `${this._skillService.SkillNames.Tactics}`,
+    Type: 'skill',
+    SkillNames: [
+      this._skillService.SkillNames.TacticsMilitary,
+      this._skillService.SkillNames.TacticsNaval,
+    ]
+  } as Training;
+  private militaryTraining = {
+    BenefitName: `${this._skillService.SkillNames.Tactics} (${this._skillService.SkillNames.TacticsMilitary})`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.TacticsMilitary]
+  } as Training;
+  private navalTraining = {
+    BenefitName: `${this._skillService.SkillNames.Tactics} (${this._skillService.SkillNames.TacticsNaval})`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.TacticsNaval]
+  } as Training;
+  private vaccSuitTraining = {
+    BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
+    Type: 'skill',
+    SkillNames: [this._skillService.SkillNames.VaccSuit]
+  } as Training;
+
+   // ----- PSIONIC TRAINING -----
+  private awarenessTraining = {
+    BenefitName: `Awareness`,
+  } as Training;
+  private clairvoyanceTraining = {
+    BenefitName: `Clairvoyance`,
+  } as Training;
+  private telekinesisTraining = {
+    BenefitName: `Telekinesis`,
+  } as Training;
+  private telepathyTraining = {
+    BenefitName: `Telepathy`,
+  } as Training;
+  private teleportationTraining = {
+    BenefitName: `Teleportation`,
+  } as Training;
+
   private careers: Record<string, Career> = {
     'Agent': {
       Name: `Agent`,
@@ -76,163 +477,67 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: this._skillService.SkillNames.GunCombat,
-              Type: 'base-skill',
-              Increase: this._skillService.SkillNames.GunCombat
-            } as Training,
-            2: {
-              BenefitName: `DEX +1`,
-              Type: 'characteristic',
-              Increase: 'DEX'
-            } as Training,
-            3: {
-              BenefitName: `END +1`,
-              Type: 'characteristic',
-              Increase: 'END'
-            } as Training,
-            4: {
-              BenefitName: this._skillService.SkillNames.Melee,
-              Type: 'base-skill',
-              Increase: this._skillService.SkillNames.Melee
-            } as Training,
-            5: {
-              BenefitName: `INT +1`,
-              Type: 'characteristic',
-              Increase: 'INT'
-            } as Training,
-            6: {
-              BenefitName: this._skillService.SkillNames.Athletics,
-              Type: 'base-skill',
-              Increase: this._skillService.SkillNames.Athletics
-            } as Training
+            1: this.gunCombatTraining,
+            2: this.dexterityTraining,
+            3: this.enduranceTraining,
+            4: this.meleeTraining,
+            5: this.intelligenceTraining,
+            6: this.athleticsTraining
           }
         } as TrainingTable,
         {
           Name: `Service Skills`,
           Trainings: {
-            1: {
-              BenefitName: this._skillService.SkillNames.Streetwise,
-              Type: 'skill',
-              Increase: this._skillService.SkillNames.Streetwise
-            } as Training,
-            2: {
-              BenefitName: this._skillService.SkillNames.Drive,
-              Type: 'base-skill',
-              Increase: this._skillService.SkillNames.Drive
-            } as Training,
-            3: {
-              BenefitName: this._skillService.SkillNames.Investigate,
-              Type: 'skill',
-              Increase: this._skillService.SkillNames.Investigate
-            } as Training,
-            4: {
-              BenefitName: this._skillService.SkillNames.Flyer,
-              Type: 'base-skill',
-              Increase: this._skillService.SkillNames.Flyer
-            } as Training,
-            5: {
-              BenefitName: this._skillService.SkillNames.Recon,
-              Type: 'skill',
-              Increase: this._skillService.SkillNames.Recon
-            } as Training,
-            6: {
-              BenefitName: this._skillService.SkillNames.GunCombat,
-              Type: 'base-skill',
-              Increase: this._skillService.SkillNames.GunCombat
-            } as Training
+            1: this.streetwiseTraining,
+            2: this.driveTraining,
+            3: this.investigateTraining,
+            4: this.flyerTraining,
+            5: this.reconTraining,
+            6: this.gunCombatTraining
           }
         } as TrainingTable,
         {
           Name: `Advanced Education (Min EDU 8)`,
           Trainings: {
-            1: {
-              BenefitName: this._skillService.SkillNames.Advocate,
-            } as Training,
-            2: {
-              BenefitName: this._skillService.SkillNames.Language,
-            } as Training,
-            3: {
-              BenefitName: this._skillService.SkillNames.Explosives,
-            } as Training,
-            4: {
-              BenefitName: this._skillService.SkillNames.Medic,
-            } as Training,
-            5: {
-              BenefitName: this._skillService.SkillNames.VaccSuit,
-            } as Training,
-            6: {
-              BenefitName: this._skillService.SkillNames.Electronics,
-            } as Training
+            1: this.advocateTraining,
+            2: this.languageTraining,
+            3: this.explosivesTraining,
+            4: this.medicTraining,
+            5: this.vaccSuitTraining,
+            6: this.electronicsTraining
           }
         } as TrainingTable,
         {
           Name: `Law Enforcement`,
           Trainings: {
-            1: {
-              BenefitName: this._skillService.SkillNames.Investigate,
-            } as Training,
-            2: {
-              BenefitName: this._skillService.SkillNames.Recon,
-            } as Training,
-            3: {
-              BenefitName: this._skillService.SkillNames.Streetwise,
-            } as Training,
-            4: {
-              BenefitName: this._skillService.SkillNames.Stealth,
-            } as Training,
-            5: {
-              BenefitName: this._skillService.SkillNames.Melee,
-            } as Training,
-            6: {
-              BenefitName: this._skillService.SkillNames.Advocate,
-            } as Training
+            1: this.investigateTraining,
+            2: this.reconTraining,
+            3: this.streetwiseTraining,
+            4: this.stealthTraining,
+            5: this.meleeTraining,
+            6: this.advocateTraining
           }
         } as TrainingTable,
         {
           Name: `Intelligence`,
           Trainings: {
-            1: {
-              BenefitName: this._skillService.SkillNames.Investigate,
-            } as Training,
-            2: {
-              BenefitName: this._skillService.SkillNames.Recon,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Electronics} (${this._skillService.SkillNames.ElectronicsComms})`,
-            } as Training,
-            4: {
-              BenefitName: this._skillService.SkillNames.Stealth,
-            } as Training,
-            5: {
-              BenefitName: this._skillService.SkillNames.Persuade,
-            } as Training,
-            6: {
-              BenefitName: this._skillService.SkillNames.Deception,
-            } as Training
+            1: this.investigateTraining,
+            2: this.reconTraining,
+            3: this.commsTraining,
+            4: this.stealthTraining,
+            5: this.persuadeTraining,
+            6: this.deceptionTraining
           }
         } as TrainingTable,
         {
           Name: `Corporate`,
           Trainings: {
-            1: {
-              BenefitName: this._skillService.SkillNames.Investigate,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Electronics} (${this._skillService.SkillNames.ElectronicsComputers})`,
-            } as Training,
-            3: {
-              BenefitName: this._skillService.SkillNames.Stealth,
-            } as Training,
-            4: {
-              BenefitName: this._skillService.SkillNames.Carouse,
-            } as Training,
-            5: {
-              BenefitName: this._skillService.SkillNames.Deception,
-            } as Training,
-            6: {
-              BenefitName: this._skillService.SkillNames.Streetwise,
-            } as Training
+            1: this.investigateTraining,
+            2: this.computersTraining,
+            3: this.stealthTraining,
+            4: this.carouseTraining,
+            5: this.deceptionTraining,
+            6: this.streetwiseTraining
           }
         } as TrainingTable,
       ],
@@ -422,24 +727,12 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: `STR +1`,
-            } as Training,
-            2: {
-              BenefitName: `DEX +1`,
-            } as Training,
-            3: {
-              BenefitName: `END +1`,
-            } as Training,
-            4: {
-              BenefitName: this._skillService.SkillNames.Gambler,
-            } as Training,
-            5: {
-              BenefitName: this._skillService.SkillNames.Medic,
-            } as Training,
-            6: {
-              BenefitName: this._skillService.SkillNames.Melee,
-            } as Training
+            1: this.strengthTraining,
+            2: this.dexterityTraining,
+            3: this.enduranceTraining,
+            4: this.gamblerTraining,
+            5: this.medicTraining,
+            6: this.meleeTraining
           }
         } as TrainingTable,
         {
@@ -447,137 +740,91 @@ export class CareerService {
           Trainings: {
             1: {
               BenefitName: `${this._skillService.SkillNames.Drive} or ${this._skillService.SkillNames.VaccSuit}`,
+              Type: 'skill',
+              SkillNames: [
+                this._skillService.SkillNames.DriveHovercraft,
+                this._skillService.SkillNames.DriveMole,
+                this._skillService.SkillNames.DriveTrack,
+                this._skillService.SkillNames.DriveWalker,
+                this._skillService.SkillNames.DriveWheel,
+                this._skillService.SkillNames.VaccSuit,
+              ]
             } as Training,
-            2: {
-              BenefitName: this._skillService.SkillNames.Athletics,
-            } as Training,
-            3: {
-              BenefitName: this._skillService.SkillNames.GunCombat,
-            } as Training,
-            4: {
-              BenefitName: this._skillService.SkillNames.Recon,
-            } as Training,
-            5: {
-              BenefitName: this._skillService.SkillNames.Melee,
-            } as Training,
-            6: {
-              BenefitName: this._skillService.SkillNames.HeavyWeapons,
-            } as Training
+            2: this.athleticsTraining,
+            3: this.gunCombatTraining,
+            4: this.reconTraining,
+            5: this.meleeTraining,
+            6: this.heavyWeaponsTraining
           }
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 8)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Tactics} (${this._skillService.SkillNames.TacticsMilitary})`,
-            } as Training,
-            2: {
-              BenefitName: this._skillService.SkillNames.Electronics,
-            } as Training,
-            3: {
-              BenefitName: this._skillService.SkillNames.Navigation,
-            } as Training,
-            4: {
-              BenefitName: this._skillService.SkillNames.Explosives,
-            } as Training,
-            5: {
-              BenefitName: this._skillService.SkillNames.Engineer,
-            } as Training,
-            6: {
-              BenefitName: this._skillService.SkillNames.Survival,
-            } as Training
+            1: this.militaryTraining,
+            2: this.electronicsTraining,
+            3: this.navigationTraining,
+            4: this.explosivesTraining,
+            5: this.engineerTraining,
+            6: this.survivalTraining
           }
         } as TrainingTable,
         {
           Name: `Officer (Commissioned Only)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.TacticsMilitary} (${this._skillService.SkillNames.TacticsMilitary})`,
-            } as Training,
-            2: {
-              BenefitName: this._skillService.SkillNames.Leadership,
-            } as Training,
-            3: {
-              BenefitName: this._skillService.SkillNames.Advocate,
-            } as Training,
-            4: {
-              BenefitName: this._skillService.SkillNames.Diplomat,
-            } as Training,
-            5: {
-              BenefitName: this._skillService.SkillNames.Electronics,
-            } as Training,
-            6: {
-              BenefitName: this._skillService.SkillNames.Admin,
-            } as Training
+            1: this.militaryTraining,
+            2: this.leadershipTraining,
+            3: this.advocateTraining,
+            4: this.diplomatTraining,
+            5: this.electronicsTraining,
+            6: this.adminTraining
           }
         } as TrainingTable,
         {
           Name: `Support`,
           Trainings: {
-            1: {
-              BenefitName: this._skillService.SkillNames.Mechanic,
-            } as Training,
+            1: this.mechanicTraining,
             2: {
               BenefitName: `${this._skillService.SkillNames.Drive} or ${this._skillService.SkillNames.Flyer}`,
+              Type: 'skill',
+              SkillNames: [
+                this._skillService.SkillNames.DriveHovercraft,
+                this._skillService.SkillNames.DriveMole,
+                this._skillService.SkillNames.DriveTrack,
+                this._skillService.SkillNames.DriveWalker,
+                this._skillService.SkillNames.DriveWheel,
+                this._skillService.SkillNames.FlyerAirship,
+                this._skillService.SkillNames.FlyerGrav,
+                this._skillService.SkillNames.FlyerOrnithopter,
+                this._skillService.SkillNames.FlyerRotor,
+                this._skillService.SkillNames.FlyerWing,
+              ]
             } as Training,
-            3: {
-              BenefitName: this._skillService.SkillNames.Profession,
-            } as Training,
-            4: {
-              BenefitName: this._skillService.SkillNames.Explosives,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Electronics} (${this._skillService.SkillNames.ElectronicsComms})`,
-            } as Training,
-            6: {
-              BenefitName: this._skillService.SkillNames.Medic,
-            } as Training
+            3: this.professionTraining,
+            4: this.explosivesTraining,
+            5: this.commsTraining,
+            6: this.medicTraining
           }
         } as TrainingTable,
         {
           Name: `Infantry`,
           Trainings: {
-            1: {
-              BenefitName: this._skillService.SkillNames.GunCombat,
-            } as Training,
-            2: {
-              BenefitName: this._skillService.SkillNames.Melee,
-            } as Training,
-            3: {
-              BenefitName: this._skillService.SkillNames.HeavyWeapons,
-            } as Training,
-            4: {
-              BenefitName: this._skillService.SkillNames.Stealth,
-            } as Training,
-            5: {
-              BenefitName: this._skillService.SkillNames.Athletics,
-            } as Training,
-            6: {
-              BenefitName: this._skillService.SkillNames.Recon,
-            } as Training
+            1: this.gunCombatTraining,
+            2: this.meleeTraining,
+            3: this.heavyWeaponsTraining,
+            4: this.stealthTraining,
+            5: this.athleticsTraining,
+            6: this.reconTraining
           }
         } as TrainingTable,
         {
           Name: `Cavalry`,
           Trainings: {
-            1: {
-              BenefitName: this._skillService.SkillNames.Mechanic,
-            } as Training,
-            2: {
-              BenefitName: this._skillService.SkillNames.Drive,
-            } as Training,
-            3: {
-              BenefitName: this._skillService.SkillNames.Flyer,
-            } as Training,
-            4: {
-              BenefitName: this._skillService.SkillNames.Recon,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.HeavyWeapons} (${this._skillService.SkillNames.HeavyWeaponsVehicle})`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Electronics} (${this._skillService.SkillNames.ElectronicsSensors})`,
-            } as Training
+            1: this.mechanicTraining,
+            2: this.driveTraining,
+            3: this.flyerTraining,
+            4: this.reconTraining,
+            5: this.vehicleTraining,
+            6: this.sensorsTraining
           }
         } as TrainingTable,
       ],
@@ -764,139 +1011,67 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: `EDU +1`,
-            } as Training,
-            2: {
-              BenefitName: `INT +1`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Carouse}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Gambler}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Drive}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.JackOfAllTrades}`,
-            } as Training
+            1: this.educationTraining,
+            2: this.intelligenceTraining,
+            3: this.carouseTraining,
+            4: this.gamblerTraining,
+            5: this.driveTraining,
+            6: this.jackOfAllTradesTraining
           }
         } as TrainingTable,
         {
           Name: `Service Skills`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Drive}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Flyer}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Melee}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Steward}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Profession}`,
-            } as Training
+            1: this.driveTraining,
+            2: this.flyerTraining,
+            3: this.streetwiseTraining,
+            4: this.meleeTraining,
+            5: this.stewardTraining,
+            6: this.professionTraining
           }
         } as TrainingTable,
         {
           Name: `Advanced Education (Min EDU 10)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Art}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Advocate}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Diplomat}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Language}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Electronics} (${this._skillService.SkillNames.ElectronicsComputers})`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Medic}`,
-            } as Training
+            1: this.artTraining,
+            2: this.advocateTraining,
+            3: this.diplomatTraining,
+            4: this.languageTraining,
+            5: this.computersTraining,
+            6: this.medicTraining
           }
         } as TrainingTable,
         {
           Name: `Corporate`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Advocate}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Admin}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Broker}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Electronics} (${this._skillService.SkillNames.ElectronicsComputers})`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Diplomat}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Leadership}`,
-            } as Training
+            1: this.advocateTraining,
+            2: this.adminTraining,
+            3: this.brokerTraining,
+            4: this.computersTraining,
+            5: this.diplomatTraining,
+            6: this.leadershipTraining
           }
         } as TrainingTable,
         {
           Name: `Worker`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Drive}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Mechanic}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Engineer}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Profession}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Science}`,
-            } as Training
+            1: this.driveTraining,
+            2: this.mechanicTraining,
+            3: this.electronicsTraining,
+            4: this.engineerTraining,
+            5: this.professionTraining,
+            6: this.scienceTraining
           }
         } as TrainingTable,
         {
           Name: `Citizen`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Animals}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Athletics}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.JackOfAllTrades}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Drive}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Survival}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Recon}`,
-            } as Training
+            1: this.animalsTraining,
+            2: this.athleticsTraining,
+            3: this.jackOfAllTradesTraining,
+            4: this.driveTraining,
+            5: this.survivalTraining,
+            6: this.reconTraining
           }
         } as TrainingTable
       ],
@@ -1135,140 +1310,75 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: `STR +1`,
-            } as Training,
-            2: {
-              BenefitName: `END +1`,
-            } as Training,
-            3: {
-              BenefitName: `DEX +1`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Language}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Profession}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.JackOfAllTrades}`,
-            } as Training
+            1: this.strengthTraining,
+            2: this.enduranceTraining,
+            3: this.dexterityTraining,
+            4: this.languageTraining,
+            5: this.professionTraining,
+            6: this.jackOfAllTradesTraining
           }
         } as TrainingTable,
         {
           Name: `Service Skills`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Athletics}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeUnarmed})`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Recon}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Stealth}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Survival}`,
-            } as Training
+            1: this.athleticsTraining,
+            2: this.unarmedTraining,
+            3: this.reconTraining,
+            4: this.streetwiseTraining,
+            5: this.stealthTraining,
+            6: this.survivalTraining
           }
         } as TrainingTable,
         {
           Name: ``,
           Trainings: {
-            1: {
-              BenefitName: ``,
-            } as Training,
-            2: {
-              BenefitName: ``,
-            } as Training,
-            3: {
-              BenefitName: ``,
-            } as Training,
-            4: {
-              BenefitName: ``,
-            } as Training,
-            5: {
-              BenefitName: ``,
-            } as Training,
-            6: {
-              BenefitName: ``,
-            } as Training
+            1: this.dummyTraining,
+            2: this.dummyTraining,
+            3: this.dummyTraining,
+            4: this.dummyTraining,
+            5: this.dummyTraining,
+            6: this.dummyTraining
           }
         } as TrainingTable,
         {
           Name: `Barbarian`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Animals}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Carouse}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeBlade})`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Stealth}`,
-            } as Training,
+            1: this.animalsTraining,
+            2: this.carouseTraining,
+            3: this.bladeTraining,
+            4: this.stealthTraining,
             5: {
               BenefitName: `${this._skillService.SkillNames.Seafarer} (${this._skillService.SkillNames.SeafarerPersonal}
                or ${this._skillService.SkillNames.SeafarerSail})`,
+              Type: 'skill',
+              SkillNames: [
+                this._skillService.SkillNames.SeafarerPersonal,
+                this._skillService.SkillNames.SeafarerSail,
+              ]
             } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Survival}`,
-            } as Training
+            6: this.survivalTraining
           }
         } as TrainingTable,
         {
           Name: `Wanderer`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Drive}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Deception}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Recon}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Stealth}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Survival}`,
-            } as Training
+            1: this.driveTraining,
+            2: this.deceptionTraining,
+            3: this.reconTraining,
+            4: this.stealthTraining,
+            5: this.streetwiseTraining,
+            6: this.survivalTraining
           }
         } as TrainingTable,
         {
           Name: `Scavenger`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Pilot} (${this._skillService.SkillNames.PilotSmallCraft})`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Mechanic}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Astrogation}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Profession}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.GunCombat}`,
-            } as Training
+            1: this.smallCraftTraining,
+            2: this.mechanicTraining,
+            3: this.astrogationTraining,
+            4: this.vaccSuitTraining,
+            5: this.professionTraining,
+            6: this.gunCombatTraining
           }
         } as TrainingTable,
       ],
@@ -1507,93 +1617,45 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: `DEX +1`,
-            } as Training,
-            2: {
-              BenefitName: `INT +1`,
-            } as Training,
-            3: {
-              BenefitName: `SOC +1`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Language}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Carouse}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.JackOfAllTrades}`,
-            } as Training
+            1: this.dexterityTraining,
+            2: this.intelligenceTraining,
+            3: this.socialStatusTraining,
+            4: this.languageTraining,
+            5: this.carouseTraining,
+            6: this.jackOfAllTradesTraining
           }
         } as TrainingTable,
         {
           Name: `Service Skills`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Art}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Carouse}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Deception}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Drive}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Persuade}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Steward}`,
-            } as Training
+            1: this.artTraining,
+            2: this.carouseTraining,
+            3: this.deceptionTraining,
+            4: this.driveTraining,
+            5: this.persuadeTraining,
+            6: this.stewardTraining
           }
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 10)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Advocate}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Broker}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Deception}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Science}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Diplomat}`,
-            } as Training
+            1: this.advocateTraining,
+            2: this.brokerTraining,
+            3: this.deceptionTraining,
+            4: this.scienceTraining,
+            5: this.streetwiseTraining,
+            6: this.diplomatTraining
           }
         } as TrainingTable,
         {
           Name: `Artist`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Art}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Carouse}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Electronics} (${this._skillService.SkillNames.ElectronicsComputers})`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Gambler}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Persuade}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Profession}`,
-            } as Training
+            1: this.artTraining,
+            2: this.carouseTraining,
+            3: this.computersTraining,
+            4: this.gamblerTraining,
+            5: this.persuadeTraining,
+            6: this.professionTraining
           }
         } as TrainingTable,
         {
@@ -1602,22 +1664,17 @@ export class CareerService {
             1: {
               BenefitName: `${this._skillService.SkillNames.Art} (${this._skillService.SkillNames.ArtHolography} or
               ${this._skillService.SkillNames.ArtWrite})`,
+              Type: 'skill',
+              SkillNames: [
+                this._skillService.SkillNames.ArtHolography,
+                this._skillService.SkillNames.ArtWrite,
+              ]
             } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Drive}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Investigate}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Recon}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training
+            2: this.electronicsTraining,
+            3: this.driveTraining,
+            4: this.investigateTraining,
+            5: this.reconTraining,
+            6: this.streetwiseTraining
           }
         } as TrainingTable,
         {
@@ -1625,22 +1682,17 @@ export class CareerService {
           Trainings: {
             1: {
               BenefitName: `${this._skillService.SkillNames.Art} (${this._skillService.SkillNames.ArtPerformer} or ${this._skillService.SkillNames.ArtInstrument})`,
+              Type: 'skill',
+              SkillNames: [
+                this._skillService.SkillNames.ArtPerformer,
+                this._skillService.SkillNames.ArtInstrument,
+              ]
             } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Athletics}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Carouse}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Deception}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Stealth}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training
+            2: this.athleticsTraining,
+            3: this.carouseTraining,
+            4: this.deceptionTraining,
+            5: this.stealthTraining,
+            6: this.streetwiseTraining
           }
         } as TrainingTable
       ],
@@ -1881,208 +1933,115 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: `STR +1`,
-            } as Training,
-            2: {
-              BenefitName: `DEX +1`,
-            } as Training,
-            3: {
-              BenefitName: `END +1`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Gambler}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeUnarmed})`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeBlade})`,
-            } as Training
+            1: this.strengthTraining,
+            2: this.dexterityTraining,
+            3: this.enduranceTraining,
+            4: this.gamblerTraining,
+            5: this.unarmedTraining,
+            6: this.bladeTraining
           }
         } as TrainingTable,
         {
           Name: `Service Skills`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Athletics}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Tactics}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.HeavyWeapons}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.GunCombat}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Stealth}`,
-            } as Training
+            1: this.athleticsTraining,
+            2: this.vaccSuitTraining,
+            3: this.tacticsTraining,
+            4: this.heavyWeaponsTraining,
+            5: this.gunCombatTraining,
+            6: this.stealthTraining
           }
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 8)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Medic}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Survival}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Explosives}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Engineer}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Pilot}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Navigation}`,
-            } as Training
+            1: this.medicTraining,
+            2: this.survivalTraining,
+            3: this.explosivesTraining,
+            4: this.engineerTraining,
+            5: this.pilotTraining,
+            6: this.navigationTraining
           }
         } as TrainingTable,
         {
           Name: `Support`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Mechanic}`,
-            } as Training,
+            1: this.electronicsTraining,
+            2: this.mechanicTraining,
             3: {
               BenefitName: `${this._skillService.SkillNames.Drive} or ${this._skillService.SkillNames.Flyer}`,
+              Type: 'skill',
+              SkillNames: [
+                this._skillService.SkillNames.DriveHovercraft,
+                this._skillService.SkillNames.DriveMole,
+                this._skillService.SkillNames.DriveTrack,
+                this._skillService.SkillNames.DriveWalker,
+                this._skillService.SkillNames.DriveWheel,
+                this._skillService.SkillNames.FlyerAirship,
+                this._skillService.SkillNames.FlyerGrav,
+                this._skillService.SkillNames.FlyerOrnithopter,
+                this._skillService.SkillNames.FlyerRotor,
+                this._skillService.SkillNames.FlyerWing,
+              ]
             } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Medic}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.HeavyWeapons}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.GunCombat}`,
-            } as Training
+            4: this.medicTraining,
+            5: this.heavyWeaponsTraining,
+            6: this.gunCombatTraining
           }
         } as TrainingTable,
         {
           Name: `Star Marine`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Athletics}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Gunner}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeBlade})`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.GunCombat}`,
-            } as Training
+            1: this.vaccSuitTraining,
+            2: this.athleticsTraining,
+            3: this.gunnerTraining,
+            4: this.bladeTraining,
+            5: this.electronicsTraining,
+            6: this.gunCombatTraining
           }
         } as TrainingTable,
         {
           Name: `Ground Assault`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.HeavyWeapons}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Recon}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeBlade})`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Tactics} (${this._skillService.SkillNames.TacticsMilitary})`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.GunCombat}`,
-            } as Training
+            1: this.vaccSuitTraining,
+            2: this.heavyWeaponsTraining,
+            3: this.reconTraining,
+            4: this.bladeTraining,
+            5: this.militaryTraining,
+            6: this.gunCombatTraining
           }
         } as TrainingTable,
         {
           Name: `Officer (Commissioned Only)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Tactics}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Admin}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Advocate}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Leadership}`,
-            } as Training
+            1: this.electronicsTraining,
+            2: this.tacticsTraining,
+            3: this.adminTraining,
+            4: this.advocateTraining,
+            5: this.vaccSuitTraining,
+            6: this.leadershipTraining
           }
         } as TrainingTable,
         {
           Name: ``,
           Trainings: {
-            1: {
-              BenefitName: ``,
-            } as Training,
-            2: {
-              BenefitName: ``,
-            } as Training,
-            3: {
-              BenefitName: ``,
-            } as Training,
-            4: {
-              BenefitName: ``,
-            } as Training,
-            5: {
-              BenefitName: ``,
-            } as Training,
-            6: {
-              BenefitName: ``,
-            } as Training
+            1: this.dummyTraining,
+            2: this.dummyTraining,
+            3: this.dummyTraining,
+            4: this.dummyTraining,
+            5: this.dummyTraining,
+            6: this.dummyTraining
           }
         } as TrainingTable,
         {
           Name: ``,
           Trainings: {
-            1: {
-              BenefitName: ``,
-            } as Training,
-            2: {
-              BenefitName: ``,
-            } as Training,
-            3: {
-              BenefitName: ``,
-            } as Training,
-            4: {
-              BenefitName: ``,
-            } as Training,
-            5: {
-              BenefitName: ``,
-            } as Training,
-            6: {
-              BenefitName: ``,
-            } as Training
+            1: this.dummyTraining,
+            2: this.dummyTraining,
+            3: this.dummyTraining,
+            4: this.dummyTraining,
+            5: this.dummyTraining,
+            6: this.dummyTraining
           }
         } as TrainingTable
       ],
@@ -2291,139 +2250,67 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: `STR +1`,
-            } as Training,
-            2: {
-              BenefitName: `DEX +1`,
-            } as Training,
-            3: {
-              BenefitName: `END +1`,
-            } as Training,
-            4: {
-              BenefitName: `INT +1`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Language}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training
+            1: this.strengthTraining,
+            2: this.dexterityTraining,
+            3: this.enduranceTraining,
+            4: this.intelligenceTraining,
+            5: this.languageTraining,
+            6: this.streetwiseTraining
           }
         } as TrainingTable,
         {
           Name: `Service Skills`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Drive}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Broker}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Steward}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Persuade}`,
-            } as Training
+            1: this.driveTraining,
+            2: this.vaccSuitTraining,
+            3: this.brokerTraining,
+            4: this.stewardTraining,
+            5: this.electronicsTraining,
+            6: this.persuadeTraining
           }
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 10)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Engineer}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Astrogation}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Pilot}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Admin}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Advocate}`,
-            } as Training
+            1: this.engineerTraining,
+            2: this.astrogationTraining,
+            3: this.electronicsTraining,
+            4: this.pilotTraining,
+            5: this.adminTraining,
+            6: this.advocateTraining
           }
         } as TrainingTable,
         {
           Name: `Merchant Marine`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Pilot}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Athletics}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Mechanic}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Engineer}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training
+            1: this.pilotTraining,
+            2: this.vaccSuitTraining,
+            3: this.athleticsTraining,
+            4: this.mechanicTraining,
+            5: this.engineerTraining,
+            6: this.electronicsTraining
           }
         } as TrainingTable,
         {
           Name: `Free Trader`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Pilot} (${this._skillService.SkillNames.PilotSpacecraft})`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Deception}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Mechanic}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Gunner}`,
-            } as Training
+            1: this.spacecraftTraining,
+            2: this.vaccSuitTraining,
+            3: this.deceptionTraining,
+            4: this.mechanicTraining,
+            5: this.streetwiseTraining,
+            6: this.gunnerTraining
           }
         } as TrainingTable,
         {
           Name: `Broker`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Admin}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Advocate}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Broker}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Deception}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Persuade}`,
-            } as Training
+            1: this.adminTraining,
+            2: this.advocateTraining,
+            3: this.brokerTraining,
+            4: this.streetwiseTraining,
+            5: this.deceptionTraining,
+            6: this.persuadeTraining
           }
         } as TrainingTable
       ],
@@ -2706,208 +2593,100 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: `STR +1`,
-            } as Training,
-            2: {
-              BenefitName: `DEX +1`,
-            } as Training,
-            3: {
-              BenefitName: `END +1`,
-            } as Training,
-            4: {
-              BenefitName: `INT +1`,
-            } as Training,
-            5: {
-              BenefitName: `EDU +1`,
-            } as Training,
-            6: {
-              BenefitName: `SOC +1`,
-            } as Training
+            1: this.strengthTraining,
+            2: this.dexterityTraining,
+            3: this.enduranceTraining,
+            4: this.intelligenceTraining,
+            5: this.educationTraining,
+            6: this.socialStatusTraining
           }
         } as TrainingTable,
         {
           Name: `Service Skills`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Pilot}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Athletics}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Gunner}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Mechanic}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.GunCombat}`,
-            } as Training
+            1: this.pilotTraining,
+            2: this.vaccSuitTraining,
+            3: this.athleticsTraining,
+            4: this.gunnerTraining,
+            5: this.mechanicTraining,
+            6: this.gunCombatTraining
           }
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 10)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Leadership}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Pilot}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeBlade})`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Admin}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Tactics} (${this._skillService.SkillNames.TacticsNaval})`,
-            } as Training
+            1: this.leadershipTraining,
+            2: this.electronicsTraining,
+            3: this.pilotTraining,
+            4: this.bladeTraining,
+            5: this.adminTraining,
+            6: this.navalTraining
           }
         } as TrainingTable,
         {
           Name: `Line/Crew`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Mechanic}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.GunCombat}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Flyer}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Melee}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training
+            1: this.electronicsTraining,
+            2: this.mechanicTraining,
+            3: this.gunCombatTraining,
+            4: this.flyerTraining,
+            5: this.meleeTraining,
+            6: this.vaccSuitTraining
           }
         } as TrainingTable,
         {
           Name: `Engineer/Gunner`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Engineer}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Mechanic}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Engineer}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Gunner}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Flyer}`,
-            } as Training
+            1: this.engineerTraining,
+            2: this.mechanicTraining,
+            3: this.electronicsTraining,
+            4: this.engineerTraining,
+            5: this.gunnerTraining,
+            6: this.flyerTraining
           }
         } as TrainingTable,
         {
           Name: `Flight`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Pilot}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Flyer}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Gunner}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Pilot} (${this._skillService.SkillNames.PilotSmallCraft})`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Astrogation}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training
+            1: this.pilotTraining,
+            2: this.flyerTraining,
+            3: this.gunnerTraining,
+            4: this.smallCraftTraining,
+            5: this.astrogationTraining,
+            6: this.electronicsTraining
           }
         } as TrainingTable,
         {
           Name: `Officer (Commissioned Only)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Leadership}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Pilot}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeBlade})`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Admin}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Tactics} (${this._skillService.SkillNames.TacticsNaval})`,
-            } as Training
+            1: this.leadershipTraining,
+            2: this.electronicsTraining,
+            3: this.pilotTraining,
+            4: this.bladeTraining,
+            5: this.adminTraining,
+            6: this.navalTraining
           }
         } as TrainingTable,
         {
           Name: ``,
           Trainings: {
-            1: {
-              BenefitName: ``,
-            } as Training,
-            2: {
-              BenefitName: ``,
-            } as Training,
-            3: {
-              BenefitName: ``,
-            } as Training,
-            4: {
-              BenefitName: ``,
-            } as Training,
-            5: {
-              BenefitName: ``,
-            } as Training,
-            6: {
-              BenefitName: ``,
-            } as Training
+            1: this.dummyTraining,
+            2: this.dummyTraining,
+            3: this.dummyTraining,
+            4: this.dummyTraining,
+            5: this.dummyTraining,
+            6: this.dummyTraining
           }
         } as TrainingTable,
         {
           Name: ``,
           Trainings: {
-            1: {
-              BenefitName: ``,
-            } as Training,
-            2: {
-              BenefitName: ``,
-            } as Training,
-            3: {
-              BenefitName: ``,
-            } as Training,
-            4: {
-              BenefitName: ``,
-            } as Training,
-            5: {
-              BenefitName: ``,
-            } as Training,
-            6: {
-              BenefitName: ``,
-            } as Training
+            1: this.dummyTraining,
+            2: this.dummyTraining,
+            3: this.dummyTraining,
+            4: this.dummyTraining,
+            5: this.dummyTraining,
+            6: this.dummyTraining
           }
         } as TrainingTable
       ],
@@ -3122,139 +2901,67 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: `STR +1`,
-            } as Training,
-            2: {
-              BenefitName: `DEX +1`,
-            } as Training,
-            3: {
-              BenefitName: `END +1`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Gambler}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.GunCombat}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Melee}`,
-            } as Training
+            1: this.strengthTraining,
+            2: this.dexterityTraining,
+            3: this.enduranceTraining,
+            4: this.gamblerTraining,
+            5: this.gunCombatTraining,
+            6: this.meleeTraining
           }
         } as TrainingTable,
         {
           Name: `Service Skills`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Admin}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Advocate}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Diplomat}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Investigate}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Persuade}`,
-            } as Training
+            1: this.adminTraining,
+            2: this.advocateTraining,
+            3: this.electronicsTraining,
+            4: this.diplomatTraining,
+            5: this.investigateTraining,
+            6: this.persuadeTraining
           }
         } as TrainingTable,
         {
           Name: `Advanced Education (Min EDU 8)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Admin}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Advocate}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Language}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Leadership}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Diplomat}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Art}`,
-            } as Training
+            1: this.adminTraining,
+            2: this.advocateTraining,
+            3: this.languageTraining,
+            4: this.leadershipTraining,
+            5: this.diplomatTraining,
+            6: this.artTraining
           }
         } as TrainingTable,
         {
           Name: `Administrator`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Admin}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Advocate}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Broker}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Diplomat}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Leadership}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Persuade}`,
-            } as Training
+            1: this.adminTraining,
+            2: this.advocateTraining,
+            3: this.brokerTraining,
+            4: this.diplomatTraining,
+            5: this.leadershipTraining,
+            6: this.persuadeTraining
           }
         } as TrainingTable,
         {
           Name: `Diplomat`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Advocate}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Carouse}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Steward}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Diplomat}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Deception}`,
-            } as Training
+            1: this.advocateTraining,
+            2: this.carouseTraining,
+            3: this.electronicsTraining,
+            4: this.stewardTraining,
+            5: this.diplomatTraining,
+            6: this.deceptionTraining
           }
         } as TrainingTable,
         {
           Name: `Dilettante`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Carouse}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Deception}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Flyer}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Gambler}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.JackOfAllTrades}`,
-            } as Training
+            1: this.carouseTraining,
+            2: this.deceptionTraining,
+            3: this.flyerTraining,
+            4: this.streetwiseTraining,
+            5: this.gamblerTraining,
+            6: this.jackOfAllTradesTraining
           }
         } as TrainingTable
       ],
@@ -3535,139 +3242,67 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Carouse}`,
-            } as Training,
-            2: {
-              BenefitName: `DEX +1`,
-            } as Training,
-            3: {
-              BenefitName: `END +1`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Gambler}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Melee}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.GunCombat}`,
-            } as Training
+            1: this.carouseTraining,
+            2: this.dexterityTraining,
+            3: this.enduranceTraining,
+            4: this.gamblerTraining,
+            5: this.meleeTraining,
+            6: this.gunCombatTraining
           }
         } as TrainingTable,
         {
           Name: `Service Skills`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Deception}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Recon}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Athletics}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.GunCombat}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Stealth}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training
+            1: this.deceptionTraining,
+            2: this.reconTraining,
+            3: this.athleticsTraining,
+            4: this.gunCombatTraining,
+            5: this.stealthTraining,
+            6: this.streetwiseTraining
           }
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 10)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Navigation}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Medic}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Investigate}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Broker}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Advocate}`,
-            } as Training
+            1: this.electronicsTraining,
+            2: this.navigationTraining,
+            3: this.medicTraining,
+            4: this.investigateTraining,
+            5: this.brokerTraining,
+            6: this.advocateTraining
           }
         } as TrainingTable,
         {
           Name: `Thief`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Stealth}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Recon}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Deception}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Athletics}`,
-            } as Training
+            1: this.stealthTraining,
+            2: this.electronicsTraining,
+            3: this.reconTraining,
+            4: this.streetwiseTraining,
+            5: this.deceptionTraining,
+            6: this.athleticsTraining
           }
         } as TrainingTable,
         {
           Name: `Enforcer`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.GunCombat}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Melee}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Persuade}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Athletics}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Drive}`,
-            } as Training
+            1: this.gunCombatTraining,
+            2: this.meleeTraining,
+            3: this.streetwiseTraining,
+            4: this.persuadeTraining,
+            5: this.athleticsTraining,
+            6: this.driveTraining
           }
         } as TrainingTable,
         {
           Name: `Pirate`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Pilot}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Astrogation}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Gunner}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Engineer}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Melee}`,
-            } as Training
+            1: this.pilotTraining,
+            2: this.astrogationTraining,
+            3: this.gunnerTraining,
+            4: this.engineerTraining,
+            5: this.vaccSuitTraining,
+            6: this.meleeTraining
           }
         } as TrainingTable
       ],
@@ -3945,139 +3580,67 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: `INT +1`,
-            } as Training,
-            2: {
-              BenefitName: `EDU +1`,
-            } as Training,
-            3: {
-              BenefitName: `SOC +1`,
-            } as Training,
-            4: {
-              BenefitName: `DEX +1`,
-            } as Training,
-            5: {
-              BenefitName: `END +1`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Language}`,
-            } as Training
+            1: this.intelligenceTraining,
+            2: this.educationTraining,
+            3: this.socialStatusTraining,
+            4: this.dexterityTraining,
+            5: this.enduranceTraining,
+            6: this.languageTraining
           }
         } as TrainingTable,
         {
           Name: `Service Skills`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Drive}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Diplomat}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Medic}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Investigate}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Science}`,
-            } as Training
+            1: this.driveTraining,
+            2: this.electronicsTraining,
+            3: this.diplomatTraining,
+            4: this.medicTraining,
+            5: this.investigateTraining,
+            6: this.scienceTraining
           }
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 10)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Art}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Advocate}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Language}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Engineer}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Science}`,
-            } as Training
+            1: this.artTraining,
+            2: this.advocateTraining,
+            3: this.electronicsTraining,
+            4: this.languageTraining,
+            5: this.engineerTraining,
+            6: this.scienceTraining
           }
         } as TrainingTable,
         {
           Name: `Field Researcher`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Navigation}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Survival}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Investigate}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Science}`,
-            } as Training
+            1: this.electronicsTraining,
+            2: this.vaccSuitTraining,
+            3: this.navigationTraining,
+            4: this.survivalTraining,
+            5: this.investigateTraining,
+            6: this.scienceTraining
           }
         } as TrainingTable,
         {
           Name: `Scientist`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Admin}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Engineer}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Science}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Science}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Science}`,
-            } as Training
+            1: this.adminTraining,
+            2: this.engineerTraining,
+            3: this.scienceTraining,
+            4: this.scienceTraining,
+            5: this.electronicsTraining,
+            6: this.scienceTraining
           }
         } as TrainingTable,
         {
           Name: `Physician`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Medic}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Investigate}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Medic}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Persuade}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Science}`,
-            } as Training
+            1: this.medicTraining,
+            2: this.electronicsTraining,
+            3: this.investigateTraining,
+            4: this.medicTraining,
+            5: this.persuadeTraining,
+            6: this.scienceTraining
           }
         } as TrainingTable
       ],
@@ -4360,24 +3923,12 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: `STR +1`,
-            } as Training,
-            2: {
-              BenefitName: `DEX +1`,
-            } as Training,
-            3: {
-              BenefitName: `END +1`,
-            } as Training,
-            4: {
-              BenefitName: `INT +1`,
-            } as Training,
-            5: {
-              BenefitName: `EDU +1`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.JackOfAllTrades}`,
-            } as Training
+            1: this.strengthTraining,
+            2: this.dexterityTraining,
+            3: this.enduranceTraining,
+            4: this.intelligenceTraining,
+            5: this.educationTraining,
+            6: this.jackOfAllTradesTraining
           }
         } as TrainingTable,
         {
@@ -4385,114 +3936,61 @@ export class CareerService {
           Trainings: {
             1: {
               BenefitName: `${this._skillService.SkillNames.Pilot} (${this._skillService.SkillNames.PilotSmallCraft} or ${this._skillService.SkillNames.PilotSpacecraft})`,
+              Type: 'skill',
+              SkillNames: [
+                this._skillService.SkillNames.PilotSmallCraft,
+                this._skillService.SkillNames.PilotSpacecraft,
+              ]
             } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Survival}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Mechanic}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Astrogation}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.GunCombat}`,
-            } as Training
+            2: this.survivalTraining,
+            3: this.mechanicTraining,
+            4: this.astrogationTraining,
+            5: this.vaccSuitTraining,
+            6: this.gunCombatTraining
           }
         } as TrainingTable,
         {
           Name: `Advanced Education (Min. EDU 8)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Medic}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Navigation}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Seafarer}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Explosives}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Science}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.JackOfAllTrades}`,
-            } as Training
+            1: this.medicTraining,
+            2: this.navigationTraining,
+            3: this.seafarerTraining,
+            4: this.explosivesTraining,
+            5: this.scienceTraining,
+            6: this.jackOfAllTradesTraining
           }
         } as TrainingTable,
         {
           Name: `Courier`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Flyer}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Pilot} (${this._skillService.SkillNames.PilotSpacecraft})`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Engineer}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Athletics}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Astrogation}`,
-            } as Training
+            1: this.electronicsTraining,
+            2: this.flyerTraining,
+            3: this.spacecraftTraining,
+            4: this.engineerTraining,
+            5: this.athleticsTraining,
+            6: this.astrogationTraining
           }
         } as TrainingTable,
         {
           Name: `Surveyor`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Persuade}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Pilot}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Navigation}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Diplomat}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training
+            1: this.electronicsTraining,
+            2: this.persuadeTraining,
+            3: this.pilotTraining,
+            4: this.navigationTraining,
+            5: this.diplomatTraining,
+            6: this.streetwiseTraining
           }
         } as TrainingTable,
         {
           Name: `Explorer`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Pilot}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Engineer}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Science}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Stealth}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Recon}`,
-            } as Training
+            1: this.electronicsTraining,
+            2: this.pilotTraining,
+            3: this.engineerTraining,
+            4: this.scienceTraining,
+            5: this.stealthTraining,
+            6: this.reconTraining
           }
         } as TrainingTable
       ],
@@ -4703,139 +4201,67 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: `STR +1`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeUnarmed})`,
-            } as Training,
-            3: {
-              BenefitName: `END +1`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.JackOfAllTrades}`,
-            } as Training,
-            5: {
-              BenefitName: `EDU +1`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Gambler}`,
-            } as Training
+            1: this.strengthTraining,
+            2: this.unarmedTraining,
+            3: this.enduranceTraining,
+            4: this.jackOfAllTradesTraining,
+            5: this.educationTraining,
+            6: this.gamblerTraining
           }
         } as TrainingTable,
         {
           Name: `Service Skills`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Athletics}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Deception}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Profession}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeUnarmed})`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Persuade}`,
-            } as Training
+            1: this.athleticsTraining,
+            2: this.deceptionTraining,
+            3: this.professionTraining,
+            4: this.streetwiseTraining,
+            5: this.unarmedTraining,
+            6: this.persuadeTraining
           }
         } as TrainingTable,
         {
           Name: ``,
           Trainings: {
-            1: {
-              BenefitName: ``,
-            } as Training,
-            2: {
-              BenefitName: ``,
-            } as Training,
-            3: {
-              BenefitName: ``,
-            } as Training,
-            4: {
-              BenefitName: ``,
-            } as Training,
-            5: {
-              BenefitName: ``,
-            } as Training,
-            6: {
-              BenefitName: ``,
-            } as Training
+            1: this.dummyTraining,
+            2: this.dummyTraining,
+            3: this.dummyTraining,
+            4: this.dummyTraining,
+            5: this.dummyTraining,
+            6: this.dummyTraining
           }
         } as TrainingTable,
         {
           Name: `Inmate`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Stealth}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeUnarmed})`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Survival}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Athletics} (${this._skillService.SkillNames.AthleticsStrength})`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Gambler}`,
-            } as Training
+            1: this.stealthTraining,
+            2: this.unarmedTraining,
+            3: this.streetwiseTraining,
+            4: this.survivalTraining,
+            5: this.athleticsStrengthTraining,
+            6: this.gamblerTraining
           }
         } as TrainingTable,
         {
           Name: `Thug`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Persuade}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeUnarmed})`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeUnarmed})`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeBlade})`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Athletics} (${this._skillService.SkillNames.AthleticsStrength})`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Athletics} (${this._skillService.SkillNames.AthleticsStrength})`,
-            } as Training
+            1: this.persuadeTraining,
+            2: this.unarmedTraining,
+            3: this.unarmedTraining,
+            4: this.bladeTraining,
+            5: this.athleticsStrengthTraining,
+            6: this.athleticsStrengthTraining
           }
         } as TrainingTable,
         {
           Name: `Fixer`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Investigate}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Broker}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Deception}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Stealth}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Admin}`,
-            } as Training
+            1: this.investigateTraining,
+            2: this.brokerTraining,
+            3: this.deceptionTraining,
+            4: this.streetwiseTraining,
+            5: this.stealthTraining,
+            6: this.adminTraining
           }
         } as TrainingTable
       ],
@@ -5052,44 +4478,22 @@ export class CareerService {
         {
           Name: `Personal Development`,
           Trainings: {
-            1: {
-              BenefitName: `EDU +1`,
-            } as Training,
-            2: {
-              BenefitName: `INT +1`,
-            } as Training,
-            3: {
-              BenefitName: `STR +1`,
-            } as Training,
-            4: {
-              BenefitName: `DEX +1`,
-            } as Training,
-            5: {
-              BenefitName: `END +1`,
-            } as Training,
-            6: {
-              BenefitName: `PSI +1`,
-            } as Training
+            1: this.educationTraining,
+            2: this.intelligenceTraining,
+            3: this.strengthTraining,
+            4: this.dexterityTraining,
+            5: this.enduranceTraining,
+            6: this.psiTraining
           }
         } as TrainingTable,
         {
           Name: `Service Skills`,
           Trainings: {
-            1: {
-              BenefitName: `Telepathy`,
-            } as Training,
-            2: {
-              BenefitName: `Clairvoyance`,
-            } as Training,
-            3: {
-              BenefitName: `Telekinesis`,
-            } as Training,
-            4: {
-              BenefitName: `Awareness`,
-            } as Training,
-            5: {
-              BenefitName: `Teleportation`,
-            } as Training,
+            1: this.telepathyTraining,
+            2: this.clairvoyanceTraining,
+            3: this.telekinesisTraining,
+            4: this.awarenessTraining,
+            5: this.teleportationTraining,
             6: {
               BenefitName: `Any Psi Talent`,
             } as Training
@@ -5098,44 +4502,22 @@ export class CareerService {
         {
           Name: `Advanced Education (Min. EDU 8)`,
           Trainings: {
-            1: {
-              BenefitName: `${this._skillService.SkillNames.Language}`,
-            } as Training,
-            2: {
-              BenefitName: `${this._skillService.SkillNames.Art}`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Electronics}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Medic}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Science}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Mechanic}`,
-            } as Training
+            1: this.languageTraining,
+            2: this.artTraining,
+            3: this.electronicsTraining,
+            4: this.medicTraining,
+            5: this.scienceTraining,
+            6: this.mechanicTraining
           }
         } as TrainingTable,
         {
           Name: `Wild Talent`,
           Trainings: {
-            1: {
-              BenefitName: `Telepathy`,
-            } as Training,
-            2: {
-              BenefitName: `Telekinesis`,
-            } as Training,
-            3: {
-              BenefitName: `${this._skillService.SkillNames.Deception}`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Stealth}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Streetwise}`,
-            } as Training,
+            1: this.telepathyTraining,
+            2: this.telekinesisTraining,
+            3: this.deceptionTraining,
+            4: this.stealthTraining,
+            5: this.streetwiseTraining,
             6: {
               BenefitName: `${this._skillService.SkillNames.Melee} or ${this._skillService.SkillNames.GunCombat}`,
             } as Training
@@ -5144,47 +4526,23 @@ export class CareerService {
         {
           Name: `Adept`,
           Trainings: {
-            1: {
-              BenefitName: `Telepathy`,
-            } as Training,
-            2: {
-              BenefitName: `Clairvoyance`,
-            } as Training,
-            3: {
-              BenefitName: `Awareness`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.Medic}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.Persuade}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Science}`,
-            } as Training
+            1: this.telepathyTraining,
+            2: this.clairvoyanceTraining,
+            3: this.awarenessTraining,
+            4: this.medicTraining,
+            5: this.persuadeTraining,
+            6: this.scienceTraining
           }
         } as TrainingTable,
         {
           Name: `Psi-Warrior`,
           Trainings: {
-            1: {
-              BenefitName: `Telepathy`,
-            } as Training,
-            2: {
-              BenefitName: `Awareness`,
-            } as Training,
-            3: {
-              BenefitName: `Teleportation`,
-            } as Training,
-            4: {
-              BenefitName: `${this._skillService.SkillNames.GunCombat}`,
-            } as Training,
-            5: {
-              BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
-            } as Training,
-            6: {
-              BenefitName: `${this._skillService.SkillNames.Recon}`,
-            } as Training
+            1: this.telepathyTraining,
+            2: this.awarenessTraining,
+            3: this.teleportationTraining,
+            4: this.gunCombatTraining,
+            5: this.vaccSuitTraining,
+            6: this.reconTraining
           }
         } as TrainingTable
       ],

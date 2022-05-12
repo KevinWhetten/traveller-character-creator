@@ -36,7 +36,7 @@ export class CareerSelectionComponent implements OnInit {
   }
 
   chooseCareer() {
-    this._metadataService.setCurrentCareer(this.career);
+    this._metadataService.setCurrentCareer(this.career.Name);
     this._metadataService.setCurrentUrl('character-creator/careers/qualification');
   }
 }

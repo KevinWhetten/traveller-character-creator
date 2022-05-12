@@ -13,6 +13,7 @@ import {RollingService} from "../../../services/data-services/rolling.service";
 export class CareerQualificationComponent implements OnInit {
   career: Career;
   qualificationRoll: number;
+  failedToQualify: boolean = false;
 
   constructor(private _careerService: CareerService,
               private _characterService: CharacterService,
@@ -22,6 +23,10 @@ export class CareerQualificationComponent implements OnInit {
 
   ngOnInit(): void {
     this.career = this._careerService.getCareer(this._metadataService.getCurrentCareer());
+
+    if(this.career.Name == 'Drifter'){
+      this._metadataService.setCurrentUrl('character-creator/careers/assignment');
+    }
   }
 
   getModifier() {
@@ -62,8 +67,10 @@ export class CareerQualificationComponent implements OnInit {
   }
 
   submit() {
-    if(this.qualificationRoll + this.getModifier() > this.career.Qualification.target){
+    if(this.qualificationRoll + this.getModifier() >= this.career.Qualification.target){
       this._metadataService.setCurrentUrl('character-creator/careers/assignment');
+    } else {
+      this._metadataService.setCurrentUrl('character-creator/careers/qualification/failed');
     }
   }
 }

@@ -62,6 +62,10 @@ import { CareerMishapComponent } from './character-creator/careers/career-mishap
 import { CareerCommissionComponent } from './character-creator/careers/career-commission/career-commission.component';
 import { CareerAdvancementComponent } from './character-creator/careers/career-advancement/career-advancement.component';
 import { CareerLeavingComponent } from './character-creator/careers/career-leaving/career-leaving.component';
+import { DraftComponent } from './character-creator/careers/draft/draft.component';
+import { CareerQualificationFailedComponent } from './character-creator/careers/career-qualification/career-qualification-failed/career-qualification-failed.component';
+import { FirstCareerBasicTrainingComponent } from './character-creator/careers/career-basic-training/first-career-basic-training/first-career-basic-training.component';
+import {F} from "@angular/cdk/keycodes";
 
 @NgModule({
   declarations: [
@@ -121,7 +125,10 @@ import { CareerLeavingComponent } from './character-creator/careers/career-leavi
     CareerMishapComponent,
     CareerCommissionComponent,
     CareerAdvancementComponent,
-    CareerLeavingComponent
+    CareerLeavingComponent,
+    DraftComponent,
+    CareerQualificationFailedComponent,
+    FirstCareerBasicTrainingComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -149,8 +156,10 @@ import { CareerLeavingComponent } from './character-creator/careers/career-leavi
       {path: 'character-creator/education/military-academy/life-event', component: UniversityLifeEventComponent},
       {path: 'character-creator/careers', component: CareerSelectionComponent},
       {path: 'character-creator/careers/qualification', component: CareerQualificationComponent},
+      {path: 'character-creator/careers/qualification/failed', component: CareerQualificationFailedComponent},
       {path: 'character-creator/careers/assignment', component: CareerAssignmentComponent},
       {path: 'character-creator/careers/basic-training', component: CareerBasicTrainingComponent},
+      {path: 'character-creator/careers/basic-training/first-career', component: FirstCareerBasicTrainingComponent},
       {path: 'character-creator/careers/skill-generation', component: CareerSkillGenerationComponent},
       {path: 'character-creator/careers/survival', component: CareerSurvivalComponent},
       {path: 'character-creator/careers/event', component: CareerEventComponent},
@@ -159,6 +168,7 @@ import { CareerLeavingComponent } from './character-creator/careers/career-leavi
       {path: 'character-creator/careers/advancement', component: CareerAdvancementComponent},
       {path: 'character-creator/careers/leaving', component: CareerLeavingComponent},
       {path: 'character-creator/careers/benefits', component: CareerBenefitsComponent},
+      {path: 'character-creator/careers/draft', component: DraftComponent},
       {path: 'character-creator/final-steps', component: FinalStepsComponent}
     ], {
       anchorScrolling: 'enabled'

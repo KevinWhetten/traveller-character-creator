@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
 import {CharacterSkill} from "../../models/character-skill";
-import {Career} from "../../models/career";
 
 class Metadata {
   currentUrl: string = '';
@@ -18,6 +17,7 @@ class Metadata {
   militaryAcademyTerm: number = 0;
   careers: string[] = [];
   currentCareer: string = '';
+  currentAssignment: string = '';
 }
 
 @Injectable({
@@ -26,7 +26,8 @@ class Metadata {
 export class CharacterMetadataService {
   private metadata: Metadata = new Metadata();
 
-  constructor(private _router: Router) {}
+  constructor(private _router: Router) {
+  }
 
   //region Current URL
   setCurrentUrl(url: string) {
@@ -81,24 +82,36 @@ export class CharacterMetadataService {
   //region Careers
   getCareers() {
     this.load();
-    return this.metadata.careers;
+    if (this.metadata.careers)
+      return this.metadata.careers;
+    else return [];
   }
 
   addCareer(Name: string) {
     this.load();
-    this.metadata.careers.push(Name);
+    if(this.metadata.careers) {
+      this.metadata.careers.push(Name);
+    }else {
+      this.metadata.careers = [Name];
+    }
     this.save();
   }
 
-  setCurrentCareer(career: Career) {
+  setCurrentCareer(careerName: string) {
     this.load();
-    this.metadata.currentCareer = career.Name;
+    this.metadata.currentCareer = careerName;
     this.save();
   }
 
   getCurrentCareer() {
     this.load();
     return this.metadata.currentCareer;
+  }
+
+  setAssignment(assignmentName: string) {
+    this.load();
+    this.metadata.currentAssignment = assignmentName;
+    this.save();
   }
 
   //endregion

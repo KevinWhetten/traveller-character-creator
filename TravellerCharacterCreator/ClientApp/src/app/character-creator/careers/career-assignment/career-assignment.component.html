@@ -1,1 +1,13 @@
-<p>career-assignment works!</p>
+<div class="container">
+  <h1>{{career.Name}} Assignment:</h1>
+
+  <div *ngFor="let assignment of career.Assignments; index as i" class="input-group">
+    <input type="radio" id="assignment-{{i}}" name="assignment" [(ngModel)]="assignmentName" value="{{assignment.Name}}">
+    <label for="assignment-{{i}}"><strong>{{assignment.Name}}</strong> - {{assignment.Description}}
+      <br>Survival: {{assignment.Survival.characteristic}} {{assignment.Survival.target}}+
+      <br>Advancement: {{assignment.Advancement.characteristic}} {{assignment.Advancement.target}}+
+      <br>Skills: {{getSkills(assignment)}}
+    </label>
+  </div>
+  <button class="primary" (click)="submit()">Submit</button>
+</div>

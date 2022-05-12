@@ -1,0 +1,19 @@
+input {
+}
+
+label {
+  margin-left: 16px;
+  margin-bottom: 16px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: normal;
+  align-items: flex-start;
+
+  input {
+    margin-top: 5px;
+    margin-right: 16px;
+  }
+}
