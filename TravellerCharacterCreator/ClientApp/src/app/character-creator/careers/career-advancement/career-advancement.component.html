@@ -1,1 +1,22 @@
-<p>career-advancement works!</p>
+<div class="container">
+  <div class="career-header">
+    <h1>Advancement for {{career.Name}} - {{assigment.Name}}</h1>
+  </div>
+  <div class="qualification-field flex-row" *ngIf="!rolled">
+    <label for="qualification">To Advance in this career, roll 2D ({{assigment.Advancement.characteristic}} {{assigment.Advancement.target}}+):</label>
+    <input type="number" id="qualification" [(ngModel)]="advancementRoll" min="2" max="12">
+    <p>({{getModifier() >= 0 ? '+' + getModifier() : getModifier()}})</p>
+    <button class="primary" (click)="submit()">Submit</button>
+  </div>
+
+  <div *ngIf="rolled && advanced">
+    <h2>Congratulations! You have advanced!</h2>
+    <p>You have reached Rank {{getRank()}}: {{getRankName()}}</p>
+    <button class="primary" (click)="proceed()">Cool!</button>
+  </div>
+
+  <div *ngIf="rolled && !advanced">
+    <h2>You Didn't Advance...</h2>
+    <button class="primary" (click)="proceed()">Maybe next time!</button>
+  </div>
+</div>

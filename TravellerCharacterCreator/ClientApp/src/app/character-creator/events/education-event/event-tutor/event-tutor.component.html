@@ -1,7 +1,9 @@
 ﻿<h2>Tutor Trouble</h2>
 <p>A newly arrived tutor rubs you up the wrong way and you work hard to overturn their conclusions.</p>
 <form *ngIf="!tutorBeaten && !tutorWins">
-    <app-skill-select (onChange)="this.tutorSkill = $event" [type]="'this-term'"
+    <app-skill-select (onChange)="this.tutorSkill = $event"
+                      [groups]="getSkillsLearnedThisTerm()"
+                      [groupNames]="['Skills Learned This Term']"
                       [label]="'Choose a skill to challenge the tutor in:'"></app-skill-select>
     <label for="tutor">Roll 2d6</label>
     <input name="tutor-event" [ngModel]="skillRoll" id="tutor" type="number" min="2" max="12">

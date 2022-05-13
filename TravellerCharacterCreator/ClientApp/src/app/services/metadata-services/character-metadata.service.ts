@@ -18,6 +18,9 @@ class Metadata {
   careers: string[] = [];
   currentCareer: string = '';
   currentAssignment: string = '';
+  careerRank: number = 0;
+  currentCareerTerms: number = 0;
+  cashRolls: number = 3;
 }
 
 @Injectable({
@@ -113,9 +116,38 @@ export class CharacterMetadataService {
     this.metadata.currentAssignment = assignmentName;
     this.save();
   }
+
   getAssignment() {
     this.load();
     return this.metadata.currentAssignment;
+  }
+
+  promote() {
+    this.load();
+    if(this.metadata.careerRank) {
+      this.metadata.careerRank++;
+    } else {
+      this.metadata.careerRank = 1;
+    }
+    this.save();
+  }
+
+  getRank() {
+    this.load();
+    return this.metadata.careerRank;
+  }
+
+  getCurrentCareerTerms() {
+    this.load();
+    if(this.metadata.currentCareerTerms) {
+      return this.metadata.currentCareerTerms;
+    }
+    return 1;
+  }
+
+  getCashRolls() {
+    this.load();
+    return this.metadata.cashRolls ? this.metadata.cashRolls : 3;
   }
 
   //endregion

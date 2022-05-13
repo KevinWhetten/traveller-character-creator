@@ -16,7 +16,6 @@ import {TrainingService} from "./training.service";
   providedIn: `root`
 })
 export class CareerService {
-
   private careers: Record<string, Career> = {
     'Agent': {
       Name: `Agent`,

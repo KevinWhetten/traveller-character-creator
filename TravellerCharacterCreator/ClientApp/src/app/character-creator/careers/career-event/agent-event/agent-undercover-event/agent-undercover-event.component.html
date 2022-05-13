@@ -1,0 +1,19 @@
+<h2>Undercover</h2>
+
+<p>You go undercover to investigate an enemy.</p>
+
+<div *ngIf="!rolled">
+<label for="event-roll">Roll 2D:</label>
+<input type="number" id="event-roll" [(ngModel)]="eventRoll" min="2" max="12">
+<button class="primary" (click)="submit()">Submit</button>
+</div>
+
+<div *ngIf="rolled && success">
+  <app-citizen-event></app-citizen-event>
+  <app-rogue-event></app-rogue-event>
+</div>
+
+<div *ngIf="rolled && !success">
+  <!--<app-citizen-mishap></app-citizen-mishap>-->
+  <!--<app-rogue-mishap></app-rogue-mishap>-->
+</div>

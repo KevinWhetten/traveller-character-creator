@@ -1,1 +1,5 @@
-<p>career-event works!</p>
+<h1>{{career.Name}} Event</h1>
+
+<label for="event-roll">Roll 2D:</label>
+<input type="number" id="event-roll" [(ngModel)]="eventRoll" min="2" max="12">
+<button class="primary" (click)="submit()">Submit</button>

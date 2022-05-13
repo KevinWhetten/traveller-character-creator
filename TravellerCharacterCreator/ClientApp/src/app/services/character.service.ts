@@ -176,6 +176,19 @@ export class CharacterService {
     return this.character.Skills;
   }
 
+  getSkillNames() {
+    this.loadCharacter();
+    let skillNames = [] as string[];
+
+    for(let skill of this._skillService.skills){
+      if(this.character.Skills[skill.Name] != undefined){
+        skillNames.push(skill.Name);
+      }
+    }
+
+    return skillNames;
+  }
+
   private addSkill(characterSkill: CharacterSkill) {
     this.loadCharacter();
     let skill = this._skillService.getSkill(characterSkill.Name);

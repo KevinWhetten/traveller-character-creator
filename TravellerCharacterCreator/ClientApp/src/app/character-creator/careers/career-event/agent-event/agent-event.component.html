@@ -1,0 +1,15 @@
+<h1>Agent Event</h1>
+
+<div [ngSwitch]="eventNumber">
+  <app-agent-disaster-event *ngSwitchCase="2" (eventComplete)="proceed()"></app-agent-disaster-event>
+  <app-agent-investigation-event *ngSwitchCase="3" (eventComplete)="proceed()"></app-agent-investigation-event>
+  <app-agent-mission-event *ngSwitchCase="4" (eventComplete)="proceed()"></app-agent-mission-event>
+  <app-agent-network-event *ngSwitchCase="5" (eventComplete)="proceed()"></app-agent-network-event>
+  <app-agent-training-event *ngSwitchCase="6" (eventComplete)="proceed()"></app-agent-training-event>
+  <app-agent-life-event *ngSwitchCase="7" (eventComplete)="proceed()"></app-agent-life-event>
+  <app-agent-undercover-event *ngSwitchCase="8" (eventComplete)="proceed()"></app-agent-undercover-event>
+  <app-agent-beyond-event *ngSwitchCase="9" (eventComplete)="proceed()"></app-agent-beyond-event>
+  <app-agent-specialist-event *ngSwitchCase="10" (eventComplete)="proceed()"></app-agent-specialist-event>
+  <app-agent-senior-event *ngSwitchCase="11" (eventComplete)="proceed()"></app-agent-senior-event>
+  <app-agent-conspiracy-event *ngSwitchCase="12" (eventComplete)="proceed()"></app-agent-conspiracy-event>
+</div>

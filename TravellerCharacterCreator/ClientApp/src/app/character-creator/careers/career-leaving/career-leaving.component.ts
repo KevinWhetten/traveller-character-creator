@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Career} from "../../../models/career";
+import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
 
 @Component({
   selector: 'app-career-leaving',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./career-leaving.component.css']
 })
 export class CareerLeavingComponent implements OnInit {
+  career: string;
 
-  constructor() { }
+  constructor(private _metadataService: CharacterMetadataService) { }
 
   ngOnInit(): void {
+    this.career = this._metadataService.getCurrentCareer();
   }
 
+  yes() {
+    this._metadataService.setCurrentUrl('character-creator/careers/skill-generation');
+  }
+
+  no() {
+    this._metadataService.setCurrentUrl('character-creator/careers/benefits')
+  }
 }

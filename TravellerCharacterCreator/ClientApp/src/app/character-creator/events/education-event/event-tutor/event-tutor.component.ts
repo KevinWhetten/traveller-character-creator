@@ -1,6 +1,8 @@
 ﻿import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {LoggingService} from "../../../../services/metadata-services/logging.service";
+import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
+import {SkillService} from "../../../../services/data-services/skill.service";
 
 @Component({
   selector: 'app-event-tutor',
@@ -17,7 +19,9 @@ export class EventTutorComponent implements OnInit {
   story: string;
 
   constructor(private _characterService: CharacterService,
-              private _loggingService: LoggingService) {
+              private _loggingService: LoggingService,
+              private _metadataService: CharacterMetadataService,
+              private _skillService: SkillService) {
   }
 
   ngOnInit(): void {
@@ -51,4 +55,8 @@ export class EventTutorComponent implements OnInit {
     this.graduate.emit();
   }
 
+  getSkillsLearnedThisTerm() {
+    let skillsLearnedThisTerm = this._metadataService.getSkillsLearnedThisTerm();
+    return this._skillService.getGroups(skillsLearnedThisTerm);
+  }
 }

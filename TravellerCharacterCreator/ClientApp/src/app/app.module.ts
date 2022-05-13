@@ -65,7 +65,35 @@ import { CareerLeavingComponent } from './character-creator/careers/career-leavi
 import { DraftComponent } from './character-creator/careers/draft/draft.component';
 import { CareerQualificationFailedComponent } from './character-creator/careers/career-qualification/career-qualification-failed/career-qualification-failed.component';
 import { FirstCareerBasicTrainingComponent } from './character-creator/careers/career-basic-training/first-career-basic-training/first-career-basic-training.component';
-import {F} from "@angular/cdk/keycodes";
+import { MarineEventComponent } from './character-creator/careers/career-event/marine-event/marine-event.component';
+import { AgentEventComponent } from './character-creator/careers/career-event/agent-event/agent-event.component';
+import { ArmyEventComponent } from './character-creator/careers/career-event/army-event/army-event.component';
+import { CitizenEventComponent } from './character-creator/careers/career-event/citizen-event/citizen-event.component';
+import { DrifterEventComponent } from './character-creator/careers/career-event/drifter-event/drifter-event.component';
+import { EntertainerEventComponent } from './character-creator/careers/career-event/entertainer-event/entertainer-event.component';
+import { MerchantEventComponent } from './character-creator/careers/career-event/merchant-event/merchant-event.component';
+import { NavyEventComponent } from './character-creator/careers/career-event/navy-event/navy-event.component';
+import { NobleEventComponent } from './character-creator/careers/career-event/noble-event/noble-event.component';
+import { RogueEventComponent } from './character-creator/careers/career-event/rogue-event/rogue-event.component';
+import { ScholarEventComponent } from './character-creator/careers/career-event/scholar-event/scholar-event.component';
+import { ScoutEventComponent } from './character-creator/careers/career-event/scout-event/scout-event.component';
+import { PrisonerEventComponent } from './character-creator/careers/career-event/prisoner-event/prisoner-event.component';
+import { PsionEventComponent } from './character-creator/careers/career-event/psion-event/psion-event.component';
+import { AgentDisasterEventComponent } from './character-creator/careers/career-event/agent-event/agent-disaster-event/agent-disaster-event.component';
+import { AgentInvestigationEventComponent } from './character-creator/careers/career-event/agent-event/agent-investigation-event/agent-investigation-event.component';
+import { AgentMissionEventComponent } from './character-creator/careers/career-event/agent-event/agent-mission-event/agent-mission-event.component';
+import { AgentNetworkEventComponent } from './character-creator/careers/career-event/agent-event/agent-network-event/agent-network-event.component';
+import { AgentTrainingEventComponent } from './character-creator/careers/career-event/agent-event/agent-training-event/agent-training-event.component';
+import { AgentLifeEventComponent } from './character-creator/careers/career-event/agent-event/agent-life-event/agent-life-event.component';
+import { AgentUndercoverEventComponent } from './character-creator/careers/career-event/agent-event/agent-undercover-event/agent-undercover-event.component';
+import { AgentBeyondEventComponent } from './character-creator/careers/career-event/agent-event/agent-beyond-event/agent-beyond-event.component';
+import { AgentSpecialistEventComponent } from './character-creator/careers/career-event/agent-event/agent-specialist-event/agent-specialist-event.component';
+import { AgentSeniorEventComponent } from './character-creator/careers/career-event/agent-event/agent-senior-event/agent-senior-event.component';
+import { AgentConspiracyEventComponent } from './character-creator/careers/career-event/agent-event/agent-conspiracy-event/agent-conspiracy-event.component';
+import { AgentMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-mishap.component';
+import {CareerMusterOutComponent} from "./character-creator/careers/career-muster-out/career-muster-out.component";
+import { MarineMusterOutComponent } from './character-creator/careers/career-muster-out/marine-muster-out/marine-muster-out.component';
+import { AgentMusterOutComponent } from './character-creator/careers/career-muster-out/agent-muster-out/agent-muster-out.component';
 
 @NgModule({
   declarations: [
@@ -128,7 +156,36 @@ import {F} from "@angular/cdk/keycodes";
     CareerLeavingComponent,
     DraftComponent,
     CareerQualificationFailedComponent,
-    FirstCareerBasicTrainingComponent
+    FirstCareerBasicTrainingComponent,
+    MarineEventComponent,
+    AgentEventComponent,
+    ArmyEventComponent,
+    CitizenEventComponent,
+    DrifterEventComponent,
+    EntertainerEventComponent,
+    MerchantEventComponent,
+    NavyEventComponent,
+    NobleEventComponent,
+    RogueEventComponent,
+    ScholarEventComponent,
+    ScoutEventComponent,
+    PrisonerEventComponent,
+    PsionEventComponent,
+    AgentDisasterEventComponent,
+    AgentInvestigationEventComponent,
+    AgentMissionEventComponent,
+    AgentNetworkEventComponent,
+    AgentTrainingEventComponent,
+    AgentLifeEventComponent,
+    AgentUndercoverEventComponent,
+    AgentBeyondEventComponent,
+    AgentSpecialistEventComponent,
+    AgentSeniorEventComponent,
+    AgentConspiracyEventComponent,
+    AgentMishapComponent,
+    CareerMusterOutComponent,
+    MarineMusterOutComponent,
+    AgentMusterOutComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -163,11 +220,25 @@ import {F} from "@angular/cdk/keycodes";
       {path: 'character-creator/careers/skill-generation', component: CareerSkillGenerationComponent},
       {path: 'character-creator/careers/survival', component: CareerSurvivalComponent},
       {path: 'character-creator/careers/event', component: CareerEventComponent},
+      {path: 'character-creator/careers/agent/event', component: AgentEventComponent},
+      {path: 'character-creator/careers/army/event', component: ArmyEventComponent},
+      {path: 'character-creator/careers/citizen/event', component: CitizenEventComponent},
+      {path: 'character-creator/careers/drifter/event', component: DrifterEventComponent},
+      {path: 'character-creator/careers/entertainer/event', component: EntertainerEventComponent},
+      {path: 'character-creator/careers/marine/event', component: MarineEventComponent},
+      {path: 'character-creator/careers/merchant/event', component: MerchantEventComponent},
+      {path: 'character-creator/careers/navy/event', component: NavyEventComponent},
+      {path: 'character-creator/careers/noble/event', component: NobleEventComponent},
+      {path: 'character-creator/careers/rogue/event', component: RogueEventComponent},
+      {path: 'character-creator/careers/scholar/event', component: ScholarEventComponent},
+      {path: 'character-creator/careers/scout/event', component: ScoutEventComponent},
+      {path: 'character-creator/careers/prisoner/event', component: PrisonerEventComponent},
+      {path: 'character-creator/careers/psion/event', component: PsionEventComponent},
       {path: 'character-creator/careers/mishap', component: CareerMishapComponent},
       {path: 'character-creator/careers/commission', component: CareerCommissionComponent},
       {path: 'character-creator/careers/advancement', component: CareerAdvancementComponent},
       {path: 'character-creator/careers/leaving', component: CareerLeavingComponent},
-      {path: 'character-creator/careers/benefits', component: CareerBenefitsComponent},
+      {path: 'character-creator/careers/benefits', component: CareerMusterOutComponent},
       {path: 'character-creator/careers/draft', component: DraftComponent},
       {path: 'character-creator/final-steps', component: FinalStepsComponent}
     ], {
