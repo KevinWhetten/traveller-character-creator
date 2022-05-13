@@ -6,6 +6,9 @@ import {SkillService} from "./data-services/skill.service";
 import {BaseSkill, Subskill} from "../models/skill";
 import {LoggingService} from "./metadata-services/logging.service";
 import {CharacterMetadataService} from "./metadata-services/character-metadata.service";
+import {Armor} from "../models/armor";
+import {Weapon} from "../models/weapon";
+import {Equipment} from "../models/equipment";
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +56,7 @@ export class CharacterService {
     return this.character.Rads;
   }
 
-  // SPECIES
+  //region SPECIES
   getSpecies() {
     this.loadCharacter();
     return this.character.Species;
@@ -71,8 +74,9 @@ export class CharacterService {
     this._loggingService.addLog(`Species Traits set to: ${this.character.SpeciesTraits}`)
     this.saveCharacter();
   }
+  //endregion
 
-  // HOMEWORLD
+  //region HOMEWORLD
   getHomeworld() {
     this.loadCharacter();
     return this.character.Homeworld;
@@ -84,8 +88,9 @@ export class CharacterService {
     this._loggingService.addLog(`Homeworld set to: ${homeworld}`)
     this.saveCharacter();
   }
+  //endregion
 
-  // CHARACTERISTICS
+  //region CHARACTERISTICS
   getCharacteristics() {
     this.loadCharacter();
     return this.character.Characteristics;
@@ -169,8 +174,9 @@ export class CharacterService {
     this._loggingService.addLog(`Social Status increased to [SOC ${this.character.Characteristics.SocialStatus}]`);
     this.saveCharacter();
   }
+  //endregion
 
-  // SKILLS
+  //region SKILLS
   getSkills() {
     this.loadCharacter();
     return this.character.Skills;
@@ -180,8 +186,8 @@ export class CharacterService {
     this.loadCharacter();
     let skillNames = [] as string[];
 
-    for(let skill of this._skillService.skills){
-      if(this.character.Skills[skill.Name] != undefined){
+    for (let skill of this._skillService.skills) {
+      if (this.character.Skills[skill.Name] != undefined) {
         skillNames.push(skill.Name);
       }
     }
@@ -245,8 +251,9 @@ export class CharacterService {
     this._loggingService.addLog(this.log);
     this.saveCharacter();
   }
+  //endregion
 
-  // CONNECTIONS
+  //region CONNECTIONS
   addAlly(description: string) {
     this.loadCharacter();
     this.character.Connections.Allies.push(description);
@@ -274,8 +281,55 @@ export class CharacterService {
     this._loggingService.addLog(`Gained a new [Enemy]: ${description}`)
     this.saveCharacter();
   }
+  //endregion
 
-  // START NEW TERM
+  //region EQUIPMENT
+  addWeapon() {
+    this.loadCharacter();
+    if(this.character.Weapons) {
+      this.character.Weapons.push({Name: 'Unknown'} as Weapon)
+    } else {
+      this.character.Weapons = [{Name: 'Unknown'} as Weapon];
+    }
+    this.saveCharacter();
+  }
+
+  addArmour() {
+    this.loadCharacter();
+    if(this.character.Armor) {
+      this.character.Armor.push({Type: 'Unknown'} as Armor);
+    } else {
+      this.character.Armor = [{Type: 'Unknown'} as Armor];
+    }
+    this.saveCharacter();
+  }
+
+  addTASMembership() {
+    this.loadCharacter();
+    if(this.character.Equipment) {
+      this.character.Equipment.push({Name: 'TAS Membership'} as Equipment)
+    } else {
+      this.character.Equipment = [{Name: 'TAS Membership'} as Equipment];
+    }
+    this.saveCharacter();
+  }
+
+  //endregion
+
+  //region FINANCES
+  addCash(cash: number) {
+    this.loadCharacter();
+    if(this.character.Finances.Cash) {
+      this.character.Finances.Cash += cash;
+    } else {
+      this.character.Finances.Cash = cash;
+    }
+    this.saveCharacter();
+  }
+
+  //endregion
+
+  //region START NEW TERM
   startNewTerm() {
     this.loadCharacter();
     this.character.Age += 4;
@@ -283,6 +337,7 @@ export class CharacterService {
     this._loggingService.addLog(`------------ TERM ${(this.character.Age - 14) / 4} - AGE ${this.character.Age} ------------`);
     this.saveCharacter();
   }
+  //endregion
 
   // SAVE
   saveCharacter() {
