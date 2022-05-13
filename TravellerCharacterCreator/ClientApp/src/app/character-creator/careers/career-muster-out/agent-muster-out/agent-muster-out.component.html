@@ -1,0 +1,12 @@
+<h1>Mustering Out - Agent</h1>
+
+<h2>You have {{getBenefitNum()}} rolls ({{getCashBenefitNum()}} cash rolls) left.</h2>
+<p>* You have 3 cash rolls to make throughout your lifetime, so use them well.</p>
+
+<div class="benefits-table">
+  <app-career-benefits [career]="career"></app-career-benefits>
+</div>
+
+<label for="benefit-roll">Roll D6:</label>
+<input type="number" id="benefit-roll" min="1" max="6">
+<button class="primary" (click)="submit()">Submit</button>
