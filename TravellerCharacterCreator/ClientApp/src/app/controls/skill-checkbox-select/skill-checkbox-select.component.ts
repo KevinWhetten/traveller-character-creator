@@ -1,5 +1,6 @@
 ﻿import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {SkillService} from "../../services/data-services/skill.service";
+import {AlertType} from "../alert/alert.component";
 
 @Component({
   selector: 'app-skill-checkbox-select',
@@ -10,9 +11,11 @@ export class SkillCheckboxSelectComponent implements OnInit {
   @Input() skillNum: number;
   @Input() availableSkillList: string[];
   @Output() choseSkills = new EventEmitter();
+  hasError: boolean = false;
   selectedSkillNum: number = 0;
   selectedSkills: string[] = [];
   checked: Record<string, boolean> = {};
+  error = AlertType.Error;
 
   constructor(public _skillService: SkillService) {
     for(let skill in this.availableSkillList){
@@ -26,6 +29,8 @@ export class SkillCheckboxSelectComponent implements OnInit {
   submit() {
     if(this.skillNum == this.selectedSkillNum){
       this.choseSkills.emit(this.selectedSkills);
+    } else {
+      this.hasError = true;
     }
   }
 
@@ -47,5 +52,9 @@ export class SkillCheckboxSelectComponent implements OnInit {
   getDescription(skill: string) {
     let description = this._skillService.getDescription(skill);
     return description;
+  }
+
+  getMessage() {
+    return `Pick the specified number of skills. ${this.skillNum - this.selectedSkillNum} skills remaining.`;
   }
 }

@@ -1,0 +1,23 @@
+div {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid;
+  border-left: 8px solid;
+  margin: 16px 0;
+}
+
+p {
+  margin: 0;
+}
+
+.error {
+  border-color: #f44336;
+}
+
+.warning {
+  border-color: #ffeb3b;
+}
+
+.success {
+  border-color: #4CAF50;
+ }

@@ -28,7 +28,16 @@ export class CareerSelectionComponent implements OnInit {
   }
 
   getCareerNames() {
-    return this._careerService.careerNames;
+    let previousCareers = this._metadataService.getCareers();
+    let careerNames = this._careerService.careerNames;
+    for(let careerName of careerNames){
+      if(previousCareers.includes(careerName)){
+        careerNames.splice(careerNames.indexOf(careerName), 1);
+        this.careerName = careerNames[0];
+        this.changeCareer();
+      }
+    }
+    return careerNames;
   }
 
   changeCareer() {

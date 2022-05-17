@@ -1,4 +1,5 @@
 <h1>Characteristics</h1>
+<app-alert *ngIf="hasWarning" [type]="warning" [message]="'Your stats are low. You may re-roll your lowest roll if you want. You may repeat this process until your characteristic modifiers add up to 0 or more. To continue anyway, hit \'Next\' again.'"></app-alert>
 <h2>Directions:</h2>
 <ul>
   <li>Roll 3d6 (keep 2) twice</li>

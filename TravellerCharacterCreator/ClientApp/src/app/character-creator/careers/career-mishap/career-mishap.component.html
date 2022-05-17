@@ -1,1 +1,5 @@
-<p>career-mishap works!</p>
+<h1>{{career.Name}} Mishap</h1>
+
+<label for="event-roll">Roll 1D:</label>
+<input type="number" id="event-roll" [(ngModel)]="mishapRoll" min="1" max="6">
+<button class="primary" (click)="submit()">Submit</button>

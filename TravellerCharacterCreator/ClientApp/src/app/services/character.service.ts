@@ -74,6 +74,7 @@ export class CharacterService {
     this._loggingService.addLog(`Species Traits set to: ${this.character.SpeciesTraits}`)
     this.saveCharacter();
   }
+
   //endregion
 
   //region HOMEWORLD
@@ -88,6 +89,7 @@ export class CharacterService {
     this._loggingService.addLog(`Homeworld set to: ${homeworld}`)
     this.saveCharacter();
   }
+
   //endregion
 
   //region CHARACTERISTICS
@@ -174,6 +176,7 @@ export class CharacterService {
     this._loggingService.addLog(`Social Status increased to [SOC ${this.character.Characteristics.SocialStatus}]`);
     this.saveCharacter();
   }
+
   //endregion
 
   //region SKILLS
@@ -251,14 +254,25 @@ export class CharacterService {
     this._loggingService.addLog(this.log);
     this.saveCharacter();
   }
+
   //endregion
 
   //region CONNECTIONS
+  getAllies() {
+    this.loadCharacter();
+    return this.character.Connections.Allies;
+  }
+
   addAlly(description: string) {
     this.loadCharacter();
     this.character.Connections.Allies.push(description);
     this._loggingService.addLog(`Gained a new [Ally]: ${description}`)
     this.saveCharacter();
+  }
+
+  getContacts() {
+    this.loadCharacter();
+    return this.character.Connections.Contacts;
   }
 
   addContact(description: string) {
@@ -268,11 +282,21 @@ export class CharacterService {
     this.saveCharacter();
   }
 
+  getRivals() {
+    this.loadCharacter();
+    return this.character.Connections.Rivals;
+  }
+
   addRival(description: string) {
     this.loadCharacter();
     this.character.Connections.Rivals.push(description);
     this._loggingService.addLog(`Gained a new [Rival]: ${description}`)
     this.saveCharacter();
+  }
+
+  getEnemies() {
+    this.loadCharacter();
+    return this.character.Connections.Enemies;
   }
 
   addEnemy(description: string) {
@@ -281,12 +305,18 @@ export class CharacterService {
     this._loggingService.addLog(`Gained a new [Enemy]: ${description}`)
     this.saveCharacter();
   }
+
   //endregion
 
   //region EQUIPMENT
+  getWeapons() {
+    this.loadCharacter();
+    return this.character.Weapons;
+  }
+
   addWeapon() {
     this.loadCharacter();
-    if(this.character.Weapons) {
+    if (this.character.Weapons) {
       this.character.Weapons.push({Name: 'Unknown'} as Weapon)
     } else {
       this.character.Weapons = [{Name: 'Unknown'} as Weapon];
@@ -296,7 +326,7 @@ export class CharacterService {
 
   addArmour() {
     this.loadCharacter();
-    if(this.character.Armor) {
+    if (this.character.Armor) {
       this.character.Armor.push({Type: 'Unknown'} as Armor);
     } else {
       this.character.Armor = [{Type: 'Unknown'} as Armor];
@@ -304,9 +334,19 @@ export class CharacterService {
     this.saveCharacter();
   }
 
+  getArmor() {
+    this.loadCharacter();
+    return this.character.Armor;
+  }
+
+  getAugments() {
+    this.loadCharacter();
+    return this.character.Augments;
+  }
+
   addTASMembership() {
     this.loadCharacter();
-    if(this.character.Equipment) {
+    if (this.character.Equipment) {
       this.character.Equipment.push({Name: 'TAS Membership'} as Equipment)
     } else {
       this.character.Equipment = [{Name: 'TAS Membership'} as Equipment];
@@ -317,9 +357,34 @@ export class CharacterService {
   //endregion
 
   //region FINANCES
+  getPension() {
+    this.loadCharacter();
+    return this.character.Finances.Pension;
+  }
+
+  getDebt() {
+    this.loadCharacter();
+    return this.character.Finances.Debt;
+  }
+
+  getCash() {
+    this.loadCharacter();
+    return this.character.Finances.Cash;
+  }
+
+  getMonthlyShipPayments() {
+    this.loadCharacter();
+    return this.character.Finances.MonthlyShipPayment;
+  }
+
+  getLivingCost() {
+    this.loadCharacter();
+    return this.character.Finances.LivingCost;
+  }
+
   addCash(cash: number) {
     this.loadCharacter();
-    if(this.character.Finances.Cash) {
+    if (this.character.Finances.Cash) {
       this.character.Finances.Cash += cash;
     } else {
       this.character.Finances.Cash = cash;
@@ -337,6 +402,7 @@ export class CharacterService {
     this._loggingService.addLog(`------------ TERM ${(this.character.Age - 14) / 4} - AGE ${this.character.Age} ------------`);
     this.saveCharacter();
   }
+
   //endregion
 
   // SAVE

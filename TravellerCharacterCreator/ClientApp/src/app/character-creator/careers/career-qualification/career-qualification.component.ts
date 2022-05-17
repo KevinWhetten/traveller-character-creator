@@ -4,6 +4,7 @@ import {CareerService} from "../../../services/data-services/career.service";
 import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
 import {CharacterService} from "../../../services/character.service";
 import {RollingService} from "../../../services/data-services/rolling.service";
+import {AlertType} from "../../../controls/alert/alert.component";
 
 @Component({
   selector: 'app-career-qualification',
@@ -13,6 +14,9 @@ import {RollingService} from "../../../services/data-services/rolling.service";
 export class CareerQualificationComponent implements OnInit {
   career: Career;
   qualificationRoll: number;
+  hasError: boolean;
+  errorMessage: string;
+  error = AlertType.Error;
 
   constructor(private _careerService: CareerService,
               private _characterService: CharacterService,
@@ -66,10 +70,15 @@ export class CareerQualificationComponent implements OnInit {
   }
 
   submit() {
-    if(this.qualificationRoll + this.getModifier() >= this.career.Qualification.target){
-      this._metadataService.setCurrentUrl('character-creator/careers/assignment');
+    if(2 <= this.qualificationRoll && this.qualificationRoll <= 12) {
+      if (this.qualificationRoll + this.getModifier() >= this.career.Qualification.target) {
+        this._metadataService.setCurrentUrl('character-creator/careers/assignment');
+      } else {
+        this._metadataService.setCurrentUrl('character-creator/careers/qualification/failed');
+      }
     } else {
-      this._metadataService.setCurrentUrl('character-creator/careers/qualification/failed');
+      this.hasError = true;
+      this.errorMessage = 'The roll must be between 2 and 12.';
     }
   }
 }

@@ -94,6 +94,17 @@ import { AgentMishapComponent } from './character-creator/careers/career-mishap/
 import {CareerMusterOutComponent} from "./character-creator/careers/career-muster-out/career-muster-out.component";
 import { MarineMusterOutComponent } from './character-creator/careers/career-muster-out/marine-muster-out/marine-muster-out.component';
 import { AgentMusterOutComponent } from './character-creator/careers/career-muster-out/agent-muster-out/agent-muster-out.component';
+import { AlertComponent } from './controls/alert/alert.component';
+import { AgentSeverelyInjuredMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-severely-injured-mishap/agent-severely-injured-mishap.component';
+import { AgentDealMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-deal-mishap/agent-deal-mishap.component';
+import { AgentInvestigationMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-investigation-mishap/agent-investigation-mishap.component';
+import { AgentLearnMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-learn-mishap/agent-learn-mishap.component';
+import { AgentHomeMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-home-mishap/agent-home-mishap.component';
+import { AgentInjuredMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-injured-mishap/agent-injured-mishap.component';
+import { SeverelyInjuredMishapComponent } from './character-creator/careers/career-mishap/severely-injured-mishap/severely-injured-mishap.component';
+import { InjuredMishapComponent } from './character-creator/careers/career-mishap/injured-mishap/injured-mishap.component';
+import { InjuryTableComponent } from './character-creator/careers/career-mishap/injured-mishap/injury-table/injury-table.component';
+import { AgentHomeInjuryComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-home-mishap/agent-home-injury/agent-home-injury.component';
 
 @NgModule({
   declarations: [
@@ -185,7 +196,18 @@ import { AgentMusterOutComponent } from './character-creator/careers/career-must
     AgentMishapComponent,
     CareerMusterOutComponent,
     MarineMusterOutComponent,
-    AgentMusterOutComponent
+    AgentMusterOutComponent,
+    AlertComponent,
+    AgentSeverelyInjuredMishapComponent,
+    AgentDealMishapComponent,
+    AgentInvestigationMishapComponent,
+    AgentLearnMishapComponent,
+    AgentHomeMishapComponent,
+    AgentInjuredMishapComponent,
+    SeverelyInjuredMishapComponent,
+    InjuredMishapComponent,
+    InjuryTableComponent,
+    AgentHomeInjuryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -235,6 +257,7 @@ import { AgentMusterOutComponent } from './character-creator/careers/career-must
       {path: 'character-creator/careers/prisoner/event', component: PrisonerEventComponent},
       {path: 'character-creator/careers/psion/event', component: PsionEventComponent},
       {path: 'character-creator/careers/mishap', component: CareerMishapComponent},
+      {path: 'character-creator/careers/mishap/agent', component: AgentMishapComponent},
       {path: 'character-creator/careers/commission', component: CareerCommissionComponent},
       {path: 'character-creator/careers/advancement', component: CareerAdvancementComponent},
       {path: 'character-creator/careers/leaving', component: CareerLeavingComponent},

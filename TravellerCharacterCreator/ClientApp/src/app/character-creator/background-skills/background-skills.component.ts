@@ -1,11 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CharacterService} from "../../services/character.service";
-import {Router} from "@angular/router";
-import {Skill} from "../../models/skill";
 import {RollingService} from "../../services/data-services/rolling.service";
 import {SkillService} from "../../services/data-services/skill.service";
 import {CharacterMetadataService} from "../../services/metadata-services/character-metadata.service";
-import {LoggingService} from "../../services/metadata-services/logging.service";
 import {CharacterSkill} from "../../models/character-skill";
 
 @Component({

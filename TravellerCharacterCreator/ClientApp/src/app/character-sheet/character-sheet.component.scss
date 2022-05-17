@@ -1,10 +1,23 @@
+h1, h2 {
+  background-color: black;
+  color: red;
+  padding: 8px 16px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: column;
+}
+
 .basic-data {
+  width: 50%;
   margin-bottom: 32px;
 
   p {
     margin-bottom: 0;
   }
-  .name-age{
+
+  .name-age {
     display: flex;
     flex-direction: row;
 
@@ -12,6 +25,76 @@
       margin-right: 32px;
     }
   }
+}
+
+.armour {
+  width: 50%;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th {
+    &.armour-type {
+      width: 30%;
+      border-bottom: 1px solid black;
+    }
+
+    &.armour-rad {
+      width: 10%;
+      border-bottom: 1px solid black;
+    }
+
+    &.armour-protection {
+      width: 30%;
+      border-bottom: 1px solid black;
+    }
+
+    &.armour-kg {
+      width: 10%;
+      border-bottom: 1px solid black;
+    }
+
+    &.armour-options {
+      width: 20%;
+      border-bottom: 1px solid black;
+    }
+  }
+
+  td {
+    &.armour-type {
+      width: 30%;
+      border-right: 1px solid black;
+    }
+
+    &.armour-rad {
+      width: 10%;
+      border-right: 1px solid black;
+    }
+
+    &.armour-protection {
+      width: 30%;
+      border-right: 1px solid black;
+    }
+
+    &.armour-kg {
+      width: 10%;
+      border-right: 1px solid black;
+    }
+
+    &.armour-options {
+      width: 20%;
+    }
+  }
+}
+
+.finances {
+  width: 25%;
+}
+
+.connections {
+  width: 25%;
 }
 
 .flex-col {
@@ -56,4 +139,75 @@
 
 .subskill-name {
   background-color: lightgray;
+}
+
+.weapons {
+  width: 70%;
+
+  table {
+    width: 95%;
+    margin-bottom: 16px;
+  }
+
+  th {
+    &.weapon {
+      width: 20%;
+      border-bottom: 1px solid black;
+    }
+
+    &.tl {
+      width: 5%;
+      border-bottom: 1px solid black;
+    }
+
+    &.range {
+      width: 15%;
+      border-bottom: 1px solid black;
+    }
+
+    &.damage {
+      width: 15%;
+      border-bottom: 1px solid black;
+    }
+
+    &.kg {
+      width: 5%;
+      border-bottom: 1px solid black;
+    }
+
+    &.magazine {
+      width: 20%;
+      border-bottom: 1px solid black;
+    }
+
+    &.traits {
+      width: 20%;
+      border-bottom: 1px solid black;
+    }
+  }
+}
+
+.augments {
+  width: 30%;
+
+  table {
+    width: 100%;
+  }
+
+  th {
+    &.weapon {
+      width: 40%;
+      border-bottom: 1px solid black;
+    }
+
+    &.tl {
+      width: 20%;
+      border-bottom: 1px solid black;
+    }
+
+    &.improvement {
+      width: 40%;
+      border-bottom: 1px solid black;
+    }
+  }
 }

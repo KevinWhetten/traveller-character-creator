@@ -14,6 +14,7 @@ export class AgentTrainingEventComponent implements OnInit {
   eventRoll: number = 2;
   rolled: boolean = false;
   success: boolean = false;
+  eduDm: number = this._rollingService.getDm(this._characterService.getEducation());
 
   constructor(private _characterService: CharacterService,
               private _rollingService: RollingService,

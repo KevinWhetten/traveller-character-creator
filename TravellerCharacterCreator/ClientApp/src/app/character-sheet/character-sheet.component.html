@@ -1,53 +1,121 @@
 <h1>Character Sheet</h1>
 
-<div class="basic-data">
-  <div class="name-age">
-    <p>NAME: {{_characterService.getName()}}</p>
-    <p>AGE: {{_characterService.getAge()}}</p>
+<div class="flex-row">
+  <div class="basic-data">
+    <div class="name-age">
+      <p>NAME: {{_characterService.getName()}}</p>
+      <p>AGE: {{_characterService.getAge()}}</p>
+    </div>
+    <p>RADS: {{_characterService.getRads()}}</p>
+    <p>SPECIES: {{_characterService.getSpecies()}}</p>
+    <p>SPECIES TRAITS: {{_characterService.getSpeciesTraits()}}</p>
+    <p>HOMEWORLD: {{_characterService.getHomeworld()}}</p>
   </div>
-  <p>RADS: {{_characterService.getRads()}}</p>
-  <p>SPECIES: {{_characterService.getSpecies()}}</p>
-  <p>SPECIES TRAITS: {{_characterService.getSpeciesTraits()}}</p>
-  <p>HOMEWORLD: {{_characterService.getHomeworld()}}</p>
-</div>
 
-<h2>Characteristics</h2>
-<div class="flex-col">
-  <div class="column">
-    <div class="characteristic">
-      <p>Strength:</p>
-      <p>{{_characterService.getCharacteristics().Strength}} ({{strengthDm >= 0 ? '+' + strengthDm : strengthDm}})</p>
-    </div>
-    <div class="characteristic">
-      <p>Dexterity:</p>
-      <p>{{_characterService.getCharacteristics().Dexterity}} ({{dexterityDm >= 0 ? '+' + dexterityDm : dexterityDm}}
-        )</p>
-    </div>
-    <div class="characteristic">
-      <p>Endurance:</p>
-      <p>{{_characterService.getCharacteristics().Endurance}} ({{enduranceDm >= 0 ? '+' + enduranceDm : enduranceDm}}
-        )</p>
-    </div>
-  </div>
-  <div class="column">
-    <div class="characteristic">
-      <p>Intellect:</p>
-      <p>{{_characterService.getCharacteristics().Intellect}} ({{intellectDm >= 0 ? '+' + intellectDm : intellectDm}}
-        )</p>
-    </div>
-    <div class="characteristic">
-      <p>Education:</p>
-      <p>{{_characterService.getCharacteristics().Education}} ({{educationDm >= 0 ? '+' + educationDm : educationDm}}
-        )</p>
-    </div>
-    <div class="characteristic">
-      <p>Social Standing:</p>
-      <p>{{_characterService.getCharacteristics().SocialStatus}} ({{socialDm >= 0 ? '+' + socialDm : socialDm}})</p>
-    </div>
+  <div class="armour">
+    <h2>ARMOUR</h2>
+    <table>
+      <tr>
+        <th class="armour-type">TYPE</th>
+        <th class="armour-rad">RAD</th>
+        <th class="armour-protection">PROTECTION</th>
+        <th class="armour-kg">KG</th>
+        <th class="armour-options">OPTIONS</th>
+      </tr>
+      <tr *ngFor="let armour of getArmour()">
+        <td class="armour-type">{{armour.Type}}</td>
+        <td class="armour-rad">{{armour.Rad}}</td>
+        <td class="armour-protection">{{armour.Protection}}</td>
+        <td class="armour-kg">{{armour.KG}}</td>
+        <td class="armour-options">{{armour.Options}}</td>
+      </tr>
+    </table>
   </div>
 </div>
 
-<hr>
+<div class="flex-row">
+  <div class="characteristics">
+    <h2>Characteristics</h2>
+    <div class="flex-col">
+      <div class="column">
+        <div class="characteristic">
+          <p>STR:</p>
+          <p>{{_characterService.getCharacteristics().Strength}} ({{strengthDm >= 0 ? '+' + strengthDm : strengthDm}}
+            )</p>
+        </div>
+        <div class="characteristic">
+          <p>DEX:</p>
+          <p>{{_characterService.getCharacteristics().Dexterity}}
+            ({{dexterityDm >= 0 ? '+' + dexterityDm : dexterityDm}})</p>
+        </div>
+        <div class="characteristic">
+          <p>END:</p>
+          <p>{{_characterService.getCharacteristics().Endurance}}
+            ({{enduranceDm >= 0 ? '+' + enduranceDm : enduranceDm}})</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="characteristic">
+          <p>INT:</p>
+          <p>{{_characterService.getCharacteristics().Intellect}}
+            ({{intellectDm >= 0 ? '+' + intellectDm : intellectDm}})</p>
+        </div>
+        <div class="characteristic">
+          <p>EDU:</p>
+          <p>{{_characterService.getCharacteristics().Education}}
+            ({{educationDm >= 0 ? '+' + educationDm : educationDm}})</p>
+        </div>
+        <div class="characteristic">
+          <p>SOC:</p>
+          <p>{{_characterService.getCharacteristics().SocialStatus}} ({{socialDm >= 0 ? '+' + socialDm : socialDm}})</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="finances">
+    <h2>FINANCES</h2>
+    <div>
+      <h3>PENSION</h3>
+      <p>Cr <u>{{getPension()}}</u></p>
+    </div>
+    <div>
+      <h3>DEBT</h3>
+      <p>Cr <u>{{getDebt()}}</u></p>
+    </div>
+    <div>
+      <h3>CASH ON HAND</h3>
+      <p>Cr <u>{{getCash()}}</u></p>
+    </div>
+    <div>
+      <h3>MONTHLY SHIP PAYMENTS</h3>
+      <p>Cr <u>{{getMonthlyShipPayment()}}</u></p>
+    </div>
+    <div>
+      <h3>LIVING COST</h3>
+      <p>Cr <u>{{getLivingCost()}}</u></p>
+    </div>
+  </div>
+
+  <div class="connections">
+    <h2>ALLIES</h2>
+    <ul>
+      <li *ngFor="let connection of getAllies()">{{connection}}</li>
+    </ul>
+    <h2>CONTACTS</h2>
+    <ul>
+      <li *ngFor="let connection of getContacts()">{{connection}}</li>
+    </ul>
+    <h2>RIVALS</h2>
+    <ul>
+      <li *ngFor="let connection of getRivals()">{{connection}}</li>
+    </ul>
+    <h2>ENEMIES</h2>
+    <ul>
+      <li *ngFor="let connection of getEnemies()">{{connection}}</li>
+    </ul>
+  </div>
+</div>
 
 <h2>Skills</h2>
 <div class="flex">
@@ -67,7 +135,57 @@
   </div>
 </div>
 
-<hr>
+<div class="flex-row">
+  <div class="weapons">
+    <h2>Weapons</h2>
+    <table>
+      <tr>
+        <th class="weapon">WEAPON</th>
+        <th class="tl">TL</th>
+        <th class="range">RANGE</th>
+        <th class="damage">DAMAGE</th>
+        <th class="kg">KG</th>
+        <th class="magazine">MAGAZINE</th>
+        <th class="traits">TRAITS</th>
+      </tr>
+      <tr *ngFor="let weapon of getWeapons()">
+        <td>{{weapon.Name}}</td>
+        <td>{{weapon.TL}}</td>
+        <td>{{weapon.Range}}</td>
+        <td>{{weapon.Damage}}</td>
+        <td>{{weapon.KG}}</td>
+        <td>{{weapon.Magazine}}</td>
+        <td>{{weapon.Traits}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="augments">
+    <h2>AUGMENTS</h2>
+    <table>
+      <tr>
+        <th class="weapon">TYPE</th>
+        <th class="tl">TL</th>
+        <th class="improvement">IMPROVEMENT</th>
+      </tr>
+      <tr *ngFor="let augment of getAugments()">
+        <td>{{augment.Type}}</td>
+        <td>{{augment.TL}}</td>
+        <td>{{augment.Improvement}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="other-equipment">
+  <h2>Equipment</h2>
+  <table>
+    <tr>
+      <th></th>
+      <th>Mass</th>
+    </tr>
+  </table>
+</div>
 
 <div class="log">
   <h2>Character Log</h2>

@@ -1,4 +1,7 @@
 <h1>Basic Information</h1>
+<app-alert *ngIf="hasError"
+           [type]="error"
+           [message]="'All fields are required.'"></app-alert>
 <form>
   <div class="form-field">
     <label for="name">Name</label>

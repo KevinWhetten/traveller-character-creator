@@ -1,4 +1,7 @@
-﻿<h2>Directions: Please pick <strong>{{skillNum}}</strong> skills from the following
+﻿<app-alert [type]="error"
+           [message]="getMessage()"
+  *ngIf="hasError"></app-alert>
+<h2>Directions: Please pick <strong>{{skillNum}}</strong> skills from the following
   (<strong>{{skillNum - selectedSkillNum}}</strong> remaining):</h2>
 <form>
   <div class="skill-list">

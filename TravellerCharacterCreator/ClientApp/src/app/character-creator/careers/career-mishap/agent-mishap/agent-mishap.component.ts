@@ -1,4 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 
 @Component({
   selector: 'app-agent-mishap',
@@ -6,11 +7,15 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./agent-mishap.component.css']
 })
 export class AgentMishapComponent implements OnInit {
-  @Output() mishapResolved = new EventEmitter();
+  @Input() mishapNumber: number;
 
-  constructor() { }
+  constructor(private _metadataService: CharacterMetadataService) { }
 
   ngOnInit(): void {
+    this.mishapNumber = this._metadataService.getEventNumber();
   }
 
+  proceed() {
+    this._metadataService.setCurrentUrl('character-creator/careers');
+  }
 }

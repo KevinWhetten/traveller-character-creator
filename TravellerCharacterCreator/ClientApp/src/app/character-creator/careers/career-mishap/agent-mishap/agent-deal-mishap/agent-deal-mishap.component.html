@@ -1,0 +1,22 @@
+<h2>The Deal</h2>
+
+<p>A criminal or other figure under investigation offers you a deal.
+  <br>Accept, and you must leave the Agent career.
+  <br>Refuse, and you must:</p>
+<ul>
+  <li>Roll twice on the Injury Table and take the lower result</li>
+  <li>Gain an Enemy</li>
+  <li>Gain one level in any skill you choose.</li>
+</ul>
+
+<div *ngIf="!rejected && !accepted">
+  <button class="primary" (click)="accept()">Accept the Offer</button>
+  <button class="secondary" (click)="reject()">Reject the Offer</button>
+</div>
+
+<app-injury-table *ngIf="rejected" [rolls]="2"></app-injury-table>
+
+<div *ngIf="accepted">
+  <h2>You accepted the offer.</h2>
+  <button class="primary" (click)="proceed()">Cool</button>
+</div>

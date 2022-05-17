@@ -1,1 +1,10 @@
-<p>agent-mishap works!</p>
+<h1>Agent Mishap</h1>
+
+<div [ngSwitch]="mishapNumber">
+  <app-agent-severely-injured-mishap *ngSwitchCase="1" (mishapComplete)="proceed()"></app-agent-severely-injured-mishap>
+  <app-agent-deal-mishap *ngSwitchCase="2" (mishapComplete)="proceed()"></app-agent-deal-mishap>
+  <app-agent-investigation-mishap *ngSwitchCase="3" (mishapComplete)="proceed()"></app-agent-investigation-mishap>
+  <app-agent-learn-mishap *ngSwitchCase="4" (mishapComplete)="proceed()"></app-agent-learn-mishap>
+  <app-agent-home-mishap *ngSwitchCase="5" (mishapComplete)="proceed()"></app-agent-home-mishap>
+  <app-agent-injured-mishap *ngSwitchCase="6" (mishapComplete)="proceed()"></app-agent-injured-mishap>
+</div>

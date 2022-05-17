@@ -1,15 +1,18 @@
 <div *ngIf="!rolled">
   <h2>You are given advanced training in a specialist field.</h2>
-  <label for="event-roll">Roll 2D:</label>
-  <input type="number" id="event-roll" [(ngModel)]="eventRoll" min="2" max="12">
-  <button class="primary" (click)="submitRoll()">Submit</button>
+  <div class="event-field flex-row">
+    <label for="event-roll">Roll 2D (EDU 8+):</label>
+    <input type="number" id="event-roll" [(ngModel)]="eventRoll" min="2" max="12">
+    <p>(+{{eduDm}})</p>
+    <button class="primary" (click)="submitRoll()">Submit</button>
+  </div>
 </div>
 
 <div *ngIf="rolled && success">
   <h2>Success! Choose a skill to improve by one level!</h2>
   <app-skill-select [groups]="getGroups()"
                     [groupNames]="getGroupNames()"
-  (onChange)="changeSkill($event)"></app-skill-select>
+                    (onChange)="changeSkill($event)"></app-skill-select>
   <button class="primary" (click)="submitSkill()">Submit</button>
 </div>
 

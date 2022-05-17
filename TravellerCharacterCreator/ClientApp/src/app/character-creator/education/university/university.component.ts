@@ -7,7 +7,7 @@ import {LoggingService} from "../../../services/metadata-services/logging.servic
 @Component({
   selector: 'app-university',
   templateUrl: './university.component.html',
-  styleUrls: ['./university.component.css']
+  styleUrls: ['./university.component.scss']
 })
 export class UniversityComponent implements OnInit {
   acceptanceRoll: number = 2;
@@ -16,8 +16,8 @@ export class UniversityComponent implements OnInit {
 
   constructor(private _characterService: CharacterService,
               private _characterMetadataService: CharacterMetadataService,
-              private _dmService: RollingService,
-              private _loggingService: LoggingService) {
+              private _loggingService: LoggingService,
+              private _rollingService: RollingService) {
   }
 
   ngOnInit(): void {
@@ -33,8 +33,17 @@ export class UniversityComponent implements OnInit {
     }
   }
 
-  submitEntry() {
-    if (this.acceptanceRoll + this._dmService.getDm(this._characterService.getCharacteristics().Education) >= this.universityEntryDifficulty) {
+  toCareer() {
+    this._characterMetadataService.setCurrentUrl('character-creator/careers');
+  }
+
+  getModifier() {
+    let score = this._characterService.getEducation();
+    return this._rollingService.getDm(score);
+  }
+
+  submit() {
+    if (this.acceptanceRoll + this._rollingService.getDm(this._characterService.getCharacteristics().Education) >= this.universityEntryDifficulty) {
       this._loggingService.addLog('I was accepted!');
       this._characterService.increaseEducation(1);
       this._characterMetadataService.setCurrentUrl('character-creator/education/university/skills');
@@ -42,9 +51,5 @@ export class UniversityComponent implements OnInit {
       this.failed = true;
       this._loggingService.addLog('But I was rejected...');
     }
-  }
-
-  toCareer() {
-    this._characterMetadataService.setCurrentUrl('character-creator/careers');
   }
 }
