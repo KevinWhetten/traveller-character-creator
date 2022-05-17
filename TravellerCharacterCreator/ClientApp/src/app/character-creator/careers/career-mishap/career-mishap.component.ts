@@ -22,7 +22,7 @@ export class CareerMishapComponent implements OnInit {
 
   submit() {
     if(1 <= this.mishapRoll && this.mishapRoll <= 6)
-    this._metadataService.setEventNumber(this.mishapRoll);
+    this._metadataService.setMishapNumber(this.mishapRoll);
     this._metadataService.setCurrentUrl('character-creator/careers/mishap/agent');
   }
 }

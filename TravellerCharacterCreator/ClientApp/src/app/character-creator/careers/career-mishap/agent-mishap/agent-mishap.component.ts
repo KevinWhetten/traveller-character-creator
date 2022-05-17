@@ -12,7 +12,7 @@ export class AgentMishapComponent implements OnInit {
   constructor(private _metadataService: CharacterMetadataService) { }
 
   ngOnInit(): void {
-    this.mishapNumber = this._metadataService.getEventNumber();
+    this.mishapNumber = this._metadataService.getMishapNumber();
   }
 
   proceed() {

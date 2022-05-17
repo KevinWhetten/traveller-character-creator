@@ -8,6 +8,7 @@ class Metadata {
   universitySkills: CharacterSkill[] = [];
   skillsLearnedThisTerm: string[] = [];
   eventChoice: number = 0;
+  mishapNumber: number = 0;
   jailed: boolean = false;
   universityTerm: number = 0;
   graduatedUniversity: boolean = false;
@@ -233,6 +234,17 @@ export class CharacterMetadataService {
   isJailed() {
     this.load();
     return this.metadata.jailed;
+  }
+
+  setMishapNumber(choice: number){
+    this.load();
+    this.metadata.mishapNumber = choice;
+    this.save();
+  }
+
+  getMishapNumber(){
+    this.load();
+    return this.metadata.mishapNumber;
   }
 
   //endregion
