@@ -35,7 +35,7 @@ export class CareerSkillGenerationComponent implements OnInit {
     let tables = this.career.TrainingTables;
     let eligibleTables = [] as TrainingTable[];
     for (let table of tables) {
-      if(table.Assignments.includes(this.assignment) && table.MinEDU < this.getEduScore()){
+      if(table.Assignments.includes(this.assignment) && table.MinEDU < this.getEduScore().current){
         eligibleTables.push(table);
       }
     }

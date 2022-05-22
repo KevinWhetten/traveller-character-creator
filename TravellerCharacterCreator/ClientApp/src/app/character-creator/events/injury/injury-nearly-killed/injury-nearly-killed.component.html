@@ -1,0 +1,11 @@
+﻿<h4>Nearly Killed</h4>
+<p>Reduce one physical characteristic by 1D, reduce the other two physical characteristics by 2.</p>
+
+<select [(ngModel)]="characteristic">
+  <option value="STR">Strength</option>
+  <option value="DEX">Dexterity</option>
+  <option value="END">Endurance</option>
+</select>
+<app-roll [numberOfDice]="1"
+          (result)="rolled($event)"></app-roll>
+

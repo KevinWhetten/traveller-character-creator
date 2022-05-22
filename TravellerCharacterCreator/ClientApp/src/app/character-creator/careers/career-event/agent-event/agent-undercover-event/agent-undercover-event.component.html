@@ -3,12 +3,10 @@
 <p>You go undercover to investigate an enemy.</p>
 
 <div *ngIf="!rolled">
-  <div class="event-field flex-row">
-    <label for="event-roll">Roll 2D (Deception 8+):</label>
-    <input type="number" id="event-roll" [(ngModel)]="eventRoll" min="2" max="12">
-    <p>(+{{deceptionDm}})</p>
-    <button class="primary" (click)="submitRoll()">Submit</button>
-  </div>
+  <app-skill-roll [skill]="'Deception'"
+                  [target]="8"
+                  (rolled)="submit($event)">
+  </app-skill-roll>
 </div>
 
 <div *ngIf="rolled && success">

@@ -28,7 +28,7 @@ export class UniversityComponent implements OnInit {
     if (this._characterMetadataService.getTerm() == 3) {
       this.universityEntryDifficulty += 2;
     }
-    if (this._characterService.getCharacteristics().SocialStatus >= 9) {
+    if (this._characterService.getCharacteristics().SocialStanding.current >= 9) {
       this.universityEntryDifficulty--;
     }
   }
@@ -38,12 +38,20 @@ export class UniversityComponent implements OnInit {
   }
 
   getModifier() {
-    let score = this._characterService.getEducation();
-    return this._rollingService.getDm(score);
+    let mod = 0;
+    if(this._characterMetadataService.getTerm() == 2){
+      mod++;
+    }else if (this._characterMetadataService.getTerm() == 3){
+      mod +=2;
+    }
+    if(this._characterService.getSocialStanding().current >= 9){
+      mod++;
+    }
+    return mod;
   }
 
-  submit() {
-    if (this.acceptanceRoll + this._rollingService.getDm(this._characterService.getCharacteristics().Education) >= this.universityEntryDifficulty) {
+  submit(accepted: boolean) {
+    if (accepted) {
       this._loggingService.addLog('I was accepted!');
       this._characterService.increaseEducation(1);
       this._characterMetadataService.setCurrentUrl('character-creator/education/university/skills');

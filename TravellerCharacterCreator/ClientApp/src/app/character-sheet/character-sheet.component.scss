@@ -4,6 +4,25 @@ h1, h2 {
   padding: 8px 16px;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  background-color: black;
+  color: red;
+  padding: 8px 16px;
+  margin: 32px 0 16px 0;
+
+  h2 {
+    padding: 0;
+    margin: 0;
+  }
+  p {
+    margin: 0 0 0 16px;
+    padding: 0 16px;
+    color: white;
+  }
+}
+
 .flex-row {
   display: flex;
   flex-direction: column;
@@ -109,13 +128,6 @@ h1, h2 {
 
 .grid-item {
   width: 18%;
-}
-
-.characteristic {
-  width: 200px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 .flex {

@@ -28,12 +28,12 @@ export class EventPrankComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  prank() {
+  prank(result: {roll: number, modifier: number, passed: boolean}) {
     this.log = 'A supposedly harmless prank went wrong and someone got hurt...';
-    if (this.prankRoll == 2) {
+    if (result.roll == 2) {
       this.log = ' I must take the Prisoner career next term.';
       this.prankJail = true;
-    } else if (this.prankRoll + this._dmService.getDm(this._characterService.getCharacteristics().SocialStatus) < 8) {
+    } else if (!result.passed) {
       this.prankEnemy = true;
     } else {
       this.prankRival = true;

@@ -2,10 +2,8 @@
   <div class="career-header">
     <h1>Survival for {{career.Name}} - {{assigment.Name}}</h1>
   </div>
-  <div class="qualification-field flex-row">
-    <label for="qualification">To Survive this career, roll 2D ({{assigment.Survival.characteristic}} {{assigment.Survival.target}}+):</label>
-    <input type="number" id="qualification" [(ngModel)]="qualificationRoll" min="2" max="12">
-    <p>({{getModifier() >= 0 ? '+' + getModifier() : getModifier()}})</p>
-    <button class="primary" (click)="submit()">Submit</button>
-  </div>
+  <app-characteristic-roll [characteristic]="assigment.Survival.characteristic"
+                           [target]="assigment.Survival.target"
+                           (rolled)="submit($event)">
+  </app-characteristic-roll>
 </div>

@@ -25,12 +25,10 @@ export class MilitaryAcademyGraduationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submitGraduation() {
-    let graduationResult = this.graduationRoll + this._dmService.getDm(this._characterService.getCharacteristics().Intellect);
-
-    if (graduationResult >= 11) {
+  submitGraduation(passed: boolean) {
+    if (this.graduationRoll >= 11) {
       this.getHonorsBonus();
-    } else if (graduationResult >= 7) {
+    } else if (this.graduationRoll >= 7) {
       this.getGraduationBonus();
     } else {
       this._loggingService.addLog('I didn\'t graduate from Military Academy.');
@@ -41,7 +39,7 @@ export class MilitaryAcademyGraduationComponent implements OnInit {
   private getGraduationBonus() {
     this._characterService.increaseEducation(1);
     this._loggingService.addLog('I graduated from Military Academy');
-    this._characterMetadataService.graduatedMilitaryAcademy();
+    this._characterMetadataService.graduateMilitaryAcademy();
     this.success = true;
   }
 
@@ -49,7 +47,7 @@ export class MilitaryAcademyGraduationComponent implements OnInit {
     this._characterService.increaseEducation(1);
     this._characterService.increaseSocialStatus(1);
     this._loggingService.addLog('I graduated from Military Academy with Honors!')
-    this._characterMetadataService.graduatedMilitaryAcademyWithHonors();
+    this._characterMetadataService.graduateMilitaryAcademyWithHonors();
     this.honors = true;
   }
 

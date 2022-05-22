@@ -14,7 +14,6 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
 })
 export class UniversityGraduationComponent implements OnInit {
   @Output() graduation = new EventEmitter();
-  graduationRoll: number = 2;
   success: boolean = false;
   honors: boolean = false;
   failure: boolean = false;
@@ -30,34 +29,31 @@ export class UniversityGraduationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submitGraduation() {
-    let graduationResult = this.graduationRoll + this._dmService.getDm(this._characterService.getCharacteristics().Intellect);
-
-    if (graduationResult >= 11) {
+  submit(result: number) {
+    if (result >= 11) {
       this.getHonorsBonus();
-    } else if (graduationResult >= 7) {
+    } else if (result >= 7) {
       this.getGraduationBonus();
     } else {
       this._loggingService.addLog('I didn\'t graduate...');
       this.failure = true;
     }
-    this._characterMetadataService.setCurrentUrl('character-creator/careers');
   }
 
   private getGraduationBonus() {
-    this._loggingService.addLog('I graduated from University!');
+    this._loggingService.addLog('----- Graduated! -----');
     this.success = true;
     this._characterService.increaseSkills(this._characterMetadataService.getUniversitySkills());
     this._characterService.increaseEducation(2);
-    this._characterMetadataService.graduatedUniversity();
+    this._characterMetadataService.graduateUniversity();
   }
 
   private getHonorsBonus() {
-    this._loggingService.addLog('I graduated from University with Honors!');
+    this._loggingService.addLog('----- Graduated with Honors! -----');
     this.honors = true;
     this._characterService.increaseSkills(this._characterMetadataService.getUniversitySkills());
     this._characterService.increaseEducation(2);
-    this._characterMetadataService.graduatedUniversityWithHonors();
+    this._characterMetadataService.graduateUniversityWithHonors();
   }
 
   moveOn() {

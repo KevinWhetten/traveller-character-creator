@@ -8,8 +8,16 @@
         </tr>
         <tr *ngFor="let assignment of career.Assignments">
             <td>{{assignment.Name}}</td>
-            <td>{{assignment.Survival.characteristic}} {{assignment.Survival.target}}+</td>
-            <td>{{assignment.Advancement.characteristic}} {{assignment.Advancement.target}}+</td>
+            <td>{{assignment.Survival.characteristic}} {{assignment.Survival.target}}+
+              <span class="blue-text">({{getModifier(assignment.Survival.characteristic) >= 0
+                ? '+' + getModifier(assignment.Survival.characteristic)
+                : getModifier(assignment.Survival.characteristic)}})</span>
+            </td>
+            <td>{{assignment.Advancement.characteristic}} {{assignment.Advancement.target}}+
+              <span class="blue-text">({{getModifier(assignment.Advancement.characteristic) >= 0
+                ? '+' + getModifier(assignment.Advancement.characteristic)
+                : getModifier(assignment.Advancement.characteristic)}})</span>
+            </td>
         </tr>
     </table>
 </div>

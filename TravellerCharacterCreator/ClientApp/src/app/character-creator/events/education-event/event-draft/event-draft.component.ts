@@ -13,10 +13,10 @@ import {CharacterService} from "../../../../services/character.service";
 export class EventDraftComponent implements OnInit {
   @Output() graduate = new EventEmitter();
   private log: string;
-  avoidDraftRoll: number;
   avoidDraftFailure: boolean;
-  socialStatusDm: number = this._dmService.getDm(this._characterService.getSocialStatus());
+  socialStatusDm: number = this._dmService.getDm(this._characterService.getSocialStanding().current);
   avoidDraftAttempt: boolean;
+  avoided: boolean = false;
 
   constructor(private _characterService: CharacterService,
               private _characterMetadataService: CharacterMetadataService,
@@ -26,19 +26,20 @@ export class EventDraftComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._loggingService.addLog('War came and a wide-ranging draft was instigated.');
   }
 
   drafted() {
     // Add Term
-    this._loggingService.addLog('War came and a wide-ranging draft was instigated. I chose to be drafted, so I didn\'t graduate.');
+    this._loggingService.addLog('I chose to be drafted, so I didn\'t graduate.');
     this._characterMetadataService.setCurrentUrl('character-creator/careers/draft');
   }
 
-  avoidDraft() {
-    this.log = 'War came and a wide-ranging draft was instigated. I tried to get enough strings pulled to avoid the draft and complete my education,';
-    if (this.avoidDraftRoll + this._dmService.getDm(this._characterService.getCharacteristics().SocialStatus) >= 9) {
+  avoidDraft(avoided: boolean) {
+    this.log = 'I tried to get enough strings pulled to avoid the draft and complete my education,';
+    if (avoided) {
       this.log += ' and succeeded!';
-      this.graduate.emit();
+      this.avoided = true;
     } else {
       this.log += ' but failed.';
       this.avoidDraftFailure = true;
@@ -47,7 +48,12 @@ export class EventDraftComponent implements OnInit {
   }
 
   fleeDraft() {
-    this._loggingService.addLog('War came and a wide-ranging draft was instigated. I chose to be flee and become a Drifter next term. I also didn\'t graduate.');
-    this._characterMetadataService.setCurrentUrl('character-creator/careers/drifter');
+    this._loggingService.addLog('I chose to be flee and become a Drifter next term. I also didn\'t graduate.');
+    this._characterMetadataService.setCurrentCareer('Drifter');
+    this._characterMetadataService.setCurrentUrl('character-creator/careers/assignment');
+  }
+
+  proceed() {
+    this.graduate.emit();
   }
 }

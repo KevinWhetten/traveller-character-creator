@@ -7,12 +7,19 @@
     fierce.</p>
   <h2>Time to submit an application. Army, Marines, or Navy?</h2>
   <div *ngIf="!applied">
-    <h3>Roll for entry:</h3>
-    <label for="acceptance">Roll 2d6</label>
-    <input class="number" type="number" id="acceptance" name="acceptance" [(ngModel)]="acceptanceRoll" min="2" max="12"/>
-    <button class="primary" (click)="apply('Navy')">Navy ({{navyChance}}%)</button>
-    <button class="primary" (click)="apply('Marines')">Marines ({{marinesChance}}%)</button>
-    <button class="primary" (click)="apply('Army')">Army ({{armyChance}}%)</button>
+    <h3>Roll for entry to one of the following:</h3>
+    <h4>Army</h4>
+    <app-characteristic-roll [characteristic]="'END'"
+                             [target]="8"
+                             (rolled)="army($event)"></app-characteristic-roll>
+    <h4>Marines</h4>
+    <app-characteristic-roll [characteristic]="'END'"
+                             [target]="9"
+                             (rolled)="marines($event)"></app-characteristic-roll>
+    <h4>Navy</h4>
+    <app-characteristic-roll [characteristic]="'INT'"
+                             [target]="9"
+                             (rolled)="navy($event)"></app-characteristic-roll>
   </div>
 
   <div *ngIf="applied && !armyAcademy && !marinesAcademy && !navyAcademy">
@@ -23,7 +30,7 @@
     <h3>You were accepted into the Army Academy!</h3>
     <h4>You gain the following skills:</h4>
     <ul>
-      <li *ngFor="let skill of armySkills">[{{skill}} 0]</li>
+      <li *ngFor="let skill of armySkills">{{skill}} 0</li>
     </ul>
   </div>
 
@@ -31,7 +38,7 @@
     <h3>You were accepted into the Marines Academy!</h3>
     <h4>You gain the following skills:</h4>
     <ul>
-      <li *ngFor="let skill of marinesSkills">[{{skill}} 0]</li>
+      <li *ngFor="let skill of marinesSkills">{{skill}} 0</li>
     </ul>
   </div>
 
@@ -39,7 +46,7 @@
     <h3>You were accepted into the Navy Academy!</h3>
     <h4>You gain the following skills:</h4>
     <ul>
-      <li *ngFor="let skill of navySkills">[{{skill}} 0]</li>
+      <li *ngFor="let skill of navySkills">{{skill}} 0</li>
     </ul>
   </div>
   <button *ngIf="applied" class="primary" (click)="moveOn()">Ok</button>

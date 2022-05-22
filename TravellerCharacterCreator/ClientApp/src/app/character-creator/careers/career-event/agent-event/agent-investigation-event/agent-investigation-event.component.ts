@@ -12,7 +12,6 @@ import {CharacterMetadataService} from "../../../../../services/metadata-service
 export class AgentInvestigationEventComponent implements OnInit {
   @Output() eventComplete = new EventEmitter;
   skillName: string;
-  skillRoll: number;
   rolled: boolean = false;
   success: boolean = false;
 
@@ -50,11 +49,8 @@ export class AgentInvestigationEventComponent implements OnInit {
     this.skillName = skillName;
   }
 
-  submit() {
-    let characterSkill = this._characterService.getSkills()[this.skillName];
-    let modifier = this._rollingService.getDm(characterSkill);
-    this.rolled = true;
-    this.success = this.skillRoll + modifier >= 8;
+  submit(passed: boolean) {
+    this.success = passed;
   }
 
   submitIncrease() {

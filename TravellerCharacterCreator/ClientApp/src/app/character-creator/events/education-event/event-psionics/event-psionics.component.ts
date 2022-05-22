@@ -14,15 +14,16 @@ export class EventPsionicsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._loggingService.addLog('I was approached by an underground (and highly illegal) psionic group who sensed potential in me.');
   }
 
-  testPsi() {
-    this._loggingService.addLog('I was approached by an underground (and highly illegal) psionic group who sensed potential in me.  I got tested for Psi, and I can enter the \'Psion\' career in any subsequent term.');
-    this._characterMetadataService.setCurrentUrl('character-creator/education/university/psionic-test');
+  refuse() {
+    this._loggingService.addLog('I decided against getting tested!');
+    this.graduate.emit();
   }
 
-  moveOn() {
-    this._loggingService.addLog('I was approached by an underground (and highly illegal) psionic group who sensed potential in me, but decided against getting tested.');
+  accept() {
+    this._loggingService.addLog('I decided to get tested!');
     this.graduate.emit();
   }
 }

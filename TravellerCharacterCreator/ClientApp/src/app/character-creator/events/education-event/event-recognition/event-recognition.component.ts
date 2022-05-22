@@ -16,10 +16,10 @@ export class EventRecognitionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._loggingService.addLog('I gained wide-ranging recognition of my initiative and innovative approach to study.');
   }
 
   recognized() {
-    this._loggingService.addLog('I gained wide-ranging recognition of my initiative and innovative approach to study.');
     this._characterService.increaseSocialStatus(1);
     if (this.story) {
       this._loggingService.addLog(this.story);

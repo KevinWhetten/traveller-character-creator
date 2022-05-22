@@ -18,6 +18,7 @@ export class CharacterSheetComponent implements OnInit {
   intellectDm: number;
   educationDm: number;
   socialDm: number;
+  psiDm: number;
 
   constructor(public _characterService: CharacterService,
               public _skillService: SkillService,
@@ -27,12 +28,13 @@ export class CharacterSheetComponent implements OnInit {
 
   ngOnInit(): void {
     let characteristics = this._characterService.getCharacteristics()
-    this.strengthDm = this._dmService.getDm(characteristics.Strength);
-    this.dexterityDm = this._dmService.getDm(characteristics.Dexterity);
-    this.enduranceDm = this._dmService.getDm(characteristics.Endurance);
-    this.intellectDm = this._dmService.getDm(characteristics.Intellect);
-    this.educationDm = this._dmService.getDm(characteristics.Education);
-    this.socialDm = this._dmService.getDm(characteristics.SocialStatus);
+    this.strengthDm = this._dmService.getDm(characteristics.Strength.current);
+    this.dexterityDm = this._dmService.getDm(characteristics.Dexterity.current);
+    this.enduranceDm = this._dmService.getDm(characteristics.Endurance.current);
+    this.intellectDm = this._dmService.getDm(characteristics.Intellect.current);
+    this.educationDm = this._dmService.getDm(characteristics.Education.current);
+    this.socialDm = this._dmService.getDm(characteristics.SocialStanding.current);
+    this.psiDm = this._dmService.getDm(characteristics.Psi.current);
   }
 
   getSubskills(skill: Skill): string[] {
@@ -43,8 +45,7 @@ export class CharacterSheetComponent implements OnInit {
   }
 
   isBaseSkill(skill: Skill) {
-    let flag = !((<Subskill>skill).ParentSkill);
-    return flag;
+    return !((<Subskill>skill).ParentSkill);
   }
 
   getArmour() {
@@ -93,5 +94,10 @@ export class CharacterSheetComponent implements OnInit {
 
   getAugments() {
     return this._characterService.getAugments();
+  }
+
+  getJackOfAllTrades() {
+    let skill = this._characterService.getSkills()[this._skillService.SkillNames.JackOfAllTrades]
+    return skill ? skill : 0;
   }
 }

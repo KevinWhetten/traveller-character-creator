@@ -11,25 +11,20 @@ import {SkillService} from "../../../../../services/data-services/skill.service"
 export class AgentTrainingEventComponent implements OnInit {
   @Output() eventComplete = new EventEmitter;
   chosenSkill: string;
-  eventRoll: number = 2;
   rolled: boolean = false;
   success: boolean = false;
-  eduDm: number = this._rollingService.getDm(this._characterService.getEducation());
 
   constructor(private _characterService: CharacterService,
               private _rollingService: RollingService,
-              private _skillService: SkillService) { }
+              private _skillService: SkillService) {
+  }
 
   ngOnInit(): void {
   }
 
-  submitRoll() {
+  submit(passed: boolean) {
     this.rolled = true;
-    let educationScore = this._characterService.getEducation();
-    let modifier = this._rollingService.getDm(educationScore);
-    if(this.eventRoll + modifier >= 8){
-      this.success = true;
-    }
+    this.success = passed;
   }
 
   getGroups() {

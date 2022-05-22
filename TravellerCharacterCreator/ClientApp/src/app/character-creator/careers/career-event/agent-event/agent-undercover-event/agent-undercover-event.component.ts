@@ -8,10 +8,8 @@ import {RollingService} from "../../../../../services/data-services/rolling.serv
   styleUrls: ['./agent-undercover-event.component.scss']
 })
 export class AgentUndercoverEventComponent implements OnInit {
-  eventRoll: number;
   rolled: boolean = false;
   success: boolean = false;
-  deceptionDm: number = this._rollingService.getDm(this._characterService.getSkills()['Deception']);
 
   constructor(private _characterService: CharacterService,
               private _rollingService: RollingService) { }
@@ -19,13 +17,9 @@ export class AgentUndercoverEventComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submitRoll() {
+  submit(passed: boolean) {
     this.rolled = true;
-    let modifier = this._characterService.getSkills()['Deception'];
-    if(modifier == undefined){
-      modifier = -3;
-    }
-    if(this.eventRoll + modifier >= 8){
+    if(passed){
       this.success = true;
     }
   }

@@ -1,0 +1,14 @@
+label {
+  margin-right: 32px;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 32px;
+
+  p {
+    margin: 0 16px;
+  }
+}

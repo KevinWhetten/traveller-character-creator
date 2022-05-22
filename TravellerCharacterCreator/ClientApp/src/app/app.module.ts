@@ -12,24 +12,19 @@ import {NavMenuComponent} from './nav-menu/nav-menu.component';
 import { CharacterCreatorComponent } from './character-creator/character-creator.component';
 import { BackgroundSkillsComponent } from './character-creator/background-skills/background-skills.component';
 import { CareerSelectionComponent } from './character-creator/careers/career-selection/career-selection.component';
-import { CharacteristicsComponent } from './character-creator/characteristics/characteristics.component';
+import { DetermineCharacteristicsComponent } from './character-creator/determine-characteristics/determine-characteristics.component';
 import { EducationComponent } from './character-creator/education/education.component';
 import { EducationEventComponent } from './character-creator/events/education-event/education-event.component';
-import { EducationLifeEventComponent } from './character-creator/events/education-event/education-life-event/education-life-event.component';
 import { MilitaryAcademyComponent } from './character-creator/education/military-academy/military-academy.component';
 import { MilitaryAcademyEventComponent } from './character-creator/education/military-academy/military-academy-event/military-academy-event.component';
 import { MilitaryAcademyGraduationComponent } from './character-creator/education/military-academy/military-academy-graduation/military-academy-graduation.component';
 import { UniversityComponent } from './character-creator/education/university/university.component';
 import { UniversityEventComponent } from './character-creator/education/university/university-event/university-event.component';
 import { UniversityGraduationComponent } from './character-creator/education/university/university-graduation/university-graduation.component';
-import { UniversityLifeEventComponent } from './character-creator/education/university/university-event/university-life-event/university-life-event.component';
-import { MilitaryAcademyLifeEventComponent } from './character-creator/education/military-academy/military-academy-event/military-academy-life-event/military-academy-life-event.component';
-import { EducationPsionicTestComponent } from './character-creator/events/education-event/education-psionic-test/education-psionic-test.component';
-import { MilitaryAcademyPsionicTestComponent } from './character-creator/education/military-academy/military-academy-event/military-academy-psionic-test/military-academy-psionic-test.component';
-import { UniversityPsionicTestComponent } from './character-creator/education/university/university-event/university-psionic-test/university-psionic-test.component';
 import { UniversitySkillsComponent } from './character-creator/education/university/university-skills/university-skills.component';
 import { FinalStepsComponent } from './character-creator/final-steps/final-steps.component';
 import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
+import { CharacteristicsComponent } from './character-sheet/characteristics/characteristics.component';
 import { SkillSelectComponent } from './controls/skill-select/skill-select.component';
 import { BasicInfoComponent } from './character-creator/basic-info/basic-info.component';
 import { SkillCheckboxSelectComponent } from './controls/skill-checkbox-select/skill-checkbox-select.component';
@@ -103,8 +98,35 @@ import { AgentHomeMishapComponent } from './character-creator/careers/career-mis
 import { AgentInjuredMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-injured-mishap/agent-injured-mishap.component';
 import { SeverelyInjuredMishapComponent } from './character-creator/careers/career-mishap/severely-injured-mishap/severely-injured-mishap.component';
 import { InjuredMishapComponent } from './character-creator/careers/career-mishap/injured-mishap/injured-mishap.component';
-import { InjuryTableComponent } from './character-creator/careers/career-mishap/injured-mishap/injury-table/injury-table.component';
 import { AgentHomeInjuryComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-home-mishap/agent-home-injury/agent-home-injury.component';
+import { SkillRollComponent } from './controls/skill-roll/skill-roll.component';
+import { CharacteristicRollComponent } from './controls/characteristic-roll/characteristic-roll.component';
+import { EventSicknessOrInjuryComponent } from './character-creator/events/life-event/event-sickness-or-injury/event-sickness-or-injury.component';
+import { EventBirthOrDeathComponent } from './character-creator/events/life-event/event-birth-or-death/event-birth-or-death.component';
+import { EventEndingOfRelationshipComponent } from './character-creator/events/life-event/event-ending-of-relationship/event-ending-of-relationship.component';
+import { EventImprovedRelationshipComponent } from './character-creator/events/life-event/event-improved-relationship/event-improved-relationship.component';
+import { EventNewRelationshipComponent } from './character-creator/events/life-event/event-new-relationship/event-new-relationship.component';
+import { EventNewContactComponent } from './character-creator/events/life-event/event-new-contact/event-new-contact.component';
+import { EventBetrayalComponent } from './character-creator/events/life-event/event-betrayal/event-betrayal.component';
+import { EventTravelComponent } from './character-creator/events/life-event/event-travel/event-travel.component';
+import { EventGoodFortuneComponent } from './character-creator/events/life-event/event-good-fortune/event-good-fortune.component';
+import { EventCrimeComponent } from './character-creator/events/life-event/event-crime/event-crime.component';
+import { EventUnusualEventComponent } from './character-creator/events/life-event/event-unusual-event/event-unusual-event.component';
+import { UnusualEventPsionicsComponent } from './character-creator/events/life-event/event-unusual-event/unusual-event-psionics/unusual-event-psionics.component';
+import { UnusualEventAliensComponent } from './character-creator/events/life-event/event-unusual-event/unusual-event-aliens/unusual-event-aliens.component';
+import { UnusualEventAlienArtifactComponent } from './character-creator/events/life-event/event-unusual-event/unusual-event-alien-artifact/unusual-event-alien-artifact.component';
+import { UnusualEventAmnesiaComponent } from './character-creator/events/life-event/event-unusual-event/unusual-event-amnesia/unusual-event-amnesia.component';
+import { UnusualEventContactWithGovernmentComponent } from './character-creator/events/life-event/event-unusual-event/unusual-event-contact-with-government/unusual-event-contact-with-government.component';
+import { UnusualEventAncientTechnologyComponent } from './character-creator/events/life-event/event-unusual-event/unusual-event-ancient-technology/unusual-event-ancient-technology.component';
+import { StoryComponent } from './controls/story/story.component';
+import { RollComponent } from './controls/roll/roll.component';
+import { InjuryComponent } from './character-creator/events/injury/injury.component';
+import { InjuryNearlyKilledComponent } from './character-creator/events/injury/injury-nearly-killed/injury-nearly-killed.component';
+import { InjurySeverelyInjuredComponent } from './character-creator/events/injury/injury-severely-injured/injury-severely-injured.component';
+import { InjuryMissingEyeOrLimbComponent } from './character-creator/events/injury/injury-missing-eye-or-limb/injury-missing-eye-or-limb.component';
+import { InjuryScarredComponent } from './character-creator/events/injury/injury-scarred/injury-scarred.component';
+import { InjuryInjuredComponent } from './character-creator/events/injury/injury-injured/injury-injured.component';
+import { InjuryLightlyInjuredComponent } from './character-creator/events/injury/injury-lightly-injured/injury-lightly-injured.component';
 
 @NgModule({
   declarations: [
@@ -113,24 +135,19 @@ import { AgentHomeInjuryComponent } from './character-creator/careers/career-mis
     CharacterCreatorComponent,
     BackgroundSkillsComponent,
     CareerSelectionComponent,
-    CharacteristicsComponent,
+    DetermineCharacteristicsComponent,
     EducationComponent,
     EducationEventComponent,
-    EducationLifeEventComponent,
     MilitaryAcademyComponent,
     MilitaryAcademyEventComponent,
     MilitaryAcademyGraduationComponent,
     UniversityComponent,
     UniversityEventComponent,
     UniversityGraduationComponent,
-    UniversityLifeEventComponent,
-    MilitaryAcademyLifeEventComponent,
-    EducationPsionicTestComponent,
-    MilitaryAcademyPsionicTestComponent,
-    UniversityPsionicTestComponent,
     UniversitySkillsComponent,
     FinalStepsComponent,
     CharacterSheetComponent,
+    CharacteristicsComponent,
     SkillSelectComponent,
     BasicInfoComponent,
     SkillCheckboxSelectComponent,
@@ -206,8 +223,35 @@ import { AgentHomeInjuryComponent } from './character-creator/careers/career-mis
     AgentInjuredMishapComponent,
     SeverelyInjuredMishapComponent,
     InjuredMishapComponent,
-    InjuryTableComponent,
-    AgentHomeInjuryComponent
+    AgentHomeInjuryComponent,
+    SkillRollComponent,
+    CharacteristicRollComponent,
+    EventSicknessOrInjuryComponent,
+    EventBirthOrDeathComponent,
+    EventEndingOfRelationshipComponent,
+    EventImprovedRelationshipComponent,
+    EventNewRelationshipComponent,
+    EventNewContactComponent,
+    EventBetrayalComponent,
+    EventTravelComponent,
+    EventGoodFortuneComponent,
+    EventCrimeComponent,
+    EventUnusualEventComponent,
+    UnusualEventPsionicsComponent,
+    UnusualEventAliensComponent,
+    UnusualEventAlienArtifactComponent,
+    UnusualEventAmnesiaComponent,
+    UnusualEventContactWithGovernmentComponent,
+    UnusualEventAncientTechnologyComponent,
+    StoryComponent,
+    RollComponent,
+    InjuryComponent,
+    InjuryNearlyKilledComponent,
+    InjurySeverelyInjuredComponent,
+    InjuryMissingEyeOrLimbComponent,
+    InjuryScarredComponent,
+    InjuryInjuredComponent,
+    InjuryLightlyInjuredComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -219,20 +263,16 @@ import { AgentHomeInjuryComponent } from './character-creator/careers/career-mis
       {path: 'character-sheet', component: CharacterSheetComponent},
       {path: 'character-creator', component: CharacterCreatorComponent},
       {path: 'character-creator/basic-info', component: BasicInfoComponent},
-      {path: 'character-creator/characteristics', component: CharacteristicsComponent},
+      {path: 'character-creator/characteristics', component: DetermineCharacteristicsComponent},
       {path: 'character-creator/background-skills', component: BackgroundSkillsComponent},
       {path: 'character-creator/education', component: EducationComponent},
       {path: 'character-creator/education/university', component: UniversityComponent},
       {path: 'character-creator/education/university/skills', component: UniversitySkillsComponent},
       {path: 'character-creator/education/university/event', component: UniversityEventComponent},
       {path: 'character-creator/education/university/graduate', component: UniversityGraduationComponent},
-      {path: 'character-creator/education/university/psionic-test', component: UniversityPsionicTestComponent},
-      {path: 'character-creator/education/university/life-event', component: UniversityLifeEventComponent},
       {path: 'character-creator/education/military-academy', component: MilitaryAcademyComponent},
       {path: 'character-creator/education/military-academy/event', component: MilitaryAcademyEventComponent},
       {path: 'character-creator/education/military-academy/graduate', component: MilitaryAcademyGraduationComponent},
-      {path: 'character-creator/education/military-academy/psionic-test', component: UniversityPsionicTestComponent},
-      {path: 'character-creator/education/military-academy/life-event', component: UniversityLifeEventComponent},
       {path: 'character-creator/careers', component: CareerSelectionComponent},
       {path: 'character-creator/careers/qualification', component: CareerQualificationComponent},
       {path: 'character-creator/careers/qualification/failed', component: CareerQualificationFailedComponent},

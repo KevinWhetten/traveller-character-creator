@@ -3,7 +3,7 @@ label {
 }
 
 select {
-  width: 128px;
+  min-width: 128px;
 }
 
 app-career-description {
@@ -33,6 +33,11 @@ app-career-description {
       font-size: 40pt;
       padding: 0;
       margin: 0;
+    }
+
+    p{
+      margin: 0;
+      padding: 0;
     }
 
     .designation {

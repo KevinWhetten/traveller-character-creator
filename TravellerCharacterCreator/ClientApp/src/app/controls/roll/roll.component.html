@@ -1,0 +1,8 @@
+<div class="container">
+  <app-alert *ngIf="hasError" [type]="error" [message]="errorMessage"></app-alert>
+  <div class="qualification-field flex-row">
+    <label for="qualification">Roll {{numberOfDice}}D ({{modifier >= 0 ? '+' + modifier : modifier}}):</label>
+    <input type="number" id="qualification" [(ngModel)]="roll" min="{{numberOfDice}}" max="{{numberOfDice * 6}}">
+    <button class="primary" (click)="submit()">Submit</button>
+  </div>
+</div>

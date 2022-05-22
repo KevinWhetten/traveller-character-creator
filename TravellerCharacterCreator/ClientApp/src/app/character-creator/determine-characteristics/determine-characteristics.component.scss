@@ -1,0 +1,62 @@
+input {
+  height: 50px;
+  width: 64px;
+  margin: 0 80px 8px 0;
+}
+
+label {
+  width: 200px;
+}
+
+form {
+  margin-bottom: 32px;
+}
+
+.headers {
+  display: flex;
+
+  .characteristic {
+    width: 200px;
+    font-size: 16pt;
+    font-weight: bold;
+  }
+  .roll-result {
+    width: 144px;
+    font-size: 16pt;
+    font-weight: bold;
+  }
+  .modifier {
+    font-size: 16pt;
+    font-weight: bold;
+  }
+}
+
+.attr {
+  display: flex;
+  align-items: center;
+}
+.custom-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-tooltip .custom-tooltip-text {
+  visibility: hidden;
+  width: 300px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: -32px;
+  left: 100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.custom-tooltip:hover .custom-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

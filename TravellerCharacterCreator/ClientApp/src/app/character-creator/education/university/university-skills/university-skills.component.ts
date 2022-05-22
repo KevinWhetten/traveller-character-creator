@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {SkillService} from "../../../../services/data-services/skill.service";
 import {CharacterSkill} from "../../../../models/character-skill";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
+import {AlertType} from "../../../../controls/alert/alert.component";
 
 @Component({
   selector: 'app-accepted-university',
@@ -13,6 +14,8 @@ import {CharacterMetadataService} from "../../../../services/metadata-services/c
 export class UniversitySkillsComponent implements OnInit {
   private level1Skill: string = '';
   private level0Skill: string = '';
+  hasError: boolean = false;
+  errorMessage: string;
   private universitySkills: string[] = [this._skillService.SkillNames.Admin, this._skillService.SkillNames.Advocate,
     this._skillService.SkillNames.Animals, this._skillService.SkillNames.AnimalsTraining, this._skillService.SkillNames.AnimalsVeterinary,
     this._skillService.SkillNames.Art, this._skillService.SkillNames.ArtPerformer, this._skillService.SkillNames.ArtHolography,
@@ -32,8 +35,6 @@ export class UniversitySkillsComponent implements OnInit {
     this._skillService.SkillNames.ScienceLinguistics, this._skillService.SkillNames.SciencePhilosophy, this._skillService.SkillNames.SciencePhysics,
     this._skillService.SkillNames.SciencePlanetology, this._skillService.SkillNames.SciencePsionicology, this._skillService.SkillNames.SciencePsychology,
     this._skillService.SkillNames.ScienceRobotics, this._skillService.SkillNames.ScienceSophontology, this._skillService.SkillNames.ScienceXenology];
-  private groups: Record<string, string[]>;
-  private groupNames: string[];
 
   constructor(private _characterService: CharacterService,
               private _characterMetadataService: CharacterMetadataService,
@@ -52,10 +53,15 @@ export class UniversitySkillsComponent implements OnInit {
   }
 
   saveSkills() {
-    let selectedSkills = [{Name: this.level0Skill, Value: 0}, {Name: this.level1Skill, Value: 1}] as CharacterSkill[];
-    this._characterService.addSkills(selectedSkills);
-    this._characterMetadataService.setUniversitySkills(selectedSkills);
-    this._characterMetadataService.setCurrentUrl('character-creator/education/university/event');
+    if (this.level0Skill && this.level1Skill) {
+      let selectedSkills = [{Name: this.level0Skill, Value: 0}, {Name: this.level1Skill, Value: 1}] as CharacterSkill[];
+      this._characterService.addSkills(selectedSkills);
+      this._characterMetadataService.setUniversitySkills(selectedSkills);
+      this._characterMetadataService.setCurrentUrl('character-creator/education/university/event');
+    } else {
+      this.hasError = true;
+      this.errorMessage = 'Please select skills.';
+    }
   }
 
   getBasicUniversitySkillGroups() {
@@ -68,5 +74,9 @@ export class UniversitySkillsComponent implements OnInit {
 
   getFullUniversityGroupNames() {
     return this._skillService.getGroupNames(this.universitySkills);
+  }
+
+  getError() {
+    return AlertType.Error;
   }
 }

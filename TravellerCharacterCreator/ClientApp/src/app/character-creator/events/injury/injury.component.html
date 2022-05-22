@@ -1,0 +1,16 @@
+<h3>Injury!</h3>
+
+<app-characteristics></app-characteristics>
+
+<app-roll *ngIf="!injury"
+          [numberOfDice]="1"
+          (result)="injury = $event"></app-roll>
+
+<div [ngSwitch]="injury">
+  <app-injury-nearly-killed *ngSwitchCase="1" (injured)="proceed()"></app-injury-nearly-killed>
+  <app-injury-severely-injured *ngSwitchCase="2" (injured)="proceed()"></app-injury-severely-injured>
+  <app-injury-missing-eye-or-limb *ngSwitchCase="3" (injured)="proceed()"></app-injury-missing-eye-or-limb>
+  <app-injury-scarred *ngSwitchCase="4" (injured)="proceed()"></app-injury-scarred>
+  <app-injury-injured *ngSwitchCase="5" (injured)="proceed()"></app-injury-injured>
+  <app-injury-lightly-injured *ngSwitchCase="6" (injured)="proceed()"></app-injury-lightly-injured>
+</div>

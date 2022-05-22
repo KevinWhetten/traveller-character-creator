@@ -22,7 +22,7 @@ export class EventPartyComponent implements OnInit {
 
   party() {
     this._loggingService.addLog('I took advantage of youth, and partied as much as I studied.');
-    this._characterService.addSkills([{Name: this._skillService.SkillNames.Carouse, Value: 0} as CharacterSkill]);
+    this._characterService.addSkills([{Name: this._skillService.SkillNames.Carouse, Value: 1} as CharacterSkill]);
     this.graduate.emit();
   }
 

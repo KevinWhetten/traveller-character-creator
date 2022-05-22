@@ -26,7 +26,7 @@ export class BackgroundSkillsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.skillNum = this._dmsService.getDm(this._characterService.getCharacteristics().Education) + 3;
+    this.skillNum = this._dmsService.getDm(this._characterService.getCharacteristics().Education.current) + 3;
   }
 
   submit(skills: string[]) {

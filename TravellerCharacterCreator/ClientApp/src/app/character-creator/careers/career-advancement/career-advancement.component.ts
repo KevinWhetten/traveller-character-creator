@@ -34,32 +34,32 @@ export class CareerAdvancementComponent implements OnInit {
     let modifier = -3;
 
     if (this.assigment.Advancement.characteristic.includes('STR')) {
-      let mod = this._rollingService.getDm(this._characterService.getStrength())
+      let mod = this._rollingService.getDm(this._characterService.getStrength().current)
       if (mod > modifier) {
         modifier = mod;
       }
     } else if (this.assigment.Advancement.characteristic.includes('DEX')) {
-      let mod = this._rollingService.getDm(this._characterService.getDexterity())
+      let mod = this._rollingService.getDm(this._characterService.getDexterity().current)
       if (mod > modifier) {
         modifier = mod;
       }
     } else if (this.assigment.Advancement.characteristic.includes('END')) {
-      let mod = this._rollingService.getDm(this._characterService.getEndurance())
+      let mod = this._rollingService.getDm(this._characterService.getEndurance().current)
       if (mod > modifier) {
         modifier = mod;
       }
     } else if (this.assigment.Advancement.characteristic.includes('INT')) {
-      let mod = this._rollingService.getDm(this._characterService.getIntellect())
+      let mod = this._rollingService.getDm(this._characterService.getIntellect().current)
       if (mod > modifier) {
         modifier = mod;
       }
     } else if (this.assigment.Advancement.characteristic.includes('EDU')) {
-      let mod = this._rollingService.getDm(this._characterService.getEducation())
+      let mod = this._rollingService.getDm(this._characterService.getEducation().current)
       if (mod > modifier) {
         modifier = mod;
       }
     } else if (this.assigment.Advancement.characteristic.includes('SOC')) {
-      let mod = this._rollingService.getDm(this._characterService.getSocialStatus())
+      let mod = this._rollingService.getDm(this._characterService.getSocialStanding().current)
       if (mod > modifier) {
         modifier = mod;
       }
@@ -67,9 +67,9 @@ export class CareerAdvancementComponent implements OnInit {
     return modifier;
   }
 
-  submit() {
+  submit(passed: boolean) {
     this.rolled = true;
-    if (this.advancementRoll + this.getModifier() >= this.career.Qualification.target) {
+    if (passed) {
       this.advanced = true;
       this._metadataService.promote();
     }

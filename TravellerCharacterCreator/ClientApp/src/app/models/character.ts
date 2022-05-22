@@ -5,7 +5,6 @@ import {Equipment} from "./equipment";
 import {Connections} from "./connections";
 import {Finances} from "./finances";
 import {Armor} from "./armor";
-import {CharacterSkill} from "./character-skill";
 
 export class Character {
   Name: string = '';

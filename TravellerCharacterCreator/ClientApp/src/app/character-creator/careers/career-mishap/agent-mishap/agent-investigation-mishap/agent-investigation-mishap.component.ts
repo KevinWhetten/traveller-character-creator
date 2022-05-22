@@ -15,7 +15,8 @@ export class AgentInvestigationMishapComponent implements OnInit {
   success: boolean = false;
 
   constructor(private _characterService: CharacterService,
-              private _skillService: SkillService) { }
+              private _skillService: SkillService) {
+  }
 
   ngOnInit(): void {
   }
@@ -23,28 +24,23 @@ export class AgentInvestigationMishapComponent implements OnInit {
   getModifier() {
     let skill = this._characterService.getSkills()[this._skillService.SkillNames.Advocate];
     let jackOfAllTrades = this._characterService.getSkills()[this._skillService.SkillNames.JackOfAllTrades];
-    if(skill){
+    if (skill) {
       return skill;
     } else {
-      if(!jackOfAllTrades){
+      if (!jackOfAllTrades) {
         jackOfAllTrades = 0;
       }
       return -3 + jackOfAllTrades;
     }
   }
 
-  submit() {
-    if(this.advocateRoll > 0){
-      if(this.advocateRoll == 2) {
-        // TODO: Go to prison
-      } else if(this.advocateRoll + this.getModifier() >= 8){
-        this.success = true;
-      } else {
-        this.proceed();
-      }
+  submit(result: number) {
+    if (result == 2 - this.getModifier()) {
+      // TODO: Go to prison
+    } else if (result >= 8) {
+      this.success = true;
     } else {
-      this.hasError = true;
-      this.errorMessage = 'Roll must be between 2 and 12.';
+      this.proceed();
     }
   }
 

@@ -27,7 +27,7 @@ export class CareerQualificationComponent implements OnInit {
   ngOnInit(): void {
     this.career = this._careerService.getCareer(this._metadataService.getCurrentCareer());
 
-    if(this.career.Name == 'Drifter'){
+    if (this.career.Name == 'Drifter') {
       this._metadataService.setCurrentUrl('character-creator/careers/assignment');
     }
   }
@@ -35,50 +35,45 @@ export class CareerQualificationComponent implements OnInit {
   getModifier() {
     let modifier = -3;
 
-    if(this.career.Qualification.characteristic.includes('STR')){
-      let mod = this._rollingService.getDm(this._characterService.getStrength())
-      if(mod > modifier){
+    if (this.career.Qualification.characteristic.includes('STR')) {
+      let mod = this._rollingService.getDm(this._characterService.getStrength().current)
+      if (mod > modifier) {
         modifier = mod;
       }
-    } else if(this.career.Qualification.characteristic.includes('DEX')){
-      let mod = this._rollingService.getDm(this._characterService.getDexterity())
-      if(mod > modifier){
+    } else if (this.career.Qualification.characteristic.includes('DEX')) {
+      let mod = this._rollingService.getDm(this._characterService.getDexterity().current)
+      if (mod > modifier) {
         modifier = mod;
       }
-    } else if(this.career.Qualification.characteristic.includes('END')){
-      let mod = this._rollingService.getDm(this._characterService.getEndurance())
-      if(mod > modifier){
+    } else if (this.career.Qualification.characteristic.includes('END')) {
+      let mod = this._rollingService.getDm(this._characterService.getEndurance().current)
+      if (mod > modifier) {
         modifier = mod;
       }
-    } else if(this.career.Qualification.characteristic.includes('INT')){
-      let mod = this._rollingService.getDm(this._characterService.getIntellect())
-      if(mod > modifier){
+    } else if (this.career.Qualification.characteristic.includes('INT')) {
+      let mod = this._rollingService.getDm(this._characterService.getIntellect().current)
+      if (mod > modifier) {
         modifier = mod;
       }
-    } else if(this.career.Qualification.characteristic.includes('EDU')){
-      let mod = this._rollingService.getDm(this._characterService.getEducation())
-      if(mod > modifier){
+    } else if (this.career.Qualification.characteristic.includes('EDU')) {
+      let mod = this._rollingService.getDm(this._characterService.getEducation().current)
+      if (mod > modifier) {
         modifier = mod;
       }
-    } else if(this.career.Qualification.characteristic.includes('SOC')){
-      let mod = this._rollingService.getDm(this._characterService.getSocialStatus())
-      if(mod > modifier){
+    } else if (this.career.Qualification.characteristic.includes('SOC')) {
+      let mod = this._rollingService.getDm(this._characterService.getSocialStanding().current)
+      if (mod > modifier) {
         modifier = mod;
       }
     }
     return modifier;
   }
 
-  submit() {
-    if(2 <= this.qualificationRoll && this.qualificationRoll <= 12) {
-      if (this.qualificationRoll + this.getModifier() >= this.career.Qualification.target) {
-        this._metadataService.setCurrentUrl('character-creator/careers/assignment');
-      } else {
-        this._metadataService.setCurrentUrl('character-creator/careers/qualification/failed');
-      }
+  submit(passed: boolean) {
+    if (passed) {
+      this._metadataService.setCurrentUrl('character-creator/careers/assignment');
     } else {
-      this.hasError = true;
-      this.errorMessage = 'The roll must be between 2 and 12.';
+      this._metadataService.setCurrentUrl('character-creator/careers/qualification/failed');
     }
   }
 }

@@ -1,12 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {CharacterService} from "../../../services/character.service";
-import {Character} from "../../../models/Character";
-import {Router} from "@angular/router";
-import {RollingService} from "../../../services/data-services/rolling.service";
-import {PercentageService} from "../../../services/data-services/percentage.service";
 import {SkillService} from "../../../services/data-services/skill.service";
 import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
 import {CharacterSkill} from "../../../models/character-skill";
+import {PageService} from "../../../services/page.service";
 
 @Component({
   selector: 'app-military-academy',
@@ -15,15 +12,9 @@ import {CharacterSkill} from "../../../models/character-skill";
 })
 export class MilitaryAcademyComponent implements OnInit {
   applied: boolean = false;
-  acceptanceRoll: number;
   armyAcademy: boolean = false;
   marinesAcademy: boolean = false;
   navyAcademy: boolean = false;
-  armyChance: number;
-  marinesChance: number;
-  navyChance: number;
-  private endDm: number = 0;
-  private intDm: number = 0;
   armySkills = [this._skillService.SkillNames.Athletics, this._skillService.SkillNames.Drive, this._skillService.SkillNames.GunCombat, this._skillService.SkillNames.HeavyWeapons,
     this._skillService.SkillNames.Melee, this._skillService.SkillNames.Recon, this._skillService.SkillNames.VaccSuit];
   marinesSkills = [this._skillService.SkillNames.Athletics, this._skillService.SkillNames.GunCombat, this._skillService.SkillNames.HeavyWeapons, this._skillService.SkillNames.Tactics,
@@ -33,22 +24,18 @@ export class MilitaryAcademyComponent implements OnInit {
 
   constructor(private _characterService: CharacterService,
               private _characterMetadataService: CharacterMetadataService,
-              private _dmService: RollingService,
-              private _percentageService: PercentageService,
+              private _pageService: PageService,
               private _skillService: SkillService) {
   }
 
   ngOnInit(): void {
     this._characterService.startNewTerm();
-    this.endDm = this._dmService.getDm(this._characterService.getEndurance()) - (2 * (this._characterMetadataService.getTerm() - 1));
-    this.intDm = this._dmService.getDm(this._characterService.getIntellect()) - (2 * (this._characterMetadataService.getTerm() - 1));
-    this.armyChance = this._percentageService.get2d6Percentage(8, this.endDm);
-    this.marinesChance = this._percentageService.get2d6Percentage(9, this.endDm);
-    this.navyChance = this._percentageService.get2d6Percentage(9, this.intDm);
   }
 
-  army() {
-    if (this.acceptanceRoll + this.endDm >= 8) {
+  army(passed: boolean) {
+    this._pageService.disableNav();
+    this.applied = true;
+    if (passed) {
       this.armyAcademy = true;
       this._characterMetadataService.setMilitaryAcademy('Army');
       let skills = [];
@@ -59,8 +46,10 @@ export class MilitaryAcademyComponent implements OnInit {
     }
   }
 
-  marines() {
-    if (this.acceptanceRoll + this.endDm >= 9) {
+  marines(passed: boolean) {
+    this._pageService.disableNav();
+    this.applied = true;
+    if (passed) {
       this.marinesAcademy = true;
       this._characterMetadataService.setMilitaryAcademy('Marines');
       let skills = [];
@@ -71,8 +60,10 @@ export class MilitaryAcademyComponent implements OnInit {
     }
   }
 
-  navy() {
-    if (this.acceptanceRoll + this.intDm > 9) {
+  navy(passed: boolean) {
+    this._pageService.disableNav();
+    this.applied = true;
+    if (passed) {
       this.navyAcademy = true;
       this._characterMetadataService.setMilitaryAcademy('Navy');
       let skills = [];
@@ -83,18 +74,8 @@ export class MilitaryAcademyComponent implements OnInit {
     }
   }
 
-  apply(branch: string) {
-    if (branch == 'Army') {
-      this.army();
-    } else if (branch == 'Marines') {
-      this.marines();
-    } else if (branch == 'Navy') {
-      this.navy();
-    }
-    this.applied = true;
-  }
-
   moveOn() {
+    this._pageService.enableNav();
     if (!this.armyAcademy && !this.marinesAcademy && !this.navyAcademy) {
       this._characterMetadataService.setCurrentUrl('character-creator/careers');
     }

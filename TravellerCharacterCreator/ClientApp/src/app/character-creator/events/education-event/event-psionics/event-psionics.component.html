@@ -1,8 +1,7 @@
 ﻿<form>
-    <h2>Psionics</h2>
-    <p>You are approached by an underground (and highly illegal) psionic group who sense potential in you.
-        You may test your PSI and attempt to enter the Psion career in any subsequent turn.</p>
-    <h3>Would you like to test your PSI now?</h3>
-    <button class="primary" type="submit" (submit)="testPsi()" (click)="testPsi()">Let's Test it!</button>
-    <button class="secondary" (click)="moveOn()">Not Right Now</button>
+  <h2>Psionics</h2>
+  <p>You are approached by an underground (and highly illegal) psionic group who sense potential in you.
+    You may test your PSI and attempt to enter the Psion career in any subsequent turn.</p>
+  <app-psionic-test (eventComplete)="accept()"></app-psionic-test>
+  <button class="secondary" (click)="refuse()">I don't want to...</button>
 </form>

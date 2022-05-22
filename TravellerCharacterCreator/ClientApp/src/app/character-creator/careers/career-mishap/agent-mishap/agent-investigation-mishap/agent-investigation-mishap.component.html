@@ -5,12 +5,10 @@
 <p>If you succeed, you may keep the Benefit roll from this turn.
   <br>If you roll 2, you must take the Prisoner career in your next term.</p>
 
-<div *ngIf="!success" class="advocate-field flex-row">
-  <label for="qualification">Roll 2D (Advocate 8+):</label>
-  <input type="number" id="qualification" [(ngModel)]="advocateRoll" min="2" max="12">
-  <p>({{getModifier() >= 0 ? '+' + getModifier() : getModifier()}})</p>
-  <button class="primary" (click)="submit()">Submit</button>
-</div>
+<app-skill-roll [skill]="'Advocate'"
+                [target]="8"
+                (result)="submit($event)">
+</app-skill-roll>
 
 <div *ngIf="success">
   <h3>You succeeded! You get to keep your benefit!</h3>

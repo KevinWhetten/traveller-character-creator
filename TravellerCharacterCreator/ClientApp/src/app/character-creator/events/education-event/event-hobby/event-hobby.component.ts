@@ -1,6 +1,7 @@
 ﻿import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {LoggingService} from "../../../../services/metadata-services/logging.service";
 import {SkillService} from "../../../../services/data-services/skill.service";
+import {CharacterService} from "../../../../services/character.service";
 
 @Component({
   selector: 'app-event-hobby',
@@ -11,7 +12,8 @@ export class EventHobbyComponent implements OnInit {
   @Output() graduate = new EventEmitter();
   hobbySkill: string;
 
-  constructor(private _loggingService: LoggingService,
+  constructor(private _characterService: CharacterService,
+              private _loggingService: LoggingService,
               private _skillService: SkillService) {
   }
 
@@ -20,6 +22,7 @@ export class EventHobbyComponent implements OnInit {
 
   hobby() {
     this._loggingService.addLog('I developed a healthy interest in a hobby or other area of study.');
+    this._characterService.addSkills([{Name: this.hobbySkill, Value: 0}]);
     this.graduate.emit();
   }
 

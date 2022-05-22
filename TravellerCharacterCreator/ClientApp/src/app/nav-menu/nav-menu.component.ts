@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {PageService} from "../services/page.service";
 
 @Component({
   selector: 'app-nav-menu',
@@ -8,11 +9,18 @@ import { Component } from '@angular/core';
 export class NavMenuComponent {
   isExpanded = false;
 
+  constructor(private _pageService: PageService) {
+  }
+
   collapse() {
     this.isExpanded = false;
   }
 
   toggle() {
     this.isExpanded = !this.isExpanded;
+  }
+
+  characterSheetEnabled() {
+    return !this._pageService.isCharacterSheetDisabled();
   }
 }

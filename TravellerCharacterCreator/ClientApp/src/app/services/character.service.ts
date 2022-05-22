@@ -101,7 +101,14 @@ export class CharacterService {
   setCharacteristics(set: Characteristics) {
     this.loadCharacter();
     this.character.Characteristics = set;
-    this._loggingService.addLog(`Characteristics set to: [STR ${set.Strength}], [DEX ${set.Dexterity}], [END ${set.Endurance}], [INT ${set.Intellect}], [EDU ${set.Education}], [SOC ${set.SocialStatus}]`)
+    this._loggingService.addLog(`Characteristics set to: [STR ${set.Strength.max}], [DEX ${set.Dexterity.max}], [END ${set.Endurance.max}], [INT ${set.Intellect.max}], [EDU ${set.Education.max}], [SOC ${set.SocialStanding.max}]`)
+    this.saveCharacter();
+  }
+
+  setPsi(psi: number) {
+    this.loadCharacter();
+    this.character.Characteristics.Psi.max = psi;
+    this._loggingService.addLog(`PSI set to [PSI ${psi}].`);
     this.saveCharacter();
   }
 
@@ -130,50 +137,76 @@ export class CharacterService {
     return this.character.Characteristics.Education;
   }
 
-  getSocialStatus() {
+  getSocialStanding() {
     this.loadCharacter();
-    return this.character.Characteristics.SocialStatus;
+    return this.character.Characteristics.SocialStanding;
+  }
+
+  getPsi() {
+    this.loadCharacter();
+    return this.character.Characteristics.Psi;
   }
 
   increaseStrength(number: number) {
     this.loadCharacter();
-    this.character.Characteristics.Strength += number;
-    this._loggingService.addLog(`Strength increased to [STR ${this.character.Characteristics.Strength}]`);
+    this.character.Characteristics.Strength.max += number;
+    this._loggingService.addLog(`Strength increased by ${number} to [STR ${this.character.Characteristics.Strength.max}]`);
+    this.saveCharacter();
+  }
+
+  injureStrength(number: number) {
+    this.loadCharacter();
+    this.character.Characteristics.Strength.current -= number;
+    this._loggingService.addLog(`Strength reduced by ${number} to [STR ${this.character.Characteristics.Strength.current}]`);
     this.saveCharacter();
   }
 
   increaseDexterity(number: number) {
     this.loadCharacter();
-    this.character.Characteristics.Dexterity += number;
-    this._loggingService.addLog(`Dexterity increased to [DEX ${this.character.Characteristics.Dexterity}]`);
+    this.character.Characteristics.Dexterity.max += number;
+    this._loggingService.addLog(`Dexterity increased by ${number} to [DEX ${this.character.Characteristics.Dexterity.max}]`);
+    this.saveCharacter();
+  }
+
+  injureDexterity(number: number) {
+    this.loadCharacter();
+    this.character.Characteristics.Dexterity.current -= number;
+    this._loggingService.addLog(`Dexterity reduced by ${number} to [DEX ${this.character.Characteristics.Dexterity.current}]`);
     this.saveCharacter();
   }
 
   increaseEndurance(number: number) {
     this.loadCharacter();
-    this.character.Characteristics.Endurance += number;
-    this._loggingService.addLog(`Endurance increased to [END ${this.character.Characteristics.Endurance}]`);
+    this.character.Characteristics.Endurance.max += number;
+    this._loggingService.addLog(`Endurance increased by ${number} to [END ${this.character.Characteristics.Endurance.max}]`);
+    this.saveCharacter();
+  }
+
+  injureEndurance(number: number) {
+    this.loadCharacter();
+    this.character.Characteristics.Endurance.current -= number;
+    this._loggingService.addLog(`Endurance reduced by ${number} to [END ${this.character.Characteristics.Endurance.current}]`);
     this.saveCharacter();
   }
 
   increaseIntellect(number: number) {
     this.loadCharacter();
-    this.character.Characteristics.Intellect += number;
-    this._loggingService.addLog(`Intellect increased to [INT ${this.character.Characteristics.Intellect}]`);
+    this.character.Characteristics.Intellect.max += number;
+    this._loggingService.addLog(`Intellect increased by ${number} to [INT ${this.character.Characteristics.Intellect.max}]`);
     this.saveCharacter();
   }
 
   increaseEducation(number: number) {
     this.loadCharacter();
-    this.character.Characteristics.Education += number;
-    this._loggingService.addLog(`Education increased to [EDU ${this.character.Characteristics.Education}]`);
+    this.character.Characteristics.Education.max += number;
+    this._loggingService.addLog(`Education increased by ${number} to [EDU ${this.character.Characteristics.Education.max}]`);
     this.saveCharacter();
   }
 
   increaseSocialStatus(number: number) {
     this.loadCharacter();
-    this.character.Characteristics.SocialStatus += number;
-    this._loggingService.addLog(`Social Status increased to [SOC ${this.character.Characteristics.SocialStatus}]`);
+    this.character.Characteristics.SocialStanding.max += number;
+    this._loggingService.addLog(`Social Status increased by ${number} to [SOC ${this.character.Characteristics.SocialStanding.max}]`);
     this.saveCharacter();
   }
 
@@ -302,7 +335,36 @@ export class CharacterService {
   addEnemy(description: string) {
     this.loadCharacter();
     this.character.Connections.Enemies.push(description);
-    this._loggingService.addLog(`Gained a new [Enemy]: ${description}`)
+    this._loggingService.addLog(`Gained a new [Enemy]: ${description}`);
+    this.saveCharacter();
+  }
+
+  convertAllyToRival(contact: string) {
+    this.character.Connections.Allies.splice(this.character.Connections.Allies.indexOf(contact), 1);
+    this.character.Connections.Rivals.push(contact);
+    this._loggingService.addLog(`Ally: [${contact}] became a Rival.`);
+    this.saveCharacter();
+  }
+
+  convertAllyToEnemy(contact: string) {
+    this.character.Connections.Allies.splice(this.character.Connections.Allies.indexOf(contact), 1);
+    this.character.Connections.Enemies.push(contact);
+    this._loggingService.addLog(`Ally: [${contact}] became an Enemy.`);
+    this.saveCharacter();
+
+  }
+
+  convertContactToRival(contact: string) {
+    this.character.Connections.Contacts.splice(this.character.Connections.Contacts.indexOf(contact), 1);
+    this.character.Connections.Rivals.push(contact);
+    this._loggingService.addLog(`Contact: [${contact}] became a Rival.`);
+    this.saveCharacter();
+  }
+
+  convertContactToEnemy(contact: string) {
+    this.character.Connections.Contacts.splice(this.character.Connections.Contacts.indexOf(contact), 1);
+    this.character.Connections.Enemies.push(contact);
+    this._loggingService.addLog(`Contact: [${contact}] became an Enemy.`);
     this.saveCharacter();
   }
 
@@ -321,6 +383,7 @@ export class CharacterService {
     } else {
       this.character.Weapons = [{Name: 'Unknown'} as Weapon];
     }
+    this._loggingService.addLog(`Got a weapon!`);
     this.saveCharacter();
   }
 
@@ -331,6 +394,7 @@ export class CharacterService {
     } else {
       this.character.Armor = [{Type: 'Unknown'} as Armor];
     }
+    this._loggingService.addLog(`Got some Armour!`);
     this.saveCharacter();
   }
 
@@ -344,6 +408,17 @@ export class CharacterService {
     return this.character.Augments;
   }
 
+  addEquipment(name: string) {
+    this.loadCharacter();
+    if (this.character.Equipment) {
+      this.character.Equipment.push({Name: name} as Equipment);
+    } else {
+      this.character.Equipment = [{Name: name} as Equipment];
+    }
+    this._loggingService.addLog(`Got Equipment: ${name}`);
+    this.saveCharacter();
+  }
+
   addTASMembership() {
     this.loadCharacter();
     if (this.character.Equipment) {
@@ -351,6 +426,7 @@ export class CharacterService {
     } else {
       this.character.Equipment = [{Name: 'TAS Membership'} as Equipment];
     }
+    this._loggingService.addLog(`Got a TAS Membership!`);
     this.saveCharacter();
   }
 
@@ -389,6 +465,7 @@ export class CharacterService {
     } else {
       this.character.Finances.Cash = cash;
     }
+    this._loggingService.addLog(`Earned Cr${cash}!`);
     this.saveCharacter();
   }
 

@@ -33,8 +33,12 @@ export class CareerSelectionComponent implements OnInit {
     for(let careerName of careerNames){
       if(previousCareers.includes(careerName)){
         careerNames.splice(careerNames.indexOf(careerName), 1);
-        this.careerName = careerNames[0];
-        this.changeCareer();
+      }
+      if(careerName == 'Prisoner'){
+        careerNames.splice(careerNames.indexOf(careerName), 1);
+      }
+      if(careerName == 'Psion' && this._characterService.getPsi().max <= 0){
+        careerNames.splice(careerNames.indexOf(careerName), 1);
       }
     }
     return careerNames;
@@ -47,5 +51,37 @@ export class CareerSelectionComponent implements OnInit {
   chooseCareer() {
     this._metadataService.setCurrentCareer(this.career.Name);
     this._metadataService.setCurrentUrl('character-creator/careers/qualification');
+  }
+
+  getBonus(career: string): any {
+    let bonus = 0;
+
+    bonus += this._metadataService.getQualificationBonus(career);
+
+    if(bonus >= 12){
+      return '(Automatic Qualification)';
+    }
+    if(bonus){
+      return `(+${bonus} to Qualify)`;
+    }
+    return '';
+  }
+
+  getCommission(careerName: string) {
+    if(careerName == this._metadataService.getMilitaryAcademy()){
+      if(this._metadataService.graduatedWithHonors()){
+        return '(Automatic Commission)';
+      }
+      return '(Commission DM+2)';
+    }
+    else if(this._metadataService.graduatedUniversity()){
+      if(careerName == 'Army' || careerName == 'Marine' || careerName == 'Navy'){
+        if(this._metadataService.graduatedWithHonors()){
+          return '(Commission Roll DM+2)';
+        }
+        return '(Commission Roll)'
+      }
+    }
+    return '';
   }
 }

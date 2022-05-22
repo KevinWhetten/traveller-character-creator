@@ -6,12 +6,11 @@
     to become more skillful with them so quickly.</p>
   <div *ngIf="!failed">
     <h2>Let's see if you get accepted into University:</h2>
-    <div class="acceptance-field flex-row">
-      <label for="acceptance">To be accepted, roll 2D (EDU 7+):</label>
-      <input type="number" id="acceptance" [(ngModel)]="acceptanceRoll" min="2" max="12">
-      <p>({{getModifier() >= 0 ? '+' + getModifier() : getModifier()}})</p>
-      <button class="primary" (click)="submit()">Submit</button>
-    </div>
+    <app-characteristic-roll [characteristic]="'EDU'"
+                             [extraMod]="getModifier()"
+                             [target]="7"
+                             (rolled)="submit($event)">
+    </app-characteristic-roll>
   </div>
   <div *ngIf="failed">
     <h2>You were not accepted.</h2>

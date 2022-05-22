@@ -14,15 +14,8 @@ select {
   width: 128px;
 }
 
-.assignments {
-
-  h2 {
-    font-weight: bold;
-    color: black;
-    background-color: #00b0eb;
-    padding: 8px 16px;
-    margin: 32px -16px 32px -16px;
-  }
+.blue-text{
+  color: #00b0eb;
 }
 
 .description {
@@ -60,5 +53,16 @@ select {
     .chosen-assignment {
       text-decoration: underline;
     }
+  }
+}
+
+.assignments {
+
+  h2 {
+    font-weight: bold;
+    color: black;
+    background-color: #00b0eb;
+    padding: 8px 16px;
+    margin: 32px -16px 32px -16px;
   }
 }

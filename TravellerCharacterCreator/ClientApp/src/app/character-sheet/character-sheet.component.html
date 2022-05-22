@@ -34,44 +34,7 @@
 </div>
 
 <div class="flex-row">
-  <div class="characteristics">
-    <h2>Characteristics</h2>
-    <div class="flex-col">
-      <div class="column">
-        <div class="characteristic">
-          <p>STR:</p>
-          <p>{{_characterService.getCharacteristics().Strength}} ({{strengthDm >= 0 ? '+' + strengthDm : strengthDm}}
-            )</p>
-        </div>
-        <div class="characteristic">
-          <p>DEX:</p>
-          <p>{{_characterService.getCharacteristics().Dexterity}}
-            ({{dexterityDm >= 0 ? '+' + dexterityDm : dexterityDm}})</p>
-        </div>
-        <div class="characteristic">
-          <p>END:</p>
-          <p>{{_characterService.getCharacteristics().Endurance}}
-            ({{enduranceDm >= 0 ? '+' + enduranceDm : enduranceDm}})</p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="characteristic">
-          <p>INT:</p>
-          <p>{{_characterService.getCharacteristics().Intellect}}
-            ({{intellectDm >= 0 ? '+' + intellectDm : intellectDm}})</p>
-        </div>
-        <div class="characteristic">
-          <p>EDU:</p>
-          <p>{{_characterService.getCharacteristics().Education}}
-            ({{educationDm >= 0 ? '+' + educationDm : educationDm}})</p>
-        </div>
-        <div class="characteristic">
-          <p>SOC:</p>
-          <p>{{_characterService.getCharacteristics().SocialStatus}} ({{socialDm >= 0 ? '+' + socialDm : socialDm}})</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-characteristics></app-characteristics>
 
   <div class="finances">
     <h2>FINANCES</h2>
@@ -117,7 +80,10 @@
   </div>
 </div>
 
-<h2>Skills</h2>
+<div class="header">
+  <h2>SKILLS</h2>
+  <div class="jack-of-all-trades"><p>{{_skillService.SkillNames.JackOfAllTrades}}: {{getJackOfAllTrades()}} | Untrained Penalty: {{-3 +getJackOfAllTrades()}}</p></div>
+</div>
 <div class="flex">
   <div class="grid-item" *ngFor="let skill of _skillService.skills">
     <div *ngIf="isBaseSkill(skill) && skill.Name != jackOfAllTrades" class="entry">

@@ -6,27 +6,27 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
 @Component({
   selector: 'app-event-political',
   templateUrl: './event-political.component.html',
-  styleUrls: ['./event-political.component.css']
+  styleUrls: ['./event-political.component.scss']
 })
 export class EventPoliticalComponent implements OnInit {
   @Output() graduate = new EventEmitter();
   private log: string;
-  politicalRoll: number;
+  politicalRoll: number = 0;
   politicalLeader: boolean;
   politicalGrunt: boolean;
   story: string;
 
   constructor(private _characterService: CharacterService,
-              private _dmService: RollingService,
+              private _rollingService: RollingService,
               private _loggingService: LoggingService) {
   }
 
   ngOnInit(): void {
   }
 
-  politicalMovement() {
+  politicalMovement(passed: boolean) {
     this.log = 'I joined a political movement.';
-    if (this.politicalRoll + this._dmService.getDm(this._characterService.getCharacteristics().SocialStatus) >= 8) {
+    if (passed) {
       this.log += ' And became a leading figure!';
       this.politicalLeader = true;
     } else {
@@ -46,5 +46,10 @@ export class EventPoliticalComponent implements OnInit {
 
   notPoliticalLeader() {
     this.graduate.emit();
+  }
+
+  getModifier() {
+    let socialScore = this._characterService.getSocialStanding().current;
+    return this._rollingService.getDm(socialScore);
   }
 }

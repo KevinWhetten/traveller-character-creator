@@ -228,13 +228,13 @@ export class CareerService {
           Description: `Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table and take the lower result.`,
         } as Mishap,
         2: {
-          Description: `A criminal or other figure under investigation offers you a deal. Accept, and you leave this career without further penalty (although you lose the Benefit roll as normal). Refuse, and you must roll twice on the Injury Table and take the lower result. You gain an [Enemy] and one level in a skill you choose.`,
+          Description: `A criminal or other figure under investigation offers you a deal. Accept, and you leave this career without further penalty (although you lose the Benefit roll as normal). Refuse, and you must roll twice on the Injury Table and take the lower result. You gain an Enemy and one level in a skill you choose.`,
         } as Mishap,
         3: {
           Description: `An investigation goes critically wrong or leads to the top, ruining your career. Roll ${this._skillService.SkillNames.Advocate} 8+. If you succeed, you may keep the Benefit roll from this term. If you roll 2, you must take the Prisoner career in your next term.`,
         } as Mishap,
         4: {
-          Description: `You learn something you should not know, and people want to kill you for it. Gain an [Enemy] and [${this._skillService.SkillNames.Deception} 1].`,
+          Description: `You learn something you should not know, and people want to kill you for it. Gain an Enemy and ${this._skillService.SkillNames.Deception} 1.`,
         } as Mishap,
         5: {
           Description: `Your work ends up coming home with you, and someone gets hurt. Choose one of your Contacts, Allies, or family members, and roll twice on the Injury Table for them, taking the lower result.`,
@@ -248,13 +248,13 @@ export class CareerService {
           Description: `Disaster! Roll on the Mishap Table, but you are not ejected from this career.`,
         } as CareerEvent,
         3: {
-          Description: `An investigation takes on a dangerous turn. Roll ${this._skillService.SkillNames.Investigate} 8+ or ${this._skillService.SkillNames.Streetwise} 8+. If you fail, roll on the Mishap table. If you succeed, increase one of these skills by one level: [${this._skillService.SkillNames.Deception}], [${this._skillService.SkillNames.JackOfAllTrades}], [${this._skillService.SkillNames.Persuade}], or [${this._skillService.SkillNames.Tactics}]`,
+          Description: `An investigation takes on a dangerous turn. Roll ${this._skillService.SkillNames.Investigate} 8+ or ${this._skillService.SkillNames.Streetwise} 8+. If you fail, roll on the Mishap table. If you succeed, increase one of these skills by one level: ${this._skillService.SkillNames.Deception}, ${this._skillService.SkillNames.JackOfAllTrades}, ${this._skillService.SkillNames.Persuade}, or ${this._skillService.SkillNames.Tactics}`,
         } as CareerEvent,
         4: {
           Description: `You complete a mission for your superiors and are suitably rewarded. Gain DM+1 to any one Benefit roll from this career.`,
         } as CareerEvent,
         5: {
-          Description: `You establish a network of contacts. Gain D3 [Contacts].`,
+          Description: `You establish a network of contacts. Gain D3 Contacts.`,
         } as CareerEvent,
         6: {
           Description: `You are given advanced training in a specialist field. Roll EDU 8+ to increase any one skill you already have by one level.`,
@@ -269,10 +269,10 @@ export class CareerService {
           Description: `You go above and beyond the call of duty. Gain DM+2 to your next Advancement check.`,
         } as CareerEvent,
         10: {
-          Description: `You are given specialist training in vehicles. Gain one of [${this._skillService.SkillNames.Drive} 1], [${this._skillService.SkillNames.Flyer} 1], [${this._skillService.SkillNames.Pilot} 1], or [${this._skillService.SkillNames.Gunner} 1].`,
+          Description: `You are given specialist training in vehicles. Gain one of ${this._skillService.SkillNames.Drive} 1, ${this._skillService.SkillNames.Flyer} 1, ${this._skillService.SkillNames.Pilot} 1, or ${this._skillService.SkillNames.Gunner} 1.`,
         } as CareerEvent,
         11: {
-          Description: `You are befriended by a senior agent. Either increase [${this._skillService.SkillNames.Investigate}] by one level or DM+4 to an Advancement roll thanks to their aid.`,
+          Description: `You are befriended by a senior agent. Either increase ${this._skillService.SkillNames.Investigate} by one level or DM+4 to an Advancement roll thanks to their aid.`,
         } as CareerEvent,
         12: {
           Description: `Your efforts undercover a major conspiracy against your employers. You are automatically promoted.`,
@@ -284,7 +284,7 @@ export class CareerService {
       Designation: '2',
       Description: `Members of the planetary armed fighting forces. Soldiers deal with planetary surface actions, battles, and campaigns. Such individuals may also be mercenaries for hire.`,
       Qualification: {characteristic: `END`, target: 5} as Qualification,
-      Commission: {characteristic: ``, target: 0} as Qualification,
+      Commission: {characteristic: `SOC`, target: 8} as Qualification,
       Assignments: [
         {
           Name: `Support`,
@@ -493,6 +493,10 @@ export class CareerService {
           Name: `Officer`,
           Assignments: [`Support Officer`, 'Infantry Officer', 'Cavalry Officer'],
           Ranks: {
+            0: {
+              Name: '-----Not a Rank-----',
+              Bonus: '----------'
+            } as Rank,
             1: {
               Name: `Lieutenant`,
               Bonus: `${this._skillService.SkillNames.Leadership} 1`,
@@ -525,13 +529,13 @@ export class CareerService {
           Description: `Severely injured in action (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table and take the lower result.`,
         } as Mishap,
         2: {
-          Description: `Your unit is slaughtered in a disastrous battle, for which you blame your commander. Gain them as an [Enemy] as they have you removed from the service.`,
+          Description: `Your unit is slaughtered in a disastrous battle, for which you blame your commander. Gain them as an Enemy as they have you removed from the service.`,
         } as Mishap,
         3: {
-          Description: `You are sent to a very unpleasant region (jungle, swamp, desert, icecap, urban) to battle against geurilla fighters and rebels. You are discharged because of stress, injury, or because the government wishes to bury the whole incident. Increase [${this._skillService.SkillNames.Recon}] or [${this._skillService.SkillNames.Survival}] by one level, but also gain the rebels as an [Enemy].`,
+          Description: `You are sent to a very unpleasant region (jungle, swamp, desert, icecap, urban) to battle against geurilla fighters and rebels. You are discharged because of stress, injury, or because the government wishes to bury the whole incident. Increase ${this._skillService.SkillNames.Recon} or ${this._skillService.SkillNames.Survival} by one level, but also gain the rebels as an Enemy.`,
         } as Mishap,
         4: {
-          Description: `You discover that your commanding officer is engaged in some illegal activity, such as weapon smuggling. You can join their ring and gain them as an [Ally] before the inevitable investigation gets you discharged, or you can cooperate with the military police - the official whitewash gets you discharged anyway, but you may keep your Benefit roll from this term of service.`,
+          Description: `You discover that your commanding officer is engaged in some illegal activity, such as weapon smuggling. You can join their ring and gain them as an Ally before the inevitable investigation gets you discharged, or you can cooperate with the military police - the official whitewash gets you discharged anyway, but you may keep your Benefit roll from this term of service.`,
         } as Mishap,
         5: {
           Description: `You are tormented by or quarrel with an officer or fellow soldier. Gain that officer as a Rival as they drive you out of the service.`,
@@ -545,16 +549,16 @@ export class CareerService {
           Description: `Disaster! Roll on the Mishap table, but you are not ejected from this career.`,
         } as CareerEvent,
         3: {
-          Description: `You are assigned to a planet with a hostile or wild environment. Gain one of [${this._skillService.SkillNames.VaccSuit} 1], [${this._skillService.SkillNames.Engineer} 1], [${this._skillService.SkillNames.Animals} (${this._skillService.SkillNames.AnimalsHandling} or ${this._skillService.SkillNames.AnimalsTraining}) 1], or [${this._skillService.SkillNames.Recon} 1].`,
+          Description: `You are assigned to a planet with a hostile or wild environment. Gain one of ${this._skillService.SkillNames.VaccSuit} 1, ${this._skillService.SkillNames.Engineer} 1, ${this._skillService.SkillNames.Animals} (${this._skillService.SkillNames.AnimalsHandling} or ${this._skillService.SkillNames.AnimalsTraining}) 1, or ${this._skillService.SkillNames.Recon} 1.`,
         } as CareerEvent,
         4: {
-          Description: `You are assigned to an urbanised planet torn by war. Gain one of [${this._skillService.SkillNames.Stealth} 1], [${this._skillService.SkillNames.Streetwise} 1], [${this._skillService.SkillNames.Persuade} 1], or [${this._skillService.SkillNames.Recon} 1].`,
+          Description: `You are assigned to an urbanised planet torn by war. Gain one of ${this._skillService.SkillNames.Stealth} 1, ${this._skillService.SkillNames.Streetwise} 1, ${this._skillService.SkillNames.Persuade} 1, or ${this._skillService.SkillNames.Recon} 1.`,
         } as CareerEvent,
         5: {
           Description: `You are given a special assignment or duty in your unit. Gain DM+1 to any one Benefit roll.`,
         } as CareerEvent,
         6: {
-          Description: `You are thrown into a brutal ground war. Roll EDU 8+ to avoid injury; if you succeed, you gain one level in [${this._skillService.SkillNames.GunCombat}] or [${this._skillService.SkillNames.Leadership}].`,
+          Description: `You are thrown into a brutal ground war. Roll EDU 8+ to avoid injury; if you succeed, you gain one level in ${this._skillService.SkillNames.GunCombat} or ${this._skillService.SkillNames.Leadership}.`,
         } as CareerEvent,
         7: {
           Description: `Life Event. Roll on the Life Events Table.`,
@@ -566,10 +570,10 @@ export class CareerService {
           Description: `Surrounded and outnumbered by the enemy, you hold out until relief arrives. Gain DM+2 to your next Advancement check.`,
         } as CareerEvent,
         10: {
-          Description: `You are assigned to a peacekeeping role. Gain one of [${this._skillService.SkillNames.Admin} 1], [${this._skillService.SkillNames.Investigate} 1], [${this._skillService.SkillNames.Deception} 1], or [${this._skillService.SkillNames.Recon} 1].`,
+          Description: `You are assigned to a peacekeeping role. Gain one of ${this._skillService.SkillNames.Admin} 1, ${this._skillService.SkillNames.Investigate} 1, ${this._skillService.SkillNames.Deception} 1, or ${this._skillService.SkillNames.Recon} 1.`,
         } as CareerEvent,
         11: {
-          Description: `Your commanding officer takes an interest in your career. Either gain [${this._skillService.SkillNames.Tactics} (${this._skillService.SkillNames.TacticsMilitary}) 1] or DM+4 to your next Advancement roll thanks to their aid.`,
+          Description: `Your commanding officer takes an interest in your career. Either gain ${this._skillService.SkillNames.Tactics} (${this._skillService.SkillNames.TacticsMilitary}) 1 or DM+4 to your next Advancement roll thanks to their aid.`,
         } as CareerEvent,
         12: {
           Description: `You display heroism in battle. You may gain a promotion or a commission automatically.`,
@@ -822,13 +826,13 @@ export class CareerService {
           Description: `Severely injured (this is the same as a result of 2 on the Injury Table). Alternatively, roll twice on the Injury Table and take the lower result.`,
         } as Mishap,
         2: {
-          Description: `You are harassed and your life ruined by a criminal gang. Gain the gang as an [Enemy]`,
+          Description: `You are harassed and your life ruined by a criminal gang. Gain the gang as an Enemy.`,
         } as Mishap,
         3: {
           Description: `Hard times caused by a lack of interstellar trade costs you your job. Lose one SOC.`,
         } as Mishap,
         4: {
-          Description: `Your business is investigated by the planetary authorities (or your colony ship suffers interference from interests offworld). Cooperate, and the business or colony is shut down, but you gain DM+2 to the Qualification check for your next career as a reward for your aid. Refuse, and gain an [Ally].`,
+          Description: `Your business is investigated by the planetary authorities (or your colony ship suffers interference from interests offworld). Cooperate, and the business or colony is shut down, but you gain DM+2 to the Qualification check for your next career as a reward for your aid. Refuse, and gain an Ally.`,
         } as Mishap,
         5: {
           Description: `A revolution, attack, or other unusual event throws your life into chaos, forcing you to leave the planet. Roll ${this._skillService.SkillNames.Streetwise} 8+. If you succeed, increase any skill you have by one level.`,
@@ -843,16 +847,16 @@ export class CareerService {
         } as CareerEvent,
         3: {
           Description: `Political upheaval strikes your homeworld, and you are caught up in the revolution.
-          Gain either [${this._skillService.SkillNames.Advocate} 1], [${this._skillService.SkillNames.Persuade} 1],
-          [${this._skillService.SkillNames.Explosives} 1], or [${this._skillService.SkillNames.Streetwise} 1].
+          Gain either ${this._skillService.SkillNames.Advocate} 1, ${this._skillService.SkillNames.Persuade} 1,
+          ${this._skillService.SkillNames.Explosives} 1, or ${this._skillService.SkillNames.Streetwise} 1.
           Roll whichever skill you chose 8+. If you succeed, you come out on the winning side, and gain DM+2 to your
           next Advancement roll. Fail, and you suffer DM-2 to your next Survival roll.`,
         } as CareerEvent,
         4: {
           Description: `You spend time maintaining and using heavy vehicles, either as part of your job or as a hobby.
-          Increase [${this._skillService.SkillNames.Mechanic}], [${this._skillService.SkillNames.Drive}],
-          [${this._skillService.SkillNames.Electronics}], [${this._skillService.SkillNames.Flyer}], or
-          [${this._skillService.SkillNames.Engineer}] by one level.`,
+          Increase ${this._skillService.SkillNames.Mechanic}, ${this._skillService.SkillNames.Drive},
+         ${this._skillService.SkillNames.Electronics}, ${this._skillService.SkillNames.Flyer}, or
+          ${this._skillService.SkillNames.Engineer} by one level.`,
         } as CareerEvent,
         5: {
           Description: `Your business expands, your corporation grows, or the colony thrives. Gain DM+1 to any one
@@ -868,19 +872,19 @@ export class CareerService {
         8: {
           Description: `You learn something you should not have - a corporate secret, a political scandal - which you
           can profit from illegally. If you choose to do so, then you gain DM+1 to a Benefit roll from this career and
-          gain [${this._skillService.SkillNames.Streetwise} 1], [${this._skillService.SkillNames.Deception} 1],
-          or a criminal [Contact]. If you refuse, you gain nothing.`,
+          gain ${this._skillService.SkillNames.Streetwise} 1, ${this._skillService.SkillNames.Deception} 1,
+          or a criminal Contact. If you refuse, you gain nothing.`,
         } as CareerEvent,
         9: {
           Description: `You are rewarded for you diligence or cunning. Gain DM+2 to your next Advancement check.`,
         } as CareerEvent,
         10: {
           Description: `You gain experience in a technical field as a computer operator or surveyor. Increase
-          [${this._skillService.SkillNames.Electronics}] or [${this._skillService.SkillNames.Engineer}] by one level.`,
+          ${this._skillService.SkillNames.Electronics} or ${this._skillService.SkillNames.Engineer} by one level.`,
         } as CareerEvent,
         11: {
-          Description: `You befriend a superior in the corporation or the colony. Gain an [Ally]. Either gain
-          [${this._skillService.SkillNames.Diplomat} 1] or DM+4 to your next Advancement roll thanks to their aid.`,
+          Description: `You befriend a superior in the corporation or the colony. Gain an Ally. Either gain
+          ${this._skillService.SkillNames.Diplomat} 1 or DM+4 to your next Advancement roll thanks to their aid.`,
         } as CareerEvent,
         12: {
           Description: `You rise to a position of power in your colony or corporation. You are automatically promoted.`,
@@ -917,7 +921,7 @@ export class CareerService {
       BenefitTable: {
         1: {
           Cash: 0,
-          BenefitName: `[Contact]`,
+          BenefitName: `Contact`,
         } as Benefit,
         2: {
           Cash: 0,
@@ -925,7 +929,7 @@ export class CareerService {
         } as Benefit,
         3: {
           Cash: 1000,
-          BenefitName: `[Ally]`,
+          BenefitName: `Ally`,
         } as Benefit,
         4: {
           Cash: 2000,
@@ -1145,15 +1149,15 @@ export class CareerService {
           Description: `Injured. Roll on the Injury Table.`,
         } as Mishap,
         3: {
-          Description: `You run afoul of a criminal gang, corrupt bureaucrat, or other foe. Gain an [Enemy]`,
+          Description: `You run afoul of a criminal gang, corrupt bureaucrat, or other foe. Gain an Enemy.`,
         } as Mishap,
         4: {
           Description: `You suffer from a life-threatening illness. Reduce your END by 1.`,
         } as Mishap,
         5: {
           Description: `Betrayed by a friend. One of your Contacts or Allies betrays you, ending your career.
-          That [Contact] or [Ally] becomes a [Rival] or [Enemy]. If you have no Contacts or Allies, then you are
-          betrayed by someone you never saw coming and still gain a [Rival] or [Enemy].`,
+          That Contact or Ally becomes a Rival or Enemy. If you have no Contacts or Allies, then you are
+          betrayed by someone you never saw coming and still gain a Rival or Enemy.`,
         } as Mishap,
         6: {
           Description: `You do not know what happened to you. There is a gap in your memory.`,
@@ -1182,7 +1186,7 @@ export class CareerService {
           Description: `Life Event. Roll on the Life Events Table.`,
         } as CareerEvent,
         8: {
-          Description: `You are attacked by enemies. Gain an [Enemy] if you do not have one already, and roll either
+          Description: `You are attacked by enemies. Gain an Enemy if you do not have one already, and roll either
           ${this._skillService.SkillNames.Melee} 8+, ${this._skillService.SkillNames.GunCombat} 8+, or
           ${this._skillService.SkillNames.Stealth} 8+ to avoid a roll on the Injury Table.`,
         } as CareerEvent,
@@ -1236,7 +1240,7 @@ export class CareerService {
       BenefitTable: {
         1: {
           Cash: 0,
-          BenefitName: `[Contact]`,
+          BenefitName: `Contact`,
         } as Benefit,
         2: {
           Cash: 0,
@@ -1244,7 +1248,7 @@ export class CareerService {
         } as Benefit,
         3: {
           Cash: 10000,
-          BenefitName: `[Contact]`,
+          BenefitName: `Contact`,
         } as Benefit,
         4: {
           Cash: 10000,
@@ -1473,13 +1477,13 @@ export class CareerService {
           Description: `Public opinion turns on you. Reduce your SOC by 1.`,
         } as Mishap,
         4: {
-          Description: `You are betrayed by a peer. One of your Contacts or Allies betrays you, ending your career. That Contact or Ally becomes a [Rival] or [Enemy].
-          If you have no Contacts or Allies, then you are betrayed by someone you never say coming and still gain a [Rival] or [Enemy].`,
+          Description: `You are betrayed by a peer. One of your Contacts or Allies betrays you, ending your career. That Contact or Ally becomes a Rival or Enemy.
+          If you have no Contacts or Allies, then you are betrayed by someone you never say coming and still gain a Rival or Enemy.`,
         } as Mishap,
         5: {
           Description: `An investigation, tour, project, or expedition goes wrong, stranding you far from home. Gain one of
-          [${this._skillService.SkillNames.Survival} 1], [${this._skillService.SkillNames.Pilot} 1],
-           [${this._skillService.SkillNames.Persuade} 1], or [${this._skillService.SkillNames.Streetwise} 1]`,
+          ${this._skillService.SkillNames.Survival} 1, ${this._skillService.SkillNames.Pilot} 1,
+           ${this._skillService.SkillNames.Persuade} 1, or ${this._skillService.SkillNames.Streetwise} 1`,
         } as Mishap,
         6: {
           Description: `You are forced out because of censorship or controversy. What truth did you get too close to?
@@ -1495,32 +1499,32 @@ export class CareerService {
            8+ or ${this._skillService.SkillNames.Investigate} 8+. If you succeed, gain one SOC. If you fail, lose one SOC.`,
         } as CareerEvent,
         4: {
-          Description: `You are a part of your homeworld's celebrity circles. Gain one of [${this._skillService.SkillNames.Carouse} 1],
-          [${this._skillService.SkillNames.Persuade} 1], [${this._skillService.SkillNames.Steward} 1], or a [Contact].`,
+          Description: `You are a part of your homeworld's celebrity circles. Gain one of ${this._skillService.SkillNames.Carouse} 1,
+          ${this._skillService.SkillNames.Persuade} 1, ${this._skillService.SkillNames.Steward} 1, or a Contact.`,
         } as CareerEvent,
         5: {
           Description: `One of your works is especially well received and popular, making you a minor celebrity. Gain DM+1 to any one Benefit roll.`,
         } as CareerEvent,
         6: {
-          Description: `You gain a patron in the arts. Gain DM+2 to your next Advancement check and an [Ally]`,
+          Description: `You gain a patron in the arts. Gain DM+2 to your next Advancement check and an Ally`,
         } as CareerEvent,
         7: {
           Description: `Life Event. Roll on the Life Events Table.`,
         } as CareerEvent,
         8: {
           Description: `You have the opportunity to criticize or even bring down a questionable political leader on
-          your homeworld. If you refuse and support the leader, you gain nothing. If you accept, gain an [Enemy] and
+          your homeworld. If you refuse and support the leader, you gain nothing. If you accept, gain an Enemy and
           roll ${this._skillService.SkillNames.Art} or ${this._skillService.SkillNames.Persuade} 8+. If you succeed,
           gain one level in any skill you already have. If you fail, increase a skill anyway and roll on the Mishap
           table.`,
         } as CareerEvent,
         9: {
-          Description: `You go on a tour of the sector, visiting several worlds. Gain D3 [Contacts]`,
+          Description: `You go on a tour of the sector, visiting several worlds. Gain D3 Contacts`,
         } as CareerEvent,
         10: {
           Description: `One of your pieces of art is stolen, and the investigation brings you into the criminal underworld.
-          Gain one of [${this._skillService.SkillNames.Streetwise} 1], [${this._skillService.SkillNames.Investigate} 1],
-          [${this._skillService.SkillNames.Recon} 1], or [${this._skillService.SkillNames.Stealth} 1]`,
+          Gain one of ${this._skillService.SkillNames.Streetwise} 1, ${this._skillService.SkillNames.Investigate} 1,
+          ${this._skillService.SkillNames.Recon} 1, or ${this._skillService.SkillNames.Stealth} 1`,
         } as CareerEvent,
         11: {
           Description: `As an artist, you lead a strange and charmed life. Go to the Life Events Table and have an Unusual Event.`,
@@ -1802,21 +1806,21 @@ export class CareerService {
         } as Mishap,
         2: {
           Description: `A mission goes wrong; you and several others are captured and mistreated by the enemy. Due to
-          your injuries, you are discharged early. Gain your jailer as an [Enemy] and reduce your STR and DEX by one
+          your injuries, you are discharged early. Gain your jailer as an Enemy and reduce your STR and DEX by one
           because of your injuries.`,
         } as Mishap,
         3: {
           Description: `A mission goes wrong and you are stranded behind enemy lines. Increase
-          [${this._skillService.SkillNames.Stealth}] or [${this._skillService.SkillNames.Survival}] by one level, but
+          ${this._skillService.SkillNames.Stealth} or ${this._skillService.SkillNames.Survival} by one level, but
           due to the mission's failure, you are ejected from the service.`,
         } as Mishap,
         4: {
           Description: `You are ordered to take part in a black ops mission that goes against your conscience.
           If you refuse, you are ejected from the service. If you accept, you may stay with the marines, but gain the
-          lone survivor as an [Enemy].`,
+          lone survivor as an Enemy.`,
         } as Mishap,
         5: {
-          Description: `You are tormented by or quarrel with an officer or fellow marine. Gain that character as a [Rival] as he drives you out of the service.`,
+          Description: `You are tormented by or quarrel with an officer or fellow marine. Gain that character as a Rival as he drives you out of the service.`,
         } as Mishap,
         6: {
           Description: `Injured. Roll on the Injury Table.`,

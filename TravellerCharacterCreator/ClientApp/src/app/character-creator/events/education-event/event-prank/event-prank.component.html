@@ -1,36 +1,28 @@
 ﻿<h2>Prank</h2>
 <p>A supposedly harmless prank goes wrong and someone gets hurt, physically or emotionally.</p>
 <form *ngIf="!prankJail && !prankEnemy && !prankRival">
-    <label for="prank">Roll 2d6</label>
-    <input name="prank" [(ngModel)]="prankRoll" id="prank" type="number" min="2" max="12">
-    <button class="primary" type="submit" (submit)="prank()" (click)="prank()">Submit</button>
+  <app-characteristic-roll [characteristic]="'SOC'"
+                           [target]="8"
+                           (rawResult)="prank($event)">
+  </app-characteristic-roll>
 </form>
 <form *ngIf="prankRival">
-    <p>You have gained a [Rival].</p>
-    <div class="story-input">
-        <label for="prank-story-rival">Write about what happened and/or about your Rival (Optional)</label>
-        <textarea name="prank-rival" rows="10" id="prank-story-rival" type="text" [(ngModel)]="story"></textarea>
-    </div>
-    <button class="primary" type="submit" (submit)="gainPrankRival()" (click)="gainPrankRival()">That's too bad.
-    </button>
+  <p>You have gained a Rival.</p>
+  <app-story></app-story>
+  <button class="primary" type="submit" (submit)="gainPrankRival()" (click)="gainPrankRival()">That's too bad.
+  </button>
 </form>
 <form *ngIf="prankEnemy">
-    <p>You have gained an [Enemy].</p>
-    <div class="story-input">
-        <label for="prank-story-enemy">Write about what happened and/or about your Enemy (Optional)</label>
-        <textarea name="prank-enemy" rows="10" id="prank-story-enemy" type="text" [(ngModel)]="story"></textarea>
-    </div>
-    <button class="primary" type="submit" (submit)="gainPrankEnemy()" (click)="gainPrankEnemy()">Aww, man!
-    </button>
+  <p>You have gained an Enemy.</p>
+  <app-story></app-story>
+  <button class="primary" type="submit" (submit)="gainPrankEnemy()" (click)="gainPrankEnemy()">Aww, man!
+  </button>
 </form>
 <form *ngIf="prankJail">
-    <p>You have gained an [Enemy], and you are going to jail next term. On the bright side, you can still attempt
-        to
-        graduate!</p>
-    <div class="story-input">
-        <label for="prank-story-jail">Write about what happened and/or about your Enemy (Optional)</label>
-        <textarea name="prank-jail" rows="10" id="prank-story-jail" type="text" [(ngModel)]="story"></textarea>
-    </div>
-    <button class="primary" type="submit" (submit)="jailed()" (click)="jailed()">I'll be careful next time.
-    </button>
+  <p>You have gained an Enemy, and you are going to jail next term. On the bright side, you can still attempt
+    to
+    graduate!</p>
+  <app-story></app-story>
+  <button class="primary" type="submit" (submit)="jailed()" (click)="jailed()">I'll be careful next time.
+  </button>
 </form>

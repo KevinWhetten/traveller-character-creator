@@ -1,0 +1,12 @@
+<h3>Ending of Relationship</h3>
+
+<p>A romantic relationship involving you ends. Badly. Gain a Rival or Enemy.</p>
+
+<select [(ngModel)]="connection">
+  <option value="rival">Rival</option>
+  <option value="enemy">Enemy</option>
+</select>
+
+<app-story></app-story>
+
+<button class="primary" (click)="submit()">Submit</button>

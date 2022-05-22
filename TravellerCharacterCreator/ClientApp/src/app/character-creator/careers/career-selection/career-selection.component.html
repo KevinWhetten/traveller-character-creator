@@ -1,7 +1,8 @@
 <div class="container">
   <label for="career-select">Select a Career: </label>
   <select id="career-select" [(ngModel)]="careerName" (change)="changeCareer()">
-    <option *ngFor="let careerName of getCareerNames()">{{careerName}}</option>
+    <option *ngFor="let careerName of getCareerNames()"
+            value="{{careerName}}">{{careerName}}</option>
   </select>
 
   <div class="career-header">

@@ -7,7 +7,7 @@ import {SkillService} from "../../../../services/data-services/skill.service";
 @Component({
   selector: 'app-event-tutor',
   templateUrl: './event-tutor.component.html',
-  styleUrls: ['./event-tutor.component.css']
+  styleUrls: ['./event-tutor.component.scss']
 })
 export class EventTutorComponent implements OnInit {
   @Output() graduate = new EventEmitter();
@@ -27,19 +27,16 @@ export class EventTutorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  tutor() {
+  submit(beaten: boolean) {
     this.log = 'A newly arrived tutor rubbed me the wrong way, and I worked hard to overturn their conclusions.';
-    if (this.tutorSkill != '' && (this.skillRoll >= 2 && this.skillRoll <= 12)) {
-      let skillScore = this._characterService.getSkills()[this.tutorSkill];
-      if (this.skillRoll + skillScore >= 9) {
-        this.log += ' I provided a truly elegant proof that soon became accepted as the standard approach!';
-        this.tutorBeaten = true;
-      } else {
-        this.log += ' Nothing really came of it.';
-        this.tutorWins = true;
-      }
-      this._loggingService.addLog(this.log);
+    if (beaten) {
+      this.log += ' I provided a truly elegant proof that soon became accepted as the standard approach!';
+      this.tutorBeaten = true;
+    } else {
+      this.log += ' Nothing really came of it.';
+      this.tutorWins = true;
     }
+    this._loggingService.addLog(this.log);
   }
 
   beatTutor() {
@@ -58,5 +55,14 @@ export class EventTutorComponent implements OnInit {
   getSkillsLearnedThisTerm() {
     let skillsLearnedThisTerm = this._metadataService.getSkillsLearnedThisTerm();
     return this._skillService.getGroups(skillsLearnedThisTerm);
+  }
+
+  getGroupNames() {
+    let skillsLearnedThisTerm = this._metadataService.getSkillsLearnedThisTerm();
+    return this._skillService.getGroupNames(skillsLearnedThisTerm);
+  }
+
+  getModifier() {
+    return this._characterService.getSkills()[this.tutorSkill];
   }
 }

@@ -3,25 +3,35 @@ import {Router} from "@angular/router";
 import {CharacterSkill} from "../../models/character-skill";
 
 class Metadata {
+  // Page Metadata
   currentUrl: string = '';
+  // Character Metadata
   term: number = 0;
+  // Education
   universitySkills: CharacterSkill[] = [];
-  skillsLearnedThisTerm: string[] = [];
-  eventChoice: number = 0;
-  mishapNumber: number = 0;
-  jailed: boolean = false;
-  universityTerm: number = 0;
+  educationTerm: number = 0;
   graduatedUniversity: boolean = false;
   graduatedWithHonors: boolean = false;
   militaryAcademy: string = '';
   graduatedMilitaryAcademy: boolean = false;
   militaryAcademyTerm: number = 0;
+  // Skills
+  skillsLearnedThisTerm: string[] = [];
+  // Events
+  eventChoice: number = 0;
+  // Mishaps
+  mishapNumber: number = 0;
+  // Careers
+  qualificationDm: number = 0;
   careers: string[] = [];
   currentCareer: string = '';
+  currentCareerTerms: number = 0;
   currentAssignment: string = '';
   careerRank: number = 0;
-  currentCareerTerms: number = 0;
+  jailed: boolean = false;
+  // Benefits
   cashRolls: number = 3;
+  lostBenefits: number = 0;
 }
 
 @Injectable({
@@ -84,6 +94,51 @@ export class CharacterMetadataService {
   //endregion
 
   //region Careers
+  getQualificationBonus(career: string): number {
+    this.load()
+    let bonus = 0;
+    if (this.metadata.graduatedUniversity && this.metadata.graduatedWithHonors) {
+      if (career == 'Agent' || career == 'Army' || career == 'Citizen' || career == 'Entertainer' || career == 'Marine'
+        || career == 'Navy' || career == 'Scholar' || career == 'Scout') {
+        if (this.metadata.graduatedWithHonors) {
+          bonus += 2;
+        } else {
+          bonus += 1;
+        }
+      }
+    }
+    if (this.metadata.graduatedMilitaryAcademy) {
+      if (career == this.metadata.militaryAcademy) {
+        bonus += 12;
+      }
+    }
+    if (this.metadata.qualificationDm) {
+      bonus += this.metadata.qualificationDm;
+    }
+    return bonus;
+  }
+
+  getCommissionBonus(career: string) {
+    this.load();
+    let bonus = 0;
+
+    if(this.metadata.term == this.metadata.educationTerm + 1) {
+      if (this.metadata.graduatedUniversity && this.metadata.graduatedWithHonors) {
+        bonus += 2;
+      }
+
+      if (this.metadata.graduatedMilitaryAcademy && career == this.metadata.militaryAcademy) {
+        if (this.metadata.graduatedWithHonors) {
+          bonus += 12;
+        } else {
+          bonus += 2;
+        }
+      }
+    }
+
+    return bonus;
+  }
+
   getCareers() {
     this.load();
     if (this.metadata.careers)
@@ -93,9 +148,9 @@ export class CharacterMetadataService {
 
   addCareer(Name: string) {
     this.load();
-    if(this.metadata.careers) {
+    if (this.metadata.careers) {
       this.metadata.careers.push(Name);
-    }else {
+    } else {
       this.metadata.careers = [Name];
     }
     this.save();
@@ -125,7 +180,7 @@ export class CharacterMetadataService {
 
   promote() {
     this.load();
-    if(this.metadata.careerRank) {
+    if (this.metadata.careerRank) {
       this.metadata.careerRank++;
     } else {
       this.metadata.careerRank = 1;
@@ -140,7 +195,7 @@ export class CharacterMetadataService {
 
   getCurrentCareerTerms() {
     this.load();
-    if(this.metadata.currentCareerTerms) {
+    if (this.metadata.currentCareerTerms) {
       return this.metadata.currentCareerTerms;
     }
     return 1;
@@ -149,6 +204,24 @@ export class CharacterMetadataService {
   getCashRolls() {
     this.load();
     return this.metadata.cashRolls ? this.metadata.cashRolls : 3;
+  }
+
+  loseBenefits(number: number) {
+    this.load();
+    if (this.metadata.lostBenefits) {
+      this.metadata.lostBenefits += number;
+    } else {
+      this.metadata.lostBenefits = number;
+    }
+    this.save();
+  }
+
+  setQualificationDm(number: number) {
+    this.load();
+    if (!this.metadata.qualificationDm || this.metadata.qualificationDm < number) {
+      this.metadata.qualificationDm = number;
+    }
+    this.save();
   }
 
   //endregion
@@ -169,16 +242,21 @@ export class CharacterMetadataService {
     this.save();
   }
 
-  graduatedUniversity() {
+  graduateUniversity() {
     this.load();
-    this.metadata.universityTerm = this.metadata.term;
+    this.metadata.educationTerm = this.metadata.term;
     this.metadata.graduatedUniversity = true;
     this.save();
   }
 
-  graduatedUniversityWithHonors() {
+  graduatedUniversity() {
     this.load();
-    this.graduatedUniversity();
+    return this.metadata.graduatedUniversity;
+  }
+
+  graduateUniversityWithHonors() {
+    this.load();
+    this.graduateUniversity();
     this.metadata.graduatedWithHonors = true;
     this.save();
   }
@@ -197,18 +275,28 @@ export class CharacterMetadataService {
     return this.metadata.militaryAcademy;
   }
 
-  graduatedMilitaryAcademy() {
+  graduateMilitaryAcademy() {
     this.load();
     this.metadata.militaryAcademyTerm = this.metadata.term;
     this.metadata.graduatedMilitaryAcademy = true;
     this.save();
   }
 
-  graduatedMilitaryAcademyWithHonors() {
+  graduatedMilitaryAcademy() {
     this.load();
-    this.graduatedMilitaryAcademy();
+    return this.metadata.graduatedMilitaryAcademy;
+  }
+
+  graduateMilitaryAcademyWithHonors() {
+    this.load();
+    this.graduateMilitaryAcademy();
     this.metadata.graduatedWithHonors = true;
     this.save();
+  }
+
+  graduatedWithHonors() {
+    this.load();
+    return this.metadata.graduatedWithHonors;
   }
 
   //endregion
@@ -236,13 +324,13 @@ export class CharacterMetadataService {
     return this.metadata.jailed;
   }
 
-  setMishapNumber(choice: number){
+  setMishapNumber(choice: number) {
     this.load();
     this.metadata.mishapNumber = choice;
     this.save();
   }
 
-  getMishapNumber(){
+  getMishapNumber() {
     this.load();
     return this.metadata.mishapNumber;
   }

@@ -32,32 +32,32 @@ export class CareerSurvivalComponent implements OnInit {
     let modifier = -3;
 
     if(this.assigment.Survival.characteristic.includes('STR')){
-      let mod = this._rollingService.getDm(this._characterService.getStrength())
+      let mod = this._rollingService.getDm(this._characterService.getStrength().current)
       if(mod > modifier){
         modifier = mod;
       }
     } else if(this.assigment.Survival.characteristic.includes('DEX')){
-      let mod = this._rollingService.getDm(this._characterService.getDexterity())
+      let mod = this._rollingService.getDm(this._characterService.getDexterity().current)
       if(mod > modifier){
         modifier = mod;
       }
     } else if(this.assigment.Survival.characteristic.includes('END')){
-      let mod = this._rollingService.getDm(this._characterService.getEndurance())
+      let mod = this._rollingService.getDm(this._characterService.getEndurance().current)
       if(mod > modifier){
         modifier = mod;
       }
     } else if(this.assigment.Survival.characteristic.includes('INT')){
-      let mod = this._rollingService.getDm(this._characterService.getIntellect())
+      let mod = this._rollingService.getDm(this._characterService.getIntellect().current)
       if(mod > modifier){
         modifier = mod;
       }
     } else if(this.assigment.Survival.characteristic.includes('EDU')){
-      let mod = this._rollingService.getDm(this._characterService.getEducation())
+      let mod = this._rollingService.getDm(this._characterService.getEducation().current)
       if(mod > modifier){
         modifier = mod;
       }
     } else if(this.assigment.Survival.characteristic.includes('SOC')){
-      let mod = this._rollingService.getDm(this._characterService.getSocialStatus())
+      let mod = this._rollingService.getDm(this._characterService.getSocialStanding().current)
       if(mod > modifier){
         modifier = mod;
       }
@@ -65,8 +65,8 @@ export class CareerSurvivalComponent implements OnInit {
     return modifier;
   }
 
-  submit() {
-    if(this.qualificationRoll + this.getModifier() >= this.career.Qualification.target){
+  submit(passed: boolean) {
+    if(passed){
       this._metadataService.setCurrentUrl('character-creator/careers/event');
     } else {
       this._metadataService.setCurrentUrl('character-creator/careers/mishap');

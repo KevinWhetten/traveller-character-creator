@@ -1,0 +1,13 @@
+<h4>Severely Injured</h4>
+<p>Reduce one physical characteristic by 1D.</p>
+
+<select [(ngModel)]="characteristic">
+  <option value="STR">Strength</option>
+  <option value="DEX">Dexterity</option>
+  <option value="END">Endurance</option>
+</select>
+
+<app-roll [numberOfDice]="1"
+          (result)="roll = $event"></app-roll>
+
+<button class="primary" (click)="submit()">Submit</button>

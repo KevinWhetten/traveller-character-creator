@@ -3,17 +3,18 @@
 
 <div *ngIf="!success && !honors && !failure">
   <p>Now we get to see if you graduate!</p>
-  <label for="acceptance">Roll 2d6</label>
-  <input class="number" type="number" id="acceptance" name="acceptance" [(ngModel)]="graduationRoll" min="2" max="12"/>
-  <button class="primary" (click)="submitGraduation()">Submit</button>
+  <app-characteristic-roll [characteristic]="'INT'"
+                           [target]="7"
+                           (result)="submit($event)">
+  </app-characteristic-roll>
 </div>
 
 <div *ngIf="success">
   <h3>Congratulations! You Graduated!</h3>
   <h4>Your studies have paid off!</h4>
   <ul>
-    <li class="main">You have gained [Skill1 2] and [Skill2 1]</li>
-    <li class="main">Your [EDU] has increased by 2!</li>
+    <li class="main">You have gained Skill1 2 and Skill2 1</li>
+    <li class="main">Your EDU has increased by 2!</li>
     <li class="main">
       You will gain a +1 bonus when applying for the following jobs:
       <ul class="normal">
@@ -39,11 +40,11 @@
 </div>
 
 <div *ngIf="honors">
-  <h3>Congratulations! You Graduated!</h3>
+  <h3>Congratulations! You Graduated with Honors!</h3>
   <h4>Your studies have paid off!</h4>
   <ul>
-    <li class="main">You have gained [Skill1 2] and [Skill2 1]</li>
-    <li class="main">Your [EDU] has increased by 2!</li>
+    <li class="main">You have gained Skill1 2 and Skill2 1</li>
+    <li class="main">Your EDU has increased by 2!</li>
     <li class="main">
       You will gain a +2 bonus when applying for the following jobs:
       <ul class="normal">

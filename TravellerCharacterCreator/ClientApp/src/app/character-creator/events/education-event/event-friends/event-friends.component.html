@@ -9,10 +9,7 @@
     </button>
 </form>
 <form *ngIf="this.friendGroup">
-    <p>Cool! You gained {{friendRoll}} [Allies].</p>
-    <div class="story-input">
-        <label for="friend-story">Write about these allies (Optional)</label>
-        <textarea name="allies-event" rows="10" id="friend-story" type="text" [(ngModel)]="story"></textarea>
-    </div>
+    <p>Cool! You gained {{friendRoll}} Allies.</p>
+    <app-story></app-story>
     <button class="primary" type="submit" (submit)="friends()" (click)="friends()">Cool!</button>
 </form>

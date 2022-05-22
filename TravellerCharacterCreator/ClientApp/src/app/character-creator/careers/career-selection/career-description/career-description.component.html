@@ -1,10 +1,31 @@
 ﻿<div class="description">
   <p>{{career.Description}}</p>
   <div class="qualification">
-    <p><strong>Qualification:</strong>
-      {{career.Qualification.characteristic}} {{career.Qualification.characteristic != 'Automatic' ? career.Qualification.target + '+' : ''}}
+    <p><strong>Qualification: </strong>
+      <span *ngIf="career.Qualification.target > 0">{{career.Qualification.characteristic}}
+        {{career.Qualification.characteristic != 'Automatic'
+          ? career.Qualification.target + '+'
+          : ''}}
+        <span class="blue-text">({{getQualificationBonus() + getModifier(career.Qualification.characteristic) >= 0
+          ? '+' + (getQualificationBonus() + getModifier(career.Qualification.characteristic))
+          : getQualificationBonus() + getModifier(career.Qualification.characteristic)}})</span>
+      </span>
+      <span *ngIf="career.Qualification.target <= 0">Automatic</span>
       <br><span [innerHTML]="career.Qualification.special"></span>
     </p>
+  </div>
+  <div *ngIf="career.Commission.target > 0" class="commission">
+    <p><strong>Commission:</strong>
+      {{career.Commission.characteristic}}
+      {{career.Commission.characteristic != 'Automatic'
+        ? career.Commission.target + '+'
+        : ''}}
+      <span class="blue-text">({{getCommissionBonus() + getModifier(career.Commission.characteristic) >= 0
+        ? '+' + (getCommissionBonus() + getModifier(career.Commission.characteristic))
+        : getCommissionBonus() + getModifier(career.Commission.characteristic)}})</span>
+      <br><span [innerHTML]="career.Commission.special"></span>
+    </p>
+
   </div>
   <div class="assignments">
     <h2 class="assignments">ASSIGNMENTS</h2>

@@ -22,9 +22,15 @@
 <button *ngIf="!this.avoidDraftAttempt || avoidDraftFailure" class="primary" (click)="drafted()">Be Drafted</button>
 <button *ngIf="!this.avoidDraftAttempt || avoidDraftFailure" class="primary" (click)="fleeDraft()">Flee!</button>
 
-<form *ngIf="this.avoidDraftAttempt && ! avoidDraftFailure">
+<form *ngIf="this.avoidDraftAttempt && ! avoidDraftFailure && !avoided">
   <p>You are attempting to pull some strings to get out of the draft.</p>
-  <label for="drafting">Roll 2d6</label>
-  <input name="drafting-event" [(ngModel)]="avoidDraftRoll" id="drafting" type="number" min="2" max="12">
-  <button class="primary" type="submit" (submit)="avoidDraft()" (click)="avoidDraft()">Submit</button>
+  <app-characteristic-roll [characteristic]="'SOC'"
+                           [target]="9"
+                           (rolled)="avoidDraft($event)">
+  </app-characteristic-roll>
 </form>
+
+<div *ngIf="avoided">
+  <h3>You successfully avoided the draft!</h3>
+  <button class="primary" (click)="proceed()">Take that, Lowlifes!</button>
+</div>

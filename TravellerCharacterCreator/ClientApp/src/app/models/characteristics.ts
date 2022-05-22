@@ -1,9 +1,14 @@
+export class Characteristic {
+  max: number;
+  current: number;
+}
+
 export class Characteristics {
-  Strength: number = 0;
-  Dexterity: number = 0;
-  Endurance: number = 0;
-  Intellect: number = 0;
-  Education: number = 0;
-  SocialStatus: number = 0;
-  Psi: number = -1;
+  Strength: Characteristic = {max: 0, current: 0} as Characteristic;
+  Dexterity: Characteristic = {max: 0, current: 0} as Characteristic;
+  Endurance: Characteristic = {max: 0, current: 0} as Characteristic;
+  Intellect: Characteristic = {max: 0, current: 0} as Characteristic;
+  Education: Characteristic = {max: 0, current: 0} as Characteristic;
+  SocialStanding: Characteristic = {max: 0, current: 0} as Characteristic;
+  Psi: Characteristic = {max: 0, current: 0} as Characteristic;
 }

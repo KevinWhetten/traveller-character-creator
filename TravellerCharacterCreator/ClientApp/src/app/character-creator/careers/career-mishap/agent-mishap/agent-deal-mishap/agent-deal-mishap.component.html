@@ -14,7 +14,7 @@
   <button class="secondary" (click)="reject()">Reject the Offer</button>
 </div>
 
-<app-injury-table *ngIf="rejected" [rolls]="2"></app-injury-table>
+<app-injury *ngIf="rejected" [rolls]="2"></app-injury>
 
 <div *ngIf="accepted">
   <h2>You accepted the offer.</h2>

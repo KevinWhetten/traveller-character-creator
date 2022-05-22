@@ -6,6 +6,7 @@ import {CharacterMetadataService} from "../../../services/metadata-services/char
 import {CharacterSkill} from "../../../models/character-skill";
 import {LoggingService} from "../../../services/metadata-services/logging.service";
 import {PercentageService} from "../../../services/data-services/percentage.service";
+import {PageService} from "../../../services/page.service";
 
 @Component({
   selector: 'app-education-event',
@@ -18,50 +19,28 @@ export class EducationEventComponent implements OnInit {
   @Output() lifeEventOccurs = new EventEmitter();
   eventResult: number = 2;
   submitted: boolean = false;
-  prankJail: boolean = false;
-  prankEnemy: boolean = false;
-  prankRival: boolean = false;
-  friendGroup: boolean = false;
-  politicalLeader: boolean = false;
-  politicalGrunt: boolean = false;
-  tutorSkill: string = '';
-  tutorBeaten: boolean = false;
-  tutorWins: boolean = false;
-  avoidDraftAttempt: boolean = false;
-  avoidDraftFailure: boolean = false;
-  specificEventNumber: number = 0;
-  socialStandingDm: number;
-  hobbySkill: string;
-  private log: string;
   story: string;
 
   constructor(private _characterService: CharacterService,
               private _characterMetadataService: CharacterMetadataService,
               private _dmService: RollingService,
               private _loggingService: LoggingService,
-              public _percentageService: PercentageService,
+              private _pageService: PageService,
               private _skillService: SkillService) {
   }
 
   ngOnInit(): void {
-    this.socialStandingDm = this._dmService.getDm(this._characterService.getSocialStatus());
-    this.eventResult = this._characterMetadataService.getEventNumber();
-    if (this.eventResult > 0) {
-      this.submitted = true;
-    }
   }
 
   submit() {
+    this._pageService.disableNav();
     this._loggingService.addLog('----- Education Event -----');
     this.submitted = true;
     this._characterMetadataService.setEventNumber(this.eventResult);
   }
 
-  lifeEvent() {
-    this._characterMetadataService.setCurrentUrl('character-creator/education/university/life-event');
-  }
-
   graduate() {
+    this._pageService.enableNav();
     this.graduated.emit();
   }
 }

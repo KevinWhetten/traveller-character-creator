@@ -1,6 +1,7 @@
 ﻿import {Component, OnInit} from '@angular/core';
 import {LoggingService} from "../../../../services/metadata-services/logging.service";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
+import {PageService} from "../../../../services/page.service";
 
 @Component({
   selector: 'app-event-tragedy',
@@ -11,17 +12,16 @@ export class EventTragedyComponent implements OnInit {
   story: string;
 
   constructor(private _characterMetadataService: CharacterMetadataService,
-    private _loggingService: LoggingService) {
+              private _loggingService: LoggingService,
+              private _pageService: PageService) {
   }
 
   ngOnInit(): void {
+    this._loggingService.addLog('My time in education was not a happy one, and I suffered a deep tragedy. I crashed and failed to graduate.');
   }
 
   skipGraduation() {
-    this._loggingService.addLog('My time in education was not a happy one, and I suffered a deep tragedy. I crashed and failed to graduate.');
-    if (this.story) {
-      this._loggingService.addLog(this.story);
-    }
+    this._pageService.enableNav();
     this._characterMetadataService.setCurrentUrl('character-creator/careers');
   }
 }
