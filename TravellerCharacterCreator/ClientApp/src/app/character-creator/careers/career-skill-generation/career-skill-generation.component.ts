@@ -55,18 +55,20 @@ export class CareerSkillGenerationComponent implements OnInit {
   }
 
   trainSkill() {
-    if(this.trainingSkill == 'STR'){
+    if(this.trainingSkill.includes('STR')){
       this._characterService.increaseStrength(1);
-    } else if(this.trainingSkill == 'DEX'){
+    } else if(this.trainingSkill.includes('DEX')){
       this._characterService.increaseDexterity(1);
-    } else if(this.trainingSkill == 'END'){
+    } else if(this.trainingSkill.includes('END')){
       this._characterService.increaseEndurance(1);
-    } else if(this.trainingSkill == 'INT'){
+    } else if(this.trainingSkill.includes('INT')){
       this._characterService.increaseIntellect(1);
-    } else if(this.trainingSkill == 'EDU'){
+    } else if(this.trainingSkill.includes('EDU')){
       this._characterService.increaseEducation(1);
-    } else if(this.trainingSkill == 'SOC'){
+    } else if(this.trainingSkill.includes('SOC')){
       this._characterService.increaseSocialStatus(1);
+    } else if(this.trainingSkill.includes('PSI')){
+      this._characterService.increasePsi(1);
     } else if(this.trainingSubskill){
       this._characterService.increaseSkills([{Name: this.trainingSubskill, Value: 1}]);
     } else {

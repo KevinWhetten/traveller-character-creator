@@ -1,5 +1,4 @@
-﻿import {Component, Input, OnInit} from '@angular/core';
-import {Characteristic} from "../../models/characteristics";
+﻿import {Component, OnInit} from '@angular/core';
 import {CharacterService} from "../../services/character.service";
 import {RollingService} from "../../services/data-services/rolling.service";
 
@@ -21,28 +20,56 @@ export class CharacteristicsComponent implements OnInit {
     return this._characterService.getCharacteristics().Strength.current;
   }
 
+  getMaxStrength() {
+    return this._characterService.getCharacteristics().Strength.max;
+  }
+
   getDexterity() {
     return this._characterService.getCharacteristics().Dexterity.current;
+  }
+
+  getMaxDexterity() {
+    return this._characterService.getCharacteristics().Dexterity.max;
   }
 
   getEndurance() {
     return this._characterService.getCharacteristics().Endurance.current;
   }
 
+  getMaxEndurance() {
+    return this._characterService.getCharacteristics().Endurance.max;
+  }
+
   getIntellect() {
     return this._characterService.getCharacteristics().Intellect.current;
+  }
+
+  getMaxIntellect() {
+    return this._characterService.getCharacteristics().Intellect.max;
   }
 
   getEducation() {
     return this._characterService.getCharacteristics().Education.current;
   }
 
+  getMaxEducation() {
+    return this._characterService.getCharacteristics().Education.max;
+  }
+
   getSocialStanding() {
     return this._characterService.getCharacteristics().SocialStanding.current;
   }
 
+  getMaxSocialStanding() {
+    return this._characterService.getCharacteristics().SocialStanding.max;
+  }
+
   getPsi() {
     return this._characterService.getCharacteristics().Psi.current;
+  }
+
+  getMaxPsi() {
+    return this._characterService.getCharacteristics().Psi.max;
   }
 
   getStrengthDm() {

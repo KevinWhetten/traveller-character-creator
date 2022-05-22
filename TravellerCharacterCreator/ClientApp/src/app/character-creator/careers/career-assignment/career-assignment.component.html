@@ -6,7 +6,13 @@
            value="{{assignment.Name}}">
     <label for="assignment-{{i}}"><strong>{{assignment.Name}}</strong> - {{assignment.Description}}
       <br>Survival: {{assignment.Survival.characteristic}} {{assignment.Survival.target}}+
+      <span class="blue-text">({{getModifier(assignment.Survival.characteristic) >= 0
+        ? '+' + getModifier(assignment.Survival.characteristic)
+        : getModifier(assignment.Survival.characteristic)}})</span>
       <br>Advancement: {{assignment.Advancement.characteristic}} {{assignment.Advancement.target}}+
+      <span class="blue-text">({{getModifier(assignment.Advancement.characteristic) >= 0
+        ? '+' + getModifier(assignment.Advancement.characteristic)
+        : getModifier(assignment.Advancement.characteristic)}})</span>
       <br>Skills: {{getSkills(assignment)}}
     </label>
   </div>
