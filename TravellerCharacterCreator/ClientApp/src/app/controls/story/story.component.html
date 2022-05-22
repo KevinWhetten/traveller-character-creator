@@ -1,0 +1,7 @@
+﻿<div class="container">
+  <div class="story-input">
+    <label for="story">Write about what happened (Optional)</label>
+    <textarea name="tragedy" rows="10" id="story" type="text" [(ngModel)]="story" [ngClass]="disabled"></textarea>
+  </div>
+  <button *ngIf="!submitted" class="secondary" (click)="submitStory()">Submit Story</button>
+</div>

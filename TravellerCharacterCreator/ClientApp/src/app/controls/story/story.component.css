@@ -1,0 +1,19 @@
+textarea {
+  height: 200px;
+}
+
+.story-input {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.container {
+  display: flex;
+  align-items: flex-end;
+}
+
+.disabled {
+  pointer-events: none;
+  background-color: #e1e1e1;
+}
