@@ -150,6 +150,7 @@ export class CharacterService {
   increaseStrength(number: number) {
     this.loadCharacter();
     this.character.Characteristics.Strength.max += number;
+    this.character.Characteristics.Strength.current += number;
     this._loggingService.addLog(`Strength increased by ${number} to [STR ${this.character.Characteristics.Strength.max}]`);
     this.saveCharacter();
   }
@@ -163,6 +164,7 @@ export class CharacterService {
 
   increaseDexterity(number: number) {
     this.loadCharacter();
+    this.character.Characteristics.Dexterity.current += number;
     this.character.Characteristics.Dexterity.max += number;
     this._loggingService.addLog(`Dexterity increased by ${number} to [DEX ${this.character.Characteristics.Dexterity.max}]`);
     this.saveCharacter();
@@ -177,6 +179,7 @@ export class CharacterService {
 
   increaseEndurance(number: number) {
     this.loadCharacter();
+    this.character.Characteristics.Endurance.current += number;
     this.character.Characteristics.Endurance.max += number;
     this._loggingService.addLog(`Endurance increased by ${number} to [END ${this.character.Characteristics.Endurance.max}]`);
     this.saveCharacter();
@@ -191,6 +194,7 @@ export class CharacterService {
 
   increaseIntellect(number: number) {
     this.loadCharacter();
+    this.character.Characteristics.Intellect.current += number;
     this.character.Characteristics.Intellect.max += number;
     this._loggingService.addLog(`Intellect increased by ${number} to [INT ${this.character.Characteristics.Intellect.max}]`);
     this.saveCharacter();
@@ -198,6 +202,7 @@ export class CharacterService {
 
   increaseEducation(number: number) {
     this.loadCharacter();
+    this.character.Characteristics.Education.current += number;
     this.character.Characteristics.Education.max += number;
     this._loggingService.addLog(`Education increased by ${number} to [EDU ${this.character.Characteristics.Education.max}]`);
     this.saveCharacter();
@@ -205,8 +210,17 @@ export class CharacterService {
 
   increaseSocialStatus(number: number) {
     this.loadCharacter();
+    this.character.Characteristics.SocialStanding.current += number;
     this.character.Characteristics.SocialStanding.max += number;
     this._loggingService.addLog(`Social Status increased by ${number} to [SOC ${this.character.Characteristics.SocialStanding.max}]`);
+    this.saveCharacter();
+  }
+
+  increasePsi(number: number) {
+    this.loadCharacter();
+    this.character.Characteristics.Psi.current += number;
+    this.character.Characteristics.Psi.max += number;
+    this._loggingService.addLog(`Social Status increased by ${number} to [SOC ${this.character.Characteristics.Psi.max}]`);
     this.saveCharacter();
   }
 
