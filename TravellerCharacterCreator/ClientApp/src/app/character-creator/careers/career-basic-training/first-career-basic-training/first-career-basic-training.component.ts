@@ -4,6 +4,8 @@ import {CareerService} from "../../../../services/data-services/career.service";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 import {CharacterService} from "../../../../services/character.service";
 import {CharacterSkill} from "../../../../models/character-skill";
+import {Subskill} from "../../../../models/skill";
+import {SkillService} from "../../../../services/data-services/skill.service";
 
 @Component({
   selector: 'app-first-career-basic-training',
@@ -16,7 +18,8 @@ export class FirstCareerBasicTrainingComponent implements OnInit {
 
   constructor(private _careerService: CareerService,
               private _characterService: CharacterService,
-              private _metadataService: CharacterMetadataService) {
+              private _metadataService: CharacterMetadataService,
+              private _skillService: SkillService) {
   }
 
   ngOnInit(): void {
@@ -33,8 +36,15 @@ export class FirstCareerBasicTrainingComponent implements OnInit {
     let skills = [] as string[];
     for (let i = 1; i <= 6; i++) {
       let serviceSkills = this.serviceSkillsTable.Trainings[i].SkillNames;
-      for(let j = 0; j < serviceSkills.length; j++) {
-        skills.push(serviceSkills[j]);
+      for (let j = 0; j < serviceSkills.length; j++) {
+        let skill = this._skillService.getSkill(serviceSkills[j]);
+        if ((skill as Subskill).ParentSkill) {
+          if (!skills.includes((skill as Subskill).ParentSkill)) {
+            skills.push((skill as Subskill).ParentSkill);
+          }
+        } else {
+          skills.push(serviceSkills[j]);
+        }
       }
     }
     return skills;
