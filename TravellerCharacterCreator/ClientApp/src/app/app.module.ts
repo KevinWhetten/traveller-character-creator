@@ -60,31 +60,31 @@ import { CareerLeavingComponent } from './character-creator/careers/career-leavi
 import { DraftComponent } from './character-creator/careers/draft/draft.component';
 import { CareerQualificationFailedComponent } from './character-creator/careers/career-qualification/career-qualification-failed/career-qualification-failed.component';
 import { FirstCareerBasicTrainingComponent } from './character-creator/careers/career-basic-training/first-career-basic-training/first-career-basic-training.component';
-import { MarineEventComponent } from './character-creator/careers/career-event/marine-event/marine-event.component';
-import { AgentEventComponent } from './character-creator/careers/career-event/agent-event/agent-event.component';
-import { ArmyEventComponent } from './character-creator/careers/career-event/army-event/army-event.component';
-import { CitizenEventComponent } from './character-creator/careers/career-event/citizen-event/citizen-event.component';
-import { DrifterEventComponent } from './character-creator/careers/career-event/drifter-event/drifter-event.component';
-import { EntertainerEventComponent } from './character-creator/careers/career-event/entertainer-event/entertainer-event.component';
-import { MerchantEventComponent } from './character-creator/careers/career-event/merchant-event/merchant-event.component';
-import { NavyEventComponent } from './character-creator/careers/career-event/navy-event/navy-event.component';
-import { NobleEventComponent } from './character-creator/careers/career-event/noble-event/noble-event.component';
-import { RogueEventComponent } from './character-creator/careers/career-event/rogue-event/rogue-event.component';
-import { ScholarEventComponent } from './character-creator/careers/career-event/scholar-event/scholar-event.component';
-import { ScoutEventComponent } from './character-creator/careers/career-event/scout-event/scout-event.component';
-import { PrisonerEventComponent } from './character-creator/careers/career-event/prisoner-event/prisoner-event.component';
-import { PsionEventComponent } from './character-creator/careers/career-event/psion-event/psion-event.component';
-import { AgentDisasterEventComponent } from './character-creator/careers/career-event/agent-event/agent-disaster-event/agent-disaster-event.component';
-import { AgentInvestigationEventComponent } from './character-creator/careers/career-event/agent-event/agent-investigation-event/agent-investigation-event.component';
-import { AgentMissionEventComponent } from './character-creator/careers/career-event/agent-event/agent-mission-event/agent-mission-event.component';
-import { AgentNetworkEventComponent } from './character-creator/careers/career-event/agent-event/agent-network-event/agent-network-event.component';
-import { AgentTrainingEventComponent } from './character-creator/careers/career-event/agent-event/agent-training-event/agent-training-event.component';
-import { AgentLifeEventComponent } from './character-creator/careers/career-event/agent-event/agent-life-event/agent-life-event.component';
-import { AgentUndercoverEventComponent } from './character-creator/careers/career-event/agent-event/agent-undercover-event/agent-undercover-event.component';
-import { AgentBeyondEventComponent } from './character-creator/careers/career-event/agent-event/agent-beyond-event/agent-beyond-event.component';
-import { AgentSpecialistEventComponent } from './character-creator/careers/career-event/agent-event/agent-specialist-event/agent-specialist-event.component';
-import { AgentSeniorEventComponent } from './character-creator/careers/career-event/agent-event/agent-senior-event/agent-senior-event.component';
-import { AgentConspiracyEventComponent } from './character-creator/careers/career-event/agent-event/agent-conspiracy-event/agent-conspiracy-event.component';
+import { MarineEventComponent } from './character-creator/events/marine-event/marine-event.component';
+import { AgentEventComponent } from './character-creator/events/agent-event/agent-event.component';
+import { ArmyEventComponent } from './character-creator/events/army-event/army-event.component';
+import { CitizenEventComponent } from './character-creator/events/citizen-event/citizen-event.component';
+import { DrifterEventComponent } from './character-creator/events/drifter-event/drifter-event.component';
+import { EntertainerEventComponent } from './character-creator/events/entertainer-event/entertainer-event.component';
+import { MerchantEventComponent } from './character-creator/events/merchant-event/merchant-event.component';
+import { NavyEventComponent } from './character-creator/events/navy-event/navy-event.component';
+import { NobleEventComponent } from './character-creator/events/noble-event/noble-event.component';
+import { RogueEventComponent } from './character-creator/events/rogue-event/rogue-event.component';
+import { ScholarEventComponent } from './character-creator/events/scholar-event/scholar-event.component';
+import { ScoutEventComponent } from './character-creator/events/scout-event/scout-event.component';
+import { PrisonerEventComponent } from './character-creator/events/prisoner-event/prisoner-event.component';
+import { PsionEventComponent } from './character-creator/events/psion-event/psion-event.component';
+import { AgentDisasterEventComponent } from './character-creator/events/agent-event/agent-disaster-event/agent-disaster-event.component';
+import { AgentInvestigationEventComponent } from './character-creator/events/agent-event/agent-investigation-event/agent-investigation-event.component';
+import { AgentMissionEventComponent } from './character-creator/events/agent-event/agent-mission-event/agent-mission-event.component';
+import { AgentNetworkEventComponent } from './character-creator/events/agent-event/agent-network-event/agent-network-event.component';
+import { AgentTrainingEventComponent } from './character-creator/events/agent-event/agent-training-event/agent-training-event.component';
+import { AgentLifeEventComponent } from './character-creator/events/agent-event/agent-life-event/agent-life-event.component';
+import { AgentUndercoverEventComponent } from './character-creator/events/agent-event/agent-undercover-event/agent-undercover-event.component';
+import { AgentBeyondEventComponent } from './character-creator/events/agent-event/agent-beyond-event/agent-beyond-event.component';
+import { AgentSpecialistEventComponent } from './character-creator/events/agent-event/agent-specialist-event/agent-specialist-event.component';
+import { AgentSeniorEventComponent } from './character-creator/events/agent-event/agent-senior-event/agent-senior-event.component';
+import { AgentConspiracyEventComponent } from './character-creator/events/agent-event/agent-conspiracy-event/agent-conspiracy-event.component';
 import { AgentMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-mishap.component';
 import {CareerMusterOutComponent} from "./character-creator/careers/career-muster-out/career-muster-out.component";
 import { MarineMusterOutComponent } from './character-creator/careers/career-muster-out/marine-muster-out/marine-muster-out.component';
@@ -127,6 +127,8 @@ import { InjuryMissingEyeOrLimbComponent } from './character-creator/events/inju
 import { InjuryScarredComponent } from './character-creator/events/injury/injury-scarred/injury-scarred.component';
 import { InjuryInjuredComponent } from './character-creator/events/injury/injury-injured/injury-injured.component';
 import { InjuryLightlyInjuredComponent } from './character-creator/events/injury/injury-lightly-injured/injury-lightly-injured.component';
+import { CitizenMishapComponent } from './character-creator/mishaps/citizen-mishap/citizen-mishap.component';
+import { RogueMishapComponent } from './character-creator/mishaps/rogue-mishap/rogue-mishap.component';
 
 @NgModule({
   declarations: [
@@ -251,7 +253,9 @@ import { InjuryLightlyInjuredComponent } from './character-creator/events/injury
     InjuryMissingEyeOrLimbComponent,
     InjuryScarredComponent,
     InjuryInjuredComponent,
-    InjuryLightlyInjuredComponent
+    InjuryLightlyInjuredComponent,
+    CitizenMishapComponent,
+    RogueMishapComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),

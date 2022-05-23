@@ -1,10 +1,10 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {CharacterMetadataService} from "../../../../../services/metadata-services/character-metadata.service";
+import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 
 @Component({
   selector: 'app-agent-mission-event',
   templateUrl: './agent-mission-event.component.html',
-  styleUrls: ['./agent-mission-event.component.css']
+  styleUrls: ['./agent-mission-event.component.scss']
 })
 export class AgentMissionEventComponent implements OnInit {
   @Output() eventComplete = new EventEmitter;
@@ -12,5 +12,10 @@ export class AgentMissionEventComponent implements OnInit {
   constructor(private _metadataService: CharacterMetadataService) { }
 
   ngOnInit(): void {
+  }
+
+  proceed() {
+    this._metadataService.addBenefitBonus(1);
+    this.eventComplete.emit();
   }
 }

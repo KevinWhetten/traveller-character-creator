@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
 
 @Component({
   selector: 'app-agent-event',
@@ -7,6 +7,7 @@ import {CharacterMetadataService} from "../../../../services/metadata-services/c
   styleUrls: ['./agent-event.component.scss']
 })
 export class AgentEventComponent implements OnInit {
+  @Output() eventComplete = new EventEmitter;
   eventNumber: number;
 
   constructor(private _metadataService: CharacterMetadataService) { }
@@ -16,6 +17,6 @@ export class AgentEventComponent implements OnInit {
   }
 
   proceed() {
-    this._metadataService.setCurrentUrl('character-creator/careers/advancement');
+    this.eventComplete.emit();
   }
 }

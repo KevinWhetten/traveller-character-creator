@@ -32,7 +32,7 @@ export class CareerAssignmentComponent implements OnInit {
   submit() {
     if (this.assignmentName != undefined && this.assignmentName != '') {
       this._metadataService.setAssignment(this.assignmentName);
-      this._metadataService.setCurrentUrl('character-creator/careers/basic-training')
+      this._metadataService.setCurrentUrl('character-creator/careers/skill-generation')
     } else {
       this.hasError = true;
       this.errorMessage = 'You must select an assignment!';

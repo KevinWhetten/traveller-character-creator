@@ -1,0 +1,32 @@
+<h2>Undercover</h2>
+
+<p>You go undercover to investigate an enemy.</p>
+
+<div *ngIf="!rolled">
+  <app-skill-roll [skill]="'Deception'"
+                  [target]="8"
+                  (rolled)="submit($event)">
+  </app-skill-roll>
+</div>
+
+<div *ngIf="rolled && success && !selected">
+  <h3>Pick one of the following event tables to roll on:</h3>
+  <select [(ngModel)]="selectedCareer">
+    <option value="Citizen">Citizen</option>
+    <option value="Rogue">Rogue</option>
+  </select>
+  <button class="primary" (click)="selectTable()">Select this Table</button>
+  <app-career-events [career]="getSelectedCareer()"></app-career-events>
+</div>
+
+<div *ngIf="rolled && success && selected">
+  <app-citizen-event *ngIf="selectedCareer === 'Citizen'"
+                     (eventComplete)="proceed()"></app-citizen-event>
+  <app-rogue-event *ngIf="selectedCareer === 'Rogue'"
+                   (eventComplete)="proceed()"></app-rogue-event>
+</div>
+
+<div *ngIf="rolled && !success">
+  <app-citizen-mishap></app-citizen-mishap>
+  <app-rogue-mishap></app-rogue-mishap>
+</div>

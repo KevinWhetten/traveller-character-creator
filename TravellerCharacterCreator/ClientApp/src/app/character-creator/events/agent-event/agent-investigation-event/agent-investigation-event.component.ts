@@ -1,13 +1,13 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {SkillService} from "../../../../../services/data-services/skill.service";
-import {CharacterService} from "../../../../../services/character.service";
-import {RollingService} from "../../../../../services/data-services/rolling.service";
-import {CharacterMetadataService} from "../../../../../services/metadata-services/character-metadata.service";
+import {SkillService} from "../../../../services/data-services/skill.service";
+import {CharacterService} from "../../../../services/character.service";
+import {RollingService} from "../../../../services/data-services/rolling.service";
+import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 
 @Component({
   selector: 'app-agent-investigation-event',
   templateUrl: './agent-investigation-event.component.html',
-  styleUrls: ['./agent-investigation-event.component.css']
+  styleUrls: ['./agent-investigation-event.component.scss']
 })
 export class AgentInvestigationEventComponent implements OnInit {
   @Output() eventComplete = new EventEmitter;

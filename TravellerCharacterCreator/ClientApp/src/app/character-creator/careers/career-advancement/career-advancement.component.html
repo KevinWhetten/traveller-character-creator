@@ -1,9 +1,10 @@
-<div class="container">
+<div *ngIf="!promotedThisTerm()">
   <div class="career-header">
     <h1>Advancement for {{career.Name}} - {{assigment.Name}}</h1>
   </div>
   <app-characteristic-roll [characteristic]="assigment.Advancement.characteristic"
                            [target]="assigment.Advancement.target"
+                           [extraMod]="getAdvancementDm()"
                            (rolled)="submit($event)">
   </app-characteristic-roll>
 
@@ -17,4 +18,10 @@
     <h2>You Didn't Advance...</h2>
     <button class="primary" (click)="proceed()">Maybe next time!</button>
   </div>
+</div>
+
+<div *ngIf="promotedThisTerm()">
+  <h1>Advancement for {{career.Name}} - {{assigment.Name}}</h1>
+  <p>You already promoted this term!</p>
+  <button class="primary" (click)="proceed()">Oh yeah!</button>
 </div>

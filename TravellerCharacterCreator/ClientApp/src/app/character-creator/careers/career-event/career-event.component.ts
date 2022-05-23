@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Career} from "../../../models/career";
 import {CareerService} from "../../../services/data-services/career.service";
 import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
@@ -9,7 +9,7 @@ import {CharacterMetadataService} from "../../../services/metadata-services/char
   styleUrls: ['./career-event.component.css']
 })
 export class CareerEventComponent implements OnInit {
-  career: Career;
+  @Input() career: Career;
   eventRoll: number;
 
   constructor(private _careerService: CareerService,
@@ -17,7 +17,9 @@ export class CareerEventComponent implements OnInit {
 
   ngOnInit(): void {
     let careerName = this._metadataService.getCurrentCareer();
-    this.career = this._careerService.getCareer(careerName);
+    if (!this.career) {
+      this.career = this._careerService.getCareer(careerName);
+    }
   }
 
   submit() {

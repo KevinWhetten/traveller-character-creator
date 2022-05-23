@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {CharacterService} from "../../../../../services/character.service";
+import {CharacterService} from "../../../../services/character.service";
 
 @Component({
   selector: 'app-agent-network-event',

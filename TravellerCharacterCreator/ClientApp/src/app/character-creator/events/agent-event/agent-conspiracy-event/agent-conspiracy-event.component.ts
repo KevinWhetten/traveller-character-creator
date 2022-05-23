@@ -1,11 +1,11 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {CharacterService} from "../../../../../services/character.service";
-import {CharacterMetadataService} from "../../../../../services/metadata-services/character-metadata.service";
+import {CharacterService} from "../../../../services/character.service";
+import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 
 @Component({
   selector: 'app-agent-conspiracy-event',
   templateUrl: './agent-conspiracy-event.component.html',
-  styleUrls: ['./agent-conspiracy-event.component.css']
+  styleUrls: ['./agent-conspiracy-event.component.scss']
 })
 export class AgentConspiracyEventComponent implements OnInit {
   @Output() eventComplete = new EventEmitter;

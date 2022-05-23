@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-citizen-event',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./citizen-event.component.css']
 })
 export class CitizenEventComponent implements OnInit {
+  @Output() eventComplete = new EventEmitter;
 
   constructor() { }
 

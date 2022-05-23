@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Career} from "../../../models/career";
 import {CareerService} from "../../../services/data-services/career.service";
 import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
@@ -9,6 +9,7 @@ import {CharacterMetadataService} from "../../../services/metadata-services/char
   styleUrls: ['./career-mishap.component.css']
 })
 export class CareerMishapComponent implements OnInit {
+  @Output() mishapResolved = new EventEmitter;
   career: Career;
   mishapRoll: number = 0;
 

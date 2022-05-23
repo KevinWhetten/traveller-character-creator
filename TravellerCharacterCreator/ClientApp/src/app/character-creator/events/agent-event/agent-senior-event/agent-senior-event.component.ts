@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {CharacterService} from "../../../../../services/character.service";
-import {SkillService} from "../../../../../services/data-services/skill.service";
+import {CharacterService} from "../../../../services/character.service";
+import {SkillService} from "../../../../services/data-services/skill.service";
+import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 
 @Component({
   selector: 'app-agent-senior-event',
@@ -12,6 +13,7 @@ export class AgentSeniorEventComponent implements OnInit {
   choice: string;
 
   constructor(private _characterService: CharacterService,
+              private _metadataService: CharacterMetadataService,
               private _skillService: SkillService) { }
 
   ngOnInit(): void {
@@ -23,7 +25,7 @@ export class AgentSeniorEventComponent implements OnInit {
       this.eventComplete.emit();
     }
     else if(this.choice == 'advancement'){
-      // TODO: Set Advancement
+      this._metadataService.setAdvancementBonus(4);
       this.eventComplete.emit();
     }
   }

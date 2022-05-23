@@ -23,12 +23,15 @@ class Metadata {
   mishapNumber: number = 0;
   // Careers
   qualificationDm: number = 0;
+  advancementDm: number = 0;
   careers: string[] = [];
   currentCareer: string = '';
   currentCareerTerms: number = 0;
   currentAssignment: string = '';
+  promotedThisTerm: boolean = false;
   careerRank: number = 0;
   jailed: boolean = false;
+  benefitBonuses: number[];
   // Benefits
   cashRolls: number = 3;
   lostBenefits: number = 0;
@@ -118,11 +121,22 @@ export class CharacterMetadataService {
     return bonus;
   }
 
+  getAdvancementBonus() {
+    this.load();
+    return this.metadata.advancementDm;
+  }
+
+  setAdvancementBonus(bonus: number) {
+    this.load();
+    this.metadata.advancementDm = bonus;
+    this.save();
+  }
+
   getCommissionBonus(career: string) {
     this.load();
     let bonus = 0;
 
-    if(this.metadata.term == this.metadata.educationTerm + 1) {
+    if (this.metadata.term == this.metadata.educationTerm + 1) {
       if (this.metadata.graduatedUniversity && this.metadata.graduatedWithHonors) {
         bonus += 2;
       }
@@ -185,7 +199,12 @@ export class CharacterMetadataService {
     } else {
       this.metadata.careerRank = 1;
     }
+    this.metadata.promotedThisTerm = true;
     this.save();
+  }
+
+  getPromotedThisTerm() {
+    return this.metadata.promotedThisTerm;
   }
 
   getRank() {
@@ -220,6 +239,16 @@ export class CharacterMetadataService {
     this.load();
     if (!this.metadata.qualificationDm || this.metadata.qualificationDm < number) {
       this.metadata.qualificationDm = number;
+    }
+    this.save();
+  }
+
+  addBenefitBonus(number: number) {
+    this.load();
+    if (this.metadata.benefitBonuses) {
+      this.metadata.benefitBonuses.push(number);
+    } else {
+      this.metadata.benefitBonuses = [number];
     }
     this.save();
   }

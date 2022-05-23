@@ -14,7 +14,6 @@ export class CareerAdvancementComponent implements OnInit {
   career: Career;
   assignmentName: string;
   assigment: Assignment;
-  advancementRoll: number;
   advanced: boolean = false;
   rolled: boolean = false;
 
@@ -28,6 +27,10 @@ export class CareerAdvancementComponent implements OnInit {
     this.career = this._careerService.getCareer(this._metadataService.getCurrentCareer());
     this.assignmentName = this._metadataService.getAssignment();
     this.assigment = this.career.Assignments.find(x => x.Name == this.assignmentName) || {} as Assignment;
+  }
+
+  getAdvancementDm() {
+    return this._metadataService.getAdvancementBonus();
   }
 
   getModifier() {
@@ -90,5 +93,9 @@ export class CareerAdvancementComponent implements OnInit {
 
   proceed() {
     this._metadataService.setCurrentUrl('character-creator/careers/leaving')
+  }
+
+  promotedThisTerm() {
+    return this._metadataService.getPromotedThisTerm();
   }
 }

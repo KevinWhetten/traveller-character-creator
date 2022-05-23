@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 
 @Component({
   selector: 'app-agent-beyond-event',
@@ -8,12 +9,13 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class AgentBeyondEventComponent implements OnInit {
   @Output() eventComplete = new EventEmitter;
 
-  constructor() { }
+  constructor(private _metadataService: CharacterMetadataService) { }
 
   ngOnInit(): void {
   }
 
   proceed() {
+    this._metadataService.setAdvancementBonus(2);
     this.eventComplete.emit();
   }
 }

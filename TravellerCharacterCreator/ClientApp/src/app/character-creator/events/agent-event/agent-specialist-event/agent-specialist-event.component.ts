@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {CharacterService} from "../../../../../services/character.service";
-import {SkillService} from "../../../../../services/data-services/skill.service";
+import {CharacterService} from "../../../../services/character.service";
+import {SkillService} from "../../../../services/data-services/skill.service";
 
 @Component({
   selector: 'app-agent-specialist-event',

@@ -31,7 +31,7 @@ export class CareerBasicTrainingComponent implements OnInit {
     this.career = this._careerService.getCareer(this._metadataService.getCurrentCareer());
 
     if (this._metadataService.getCareers().includes(this.career.Name)) {
-      this._metadataService.setCurrentUrl('character-creator/careers/skill-generation');
+      this._metadataService.setCurrentUrl('character-creator/careers/assignment');
     } else {
       this.serviceSkillsTable = this.career.TrainingTables.find(x => x.Name == 'Service Skills') || {} as TrainingTable;
     }
@@ -58,7 +58,7 @@ export class CareerBasicTrainingComponent implements OnInit {
   submit() {
     this._characterService.addSkills([{Name: this.basicTrainingSkill, Value: 0} as CharacterSkill]);
     this._metadataService.addCareer(this.career.Name);
-    this._metadataService.setCurrentUrl('character-creator/careers/skill-generation');
+    this._metadataService.setCurrentUrl('character-creator/careers/assignment');
   }
 
   skillIsUntrained(skill: string): boolean {

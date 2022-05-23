@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {CharacterService} from "../../../../../services/character.service";
-import {RollingService} from "../../../../../services/data-services/rolling.service";
-import {SkillService} from "../../../../../services/data-services/skill.service";
+import {CharacterService} from "../../../../services/character.service";
+import {RollingService} from "../../../../services/data-services/rolling.service";
+import {SkillService} from "../../../../services/data-services/skill.service";
 
 @Component({
   selector: 'app-agent-training-event',

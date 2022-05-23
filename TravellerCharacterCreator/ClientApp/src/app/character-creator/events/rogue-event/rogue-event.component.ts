@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-rogue-event',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rogue-event.component.css']
 })
 export class RogueEventComponent implements OnInit {
+  @Output() eventComplete = new EventEmitter;
 
   constructor() { }
 
