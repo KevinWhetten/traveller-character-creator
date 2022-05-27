@@ -3,6 +3,7 @@ import {SkillService} from "../../../../services/data-services/skill.service";
 import {CharacterService} from "../../../../services/character.service";
 import {RollingService} from "../../../../services/data-services/rolling.service";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
+import {LoggingService} from "../../../../services/metadata-services/logging.service";
 
 @Component({
   selector: 'app-agent-investigation-event',
@@ -17,6 +18,7 @@ export class AgentInvestigationEventComponent implements OnInit {
 
   constructor(private _characterService: CharacterService,
               private _metadataService: CharacterMetadataService,
+              private _loggingService: LoggingService,
               private _rollingService: RollingService,
               private _skillService: SkillService) {
   }
@@ -54,7 +56,13 @@ export class AgentInvestigationEventComponent implements OnInit {
   }
 
   submitIncrease() {
+    this._loggingService.addLog('An investigation took a dangerous turn. As a result, I increased a skill!');
     this._characterService.increaseSkills([{Name: this.skillName, Value: 1}]);
+    this.eventComplete.emit();
+  }
+
+  proceed() {
+    this._loggingService.addLog('An investigation took a dangerous turn, and I lost the trail.');
     this.eventComplete.emit();
   }
 }

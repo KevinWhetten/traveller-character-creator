@@ -85,20 +85,20 @@ import { AgentBeyondEventComponent } from './character-creator/events/agent-even
 import { AgentSpecialistEventComponent } from './character-creator/events/agent-event/agent-specialist-event/agent-specialist-event.component';
 import { AgentSeniorEventComponent } from './character-creator/events/agent-event/agent-senior-event/agent-senior-event.component';
 import { AgentConspiracyEventComponent } from './character-creator/events/agent-event/agent-conspiracy-event/agent-conspiracy-event.component';
-import { AgentMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-mishap.component';
+import { AgentMishapComponent } from './character-creator/mishaps/agent-mishap/agent-mishap.component';
 import {CareerMusterOutComponent} from "./character-creator/careers/career-muster-out/career-muster-out.component";
 import { MarineMusterOutComponent } from './character-creator/careers/career-muster-out/marine-muster-out/marine-muster-out.component';
 import { AgentMusterOutComponent } from './character-creator/careers/career-muster-out/agent-muster-out/agent-muster-out.component';
 import { AlertComponent } from './controls/alert/alert.component';
-import { AgentSeverelyInjuredMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-severely-injured-mishap/agent-severely-injured-mishap.component';
-import { AgentDealMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-deal-mishap/agent-deal-mishap.component';
-import { AgentInvestigationMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-investigation-mishap/agent-investigation-mishap.component';
-import { AgentLearnMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-learn-mishap/agent-learn-mishap.component';
-import { AgentHomeMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-home-mishap/agent-home-mishap.component';
-import { AgentInjuredMishapComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-injured-mishap/agent-injured-mishap.component';
-import { SeverelyInjuredMishapComponent } from './character-creator/careers/career-mishap/severely-injured-mishap/severely-injured-mishap.component';
-import { InjuredMishapComponent } from './character-creator/careers/career-mishap/injured-mishap/injured-mishap.component';
-import { AgentHomeInjuryComponent } from './character-creator/careers/career-mishap/agent-mishap/agent-home-mishap/agent-home-injury/agent-home-injury.component';
+import { AgentSeverelyInjuredMishapComponent } from './character-creator/mishaps/agent-mishap/agent-severely-injured-mishap/agent-severely-injured-mishap.component';
+import { AgentDealMishapComponent } from './character-creator/mishaps/agent-mishap/agent-deal-mishap/agent-deal-mishap.component';
+import { AgentInvestigationMishapComponent } from './character-creator/mishaps/agent-mishap/agent-investigation-mishap/agent-investigation-mishap.component';
+import { AgentLearnMishapComponent } from './character-creator/mishaps/agent-mishap/agent-learn-mishap/agent-learn-mishap.component';
+import { AgentHomeMishapComponent } from './character-creator/mishaps/agent-mishap/agent-home-mishap/agent-home-mishap.component';
+import { AgentInjuredMishapComponent } from './character-creator/mishaps/agent-mishap/agent-injured-mishap/agent-injured-mishap.component';
+import { SeverelyInjuredMishapComponent } from './character-creator/mishaps/severely-injured-mishap/severely-injured-mishap.component';
+import { InjuredMishapComponent } from './character-creator/mishaps/injured-mishap/injured-mishap.component';
+import { AgentHomeInjuryComponent } from './character-creator/mishaps/agent-mishap/agent-home-mishap/agent-home-injury/agent-home-injury.component';
 import { SkillRollComponent } from './controls/skill-roll/skill-roll.component';
 import { CharacteristicRollComponent } from './controls/characteristic-roll/characteristic-roll.component';
 import { EventSicknessOrInjuryComponent } from './character-creator/events/life-event/event-sickness-or-injury/event-sickness-or-injury.component';
@@ -301,7 +301,7 @@ import { RogueMishapComponent } from './character-creator/mishaps/rogue-mishap/r
       {path: 'character-creator/careers/prisoner/event', component: PrisonerEventComponent},
       {path: 'character-creator/careers/psion/event', component: PsionEventComponent},
       {path: 'character-creator/careers/mishap', component: CareerMishapComponent},
-      {path: 'character-creator/careers/mishap/agent', component: AgentMishapComponent},
+      {path: 'character-creator/careers/agent/mishap', component: AgentMishapComponent},
       {path: 'character-creator/careers/commission', component: CareerCommissionComponent},
       {path: 'character-creator/careers/advancement', component: CareerAdvancementComponent},
       {path: 'character-creator/careers/leaving', component: CareerLeavingComponent},

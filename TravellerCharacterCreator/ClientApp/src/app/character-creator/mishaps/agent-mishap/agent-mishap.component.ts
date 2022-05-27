@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
+import {Component, Input, OnInit} from '@angular/core';
+import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
 
 @Component({
   selector: 'app-agent-mishap',

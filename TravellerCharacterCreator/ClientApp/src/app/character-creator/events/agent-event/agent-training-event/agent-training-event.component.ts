@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {RollingService} from "../../../../services/data-services/rolling.service";
 import {SkillService} from "../../../../services/data-services/skill.service";
+import {LoggingService} from "../../../../services/metadata-services/logging.service";
 
 @Component({
   selector: 'app-agent-training-event',
@@ -15,6 +16,7 @@ export class AgentTrainingEventComponent implements OnInit {
   success: boolean = false;
 
   constructor(private _characterService: CharacterService,
+              private _loggingService: LoggingService,
               private _rollingService: RollingService,
               private _skillService: SkillService) {
   }
@@ -40,7 +42,13 @@ export class AgentTrainingEventComponent implements OnInit {
   }
 
   submitSkill() {
+    this._loggingService.addLog('I received advanced training in a specialist field.');
     this._characterService.increaseSkills([{Name: this.chosenSkill, Value: 1}]);
+    this.eventComplete.emit();
+  }
+
+  proceed() {
+    this._loggingService.addLog('I received advanced training in a specialist field, but apparently I wasn\'t paying attention.');
     this.eventComplete.emit();
   }
 }

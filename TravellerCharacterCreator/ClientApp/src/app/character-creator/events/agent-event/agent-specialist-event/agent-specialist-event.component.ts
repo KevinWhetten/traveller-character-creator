@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {SkillService} from "../../../../services/data-services/skill.service";
+import {LoggingService} from "../../../../services/metadata-services/logging.service";
 
 @Component({
   selector: 'app-agent-specialist-event',
@@ -12,6 +13,7 @@ export class AgentSpecialistEventComponent implements OnInit {
   @Output() eventComplete = new EventEmitter;
 
   constructor(private _characterService: CharacterService,
+              private _loggingService: LoggingService,
               private _skillService: SkillService) {
   }
 
@@ -54,6 +56,7 @@ export class AgentSpecialistEventComponent implements OnInit {
   }
 
   submit() {
+    this._loggingService.addLog('I received specialist training in vehicles.');
     this._characterService.addSkills([{Name: this.chosenSkill, Value: 1}]);
     this.eventComplete.emit();
   }

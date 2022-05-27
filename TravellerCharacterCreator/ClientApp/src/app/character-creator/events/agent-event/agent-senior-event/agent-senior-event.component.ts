@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {SkillService} from "../../../../services/data-services/skill.service";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
+import {LoggingService} from "../../../../services/metadata-services/logging.service";
 
 @Component({
   selector: 'app-agent-senior-event',
@@ -13,6 +14,7 @@ export class AgentSeniorEventComponent implements OnInit {
   choice: string;
 
   constructor(private _characterService: CharacterService,
+              private _loggingService: LoggingService,
               private _metadataService: CharacterMetadataService,
               private _skillService: SkillService) { }
 
@@ -20,6 +22,7 @@ export class AgentSeniorEventComponent implements OnInit {
   }
 
   submit() {
+    this._loggingService.addLog('I was befriended by a senior agent.');
     if(this.choice == 'investigate'){
       this._characterService.increaseSkills([{Name: this._skillService.SkillNames.Investigate, Value: 1}]);
       this.eventComplete.emit();

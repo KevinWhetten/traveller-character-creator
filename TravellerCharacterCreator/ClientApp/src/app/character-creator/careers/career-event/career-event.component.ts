@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Career} from "../../../models/career";
 import {CareerService} from "../../../services/data-services/career.service";
 import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
+import {LoggingService} from "../../../services/metadata-services/logging.service";
 
 @Component({
   selector: 'app-career-event',
@@ -13,6 +14,7 @@ export class CareerEventComponent implements OnInit {
   eventRoll: number;
 
   constructor(private _careerService: CareerService,
+              private _loggingService: LoggingService,
               private _metadataService: CharacterMetadataService) { }
 
   ngOnInit(): void {
@@ -23,6 +25,7 @@ export class CareerEventComponent implements OnInit {
   }
 
   submit() {
+    this._loggingService.addLog(`----- ${this.career.Name} Event -----`)
     this._metadataService.setEventNumber(this.eventRoll);
     this._metadataService.setCurrentUrl(`character-creator/careers/${this.career.Name.toLowerCase()}/event`)
   }

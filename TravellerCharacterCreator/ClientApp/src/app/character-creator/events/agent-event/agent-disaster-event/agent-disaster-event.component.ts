@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {LoggingService} from "../../../../services/metadata-services/logging.service";
 
 @Component({
   selector: 'app-agent-disaster-event',
@@ -8,13 +9,14 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class AgentDisasterEventComponent implements OnInit {
   @Output() eventComplete = new EventEmitter;
 
-  constructor() {
+  constructor(private _loggingService: LoggingService) {
   }
 
   ngOnInit(): void {
   }
 
   continue() {
+    this._loggingService.addLog('Disaster struck!');
     this.eventComplete.emit();
   }
 }

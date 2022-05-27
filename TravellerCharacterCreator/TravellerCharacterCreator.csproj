@@ -24,7 +24,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="ClientApp\src\app\character-creator\mishaps" />
       <Folder Include="ClientApp\src\app\services\metadata-services" />
     </ItemGroup>
 
