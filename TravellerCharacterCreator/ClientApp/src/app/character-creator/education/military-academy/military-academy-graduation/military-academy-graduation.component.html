@@ -5,7 +5,7 @@
   <p>Now we get to see if you graduate!</p>
   <app-characteristic-roll [characteristic]="'INT'"
                            [target]="7"
-                           (result)="this.graduationRoll = $event">
+                           (result)="submitGraduation($event)">
   </app-characteristic-roll>
 </div>
 

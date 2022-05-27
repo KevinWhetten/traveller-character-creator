@@ -25,7 +25,8 @@ export class MilitaryAcademyGraduationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submitGraduation(passed: boolean) {
+  submitGraduation(roll: number) {
+    this.graduationRoll = roll;
     if (this.graduationRoll >= 11) {
       this.getHonorsBonus();
     } else if (this.graduationRoll >= 7) {

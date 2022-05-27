@@ -21,18 +21,18 @@ export class EducationComponent implements OnInit {
 
   toUniversity() {
     this._loggingService.addLog('Decided to apply to University!');
-    this._characterMetadataService.startNewTerm();
+    this._characterService.startNewTerm();
     this._characterMetadataService.setCurrentUrl('character-creator/education/university');
   }
 
   toMilitaryAcademy() {
     this._loggingService.addLog('Decided to apply to a Military Academy!');
-    this._characterMetadataService.startNewTerm();
+    this._characterService.startNewTerm();
     this._characterMetadataService.setCurrentUrl('character-creator/education/military-academy');
   }
 
   skip() {
-    this._characterMetadataService.startNewTerm();
+    this._characterService.startNewTerm();
     this._characterMetadataService.setCurrentUrl('character-creator/careers');
   }
 }

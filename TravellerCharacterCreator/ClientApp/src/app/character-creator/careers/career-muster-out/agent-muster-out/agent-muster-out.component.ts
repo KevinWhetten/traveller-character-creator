@@ -104,7 +104,7 @@ export class AgentMusterOutComponent implements OnInit {
   }
 
   proceed() {
-    this._metadataService.startNewTerm();
+    this._characterService.startNewTerm();
     this._metadataService.setCurrentUrl('character-creator/careers')
   }
 }

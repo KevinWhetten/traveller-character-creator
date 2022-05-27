@@ -29,7 +29,6 @@ export class MilitaryAcademyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._characterService.startNewTerm();
   }
 
   army(passed: boolean) {

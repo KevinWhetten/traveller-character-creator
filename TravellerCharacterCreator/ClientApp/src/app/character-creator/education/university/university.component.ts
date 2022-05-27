@@ -21,7 +21,6 @@ export class UniversityComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._characterService.startNewTerm();
     if (this._characterMetadataService.getTerm() == 2) {
       this.universityEntryDifficulty++;
     }
