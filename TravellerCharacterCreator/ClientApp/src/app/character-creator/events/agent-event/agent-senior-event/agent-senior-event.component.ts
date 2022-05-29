@@ -24,7 +24,7 @@ export class AgentSeniorEventComponent implements OnInit {
   submit() {
     this._loggingService.addLog('I was befriended by a senior agent.');
     if(this.choice == 'investigate'){
-      this._characterService.increaseSkills([{Name: this._skillService.SkillNames.Investigate, Value: 1}]);
+      this._characterService.increaseSkills([{Name: this._skillService.SkillName.Investigate, Value: 1}]);
       this.eventComplete.emit();
     }
     else if(this.choice == 'advancement'){

@@ -22,33 +22,33 @@ export class AgentSpecialistEventComponent implements OnInit {
 
   getGroups() {
     return this._skillService.getGroups(
-      [this._skillService.SkillNames.Drive,
-        this._skillService.SkillNames.DriveHovercraft,
-        this._skillService.SkillNames.DriveMole,
-        this._skillService.SkillNames.DriveTrack,
-        this._skillService.SkillNames.DriveWalker,
-        this._skillService.SkillNames.DriveWheel,
-        this._skillService.SkillNames.Flyer,
-        this._skillService.SkillNames.FlyerAirship,
-        this._skillService.SkillNames.FlyerGrav,
-        this._skillService.SkillNames.FlyerOrnithopter,
-        this._skillService.SkillNames.FlyerRotor,
-        this._skillService.SkillNames.FlyerWing,
-        this._skillService.SkillNames.Pilot,
-        this._skillService.SkillNames.PilotSmallCraft,
-        this._skillService.SkillNames.PilotSpacecraft,
-        this._skillService.SkillNames.PilotCapitalShips,
-        this._skillService.SkillNames.Gunner,
-        this._skillService.SkillNames.GunnerTurret,
-        this._skillService.SkillNames.GunnerOrtillery,
-        this._skillService.SkillNames.GunnerScreen,
-        this._skillService.SkillNames.GunnerCapital
+      [this._skillService.SkillName.Drive,
+        this._skillService.SkillName.DriveHovercraft,
+        this._skillService.SkillName.DriveMole,
+        this._skillService.SkillName.DriveTrack,
+        this._skillService.SkillName.DriveWalker,
+        this._skillService.SkillName.DriveWheel,
+        this._skillService.SkillName.Flyer,
+        this._skillService.SkillName.FlyerAirship,
+        this._skillService.SkillName.FlyerGrav,
+        this._skillService.SkillName.FlyerOrnithopter,
+        this._skillService.SkillName.FlyerRotor,
+        this._skillService.SkillName.FlyerWing,
+        this._skillService.SkillName.Pilot,
+        this._skillService.SkillName.PilotSmallCraft,
+        this._skillService.SkillName.PilotSpacecraft,
+        this._skillService.SkillName.PilotCapitalShips,
+        this._skillService.SkillName.Gunner,
+        this._skillService.SkillName.GunnerTurret,
+        this._skillService.SkillName.GunnerOrtillery,
+        this._skillService.SkillName.GunnerScreen,
+        this._skillService.SkillName.GunnerCapital
       ]);
   }
 
   getGroupNames() {
-    return this._skillService.getGroupNames([this._skillService.SkillNames.Drive, this._skillService.SkillNames.Flyer,
-      this._skillService.SkillNames.Pilot, this._skillService.SkillNames.Gunner]);
+    return this._skillService.getGroupNames([this._skillService.SkillName.Drive, this._skillService.SkillName.Flyer,
+      this._skillService.SkillName.Pilot, this._skillService.SkillName.Gunner]);
   }
 
   skillChanged(skillName: string) {

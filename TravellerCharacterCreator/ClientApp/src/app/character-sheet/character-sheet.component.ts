@@ -11,7 +11,7 @@ import {LoggingService} from "../services/metadata-services/logging.service";
   styleUrls: ['./character-sheet.component.scss']
 })
 export class CharacterSheetComponent implements OnInit {
-  jackOfAllTrades = this._skillService.SkillNames.JackOfAllTrades;
+  jackOfAllTrades = this._skillService.SkillName.JackOfAllTrades;
   strengthDm: number;
   dexterityDm: number;
   enduranceDm: number;
@@ -97,7 +97,7 @@ export class CharacterSheetComponent implements OnInit {
   }
 
   getJackOfAllTrades() {
-    let skill = this._characterService.getSkills()[this._skillService.SkillNames.JackOfAllTrades]
+    let skill = this._characterService.getSkills()[this._skillService.SkillName.JackOfAllTrades]
     return skill ? skill : 0;
   }
 }

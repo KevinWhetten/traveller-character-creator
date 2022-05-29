@@ -2,9 +2,13 @@
 
 <app-characteristics></app-characteristics>
 
-<app-roll *ngIf="!injury"
-          [numberOfDice]="1"
-          (result)="injury = $event"></app-roll>
+<div *ngIf="!injury">
+  <app-roll *ngFor="let roll of getRange()"
+            [numberOfDice]="1"
+            [numberOfRolls]="rolls"
+            [select]="'lowest'"
+            (result)="injury = $event"></app-roll>
+</div>
 
 <div [ngSwitch]="injury">
   <app-injury-nearly-killed *ngSwitchCase="1" (injured)="proceed()"></app-injury-nearly-killed>

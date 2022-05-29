@@ -28,7 +28,7 @@ export class AgentInvestigationEventComponent implements OnInit {
 
   getSkills() {
     return {
-      'Investigation Skills': [this._skillService.SkillNames.Streetwise, this._skillService.SkillNames.Investigate]
+      'Investigation Skills': [this._skillService.SkillName.Streetwise, this._skillService.SkillName.Investigate]
     } as Record<string, string[]>
   }
 
@@ -38,8 +38,8 @@ export class AgentInvestigationEventComponent implements OnInit {
 
   getIncreaseSkills() {
     return {
-      'Increase One:': [this._skillService.SkillNames.Deception, this._skillService.SkillNames.JackOfAllTrades,
-        this._skillService.SkillNames.Persuade, this._skillService.SkillNames.Tactics]
+      'Increase One:': [this._skillService.SkillName.Deception, this._skillService.SkillName.JackOfAllTrades,
+        this._skillService.SkillName.Persuade, this._skillService.SkillName.Tactics]
     } as Record<string, string[]>
   }
 

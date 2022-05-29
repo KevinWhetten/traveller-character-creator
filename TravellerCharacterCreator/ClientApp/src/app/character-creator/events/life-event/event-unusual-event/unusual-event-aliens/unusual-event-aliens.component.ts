@@ -13,15 +13,15 @@ export class UnusualEventAliensComponent implements OnInit {
   @Output() eventComplete = new EventEmitter;
   selectedScienceSkill: string;
 
-  scienceSkills = [this._skillService.SkillNames.ScienceArchaeology, this._skillService.SkillNames.ScienceAstronomy,
-    this._skillService.SkillNames.ScienceBiology, this._skillService.SkillNames.ScienceChemistry,
-    this._skillService.SkillNames.ScienceCosmology, this._skillService.SkillNames.ScienceCybernetics,
-    this._skillService.SkillNames.ScienceEconomics, this._skillService.SkillNames.ScienceGenetics,
-    this._skillService.SkillNames.ScienceHistory, this._skillService.SkillNames.ScienceLinguistics,
-    this._skillService.SkillNames.SciencePhilosophy, this._skillService.SkillNames.SciencePhysics,
-    this._skillService.SkillNames.SciencePlanetology, this._skillService.SkillNames.SciencePsionicology,
-    this._skillService.SkillNames.SciencePsychology,this._skillService.SkillNames.ScienceRobotics,
-    this._skillService.SkillNames.ScienceSophontology, this._skillService.SkillNames.ScienceXenology];
+  scienceSkills = [this._skillService.SkillName.ScienceArchaeology, this._skillService.SkillName.ScienceAstronomy,
+    this._skillService.SkillName.ScienceBiology, this._skillService.SkillName.ScienceChemistry,
+    this._skillService.SkillName.ScienceCosmology, this._skillService.SkillName.ScienceCybernetics,
+    this._skillService.SkillName.ScienceEconomics, this._skillService.SkillName.ScienceGenetics,
+    this._skillService.SkillName.ScienceHistory, this._skillService.SkillName.ScienceLinguistics,
+    this._skillService.SkillName.SciencePhilosophy, this._skillService.SkillName.SciencePhysics,
+    this._skillService.SkillName.SciencePlanetology, this._skillService.SkillName.SciencePsionicology,
+    this._skillService.SkillName.SciencePsychology,this._skillService.SkillName.ScienceRobotics,
+    this._skillService.SkillName.ScienceSophontology, this._skillService.SkillName.ScienceXenology];
 
   constructor(private _characterService: CharacterService,
               private _loggingService: LoggingService,

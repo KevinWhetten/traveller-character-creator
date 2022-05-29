@@ -10,13 +10,19 @@
 </ul>
 
 <div *ngIf="!rejected && !accepted">
-  <button class="primary" (click)="accept()">Accept the Offer</button>
-  <button class="secondary" (click)="reject()">Reject the Offer</button>
+  <button class="primary" (click)="accepted = true">Accept the Offer</button>
+  <button class="secondary" (click)="rejected = true">Reject the Offer</button>
 </div>
 
-<app-injury *ngIf="rejected" [rolls]="2"></app-injury>
+<div *ngIf="rejected">
+  <app-severely-injured-mishap *ngIf="!injured" (mishapComplete)="injured = true"></app-severely-injured-mishap>
+  <app-skill-select [groups]="getGroups()"
+                    [groupNames]="getGroupNames()"
+                    (onChange)="changeSkill($event)"></app-skill-select>
+  <button *ngIf="injured && selectedSkill" class="primary" (click)="reject()">Cool!</button>
+</div>
 
 <div *ngIf="accepted">
   <h2>You accepted the offer.</h2>
-  <button class="primary" (click)="proceed()">Cool</button>
+  <button class="primary" (click)="accept()">Cool</button>
 </div>

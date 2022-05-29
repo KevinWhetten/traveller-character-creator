@@ -33,8 +33,8 @@ export class EventHobbyComponent implements OnInit {
   }
 
   private removeJackOfAllTradesFromBasicList(list: Record<string, string[]>) {
-    if (list['Basic Skills'].indexOf(this._skillService.SkillNames.JackOfAllTrades) >= 0) {
-      list['Basic Skills'].splice(list['Basic Skills'].indexOf(this._skillService.SkillNames.JackOfAllTrades), 1)
+    if (list['Basic Skills'].indexOf(this._skillService.SkillName.JackOfAllTrades) >= 0) {
+      list['Basic Skills'].splice(list['Basic Skills'].indexOf(this._skillService.SkillName.JackOfAllTrades), 1)
     }
   }
 }

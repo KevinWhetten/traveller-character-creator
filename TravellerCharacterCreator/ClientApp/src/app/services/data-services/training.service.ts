@@ -49,345 +49,345 @@ export class TrainingService {
 
   // ----- SKILL TRAINING -----
   adminTraining = {
-    BenefitName: `${this._skillService.SkillNames.Admin}`,
+    BenefitName: `${this._skillService.SkillName.Admin}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Admin]
+    SkillNames: [this._skillService.SkillName.Admin]
   } as Training;
   advocateTraining = {
-    BenefitName: `${this._skillService.SkillNames.Advocate}`,
+    BenefitName: `${this._skillService.SkillName.Advocate}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Advocate]
+    SkillNames: [this._skillService.SkillName.Advocate]
   } as Training;
   animalsTraining = {
-    BenefitName: `${this._skillService.SkillNames.Animals}`,
+    BenefitName: `${this._skillService.SkillName.Animals}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.AnimalsHandling,
-      this._skillService.SkillNames.AnimalsTraining,
-      this._skillService.SkillNames.AnimalsVeterinary,
+      this._skillService.SkillName.AnimalsHandling,
+      this._skillService.SkillName.AnimalsTraining,
+      this._skillService.SkillName.AnimalsVeterinary,
     ]
   } as Training;
   artTraining = {
-    BenefitName: `${this._skillService.SkillNames.Art}`,
+    BenefitName: `${this._skillService.SkillName.Art}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.ArtPerformer,
-      this._skillService.SkillNames.ArtHolography,
-      this._skillService.SkillNames.ArtInstrument,
-      this._skillService.SkillNames.ArtVisualMedia,
-      this._skillService.SkillNames.ArtWrite,
+      this._skillService.SkillName.ArtPerformer,
+      this._skillService.SkillName.ArtHolography,
+      this._skillService.SkillName.ArtInstrument,
+      this._skillService.SkillName.ArtVisualMedia,
+      this._skillService.SkillName.ArtWrite,
     ]
   } as Training;
   astrogationTraining = {
-    BenefitName: `${this._skillService.SkillNames.Astrogation}`,
+    BenefitName: `${this._skillService.SkillName.Astrogation}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Astrogation]
+    SkillNames: [this._skillService.SkillName.Astrogation]
   } as Training;
   athleticsTraining = {
-    BenefitName: `${this._skillService.SkillNames.Athletics}`,
+    BenefitName: `${this._skillService.SkillName.Athletics}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.AthleticsStrength,
-      this._skillService.SkillNames.AthleticsDexterity,
-      this._skillService.SkillNames.AthleticsEndurance,
+      this._skillService.SkillName.AthleticsStrength,
+      this._skillService.SkillName.AthleticsDexterity,
+      this._skillService.SkillName.AthleticsEndurance,
     ]
   } as Training;
   athleticsStrengthTraining = {
-    BenefitName: `${this._skillService.SkillNames.Athletics} (${this._skillService.SkillNames.AthleticsStrength})`,
+    BenefitName: `${this._skillService.SkillName.Athletics} (${this._skillService.SkillName.AthleticsStrength})`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.AthleticsStrength]
+    SkillNames: [this._skillService.SkillName.AthleticsStrength]
   } as Training;
   brokerTraining = {
-    BenefitName: `${this._skillService.SkillNames.Broker}`,
+    BenefitName: `${this._skillService.SkillName.Broker}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Broker]
+    SkillNames: [this._skillService.SkillName.Broker]
   } as Training;
   carouseTraining = {
-    BenefitName: `${this._skillService.SkillNames.Carouse}`,
+    BenefitName: `${this._skillService.SkillName.Carouse}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Carouse]
+    SkillNames: [this._skillService.SkillName.Carouse]
   } as Training;
   deceptionTraining = {
-    BenefitName: `${this._skillService.SkillNames.Deception}`,
+    BenefitName: `${this._skillService.SkillName.Deception}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Deception]
+    SkillNames: [this._skillService.SkillName.Deception]
   } as Training;
   diplomatTraining = {
-    BenefitName: `${this._skillService.SkillNames.Diplomat}`,
+    BenefitName: `${this._skillService.SkillName.Diplomat}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Diplomat]
+    SkillNames: [this._skillService.SkillName.Diplomat]
   } as Training;
   driveTraining = {
-    BenefitName: `${this._skillService.SkillNames.Drive}`,
+    BenefitName: `${this._skillService.SkillName.Drive}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.DriveHovercraft,
-      this._skillService.SkillNames.DriveMole,
-      this._skillService.SkillNames.DriveTrack,
-      this._skillService.SkillNames.DriveWalker,
-      this._skillService.SkillNames.DriveWheel,
+      this._skillService.SkillName.DriveHovercraft,
+      this._skillService.SkillName.DriveMole,
+      this._skillService.SkillName.DriveTrack,
+      this._skillService.SkillName.DriveWalker,
+      this._skillService.SkillName.DriveWheel,
     ]
   } as Training;
   electronicsTraining = {
-    BenefitName: `${this._skillService.SkillNames.Electronics}`,
+    BenefitName: `${this._skillService.SkillName.Electronics}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.ElectronicsComms,
-      this._skillService.SkillNames.ElectronicsComputers,
-      this._skillService.SkillNames.ElectronicsRemoteOps,
-      this._skillService.SkillNames.ElectronicsSensors,
+      this._skillService.SkillName.ElectronicsComms,
+      this._skillService.SkillName.ElectronicsComputers,
+      this._skillService.SkillName.ElectronicsRemoteOps,
+      this._skillService.SkillName.ElectronicsSensors,
     ]
   } as Training;
   commsTraining = {
-    BenefitName: `${this._skillService.SkillNames.Electronics} (${this._skillService.SkillNames.ElectronicsComms})`,
+    BenefitName: `${this._skillService.SkillName.Electronics} (${this._skillService.SkillName.ElectronicsComms})`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.ElectronicsComms]
+    SkillNames: [this._skillService.SkillName.ElectronicsComms]
   } as Training;
   computersTraining = {
-    BenefitName: `${this._skillService.SkillNames.Electronics} (${this._skillService.SkillNames.ElectronicsComputers})`,
+    BenefitName: `${this._skillService.SkillName.Electronics} (${this._skillService.SkillName.ElectronicsComputers})`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.ElectronicsComputers]
+    SkillNames: [this._skillService.SkillName.ElectronicsComputers]
   } as Training;
   sensorsTraining = {
-    BenefitName: `${this._skillService.SkillNames.Electronics} (${this._skillService.SkillNames.ElectronicsSensors})`,
+    BenefitName: `${this._skillService.SkillName.Electronics} (${this._skillService.SkillName.ElectronicsSensors})`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.ElectronicsSensors]
+    SkillNames: [this._skillService.SkillName.ElectronicsSensors]
   } as Training;
   engineerTraining = {
-    BenefitName: `${this._skillService.SkillNames.Engineer}`,
+    BenefitName: `${this._skillService.SkillName.Engineer}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.EngineerMDrive,
-      this._skillService.SkillNames.EngineerJDrive,
-      this._skillService.SkillNames.EngineerLifeSupport,
-      this._skillService.SkillNames.EngineerPower
+      this._skillService.SkillName.EngineerMDrive,
+      this._skillService.SkillName.EngineerJDrive,
+      this._skillService.SkillName.EngineerLifeSupport,
+      this._skillService.SkillName.EngineerPower
     ]
   } as Training;
   explosivesTraining = {
-    BenefitName: `${this._skillService.SkillNames.Explosives}`,
+    BenefitName: `${this._skillService.SkillName.Explosives}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Explosives]
+    SkillNames: [this._skillService.SkillName.Explosives]
   } as Training;
   flyerTraining = {
-    BenefitName: `${this._skillService.SkillNames.Flyer}`,
+    BenefitName: `${this._skillService.SkillName.Flyer}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.FlyerAirship,
-      this._skillService.SkillNames.FlyerGrav,
-      this._skillService.SkillNames.FlyerOrnithopter,
-      this._skillService.SkillNames.FlyerRotor,
-      this._skillService.SkillNames.FlyerWing,
+      this._skillService.SkillName.FlyerAirship,
+      this._skillService.SkillName.FlyerGrav,
+      this._skillService.SkillName.FlyerOrnithopter,
+      this._skillService.SkillName.FlyerRotor,
+      this._skillService.SkillName.FlyerWing,
     ]
   } as Training;
   gamblerTraining = {
-    BenefitName: `${this._skillService.SkillNames.Gambler}`,
+    BenefitName: `${this._skillService.SkillName.Gambler}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Gambler]
+    SkillNames: [this._skillService.SkillName.Gambler]
   } as Training;
   gunnerTraining = {
-    BenefitName: `${this._skillService.SkillNames.Gunner}`,
+    BenefitName: `${this._skillService.SkillName.Gunner}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Gunner]
+    SkillNames: [this._skillService.SkillName.Gunner]
   } as Training;
   gunCombatTraining = {
-    BenefitName: `${this._skillService.SkillNames.GunCombat}`,
+    BenefitName: `${this._skillService.SkillName.GunCombat}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.GunCombatArchaic,
-      this._skillService.SkillNames.GunCombatEnergy,
-      this._skillService.SkillNames.GunCombatSlug,
+      this._skillService.SkillName.GunCombatArchaic,
+      this._skillService.SkillName.GunCombatEnergy,
+      this._skillService.SkillName.GunCombatSlug,
     ]
   } as Training;
   heavyWeaponsTraining = {
-    BenefitName: `${this._skillService.SkillNames.HeavyWeapons}`,
+    BenefitName: `${this._skillService.SkillName.HeavyWeapons}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.HeavyWeaponsArtillery,
-      this._skillService.SkillNames.HeavyWeaponsManPortable,
-      this._skillService.SkillNames.HeavyWeaponsVehicle,
+      this._skillService.SkillName.HeavyWeaponsArtillery,
+      this._skillService.SkillName.HeavyWeaponsManPortable,
+      this._skillService.SkillName.HeavyWeaponsVehicle,
     ]
   } as Training;
   vehicleTraining = {
-    BenefitName: `${this._skillService.SkillNames.HeavyWeapons} (${this._skillService.SkillNames.HeavyWeaponsVehicle})`,
+    BenefitName: `${this._skillService.SkillName.HeavyWeapons} (${this._skillService.SkillName.HeavyWeaponsVehicle})`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.HeavyWeaponsVehicle]
+    SkillNames: [this._skillService.SkillName.HeavyWeaponsVehicle]
   } as Training;
   investigateTraining = {
-    BenefitName: `${this._skillService.SkillNames.Investigate}`,
+    BenefitName: `${this._skillService.SkillName.Investigate}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Investigate]
+    SkillNames: [this._skillService.SkillName.Investigate]
   } as Training;
   jackOfAllTradesTraining = {
-    BenefitName: `${this._skillService.SkillNames.JackOfAllTrades}`,
+    BenefitName: `${this._skillService.SkillName.JackOfAllTrades}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.JackOfAllTrades]
+    SkillNames: [this._skillService.SkillName.JackOfAllTrades]
   } as Training;
   languageTraining = {
-    BenefitName: `${this._skillService.SkillNames.Language}`,
+    BenefitName: `${this._skillService.SkillName.Language}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.Language1,
-      this._skillService.SkillNames.Language2,
-      this._skillService.SkillNames.Language3,
-      this._skillService.SkillNames.Language4,
-      this._skillService.SkillNames.Language5,
+      this._skillService.SkillName.Language1,
+      this._skillService.SkillName.Language2,
+      this._skillService.SkillName.Language3,
+      this._skillService.SkillName.Language4,
+      this._skillService.SkillName.Language5,
     ]
   } as Training;
   leadershipTraining = {
-    BenefitName: `${this._skillService.SkillNames.Leadership}`,
+    BenefitName: `${this._skillService.SkillName.Leadership}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Leadership]
+    SkillNames: [this._skillService.SkillName.Leadership]
   } as Training;
   mechanicTraining = {
-    BenefitName: `${this._skillService.SkillNames.Mechanic}`,
+    BenefitName: `${this._skillService.SkillName.Mechanic}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Mechanic]
+    SkillNames: [this._skillService.SkillName.Mechanic]
   } as Training;
   medicTraining = {
-    BenefitName: `${this._skillService.SkillNames.Medic}`,
+    BenefitName: `${this._skillService.SkillName.Medic}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Medic]
+    SkillNames: [this._skillService.SkillName.Medic]
   } as Training;
   meleeTraining = {
-    BenefitName: `${this._skillService.SkillNames.Melee}`,
+    BenefitName: `${this._skillService.SkillName.Melee}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.MeleeBlade,
-      this._skillService.SkillNames.MeleeBludgeon,
-      this._skillService.SkillNames.MeleeUnarmed,
+      this._skillService.SkillName.MeleeBlade,
+      this._skillService.SkillName.MeleeBludgeon,
+      this._skillService.SkillName.MeleeUnarmed,
     ]
   } as Training;
   unarmedTraining = {
-    BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeUnarmed})`,
+    BenefitName: `${this._skillService.SkillName.Melee} (${this._skillService.SkillName.MeleeUnarmed})`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.MeleeUnarmed]
+    SkillNames: [this._skillService.SkillName.MeleeUnarmed]
   } as Training;
   bladeTraining = {
-    BenefitName: `${this._skillService.SkillNames.Melee} (${this._skillService.SkillNames.MeleeBlade})`,
+    BenefitName: `${this._skillService.SkillName.Melee} (${this._skillService.SkillName.MeleeBlade})`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.MeleeBlade]
+    SkillNames: [this._skillService.SkillName.MeleeBlade]
   } as Training;
   navigationTraining = {
-    BenefitName: `${this._skillService.SkillNames.Navigation}`,
+    BenefitName: `${this._skillService.SkillName.Navigation}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Navigation]
+    SkillNames: [this._skillService.SkillName.Navigation]
   } as Training;
   persuadeTraining = {
-    BenefitName: `${this._skillService.SkillNames.Persuade}`,
+    BenefitName: `${this._skillService.SkillName.Persuade}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Persuade]
+    SkillNames: [this._skillService.SkillName.Persuade]
   } as Training;
   pilotTraining = {
-    BenefitName: `${this._skillService.SkillNames.Pilot}`,
+    BenefitName: `${this._skillService.SkillName.Pilot}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.PilotSmallCraft,
-      this._skillService.SkillNames.PilotSpacecraft,
-      this._skillService.SkillNames.PilotCapitalShips,
+      this._skillService.SkillName.PilotSmallCraft,
+      this._skillService.SkillName.PilotSpacecraft,
+      this._skillService.SkillName.PilotCapitalShips,
     ]
   } as Training;
   smallCraftTraining = {
-    BenefitName: `${this._skillService.SkillNames.Pilot} (${this._skillService.SkillNames.PilotSmallCraft})`,
+    BenefitName: `${this._skillService.SkillName.Pilot} (${this._skillService.SkillName.PilotSmallCraft})`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.PilotSmallCraft]
+    SkillNames: [this._skillService.SkillName.PilotSmallCraft]
   } as Training;
   spacecraftTraining = {
-    BenefitName: `${this._skillService.SkillNames.Pilot} (${this._skillService.SkillNames.PilotSpacecraft})`,
+    BenefitName: `${this._skillService.SkillName.Pilot} (${this._skillService.SkillName.PilotSpacecraft})`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.PilotSpacecraft]
+    SkillNames: [this._skillService.SkillName.PilotSpacecraft]
   } as Training;
   professionTraining = {
-    BenefitName: `${this._skillService.SkillNames.Profession}`,
+    BenefitName: `${this._skillService.SkillName.Profession}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.Profession1,
-      this._skillService.SkillNames.Profession2,
-      this._skillService.SkillNames.Profession3,
-      this._skillService.SkillNames.Profession4,
-      this._skillService.SkillNames.Profession5,
+      this._skillService.SkillName.Profession1,
+      this._skillService.SkillName.Profession2,
+      this._skillService.SkillName.Profession3,
+      this._skillService.SkillName.Profession4,
+      this._skillService.SkillName.Profession5,
     ]
   } as Training;
   reconTraining = {
-    BenefitName: `${this._skillService.SkillNames.Recon}`,
+    BenefitName: `${this._skillService.SkillName.Recon}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Recon]
+    SkillNames: [this._skillService.SkillName.Recon]
   } as Training;
   scienceTraining = {
-    BenefitName: `${this._skillService.SkillNames.Science}`,
+    BenefitName: `${this._skillService.SkillName.Science}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.ScienceArchaeology,
-      this._skillService.SkillNames.ScienceAstronomy,
-      this._skillService.SkillNames.ScienceBiology,
-      this._skillService.SkillNames.ScienceChemistry,
-      this._skillService.SkillNames.ScienceCosmology,
-      this._skillService.SkillNames.ScienceCybernetics,
-      this._skillService.SkillNames.ScienceEconomics,
-      this._skillService.SkillNames.ScienceGenetics,
-      this._skillService.SkillNames.ScienceHistory,
-      this._skillService.SkillNames.ScienceLinguistics,
-      this._skillService.SkillNames.SciencePhilosophy,
-      this._skillService.SkillNames.SciencePhysics,
-      this._skillService.SkillNames.SciencePlanetology,
-      this._skillService.SkillNames.SciencePsionicology,
-      this._skillService.SkillNames.SciencePsychology,
-      this._skillService.SkillNames.ScienceRobotics,
-      this._skillService.SkillNames.ScienceSophontology,
-      this._skillService.SkillNames.ScienceXenology,
+      this._skillService.SkillName.ScienceArchaeology,
+      this._skillService.SkillName.ScienceAstronomy,
+      this._skillService.SkillName.ScienceBiology,
+      this._skillService.SkillName.ScienceChemistry,
+      this._skillService.SkillName.ScienceCosmology,
+      this._skillService.SkillName.ScienceCybernetics,
+      this._skillService.SkillName.ScienceEconomics,
+      this._skillService.SkillName.ScienceGenetics,
+      this._skillService.SkillName.ScienceHistory,
+      this._skillService.SkillName.ScienceLinguistics,
+      this._skillService.SkillName.SciencePhilosophy,
+      this._skillService.SkillName.SciencePhysics,
+      this._skillService.SkillName.SciencePlanetology,
+      this._skillService.SkillName.SciencePsionicology,
+      this._skillService.SkillName.SciencePsychology,
+      this._skillService.SkillName.ScienceRobotics,
+      this._skillService.SkillName.ScienceSophontology,
+      this._skillService.SkillName.ScienceXenology,
     ]
   } as Training;
   seafarerTraining = {
-    BenefitName: `${this._skillService.SkillNames.Seafarer}`,
+    BenefitName: `${this._skillService.SkillName.Seafarer}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.SeafarerOceanShips,
-      this._skillService.SkillNames.SeafarerPersonal,
-      this._skillService.SkillNames.SeafarerSail,
-      this._skillService.SkillNames.SeafarerSubmarine,
+      this._skillService.SkillName.SeafarerOceanShips,
+      this._skillService.SkillName.SeafarerPersonal,
+      this._skillService.SkillName.SeafarerSail,
+      this._skillService.SkillName.SeafarerSubmarine,
     ]
   } as Training;
   stealthTraining = {
-    BenefitName: `${this._skillService.SkillNames.Stealth}`,
+    BenefitName: `${this._skillService.SkillName.Stealth}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Stealth]
+    SkillNames: [this._skillService.SkillName.Stealth]
   } as Training;
   stewardTraining = {
-    BenefitName: `${this._skillService.SkillNames.Steward}`,
+    BenefitName: `${this._skillService.SkillName.Steward}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Steward]
+    SkillNames: [this._skillService.SkillName.Steward]
   } as Training;
   streetwiseTraining = {
-    BenefitName: `${this._skillService.SkillNames.Streetwise}`,
+    BenefitName: `${this._skillService.SkillName.Streetwise}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Streetwise]
+    SkillNames: [this._skillService.SkillName.Streetwise]
   } as Training;
   survivalTraining = {
-    BenefitName: `${this._skillService.SkillNames.Survival}`,
+    BenefitName: `${this._skillService.SkillName.Survival}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.Survival]
+    SkillNames: [this._skillService.SkillName.Survival]
   } as Training;
   tacticsTraining = {
-    BenefitName: `${this._skillService.SkillNames.Tactics}`,
+    BenefitName: `${this._skillService.SkillName.Tactics}`,
     Type: 'skill',
     SkillNames: [
-      this._skillService.SkillNames.TacticsMilitary,
-      this._skillService.SkillNames.TacticsNaval,
+      this._skillService.SkillName.TacticsMilitary,
+      this._skillService.SkillName.TacticsNaval,
     ]
   } as Training;
   militaryTraining = {
-    BenefitName: `${this._skillService.SkillNames.Tactics} (${this._skillService.SkillNames.TacticsMilitary})`,
+    BenefitName: `${this._skillService.SkillName.Tactics} (${this._skillService.SkillName.TacticsMilitary})`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.TacticsMilitary]
+    SkillNames: [this._skillService.SkillName.TacticsMilitary]
   } as Training;
   navalTraining = {
-    BenefitName: `${this._skillService.SkillNames.Tactics} (${this._skillService.SkillNames.TacticsNaval})`,
+    BenefitName: `${this._skillService.SkillName.Tactics} (${this._skillService.SkillName.TacticsNaval})`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.TacticsNaval]
+    SkillNames: [this._skillService.SkillName.TacticsNaval]
   } as Training;
   vaccSuitTraining = {
-    BenefitName: `${this._skillService.SkillNames.VaccSuit}`,
+    BenefitName: `${this._skillService.SkillName.VaccSuit}`,
     Type: 'skill',
-    SkillNames: [this._skillService.SkillNames.VaccSuit]
+    SkillNames: [this._skillService.SkillName.VaccSuit]
   } as Training;
 
   // ----- PSIONIC TRAINING -----

@@ -15,12 +15,12 @@ export class MilitaryAcademyComponent implements OnInit {
   armyAcademy: boolean = false;
   marinesAcademy: boolean = false;
   navyAcademy: boolean = false;
-  armySkills = [this._skillService.SkillNames.Athletics, this._skillService.SkillNames.Drive, this._skillService.SkillNames.GunCombat, this._skillService.SkillNames.HeavyWeapons,
-    this._skillService.SkillNames.Melee, this._skillService.SkillNames.Recon, this._skillService.SkillNames.VaccSuit];
-  marinesSkills = [this._skillService.SkillNames.Athletics, this._skillService.SkillNames.GunCombat, this._skillService.SkillNames.HeavyWeapons, this._skillService.SkillNames.Tactics,
-    this._skillService.SkillNames.Stealth, this._skillService.SkillNames.VaccSuit];
-  navySkills = [this._skillService.SkillNames.Athletics, this._skillService.SkillNames.Gunner, this._skillService.SkillNames.GunCombat, this._skillService.SkillNames.Mechanic,
-    this._skillService.SkillNames.Pilot, this._skillService.SkillNames.VaccSuit];
+  armySkills = [this._skillService.SkillName.Athletics, this._skillService.SkillName.Drive, this._skillService.SkillName.GunCombat, this._skillService.SkillName.HeavyWeapons,
+    this._skillService.SkillName.Melee, this._skillService.SkillName.Recon, this._skillService.SkillName.VaccSuit];
+  marinesSkills = [this._skillService.SkillName.Athletics, this._skillService.SkillName.GunCombat, this._skillService.SkillName.HeavyWeapons, this._skillService.SkillName.Tactics,
+    this._skillService.SkillName.Stealth, this._skillService.SkillName.VaccSuit];
+  navySkills = [this._skillService.SkillName.Athletics, this._skillService.SkillName.Gunner, this._skillService.SkillName.GunCombat, this._skillService.SkillName.Mechanic,
+    this._skillService.SkillName.Pilot, this._skillService.SkillName.VaccSuit];
 
   constructor(private _characterService: CharacterService,
               private _characterMetadataService: CharacterMetadataService,
