@@ -120,15 +120,16 @@ import { UnusualEventContactWithGovernmentComponent } from './character-creator/
 import { UnusualEventAncientTechnologyComponent } from './character-creator/events/life-event/event-unusual-event/unusual-event-ancient-technology/unusual-event-ancient-technology.component';
 import { StoryComponent } from './controls/story/story.component';
 import { RollComponent } from './controls/roll/roll.component';
-import { InjuryComponent } from './character-creator/events/injury/injury.component';
-import { InjuryNearlyKilledComponent } from './character-creator/events/injury/injury-nearly-killed/injury-nearly-killed.component';
-import { InjurySeverelyInjuredComponent } from './character-creator/events/injury/injury-severely-injured/injury-severely-injured.component';
-import { InjuryMissingEyeOrLimbComponent } from './character-creator/events/injury/injury-missing-eye-or-limb/injury-missing-eye-or-limb.component';
-import { InjuryScarredComponent } from './character-creator/events/injury/injury-scarred/injury-scarred.component';
-import { InjuryInjuredComponent } from './character-creator/events/injury/injury-injured/injury-injured.component';
-import { InjuryLightlyInjuredComponent } from './character-creator/events/injury/injury-lightly-injured/injury-lightly-injured.component';
+import { InjuryComponent } from './character-creator/mishaps/injury/injury.component';
+import { InjuryNearlyKilledComponent } from './character-creator/mishaps/injury/injury-nearly-killed/injury-nearly-killed.component';
+import { InjurySeverelyInjuredComponent } from './character-creator/mishaps/injury/injury-severely-injured/injury-severely-injured.component';
+import { InjuryMissingEyeOrLimbComponent } from './character-creator/mishaps/injury/injury-missing-eye-or-limb/injury-missing-eye-or-limb.component';
+import { InjuryScarredComponent } from './character-creator/mishaps/injury/injury-scarred/injury-scarred.component';
+import { InjuryInjuredComponent } from './character-creator/mishaps/injury/injury-injured/injury-injured.component';
+import { InjuryLightlyInjuredComponent } from './character-creator/mishaps/injury/injury-lightly-injured/injury-lightly-injured.component';
 import { CitizenMishapComponent } from './character-creator/mishaps/citizen-mishap/citizen-mishap.component';
 import { RogueMishapComponent } from './character-creator/mishaps/rogue-mishap/rogue-mishap.component';
+import { InjuryTableComponent } from './character-creator/mishaps/injury/injury-table/injury-table.component';
 
 @NgModule({
   declarations: [
@@ -255,7 +256,8 @@ import { RogueMishapComponent } from './character-creator/mishaps/rogue-mishap/r
     InjuryInjuredComponent,
     InjuryLightlyInjuredComponent,
     CitizenMishapComponent,
-    RogueMishapComponent
+    RogueMishapComponent,
+    InjuryTableComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),

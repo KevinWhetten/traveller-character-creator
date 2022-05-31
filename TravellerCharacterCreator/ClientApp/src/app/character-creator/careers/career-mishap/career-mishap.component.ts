@@ -24,6 +24,6 @@ export class CareerMishapComponent implements OnInit {
   submit() {
     if(1 <= this.mishapRoll && this.mishapRoll <= 6)
     this._metadataService.setMishapNumber(this.mishapRoll);
-    this._metadataService.setCurrentUrl(`character-creator/careers/${this.career.Name.toLowerCase()}/Mishap`);
+    this._metadataService.setCurrentUrl(`character-creator/careers/${this.career.Name.toLowerCase()}/mishap`);
   }
 }

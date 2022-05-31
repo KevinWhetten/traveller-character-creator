@@ -1,6 +1,20 @@
-<h2>Severely Injured</h2>
+<div class="flex">
+  <app-injury-table class="injury-table"></app-injury-table>
+  <app-characteristics class="characteristics"></app-characteristics>
+</div>
 
-<app-injury [injury]="2"
-            [rolls]="2"></app-injury>
+<div class="flex">
+  <div>
+    <h2>Take a Roll of 2</h2>
+    <app-injury [injury]="2"
+                (complete)="submit()"></app-injury>
+  </div>
 
-<button class="primary" (click)="submit()">Submit</button>
+  <h3>-OR-</h3>
+
+  <div>
+    <h2>Roll Twice</h2>
+    <app-injury [rolls]="2"
+                (complete)="mishapComplete.emit()"></app-injury>
+  </div>
+</div>

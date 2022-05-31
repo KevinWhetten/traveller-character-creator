@@ -16,7 +16,8 @@ export class InjurySeverelyInjuredComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit() {
+  submit(result: number) {
+    this.roll = result;
     switch(this.characteristic){
       case 'STR':
         this._characterService.injureStrength(this.roll);

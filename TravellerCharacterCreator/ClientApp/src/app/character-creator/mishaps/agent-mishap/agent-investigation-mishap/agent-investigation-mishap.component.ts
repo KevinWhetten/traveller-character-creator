@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {CharacterService} from "../../../../../services/character.service";
-import {SkillService} from "../../../../../services/data-services/skill.service";
+import {CharacterService} from "../../../../services/character.service";
+import {SkillService} from "../../../../services/data-services/skill.service";
 
 @Component({
   selector: 'app-agent-investigation-mishap',
@@ -22,8 +22,8 @@ export class AgentInvestigationMishapComponent implements OnInit {
   }
 
   getModifier() {
-    let skill = this._characterService.getSkills()[this._skillService.SkillNames.Advocate];
-    let jackOfAllTrades = this._characterService.getSkills()[this._skillService.SkillNames.JackOfAllTrades];
+    let skill = this._characterService.getSkills()[this._skillService.SkillName.Advocate];
+    let jackOfAllTrades = this._characterService.getSkills()[this._skillService.SkillName.JackOfAllTrades];
     if (skill) {
       return skill;
     } else {

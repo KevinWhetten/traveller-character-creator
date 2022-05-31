@@ -1,10 +1,5 @@
-<h3>Injury!</h3>
-
-<app-characteristics></app-characteristics>
-
 <div *ngIf="!injury">
-  <app-roll *ngFor="let roll of getRange()"
-            [numberOfDice]="1"
+  <app-roll [numberOfDice]="1"
             [numberOfRolls]="rolls"
             [select]="'lowest'"
             (result)="injury = $event"></app-roll>
