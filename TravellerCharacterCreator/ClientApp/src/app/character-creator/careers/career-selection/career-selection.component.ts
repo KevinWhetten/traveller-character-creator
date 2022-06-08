@@ -21,6 +21,11 @@ export class CareerSelectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this._metadataService.isJailed()){
+      this.careerName = 'Prisoner';
+      this.changeCareer();
+      this.chooseCareer();
+    }
   }
 
   defineNumber(number: number) {
@@ -51,37 +56,5 @@ export class CareerSelectionComponent implements OnInit {
   chooseCareer() {
     this._metadataService.setCurrentCareer(this.career.Name);
     this._metadataService.setCurrentUrl('character-creator/careers/qualification');
-  }
-
-  getBonus(career: string): any {
-    let bonus = 0;
-
-    bonus += this._metadataService.getQualificationBonus(career);
-
-    if(bonus >= 12){
-      return '(Automatic Qualification)';
-    }
-    if(bonus){
-      return `(+${bonus} to Qualify)`;
-    }
-    return '';
-  }
-
-  getCommission(careerName: string) {
-    if(careerName == this._metadataService.getMilitaryAcademy()){
-      if(this._metadataService.graduatedWithHonors()){
-        return '(Automatic Commission)';
-      }
-      return '(Commission DM+2)';
-    }
-    else if(this._metadataService.graduatedUniversity()){
-      if(careerName == 'Army' || careerName == 'Marine' || careerName == 'Navy'){
-        if(this._metadataService.graduatedWithHonors()){
-          return '(Commission Roll DM+2)';
-        }
-        return '(Commission Roll)'
-      }
-    }
-    return '';
   }
 }

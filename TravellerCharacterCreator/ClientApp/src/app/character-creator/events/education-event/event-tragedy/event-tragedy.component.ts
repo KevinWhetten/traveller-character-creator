@@ -9,7 +9,6 @@ import {PageService} from "../../../../services/page.service";
   styleUrls: ['./event-tragedy.component.css']
 })
 export class EventTragedyComponent implements OnInit {
-  story: string;
 
   constructor(private _characterMetadataService: CharacterMetadataService,
               private _loggingService: LoggingService,
@@ -17,7 +16,9 @@ export class EventTragedyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._loggingService.addLog('My time in education was not a happy one, and I suffered a deep tragedy. I crashed and failed to graduate.');
+    if (this._loggingService.getLastLog() != 'My time in education was not a happy one, and I suffered a deep tragedy. I crashed and failed to graduate.') {
+      this._loggingService.addLog('My time in education was not a happy one, and I suffered a deep tragedy. I crashed and failed to graduate.');
+    }
   }
 
   skipGraduation() {

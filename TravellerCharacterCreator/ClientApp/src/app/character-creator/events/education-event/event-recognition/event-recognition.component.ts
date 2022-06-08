@@ -9,22 +9,19 @@ import {CharacterService} from "../../../../services/character.service";
 })
 export class EventRecognitionComponent implements OnInit {
   @Output() graduate = new EventEmitter();
-  story: string;
 
   constructor(private _characterService: CharacterService,
               private _loggingService: LoggingService) {
   }
 
   ngOnInit(): void {
-    this._loggingService.addLog('I gained wide-ranging recognition of my initiative and innovative approach to study.');
+    if (this._loggingService.getLastLog() != 'I gained wide-ranging recognition of my initiative and innovative approach to study.') {
+      this._loggingService.addLog('I gained wide-ranging recognition of my initiative and innovative approach to study.');
+    }
   }
 
   recognized() {
     this._characterService.increaseSocialStatus(1);
-    if (this.story) {
-      this._loggingService.addLog(this.story);
-    }
     this.graduate.emit();
   }
-
 }

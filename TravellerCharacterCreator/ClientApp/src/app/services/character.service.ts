@@ -108,6 +108,7 @@ export class CharacterService {
   setPsi(psi: number) {
     this.loadCharacter();
     this.character.Characteristics.Psi.max = psi;
+    this.character.Characteristics.Psi.current = psi;
     this._loggingService.addLog(`PSI set to [PSI ${psi}].`);
     this.saveCharacter();
   }

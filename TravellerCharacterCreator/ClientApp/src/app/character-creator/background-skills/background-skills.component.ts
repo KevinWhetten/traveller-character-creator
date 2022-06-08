@@ -31,6 +31,7 @@ export class BackgroundSkillsComponent implements OnInit {
 
   submit(skills: string[]) {
     this.updateSkills(skills);
+    this._characterMetadataService.setCurrentUrl("character-creator/education");
   }
 
   private updateSkills(skills: string[]) {
@@ -39,6 +40,5 @@ export class BackgroundSkillsComponent implements OnInit {
       characterSkills.push({Name: x, Value: 0} as CharacterSkill);
     }
     this._characterService.addSkills(characterSkills);
-    this._characterMetadataService.setCurrentUrl("character-creator/education");
   }
 }

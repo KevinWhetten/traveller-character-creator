@@ -8,6 +8,7 @@ import {CharacterService} from "../../../services/character.service";
   styleUrls: ['./psionic-test.component.css']
 })
 export class PsionicTestComponent implements OnInit {
+  @Output() tested = new EventEmitter;
   @Output() eventComplete = new EventEmitter;
   rolled: boolean = false;
   psi: number = 0;
@@ -22,6 +23,7 @@ export class PsionicTestComponent implements OnInit {
   recordPsi(rolledNum: number) {
     this.rolled = true;
     this.psi = rolledNum + this.getModifier();
+    this.tested.emit();
   }
 
   getModifier() {

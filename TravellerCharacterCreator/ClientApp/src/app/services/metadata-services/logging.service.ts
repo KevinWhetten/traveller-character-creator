@@ -25,4 +25,8 @@ export class LoggingService {
   private saveLog() {
     localStorage.setItem('log', JSON.stringify(this.log));
   }
+
+  getLastLog() {
+    return this.log[this.log.length - 1];
+  }
 }

@@ -11,10 +11,8 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
 export class EventPoliticalComponent implements OnInit {
   @Output() graduate = new EventEmitter();
   private log: string;
-  politicalRoll: number = 0;
   politicalLeader: boolean;
   politicalGrunt: boolean;
-  story: string;
 
   constructor(private _characterService: CharacterService,
               private _rollingService: RollingService,
@@ -22,10 +20,12 @@ export class EventPoliticalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this._loggingService.getLastLog() != 'I joined a political movement.') {
+      this.log = 'I joined a political movement.';
+    }
   }
 
   politicalMovement(passed: boolean) {
-    this.log = 'I joined a political movement.';
     if (passed) {
       this.log += ' And became a leading figure!';
       this.politicalLeader = true;
@@ -38,9 +38,6 @@ export class EventPoliticalComponent implements OnInit {
   becamePoliticalLeader() {
     this._characterService.addAlly('One person in the political movement I joined during my education.');
     this._characterService.addEnemy('One person outside of the political movement I joined during my education.');
-    if (this.story) {
-      this._loggingService.addLog(this.story);
-    }
     this.graduate.emit();
   }
 

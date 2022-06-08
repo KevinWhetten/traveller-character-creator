@@ -18,10 +18,12 @@ export class EventHobbyComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this._loggingService.getLastLog() != 'I developed a healthy interest in a hobby or other area of study.') {
+      this._loggingService.addLog('I developed a healthy interest in a hobby or other area of study.');
+    }
   }
 
   hobby() {
-    this._loggingService.addLog('I developed a healthy interest in a hobby or other area of study.');
     this._characterService.addSkills([{Name: this.hobbySkill, Value: 0}]);
     this.graduate.emit();
   }

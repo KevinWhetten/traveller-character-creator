@@ -59,7 +59,7 @@ export class DetermineCharacteristicsComponent {
   }
 
   submit() {
-    if (this.hasWarning || this.strDm + this.dexDm + this.endDm + this.intDm + this.eduDm + this.socDm > 0) {
+    if (this.hasWarning || this.strDm + this.dexDm + this.endDm + this.intDm + this.eduDm + this.socDm >= 0) {
       this._characterService.setCharacteristics({
         Strength: {max: this.strScore, current: this.strScore},
         Dexterity: {max: this.dexScore, current: this.dexScore},
