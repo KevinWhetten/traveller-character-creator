@@ -27,7 +27,7 @@ export class CareerQualificationComponent implements OnInit {
   ngOnInit(): void {
     this.career = this._careerService.getCareer(this._metadataService.getCurrentCareer());
 
-    if (this.career.Name == 'Drifter') {
+    if (this.career.Name == 'Drifter' || this.career.Name == 'Prisoner') {
       this._metadataService.setCurrentUrl('character-creator/careers/assignment');
     }
   }

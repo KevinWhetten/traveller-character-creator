@@ -4,6 +4,7 @@ import {SkillService} from "../../../services/data-services/skill.service";
 import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
 import {CharacterSkill} from "../../../models/character-skill";
 import {PageService} from "../../../services/page.service";
+import {LoggingService} from "../../../services/metadata-services/logging.service";
 
 @Component({
   selector: 'app-military-academy',
@@ -24,6 +25,7 @@ export class MilitaryAcademyComponent implements OnInit {
 
   constructor(private _characterService: CharacterService,
               private _characterMetadataService: CharacterMetadataService,
+              private _loggingService: LoggingService,
               private _pageService: PageService,
               private _skillService: SkillService) {
   }
@@ -32,9 +34,11 @@ export class MilitaryAcademyComponent implements OnInit {
   }
 
   army(passed: boolean) {
+    this._loggingService.addLog('Applied for the Army Academy.');
     this._pageService.disableNav();
     this.applied = true;
     if (passed) {
+      this._loggingService.addLog('I was accepted!');
       this.armyAcademy = true;
       this._characterMetadataService.setMilitaryAcademy('Army');
       let skills = [];
@@ -46,9 +50,11 @@ export class MilitaryAcademyComponent implements OnInit {
   }
 
   marines(passed: boolean) {
+    this._loggingService.addLog('Applied for the Marines Academy.');
     this._pageService.disableNav();
     this.applied = true;
     if (passed) {
+      this._loggingService.addLog('I was accepted!');
       this.marinesAcademy = true;
       this._characterMetadataService.setMilitaryAcademy('Marines');
       let skills = [];
@@ -60,9 +66,11 @@ export class MilitaryAcademyComponent implements OnInit {
   }
 
   navy(passed: boolean) {
+    this._loggingService.addLog('Applied for the Navy Academy.');
     this._pageService.disableNav();
     this.applied = true;
     if (passed) {
+      this._loggingService.addLog('I was accepted!');
       this.navyAcademy = true;
       this._characterMetadataService.setMilitaryAcademy('Navy');
       let skills = [];
@@ -76,8 +84,10 @@ export class MilitaryAcademyComponent implements OnInit {
   moveOn() {
     this._pageService.enableNav();
     if (!this.armyAcademy && !this.marinesAcademy && !this.navyAcademy) {
+      this._loggingService.addLog('I wasn\'t accepted...');
       this._characterMetadataService.setCurrentUrl('character-creator/careers');
+    } else {
+      this._characterMetadataService.setCurrentUrl('character-creator/education/military-academy/event');
     }
-    this._characterMetadataService.setCurrentUrl('character-creator/education/military-academy/event');
   }
 }

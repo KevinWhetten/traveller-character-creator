@@ -18,10 +18,12 @@ export class EventPartyComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this._loggingService.getLastLog() != 'I took advantage of youth, and partied as much as I studied.') {
+      this._loggingService.addLog('I took advantage of youth, and partied as much as I studied.');
+    }
   }
 
   party() {
-    this._loggingService.addLog('I took advantage of youth, and partied as much as I studied.');
     this._characterService.addSkills([{Name: this._skillService.SkillName.Carouse, Value: 1} as CharacterSkill]);
     this.graduate.emit();
   }

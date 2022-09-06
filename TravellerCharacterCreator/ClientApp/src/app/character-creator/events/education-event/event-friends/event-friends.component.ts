@@ -9,7 +9,6 @@ import {CharacterService} from "../../../../services/character.service";
 })
 export class EventFriendsComponent implements OnInit {
   @Output() graduate = new EventEmitter;
-  story: string;
   friendRoll: number;
   friendGroup: boolean = false;
 
@@ -18,15 +17,14 @@ export class EventFriendsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this._loggingService.getLastLog() != 'I became involved in a tightly knit clique or group and made a pact to remain friends forever, wherever in the galaxy we may end up.') {
+      this._loggingService.addLog('I became involved in a tightly knit clique or group and made a pact to remain friends forever, wherever in the galaxy we may end up.');
+    }
   }
 
   friends() {
-    this._loggingService.addLog('I became involved in a tightly knit clique or group and made a pact to remain friends forever, wherever in the galaxy we may end up.');
     for (let i = 0; i < this.friendRoll; i++) {
       this._characterService.addAlly('Someone in my clique/group during my education.');
-    }
-    if (this.story) {
-      this._loggingService.addLog(this.story);
     }
     this.graduate.emit();
   }

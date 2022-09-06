@@ -26,7 +26,9 @@ export class EventDraftComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._loggingService.addLog('War came and a wide-ranging draft was instigated.');
+    if (this._loggingService.getLastLog() != 'War came and a wide-ranging draft was instigated.') {
+      this._loggingService.addLog('War came and a wide-ranging draft was instigated.');
+    }
   }
 
   drafted() {

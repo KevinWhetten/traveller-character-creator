@@ -9,12 +9,16 @@ import {CharacterMetadataService} from "../../../../services/metadata-services/c
 })
 export class EventPsionicsComponent implements OnInit {
   @Output() graduate = new EventEmitter();
+  tested: boolean;
+
   constructor(private _characterMetadataService: CharacterMetadataService,
               private _loggingService: LoggingService) {
   }
 
   ngOnInit(): void {
-    this._loggingService.addLog('I was approached by an underground (and highly illegal) psionic group who sensed potential in me.');
+    if (this._loggingService.getLastLog() != 'I was approached by an underground (and highly illegal) psionic group who sensed potential in me.') {
+      this._loggingService.addLog('I was approached by an underground (and highly illegal) psionic group who sensed potential in me.');
+    }
   }
 
   refuse() {

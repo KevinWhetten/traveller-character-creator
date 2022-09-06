@@ -1,11 +1,11 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
-import {Router} from "@angular/router";
 import {CareerService} from "../../../../services/data-services/career.service";
 import {RollingService} from "../../../../services/data-services/rolling.service";
 import {SkillService} from "../../../../services/data-services/skill.service";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 import {LoggingService} from "../../../../services/metadata-services/logging.service";
+import {CharacterSkill} from "../../../../models/character-skill";
 
 @Component({
   selector: 'app-university-skills',
@@ -17,6 +17,7 @@ export class UniversityGraduationComponent implements OnInit {
   success: boolean = false;
   honors: boolean = false;
   failure: boolean = false;
+  skills = [] as CharacterSkill[];
 
   constructor(private _careerService: CareerService,
               private _characterService: CharacterService,
@@ -27,6 +28,10 @@ export class UniversityGraduationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let universitySkills = this._characterMetadataService.getUniversitySkills();
+    for(let universitySkill of universitySkills){
+      this.skills.push({Name: universitySkill.Name, Value: this._characterService.getSkills()[universitySkill.Name]})
+    }
   }
 
   submit(result: number) {

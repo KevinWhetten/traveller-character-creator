@@ -15,8 +15,6 @@ export class EventPrankComponent implements OnInit {
   prankRival: boolean;
   prankEnemy: boolean;
   prankJail: boolean;
-  prankRoll: number = 0;
-  story: string;
   private log: string;
 
   constructor(private _characterService: CharacterService,
@@ -26,10 +24,12 @@ export class EventPrankComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this._loggingService.getLastLog() != 'A supposedly harmless prank went wrong and someone got hurt...') {
+      this.log = 'A supposedly harmless prank went wrong and someone got hurt...';
+    }
   }
 
   prank(result: {roll: number, modifier: number, passed: boolean}) {
-    this.log = 'A supposedly harmless prank went wrong and someone got hurt...';
     if (result.roll == 2) {
       this.log = ' I must take the Prisoner career next term.';
       this.prankJail = true;
@@ -43,25 +43,16 @@ export class EventPrankComponent implements OnInit {
 
   gainPrankRival() {
     this._characterService.addRival('Someone I pranked during my Education.');
-    if (this.story) {
-      this._loggingService.addLog(this.story);
-    }
     this.graduate.emit();
   }
 
   gainPrankEnemy() {
     this._characterService.addEnemy('Someone I pranked during my Education.');
-    if (this.story) {
-      this._loggingService.addLog(this.story);
-    }
     this.graduate.emit();
   }
 
   jailed() {
     this._characterService.addEnemy('Someone I pranked during my Education.');
-    if (this.story) {
-      this._loggingService.addLog(this.story);
-    }
     this._characterMetadataService.setJailed(true);
     this._characterMetadataService.setCurrentUrl('character-creator/careers/prison');
     this.graduate.emit();
