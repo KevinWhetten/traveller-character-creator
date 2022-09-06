@@ -86,16 +86,16 @@
 </div>
 <div class="flex">
   <div class="grid-item" *ngFor="let skill of _skillService.skills">
-    <div *ngIf="isBaseSkill(skill) && skill.Name != jackOfAllTrades" class="entry">
+    <div *ngIf="isBaseSkill(skill) && skill.Name !== jackOfAllTrades" class="entry">
       <p class="skill-name">{{skill.Name}}</p>
       <p
-        class="value">{{(_characterService.getSkills()[skill.Name] != undefined) ? _characterService.getSkills()[skill.Name] : ''}}</p>
+        class="value">{{(_characterService.getSkills()[skill.Name] !== undefined) ? _characterService.getSkills()[skill.Name] : ''}}</p>
     </div>
     <div *ngFor="let subskill of getSubskills(skill)">
       <div class="entry subskill-name">
         <p>> {{subskill}}</p>
         <p
-          class="value">{{_characterService.getSkills()[subskill] != undefined ? _characterService.getSkills()[subskill] : ''}}</p>
+          class="value">{{_characterService.getSkills()[subskill] !== undefined ? _characterService.getSkills()[subskill] : ''}}</p>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-﻿import {Component, OnInit} from '@angular/core';
+﻿import {Component} from '@angular/core';
 import {LoggingService} from "../../services/metadata-services/logging.service";
 
 @Component({
@@ -6,15 +6,12 @@ import {LoggingService} from "../../services/metadata-services/logging.service";
   templateUrl: './story.component.html',
   styleUrls: ['./story.component.css']
 })
-export class StoryComponent implements OnInit {
+export class StoryComponent {
   story: string = '';
   submitted: boolean = false;
   disabled: string = '';
 
   constructor(private _loggingService: LoggingService) {
-  }
-
-  ngOnInit(): void {
   }
 
   submitStory() {

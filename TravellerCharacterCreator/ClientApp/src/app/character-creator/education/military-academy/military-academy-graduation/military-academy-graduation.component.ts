@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {RollingService} from "../../../../services/data-services/rolling.service";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
@@ -9,7 +9,7 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
   templateUrl: './military-academy-graduation.component.html',
   styleUrls: ['./military-academy-graduation.component.css']
 })
-export class MilitaryAcademyGraduationComponent implements OnInit {
+export class MilitaryAcademyGraduationComponent {
   @Output() graduation = new EventEmitter();
   graduationRoll: number;
   success: boolean = false;
@@ -20,9 +20,6 @@ export class MilitaryAcademyGraduationComponent implements OnInit {
               private _characterMetadataService: CharacterMetadataService,
               private _dmService: RollingService,
               private _loggingService: LoggingService) {
-  }
-
-  ngOnInit(): void {
   }
 
   submitGraduation(roll: number) {

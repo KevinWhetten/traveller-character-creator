@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {CharacterService} from "../../../../services/character.service";
+import { Component} from '@angular/core';
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 
 @Component({
@@ -8,12 +6,9 @@ import {CharacterMetadataService} from "../../../../services/metadata-services/c
   templateUrl: './university-event.component.html',
   styleUrls: ['./university-event.component.css']
 })
-export class UniversityEventComponent implements OnInit {
+export class UniversityEventComponent {
 
   constructor(private _characterMetadataService: CharacterMetadataService) { }
-
-  ngOnInit(): void {
-  }
 
   graduate() {
     this._characterMetadataService.setCurrentUrl('character-creator/education/university/graduate');

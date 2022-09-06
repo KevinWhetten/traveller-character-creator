@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 import {RollingService} from "../../../../services/data-services/rolling.service";
@@ -10,7 +10,7 @@ import {SkillService} from "../../../../services/data-services/skill.service";
   templateUrl: './event-unusual-event.component.html',
   styleUrls: ['./event-unusual-event.component.css']
 })
-export class EventUnusualEventComponent implements OnInit {
+export class EventUnusualEventComponent {
   @Output() eventComplete = new EventEmitter;
   eventResult: number = 1;
   submitted: boolean = false;
@@ -21,9 +21,6 @@ export class EventUnusualEventComponent implements OnInit {
               private _dmService: RollingService,
               private _loggingService: LoggingService,
               private _skillService: SkillService) {
-  }
-
-  ngOnInit(): void {
   }
 
   submit() {

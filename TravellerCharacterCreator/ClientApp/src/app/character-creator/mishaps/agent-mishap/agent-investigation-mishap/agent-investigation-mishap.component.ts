@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {SkillService} from "../../../../services/data-services/skill.service";
 
@@ -7,7 +7,7 @@ import {SkillService} from "../../../../services/data-services/skill.service";
   templateUrl: './agent-investigation-mishap.component.html',
   styleUrls: ['./agent-investigation-mishap.component.scss']
 })
-export class AgentInvestigationMishapComponent implements OnInit {
+export class AgentInvestigationMishapComponent {
   @Output() mishapComplete = new EventEmitter;
   advocateRoll: number = 0;
   hasError: boolean = false;
@@ -16,9 +16,6 @@ export class AgentInvestigationMishapComponent implements OnInit {
 
   constructor(private _characterService: CharacterService,
               private _skillService: SkillService) {
-  }
-
-  ngOnInit(): void {
   }
 
   getModifier() {

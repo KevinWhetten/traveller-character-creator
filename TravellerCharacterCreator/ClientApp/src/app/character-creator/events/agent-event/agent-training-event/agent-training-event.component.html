@@ -10,7 +10,7 @@
   <h2>Success! Choose a skill to improve by one level!</h2>
   <app-skill-select [groups]="getGroups()"
                     [groupNames]="getGroupNames()"
-                    (onChange)="changeSkill($event)"></app-skill-select>
+                    (skillChange)="changeSkill($event)"></app-skill-select>
   <button class="primary" (click)="submitSkill()">Submit</button>
 </div>
 

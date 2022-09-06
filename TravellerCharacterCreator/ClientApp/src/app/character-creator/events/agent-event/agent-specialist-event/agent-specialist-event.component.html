@@ -5,5 +5,5 @@
 <app-skill-select [groups]="getGroups()"
                   [groupNames]="getGroupNames()"
                   [targetSkillLevel]="1"
-                  (onChange)="skillChanged($event)"></app-skill-select>
+                  (skillChange)="skillChanged($event)"></app-skill-select>
 <button class="primary" (click)="submit()">Submit</button>

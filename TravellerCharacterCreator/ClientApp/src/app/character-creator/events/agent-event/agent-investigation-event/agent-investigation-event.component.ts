@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {SkillService} from "../../../../services/data-services/skill.service";
 import {CharacterService} from "../../../../services/character.service";
 import {RollingService} from "../../../../services/data-services/rolling.service";
@@ -10,7 +10,7 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
   templateUrl: './agent-investigation-event.component.html',
   styleUrls: ['./agent-investigation-event.component.scss']
 })
-export class AgentInvestigationEventComponent implements OnInit {
+export class AgentInvestigationEventComponent {
   @Output() eventComplete = new EventEmitter;
   skillName: string;
   rolled: boolean = false;
@@ -21,9 +21,6 @@ export class AgentInvestigationEventComponent implements OnInit {
               private _loggingService: LoggingService,
               private _rollingService: RollingService,
               private _skillService: SkillService) {
-  }
-
-  ngOnInit(): void {
   }
 
   getSkills() {

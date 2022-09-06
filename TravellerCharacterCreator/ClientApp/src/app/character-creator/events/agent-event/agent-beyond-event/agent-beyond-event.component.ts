@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 import {LoggingService} from "../../../../services/metadata-services/logging.service";
 
@@ -7,14 +7,11 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
   templateUrl: './agent-beyond-event.component.html',
   styleUrls: ['./agent-beyond-event.component.css']
 })
-export class AgentBeyondEventComponent implements OnInit {
+export class AgentBeyondEventComponent {
   @Output() eventComplete = new EventEmitter;
 
   constructor(private _loggingService: LoggingService,
               private _metadataService: CharacterMetadataService) { }
-
-  ngOnInit(): void {
-  }
 
   proceed() {
     this._loggingService.addLog('I went above and beyond the call of duty!');

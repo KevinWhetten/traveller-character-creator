@@ -1,4 +1,4 @@
-﻿import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+﻿import {Component, Input} from '@angular/core';
 import {Career} from "../../../../models/career";
 
 @Component({
@@ -6,14 +6,8 @@ import {Career} from "../../../../models/career";
   templateUrl: './career-mishaps.component.html',
   styleUrls: ['./career-mishaps.component.scss']
 })
-export class CareerMishapsComponent implements OnInit {
+export class CareerMishapsComponent {
   @Input() career: Career;
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
   defineNumber(number: number) {
     return Array(number).fill(1).map((x, i) => i + 1);

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {LoggingService} from "../../../../services/metadata-services/logging.service";
 
@@ -7,15 +7,12 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
   templateUrl: './agent-network-event.component.html',
   styleUrls: ['./agent-network-event.component.css']
 })
-export class AgentNetworkEventComponent implements OnInit {
+export class AgentNetworkEventComponent {
   @Output() eventComplete = new EventEmitter;
   contactsMade: number;
 
   constructor(private _characterService: CharacterService,
               private _loggingService: LoggingService) { }
-
-  ngOnInit(): void {
-  }
 
   submit() {
     this._loggingService.addLog('I established a network of Contacts.');

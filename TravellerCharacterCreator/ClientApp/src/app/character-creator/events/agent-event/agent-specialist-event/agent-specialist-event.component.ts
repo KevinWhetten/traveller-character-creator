@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {SkillService} from "../../../../services/data-services/skill.service";
 import {LoggingService} from "../../../../services/metadata-services/logging.service";
@@ -8,16 +8,13 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
   templateUrl: './agent-specialist-event.component.html',
   styleUrls: ['./agent-specialist-event.component.scss']
 })
-export class AgentSpecialistEventComponent implements OnInit {
+export class AgentSpecialistEventComponent {
   private chosenSkill: string;
   @Output() eventComplete = new EventEmitter;
 
   constructor(private _characterService: CharacterService,
               private _loggingService: LoggingService,
               private _skillService: SkillService) {
-  }
-
-  ngOnInit(): void {
   }
 
   getGroups() {

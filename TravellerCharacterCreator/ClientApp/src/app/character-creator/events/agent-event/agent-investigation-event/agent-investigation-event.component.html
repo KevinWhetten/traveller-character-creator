@@ -6,7 +6,7 @@
   <h3>Choose one of the following skills, and roll:</h3>
   <app-skill-select [groups]="getSkills()"
                     [groupNames]="getSkillGroupNames()"
-                    (onChange)="changeSkill($event)"></app-skill-select>
+                    (skillChange)="changeSkill($event)"></app-skill-select>
 
   <app-skill-roll [skill]="this.skillName"
                   [target]="8"
@@ -18,7 +18,7 @@
   <h3>Success! Pick one of the following skills to increase by one level:</h3>
   <app-skill-select [groups]="getIncreaseSkills()"
                     [groupNames]="getIncreaseSkillGroupNames()"
-                    (onChange)="changeSkill($event)"></app-skill-select>
+                    (skillChange)="changeSkill($event)"></app-skill-select>
   <button class="primary" (click)="submitIncrease()">Submit</button>
 </div>
 

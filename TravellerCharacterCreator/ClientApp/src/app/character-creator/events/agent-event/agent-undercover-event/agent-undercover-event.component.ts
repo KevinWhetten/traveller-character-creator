@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {RollingService} from "../../../../services/data-services/rolling.service";
 import {CareerService} from "../../../../services/data-services/career.service";
@@ -9,7 +9,7 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
   templateUrl: './agent-undercover-event.component.html',
   styleUrls: ['./agent-undercover-event.component.scss']
 })
-export class AgentUndercoverEventComponent implements OnInit {
+export class AgentUndercoverEventComponent {
   @Output() eventComplete = new EventEmitter;
   rolled: boolean = false;
   success: boolean = false;
@@ -20,9 +20,6 @@ export class AgentUndercoverEventComponent implements OnInit {
               private _characterService: CharacterService,
               private _loggingService: LoggingService,
               private _rollingService: RollingService) { }
-
-  ngOnInit(): void {
-  }
 
   submit(passed: boolean) {
     this.rolled = true;

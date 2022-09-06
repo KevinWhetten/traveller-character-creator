@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {AlertType} from "../alert/alert.component";
 import {CharacterService} from "../../services/character.service";
 import {CharacterMetadataService} from "../../services/metadata-services/character-metadata.service";
@@ -9,13 +9,13 @@ import {RollingService} from "../../services/data-services/rolling.service";
   templateUrl: './characteristic-roll.component.html',
   styleUrls: ['./characteristic-roll.component.scss']
 })
-export class CharacteristicRollComponent implements OnInit {
+export class CharacteristicRollComponent {
   @Input() characteristic: string;
   @Input() target: number;
   @Input() extraMod: number = 0;
   @Output() rolled = new EventEmitter<boolean>();
-  @Output() result = new EventEmitter<number>();
-  @Output() rawResult = new EventEmitter<{roll: number, modifier: number, passed: boolean}>();
+  @Output() rollResult = new EventEmitter<number>();
+  @Output() rawRollResult = new EventEmitter<{roll: number, modifier: number, passed: boolean}>();
 
   roll: number;
   hasError: boolean;
@@ -25,9 +25,6 @@ export class CharacteristicRollComponent implements OnInit {
   constructor(private _characterService: CharacterService,
               private _metadataService: CharacterMetadataService,
               private _rollingService: RollingService) {
-  }
-
-  ngOnInit(): void {
   }
 
   getModifier() {
@@ -61,13 +58,13 @@ export class CharacteristicRollComponent implements OnInit {
       let totalMod = this.getModifier() + this.extraMod;
 
       if (result >= this.target) {
-        this.rawResult.emit({roll: this.roll, modifier: totalMod, passed: true});
+        this.rawRollResult.emit({roll: this.roll, modifier: totalMod, passed: true});
         this.rolled.emit(true);
       } else {
-        this.rawResult.emit({roll: this.roll, modifier: totalMod, passed: false});
+        this.rawRollResult.emit({roll: this.roll, modifier: totalMod, passed: false});
         this.rolled.emit(false);
       }
-      this.result.emit(result);
+      this.rollResult.emit(result);
     } else {
       this.hasError = true;
       this.errorMessage = 'The roll must be between 2 and 12.';

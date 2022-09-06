@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {CharacterService} from "../../services/character.service";
 import {CharacterMetadataService} from "../../services/metadata-services/character-metadata.service";
 import {AlertType} from "../../controls/alert/alert.component";
@@ -8,7 +8,7 @@ import {AlertType} from "../../controls/alert/alert.component";
   templateUrl: './basic-info.component.html',
   styleUrls: ['./basic-info.component.scss']
 })
-export class BasicInfoComponent implements OnInit {
+export class BasicInfoComponent {
   name: string;
   species: string;
   homeworld: string;
@@ -17,9 +17,6 @@ export class BasicInfoComponent implements OnInit {
 
   constructor(private _characterService: CharacterService,
               private _metadataService: CharacterMetadataService) {
-  }
-
-  ngOnInit(): void {
   }
 
   submit() {

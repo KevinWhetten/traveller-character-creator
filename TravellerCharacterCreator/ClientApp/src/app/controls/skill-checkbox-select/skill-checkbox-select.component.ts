@@ -1,4 +1,4 @@
-﻿import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+﻿import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {SkillService} from "../../services/data-services/skill.service";
 import {AlertType} from "../alert/alert.component";
 
@@ -7,7 +7,7 @@ import {AlertType} from "../alert/alert.component";
   templateUrl: './skill-checkbox-select.component.html',
   styleUrls: ['./skill-checkbox-select.component.scss']
 })
-export class SkillCheckboxSelectComponent implements OnInit {
+export class SkillCheckboxSelectComponent {
   @Input() skillNum: number;
   @Input() availableSkillList: string[];
   @Output() choseSkills = new EventEmitter();
@@ -21,9 +21,6 @@ export class SkillCheckboxSelectComponent implements OnInit {
     for(let skill in this.availableSkillList){
       this.checked[skill] = false;
     }
-  }
-
-  ngOnInit(): void {
   }
 
   submit() {

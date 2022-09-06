@@ -3,7 +3,7 @@
 <form *ngIf="!prankJail && !prankEnemy && !prankRival">
   <app-characteristic-roll [characteristic]="'SOC'"
                            [target]="8"
-                           (rawResult)="prank($event)">
+                           (rawRollResult)="prank($event)">
   </app-characteristic-roll>
 </form>
 <form *ngIf="prankRival">

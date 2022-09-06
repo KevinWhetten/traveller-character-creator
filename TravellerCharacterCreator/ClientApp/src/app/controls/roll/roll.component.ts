@@ -14,7 +14,7 @@ export class RollComponent implements OnInit {
   @Input() numberOfDice: number = 2;
   @Input() numberOfRolls: number = 1;
   @Input() select: string = '';
-  @Output() result = new EventEmitter<number>();
+  @Output() rollResult = new EventEmitter<number>();
 
   hasError: boolean;
   errorMessage: string;
@@ -51,7 +51,7 @@ export class RollComponent implements OnInit {
     }
 
     if (this.numberOfDice <= roll && roll <= this.numberOfDice * 6) {
-      this.result.emit(roll);
+      this.rollResult.emit(roll);
     } else {
       this.hasError = true;
       this.errorMessage = `The roll must be between ${this.numberOfDice} and ${this.numberOfDice * 6}.`;

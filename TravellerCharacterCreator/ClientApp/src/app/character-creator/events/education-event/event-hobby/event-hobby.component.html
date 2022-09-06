@@ -3,6 +3,6 @@
 <app-skill-select [groups]="getBasicGroups()"
                   [groupNames]="['Basic Skills']"
                   [targetSkillLevel]="0"
-                  (onChange)="hobbySkill = $event">
+                  (skillChange)="hobbySkill = $event">
 </app-skill-select>
 <button class="primary" type="submit" (submit)="hobby()" (click)="hobby()">Submit</button>

@@ -1,19 +1,16 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-injury',
   templateUrl: './injury.component.html',
   styleUrls: ['./injury.component.css']
 })
-export class InjuryComponent implements OnInit {
+export class InjuryComponent {
   @Input() rolls: number = 1;
   @Input() injury: number = 0;
-  @Output() complete = new EventEmitter;
+  @Output() injure = new EventEmitter;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   getRange() {
     let range = [] as number[];
@@ -24,6 +21,6 @@ export class InjuryComponent implements OnInit {
   }
 
   proceed() {
-    this.complete.emit();
+    this.injure.emit();
   }
 }

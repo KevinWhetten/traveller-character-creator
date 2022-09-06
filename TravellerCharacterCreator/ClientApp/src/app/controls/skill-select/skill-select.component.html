@@ -1,9 +1,9 @@
 <div>
   <label for="{{label}}">{{label}}</label>
-  <select [(ngModel)]="selectedSkill" (change)="change()" id="{{label}}">
+  <select [(ngModel)]="selectedSkill" (change)="onSkillChange()" id="{{label}}">
     <optgroup *ngFor="let group of groupNames" [label]="group">
       <option *ngFor="let subskill of getAvailableSkills(groups[group])" [value]="subskill" matTooltip="{{getSkillDescription(subskill)}}">
-        {{subskill}} ({{characterSkills[subskill] != undefined ? characterSkills[subskill] : 'x'}})
+        {{subskill}} ({{characterSkills[subskill] !== undefined ? characterSkills[subskill] : 'x'}})
       </option>
     </optgroup>
   </select>

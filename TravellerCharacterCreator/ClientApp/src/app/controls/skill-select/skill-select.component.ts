@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {SkillService} from "../../services/data-services/skill.service";
 import {CharacterService} from "../../services/character.service";
 import {CharacterMetadataService} from "../../services/metadata-services/character-metadata.service";
@@ -8,12 +8,12 @@ import {CharacterMetadataService} from "../../services/metadata-services/charact
   templateUrl: './skill-select.component.html',
   styleUrls: ['./skill-select.component.scss']
 })
-export class SkillSelectComponent implements OnInit {
+export class SkillSelectComponent {
   @Input() groups: Record<string, string[]> = {};
   @Input() groupNames: string[] = [];
   @Input() label: string = 'Choose one';
   @Input() targetSkillLevel: number = 50;
-  @Output() onChange = new EventEmitter<string>();
+  @Output() skillChange = new EventEmitter<string>();
   selectedSkill: string;
   characterSkills = this._characterService.getSkills();
 
@@ -23,11 +23,8 @@ export class SkillSelectComponent implements OnInit {
               private readonly _skillService: SkillService) {
   }
 
-  ngOnInit(): void {
-  }
-
-  change() {
-    this.onChange.emit(this.selectedSkill);
+  onSkillChange() {
+    this.skillChange.emit(this.selectedSkill);
   }
 
   getSkillDescription(skill: string) {

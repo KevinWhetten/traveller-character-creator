@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 import {LoggingService} from "../../../../services/metadata-services/logging.service";
 
@@ -7,14 +7,11 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
   templateUrl: './agent-mission-event.component.html',
   styleUrls: ['./agent-mission-event.component.scss']
 })
-export class AgentMissionEventComponent implements OnInit {
+export class AgentMissionEventComponent {
   @Output() eventComplete = new EventEmitter;
 
   constructor(private _loggingService: LoggingService,
               private _metadataService: CharacterMetadataService) { }
-
-  ngOnInit(): void {
-  }
 
   proceed() {
     this._loggingService.addLog('I completed a mission for my superiors.');

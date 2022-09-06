@@ -1,4 +1,4 @@
-﻿import {Component, Input, OnInit} from '@angular/core';
+﻿import {Component, Input} from '@angular/core';
 import {Career} from "../../../../models/career";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 import {CharacterService} from "../../../../services/character.service";
@@ -9,15 +9,12 @@ import {RollingService} from "../../../../services/data-services/rolling.service
   templateUrl: './career-description.component.html',
   styleUrls: ['./career-description.component.scss']
 })
-export class CareerDescriptionComponent implements OnInit {
+export class CareerDescriptionComponent {
   @Input() career: Career;
 
   constructor(private _characterService: CharacterService,
               private _metadataService: CharacterMetadataService,
               private _rollingService: RollingService) {
-  }
-
-  ngOnInit(): void {
   }
 
   getQualificationBonus() {

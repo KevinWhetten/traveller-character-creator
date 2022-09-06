@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {SkillService} from "../../../../services/data-services/skill.service";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
@@ -9,7 +9,7 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
   templateUrl: './agent-senior-event.component.html',
   styleUrls: ['./agent-senior-event.component.css']
 })
-export class AgentSeniorEventComponent implements OnInit {
+export class AgentSeniorEventComponent {
   @Output() eventComplete = new EventEmitter;
   choice: string;
 
@@ -17,9 +17,6 @@ export class AgentSeniorEventComponent implements OnInit {
               private _loggingService: LoggingService,
               private _metadataService: CharacterMetadataService,
               private _skillService: SkillService) { }
-
-  ngOnInit(): void {
-  }
 
   submit() {
     this._loggingService.addLog('I was befriended by a senior agent.');

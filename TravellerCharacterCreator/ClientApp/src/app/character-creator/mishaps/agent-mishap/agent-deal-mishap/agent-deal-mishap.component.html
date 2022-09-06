@@ -18,7 +18,7 @@
   <app-severely-injured-mishap *ngIf="!injured" (mishapComplete)="injured = true"></app-severely-injured-mishap>
   <app-skill-select [groups]="getGroups()"
                     [groupNames]="getGroupNames()"
-                    (onChange)="changeSkill($event)"></app-skill-select>
+                    (skillChange)="changeSkill($event)"></app-skill-select>
   <button *ngIf="injured && selectedSkill" class="primary" (click)="reject()">Cool!</button>
 </div>
 
