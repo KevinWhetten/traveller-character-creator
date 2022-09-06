@@ -1,0 +1,1851 @@
+{
+  "spacecraft": [
+    {
+      "id": 1,
+      "name": "Far Trader",
+      "type": "A-2",
+      "description": "",
+      "tech-level": 12,
+      "crew": [
+        "Pilot",
+        "Astrogator",
+        "Engineer",
+        "Medic",
+        "Steward"
+      ],
+      "running-costs": {
+        "maintenance": 4353,
+        "purchase": 52240500
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 200
+      },
+      "armor": {
+        "rating": 2,
+        "type": "Crystaliron",
+        "tons": 5
+      },
+      "m-drive": {
+        "thrust": 1,
+        "power-requirement": 20,
+        "tons": 2
+      },
+      "j-drive": {
+        "jump": 2,
+        "power-requirement": 40,
+        "tons": 15
+      },
+      "power-plant": {
+        "type": "fusion",
+        "power": 75,
+        "tons": 5
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 1,
+        "tons": 41
+      },
+      "bridge": {
+        "tons": 10
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": [
+          "Manoeuvre/0",
+          "Jump Control/2",
+          "Library"
+        ]
+      },
+      "sensors": {
+        "grade": "Civilian",
+        "bonus": -2,
+        "power-requirement": 1,
+        "tons": 1
+      },
+      "weapons": {},
+      "systems": {
+        "power-requirement": 40,
+        "systems": [
+          {
+            "type": "Fuel Scoop",
+            "tons": 0
+          },
+          {
+            "type": "Fuel Processors (40 tons/day)",
+            "tons": 2
+          },
+          {
+            "type": "Cargo Crane",
+            "tons": 3
+          }
+        ]
+      },
+      "staterooms": {
+        "standard": 10,
+        "standard-tons": 40,
+        "low-berth": 6,
+        "low-berth-tons": 3
+      },
+      "common-areas": {
+        "tons": 9
+      },
+      "cargo": {
+        "tons": 64
+      },
+      "fuel-consumption": {
+        "jump-1": 20,
+        "jump-2": 40
+      }
+    },
+    {
+      "id": 2,
+      "name": "Free Trader",
+      "type": "A",
+      "description": "",
+      "tech-level": 12,
+      "crew": [
+        "Pilot",
+        "Astrogator",
+        "Engineer",
+        "Medic",
+        "Steward"
+      ],
+      "running-costs": {
+        "maintenance": 3778,
+        "purchase": 45342000
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 200
+      },
+      "armor": {
+        "rating": 2,
+        "type": "Crystaliron",
+        "tons": 5
+      },
+      "m-drive": {
+        "thrust": 1,
+        "power-requirement": 20,
+        "tons": 2
+      },
+      "j-drive": {
+        "jump": 1,
+        "power-requirement": 20,
+        "tons": 10
+      },
+      "power-plant": {
+        "type": "fusion",
+        "power": 60,
+        "tons": 4
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 1,
+        "tons": 21
+      },
+      "bridge": {
+        "tons": 10
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Civilian",
+        "bonus": -2,
+        "power-requirement": 1,
+        "tons": 1
+      },
+      "weapons": {},
+      "systems": {
+        "power-requirement": 40,
+        "systems": [
+          {
+            "type": "Fuel Scoop",
+            "tons": 0
+          },
+          {
+            "type": "Fuel Processors (20 tons/day)",
+            "tons": 1
+          },
+          {
+            "type": "Cargo Crane",
+            "tons": 3
+          }
+        ]
+      },
+      "staterooms": {
+        "standard": 10,
+        "standard-tons": 40,
+        "low-berth": 20,
+        "low-berth-tons": 10
+      },
+      "common-areas": {
+        "tons": 11
+      },
+      "cargo": {
+        "tons": 82
+      },
+      "fuel-consumption": {
+        "jump-1": 20
+      }
+    },
+    {
+      "id": 3,
+      "name": "Laboratory Ship",
+      "type": "L",
+      "description": "",
+      "tech-level": 12,
+      "crew": [
+        "Pilot",
+        "Astrogator",
+        "Engineer",
+        "Medic"
+      ],
+      "running-costs": {
+        "maintenance": 11325,
+        "purchase": 135901800
+      },
+      "hull": {
+        "type": "Standard",
+        "tons": 400
+      },
+      "armor": {
+        "rating": 0,
+        "type": "None",
+        "tons": 0
+      },
+      "m-drive": {
+        "thrust": 2,
+        "power-requirement": 80,
+        "tons": 8
+      },
+      "j-drive": {
+        "jump": 2,
+        "power-requirement": 80,
+        "tons": 25
+      },
+      "power-plant": {
+        "type": "fusion",
+        "power": 180,
+        "tons": 12
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 2,
+        "tons": 82
+      },
+      "bridge": {
+        "tons": 10
+      },
+      "computer": {
+        "bandwidth": 10,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Imporoved",
+        "bonus": 1,
+        "power-requirement": 4,
+        "tons": 3
+      },
+      "weapons": {},
+      "systems": {
+        "power-requirement": 80,
+        "systems": [
+          {
+            "type": "Probe Drones x15",
+            "tons": 3
+          },
+          {
+            "type": "Docking Space (40 tons)",
+            "tons": 44
+          },
+          {
+            "type": "Pinnace",
+            "tons": 0
+          },
+          {
+            "type": "Laboratories",
+            "tons": 100
+          },
+          {
+            "type": "Docking Space (4 tons)",
+            "tons": 5
+          },
+          {
+            "type": "Air/Raft",
+            "tons": 0
+          }
+        ]
+      },
+      "staterooms": {
+        "standard": 20,
+        "standard-tons": 80,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": {
+        "tons": 15
+      },
+      "cargo": {
+        "tons": 3
+      },
+      "fuel-consumption": {
+        "jump-1": 40,
+        "jump-2": 80
+      }
+    },
+    {
+      "id": 4,
+      "name": "Mercenary Cruiser",
+      "type": "C",
+      "description": "",
+      "tech-level": 12,
+      "crew": [
+        "Pilot",
+        "Astrogator",
+        "Engineer x3",
+        "Medic"
+      ],
+      "running-costs": {
+        "maintenance": 24974,
+        "purchase": 299694600
+      },
+      "hull": {
+        "type": "Sphere",
+        "tons": 800
+      },
+      "armor": {
+        "rating": 4,
+        "type": "Crystaliron",
+        "tons": 40
+      },
+      "m-drive": {
+        "thrust": 3,
+        "power-requirement": 240,
+        "tons": 24
+      },
+      "j-drive": {
+        "jump": 3,
+        "power-requirement": 240,
+        "tons": 65
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 750,
+        "tons": 50
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 3,
+        "other": "fuel for cutters",
+        "tons": 252
+      },
+      "bridge": {
+        "tons": 20
+      },
+      "computer": {
+        "bandwidth": 25,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Military",
+        "bonus": 0,
+        "power-requirement": 2,
+        "tons": 2
+      },
+      "weapons": {
+        "types": [
+          "Triple Turrets x8"
+        ],
+        "tons": 8
+      },
+      "systems": {
+        "power-requirement": 160,
+        "systems": [
+          {
+            "type": "Docking Space (4 tons)",
+            "tons": 5
+          },
+          {
+            "type": "Air-Raft",
+            "tons": 0
+          },
+          {
+            "type": "Docking Space (50 tons)",
+            "tons": 55
+          },
+          {
+            "type": "Modular Cutter",
+            "tons": 0
+          },
+          {
+            "type": "Docking Space (50 tons)",
+            "tons": 55
+          },
+          {
+            "type": "Modular Cutter",
+            "tons": 0
+          },
+          {
+            "type": "Repair Drones",
+            "tons": 8
+          }
+        ]
+      },
+      "staterooms": {
+        "standard": 25,
+        "standard-tons": 100,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": {
+        "tons": 44
+      },
+      "cargo": {
+        "tons": 72
+      },
+      "fuel-consumption": {
+        "jump-1": 80,
+        "jump-2": 160,
+        "jump-3": 240
+      }
+    },
+    {
+      "id": 5,
+      "name": "Patrol Corvette",
+      "type": "T",
+      "description": "",
+      "tech-level": 12,
+      "crew": [
+        "Pilot",
+        "Astrogator",
+        "Engineer x2",
+        "Medic",
+        "Gunner x4",
+        "Marine x8"
+      ],
+      "running-costs": {
+        "maintenance": 14534,
+        "purchase": 174412800
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 400
+      },
+      "armor": {
+        "rating": 4,
+        "type": "Crystaliron",
+        "tons": 20
+      },
+      "m-drive": {
+        "thrust": 4,
+        "power-requirement": 160,
+        "tons": 16
+      },
+      "j-drive": {
+        "jump": 3,
+        "power-requirement": 120,
+        "tons": 35
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 405,
+        "tons": 27
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 3,
+        "other": "plus Ship's Boat",
+        "tons": 124
+      },
+      "bridge": {
+        "tons": 20
+      },
+      "computer": {
+        "bandwidth": 15,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Military",
+        "bonus": 0,
+        "power-requirement": 2,
+        "tons": 2
+      },
+      "weapons": [
+        {
+          "type": "Triple Turrets x2 (Pulse Lasers)",
+          "tons": 2
+        },
+        {
+          "type": "Triple Turrets x2 (Missile Racks)",
+          "tons": 2
+        }
+      ],
+      "systems": {
+        "power-requirement": 80,
+        "systems": [
+          {
+            "type": "Docking Space (30 tons)",
+            "tons": 33
+          },
+          {
+            "type": "Ship's Boat",
+            "tons": 0
+          },
+          {
+            "type": "Docking Space (8 tons)",
+            "tons": 9
+          },
+          {
+            "type": "G/Carrier",
+            "tons": 0
+          },
+          {
+            "type": "Fuel Scoop",
+            "tons": 0
+          },
+          {
+            "type": "Fuel Processors (80 tons/day)",
+            "tons": 4
+          }
+        ]
+      },
+      "staterooms": {
+        "standard": 12,
+        "standard-tons": 48,
+        "low-berth": 4,
+        "low-berth-tons": 2
+      },
+      "common-areas": {
+        "tons": 10
+      },
+      "cargo": {
+        "tons": 46
+      },
+      "fuel-consumption": {
+        "jump-1": 40,
+        "jump-2": 80,
+        "jump-3": 120
+      }
+    },
+    {
+      "id": 6,
+      "name": "Safari Ship",
+      "type": "K",
+      "description": "",
+      "tech-level": 12,
+      "crew": [
+        "Pilot",
+        "Astrogator",
+        "Engineer",
+        "Medic",
+        "Steward"
+      ],
+      "running-costs": {
+        "maintenance": 5344,
+        "purchase": 64135800
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 200
+      },
+      "armor": {
+        "rating": 0,
+        "type": "None",
+        "tons": 0
+      },
+      "m-drive": {
+        "thrust": 1,
+        "power-requirement": 20,
+        "tons": 2
+      },
+      "j-drive": {
+        "jump": 2,
+        "power-requirement": 40,
+        "tons": 15
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 105,
+        "tons": 7
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 2,
+        "other": "plus Launch",
+        "tons": 49
+      },
+      "bridge": {
+        "tons": 10
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Civilian",
+        "bonus": -2,
+        "power-requirement": 1,
+        "tons": 1
+      },
+      "weapons": [
+        {
+          "type": "Double Turret",
+          "tons": 1
+        }
+      ],
+      "systems": {
+        "power-requirement": 40,
+        "systems": [
+          {
+            "type": "Docking Space (20 tons)",
+            "tons": 22
+          },
+          {
+            "type": "Launch",
+            "tons": 0
+          },
+          {
+            "type": "Docking Space (4 tons)",
+            "tons": 5
+          },
+          {
+            "type": "Air/Raft",
+            "tons": 0
+          },
+          {
+            "type": "Fuel Scoop",
+            "tons": 0
+          },
+          {
+            "type": "Fuel Processors (40 tons/day)",
+            "tons": 2
+          },
+          {
+            "type": "Multi-Environment Space x2",
+            "tons": 16
+          }
+        ]
+      },
+      "staterooms": {
+        "standard": 11,
+        "standard-tons": 44,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": [
+        {
+          "type": "General",
+          "tons": 13
+        },
+        {
+          "type": "Trophy Lounge",
+          "tons": 7
+        }
+      ],
+      "cargo": {
+        "tons": 6
+      },
+      "fuel-consumption": {
+        "jump-1": 20,
+        "jump-2": 40
+      }
+    },
+    {
+      "id": 7,
+      "name": "Scout/Courier",
+      "type": "S",
+      "description": "",
+      "tech-level": 12,
+      "crew": [
+        "Pilot",
+        "Astrogator",
+        "Engineer"
+      ],
+      "running-costs": {
+        "maintenance": 3064,
+        "purchase": 36769000
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 100
+      },
+      "armor": {
+        "rating": 4,
+        "type": "Crystaliron",
+        "tons": 5
+      },
+      "m-drive": {
+        "thrust": 2,
+        "power-requirement": 20,
+        "tons": 2
+      },
+      "j-drive": {
+        "jump": 2,
+        "power-requirement": 20,
+        "tons": 10
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 60,
+        "tons": 4
+      },
+      "fuel-tanks": {
+        "operation-weeks": 12,
+        "jump": 2,
+        "other": "",
+        "tons": 23
+      },
+      "bridge": {
+        "tons": 10
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Military",
+        "bonus": 0,
+        "power-requirement": 2,
+        "tons": 2
+      },
+      "weapons": [
+        {
+          "type": "Double Turret",
+          "tons": 1
+        }
+      ],
+      "systems": {
+        "power-requirement": 20,
+        "systems": [
+          {
+            "type": "Fuel Scoop",
+            "tons": 0
+          },
+          {
+            "type": "Fuel Processors (40 tons/day)",
+            "tons": 2
+          },
+          {
+            "type": "Probe Drones x10",
+            "tons": 2
+          },
+          {
+            "type": "Docking Space (4 tons)",
+            "tons": 5
+          },
+          {
+            "type": "Air-Raft",
+            "tons": 0
+          },
+          {
+            "type": "Workshop",
+            "tons": 6
+          }
+        ]
+      },
+      "staterooms": {
+        "standard": 4,
+        "standard-tons": 16,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": [],
+      "cargo": {
+        "tons": 12
+      },
+      "fuel-consumption": {
+        "jump-1": 10,
+        "jump-2": 20
+      }
+    },
+    {
+      "id": 8,
+      "name": "Seeker Mining Ship",
+      "type": "J",
+      "description": "",
+      "tech-level": 12,
+      "crew": [
+        "Pilot",
+        "Astrogator",
+        "Engineer"
+      ],
+      "running-costs": {
+        "maintenance": 2804,
+        "purchase": 33655000
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 100
+      },
+      "armor": {
+        "rating": 4,
+        "type": "Crystaliron",
+        "tons": 5
+      },
+      "m-drive": {
+        "thrust": 2,
+        "power-requirement": 20,
+        "tons": 2
+      },
+      "j-drive": {
+        "jump": 2,
+        "power-requirement": 20,
+        "tons": 10
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 60,
+        "tons": 4
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 2,
+        "other": "",
+        "tons": 21
+      },
+      "bridge": {
+        "tons": 10
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Military",
+        "bonus": 0,
+        "power-requirement": 2,
+        "tons": 2
+      },
+      "weapons": [
+        {
+          "type": "Double Turret",
+          "tons": 1
+        }
+      ],
+      "systems": {
+        "power-requirement": 20,
+        "systems": [
+          {
+            "type": "Fuel Scoop",
+            "tons": 0
+          },
+          {
+            "type": "Fuel Processors (20 tons/day)",
+            "tons": 1
+          },
+          {
+            "type": "Mining Drones x5",
+            "tons": 2
+          }
+        ]
+      },
+      "staterooms": {
+        "standard": 2,
+        "standard-tons": 8,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": [],
+      "cargo": {
+        "tons": 26
+      },
+      "fuel-consumption": {
+        "jump-1": 10,
+        "jump-2": 20
+      }
+    },
+    {
+      "id": 9,
+      "name": "Subsidised Liner",
+      "type": "M",
+      "description": "",
+      "tech-level": 12,
+      "crew": [
+        "Pilot",
+        "Astrogator",
+        "Engineer x2",
+        "Medic",
+        "Steward"
+      ],
+      "running-costs": {
+        "maintenance": 13413,
+        "purchase": 161523000
+      },
+      "hull": {
+        "type": "Standard",
+        "tons": 600
+      },
+      "armor": {
+        "rating": 0,
+        "type": "None",
+        "tons": 0
+      },
+      "m-drive": {
+        "thrust": 1,
+        "power-requirement": 60,
+        "tons": 6
+      },
+      "j-drive": {
+        "jump": 3,
+        "power-requirement": 180,
+        "tons": 50
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 360,
+        "tons": 24
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 3,
+        "other": "plus Launch",
+        "tons": 183
+      },
+      "bridge": {
+        "tons": 20
+      },
+      "computer": {
+        "bandwidth": 10,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Civilian",
+        "bonus": -2,
+        "power-requirement": 1,
+        "tons": 1
+      },
+      "weapons": [],
+      "systems": {
+        "power-requirement": 120,
+        "systems": [
+          {
+            "type": "Docking Space (20 tons)",
+            "tons": 22
+          },
+          {
+            "type": "Launch",
+            "tons": 0
+          }
+        ]
+      },
+      "staterooms": {
+        "standard": 30,
+        "standard-tons": 120,
+        "low-berth": 20,
+        "low-berth-tons": 10
+      },
+      "common-areas": [
+        {
+          "type": "General",
+          "tons": 45
+        }
+      ],
+      "cargo": {
+        "tons": 119
+      },
+      "fuel-consumption": {
+        "jump-1": 60,
+        "jump-2": 120,
+        "jump-3": 180
+      }
+    },
+    {
+      "id": 10,
+      "name": "Subsidised Merchant",
+      "type": "R",
+      "description": "",
+      "tech-level": 12,
+      "crew": [
+        "Pilot",
+        "Astrogator",
+        "Engineer",
+        "Medic",
+        "Steward"
+      ],
+      "running-costs": {
+        "maintenance": 6772,
+        "purchase": 81268300
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 400
+      },
+      "armor": {
+        "rating": 0,
+        "type": "None",
+        "tons": 0
+      },
+      "m-drive": {
+        "thrust": 1,
+        "power-requirement": 40,
+        "tons": 4
+      },
+      "j-drive": {
+        "jump": 1,
+        "power-requirement": 40,
+        "tons": 15
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 135,
+        "tons": 9
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 1,
+        "other": "plus Launch",
+        "tons": 43
+      },
+      "bridge": {
+        "tons": 20
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Civilian",
+        "bonus": -2,
+        "power-requirement": 1,
+        "tons": 1
+      },
+      "weapons": [],
+      "systems": {
+        "power-requirement": 80,
+        "systems": [
+          {
+            "type": "Fuel Scoop",
+            "tons": 0
+          },
+          {
+            "type": "Fuel Processors (20 tons/day)",
+            "tons": 1
+          },
+          {
+            "type": "Docking Space (20 tons)",
+            "tons": 22
+          },
+          {
+            "type": "Launch",
+            "tons": 0
+          }
+        ]
+      },
+      "staterooms": {
+        "standard": 19,
+        "standard-tons": 76,
+        "low-berth": 9,
+        "low-berth-tons": 4.5
+      },
+      "common-areas": [
+        {
+          "type": "General",
+          "tons": 5.5
+        }
+      ],
+      "cargo": {
+        "tons": 199
+      },
+      "fuel-consumption": {
+        "jump-1": 40
+      }
+    },
+    {
+      "id": 11,
+      "name": "Yacht",
+      "type": "Y",
+      "description": "",
+      "tech-level": 12,
+      "crew": [
+        "Pilot",
+        "Astrogator",
+        "Engineer",
+        "Medic",
+        "Steward"
+      ],
+      "running-costs": {
+        "maintenance": 5065,
+        "purchase": 60782400
+      },
+      "hull": {
+        "type": "Standard",
+        "tons": 200
+      },
+      "armor": {
+        "rating": 0,
+        "type": "None",
+        "tons": 0
+      },
+      "m-drive": {
+        "thrust": 1,
+        "power-requirement": 20,
+        "tons": 2
+      },
+      "j-drive": {
+        "jump": 1,
+        "power-requirement": 20,
+        "tons": 10
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 90,
+        "tons": 6
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 1,
+        "other": "plus Ship's Boat",
+        "tons": 22
+      },
+      "bridge": {
+        "tons": 10
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Civilian",
+        "bonus": -2,
+        "power-requirement": 1,
+        "tons": 1
+      },
+      "weapons": [],
+      "systems": {
+        "power-requirement": 40,
+        "systems": [
+          {
+            "type": "Docking Space (4 tons)",
+            "tons": 5
+          },
+          {
+            "type": "Air-Raft",
+            "tons": 0
+          },
+          {
+            "type": "Docking Space (30 tons)",
+            "tons": 33
+          },
+          {
+            "type": "Ship's Boat",
+            "tons": 0
+          },
+          {
+            "type": "ATV",
+            "tons": 10
+          }
+        ]
+      },
+      "staterooms": {
+        "luxury": 1,
+        "luxury-tons": 10,
+        "standard": 12,
+        "standard-tons": 48,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": [
+        {
+          "type": "General",
+          "tons": 32
+        }
+      ],
+      "cargo": {
+        "tons": 11
+      },
+      "fuel-consumption": {
+        "jump-1": 20
+      }
+    },
+    {
+      "id": 12,
+      "name": "Launch",
+      "type": "",
+      "description": "",
+      "tech-level": 9,
+      "crew": [
+        "Pilot"
+      ],
+      "running-costs": {
+        "maintenance": 421,
+        "purchase": 5607000
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 20
+      },
+      "armor": {
+        "rating": 0,
+        "type": "None",
+        "tons": 0
+      },
+      "m-drive": {
+        "thrust": 1,
+        "power-requirement": 2,
+        "tons": 2
+      },
+      "j-drive": {
+        "jump": 0,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 10,
+        "tons": 1
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 0,
+        "other": "",
+        "tons": 1
+      },
+      "bridge": {
+        "tons": 3
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Basic",
+        "bonus": -4,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "weapons": [],
+      "systems": {
+        "power-requirement": 4,
+        "systems": []
+      },
+      "staterooms": {
+        "luxury": 0,
+        "luxury-tons": 0,
+        "standard": 0,
+        "standard-tons": 0,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": [],
+      "cargo": {
+        "tons": 13
+      },
+      "fuel-consumption": {
+        "jump-1": 0
+      }
+    },
+    {
+      "id": 13,
+      "name": "Light Fighter",
+      "type": "",
+      "description": "",
+      "tech-level": 9,
+      "crew": [
+        "Pilot"
+      ],
+      "running-costs": {
+        "maintenance": 650,
+        "purchase": 7800000
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 10
+      },
+      "armor": {
+        "rating": 2,
+        "type": "Crystaliron",
+        "tons": 2.5
+      },
+      "m-drive": {
+        "thrust": 6,
+        "power-requirement": 6,
+        "tons": 2
+      },
+      "j-drive": {
+        "jump": 0,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 15,
+        "tons": 1
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 0,
+        "other": "",
+        "tons": 1
+      },
+      "bridge": {
+        "type": "Cockpit",
+        "tons": 1.5
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Military",
+        "bonus": 0,
+        "power-requirement": 2,
+        "tons": 2
+      },
+      "weapons": [
+        {
+          "type": "Fixed Mount (Pulse Laser)",
+          "tons": 0
+        }
+      ],
+      "systems": {
+        "power-requirement": 2,
+        "systems": []
+      },
+      "staterooms": {
+        "luxury": 0,
+        "luxury-tons": 0,
+        "standard": 0,
+        "standard-tons": 0,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": [],
+      "cargo": {
+        "tons": 13
+      },
+      "fuel-consumption": {
+        "jump-1": 0
+      }
+    },
+    {
+      "id": 14,
+      "name": "Modular Cutter",
+      "type": "",
+      "description": "",
+      "tech-level": 11,
+      "crew": [
+        "Pilot"
+      ],
+      "running-costs": {
+        "maintenance": 857,
+        "purchase": 10287000
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 50
+      },
+      "armor": {
+        "rating": 0,
+        "type": "None",
+        "tons": 0
+      },
+      "m-drive": {
+        "thrust": 4,
+        "power-requirement": 20,
+        "tons": 2
+      },
+      "j-drive": {
+        "jump": 0,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 30,
+        "tons": 3
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 0,
+        "other": "",
+        "tons": 1
+      },
+      "bridge": {
+        "type": "",
+        "tons": 3
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Basic",
+        "bonus": -4,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "weapons": [
+        {
+          "type": "Fixed Mount",
+          "tons": 0
+        }
+      ],
+      "systems": {
+        "power-requirement": 10,
+        "systems": [
+          {
+            "type": "Modular Hull",
+            "tons": 30
+          },
+          {
+            "type": "Cabin Space x4",
+            "tons": 9
+          }
+        ]
+      },
+      "staterooms": {
+        "luxury": 0,
+        "luxury-tons": 0,
+        "standard": 0,
+        "standard-tons": 0,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": [],
+      "cargo": {
+        "tons": 2
+      },
+      "fuel-consumption": {
+        "jump-1": 0
+      }
+    },
+    {
+      "id": 15,
+      "name": "Pinnace",
+      "type": "",
+      "description": "",
+      "tech-level": 9,
+      "crew": [
+        "Pilot"
+      ],
+      "running-costs": {
+        "maintenance": 728,
+        "purchase": 8732000
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 40
+      },
+      "armor": {
+        "rating": 0,
+        "type": "None",
+        "tons": 0
+      },
+      "m-drive": {
+        "thrust": 5,
+        "power-requirement": 20,
+        "tons": 2
+      },
+      "j-drive": {
+        "jump": 0,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 30,
+        "tons": 2
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 0,
+        "other": "",
+        "tons": 1
+      },
+      "bridge": {
+        "type": "",
+        "tons": 3
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Basic",
+        "bonus": -4,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "weapons": [
+        {
+          "type": "Fixed Mount",
+          "tons": 0
+        }
+      ],
+      "systems": {
+        "power-requirement": 8,
+        "systems": [
+          {
+            "type": "Cabin Space x6",
+            "tons": 9
+          }
+        ]
+      },
+      "staterooms": {
+        "luxury": 0,
+        "luxury-tons": 0,
+        "standard": 0,
+        "standard-tons": 0,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": [],
+      "cargo": {
+        "tons": 21
+      },
+      "fuel-consumption": {
+        "jump-1": 0
+      }
+    },
+    {
+      "id": 15,
+      "name": "Ship's Boat",
+      "type": "",
+      "description": "",
+      "tech-level": 13,
+      "crew": [
+        "Pilot"
+      ],
+      "running-costs": {
+        "maintenance": 683,
+        "purchase": 8192000
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 30
+      },
+      "armor": {
+        "rating": 0,
+        "type": "None",
+        "tons": 0
+      },
+      "m-drive": {
+        "thrust": 5,
+        "power-requirement": 15,
+        "tons": 2
+      },
+      "j-drive": {
+        "jump": 0,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 30,
+        "tons": 2
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 0,
+        "other": "",
+        "tons": 1
+      },
+      "bridge": {
+        "type": "",
+        "tons": 3
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Basic",
+        "bonus": -4,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "weapons": [
+        {
+          "type": "Fixed Mount",
+          "tons": 0
+        }
+      ],
+      "systems": {
+        "power-requirement": 6,
+        "systems": [
+          {
+            "type": "Cabin Space x6",
+            "tons": 9
+          }
+        ]
+      },
+      "staterooms": {
+        "luxury": 0,
+        "luxury-tons": 0,
+        "standard": 0,
+        "standard-tons": 0,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": [],
+      "cargo": {
+        "tons": 11
+      },
+      "fuel-consumption": {
+        "jump-1": 0
+      }
+    },
+    {
+      "id": 16,
+      "name": "Shuttle",
+      "type": "",
+      "description": "",
+      "tech-level": 10,
+      "crew": [
+        "Pilot"
+      ],
+      "running-costs": {
+        "maintenance": 1264,
+        "purchase": 15167000
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 95
+      },
+      "armor": {
+        "rating": 0,
+        "type": "None",
+        "tons": 0
+      },
+      "m-drive": {
+        "thrust": 3,
+        "power-requirement": 28.5,
+        "tons": 2.85
+      },
+      "j-drive": {
+        "jump": 0,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 60,
+        "tons": 4
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 0,
+        "other": "",
+        "tons": 1
+      },
+      "bridge": {
+        "type": "",
+        "tons": 6
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Basic",
+        "bonus": -4,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "weapons": [
+        {
+          "type": "Fixed Mount",
+          "tons": 0
+        }
+      ],
+      "systems": {
+        "power-requirement": 19,
+        "systems": [
+          {
+            "type": "Cabin Space x8",
+            "tons": 12
+          }
+        ]
+      },
+      "staterooms": {
+        "luxury": 0,
+        "luxury-tons": 0,
+        "standard": 0,
+        "standard-tons": 0,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": [],
+      "cargo": {
+        "tons": 67.15
+      },
+      "fuel-consumption": {
+        "jump-1": 0
+      }
+    },
+    {
+      "id": 17,
+      "name": "Slow Boat",
+      "type": "",
+      "description": "",
+      "tech-level": 10,
+      "crew": [
+        "Pilot"
+      ],
+      "running-costs": {
+        "maintenance": 568,
+        "purchase": 6822000
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 30
+      },
+      "armor": {
+        "rating": 0,
+        "type": "None",
+        "tons": 0
+      },
+      "m-drive": {
+        "thrust": 3,
+        "power-requirement": 9,
+        "tons": 2
+      },
+      "j-drive": {
+        "jump": 0,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 20,
+        "tons": 2
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 0,
+        "other": "",
+        "tons": 1
+      },
+      "bridge": {
+        "type": "",
+        "tons": 3
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Basic",
+        "bonus": -4,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "weapons": [
+        {
+          "type": "Fixed Mount",
+          "tons": 0
+        }
+      ],
+      "systems": {
+        "power-requirement": 6,
+        "systems": [
+          {
+            "type": "Cabin Space x2",
+            "tons": 3
+          }
+        ]
+      },
+      "staterooms": {
+        "luxury": 0,
+        "luxury-tons": 0,
+        "standard": 0,
+        "standard-tons": 0,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": [],
+      "cargo": {
+        "tons": 19
+      },
+      "fuel-consumption": {
+        "jump-1": 0
+      }
+    },
+    {
+      "id": 18,
+      "name": "Slow Pinnace",
+      "type": "",
+      "description": "",
+      "tech-level": 10,
+      "crew": [
+        "Pilot"
+      ],
+      "running-costs": {
+        "maintenance": 602,
+        "purchase": 7227000
+      },
+      "hull": {
+        "type": "Streamlined",
+        "tons": 40
+      },
+      "armor": {
+        "rating": 0,
+        "type": "None",
+        "tons": 0
+      },
+      "m-drive": {
+        "thrust": 3,
+        "power-requirement": 12,
+        "tons": 2
+      },
+      "j-drive": {
+        "jump": 0,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "power-plant": {
+        "type": "Fusion",
+        "power": 20,
+        "tons": 2
+      },
+      "fuel-tanks": {
+        "operation-weeks": 4,
+        "jump": 0,
+        "other": "",
+        "tons": 1
+      },
+      "bridge": {
+        "type": "",
+        "tons": 3
+      },
+      "computer": {
+        "bandwidth": 5,
+        "software": []
+      },
+      "sensors": {
+        "grade": "Basic",
+        "bonus": -4,
+        "power-requirement": 0,
+        "tons": 0
+      },
+      "weapons": [
+        {
+          "type": "Fixed Mount",
+          "tons": 0
+        }
+      ],
+      "systems": {
+        "power-requirement": 8,
+        "systems": []
+      },
+      "staterooms": {
+        "luxury": 0,
+        "luxury-tons": 0,
+        "standard": 0,
+        "standard-tons": 0,
+        "low-berth": 0,
+        "low-berth-tons": 0
+      },
+      "common-areas": [],
+      "cargo": {
+        "tons": 32
+      },
+      "fuel-consumption": {
+        "jump-1": 0
+      }
+    }
+  ]
+}

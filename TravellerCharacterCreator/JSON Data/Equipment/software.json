@@ -1,0 +1,188 @@
+{
+  "software": [
+    {
+      "id": 1,
+      "name": "Interface",
+      "bandwidth": 0,
+      "tech-level": 7,
+      "cost": 0,
+      "effect": "Displays data"
+    },
+    {
+      "id": 2,
+      "name": "Intelligent Interface",
+      "bandwidth": 1,
+      "tech-level": 11,
+      "cost": 100,
+      "effect": "Artificial intelligence allows voice control and displays data intelligently. Required for using Expert software."
+    },
+    {
+      "id": 3,
+      "name": "Security",
+      "bandwidth": 0,
+      "tech-level": 8,
+      "cost": 0,
+      "effect": "Security software packages defend against intrusion. Security/0 requires an Average (8+) Electronics (computers) check to successfully bypass."
+    },
+    {
+      "id": 4,
+      "name": "Security",
+      "bandwidth": 1,
+      "tech-level": 10,
+      "cost": 200,
+      "effect": "Security software packages defend against intrusion. Security/1 requires a Difficult (10+) Electronics (computers) check to successfully bypass."
+    },
+    {
+      "id": 5,
+      "name": "Security",
+      "bandwidth": 2,
+      "tech-level": 11,
+      "cost": 1000,
+      "effect": "Security software packages defend against intrusion. Security/2 requires a Hard (12+) Electronics (computers) check to successfully bypass."
+    },
+    {
+      "id": 6,
+      "name": "Security",
+      "bandwidth": 3,
+      "tech-level": 12,
+      "cost": 20000,
+      "effect": "Security software packages defend against intrusion. Security/3 requires a Formidable (14+) Electronics (computers) check to successfully bypass."
+    },
+    {
+      "id": 7,
+      "name": "Intrusion",
+      "bandwidth": 1,
+      "tech-level": 10,
+      "cost": 1000,
+      "effect": "Intrusion software packages aid hacking attempts, giving a +1 bonus. Intrusion software is often illegal."
+    },
+    {
+      "id": 8,
+      "name": "Intrusion",
+      "bandwidth": 2,
+      "tech-level": 11,
+      "cost": 10000,
+      "effect": "Intrusion software packages aid hacking attempts, giving a +2 bonus. Intrusion software is often illegal."
+    },
+    {
+      "id": 9,
+      "name": "Intrusion",
+      "bandwidth": 3,
+      "tech-level": 13,
+      "cost": 100000,
+      "effect": "Intrusion software packages aid hacking attempts, giving a +3 bonus. Intrusion software is often illegal."
+    },
+    {
+      "id": 10,
+      "name": "Intrusion",
+      "bandwidth": 4,
+      "tech-level": 15,
+      "cost": 1000000,
+      "effect": "Intrusion software packages aid hacking attempts, giving a +4 bonus. Intrusion software is often illegal."
+    },
+    {
+      "id": 11,
+      "name": "Expert",
+      "bandwidth": 1,
+      "tech-level": 11,
+      "cost": 1000,
+      "effect": "Expert software packages mimic skills. A Traveller using Expert may make a skill check as if he had the skill at level 1. Only INT and EDU-based checks can be attempted. If a Traveller already has the skill, then Expert grants DM+1 to his check."
+    },
+    {
+      "id": 12,
+      "name": "Expert",
+      "bandwidth": 2,
+      "tech-level": 12,
+      "cost": 10000,
+      "effect": "Expert software packages mimic skills. A Traveller using Expert may make a skill check as if he had the skill at level 2. Only INT and EDU-based checks can be attempted. If a Traveller already has the skill, then Expert grants DM+1 to his check."
+    },
+    {
+      "id": 13,
+      "name": "Expert",
+      "bandwidth": 3,
+      "tech-level": 13,
+      "cost": 100000,
+      "effect": "Expert software packages mimic skills. A Traveller using Expert may make a skill check as if he had the skill at level 3. Only INT and EDU-based checks can be attempted. If a Traveller already has the skill, then Expert grants DM+1 to his check."
+    },
+    {
+      "id": 14,
+      "name": "Translator",
+      "bandwidth": 0,
+      "tech-level": 9,
+      "cost": 50,
+      "effect": "Translators are specialised Expert packages that only have Language skills. Provides a near-real-time translation."
+    },
+    {
+      "id": 15,
+      "name": "Translator",
+      "bandwidth": 1,
+      "tech-level": 10,
+      "cost": 500,
+      "effect": "Translators are specialised Expert packages that only have Language skills. Provides a real-time translation and has a much better understanding of the nuances of language."
+    },
+    {
+      "id": 16,
+      "name": "Database",
+      "bandwidth": -1,
+      "tech-level": 7,
+      "cost": 10,
+      "effect": "A database is a large store of information on a topic that can be searched with an Electronics (computers) check or using an Agent."
+    },
+    {
+      "id": 17,
+      "name": "Agent",
+      "bandwidth": 0,
+      "tech-level": 11,
+      "cost": 500,
+      "effect": "Has an Electronics (computers) skill of 0, and can carry out tasks assigned to it with a modicum of intelligence. They are effectively specialized combinations of Expert Electronics (computers) and less capable Intellect software packages."
+    },
+    {
+      "id": 18,
+      "name": "Agent",
+      "bandwidth": 1,
+      "tech-level": 12,
+      "cost": 2000,
+      "effect": "Has an Electronics (computers) skill of 1, and can carry out tasks assigned to it with a modicum of intelligence. They are effectively specialized combinations of Expert Electronics (computers) and less capable Intellect software packages."
+    },
+    {
+      "id": 19,
+      "name": "Agent",
+      "bandwidth": 2,
+      "tech-level": 13,
+      "cost": 100000,
+      "effect": "Has an Electronics (computers) skill of 2, and can carry out tasks assigned to it with a modicum of intelligence. They are effectively specialized combinations of Expert Electronics (computers) and less capable Intellect software packages."
+    },
+    {
+      "id": 20,
+      "name": "Agent",
+      "bandwidth": 3,
+      "tech-level": 14,
+      "cost": 250000,
+      "effect": "Has an Electronics (computers) skill of 3, and can carry out tasks assigned to it with a modicum of intelligence. They are effectively specialized combinations of Expert Electronics (computers) and less capable Intellect software packages."
+    },
+    {
+      "id": 21,
+      "name": "Intellect",
+      "bandwidth": 1,
+      "tech-level": 12,
+      "cost": 2000,
+      "effect": "An improved Agent which can use Expert systems. Can simultaneously use 1 skill."
+    },
+    {
+      "id": 22,
+      "name": "Intellect",
+      "bandwidth": 2,
+      "tech-level": 13,
+      "cost": 50000,
+      "effect": "An improved Agent which can use Expert systems. Can simultaneously use 2 skills."
+    },
+    {
+      "id": 23,
+      "name": "Intellect",
+      "bandwidth": 3,
+      "tech-level": 14,
+      "cost": 200000,
+      "effect": "An improved Agent which can use Expert systems. Can simultaneously use 3 skills."
+    }
+  ]
+}

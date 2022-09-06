@@ -1,0 +1,85 @@
+{
+  "computers": [
+    {
+      "id": 1,
+      "name": "Computer Terminal",
+      "description": "",
+      "tech-level": 7,
+      "processing": 0,
+      "mass": 0,
+      "cost": 200
+    },
+    {
+      "id": 2,
+      "name": "Portable Computer",
+      "description": "",
+      "tech-level": 7,
+      "processing": 0,
+      "mass": 5,
+      "cost": 500
+    },
+    {
+      "id": 3,
+      "name": "Portable Computer",
+      "description": "",
+      "tech-level": 8,
+      "processing": 1,
+      "mass": 2,
+      "cost": 250
+    },
+    {
+      "id": 4,
+      "name": "Portable Computer",
+      "description": "",
+      "tech-level": 9,
+      "processing": 1,
+      "mass": 1,
+      "cost": 100
+    },
+    {
+      "id": 5,
+      "name": "Portable Computer",
+      "description": "",
+      "tech-level": 10,
+      "processing": 2,
+      "mass": 0.5,
+      "cost": 500
+    },
+    {
+      "id": 6,
+      "name": "Portable Computer",
+      "description": "",
+      "tech-level": 11,
+      "processing": 2,
+      "mass": 0.5,
+      "cost": 300
+    },
+    {
+      "id": 7,
+      "name": "Portable Computer",
+      "description": "",
+      "tech-level": 12,
+      "processing": 3,
+      "mass": 0.5,
+      "cost": 1000
+    },
+    {
+      "id": 8,
+      "name": "Portable Computer",
+      "description": "",
+      "tech-level": 13,
+      "processing": 4,
+      "mass": 0.5,
+      "cost": 1500
+    },
+    {
+      "id": 9,
+      "name": "Portable Computer",
+      "description": "",
+      "tech-level": 14,
+      "processing": 5,
+      "mass": 0.5,
+      "cost": 5000
+    }
+  ]
+}

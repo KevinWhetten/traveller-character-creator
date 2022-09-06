@@ -1,0 +1,235 @@
+{
+  "vehicles": [
+    {
+      "id": 1,
+      "name": "Air/Raft",
+      "tech-level": 8,
+      "skill": "Grav",
+      "agility": 1,
+      "speed": {
+        "regular": "High",
+        "cruise": "Medium"
+      },
+      "range": {
+        "regular": 1000,
+        "cruise": 1500
+      },
+      "crew": 1,
+      "passengers": 5,
+      "cargo": 0.25,
+      "hull": 16,
+      "shipping-tons": 14,
+      "cost": 250000,
+      "armor": {
+        "front": 2,
+        "sides": 2,
+        "rear": 2
+      },
+      "equipment-and-traits": [
+        "Autopilot (Flyer 1)",
+        "Communications (TL8)",
+        "Computer /1 (Database)",
+        "Entertainment System",
+        "Navigation (Basic)",
+        "Sensors (Basic)"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Armoured Fighting Vehicle (AFV)",
+      "tech-level": 12,
+      "skill": "Wheel",
+      "agility": -2,
+      "speed": {
+        "regular": "Medium",
+        "cruise": "Slow"
+      },
+      "range": {
+        "regular": 600,
+        "cruise": 900
+      },
+      "crew": 2,
+      "passengers": 8,
+      "cargo": 0.75,
+      "hull": 60,
+      "shipping-tons": 10,
+      "cost": 198000,
+      "armor": {
+        "front": 70,
+        "sides": 60,
+        "rear": 50
+      },
+      "equipment-and-traits": [
+        "ATV",
+        "Off-Roader",
+        "Turret (Light Autocannon",
+        "Communications (TL8)",
+        "Navigation (Improved)",
+        "Sensors (Improved)"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "All Terrain Vehicle (ATV)",
+      "tech-level": 12,
+      "skill": "Wheel",
+      "agility": -2,
+      "speed": {
+        "regular": "High",
+        "cruise": "Medium"
+      },
+      "range": {
+        "regular": 600,
+        "cruise": 900
+      },
+      "crew": 1,
+      "passengers": 7,
+      "cargo": 2.5,
+      "hull": 60,
+      "shipping-tons": 10,
+      "cost": 155000,
+      "armor": {
+        "front": 6,
+        "sides": 6,
+        "rear": 6
+      },
+      "equipment-and-traits": [
+        "ATV",
+        "Aquatic Drive",
+        "Communications (TL8)",
+        "Computer /1 (Database)",
+        "Navigation (Improved)",
+        "Sensors (Improved)",
+        "Short Term Life Support",
+        "Small Turret"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "G/Bike",
+      "tech-level": 12,
+      "skill": "Grav",
+      "agility": 3,
+      "speed": {
+        "regular": "Very Fast",
+        "cruise": "Fast"
+      },
+      "range": {
+        "regular": 3000,
+        "cruise": 4500
+      },
+      "crew": 1,
+      "passengers": 0,
+      "cargo": 0,
+      "hull": 2,
+      "shipping-tons": 0.5,
+      "cost": 46000,
+      "armor": {
+        "front": 4,
+        "sides": 4,
+        "rear": 4
+      },
+      "equipment-and-traits": [
+        "Open Vehicle",
+        "Communications (TL8)",
+        "Navigation (Improved)",
+        "Sensors (Improved)"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "G/Carrier",
+      "tech-level": 15,
+      "skill": "Grav",
+      "agility": -1,
+      "speed": {
+        "regular": "Fast",
+        "cruise": "High"
+      },
+      "range": {
+        "regular": 5000,
+        "cruise": 7500
+      },
+      "crew": 2,
+      "passengers": 8,
+      "cargo": 0.75,
+      "hull": 90,
+      "shipping-tons": 15,
+      "cost": 11580000,
+      "armor": {
+        "front": 120,
+        "sides": 100,
+        "rear": 80
+      },
+      "equipment-and-traits": [
+        "ATV",
+        "Autopilot (3)",
+        "Communications (TL15)",
+        "Computer /5 (Intellect/2, Security/3, Heavy Weaponry/2, Flyer/2, Intrusion/2, Database)",
+        "Navigation (Advanced)",
+        "Sensors (Advanced)",
+        "Turret (Fusion Gun)"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Grav Floater",
+      "tech-level": 11,
+      "skill": "Grav",
+      "agility": 2,
+      "speed": {
+        "regular": "Slow",
+        "cruise": "Very Slow"
+      },
+      "range": {
+        "regular": 3000,
+        "cruise": 4500
+      },
+      "crew": 1,
+      "passengers": 0,
+      "cargo": 0,
+      "hull": 2,
+      "shipping-tons": 0.5,
+      "cost": 24000,
+      "armor": {
+        "front": 3,
+        "sides": 3,
+        "rear": 3
+      },
+      "equipment-and-traits": [
+        "Open Vehicle",
+        "Communications (TL8)"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Ground Car",
+      "tech-level": 8,
+      "skill": "Wheel",
+      "agility": 0,
+      "speed": {
+        "regular": "Medium",
+        "cruise": "Slow"
+      },
+      "range": {
+        "regular": 400,
+        "cruise": 600
+      },
+      "crew": 1,
+      "passengers": 3,
+      "cargo": 0.5,
+      "hull": 12,
+      "shipping-tons": 3,
+      "cost": 6500,
+      "armor": {
+        "front": 2,
+        "sides": 2,
+        "rear": 2
+      },
+      "equipment-and-traits": [
+        "Entertainment System",
+        "Navigation (Basic)"
+      ]
+    }
+  ]
+}

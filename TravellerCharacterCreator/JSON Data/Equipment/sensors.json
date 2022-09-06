@@ -1,0 +1,92 @@
+{
+  "sensors": [
+    {
+      "id": 1,
+      "name": "Binoculars",
+      "description": "Allow the user to see further.",
+      "tech-level": 3,
+      "mass": 1,
+      "cost": 75
+    },
+    {
+      "id": 2,
+      "name": "Binoculars",
+      "description": "Allow the user to see further. Electronic enhancement allows images to be captured; light-intensification allows them to be used in the dark.",
+      "tech-level": 8,
+      "mass": 1,
+      "cost": 750
+    },
+    {
+      "id": 3,
+      "name": "Binoculars",
+      "description": "Allow the user to see further. PRIS (Portable Radiation Imaging System) allows the user to observe a large section of the EM-spectrum, from infrared to gamma rays.",
+      "tech-level": 12,
+      "mass": 1,
+      "cost": 3500
+    },
+    {
+      "id": 4,
+      "name": "Bioscanner",
+      "description": "The bioscanner 'sniffs' for organic molecules and tests chemical samples, analysing the make-up of whatever it is focussed on. It can be used to detect poisons or bacteria, analyze organic matter, search for life signs, and classify unfamiliar organisms.",
+      "tech-level": 15,
+      "mass": 3.5,
+      "cost": 350000
+    },
+    {
+      "id": 5,
+      "name": "Densitometer",
+      "description": "The remote densitometer uses an object's natural gravity to measure its density, building up a three-dimensional image of the inside and outside of an object.",
+      "tech-level": 14,
+      "mass": 5,
+      "cost": 20000
+    },
+    {
+      "id": 6,
+      "name": "EM Probe",
+      "description": "This handy device detects the electromagnetic emissions of technological devices, and can be used as a diagnostic tool when examining equipment or when searching for hidden bugs or devices.",
+      "tech-level": 10,
+      "mass": 1,
+      "cost": 1000
+    },
+    {
+      "id": 7,
+      "name": "Geiger Counter",
+      "description": "Detects radiation.",
+      "tech-level": 5,
+      "mass": 2,
+      "cost": 250
+    },
+    {
+      "id": 8,
+      "name": "IR Goggles",
+      "description": "Permits the user to see exothermic (heat-emitting) sources in the dark.",
+      "tech-level": 6,
+      "mass": 0,
+      "cost": 500
+    },
+    {
+      "id": 9,
+      "name": "Light Intensifier Goggles",
+      "description": "Permits the users to see normally in anything less than total darkness by electronically intensifying any available light.",
+      "tech-level": 7,
+      "mass": 1,
+      "cost": 500
+    },
+    {
+      "id": 10,
+      "name": "Light Intensifier Goggles",
+      "description": "Permits the users to see normally in anything less than total darkness by electronically intensifying any available light. Combines with IR goggles into a single unit.",
+      "tech-level": 9,
+      "mass": 0,
+      "cost": 1250
+    },
+    {
+      "id": 11,
+      "name": "NAS",
+      "description": "This device consists of a backpack and detachable handheld unit, and can detect neural activity up to 500 meters away. The device can also give a rough estimation of the intelligence level of organisms based on brainwave patterns.",
+      "tech-level": 15,
+      "mass": 10,
+      "cost": 35000
+    }
+  ]
+}

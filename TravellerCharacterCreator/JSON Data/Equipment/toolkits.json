@@ -1,0 +1,52 @@
+{
+  "toolkits": [
+    {
+      "id": 1,
+      "name": "Electronics",
+      "description": "Required for performing repairs and installing new equipment.",
+      "tech-level": 7,
+      "mass": 2,
+      "cost": 2000
+    },
+    {
+      "id": 2,
+      "name": "Engineering",
+      "description": "Required for performing repairs and installing new equipment.",
+      "tech-level": 12,
+      "mass": 12,
+      "cost": 4000
+    },
+    {
+      "id": 3,
+      "name": "Forensics",
+      "description": "Required for investigating crime scenes and testing samples.",
+      "tech-level": 8,
+      "mass": 12,
+      "cost": 2000
+    },
+    {
+      "id": 4,
+      "name": "Mechanical",
+      "description": "Required for repairs and construction.",
+      "tech-level": 5,
+      "mass": 12,
+      "cost": 1000
+    },
+    {
+      "id": 5,
+      "name": "Scientific",
+      "description": "Required for scientific testing and analysis.",
+      "tech-level": 5,
+      "mass": 8,
+      "cost": 2000
+    },
+    {
+      "id": 6,
+      "name": "Surveying",
+      "description": "Required for planetary surveys or mapping.",
+      "tech-level": 6,
+      "mass": 12,
+      "cost": 1000
+    }
+  ]
+}
