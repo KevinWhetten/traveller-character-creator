@@ -1,0 +1,124 @@
+{
+  "survival-supplies": [
+    {
+      "id": 1,
+      "name": "Artificial Gill",
+      "description": "Extracts oxygen from water allowing the wearer to breathe underwater. Only works on worlds with breathable atmospheres (types 4-9)",
+      "tech-level": 8,
+      "mass": 4,
+      "cost": 4000
+    },
+    {
+      "id": 2,
+      "name": "Environment Suit",
+      "description": "Designed to protect the wearer from extreme cold or heat, the environment suit has a hood, gloves, and boots, but leaves the face exposed in normal operations. A mask or rebreather can be attached, but truly hostile situations call for the heavy-duty hostile environment vacc suit.",
+      "tech-level": 8,
+      "mass": 1,
+      "cost": 500
+    },
+    {
+      "id": 3,
+      "name": "Grav Belt",
+      "description": "A harness worn across the body, the grav belt is equipped with artificial gravity modules, allowing the Traveller to fly. The internal battery can be operated for a maximum of four hours before recharging. The grav belt allows the wearer to fly at Medium speed.",
+      "tech-level": 12,
+      "mass": 6,
+      "cost": 100000
+    },
+    {
+      "id": 4,
+      "name": "Grav Belt",
+      "description": "A harness worn across the body, the grav belt is equipped with artificial gravity modules, allowing the Traveller to fly. The internal battery can be operated for a maximum of 12 hours before recharging. The grav belt allows the wearer to fly at Medium speed.",
+      "tech-level": 15,
+      "mass": 6,
+      "cost": 100000
+    },
+    {
+      "id": 5,
+      "name": "Habitat Module",
+      "description": "A modular unpressurized quarters for six people, capable of withstanding anything less than hurricane-force winds. Includes survival rations & battery power. Requires 12 man-hours to assemble, and can be attached to other modules to form a base.",
+      "tech-level": 8,
+      "mass": 1000,
+      "cost": 10000
+    },
+    {
+      "id": 6,
+      "name": "Habitat Module",
+      "description": "A modular pressurized quarters for six people, capable of withstanding anything less than hurricane-force winds. Includes survival rations & battery power. Includes life-support for six occupants for one week (1000 person/hours). Requires 12 man-hours to assemble, and can be attached to other modules to form a base.",
+      "tech-level": 10,
+      "mass": 500,
+      "cost": 20000
+    },
+    {
+      "id": 7,
+      "name": "Filter Mask",
+      "description": "Filters are breathing masks that strip out harmful elements from the air inhaled by the character, such as dangerous gases or dust particles.",
+      "tech-level": 7,
+      "mass": 0,
+      "cost": 100
+    },
+    {
+      "id": 8,
+      "name": "Breather Mask",
+      "description": "Combines the filter and respirator into a single package.",
+      "tech-level": 8,
+      "mass": 0,
+      "cost": 150
+    },
+    {
+      "id": 9,
+      "name": "Breather Mask",
+      "description": "Combines the filter and respirator into a single package. Small enough to fit into the nose, or can even be a lung implant.",
+      "tech-level": 10,
+      "mass": 0,
+      "cost": 2000
+    },
+    {
+      "id": 10,
+      "name": "Portable Fusion Generator",
+      "description": "This is a light-duty portable fusion generator, capable of recharging weapons and other equipment for up to one month of use.",
+      "tech-level": 10,
+      "mass": 20,
+      "cost": 500000
+    },
+    {
+      "id": 11,
+      "name": "Rescue Bubble",
+      "description": "A large (2 meter diameter) plastic bubble. Piezoelectric layers in the bubble wall translate the user's movements into electricity to recharge the bubble's batteries and power its distress beacon, and a small oxygen tank both inflates the bubble and provides two person/hours of life support. A self-repairing plastic seal serves as an emergency airlock. Rescue bubbles are found on both space and sea vessels as emergency lifeboats.",
+      "tech-level": 9,
+      "mass": 2,
+      "cost": 600
+    },
+    {
+      "id": 12,
+      "name": "Respirator",
+      "description": "This rebreather concentrates inhaled oxygen, allowing a Traveller to breathe on worlds with a thin atmosphere. It takes the form of a face mask or mouthpiece.",
+      "tech-level": 6,
+      "mass": 0,
+      "cost": 100
+    },
+    {
+      "id": 13,
+      "name": "Respirator",
+      "description": "This rebreather concentrates inhaled oxygen, allowing a Traveller to breathe on worlds with a thin atmosphere. It is small enough to fit into the nose, or can even be a lung implant.",
+      "tech-level": 10,
+      "mass": 0,
+      "cost": 2000
+    },
+    {
+      "id": 14,
+      "name": "Tent",
+      "description": "A basic tent that provides shelter for two people against the weather.",
+      "tech-level": 3,
+      "mass": 6,
+      "cost": 200
+    },
+    {
+      "id": 15,
+      "name": "Tent",
+      "description": "A basic tent that provides shelter for two people against the weather. Can be pressurized. There is no airlock - the tent is depressurized when opened.",
+      "tech-level": 7,
+      "mass": 5,
+      "cost": 2000
+    }
+  ]
+}
