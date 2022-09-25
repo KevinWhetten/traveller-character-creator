@@ -1,0 +1,76 @@
+{
+  "structures": [
+    {
+      "id": 5,
+      "name": "Advanced Base",
+      "description": "A modular, pressurized shelter capable of withstanding anything less than hurricane force winds. The shelter offers excellent protection from precipitation and all but the most extreme of temperature conditions. The base consists of a small power unit equivalent to the fusion still and a main cabin to house it plus associated support equipment - water tanks, food storage, and freshers. This central unit supports up to four cabin modules which connect to it in a variety of ways. All modules are 6m long by 4m wide by 3m high and can be placed end to end, side to side, or even stacked, though this can result in stability problems.<br>The advanced base comes with the main (powered) cabin unit plus four additional unpowered modules. An additional 'blank' unpowered module costs Cr5000 separately. Basic equipment such as seats, work surfaces, and shelves are included in the price, if desired, but instruments and computers must be purchased separately. An additional 'blank' powered unit, containing only a power plant able to support four other modules, costs Cr15000. The blank powered unit can be configured like any other module.<br>Some purchasers pay an additional Cr5000 for the 'foam dome' option. This is a framework over which a light covering is stretched and then sprayed with a fast-setting foam similar to that used in personal re-entry kits. The foam dome hardens in moments and provides improved protection against micrometeorites and inclement weather.<br>Dismantled and ready for shipment, the advanced base displaces 6 ship tons with each additional cabin taking up 0.5 tons of cargo space.",
+      "special": "The main power/galley/storage area takes about 16 man-hours to set up. It powers the other modules and handles recycling of water and similar tasks for them. Additional modules beyond the basic four can be added, but extra units can strain the fusion plant. However, empty modules used for storage need not be heated, lit, nor use water most of the time, so the extra load is only significant if power is needed.<br>The un-powered modules are the same size as the main unit and take about 4 man-hours each to assemble. A set of accommodation furnishings is fitted, though these can be removed. The usual set up is for three modules each to house two people and the fourth used as a common area, with freshers and other facilities shared by all personnel. The base is easily able to support six residents, though there is little room for work. If more than living quarters are required, then additional modules must be purchased.",
+      "tech-level": 8,
+      "mass": 0,
+      "cost": 75000
+    },
+    {
+      "id": 5,
+      "name": "Habitat Module",
+      "description": "A modular unpressurized quarters for six people, capable of withstanding anything less than hurricane-force winds. Includes survival rations & battery power. Requires 12 man-hours to assemble, and can be attached to other modules to form a base.",
+      "special": "Allows up to 6 Travellers have a shelter and rations for up to one week.",
+      "tech-level": 8,
+      "mass": 1000,
+      "cost": 10000
+    },
+    {
+      "id": 6,
+      "name": "Habitat Module",
+      "description": "A modular pressurized quarters for six people, capable of withstanding anything less than hurricane-force winds. Includes survival rations & battery power. Includes life-support for six occupants for one week (1000 person/hours). Requires 12 man-hours to assemble, and can be attached to other modules to form a base.",
+      "special": "Allows up to 6 Travellers have a pressured shelter, rations, and life-support for up to one week.",
+      "tech-level": 10,
+      "mass": 500,
+      "cost": 20000
+    },
+    {
+      "id": 1,
+      "name": "Pre-Fabricated Cabin",
+      "description": "A basic 6m x 4m x 3m hut with windows and a door but with no heating, lighting, or sanitary facilities fitted. A 'heat and light' pack is normally purchased with the cabin, costing Cr1000 and slots into ready holders but requires an external power source. There is no plumbing. The prefab cabin is often used as an adjunct to an Advanced Base as a work unit or additional storage space, but can be used as living quarters for up to four people. Dismantled and ready for shipment, the cabin displaces 1 ton of cargo space.",
+      "special": "Capable of withstanding light to severe winds, offering shelter from precipitation, storms, and temperatures down to -10 degrees C. It requires 8 man-hours to erect or dismantle.",
+      "tech-level": 6,
+      "mass": 400,
+      "cost": 2000
+    },
+    {
+      "id": 14,
+      "name": "Tent",
+      "description": "A basic tent that provides shelter for two people against the weather.",
+      "effect" : "Provides shelter for two people against the weather.",
+      "tech-level": 3,
+      "mass": 6,
+      "cost": 200
+    },
+    {
+      "id": 15,
+      "name": "Tent",
+      "description": "A basic tent that provides shelter for two people against the weather. Can be pressurized. There is no airlock - the tent is depressurized when opened.",
+      "effect" : "Provides pressurized shelter for two people against the weather.",
+      "tech-level": 7,
+      "mass": 5,
+      "cost": 2000
+    },
+    {
+      "id": 15,
+      "name": "Tent-Barracks",
+      "description": "A large tent providing shelter for eight people against the weather and environment. The pole structure requires 1D man-hours to set up properly.",
+      "effect" : "Provides shelter for eight people against the weather.",
+      "tech-level": 8,
+      "mass": 10,
+      "cost": 500
+    },
+    {
+      "id": 15,
+      "name": "Tent-Barracks",
+      "description": "A large tent providing shelter for eight people against the weather and environment. The pole structure requires 1D man-hours to set up properly. Can be effectively pressurised by using a chemical seal from the inside. There is no airlock - the tent depressurizes when it is opened.",
+      "effect" : "Provides pressurized shelter for eight people against the weather.",
+      "tech-level": 10,
+      "mass": 10,
+      "cost": 5000
+    }
+  ]
+}

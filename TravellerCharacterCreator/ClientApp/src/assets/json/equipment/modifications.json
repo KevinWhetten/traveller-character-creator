@@ -1,0 +1,821 @@
+{
+  "modifications": [
+    {
+      "id": 0,
+      "name": "Active Camouflage",
+      "type": "battle-dress",
+      "description": "This is a highly advanced form of camouflage that uses quantum waveguides to bend light around battle dress, resulting in near-invisibility.",
+      "special": "Grants DM+4 to Stealth checks.",
+      "tech-level": 15,
+      "slots": 1,
+      "cost": 200000
+    },
+    {
+      "id": 0,
+      "name": "Additional Padding",
+      "type": "armor",
+      "description": "By layering furs, cotton, and hides onto existing armor, movement is somewhat hindered but better protection from physical attacks is gained.",
+      "special": "A Traveller wearing additional padding suffers DM-1 to all checks involving DEX, but adds +1 to their armor's Protection.",
+      "tech-level": 1,
+      "mass": 5,
+      "cost": 50
+    },
+    {
+      "id": 0,
+      "name": "Advanced Life Support",
+      "type": "battle-dress",
+      "description": "Advanced battle dress can be adapted to provide complete life support, including food water, waste collection and recycling.",
+      "special": "Provides life-support for up to 72 hours.",
+      "tech-level": 13,
+      "slots": 2,
+      "cost": 20000
+    },
+    {
+      "id": 0,
+      "name": "Advanced Technology",
+      "type": "battle-dress",
+      "description": "Superior versions of battle dress exist, incorporating the very latest technologies, but are very expensive despite their benefits.",
+      "special": "Adds +10% to battle dress Protection, Rads, and Slots (rounding up). For psi-commando battle dress, this is available at TL16.",
+      "tech-level": 15,
+      "slots": 0,
+      "cost": 0
+    },
+    {
+      "id": 0,
+      "name": "Anti-Missile System",
+      "type": "battle-dress",
+      "description": "This automated system is capable of tracking incoming missiles and grenades, then destroy them in mid-flight before they can reach the Traveller. This is typically done with very rapid-firing lasers.",
+      "special": "Anti-missile systems will automatically destroy an incoming missile or grenade on a 2D roll of 8+, with a DM appropriate to their type as shown on the Anti-Missile Systems table. DM-1 is applied to every additional incoming attack made in the same round.",
+      "tech-level": 13,
+      "slots": 3,
+      "cost": 75000,
+      "traits": [
+        "Auto 3"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Anti-Missile System",
+      "type": "battle-dress",
+      "description": "This automated system is capable of tracking any incoming projectile, including shells and bullets, then destroy them in mid-flight before they can reach the Traveller. This is typically done with very rapid-firing lasers.",
+      "special": "Anti-missile systems will automatically destroy an incoming projectile on a 2D roll of 8+, with a DM appropriate to their type as shown on the Anti-Missile Systems table. DM-1 is applied to every additional incoming attack made in the same round.",
+      "tech-level": 15,
+      "slots": 2,
+      "cost": 125000,
+      "traits": [
+        "Auto 4"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Armored",
+      "type": "structure",
+      "description": "Survival structures (tents, habitats, and so on) can by layered with the armored option. This triples the weight of the structure.",
+      "special": "Grants Protection 5 to those inside from attacks originating outside of the structure (and vice versa).",
+      "tech-level": 9,
+      "mass": 0,
+      "cost": 2500
+    },
+    {
+      "id": 0,
+      "name": "Camouflage",
+      "type": "armor",
+      "description": "Using natural or artificial material to break up distinctive outlines of a person or equipment, camouflage makes it more difficult to detect enemy personnel or vehicles.",
+      "special": "Camouflage suitable to its environment grants DM+2 to all Stealth checks made against visual searches. However, it can be defeated by infrared and other detection systems operating beyond the visual spectrum.",
+      "tech-level": 3,
+      "mass": 0,
+      "cost": 25
+    },
+    {
+      "id": 0,
+      "name": "Camouflage",
+      "type": "battle-dress",
+      "description": "A disruptive pattern painted across the surface of battle dress will allow a Traveller to blend into his environment. This type of environment must be specified when the camouflage is applied to the battle dress and will provide no effect in other environments.",
+      "special": "Camouflaged battle dress gains DM+2 to Stealth checks made in the selected environment.",
+      "tech-level": 4,
+      "slots": 0,
+      "cost": 500
+    },
+    {
+      "id": 0,
+      "name": "Camouflage",
+      "type": "battle-dress",
+      "description": "A disruptive pattern painted across the surface of battle dress will allow a Traveller to blend into his environment. This type of environment must be specified when the camouflage is applied to the battle dress and will provide no effect in other environments.",
+      "special": "Camouflaged battle dress gains DM+2 to Stealth checks made in the selected environment, which can also be applied to infrared means of detection.",
+      "tech-level": 7,
+      "slots": 0,
+      "cost": 2000
+    },
+    {
+      "id": 0,
+      "name": "Camouflage",
+      "type": "battle-dress",
+      "description": "A disruptive pattern painted across the surface of battle dress will allow a Traveller to blend into his environment. The camouflage is multi-chromatic, allowing it to change colors to suit different environments.",
+      "special": "Camouflaged battle dress gains DM+2 to Stealth checks, which can also be applied to infrared means of detection.",
+      "tech-level": 12,
+      "slots": 0,
+      "cost": 5000
+    },
+    {
+      "id": 0,
+      "name": "Chameleon, IR",
+      "type": "armor",
+      "description": "IR chameleon technology can be added to any full-body armor. It selectively bleeds heat to match background infrared levels and effectively renders the Traveller invisible to infrared detection.",
+      "special": "DM+4 to Stealth checks made against sensors.",
+      "tech-level": 12,
+      "mass": 0,
+      "cost": 5000
+    },
+    {
+      "id": 0,
+      "name": "Chameleon, Vislight",
+      "type": "armor",
+      "description": "A more advanced form of IR chameleon, vislight chameleon lines the surface of the armor with light-bending technology, making the Traveller nearly invisible to the naked eye.",
+      "special": "DM+4 to Stealth checks.",
+      "tech-level": 13,
+      "mass": 0,
+      "cost": 50000
+    },
+    {
+      "id": 0,
+      "name": "Chameleon Fibers",
+      "type": "structure",
+      "description": "The chameleon fibers option can be given to tents, habitat modules, and other basic structures. Includes IR camouflage technology, making everyone inside nearly invisible to sensors.",
+      "special": "Gives the benefits of advanced camouflage. Requires Difficult (10+) Electronics (sensors) checks to detect.",
+      "tech-level": 12,
+      "mass": 0,
+      "cost": 8000
+    },
+    {
+      "id": 0,
+      "name": "Chameleon Fibers",
+      "type": "structure",
+      "description": "The chameleon fibers option can be given to tents, habitat modules, and other basic structures. Includes IR and Visilight camouflage technologies, making everyone inside nearly invisible to sensors and the naked eye.",
+      "special": "Gives the benefits of advanced camouflage. Requires Difficult (10+) checks to detect, regardless of the method.",
+      "tech-level": 13,
+      "mass": 0,
+      "cost": 60000
+    },
+    {
+      "id": 0,
+      "name": "Comms",
+      "type": "computer",
+      "description": "Any computer of TX8 or more can act as a comm unit or transceiver if this is specified at purchase.",
+      "tech-level": 8,
+      "mass": 0,
+      "cost": 0
+    },
+    {
+      "id": 0,
+      "name": "Computer Weave",
+      "type": "armor",
+      "description": "Computer weave can be added to any armor that does not already have a computer system.",
+      "special": "Adds Computer/0 to the armor.",
+      "tech-level": 10,
+      "mass": 0,
+      "cost": 500
+    },
+    {
+      "id": 0,
+      "name": "Computer Weave (Improved)",
+      "type": "armor",
+      "description": "Computer weave can be added to any armor that does not already have a computer system.",
+      "special": "Adds Computer/1 to the armor.",
+      "tech-level": 11,
+      "mass": 0,
+      "cost": 1000
+    },
+    {
+      "id": 0,
+      "name": "Computer Weave (Advanced)",
+      "type": "armor",
+      "description": "Computer weave can be added to any armor that does not already have a computer system.",
+      "special": "Adds Computer/2 to the armor.",
+      "tech-level": 13,
+      "mass": 0,
+      "cost": 5000
+    },
+    {
+      "id": 0,
+      "name": "Coolant Rig",
+      "type": "armor",
+      "description": "Wearing heavy armor in a hot environment makes things extremely uncomfortable for the Traveller. This web of tubing filled with a chemical coolant makes a hot day on a volcanic planet or desert stroll into something far more comfortable and tolerable.",
+      "special": "Armor fitted with a coolant rig allows the Traveller to comfortably endure temperatures of up to 50 degrees without suffering damage.",
+      "tech-level": 8,
+      "mass": 2,
+      "cost": 100
+    },
+    {
+      "id": 0,
+      "name": "Data Display/Recorder",
+      "type": "computer",
+      "description": "This headpiece provides a continuous heads-up display for the user, allowing him to view computer data from any linked system. DD/R headsets are commonly used by starship crews, to access information without changing their primary console displays. DD/Rs can display data from any system, not just computers - they can display vacc suit oxygen reserves, grav belt status, neural activity scanner results, and so forth.",
+      "tech-level": 13,
+      "mass": 0,
+      "cost": 5000
+    },
+    {
+      "id": 0,
+      "name": "Data Wafer",
+      "type": "computer",
+      "description": "The standard medium of information storage is the data wafer, a rectangle of hardened plastic about the size of a credit card. The interface for a dta wafer is standardized, but the internal workings vary. A TL10 data wafer is memory diamond, with information encoded in structures of carbon atoms; more advanced wafers use more exotic means of data storage.",
+      "tech-level": 10,
+      "mass": 0,
+      "cost": 5
+    },
+    {
+      "id": 0,
+      "name": "Detachable",
+      "type": "augment",
+      "description": "Only available to external cybernetic augments (such as limbs and eyes), this option allows the Traveller to disconnect the augment using a specialized socket. This can be done for storage, disguises, or to allow multiple augments to fit into the same socket. The disconnection process requires a Significant Action, as does reconnection. While disconnected, the augment is nothing more than another piece of equipment and has no connection to the Traveller at all.",
+      "special": "Allows the augment to be removed.",
+      "tech-level": 9,
+      "cost": "Cr5000, +25% of augment."
+    },
+    {
+      "id": 0,
+      "name": "Enhanced Mobility",
+      "type": "battle-dress",
+      "description": "By fitting more faster-acting servos and more responsive control systems, the Traveller inside battle dress can find his effective dexterity boosted beyond human limits.",
+      "special": "DEX +3",
+      "tech-level": 14,
+      "slots": 1,
+      "cost": 35000
+    },
+    {
+      "id": 0,
+      "name": "Enhanced Strength",
+      "type": "battle-dress",
+      "description": "By fitting more powerful servos and reinforcing the load bearing components of battle dress, the Traveller inside battle dress can find his effective strength boosted immeasurably.",
+      "special": "STR +3",
+      "tech-level": 14,
+      "slots": 2,
+      "cost": 25000
+    },
+    {
+      "id": 0,
+      "name": "Environment Protection (corrosive)",
+      "type": "battle-dress",
+      "description": "Battle dress is sufficiently tough to resist most enjoinments, but there are worlds in the galaxy whose atmospheres are so thoroughly nasty that even advanced armor is insufficient to protect a Traveller for more than a few hours.",
+      "special": "Environment protection protects the battle dress against corrosive atmospheres for 72 hours, after which the battle dress will start to lose one point fo Protection every hour thereafter until it is destroyed.",
+      "tech-level": 13,
+      "slots": 1,
+      "cost": 40000
+    },
+    {
+      "id": 0,
+      "name": "Environment Protection (insidious)",
+      "type": "battle-dress",
+      "description": "Battle dress is sufficiently tough to resist most enjoinments, but there are worlds in the galaxy whose atmospheres are so thoroughly nasty that even advanced armor is insufficient to protect a Traveller for more than a few hours.",
+      "special": "Environment protection protects the battle dress against corrosive and insidious atmospheres for 72 hours, after which the battle dress will start to lose one point fo Protection every hour thereafter until it is destroyed.",
+      "tech-level": 13,
+      "slots": 1,
+      "cost": 150000
+    },
+    {
+      "id": 0,
+      "name": "Environmental Reader",
+      "type": "armor",
+      "description": "This external, color-changing sensor is adhered somewhere the Traveller can see it.",
+      "special": "Shows in brilliant hues what the status of the atmosphere is around them; green for oxygen content, blue for methane, red for radiation, and black for any one of the many airborne toxins the reader is designed to detect.",
+      "tech-level": 8,
+      "mass": 0,
+      "cost": 100
+    },
+    {
+      "id": 0,
+      "name": "Extended Life Support",
+      "type": "armor",
+      "description": "This upgrade can be added to any suit that provides life support (such as vacc suits, HEV suits, and combat armor). Adds high-pressure oxygen tanks and recycling systems.",
+      "special": "The suit now provides 18 hours of oxygen.",
+      "tech-level": 8,
+      "mass": 0,
+      "cost": 10000
+    },
+    {
+      "id": 0,
+      "name": "Eye Protection",
+      "type": "armor",
+      "description": "A lot of armor includes eye protection such as visors or goggles to guard against flying debris, but such protection becomes absolutely vital at TL9 to guard against the blinding effects of lasers. Eye protection can be added to any armor, but is automatically included in any TL9+ armor.",
+      "special": "Guards against the blinding effects of lasers.",
+      "tech-level": 6,
+      "mass": 0,
+      "cost": 50
+    },
+    {
+      "id": 0,
+      "name": "Flight Pack",
+      "type": "battle-dress",
+      "description": "Using an array of efficient rockets and turbines, the flight pack allows battle dress to take to the air.",
+      "special": "Using a flight pack requires the Flyer (wing) skill, and allows the battle dress to travel at up to High speed with an Agility equal to the Traveller's (battle dress-enhanced) DEX DM. It has a maximum range of 200km.",
+      "tech-level": 13,
+      "slots": 6,
+      "cost": 50000
+    },
+    {
+      "id": 0,
+      "name": "Friend or Foe HUD",
+      "type": "armor",
+      "description": "Several tiny scanners and cameras implanted in the armor keep track of registered friendly transponders (the HUD system itself comes equipped with its own transponder) and marks targets without transponders as potential enemies. This information shows up on a visor-based HUD (Heads-up-display), allowing the Traveller to know the exact location of allies and enemies within his line of sight or even up to a kilometer away, whichever is greater. Extra transponders cost Cr100 for twenty units.",
+      "special": "Avoids potential friendly fire incidents and grants DM+1 to any Tactics (military) checks the Traveller makes.",
+      "tech-level": 11,
+      "mass": 0,
+      "cost": 4000
+    },
+    {
+      "id": 0,
+      "name": "Fuel Cells",
+      "type": "battle-dress",
+      "description": "While advanced battle dress has a suitably long duration for use in battle, additional fuel cells provide much greater flexibility for mission profiles.",
+      "special": "Each additional fuel cell added increases the duration a suit of battle dress can operate at by another 12 hours.",
+      "tech-level": 13,
+      "slots": 2,
+      "cost": 1000
+    },
+    {
+      "id": 0,
+      "name": "Grav Assist",
+      "type": "armor",
+      "description": "This modification can only be added to combat armor (of all variants), and adds the functionality of a grav belt.",
+      "special": "Allows the Traveller to fly at medium speed for up to four hours.",
+      "tech-level": 12,
+      "mass": 0,
+      "cost": 110000
+    },
+    {
+      "id": 0,
+      "name": "Grav Assist",
+      "type": "battle-dress",
+      "description": "This upgrade adds the functionality of a grav belt to battle dress.",
+      "special": "Allows the wearer to take to the air at up to Slow speed with an Agility equal to the Traveller's (battle dress-enhanced) DEX DM. It has a maximum range of 25km.",
+      "tech-level": 12,
+      "slots": 2,
+      "cost": 110000
+    },
+    {
+      "id": 0,
+      "name": "Grav Assist",
+      "type": "battle-dress",
+      "description": "This upgrade adds the functionality of a grav belt to battle dress.",
+      "special": "Allows the wearer to take to the air at up to Medium speed with an Agility equal to the Traveller's (battle dress-enhanced) DEX DM. It has a maximum range of 50km.",
+      "tech-level": 15,
+      "slots": 1,
+      "cost": 120000
+    },
+    {
+      "id": 0,
+      "name": "Gyro-Stabilizer Rig",
+      "type": "armor",
+      "description": "This modification adds a localized motion-pivot at the waist which counters the effects of weapon recoil It takes an Average (8+) Mechanics (1D minutes, EDU) check to attach the rig's arm to a heavy weapon or rifle, but will remove all penalties for Bulky weapons.",
+      "special": "Removes all penalties for Bulky weapons.",
+      "tech-level": 12,
+      "mass": 1,
+      "cost": 10000
+    },
+    {
+      "id": 0,
+      "name": "Gyro-Stabilizer Rig",
+      "type": "armor",
+      "description": "This modification adds a localized motion-pivot at the waist which counters the effects of weapon recoil It takes an Average (8+) Mechanics (1D minutes, EDU) check to attach the rig's arm to a heavy weapon or rifle, but will remove all penalties for Bulky weapons.",
+      "special": "Removes all penalties for Bulky and Very Bulky weapons.",
+      "tech-level": 14,
+      "mass": 1,
+      "cost": 50000
+    },
+    {
+      "id": 0,
+      "name": "Heavy Mount",
+      "type": "battle-dress",
+      "description": "This is an extensive modification to a suit of battle dress, allowing it to mount weapons usually intended for vehicles. Weapons commonly used in this fashion include tac launchers and light autocannon.",
+      "special": "Any weapon of up to .25 tons may be mounted.",
+      "tech-level": 13,
+      "slots": 10,
+      "cost": 10000
+    },
+    {
+      "id": 0,
+      "name": "Heavy Plating",
+      "type": "battle-dress",
+      "description": "The ultimate purpose of battle dress is protection but there will always be discerning customers looking for that little bit extra. A series of additional plating fitted to strategic locations across the suit can increase its defensive capabilities further, rendering the Traveller inside nigh impervious to all but the heaviest weapons.",
+      "special": "Heavy plating adds +1 to the Protection score of battle dress and may be applied up to five times to the same suit. However, the third application of the heavy plating will reduce the battle dress' DEX bonus by -2.",
+      "tech-level": 13,
+      "slots": 1,
+      "cost": 4000
+    },
+    {
+      "id": 0,
+      "name": "High Velocity Targeting Array",
+      "type": "battle-dress",
+      "description": "This is a sensor array that integrates directly into the battle dress' own suite to provide microsecond adjustments to weapon systems, allowing them to accurately attack fast-moving objects. This is typically used when arial attacks are expected or the battle dress is being dedicated to anti-aircraft duties.",
+      "special": "Battle dress with a high velocity targeting array fitted ignores all negative DMs incurred for attacking a fast moving target.",
+      "tech-level": 15,
+      "slots": 2,
+      "cost": 750000
+    },
+    {
+      "id": 0,
+      "name": "Homosimulacrum",
+      "type": "structure",
+      "description": "The epitome of internal structure alterations, the holosimulacrum is a network of thousands of tiny holographic and gravitic emitters that can be commanded (Verbally or by remote) to recreate a specific location. The holographic terrain will move and react as if the structure was the proper size, manipulating gravitic fields to fool the minds, eyes, and bodies of those inside into believing they are actually interacting with the imaged area.",
+      "special": "Can recreate a specific location with great detail.",
+      "tech-level": 17,
+      "mass": 0,
+      "cost": 5000000
+    },
+    {
+      "id": 0,
+      "name": "Integrated Toolkit",
+      "type": "battle-dress",
+      "description": "Any toolkit can be integrated into battle dress, drawing from the suit's own power supply.",
+      "special": "Allows a Traveller to use a toolkit while wearing the battle dress.",
+      "tech-level": 13,
+      "slots": 1,
+      "cost": 3000
+    },
+    {
+      "id": 0,
+      "name": "Integrated Weapon Mount (pistol)",
+      "type": "battle-dress",
+      "description": "For convenience, and to ensure a Traveller is never without a weapon yet keeps his hands free, battle dress can be constructed with weapons integrated into its structure, usually on the back of the arms or on the shoulders.",
+      "special": "The cost of this modification is in addition to the cost of the actual weapons fitted. Up to four weapons of the same type fitted to the same suit of battle dress may be fired simultaneously (often called twin-, tri-, or quad-linking - each still requires its own mount though) at the same target, with he Traveller being able to use a free action to select how many of these weapons are being fired. When fired this way, only one attack roll is made, but +1 damage is added for every additional weapon after the first, per damage dice. By doubling the number of slots used, an integrated weapon mount may be equipped with autoloaders and up to ten additional magazines. The cost of this is equal to twice that of the additional magazines.",
+      "tech-level": 13,
+      "slots": 1,
+      "cost": 500
+    },
+    {
+      "id": 0,
+      "name": "Integrated Weapon Mount (close combat)",
+      "type": "battle-dress",
+      "description": "For convenience, and to ensure a Traveller is never without a weapon yet keeps his hands free, battle dress can be constructed with weapons integrated into its structure, usually on the back of the arms or on the shoulders.",
+      "special": "The cost of this modification is in addition to the cost of the actual weapons fitted. Up to four weapons of the same type fitted to the same suit of battle dress may be fired simultaneously (often called twin-, tri-, or quad-linking - each still requires its own mount though) at the same target, with he Traveller being able to use a free action to select how many of these weapons are being fired. When fired this way, only one attack roll is made, but +1 damage is added for every additional weapon after the first, per damage dice. By doubling the number of slots used, an integrated weapon mount may be equipped with autoloaders and up to ten additional magazines. The cost of this is equal to twice that of the additional magazines.",
+      "tech-level": 13,
+      "slots": 1,
+      "cost": 1000
+    },
+    {
+      "id": 0,
+      "name": "Integrated Weapon Mount (rifle)",
+      "type": "battle-dress",
+      "description": "For convenience, and to ensure a Traveller is never without a weapon yet keeps his hands free, battle dress can be constructed with weapons integrated into its structure, usually on the back of the arms or on the shoulders.",
+      "special": "The cost of this modification is in addition to the cost of the actual weapons fitted. Up to four weapons of the same type fitted to the same suit of battle dress may be fired simultaneously (often called twin-, tri-, or quad-linking - each still requires its own mount though) at the same target, with he Traveller being able to use a free action to select how many of these weapons are being fired. When fired this way, only one attack roll is made, but +1 damage is added for every additional weapon after the first, per damage dice. By doubling the number of slots used, an integrated weapon mount may be equipped with autoloaders and up to ten additional magazines. The cost of this is equal to twice that of the additional magazines.",
+      "tech-level": 13,
+      "slots": 2,
+      "cost": 1000
+    },
+    {
+      "id": 0,
+      "name": "Integrated Weapon Mount (heavy)",
+      "type": "battle-dress",
+      "description": "For convenience, and to ensure a Traveller is never without a weapon yet keeps his hands free, battle dress can be constructed with weapons integrated into its structure, usually on the back of the arms or on the shoulders.",
+      "special": "The cost of this modification is in addition to the cost of the actual weapons fitted. Up to four weapons of the same type fitted to the same suit of battle dress may be fired simultaneously (often called twin-, tri-, or quad-linking - each still requires its own mount though) at the same target, with he Traveller being able to use a free action to select how many of these weapons are being fired. When fired this way, only one attack roll is made, but +1 damage is added for every additional weapon after the first, per damage dice. By doubling the number of slots used, an integrated weapon mount may be equipped with autoloaders and up to ten additional magazines. The cost of this is equal to twice that of the additional magazines.",
+      "tech-level": 13,
+      "slots": 10,
+      "cost": 5000
+    },
+    {
+      "id": 0,
+      "name": "Invisitech",
+      "type": "augment",
+      "description": "The augment is made from materials which will not trigger an alert on a scanner, sensor, or mechanostatic listener.",
+      "special": "Other than medical examination or direct visual contact with the augment, there is no electronic way to sense its presence.",
+      "tech-level": 12,
+      "slots": 1,
+      "cost": "+100% of augment"
+    },
+    {
+      "id": 0,
+      "name": "Invisitech",
+      "type": "augment",
+      "description": "The augment is made from materials which will not trigger an alert on a scanner, sensor, or mechanostatic listener.",
+      "special": "Other than medical examination or direct visual contact with the augment, there is no electronic or psionic way to sense its presence.",
+      "tech-level": 12,
+      "slots": 1,
+      "cost": "+200% of augment"
+    },
+    {
+      "id": 0,
+      "name": "Magnetic Grapples",
+      "type": "armor",
+      "description": "Magnetic plates in the boots of the armor allow the user to walk normally on a spacecraft without artificial gravity.",
+      "special": "Allows the user to walk normally on a spacecraft without artificial gravity.",
+      "tech-level": 8,
+      "mass": 0,
+      "cost": 100
+    },
+    {
+      "id": 0,
+      "name": "Medikit",
+      "type": "armor",
+      "description": "An internal medical scanner and drug injector, the medikit can be installed in combat armor or a vacc suit.",
+      "special": "Automatically applies first aid if the Traveller is reduced to END 0 (treat the Medikit as having Medic 3). Can also administer Fast Drug on command, or if life support systems are failing.",
+      "tech-level": 10,
+      "mass": 0,
+      "cost": 5000
+    },
+    {
+      "id": 0,
+      "name": "Medikit",
+      "type": "armor",
+      "description": "An internal medical scanner and drug injector, the medikit can be installed in combat armor or a vacc suit.",
+      "special": "Automatically applies first aid if the Traveller is reduced to END 0 (treat the Medikit as having Medic 3). Can administer Fast Drug if life support systems are failing, as well as combat drugs and metabolic accelerators on command.",
+      "tech-level": 11,
+      "mass": 0,
+      "cost": 10000
+    },
+    {
+      "id": 0,
+      "name": "Minefield Boots",
+      "type": "armor",
+      "description": "Used by troops in regions where there is a risk from anti-personnel mines and other booby traps hidden beneath the ground.",
+      "special": "Minefield boots give complete protection against routine hazards such as snakes, and grant +4 Protection against sharpened stakes (punji stakes) and anti-personnel mines. They offer no additional protection against combat hazards unless the Traveller is deliberately shot in the foot.",
+      "tech-level": 8,
+      "mass": 3,
+      "cost": 250
+    },
+    {
+      "id": 0,
+      "name": "Natural-Looking",
+      "type": "augment",
+      "description": "Adding a layer of synthetic skin and hair over a cybernetic augment can help make it seem more organic and lifelike to a passing glance. This augment option helps the augment blend in with the rest of the Traveller's body.",
+      "special": "Grants DM+2 to all Deception checks made to hide the nature of the augment.",
+      "tech-level": 10,
+      "cost": "+25% of augment"
+    },
+    {
+      "id": 0,
+      "name": "Natural-Looking",
+      "type": "augment",
+      "description": "Adding a layer of synthetic skin and hair over a cybernetic augment can help make it seem more organic and lifelike to a passing glance. This augment option helps the augment blend in with the rest of the Traveller's body.",
+      "special": "Grants DM+4 to all Deception checks made to hide the nature of the augment.",
+      "tech-level": 14,
+      "cost": "+75% of augment"
+    },
+    {
+      "id": 0,
+      "name": "Null Shield",
+      "type": "armor",
+      "description": "This expensive and rare modification is extremely advanced, coating the armor with substances similar to those found in anti-psion ammunition and chemical psi-sedatives.",
+      "special": "Armor and clothing properly coated with this substance will grant the Traveller complete immunity to any psionic power targeting them.",
+      "tech-level": 17,
+      "mass": 0,
+      "cost": 150000
+    },
+    {
+      "id": 0,
+      "name": "Null Shielding",
+      "type": "structure",
+      "description": "Adding certain psion-dulling chemicals and elements to the outer layers of the structure can effectively block the passage of psionic influence and manipulation. This modification cannot be used on any building with a Psi-Amplifier.",
+      "special": "Psions suffer a Bane whenever trying to project an ability through the walls of the structure. The shielding works both ways, on psions within and without. The cost is for 100 cubic meters of structure to be protected.",
+      "tech-level": 16,
+      "mass": 0,
+      "cost": 25000
+    },
+    {
+      "id": 0,
+      "name": "Parachute",
+      "type": "battle-dress",
+      "description": "Deployed with a Minor Action, this parachute is capable of bearing the weight of the battle dress in Atmospheres of 6 or more. It comes with a complete deployment system, usually mounted on the back of the battle dress, and is re-usable.",
+      "special": "Capable of bearing the weight of the battle dress in Atmospheres of 6 or more.",
+      "tech-level": 13,
+      "slots": 2,
+      "cost": 2500
+    },
+    {
+      "id": 0,
+      "name": "Personalised Image",
+      "type": "armor",
+      "description": "Using hardened enamels and pigments, any armor can be artistically altered to reflect the individuality of the Traveller, the military he belongs to, or other affiliations.",
+      "special": "Allows a Traveller to customize his armor.",
+      "tech-level": 2,
+      "mass": 0,
+      "cost": 10
+    },
+    {
+      "id": 0,
+      "name": "Prismatic Aerosol",
+      "type": "battle-dress",
+      "description": "This is a canister based system that releases a dense cloud of highly reflective particles around the battle dress, obscuring it and rendering laser fire ineffective.",
+      "special": "Requires a Minor Action to deploy. In windless conditions, the cloud will remain around the battle dress for 1D rounds, though it will not move if the battle dress does. It inflicts DM-2 to attack rolls made against the Traveller and provides an additional 6 points of Protection against any laser-based attack. Each prismatic aerosol fitted to battle dress will contain enough canisters for 3 uses. Replacement canisters cost Cr100 for three.",
+      "tech-level": 13,
+      "slots": 2,
+      "cost": 6000
+    },
+    {
+      "id": 0,
+      "name": "Psi-Amplifier",
+      "type": "structure",
+      "description": "The opposite of null-shielding, this structure modification sews psi-conduit crystal wires through the outer layers of the building, focussing them on to a central hub point. The cost is for every 100 cubic meters of the structure to be covered. This modification cannot by used on any building with null-shielding.",
+      "special": "The presence of so many psi-crystals in the area grants a Boon to all psionic checks while within the structure, but any psion touching the central hub with their bare flesh while using a psionic ability also gains DM+4 to the check.",
+      "tech-level": 116,
+      "mass": 0,
+      "cost": 100000
+    },
+    {
+      "id": 0,
+      "name": "Psionic Shield Helmet",
+      "type": "armor",
+      "description": "A psionic shield helmet can be built into armor or be worn as a separate unit.",
+      "special": "Acts as a shield against psionic influences, automatically blocking all telepathy powers.",
+      "tech-level": 12,
+      "mass": 2,
+      "cost": 4000
+    },
+    {
+      "id": 0,
+      "name": "Rad Shielding",
+      "type": "structure",
+      "description": "Adding neutralized elements of lead and polymer plastics designed to block radiation to the outer layers of any structure, reflecting most of the radiation striking it. The cost is for every 100 cubic meters of structure to be protected.",
+      "special": "When a source of radiation tries to cross the structure's shielded layers, it is instantly reduced by 3D x 10 rads. The shielding works both ways, reducing rads for outside sources coming in as well as inside sources emanating outward.",
+      "tech-level": 10,
+      "mass": 0,
+      "cost": 3000
+    },
+    {
+      "id": 0,
+      "name": "Ruggedized",
+      "type": "augment",
+      "description": "All of the circuitry and electronic components in the augment have been shielded against outside energies.",
+      "special": "Makes the augment immune to energy-based weaponry that would adversely affect the augment, such as electromagnetic grenades.",
+      "tech-level": 8,
+      "cost": "+25% of augment"
+    },
+    {
+      "id": 0,
+      "name": "Self-Assembling",
+      "type": "structure",
+      "description": "The self-assembling upgrade can be given to tents, habitat modules, and other basic structures. The structure is capable of expanding and assembling itself with only minimal aid.",
+      "special": "Reduces the time needed to set up the shelter to a single man-hour.",
+      "tech-level": 11,
+      "mass": 0,
+      "cost": 5000
+    },
+    {
+      "id": 0,
+      "name": "Self-Repairing",
+      "type": "augment",
+      "description": "The augment comes standard with a self-repair mechanism, using nanites, protein coating, or some other method.",
+      "special": "The augment heals like any other normal part of the body when damaged.",
+      "tech-level": 11,
+      "cost": "+100% of augment"
+    },
+    {
+      "id": 0,
+      "name": "Self-Sealing",
+      "type": "armor",
+      "description": "Self-sealing systems can be added to any armor (except ablat) when it is being manufactured. The armor can then seal breaches and repair minor damage. This cannot reconstruct a severely damaged suit of armor, but does ensure that a damaged vacc suit or torn jacked mends itself.",
+      "special": "The armor can seal breaches and repair minor damage.",
+      "tech-level": 11,
+      "mass": 0,
+      "cost": 2000
+    },
+    {
+      "id": 0,
+      "name": "Self-Sealing",
+      "type": "structure",
+      "description": "Structures cn be made self-repairing and self-sealing.",
+      "special": "Small breaches and rips are automatically fixed in seconds.",
+      "tech-level": 13,
+      "mass": 0,
+      "cost": 2000
+    },
+    {
+      "id": 0,
+      "name": "Sensor Suite",
+      "type": "battle-dress",
+      "description": "Most models of battle dress have integrated infrared eyepieces, heads up displays, and computer systems that relay vital information to the Traveller. A sensor suite greatly expands the capabilities of battle dress, allowing the Traveller up-to-the-second information on the flow of battle and locations of his enemies. Sensor suites range from complex radar-lidar systems and battlefield analysis computers.",
+      "special": "Gives DM+1 to any Electronics (sensors) checks.",
+      "tech-level": 13,
+      "slots": 1,
+      "cost": 20000
+    },
+    {
+      "id": 0,
+      "name": "Sensor Suite",
+      "type": "battle-dress",
+      "description": "Most models of battle dress have integrated infrared eyepieces, heads up displays, and computer systems that relay vital information to the Traveller. A sensor suite greatly expands the capabilities of battle dress, allowing the Traveller up-to-the-second information on the flow of battle and locations of his enemies. Sensor suites range from complex radar-lidar systems, battlefield analysis computers, and densitometers.",
+      "special": "Gives DM+2 to any Electronics (sensors) checks.",
+      "tech-level": 14,
+      "slots": 2,
+      "cost": 50000
+    },
+    {
+      "id": 0,
+      "name": "Sensor Suite",
+      "type": "battle-dress",
+      "description": "Most models of battle dress have integrated infrared eyepieces, heads up displays, and computer systems that relay vital information to the Traveller. A sensor suite greatly expands the capabilities of battle dress, allowing the Traveller up-to-the-second information on the flow of battle and locations of his enemies. Sensor suites range from complex radar-lidar systems, battlefield analysis computers, densitometers, and neural activity scanners.",
+      "special": "Gives DM+3 to any Electronics (sensors) checks.",
+      "tech-level": 15,
+      "slots": 2,
+      "cost": 65000
+    },
+    {
+      "id": 0,
+      "name": "Smart Fabric",
+      "type": "armor",
+      "description": "Smart fabric resists stains and dirt, cleaning itself automatically.",
+      "special": "Smart fabric armor automatically sloughs off dirt, dust, and mud (though this function can be suspended for the purposes of camouflage).",
+      "tech-level": 10,
+      "mass": 0,
+      "cost": 1000
+    },
+    {
+      "id": 0,
+      "name": "Specialized Computer",
+      "type": "computer",
+      "description": "A computer can be designed for a specific purpose, which gives it a Processing score of +1 or +2 higher for that program only. The navigation hand computer used by an explorer, for example, might be only a Computer/1, but could run the Navigation/3 program because it is specially designed for that task. A specialized computer costs 25% more per added rating - so a Computer/1, Navigation/3 portable computer costs 150% of the cost of a basic Computer/1.",
+      "tech-level": 7,
+      "mass": 0,
+      "cost": 0
+    },
+    {
+      "id": 0,
+      "name": "Stealth",
+      "type": "battle-dress",
+      "description": "While camouflage is an effective counter to being targeted on the battlefield, the stealth modification goes much further, attempting to mask the battle dress from every kind of sensor it is likely to encounter, from infrared detection to densitometers-masking.",
+      "special": "Inflicts DM-1 to any Electronics (sensors) checks made to detect the Traveller.",
+      "tech-level": 13,
+      "slots": 3,
+      "cost": 50000
+    },
+    {
+      "id": 0,
+      "name": "Stealth",
+      "type": "battle-dress",
+      "description": "While camouflage is an effective counter to being targeted on the battlefield, the stealth modification goes much further, attempting to mask the battle dress from every kind of sensor it is likely to encounter, from infrared detection to densitometers-masking.",
+      "special": "Inflicts DM-2 to any Electronics (sensors) checks made to detect the Traveller.",
+      "tech-level": 14,
+      "slots": 3,
+      "cost": 100000
+    },
+    {
+      "id": 0,
+      "name": "Stealth",
+      "type": "battle-dress",
+      "description": "While camouflage is an effective counter to being targeted on the battlefield, the stealth modification goes much further, attempting to mask the battle dress from every kind of sensor it is likely to encounter, from infrared detection to densitometers-masking.",
+      "special": "Inflicts DM-3 to any Electronics (sensors) checks made to detect the Traveller.",
+      "tech-level": 15,
+      "slots": 3,
+      "cost": 125000
+    },
+    {
+      "id": 0,
+      "name": "Submarine Functionality",
+      "type": "armor",
+      "description": "The colonization and exploration of water worlds brought about this extensive modification to armor. Only available on sealed armors (such as vacc suits, combat armor, and powered armor), this process adds oxygenators, pressure valves, flow venting fins, and small turbines to help propel the Traveller underwater (or within similar liquid).",
+      "special": "This augmentation allows a suit of armor to completely ignore any penalties for being submerged for as long as it has life support. It costs Cr200 multiplied by the Protection value of the armor.",
+      "tech-level": 9,
+      "mass": 6,
+      "cost": 0
+    },
+    {
+      "id": 0,
+      "name": "Tactical Video Suite",
+      "type": "armor",
+      "description": "Attaching several small, out of the way cameras and microphones to high-visibility areas of the armor or clothing, the suite monitors and records everything which happens to the Traveller for later viewing. Alternatively, these suites can be rigged to transmit to a central intelligence hub, allowing for real-time monitoring of the Traveller.",
+      "special": "Based on a ten-hour hard drive, the basic suite stores all information on a central component. If purchased with the real-time monitoring system (+Cr25), it grants DM+1 to all Tactics (military) checks made by viewers.",
+      "tech-level": 7,
+      "mass": 2,
+      "cost": 75
+    },
+    {
+      "id": 0,
+      "name": "Thruster Pack",
+      "type": "armor",
+      "description": "A simple thruster pack gives the user the ability to maneuver in zero-gravity over short distances.",
+      "special": "An Athletics (dexterity) check is required to use a thruster pack accurately. Thruster packs can only be used in microgravity environments.",
+      "tech-level": 9,
+      "mass": 0,
+      "cost": 2000
+    },
+    {
+      "id": 0,
+      "name": "Thruster Pack",
+      "type": "armor",
+      "description": "A simple thruster pack gives the user the ability to maneuver in zero-gravity over short distances.",
+      "special": "An Athletics (dexterity) check is required to use a thruster pack accurately. Thruster packs can only be used in microgravity environments. Gives 0.1g acceleration for up to 48 hours, using standard starship fuel.",
+      "tech-level": 12,
+      "mass": 0,
+      "cost": 14000
+    },
+    {
+      "id": 0,
+      "name": "Thruster Pack",
+      "type": "armor",
+      "description": "A simple thruster pack gives the user the ability to maneuver in zero-gravity over short distances. This version is much smaller, as it uses grav-thruster plates instead.",
+      "special": "An Athletics (dexterity) check is required to use a thruster pack accurately. Thruster packs can only be used in microgravity environments. Gives 0.1g acceleration for up to 48 hours, using standard starship fuel.",
+      "tech-level": 14,
+      "mass": 0,
+      "cost": 20000
+    },
+    {
+      "id": 0,
+      "name": "Vehicle Weapon Mount",
+      "type": "battle-dress",
+      "description": "The use of battle dress allows a Traveller to wield a machinegun as if it were a child's toy. However, battle dress also allows for the use of weapons that would otherwise be unthinkable on anything less than a light vehicle.",
+      "special": "A vehicle weapon mount allows battle dress to be fitted with much larger weapons of up to a total of 1 ton in mass. The cost of this modification is in addition to the cost of the actual weapon(s) fitted. If more than one weapon of the same type is attached to the same battle dress, they may be fired together simultaneously, as detailed under the integrated Weapon Mount.",
+      "tech-level": 13,
+      "slots": 15,
+      "cost": 10000
+    }
+  ]
+}

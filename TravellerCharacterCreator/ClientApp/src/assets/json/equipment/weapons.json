@@ -1,0 +1,4329 @@
+{
+  "weapons": [
+    {
+      "id": 19,
+      "name": "Accelerator Rifle",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "Also known as gyrojet weapons, accelerator rifles are designed for zero-gravity combat. They fire tiny missiles that leave the rifle with minimal velocity and thus minimal recoil, then accelerate to high speed.",
+      "special": "Allows for zero-gravity combat.",
+      "tech-level": 9,
+      "range": 25,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 900,
+      "magazine": 15,
+      "magazine-cost": 30,
+      "traits": [
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Advanced Combat Rifle",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "The ultimate evolution of the conventional firearm, advanced combat rifles are the weapon of choice for many military units. Standard equipment includes an electronic battlefield sight, incorporating both light amplification and passive IR, visual magnification, and a laser rangefinder which may also be used as a target painting device. The weapon is also gyroscopically stabilized during firing. A sling is provided, and the muzzle of the rifle includes an integral flash suppressor and adapter for launching a 44mm RAM shoot-through grenade.",
+      "special": "Includes both light amplification and passive IR, visual magnification, and a laser rangefinder. The muzzle of the rifle includes an integral flash suppressor and adapter for launching a 44mm RAM shoot-through grenade. ",
+      "tech-level": 10,
+      "range": 450,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 1000,
+      "magazine": 40,
+      "magazine-cost": 15,
+      "traits": [
+        "Auto 3",
+        "Scope"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Advanced Combat Rifle (Heavy)",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "Using larger caliber rounds, the heavy advanced combat rifle is functionally similar to its smaller counterpart and hits harder, but has a lower rate of fire and requires a strong user to handle the recoil. Standard equipment includes an electronic battlefield sight, incorporating both light amplification and passive IR, visual magnification, and a laser rangefinder which may also be used as a target painting device. The weapon is also gyroscopically stabilized during firing. A sling is provided, and the muzzle of the rifle includes an integral flash suppressor and adaptor for launching a 40mm RAM shoot-through grenade.",
+      "special": "Includes both light amplification and passive IR, visual magnification, and a laser rangefinder. The muzzle of the rifle includes an integral flash suppressor and adaptor for launching a 40mm RAM shoot-through grenade.",
+      "tech-level": 10,
+      "range": 450,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 5,
+      "cost": 2000,
+      "magazine": 30,
+      "magazine-cost": 20,
+      "traits": [
+        "Auto 2",
+        "Bulky",
+        "Scope"
+      ]
+    },
+    {
+      "id": 39,
+      "name": "Aerosol Grenade",
+      "type": "Grenade",
+      "skill": "Dexterity",
+      "description": "Aerosol grenades create a fine mist that diffuses any lasers that are fired into or through it, but the mist does not block normal vision.",
+      "special": "Any laser attack tracing a line of sight into or through the mist has its damage reduced by -10. Laser communications are completely blocked by the mist. Aerosol clouds dissipate after 1D * 3 rounds, though heavy winds and rain can drastically reduce this time.",
+      "tech-level": 9,
+      "range": 20,
+      "damage": {
+        "value": "0",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 15,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 9"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Aerospace Defense Laser",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A powerful laser weapon designed for emplaced or mobile aerospace defense, the ADL consumes immense power but delivers impressive damage. It is intended primarily to engage missiles and small craft but can attack at starships, aircraft, and grav vehicles equally well.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 120,
+      "damage": {
+        "value": "8D",
+        "scale": "Traveller"
+      },
+      "mass": 12,
+      "cost": 4000000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Track"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Air Rifle",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "These are rifles whose projectiles are propelled by compressed air, charged by pumping an internal reservoir to the required pressure. One shot can be fired before the reservoir needs recharging (a process that takes 10 minor actions). These are not toys - weapons of this type are designed to kill, though they are generally more useful for hunting or for avoiding Law Level restrictions.",
+      "special": "One shot can be fired before the reservoir needs recharging (a process that takes 10 minor actions).",
+      "tech-level": 3,
+      "range": 50,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 225,
+      "magazine": 1,
+      "magazine-cost": 1,
+      "traits": [
+        "Silent"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Air Rifle",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "These are rifles whose projectiles are propelled by compressed air, charged by pumping an internal reservoir to the required pressure. One shot can be fired before the reservoir needs recharging (a process that takes 10 minor actions), however this model has a detachable air cylinder to allow for multiple shots. These are not toys - weapons of this type are designed to kill, though they are generally more useful for hunting or for avoiding Law Level restrictions.",
+      "special": "One shot can be fired before the reservoir needs recharging (a process that takes 10 minor actions).",
+      "tech-level": 4,
+      "range": 75,
+      "damage": {
+        "value": "3D-2",
+        "scale": "Traveller"
+      },
+      "mass": 5,
+      "cost": 350,
+      "magazine": 1,
+      "magazine-cost": 1,
+      "traits": [
+        "Silent"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Anti-Armor Flail",
+      "type": "Melee",
+      "skill": "Bludgeoning",
+      "description": "This weapon has a short shaft on which is mounted a chain with an explosive warhead attached.",
+      "special": "When swung, the warhead detaches and explodes after a pre-set delay (between 1 and 12 rounds).",
+      "tech-level": 8,
+      "range": 0,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 250,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 5 (one use)"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Anti-Material Rifle",
+      "type": "Heavy",
+      "skill": "Man Portable",
+      "description": "The anti-material rifle is a single-shot super-heavy rifle firing long cartridges at high velocity. It is designed to destroy light vehicles and will make a real mess of armored infantry.",
+      "special": "None",
+      "tech-level": 7,
+      "range": 1000,
+      "damage": {
+        "value": "5D",
+        "scale": "Traveller"
+      },
+      "mass": 15,
+      "cost": 3000,
+      "magazine": 1,
+      "magazine-cost": 100,
+      "traits": [
+        "AP 5",
+        "Scope",
+        "Very Bulky"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Antique Pistol",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "A flintlock or other primitive projectile weapon.",
+      "special": "Unless the weapon is especially well made, it will suffer DM-1 to all attacks. Antique pistols also require a successful Gun Combat (slug) check to reload.",
+      "tech-level": 3,
+      "range": 5,
+      "damage": {
+        "value": "2D-3",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 100,
+      "magazine": 1,
+      "magazine-cost": 5,
+      "traits": []
+    },
+    {
+      "id": 21,
+      "name": "Antique Rifle",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "A musket or other primitive rifle.",
+      "special": "Unless the weapon is especially well made, it will have DM-1 to all attacks. Antique rifles require a successful Gun Combat (slug) check to reload.",
+      "tech-level": 3,
+      "range": 25,
+      "damage": {
+        "value": "3D-3",
+        "scale": "Traveller"
+      },
+      "mass": 6,
+      "cost": 150,
+      "magazine": 1,
+      "magazine-cost": 10,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Arc-Field Weapon",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "This is a highly advanced weapon that does not actually have a blade at all; arc-field weapons have dense, conductive fibers that are flooded with energy from a self-contained power pack when activated. The result is a plane of energy that can slice through nearly anything.Arc-field weapons cannot be parried by any weapon of a lower Tech Level.",
+      "special": "Arc-field weapons cannot be parried by any weapon of a lower Tech Level.",
+      "tech-level": 14,
+      "range": 0,
+      "damage": {
+        "value": "5D+2",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 25000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 30"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Assault Pistol",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "An autopistol designed to fire bursts of fully-automatic fire, assault pistols are notoriously inaccurate and suffer DM-2 to all attack rolls when using burst or full auto modes. Travellers are advised to carry as many extra magazines as they can as the assault pistol burns ammunition very quickly.",
+      "special": "Suffers DM-2 to all attack rolls when using burst or full auto modes.",
+      "tech-level": 6,
+      "range": 10,
+      "damage": {
+        "value": "3D-3",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 250,
+      "magazine": 15,
+      "magazine-cost": 10,
+      "traits": [
+        "Auto 2"
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Assault Rifle",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "Assault rifles fire lighter projectiles than rifles, but are capable for a higher rate of fire and are more suitable to short-range encounters.",
+      "special": "None",
+      "tech-level": 7,
+      "range": 200,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 500,
+      "magazine": 30,
+      "magazine-cost": 15,
+      "traits": [
+        "Auto 2"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Assault Pike",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "Unwieldy when it first appears, the assault pike gets lighter and more manageable at higher Tech Levels. It is little more than a shaped charge placed on the end of a pole, jammed against an armored target to detonate the charge. In theory, the long shaft allows the Traveller to be sufficiently far away not to be harmed by the explosion.",
+      "special": "None",
+      "tech-level": 5,
+      "range": 0,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 8,
+      "cost": 200,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 4",
+        "One Use"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Assault Shotgun",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "A heavy shotgun fed from a bulky drum magazine, the assault shotgun is capable of automatic fire. It uses the same ammunition as other shotguns and can lay waste to a wide area.",
+      "special": "None",
+      "tech-level": 6,
+      "range": 50,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 5,
+      "cost": 500,
+      "magazine": 24,
+      "magazine-cost": 40,
+      "traits": [
+        "Auto 2",
+        "Bulky"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Autocannon (Heavy)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "This is a heavy (60-65mm) rapid-fire belt-fed weapon capable of engaging light armored vehicles and aircraft. Heavy autocannon are generally carried in vehicle mounts or aboard maritime vessels.",
+      "special": "The heavy autocannon may use variant ammunition types.",
+      "tech-level": 6,
+      "range": 1,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 45000,
+      "magazine": 100,
+      "magazine-cost": 2000,
+      "traits": [
+        "Auto 3"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Autocannon (Light)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "This is a conventional autocannon, of 20-25mm caliber. It is designed to destroy light vehicles and massed infantry.",
+      "special": "The light autocannon may use variant ammunition types.",
+      "tech-level": 6,
+      "range": 1,
+      "damage": {
+        "value": "6D",
+        "scale": "Traveller"
+      },
+      "mass": 0.25,
+      "cost": 10000,
+      "magazine": 500,
+      "magazine-cost": 1000,
+      "traits": [
+        "Auto 3"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Autocannon (Medium)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "This is a medium caliber (30-45mm) rapid-fire belt-fed weapon capable of engaging light armored vehicles and aircraft. Medium autocannon are generally mounted on light armored vehicles, aircraft, or in bunkers. They are too big and bulky to be used as mobile infantry support weapons, other than on a vehicular or towed mount.",
+      "special": "The medium autocannon may use variant ammunition types.",
+      "tech-level": 6,
+      "range": 1,
+      "damage": {
+        "value": "8D",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 25000,
+      "magazine": 100,
+      "magazine-cost": 1500,
+      "traits": [
+        "Auto 3"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Autopistol",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "Variant of this semi-automatic pistol is the standard sidearm for law enforcement officers and criminals across the Imperium.",
+      "special": "None",
+      "tech-level": 6,
+      "range": 10,
+      "damage": {
+        "value": "3D-3",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 200,
+      "magazine": 15,
+      "magazine-cost": 10,
+      "traits": []
+    },
+    {
+      "id": 23,
+      "name": "Autorifle",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "Automatic rifles have a higher muzzle velocity and are capable of automatic fire. Sometimes called battle rifles.",
+      "special": "None",
+      "tech-level": 6,
+      "range": 300,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 5,
+      "cost": 750,
+      "magazine": 20,
+      "magazine-cost": 10,
+      "traits": [
+        "Auto 2"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Baton",
+      "type": "Grenade",
+      "skill": "Dexterity",
+      "description": "Baton rounds allow the Traveller to deliver a non-lethal attack. Grenade launchers equipped with baton rounds are often known as Thud Guns.",
+      "special": "Only available for use with grenade launchers.",
+      "tech-level": 7,
+      "range": 0,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 10,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Stun"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Battle Axe",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "A large axe with one or two blades and wielded in one or both hands, the battle axe is a basic weapon for low-technology infantry. In modern societies, such weapons are more likely to appear as utilitarian fire axes.",
+      "special": "None",
+      "tech-level": 2,
+      "range": 0,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 225,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 2",
+        "Bulky"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Big Game Rifle",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "A bolt-action rifle firing heavy ammunition, this weapon is sometimes named after local wildlife (such as elephant gun). Its recoil is massive but the stopping power is impressive.",
+      "special": "None",
+      "tech-level": 5,
+      "range": 200,
+      "damage": {
+        "value": "3D+3",
+        "scale": "Traveller"
+      },
+      "mass": 9,
+      "cost": 1250,
+      "magazine": 5,
+      "magazine-cost": 50,
+      "traits": [
+        "Very Bulky"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Blade",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "A short sword, somewhere between a dagger and a cutlass in length. These blades often feature a large basket hilt.",
+      "special": "None",
+      "tech-level": 2,
+      "range": 0,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 100,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Blade (Long)",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "This includes most long-bladed hilt weapons, from the European 'knightly' long sword to the Japanese katana. Most such swords are primarily used in one hand, but can be wielded two-handed at need.",
+      "special": "None",
+      "tech-level": 2,
+      "range": 0,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 200,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Blade (Long)",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "This includes most long-bladed hilt weapons, from the European 'knightly' long sword to the Japanese katana. Most such swords are primarily used in one hand, but can be wielded two-handed at need.",
+      "special": "None",
+      "tech-level": 3,
+      "range": 0,
+      "damage": {
+        "value": "3D+2",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 300,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Boarding Shield",
+      "type": "Shield",
+      "skill": "Bludgeon",
+      "description": "Used by shipboard security personnel and law enforcement special-response teams, the boarding shield is a large movable obstacle. Most boarding shields have a vision slit or firing port in the front surface.",
+      "special": "It cannot be used to parry but instead provides the Traveller with cover (Armor +8). A boarding shield completely protects anyone hiding behind it and is large enough for two people to benefit from it simultaneously or move it forward while remaining covered.",
+      "tech-level": 9,
+      "range": 0,
+      "damage": {
+        "value": "1D",
+        "scale": "Traveller"
+      },
+      "mass": 7,
+      "cost": 1500,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 14,
+      "name": "Body Pistol",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "Body pistols are manufactured from plastics and cultured bone, making them very difficult to detect using conventional weapons scanners.",
+      "special": "Body pistols increase the difficulty of Electronics (sensors) checks to detect them to Very Hard (12+).",
+      "tech-level": 8,
+      "range": 5,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 500,
+      "magazine": 6,
+      "magazine-cost": 10,
+      "traits": []
+    },
+    {
+      "id": 47,
+      "name": "Bolas",
+      "type": "Other",
+      "skill": "Bolas",
+      "description": "This is a throwing weapon made from two or three weights fastened together by a cord. It is used to bring down an enemy rather than hurt them. A Traveller hit by a bolas does not sustain any damage.",
+      "special": "Requires a specialized Gun Combat (bolas) skill to use. A Traveller hit by bolas must make a Melee (unarmed) check opposed by the Gun Combat (bolas) check of the attacker, as if being grappled. If this check is failed, the Traveller is immobilized. The Traveller can free himself from the bolas by performing a Significant Action.",
+      "tech-level": 0,
+      "range": "10",
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 1,
+      "cost": 5,
+      "magazine": 1,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 47,
+      "name": "Bolas (Mono-filament)",
+      "type": "Other",
+      "skill": "Bolas",
+      "description": "Unlike the primitive bolas, this weapon does not entangle with an enemy but slices through any target with its mono-filament cords.",
+      "special": "Requires a specialized Gun Combat (bolas) skill to use.",
+      "tech-level": 12,
+      "range": "10",
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 500,
+      "magazine": 1,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 10"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Bombardment Gun",
+      "type": "Heavy",
+      "skill": "Artillery",
+      "description": "A fairly practical weapon as these things go, this super heavy gun is designed for bombardment of static or slow-moving targets. It is normally fielded as a railway gun, aboard a maritime vessel, or as a coastal defense weapon.",
+      "special": "None",
+      "tech-level": 5,
+      "range": "30 (10)",
+      "damage": {
+        "value": "2DD",
+        "scale": "Traveller"
+      },
+      "mass": 220,
+      "cost": 500000,
+      "magazine": 1,
+      "magazine-cost": 1500,
+      "traits": [
+        "Artillery",
+        "Blast 20"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Bombardment Gun (Heavy)",
+      "type": "Heavy",
+      "skill": "Artillery",
+      "description": "This huge artillery piece is most likely to be encountered as a coastal defense piece or aboard a maritime naval ship. Weapons of this type are occasionally used to launch sub-caliber rockets or missiles in the hope of creating a rudimentary aerospace defense capability but these are rarely successful. They are extremely slow to reload.",
+      "special": "Requires 1D hours between firing shells.",
+      "tech-level": 5,
+      "range": "40 (10)",
+      "damage": {
+        "value": "3DD",
+        "scale": "Traveller"
+      },
+      "mass": 500,
+      "cost": 750000,
+      "magazine": 1,
+      "magazine-cost": 2500,
+      "traits": [
+        "Artillery",
+        "Blast 20"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Bombardment Rocket Rack",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "This weapon usually appears as a self-contained rack suitable for mounting on the back of a truck or similar vehicle. It contains twelve large rockets with high-explosive warheads. Rockets can be fired one at a time or rippled off in a rolling salvo.",
+      "special": "None",
+      "tech-level": 6,
+      "range": "8",
+      "damage": {
+        "value": "5D",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 30000,
+      "magazine": 12,
+      "magazine-cost": 8000,
+      "traits": [
+        "Auto 2",
+        "Blast 15"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Boomerang",
+      "type": "Other",
+      "skill": "Boomerang",
+      "description": "The boomerang is a shaped piece of wood designed to be thrown and deliver damage to a target. It will then return to the thrower if an attack is missed.",
+      "special": "Inflicts DM-2 on attack rolls, but if it misses a target, will return to the thrower in the next combat round. It can be caught with a successful Gun Combat (boomerang) check. The thrower will take damage equal to the Effect if it is negative and drop the boomerang.",
+      "tech-level": 0,
+      "range": "25",
+      "damage": {
+        "value": "1D",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 10,
+      "magazine": 1,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Brass Knuckles",
+      "type": "Melee",
+      "skill": "Unarmed",
+      "description": "A heavy knuckle-duster (which may or may not be made of actual brass), brass knuckles add inertia to a punch, as well as protecting the fist. Heavy boots or specially modified shoes with hard striking surfaces can also function in the same way.",
+      "special": "None",
+      "tech-level": 1,
+      "range": 0,
+      "damage": {
+        "value": "1D+2",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 10,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 47,
+      "name": "Breaching Charge",
+      "type": "Explosive",
+      "skill": "Explosives",
+      "description": "This is a small pre-packaged charge for cutting or breaching. When a breaching charge explodes, it concentrates its force so while the blast radius is very small, the destructive effect is greatly enhanced.",
+      "special": "Charges are adhesive and can be set on a timer or command detonated.",
+      "tech-level": 8,
+      "range": "",
+      "damage": {
+        "value": "4D * Explosive Effect",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 250,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 6",
+        "Blast 1"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Broadsword",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "A heavy two-handed sword, capable of doing some serious damage even to a well-armored, high-technology opponent.",
+      "special": "None",
+      "tech-level": 2,
+      "range": 0,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 8,
+      "cost": 500,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Bulky"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Bow (Compound Cam)",
+      "type": "Ranged",
+      "skill": "Archaic",
+      "description": "This is a short bow made with advanced materials and incorporating a pulley device. The compound cam bow is as powerful as a traditional long bow but is much easier to handle.",
+      "special": "None",
+      "tech-level": 5,
+      "range": 100,
+      "damage": {
+        "value": "3D-3",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 250,
+      "magazine": 1,
+      "magazine-cost": 5,
+      "traits": [
+        "AP 2"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Bow (Long)",
+      "type": "Ranged",
+      "skill": "Archaic",
+      "description": "A long symmetrical or asymmetric bow, this is a powerful low-tech weapon.",
+      "special": "None",
+      "tech-level": 2,
+      "range": 100,
+      "damage": {
+        "value": "3D-3",
+        "scale": "Traveller"
+      },
+      "mass": 1.5,
+      "cost": 150,
+      "magazine": 1,
+      "magazine-cost": 5,
+      "traits": [
+        "AP 2",
+        "Bulky"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Bow (Short)",
+      "type": "Ranged",
+      "skill": "Archaic",
+      "description": "A light bow with a weaker pull, the short bow is primarily a hunting weapon but sees use in combat from time to time. Short bows are sometimes used from the back of animals.",
+      "special": "None",
+      "tech-level": 1,
+      "range": 75,
+      "damage": {
+        "value": "2D-3",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 50,
+      "magazine": 1,
+      "magazine-cost": 5,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Buckler",
+      "type": "Shield",
+      "skill": "Bludgeon",
+      "description": "A small wood and metal shield held in the hand and used to parry incoming blows, a buckler is requires skill to use effectively.",
+      "special": "It acts as a shield, but does not grant an effective Melee 0 if the Traveller has no skill in Melee to begin with.",
+      "tech-level": 2,
+      "range": 0,
+      "damage": {
+        "value": "1D",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 10,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 47,
+      "name": "Cannon",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A large caliber gun used to arm the heavy tanks and armored vehicles of mid-Tech Level armies.",
+      "special": "The cannon may use variant ammunition types.",
+      "tech-level": 8,
+      "range": 2,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 2.5,
+      "cost": 400000,
+      "magazine": 30,
+      "magazine-cost": 5000,
+      "traits": [
+        "Blast 10"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Cannon (Black Powder)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "This is a simple smoothbore black-powder cannon capable of delivering shot out to a kilometer or so without any real degree of accuracy. Roundshot is the most commonly used ammunition, though canister shot is also popular. The black powder cannon typically requires a crew of six or so plus beasts sof burden to move it around.",
+      "special": "It may use canister rounds.",
+      "tech-level": 3,
+      "range": 0.5,
+      "damage": {
+        "value": "7D",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 3000,
+      "magazine": 1,
+      "magazine-cost": 50,
+      "traits": []
+    },
+    {
+      "id": 47,
+      "name": "Cannon (Gauss)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "This weapon uses advanced electromagnetic ('gauss') propulsion to accelerate a metal dart to tremendous speed. The projectile is a lump of dense metal which damages the target using kinetic energy and the gauss cannon is capable of firing them rapidly.",
+      "special": "The gauss cannon may use variant ammunition types.",
+      "tech-level": 12,
+      "range": 2,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 100000,
+      "magazine": 200,
+      "magazine-cost": 1000,
+      "traits": [
+        "AP 10",
+        "Auto 3"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Cannon (Heavy)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "This is a main-caliber gun which arms many mid-tech armored fighting vehicles.",
+      "special": "The heavy cannon may use variant ammunition types.",
+      "tech-level": 8,
+      "range": 3,
+      "damage": {
+        "value": "2DD",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 600000,
+      "magazine": 10,
+      "magazine-cost": 5000,
+      "traits": [
+        "Blast 10"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Cannon (Heavy Gauss)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "Pushing the limits of gauss technology, this cannon is capable of laying waste to entire units of even the most heavily armored infantry.",
+      "special": "The heavy gauss cannon may use variant ammunition types.",
+      "tech-level": 12,
+      "range": 3,
+      "damage": {
+        "value": "2DD",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 225000,
+      "magazine": 60,
+      "magazine-cost": 800,
+      "traits": [
+        "AP 15",
+        "Auto 2"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Cannon (Heavy Laser)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A much larger version of the laser cannon, this weapon has greater range and a much heavier punch.",
+      "special": "None",
+      "tech-level": 9,
+      "range": 25,
+      "damage": {
+        "value": "2DD",
+        "scale": "Traveller"
+      },
+      "mass": 9,
+      "cost": 250000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 20"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Cannon (Hypervelocity)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "The hypervelocity cannon uses electromagnetic propulsion similar to a gauss weapon, and is typically mounted in emplacements or very large vehicles.",
+      "special": "It can be used against targets in low orbit if it can be elevated far enough. This extended range (100km) is only useful in direct fire at airborne or orbital targets and the hypervelocity cannon 'lob' its projectiles like a howitzer.",
+      "tech-level": 13,
+      "range": 5,
+      "damage": {
+        "value": "2DD",
+        "scale": "Traveller"
+      },
+      "mass": 20,
+      "cost": 28000000,
+      "magazine": 50,
+      "magazine-cost": 5000,
+      "traits": [
+        "AP 30",
+        "Scope"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Cannon (Laser)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A single barrel laser main gun for a vehicle, the laser cannon is the first truly effective vehicle energy weapon.",
+      "special": "None",
+      "tech-level": 9,
+      "range": 2.5,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 6,
+      "cost": 100000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 10"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Cannon (Orbital Defense)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "An extremely large hypervelocity cannon, this weapon can engage targets on the ground but, if elevated, can attack its preferred targets, low-orbiting spacecraft. If it does so, it increases its range to 1,000km.",
+      "special": "If elevated, it can attack low-orbiting spacecraft. If it does so, it increases its range to 1,000km.",
+      "tech-level": 14,
+      "range": 5,
+      "damage": {
+        "value": "4DD",
+        "scale": "Traveller"
+      },
+      "mass": 35,
+      "cost": 40000000,
+      "magazine": 20,
+      "magazine-cost": 10000,
+      "traits": [
+        "AP 30",
+        "Scope",
+        "Track"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Cartridge Pistol",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "A large smoothbore revolver chambered for a non-standard 13mm light shotgun cartridge, this weapon is often used to deal with vermin but has some combat applications.",
+      "special": "None",
+      "tech-level": 7,
+      "range": 20,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 1.5,
+      "cost": 300,
+      "magazine": 6,
+      "magazine-cost": 10,
+      "traits": [
+        "Bulky"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Chaindrive Axe",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "A small but high torque engine built into the haft of this weapon drives a set of independently spinning, chain-driven teeth in the axe head. These are capable of shredding an enemy with a single blow.",
+      "special": "None",
+      "tech-level": 10,
+      "range": 0,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 7,
+      "cost": 600,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 4",
+        "Bulky"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Chaindrive Sword",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "A small but high torque engine built into the hilt of this weapon drives a paired row of sawing teeth, creating the blade of the weapon. A truly vicious weapon, it is used by those who like to intimidate.",
+      "special": "None",
+      "tech-level": 10,
+      "range": 0,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 5,
+      "cost": 500,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 2"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Club",
+      "type": "Melee",
+      "skill": "Bludgeon",
+      "description": "The first weapon emerging civilizations usually discover. Clubs can range from a length of heavy wood to extending riot batons of advanced polymers, but they remain a popular and practical weapon regardless.",
+      "special": "None",
+      "tech-level": 1,
+      "range": 0,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 0,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 12,
+      "name": "Coach Pistol",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "Essentially a sawed-off double-barrelled black powder shotgun, the coach pistol is deadly at close range but useless at any real distance.",
+      "special": "Both barrels can be discharged at once, in which case the damage is increased to 4D. Coach pistols require a successful Gun Combat (slug) check to reload.",
+      "tech-level": 3,
+      "range": 5,
+      "damage": {
+        "value": "4D-3",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 200,
+      "magazine": 2,
+      "magazine-cost": 10,
+      "traits": [
+        "Dangerous"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Complex Chemical Charge",
+      "type": "Explosive",
+      "skill": "Explosives",
+      "description": "When two chemical polymers are combined physically, normally through a timed mechanical or electronic device, they react explosively. There is a D3 round delay between the chemical chain forming and the charge exploding, but the resulting chemical detonation is very powerful and concentrated.",
+      "special": "Explodes after 3D rounds.",
+      "tech-level": 10,
+      "range": "",
+      "damage": {
+        "value": "4D * Explosive Effect",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 500,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 15",
+        "Blast 9"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Crossbow",
+      "type": "Ranged",
+      "skill": "Archaic",
+      "description": "A heavy weapon, cocked with a stirrup or windlass device, the crossbow is powerful and simple to use. It is slow-firing, however, taking 3 minor actions to re-load.",
+      "special": "Takes 3 minor actions to re-load.",
+      "tech-level": 2,
+      "range": 100,
+      "damage": {
+        "value": "3D-3",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 200,
+      "magazine": 1,
+      "magazine-cost": 5,
+      "traits": [
+        "AP 2"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Crossbow (Repeating)",
+      "type": "Ranged",
+      "skill": "Archaic",
+      "description": "This is a weak but quick-firing crossbow, cocked by a lever and fed from a magazine of six bolts.",
+      "special": "None",
+      "tech-level": 3,
+      "range": 75,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 400,
+      "magazine": 6,
+      "magazine-cost": 30,
+      "traits": []
+    },
+    {
+      "id": 12,
+      "name": "Cryo Rifle",
+      "type": "Rifle",
+      "skill": "Energy",
+      "description": "Taking the technology of the cryojet and miniaturizing it into the frame of a rifle, this weapon becomes the bane of even heavy infantry encased within battle dress.",
+      "special": "If a target wearing any kind of sealed armor is struck by a cryo rifle, it must make an Average (8+) STR check or be held in place for 1D rounds.",
+      "tech-level": 13,
+      "range": 10,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 9,
+      "cost": 6000,
+      "magazine": 12,
+      "magazine-cost": 150,
+      "traits": [
+        "Blast 3"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Cryojet",
+      "type": "Heavy",
+      "skill": "Man Portable",
+      "description": "In one way the opposite of a flamethrower, the cryojet projects a stream of cryogenically chilled liquid which can do massive damage to living tissue. However, its primary use is to freeze the joints of sealed armor, temporarily incapacitating the target.",
+      "special": "If a target wearing any kind of sealed armor is stuck by a cryojet, it must make an Average (8+) STR check or be held in place for 1D rounds.",
+      "tech-level": 11,
+      "range": 10,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 14,
+      "cost": 4000,
+      "magazine": 16,
+      "magazine-cost": 200,
+      "traits": [
+        "Blast 5",
+        "Bulky"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Cutlass",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "The standard shipboard blade weapon, often kept near airlocks to repel boarders.",
+      "special": "None",
+      "tech-level": 2,
+      "range": 0,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 200,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 5,
+      "name": "Dagger",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "A small knife weapon, approximately 20-30 centimeters in length.",
+      "special": "None",
+      "tech-level": 1,
+      "range": 0,
+      "damage": {
+        "value": "1D+2",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 10,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 47,
+      "name": "Demolition Gun",
+      "type": "Heavy",
+      "skill": "Artillery",
+      "description": "This is a short-barrelled petard weapon designed to deliver an extremely large explosive charge over a short distance. The demolition gun is normally mounted aboard engineering or assault support vehicles, to demolish fortifications and flatten obstructions.",
+      "special": "None",
+      "tech-level": 6,
+      "range": 0.1,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 5,
+      "cost": 30000,
+      "magazine": 1,
+      "magazine-cost": 500,
+      "traits": [
+        "AP 10",
+        "Artillery",
+        "Blast 10"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Disposable Plasma Rifle",
+      "type": "Heavy",
+      "skill": "Man Portable",
+      "description": "This is a self-contained, disposable weapon launching an 80mm rocket-propelled directed plasma warhead. The plasma launcher is a deadly weapon able to destroy even high-technology armored vehicles. It is a favored import with mid-tech forces that need a deterrent against higher-tech foes.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 300,
+      "damage": {
+        "value": "2DD",
+        "scale": "Traveller"
+      },
+      "mass": 8,
+      "cost": 8000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "One Shot",
+        "Smart"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Duck's Foot Pistol",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "A good tool for intimidating an entire mob at once, the duck's foot pistol has several (normally between four and eight) splayed barrels which are all discharged at once. Its effects can be fairly random, and the energy expended has been known to wreck the pistol.",
+      "special": "Can only ever be used on full auto, and a target may only be attacked once - any extra shots are wasted.",
+      "tech-level": 3,
+      "range": 5,
+      "damage": {
+        "value": "3D-3",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 300,
+      "magazine": 24,
+      "magazine-cost": 25,
+      "traits": []
+    },
+    {
+      "id": 12,
+      "name": "Electromagnetic Pulse",
+      "type": "Grenade",
+      "skill": "Dexterity",
+      "description": "This grenade unleashes a burst of electromagnetic radiation that does not harm living tissue.",
+      "special": "Causes unshielded electronics to shut down for 1D minutes. Unshielded electronics of more than two TLs lower than that of the grenade will be permanently fried, while all electronics of more then two TLs higher will be completely immune.",
+      "tech-level": 9,
+      "range": 20,
+      "damage": {
+        "value": "",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 100,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 6"
+      ]
+    },
+    {
+      "id": 43,
+      "name": "FGMP",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "The ultimate personal firearm, the Fusion Gun, Man Portable is more like a piece of artillery. It includes a gravity suspension system to reduce its inertia, and fires what amounts to a directed nuclear explosion.",
+      "special": "Those without radiation protection who are nearby when a FGMP is fired will suffer a potentially lethal dose of radiation.",
+      "tech-level": 14,
+      "range": 450,
+      "damage": {
+        "value": "2DD",
+        "scale": "Traveller"
+      },
+      "mass": 12,
+      "cost": 100000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Radiation",
+        "Very Bulky"
+      ]
+    },
+    {
+      "id": 44,
+      "name": "FGMP",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "The ultimate personal firearm, the Fusion Gun, Man Portable is more like a piece of artillery. It includes a gravity suspension system to reduce its inertia, and fires what amounts to a directed nuclear explosion.",
+      "special": "Those without radiation protection who are nearby when a FGMP is fired will suffer a potentially lethal dose of radiation.",
+      "tech-level": 15,
+      "range": 450,
+      "damage": {
+        "value": "2DD",
+        "scale": "Traveller"
+      },
+      "mass": 12,
+      "cost": 400000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Bulky",
+        "Radiation"
+      ]
+    },
+    {
+      "id": 45,
+      "name": "FGMP",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "The ultimate personal firearm, the Fusion Gun, Man Portable is more like a piece of artillery. It includes a gravity suspension system to reduce its inertia, and fires what amounts to a directed nuclear explosion.",
+      "special": "Those without radiation protection who are nearby when a FGMP is fired will suffer a potentially lethal dose of radiation.",
+      "tech-level": 16,
+      "range": 450,
+      "damage": {
+        "value": "2DD",
+        "scale": "Traveller"
+      },
+      "mass": 15,
+      "cost": 500000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Radiation"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Field Gun",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A rifled muzzle-loading cannon mounted on a horse-drawn carriage and requiring a crew of six or more men, the field gun is more accurate at range than a smoothbore cannon.",
+      "special": "Field guns may use canister rounds.",
+      "tech-level": 4,
+      "range": 1,
+      "damage": {
+        "value": "8D",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 5000,
+      "magazine": 1,
+      "magazine-cost": 75,
+      "traits": []
+    },
+    {
+      "id": 12,
+      "name": "Flame Rifle",
+      "type": "Rifle",
+      "skill": "Energy",
+      "description": "An advanced flamethrower, the flame rifle packs everything a fire-starter needs into one compact package.",
+      "special": "None",
+      "tech-level": 9,
+      "range": 10,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 8,
+      "cost": 2500,
+      "magazine": 10,
+      "magazine-cost": 50,
+      "traits": [
+        "Blast 3",
+        "Fire"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Flamethrower",
+      "type": "Heavy",
+      "skill": "Man Portable",
+      "description": "A relatively crude device, the flamethrower consists of a fuel tank, compressor, and a nozzle that can project a torrent of fire some distance.",
+      "special": "Changing magazines (fuel tanks) takes 2D rounds, and if a Traveller carrying a flamethrower is hit by any attack with an Effect of 4 or greater, the weapon will explode, destroying itself and immediately inflicting damage on the Traveller as if he had been hit by it.",
+      "tech-level": 4,
+      "range": 5,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 20,
+      "cost": 800,
+      "magazine": 30,
+      "magazine-cost": 60,
+      "traits": [
+        "Blast 3",
+        "Bulky",
+        "Fire"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Flamethrower",
+      "type": "Heavy",
+      "skill": "Man Portable",
+      "description": "A relatively crude device, the flamethrower consists of a fuel tank, compressor, and a nozzle that can project a torrent of fire some distance.",
+      "special": "Changing magazines (fuel tanks) takes 2D rounds, and if a Traveller carrying a flamethrower is hit by any attack with an Effect of 4 or greater, the weapon will explode, destroying itself and immediately inflicting damage on the Traveller as if he had been hit by it.",
+      "tech-level": 6,
+      "range": 5,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 15,
+      "cost": 1500,
+      "magazine": 40,
+      "magazine-cost": 80,
+      "traits": [
+        "Blast 5",
+        "Bulky",
+        "Fire"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Flamethrower",
+      "type": "Heavy",
+      "skill": "Man Portable",
+      "description": "A relatively crude device, the flamethrower consists of a fuel tank, compressor, and a nozzle that can project a torrent of fire some distance.",
+      "special": "Changing magazines (fuel tanks) takes 2D rounds.",
+      "tech-level": 8,
+      "range": 10,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 10,
+      "cost": 2000,
+      "magazine": 50,
+      "magazine-cost": 100,
+      "traits": [
+        "Blast 5",
+        "Fire"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Flechette Pistol",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "This pistol is designed to be an efficient and silent weapon for use by those who do not wish to bring attention to themselves. It uses compressed air to launch a cluster of metal darts.",
+      "special": "None",
+      "tech-level": 9,
+      "range": 10,
+      "damage": {
+        "value": "3D-2",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 275,
+      "magazine": 20,
+      "magazine-cost": 10,
+      "traits": [
+        "Silent"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Flechette Submachine Gun",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "This is a scaled-up version of the flechette pistol capable of full-automatic fire. A longer barrel, 'assault' fore-grip, and folding stock make it more of a combat weapon than an assassination tool, and while it lacks stopping power, it sees use in some special operations units.",
+      "special": "None",
+      "tech-level": 9,
+      "range": 20,
+      "damage": {
+        "value": "3D-2",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 500,
+      "magazine": 40,
+      "magazine-cost": 20,
+      "traits": [
+        "Auto 3",
+        "Silent"
+      ]
+    },
+    {
+      "id": 40,
+      "name": "Frag Grenade",
+      "type": "Grenade",
+      "skill": "Dexterity",
+      "description": "Fragmentation grenades explode in a blast of shrapnel designed to kill or cripple anyone close by.",
+      "special": "None",
+      "tech-level": 6,
+      "range": 20,
+      "damage": {
+        "value": "5D",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 30,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 9"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Fusion Block",
+      "type": "Explosive",
+      "skill": "Explosives",
+      "description": "This is a dense and expensive material formed into a cube and fitted with a chemi-pressure trigger. This creates a shaped explosion of fusion energy. This explosion is extremely powerful and does not pause for most physical matter, sublimating it into gas almost instantly.",
+      "special": "None",
+      "tech-level": 16,
+      "range": "",
+      "damage": {
+        "value": "1DD * Explosive Effect",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 10000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 12",
+        "Radiation"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Fusion Gun",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "One of the most powerful ground-based weapons ever made, the fusion gun can blast through just about any material.",
+      "special": "None",
+      "tech-level": 13,
+      "range": 3,
+      "damage": {
+        "value": "3DD",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 2000000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 10",
+        "Blast 15",
+        "Radiation"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Fusion Gun",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "One of the most powerful ground-based weapons ever made, the fusion gun can blast through just about any material.",
+      "special": "None",
+      "tech-level": 14,
+      "range": 5,
+      "damage": {
+        "value": "3DD",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 3000000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 20",
+        "Blast 20",
+        "Radiation"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Fusion Gun",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "One of the most powerful ground-based weapons ever made, the fusion gun can blast through just about any material.",
+      "special": "None",
+      "tech-level": 15,
+      "range": 10,
+      "damage": {
+        "value": "3DD",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 8000000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 30",
+        "Blast 30",
+        "Radiation"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Garrote",
+      "type": "Melee",
+      "skill": "Unarmed",
+      "description": "Any piece of cord can be used to strangle someone. Custom-made garrotes sometimes have handles to make it easier to apply force, but the effect is much the same. A garrote can only be used upon an opponent who has been successfully grappled.",
+      "special": "If a successful grapple leads to an enemy suffering damage, the garrote will inflict 2D damage, plus the Effect of the opposed Melee check. Every consecutive round in which a garrote is successfully used will add an additional 1D to the damage caused.",
+      "tech-level": 1,
+      "range": 0,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 10,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 47,
+      "name": "Gatling Laser",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A relatively low-powered, vehicle-mounted laser weapon, the gatling laser uses several cryogenically cooled barrels fired in succession to deliver a hail of fire. The gatling laser is often used as an air-defense weapon.",
+      "special": "None",
+      "tech-level": 8,
+      "range": 4,
+      "damage": {
+        "value": "6D",
+        "scale": "Traveller"
+      },
+      "mass": 7,
+      "cost": 125000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 5",
+        "Auto 4"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Gauntlet Laser",
+      "type": "Pistol",
+      "skill": "Energy",
+      "description": "Effectively a laser pistol mounted to the back of a shielded gauntlet, this weapon is powered by a backpack-carried energy source fed to it by a cable usually tethered around the arm.",
+      "special": "The gauntlet allows the Traveller to retain an open hand while still armed with a potent weapon.",
+      "tech-level": 10,
+      "range": 20,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 2500,
+      "magazine": 100,
+      "magazine-cost": 1100,
+      "traits": [
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Gauss Pistol",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "Gauss pistols use electromagnetic coils to accelerate metallic darts to hypersonic speeds. Gauss weapons are lightweight and deadly.",
+      "special": "None",
+      "tech-level": 13,
+      "range": 20,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 500,
+      "magazine": 40,
+      "magazine-cost": 20,
+      "traits": [
+        "AP 3",
+        "Auto 2"
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Gauss Rifle",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "Gauss rifles replace conventional rifles at TL13. Like the smaller gauss pistol, rifles fire high-velocity projectiles using electromagnetic rails.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 600,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 1500,
+      "magazine": 80,
+      "magazine-cost": 40,
+      "traits": [
+        "AP 5",
+        "Auto 3",
+        "Scope"
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Gauss Sniper Rifle",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "Utilizing gauss technology, this sniper rifle is the ultimate in long-ranged, surgical killing using projectiles. The scope includes light amplification and passive IR, visual magnification, and a laser rangefinder which may also be used as a target painting device.",
+      "special": "The scope includes light amplification and passive IR, visual magnification, and a laser rangefinder.",
+      "tech-level": 12,
+      "range": 1000,
+      "damage": {
+        "value": "5D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 2500,
+      "magazine": 12,
+      "magazine-cost": 20,
+      "traits": [
+        "AP 6",
+        "Scope"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Gravitic Shield",
+      "type": "Shield",
+      "skill": "Bludgeon",
+      "description": "Worn as an armband or bracer, when activated the gravitic shield projects a flat, shimmering energy field that deflects incoming attacks in the same way as a physical shield.",
+      "special": "The gravitic shield functions in the same way as a normal shield.",
+      "tech-level": 17,
+      "range": 0,
+      "damage": {
+        "value": "1D",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 2500,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Gravity Hammer",
+      "type": "Melee",
+      "skill": "Bludgeoning",
+      "description": "The basic concept of the gravity hammer's use (smash stuff) hides a truly sophisticated weapon that has become known as the epitome of bludgeoning weaponry. Inside the super-dense head of the hammer is a small gravitic generator that twists and multiplies the effective kinetic force the weapon creates when swung. The slight gyroscopic pull of the gravity hammer does make it difficult to control mid-swing, creating an additional amount of weight to compensate for.",
+      "special": "When using the gravity hammer against any target smaller than a vehicle, attack rolls suffer DM-6.",
+      "tech-level": 13,
+      "range": 0,
+      "damage": {
+        "value": "5D",
+        "scale": "Traveller"
+      },
+      "mass": 5,
+      "cost": 10000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 50",
+        "Bulky",
+        "Smasher"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Great Axe",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "A very large axe with a long haft, wielded in both hands, the great axe is a fearsome low-technology infantry weapon though limited in close quarters fighting. Nonetheless, it is capable of smashing through even modern armor. Large logging axes have a similar performance.",
+      "special": "None",
+      "tech-level": 2,
+      "range": 0,
+      "damage": {
+        "value": "4D+2",
+        "scale": "Traveller"
+      },
+      "mass": 10,
+      "cost": 750,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Smasher",
+        "Very Bulky"
+      ]
+    },
+    {
+      "id": 46,
+      "name": "Grenade Launcher",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "Grenade launchers are used to fire grenades over long distances. They may be equipped with any type of grenade.",
+      "special": "May be equipped with any type of grenade.",
+      "tech-level": 7,
+      "range": 100,
+      "damage": {
+        "value": "As grenade",
+        "scale": "Traveller"
+      },
+      "mass": 6,
+      "cost": 400,
+      "magazine": 6,
+      "magazine-cost": "As grenades",
+      "traits": [
+        "Bulky"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Hand Flamer",
+      "type": "Pistol",
+      "skill": "Energy",
+      "description": "Packing a powerful flamethrower safely into a pistol-sized frame, the hand flamer is useful in boarding actions and for other area clearance duties.",
+      "special": "None",
+      "tech-level": 10,
+      "range": 5,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 1500,
+      "magazine": 5,
+      "magazine-cost": 25,
+      "traits": [
+        "Blast 2",
+        "Fire"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Hand-spikes",
+      "type": "Melee",
+      "skill": "Unarmed",
+      "description": "Essentially a heavy knuckle-duster with spikes that penetrate rather than just relying on simple impact, hand-spikes are intimidating and leave a very nasty wound.",
+      "special": "None",
+      "tech-level": 2,
+      "range": 0,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 100,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Hatchet",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "A light axe head on a short haft, hatchets are basic work tools and carried as sidearms in some systems. They are also found in survival and field kits.",
+      "special": "None",
+      "tech-level": 3,
+      "range": 0,
+      "damage": {
+        "value": "2D+2",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 250,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 47,
+      "name": "Heavy Gun",
+      "type": "Heavy",
+      "skill": "Artillery",
+      "description": "A standard artillery piece on many worlds, this gun is usually mounted on a vehicle. Some versions can handle small nuclear warheads, but this is not usual. This weapon is theoretically capable of firing over open sights but it is somewhat ineffective in this role.",
+      "special": "The heavy gun may use variant ammunition types.",
+      "tech-level": 8,
+      "range": "12",
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 12,
+      "cost": 120000,
+      "magazine": 1,
+      "magazine-cost": 400,
+      "traits": [
+        "AP 8",
+        "Artillery",
+        "Blast 10"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Incendiary Grenade",
+      "type": "Grenade",
+      "skill": "Dexterity",
+      "description": "Incendiary grenades ignite their targets upon impact with a fuel mixture that continues to burn.",
+      "special": "None",
+      "tech-level": 8,
+      "range": 20,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 75,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 3",
+        "Fire"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Improvised",
+      "type": "Melee",
+      "skill": "Melee",
+      "description": "Using something that wasn't meant to be a weapon.",
+      "special": "None",
+      "tech-level": 0,
+      "range": 0,
+      "damage": {
+        "value": "2D-2",
+        "scale": "Traveller"
+      },
+      "mass": 5,
+      "cost": 0,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 12,
+      "name": "Javelin",
+      "type": "Ranged",
+      "skill": "Archaic",
+      "description": "A short spear designed for throwing, a javelin can be pressed into service as a footman's spear, but is not ideal outside of its intended role.",
+      "special": "None",
+      "tech-level": 1,
+      "range": 25,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 15,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "One Shot"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Knife",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "More tool than weapon, any small-bladed or pointed implement can be pressed into service in the event of an emergency. This includes screwdrivers, chisels, and even items like scissors, as well as small knives.",
+      "special": "None",
+      "tech-level": 1,
+      "range": 0,
+      "damage": {
+        "value": "1D",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 5,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Knuckle-blasters",
+      "type": "Melee",
+      "skill": "Unarmed",
+      "description": "A truly vicious weapon, the knuckle-blasters take the form of a reinforced glove with heavily padded fingers that incorporate a row of sockets across the back of the hand. These sockets are loaded individually with four shotgun shells which detonate when the Traveller's fist comes into hard contact with a target, causing a devastating amount of damage.",
+      "special": "After a successful attack, the knuckle-blasters must be reloaded, a process requiring 2 Significant Actions.",
+      "tech-level": 8,
+      "range": 0,
+      "damage": {
+        "value": "5D",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 150,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Lance",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "The classic weapon of an ancient knight, the lance is a long polearm designed to be used from horseback.",
+      "special": "If it is not being wielded from the back of a fast-moving animal or vehicle, it is treated as a spear.",
+      "tech-level": 2,
+      "range": 0,
+      "damage": {
+        "value": "5D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 75,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 4"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Large Shield",
+      "type": "Shield",
+      "skill": "Bludgeon",
+      "description": "A large shield is normally hung on a strap from the shoulder to help bear its weight.",
+      "special": "Cannot be used as a weapon.So long as the Traveller has STR 9+, the large shield increases their effective Melee skill by +2 when parrying and a Traveller with no Melee skill counts as having Melee 1 when using a large shield to parry. However, if the Traveller does not have the required STR, it simply counts as a shield.",
+      "tech-level": 1,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": "Traveller"
+      },
+      "mass": 8,
+      "cost": 200,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 33,
+      "name": "Laser Carbine",
+      "type": "Rifle",
+      "skill": "Energy",
+      "description": "Laser carbines are shorter and lighter than laser rifles, and have correspondingly shorter range.",
+      "special": "None",
+      "tech-level": 9,
+      "range": 150,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 2500,
+      "magazine": 50,
+      "magazine-cost": 1000,
+      "traits": [
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 34,
+      "name": "Laser Carbine",
+      "type": "Rifle",
+      "skill": "Energy",
+      "description": "Laser carbines are shorter and lighter than laser rifles, and have correspondingly shorter range.",
+      "special": "None",
+      "tech-level": 11,
+      "range": 200,
+      "damage": {
+        "value": "4D+3",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 4000,
+      "magazine": 50,
+      "magazine-cost": 3000,
+      "traits": [
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Laser Pistol",
+      "type": "Pistol",
+      "skill": "Energy",
+      "description": "The laser pistol is bulky, but effective, with no recoil and a large magazine.",
+      "special": "None",
+      "tech-level": 9,
+      "range": 20,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 2000,
+      "magazine": 100,
+      "magazine-cost": 1000,
+      "traits": [
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Laser Pistol",
+      "type": "Pistol",
+      "skill": "Energy",
+      "description": "With advances in battery technology and miniaturization, this laser pistol is no larger than a conventional firearm, but must still be connected to a battery pack for sustained use.",
+      "special": "None",
+      "tech-level": 11,
+      "range": 30,
+      "damage": {
+        "value": "3D+3",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 3000,
+      "magazine": 100,
+      "magazine-cost": 3000,
+      "traits": [
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 35,
+      "name": "Laser Rifle",
+      "type": "Rifle",
+      "skill": "Energy",
+      "description": "Laser rifles are highly accurate at long range and are powered by heavy backpacks.",
+      "special": "None",
+      "tech-level": 9,
+      "range": 200,
+      "damage": {
+        "value": "5D",
+        "scale": "Traveller"
+      },
+      "mass": 8,
+      "cost": 3500,
+      "magazine": 100,
+      "magazine-cost": 1500,
+      "traits": [
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 36,
+      "name": "Laser Rifle",
+      "type": "Rifle",
+      "skill": "Energy",
+      "description": "Laser rifles are highly accurate at long range and are powered by heavy backpacks.",
+      "special": "None",
+      "tech-level": 11,
+      "range": 400,
+      "damage": {
+        "value": "5D+3",
+        "scale": "Traveller"
+      },
+      "mass": 5,
+      "cost": 8000,
+      "magazine": 100,
+      "magazine-cost": 3500,
+      "traits": [
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Laser Rifle (Heavy)",
+      "type": "Rifle",
+      "skill": "Energy",
+      "description": "A large and somewhat unwieldy weapon, the heavy laser rifle is intended for snipers who hunt heavily armored targets, but it is equally well-suited to targeting light vehicles. The power pack is integrated into the weapon itself, removing the need for a heavy backpack.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 1200,
+      "damage": {
+        "value": "6D",
+        "scale": "Traveller"
+      },
+      "mass": 18,
+      "cost": 14000,
+      "magazine": 12,
+      "magazine-cost": 500,
+      "traits": [
+        "Scope",
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 37,
+      "name": "Laser Sniper Rifle",
+      "type": "Rifle",
+      "skill": "Energy",
+      "description": "A six-shot model designed to be used for mobile sniping. The power pack is integrated into the weapon itself, removing the need for a heavy backpack.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 600,
+      "damage": {
+        "value": "6D+3",
+        "scale": "Traveller"
+      },
+      "mass": 6,
+      "cost": 9000,
+      "magazine": 6,
+      "magazine-cost": 250,
+      "traits": [
+        "Scope",
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Light Howitzer",
+      "type": "Heavy",
+      "skill": "Artillery",
+      "description": "A short-barrelled artillery piece crewed by up to six personnel and usually moved by animal power or towed by a vehicle, the light howitzer can deliver shells to far off targets. It can also fire over open sights, but there are far better weapons for this role.",
+      "special": "The light howitzer may use variant ammunition types.",
+      "tech-level": 5,
+      "range": "6",
+      "damage": {
+        "value": "8D",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 50000,
+      "magazine": 1,
+      "magazine-cost": 150,
+      "traits": [
+        "Artillery",
+        "Blast 10"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Light Gun",
+      "type": "Heavy",
+      "skill": "Artillery",
+      "description": "A long-barrelled artillery piece, this gun has a higher muzzle velocity than the equivalent howitzer and can hit targets further away. It is also more capable in the direct fire role.",
+      "special": "The light gun may use variant ammunition types.",
+      "tech-level": 6,
+      "range": 9,
+      "damage": {
+        "value": "8D",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 75000,
+      "magazine": 1,
+      "magazine-cost": 200,
+      "traits": [
+        "AP 5",
+        "Artillery",
+        "Blast 10"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Mace",
+      "type": "Melee",
+      "skill": "Bludgeoning",
+      "description": "A mace is a one-handed weapon sometimes carried as a sidearm by low-technology troops. It consists of a heavy crushing head on a short haft.",
+      "special": "None",
+      "tech-level": 1,
+      "range": 0,
+      "damage": {
+        "value": "2D+2",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 20,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Bulky",
+        "Smasher"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Machinegun",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "A larger and less portable version of the autorifle, the machinegun may be relatively low tech but it is capable of sawing even armored targets in half.",
+      "special": "The machinegun may use variant ammunition types.",
+      "tech-level": 6,
+      "range": 500,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 12,
+      "cost": 1500,
+      "magazine": 60,
+      "magazine-cost": 100,
+      "traits": [
+        "Auto 4"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Machinegun (Heavy)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "Designed to be mounted upon a vehicle or tripod, the heavy machinegun has proven effective against light vehicles and aircraft but is primarily intended to mow down advancing infantry.",
+      "special": "The heavy machinegun may use variant ammunition types.",
+      "tech-level": 6,
+      "range": 1,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 0.1,
+      "cost": 4500,
+      "magazine": 100,
+      "magazine-cost": 400,
+      "traits": [
+        "Auto 3"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Machinegun (Rapid-Fire)",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "This is a light machinegun tuned to develop an incredibly high rate of fire. The Auto score of this weapon may be doubled, but the weapon must be left to cool for 2 rounds after this has been done.",
+      "special": "The rapid-fire machinegun may use variant ammunition types.",
+      "tech-level": 7,
+      "range": 500,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 12,
+      "cost": 3000,
+      "magazine": 60,
+      "magazine-cost": 100,
+      "traits": [
+        "Auto 4 (8)"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Magrail Rifle",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "MagRail rifles follow the similar principles of electromagnetic induction to accelerate their projectiles as gauss weapons, but utilize an ovoid projectile (sometimes erroneously called a disc or shuriken) which hits hard at short ranges but lacks penetrative power.",
+      "special": "None",
+      "tech-level": 14,
+      "range": 150,
+      "damage": {
+        "value": "4D+3",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 2500,
+      "magazine": 30,
+      "magazine-cost": 100,
+      "traits": [
+        "Auto 6"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Magrail Pistol",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "Using similar technology to gauss weapons, magrail pistols throw ovoid projectiles (sometimes erroneously called discs or shuriken) which hit hard a short ranges but lack penetrative power.",
+      "special": "None",
+      "tech-level": 14,
+      "range": 15,
+      "damage": {
+        "value": "3D+3",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 750,
+      "magazine": 20,
+      "magazine-cost": 60,
+      "traits": [
+        "Auto 4"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Maser Pistol",
+      "type": "Pistol",
+      "skill": "Energy",
+      "description": "Using maser (within the microwave area of the electromagnetic spectrum) technology, this pistol carries little physical punch but is superb at breaching armor.",
+      "special": "The power cell carries an indefinite charge so long as it remains undamaged and will recharge itself after an hour of not being fired.",
+      "tech-level": 17,
+      "range": 20,
+      "damage": {
+        "value": "3D+3",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 25000,
+      "magazine": 12,
+      "magazine-cost": 0,
+      "traits": [
+        "API 10",
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Maser Rifle",
+      "type": "Rifle",
+      "skill": "Energy",
+      "description": "A maser is a concentrated beam of microwave energy which boils a target from the inside. This makes it far more effective at destroying armored targets and is far more potent than a laser rifle.",
+      "special": "The power cell carries an indefinite charge so long as it remains undamaged and will recharge itself after an hour of not being fired.",
+      "tech-level": 16,
+      "range": 300,
+      "damage": {
+        "value": "5D+3",
+        "scale": "Traveller"
+      },
+      "mass": 8,
+      "cost": 30000,
+      "magazine": 20,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 10",
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Mass Driver",
+      "type": "Heavy",
+      "skill": "Artillery",
+      "description": "An advanced tube-based artillery piece using electromagnetic acceleration to hurl its payload, a mass driver will normally be mounted on a vehicle. It requires a crew of at least eight, including power technicians as well as gunners, and is effective in the direct-fire role.",
+      "special": "The mass driver may use variant ammunition types.",
+      "tech-level": 12,
+      "range": 40,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 7,
+      "cost": 500000,
+      "magazine": 1,
+      "magazine-cost": 750,
+      "traits": [
+        "Artillery",
+        "Blast 10"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Matter Disintegrator",
+      "type": "Pistol",
+      "skill": "Energy",
+      "description": "This highly advanced weapon causes atoms to release particles in rapid succession, effectively disintegrating its target.",
+      "special": "None",
+      "tech-level": 18,
+      "range": 5,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 2500000,
+      "magazine": 0,
+      "magazine-cost": 50000,
+      "traits": [
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Matter Disintegrator",
+      "type": "Pistol",
+      "skill": "Energy",
+      "description": "This highly advanced weapon causes atoms to release particles in rapid succession, effectively disintegrating its target. Also integrates an effectively unlimited power source.",
+      "special": "Integrates an effectively unlimited power source.",
+      "tech-level": 19,
+      "range": 10,
+      "damage": {
+        "value": "2DD",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 4000000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Meson Accelerator",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A battlefield-grade meson accelerator requires a huge power supply and can only be mounted in emplacements or the very largest of vehicles. It is similar in operation to starship-grade meson guns in that the particles it accelerates do not interact with matter until they decay, allowing the weapon to effectively shoot through any obstruction so long as the target's location is known.",
+      "special": "Meson accelerators ignore all Armor and radiation shielding.",
+      "tech-level": 15,
+      "range": 150,
+      "damage": {
+        "value": "4DD",
+        "scale": "Traveller"
+      },
+      "mass": 60,
+      "cost": 20000000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP Special",
+        "Radiation"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Mono-blade",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "This is a light one-handed polymer blade that features a mono-filament edge, a cutting edge just one molecule thick created by spinning a single-molecule strand. A mono-blade is as sharp as any physical object can be.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 0,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 2500,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 10"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Mortar (Black Powder)",
+      "type": "Heavy",
+      "skill": "Artillery",
+      "description": "A primitive short-barrelled smoothbore weapon, the black powder mortar is little more than a very short cannon placed upon a high-angle mount. They are sometimes called 'grasshopper guns' due to their tendency to jump about when firing.",
+      "special": "None",
+      "tech-level": 3,
+      "range": 0.5,
+      "damage": {
+        "value": "6D",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 2000,
+      "magazine": 1,
+      "magazine-cost": 50,
+      "traits": [
+        "Artillery",
+        "Blast 6"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Mortar (Infantry)",
+      "type": "Heavy",
+      "skill": "Artillery",
+      "description": "A light man-portable support weapon capable of launching small explosive bombs (or other munitions, including smoke).",
+      "special": "None",
+      "tech-level": 5,
+      "range": "1 (0.1)",
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 12,
+      "cost": 3500,
+      "magazine": 1,
+      "magazine-cost": 50,
+      "traits": [
+        "Artillery",
+        "Blast 5"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Mortar (Support)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A heavy mortar mounted on a wheeled carriage rather than being carried by infantry, the support mortar flings a bomb in the 120mm range over a respectable distance.",
+      "special": "None",
+      "tech-level": 7,
+      "range": 3,
+      "damage": {
+        "value": "9D",
+        "scale": "Traveller"
+      },
+      "mass": 0.25,
+      "cost": 11000,
+      "magazine": 1,
+      "magazine-cost": 100,
+      "traits": [
+        "Artillery",
+        "Blast 6"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Net",
+      "type": "Other",
+      "skill": "Net",
+      "description": "This is a large net, usually with weights fastened to its extremities. It is thrown over a target with the intention of entangling them. A Traveller hit by a net does not sustain any damage.",
+      "special": "If a Traveller is hit by a net, he must make a Melee (unarmed) check opposed by the Gun Combat (net) check of the attacker, as if being grappled. If this check is failed, the Traveller is immobilized. The Traveller can free himself from the net by making a successful Average (8+) DEX check (1D rounds).",
+      "tech-level": 1,
+      "range": "5",
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 1,
+      "cost": 10,
+      "magazine": 1,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 12,
+      "name": "Neurotoxin Grenade",
+      "type": "Grenade",
+      "skill": "Dexterity",
+      "description": "This grenade creates a cloud of gas that, if inhaled, will likely prove deadly.",
+      "special": "Any living target within the cloud that does not have a respirator or sealed suit will be attacked as if by a poison with a Very Difficult (12+) END check, Damage 1D INT and Interval of 1D seconds. Gas clouds dissipate after 1D * 3 rounds, though heavy winds and rain can drastically reduce this time.",
+      "tech-level": 9,
+      "range": 20,
+      "damage": {
+        "value": "Special",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 250,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 9"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Neutrino Detonator",
+      "type": "Explosive",
+      "skill": "Explosives",
+      "description": "A complex device about the size of a laptop computer, the neutrino detonator uses a complex formula to create a powerful explosion that sends a wave of overlapping neutrinos through all matter surrounding it. This wave causes breaks in the bonds that hold matter together, something that has little direct effect on inorganic substances, which just return to their former state instantly. Organic matter, however, suffers major cellular damage.",
+       "special": "This explosion ignores all inorganic substances (walls, doors, armor, and so on), inflicting its damage only on organic materials within its Burst.",
+      "tech-level": 17,
+      "range": "",
+      "damage": {
+        "value": "8D * Explosive Effect",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 50000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 25"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Personal Defense Laser",
+      "type": "Pistol",
+      "skill": "Energy",
+      "description": "A lightweight laser weapon fed by one-use cartridges rather than an external power pack, the personal defense laser (PDL) uses a 25-round magazine inserted in the hand-grip. It is capable of fully-automatic fire and is used as a sidearm by some military officers. It is somewhat bulkier than a laser pistol, but remains manageable.",
+      "special": "None",
+      "tech-level": 13,
+      "range": 25,
+      "damage": {
+        "value": "3D+3",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 6000,
+      "magazine": 25,
+      "magazine-cost": 100,
+      "traits": [
+        "Auto 2",
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 48,
+      "name": "PGMP",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "The Plasma Gun, Man Portable is the standard assault weapon of the marines. It is so heavy and bulky that it can only be used easily by a trooper in Battle Dress. It is powered by a built-in micro-fusion generator, and fires a high-energy plasma stream.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 250,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 10,
+      "cost": 20000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Very Bulky"
+      ]
+    },
+    {
+      "id": 49,
+      "name": "PGMP",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "The Plasma Gun, Man Portable is the standard assault weapon of the marines. It is so heavy and bulky that it can only be used easily by a trooper in Battle Dress. It is powered by a built-in micro-fusion generator, and fires a high-energy plasma stream.",
+      "special": "None",
+      "tech-level": 13,
+      "range": 450,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 10,
+      "cost": 65000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Bulky"
+      ]
+    },
+    {
+      "id": 50,
+      "name": "PGMP",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "The Plasma Gun, Man Portable is the standard assault weapon of the marines. It is so heavy and bulky that it can only be used easily by a trooper in Battle Dress. It is powered by a built-in micro-fusion generator, and fires a high-energy plasma stream.",
+      "special": "None",
+      "tech-level": 14,
+      "range": 450,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 10,
+      "cost": 100000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Piston Fist",
+      "type": "Melee",
+      "skill": "Unarmed",
+      "description": "This heavy metal forearm brace has a built-in pneumatic ram that activates whenever the Traveller makes a quick punching motion. It is driven forward under great pressure.",
+      "special": "It has the potential to punch through solid walls. The Traveller's STR DM is never added to the damage caused by this weapon.",
+      "tech-level": 9,
+      "range": 0,
+      "damage": {
+        "value": "3D+2",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 150,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Piston Spear",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "This reinforced shaft of this spear contains a compressed air chamber that drives a pneumatic engine. When activated, the spear tip is driven forward under great pressure to punch through the enemy.",
+      "special": "It requires a minor action to reset the spear tip after each attack. If this is not done, the weapon is treated as a normal spear.",
+      "tech-level": 7,
+      "range": 0,
+      "damage": {
+        "value": "3D+2",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 400,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 12,
+      "name": "Plasma Grenade",
+      "type": "Grenade",
+      "skill": "Dexterity",
+      "description": "A development of the frag grenade, the plasma grenade unleashes a microsecond burst of pure energy to vaporize its targets.",
+      "special": "None",
+      "tech-level": 16,
+      "range": 20,
+      "damage": {
+        "value": "8D",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 500,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 6"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Plasma Gun",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A heavy plasma gun designed for mounting on vehicles, this weapon is generally fitted to advanced grav vehicles and some aircraft. However, it is intended more as a support weapon than main anti-vehicle armament.",
+      "special": "None",
+      "tech-level": 10,
+      "range": 6,
+      "damage": {
+        "value": "2DD",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 500000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 10"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Plasma Gun",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A heavy plasma gun designed for mounting on vehicles, this weapon is generally fitted to advanced grav vehicles and some aircraft. However, it is intended more as a support weapon than main anti-vehicle armament.",
+      "special": "None",
+      "tech-level": 11,
+      "range": 8,
+      "damage": {
+        "value": "2DD",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 1000000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 20"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Plasma Gun",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A heavy plasma gun designed for mounting on vehicles, this weapon is generally fitted to advanced grav vehicles and some aircraft. However, it is intended more as a support weapon than main anti-vehicle armament.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 10,
+      "damage": {
+        "value": "2DD",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 1500000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 30"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Plasma Jet",
+      "type": "Heavy",
+      "skill": "Man Portable",
+      "description": "A crude use of plasma technology, the plasma jet is also the ultimate expression of primitive flamethrowers. Powered by a micro-fusion generator carried in a backpack, this weapon unleashes a short-ranged, barely controlled torrent of plasma capable of annihilating anything close by.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 25,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 10,
+      "cost": 16000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 5",
+        "Very Bulky"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Plasma Jet",
+      "type": "Heavy",
+      "skill": "Man Portable",
+      "description": "A crude use of plasma technology, the plasma jet is also the ultimate expression of primitive flamethrowers. Powered by a micro-fusion generator carried in a backpack, this weapon unleashes a short-ranged, barely controlled torrent of plasma capable of annihilating anything close by.",
+      "special": "None",
+      "tech-level": 14,
+      "range": 50,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 10,
+      "cost": 80000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 10",
+        "Bulky"
+      ]
+    },
+    {
+      "id": 38,
+      "name": "Plasma Rifle",
+      "type": "Rifle",
+      "skill": "Energy",
+      "description": "TL16 technology allows the bulky reactor and plasma chamber of the PGMP to be made small enough to fit into a rifle frame. The plasma rifle is a high-powered weapon designed to crack battle dress.",
+      "special": "None",
+      "tech-level": 16,
+      "range": 300,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 6,
+      "cost": 100000,
+      "magazine": 9999,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 56,
+      "name": "Plastic Explosives",
+      "type": "Explosive",
+      "skill": "Explosives",
+      "description": "This generic, multi-purpose plastic explosive is a favorite of military units, terrorists, demolition teams, and Travellers across Charted Space.",
+      "special": "None",
+      "tech-level": 6,
+      "range": 0,
+      "damage": {
+        "value": "3D * Explosives Effect",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 200,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 9"
+      ]
+    },
+    {
+      "id": 57,
+      "name": "Pocket Nuke",
+      "type": "Explosive",
+      "skill": "Explosives",
+      "description": "Hideously illegal on many worlds, the pocket nuke is actually the size of a briefcase and so is too large to fit into a grenade launcher.",
+      "special": "Using multiple pocket nukes will not increase the Damage or Burst of the explosion.",
+      "tech-level": 12,
+      "range": 0,
+      "damage": {
+        "value": "6DD * Explosives Effect",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 250000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 1000",
+        "Radiation"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Psi Blade",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "Used by melee-oriented psions, the psi blade incorporates a tightly knit web of complex filaments that conduct psionic energy into the semi-crystalline blade.",
+      "special": "The psi blade adds the Traveller's PSI DM to the damage it inflicts, as well as his STR DM. Also has an AP skill equal to five times the PSI DM. On a successful hit, the Traveller may expend PSI points to gain +1 damage and +5 AP per point spent.",
+      "tech-level": 16,
+      "range": 0,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 30000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Psi Dagger",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "The psi dagger uses filaments conducting psionic energy to channel the raw power of a psion into his attacks.",
+      "special": "The psi dagger adds the Traveller's PSI DM to the damage it inflicts, as well as his STR DM. On a successful hit, the Traveller may expend PSI points to gain +1 damage.",
+      "tech-level": 16,
+      "range": 0,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 30000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 47,
+      "name": "Rail Gun",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "This is a powerful vehicle-mounted cannon using electromagnetic propulsion to fling a solid projectile in a flat trajectory that damages the target purely using kinetic energy. Time of flight to the target is less than for conventional guns, making compensation for movement easier.",
+      "special": "None",
+      "tech-level": 9,
+      "range": 4,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 75000,
+      "magazine": 50,
+      "magazine-cost": 2500,
+      "traits": [
+        "AP 20"
+      ]
+    },
+    {
+      "id": 51,
+      "name": "RAM Grenade Launcher",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "Rocket Assisted Multi-Purpose grenade launchers have a longer range and are capable of firing up to three grenades in a single attack.",
+      "special": "They may be equipped with any normal type of grenade.",
+      "tech-level": 8,
+      "range": 250,
+      "damage": {
+        "value": "As grenade",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 800,
+      "magazine": 6,
+      "magazine-cost": "As grenades",
+      "traits": [
+        "Auto 3",
+        "Very Bulky"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Rapier",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "A duelling foil, often seen as the sword of a gentleman.",
+      "special": "Rapiers grant DM+1 when parrying.",
+      "tech-level": 3,
+      "range": 0,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 200,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 16,
+      "name": "Revolver",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "A conventional six-shooter handgun.",
+      "special": "None",
+      "tech-level": 5,
+      "range": 10,
+      "damage": {
+        "value": "3D-3",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 150,
+      "magazine": 6,
+      "magazine-cost": 5,
+      "traits": []
+    },
+    {
+      "id": 12,
+      "name": "Revolver (Heavy)",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "A more robust and solidly built version of the standard revolver, a heavy revolver fires a long (Magnum) 10mm or even 12mm cartridge.",
+      "special": "None",
+      "tech-level": 6,
+      "range": 10,
+      "damage": {
+        "value": "4D-3",
+        "scale": "Traveller"
+      },
+      "mass": 1.5,
+      "cost": 400,
+      "magazine": 6,
+      "magazine-cost": 15,
+      "traits": [
+        "Bulky"
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Rifle",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "A long-range hunting rifle or light infantry weapon.",
+      "special": "None",
+      "tech-level": 5,
+      "range": 250,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 5,
+      "cost": 200,
+      "magazine": 5,
+      "magazine-cost": 10,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Riot Shield",
+      "type": "Shield",
+      "skill": "Bludgeon",
+      "description": "A round or rectangular shield of fireproof plastic, which may be clear or opaque, a riot shield is the modern version of a shield but is lighter.",
+      "special": "Grants a +1 bonus to the Traveller's Armor against ranged attacks and makes the Traveller immune from the Fire trait from weapons that make attacks from the front.",
+      "tech-level": 6,
+      "range": 0,
+      "damage": {
+        "value": "1D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 175,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 47,
+      "name": "Rocket Pod",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "This is a pod containing small rockets with high-explosive warheads. The pod can be fitted to most vehicles and aircraft and is usually aimed by pointing the craft. Rockets can be fired one at a time or rippled off in a rolling salvo.",
+      "special": "None",
+      "tech-level": 6,
+      "range": "1.5",
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 0.25,
+      "cost": 8000,
+      "magazine": 18,
+      "magazine-cost": 8000,
+      "traits": [
+        "Auto 3",
+        "Blast 5"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Rocket Pod (Heavy)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "This is a pod containing six large rockets with high-explosive warheads. The pod can be fitted to most vehicles and aircraft and is usually aimed by pointing the craft. Rockets can be fired one at a time or rippled off in a rolling salvo.",
+      "special": "None",
+      "tech-level": 6,
+      "range": "2",
+      "damage": {
+        "value": "6D",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 12000,
+      "magazine": 6,
+      "magazine-cost": 6000,
+      "traits": [
+        "Auto 3",
+        "Blast 10"
+      ]
+    },
+    {
+      "id": 52,
+      "name": "Rocket Launcher",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "The poor man's FGMP.",
+      "special": "Anyone standing behind a rocket launcher when it is fired will be caught in its back blast and suffer 3D damage from the burning gasses. It takes three minor actions to reload a rocket launcher.",
+      "tech-level": 6,
+      "range": 120,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 8,
+      "cost": 2000,
+      "magazine": 1,
+      "magazine-cost": 300,
+      "traits": [
+        "Blast 6"
+      ]
+    },
+    {
+      "id": 53,
+      "name": "Rocket Launcher",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "The poor man's FGMP.",
+      "special": "Anyone standing behind a rocket launcher when it is fired will be caught in its back blast and suffer 3D damage from the burning gasses. It takes three minor actions to reload a rocket launcher.",
+      "tech-level": 7,
+      "range": 150,
+      "damage": {
+        "value": "4D+3",
+        "scale": "Traveller"
+      },
+      "mass": 8,
+      "cost": 2000,
+      "magazine": 1,
+      "magazine-cost": 400,
+      "traits": [
+        "Blast 6",
+        "Smart"
+      ]
+    },
+    {
+      "id": 54,
+      "name": "Rocket Launcher",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "The poor man's FGMP.",
+      "special": "Anyone standing behind a rocket launcher when it is fired will be caught in its back blast and suffer 3D damage from the burning gasses. It takes three minor actions to reload a rocket launcher.",
+      "tech-level": 8,
+      "range": 200,
+      "damage": {
+        "value": "5D",
+        "scale": "Traveller"
+      },
+      "mass": 8,
+      "cost": 2000,
+      "magazine": 2,
+      "magazine-cost": 600,
+      "traits": [
+        "Blast 6",
+        "Scope",
+        "Smart"
+      ]
+    },
+    {
+      "id": 55,
+      "name": "Rocket Launcher",
+      "type": "Heavy Weapon",
+      "skill": "Man Portable",
+      "description": "The poor man's FGMP.",
+      "special": "Anyone standing behind a rocket launcher when it is fired will be caught in its back blast and suffer 3D damage from the burning gasses. It takes three minor actions to reload a rocket launcher.",
+      "tech-level": 9,
+      "range": 250,
+      "damage": {
+        "value": "5D+6",
+        "scale": "Traveller"
+      },
+      "mass": 8,
+      "cost": 2000,
+      "magazine": 2,
+      "magazine-cost": 800,
+      "traits": [
+        "Blast 6",
+        "Scope",
+        "Smart"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Sap",
+      "type": "Melee",
+      "skill": "Bludgeoning",
+      "description": "Consisting of a fabric bag containing a heavyweight, such as a lead sht, the sap is intended to knock an opponent unconscious rather than kill him. However, it requires a degree of stealth.",
+      "tech-level": 2,
+      "range": 0,
+      "damage": {
+        "value": "1D",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 30,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Stun"
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Sawed-Off Shotgun",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "Popular more as a threat and (comparative) ease of concealment than a serious combat weapon, a sawed-off shotgun has had its barrels greatly shortened and the stock removed. It has a very short range but the wide spread of shot doubles the attack roll bonus at short range (DM+2).",
+      "special": "Doubles the attack roll bonus at short range (DM+2).",
+      "tech-level": 5,
+      "range": 10,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 200,
+      "magazine": 1,
+      "magazine-cost": 5,
+      "traits": [
+        "Bulky"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Shield",
+      "type": "Melee",
+      "skill": "Melee",
+      "description": "Various types of shield exist: round shields, kite shields, and so forth.",
+      "special": "Increases a Traveller's effective Melee skill by +1 when parrying. A Traveller with no Melee skill counts as having Melee 0 when using a shield to parry.",
+      "tech-level": 1,
+      "range": 0,
+      "damage": {
+        "value": "1D",
+        "scale": "Traveller"
+      },
+      "mass": 6,
+      "cost": 150,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 12,
+      "name": "Shot Pistol",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "This is a single shot, break-open smoothbore handgun designed to fire non-standard low-powered 14mm cartridges intended to deal with snakes and similar vermin in the wilderness. It is virtually useless beyond a few meters.",
+      "special": "None",
+      "tech-level": 5,
+      "range": 2,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 60,
+      "magazine": 1,
+      "magazine-cost": 5,
+      "traits": []
+    },
+    {
+      "id": 26,
+      "name": "Shotgun",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "Shotguns are smoothbore weapons that typically fire ammunition containing multiple small pellets. They are most effective at short range.",
+      "special": "A shotgun using pellet ammunition ignores Dodge dice modifiers, but Armor gives double protection against pellet attacks.",
+      "tech-level": 4,
+      "range": 50,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 200,
+      "magazine": 6,
+      "magazine-cost": 10,
+      "traits": [
+        "Bulky"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Siege Gun",
+      "type": "Heavy",
+      "skill": "Artillery",
+      "description": "An updated version of the largest artillery piece ever built on old Terra, this 800mm siege gun must be moved in parts and assembled in its firing position, making it unwieldy and prone to counter-battery fire by lesser, but more practical, pieces. Its awesome warhead can be delivered to a target many kilometers away and a direct hit from its five ton shell would flatten a tank or even a maritime vessel with ease - before detonating.",
+      "special": "It is extremely slow to reload, requiring 1D hours between firing shells.",
+      "tech-level": 7,
+      "range": "50 (10)",
+      "damage": {
+        "value": "4DD",
+        "scale": "Traveller"
+      },
+      "mass": 1200,
+      "cost": 19000000,
+      "magazine": 1,
+      "magazine-cost": 5000,
+      "traits": [
+        "AP 10",
+        "Artillery",
+        "Blast 50"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Sledgehammer",
+      "type": "Melee",
+      "skill": "Bludgeoning",
+      "description": "In primitive cultures, this weapon may be called a heavy mace but it effectively remains a heavy lump of metal atop a long shaft that can utterly destroy almost anything it is swung against.",
+      "special": "None",
+      "tech-level": 1,
+      "range": 0,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 8,
+      "cost": 30,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Smasher",
+        "Very Bulky"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Sling",
+      "type": "Ranged",
+      "skill": "Archaic",
+      "description": "A projectile weapon which propels small stones or metal bullets using rotational energy. Slings are powerful but require a certain amount of skill to use effectively.",
+      "special": "None",
+      "tech-level": 0,
+      "range": 100,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 10,
+      "magazine": 1,
+      "magazine-cost": 1,
+      "traits": []
+    },
+    {
+      "id": 41,
+      "name": "Smoke Grenade",
+      "type": "Grenade",
+      "skill": "Dexterity",
+      "description": "Smoke grenades create a thick cloud that disrupts vision.",
+      "special": "This imposes DM-2 to all attacks on targets within the cloud. IR vision completely bypasses this cloud of smoke. Smoke clouds dissipate after 1D * 3 rounds, though heavy winds and rain can drastically reduce this time.",
+      "tech-level": 6,
+      "range": 20,
+      "damage": {
+        "value": "",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 15,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 9"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Sniper Rifle",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "This is a high-tech, high-caliber rifle designed for maximum accuracy and penetration. With its integrated silencer and magnification scope, long-distance targets can be killed quietly and efficiently.",
+      "special": "None",
+      "tech-level": 8,
+      "range": 500,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 5,
+      "cost": 700,
+      "magazine": 4,
+      "magazine-cost": 10,
+      "traits": [
+        "AP 5",
+        "Scope",
+        "Silent"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Snub Pistol",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "These lightweight, low-recoil weapons were designed for use aboard spacecraft and in zero gravity.",
+      "special": "None",
+      "tech-level": 8,
+      "range": 5,
+      "damage": {
+        "value": "3D-3",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 150,
+      "magazine": 6,
+      "magazine-cost": 10,
+      "traits": [
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Solar Beam Rifle",
+      "type": "Rifle",
+      "skill": "Energy",
+      "description": "Using an ambient solar radiation to create a short-ranged but powerful laser-like beam, this rifle is devastating against any man-sized target, capable of vaporizing most targets it hits. The solar beam rifle has a very limited storage capacity, but automatically recharges if exposed to two hours of direct sunlight.",
+      "special": "Automatically recharges if exposed to two hours of direct sunlight.",
+      "tech-level": 17,
+      "range": 500,
+      "damage": {
+        "value": "1DD",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 200000,
+      "magazine": 20,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 20",
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Spear",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "A polearm with a pointed tip, usually of metal, a spear can be made from something as basic as a sharpened stick with a fire-hardened end. More advanced versions are based on the same principle, but may have a more durable head, crosspieces to prevent an impaled animal advancing up the shaft, and so forth.",
+      "special": "None",
+      "tech-level": 1,
+      "range": 25,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 10,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 12,
+      "name": "Spear Gun",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "This is a weapon intended for use underwater. Utilizing compressed air, it fires a harpoon or spear, which may be attached to the spear gun by a strong line.",
+      "special": "A Significant Action is required to reload a spear gun after it has been fired.",
+      "tech-level": 6,
+      "range": 25,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 2,
+      "cost": 50,
+      "magazine": 1,
+      "magazine-cost": 10,
+      "traits": [
+        "Silent"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Staff",
+      "type": "Melee",
+      "skill": "Bludgeon",
+      "description": "Typically a makeshift peasant's weapon, the staff remains easily accessible to the lowest serf and yet effective in skilled hands.",
+      "special": "None",
+      "tech-level": 1,
+      "range": 0,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 0,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 12,
+      "name": "Stagger Laser Rifle",
+      "type": "Rifle",
+      "skill": "Energy",
+      "description": "This weapon uses an industrial-grade beam splitter to create an automatic fire effect from a single powerful laser pulse. While reducing the energy of each individual shot, it allows a supporting role without massive amounts of energy, reducing the need for over-sized power packs.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 300,
+      "damage": {
+        "value": "5D",
+        "scale": "Traveller"
+      },
+      "mass": 6,
+      "cost": 10000,
+      "magazine": 50,
+      "magazine-cost": 5000,
+      "traits": [
+        "Auto 2",
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Stagger Laser Rifle",
+      "type": "Rifle",
+      "skill": "Energy",
+      "description": "This weapon uses an industrial-grade beam splitter to create an automatic fire effect from a single powerful laser pulse. While reducing the energy of each individual shot, it allows a supporting role without massive amounts of energy, reducing the need for over-sized power packs.",
+      "special": "None",
+      "tech-level": 13,
+      "range": 350,
+      "damage": {
+        "value": "5D+3",
+        "scale": "Traveller"
+      },
+      "mass": 5,
+      "cost": 15000,
+      "magazine": 100,
+      "magazine-cost": 6000,
+      "traits": [
+        "Auto 3",
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Static Axe",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "This is an axe-bladed weapon enhanced by a powerful generator that emits a localized static energy field, weakening molecular bonds as it cleaves into a target.",
+      "special": "None",
+      "tech-level": 11,
+      "range": 0,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 6,
+      "cost": 750,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 6",
+        "Smasher"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Static Axe",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "This is an axe-bladed weapon enhanced by a powerful generator that emits a localized static energy field, weakening molecular bonds as it cleaves into a target.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 0,
+      "damage": {
+        "value": "4D+2",
+        "scale": "Traveller"
+      },
+      "mass": 5,
+      "cost": 1000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 8",
+        "Smasher"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Static Blade",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "This blade is enhanced by a powerful generator that emits a localized static energy field, weakening molecular bonds of the target.",
+      "special": "None",
+      "tech-level": 11,
+      "range": 0,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 700,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 5"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Static Blade",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "This blade is enhanced by a powerful generator that emits a localized static energy field, weakening molecular bonds of the target.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 0,
+      "damage": {
+        "value": "3D+2",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 900,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 6"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Static Maul",
+      "type": "Melee",
+      "skill": "Bludgeoning",
+      "description": "This is a sophisticated weapon that generates a localized static field capable of weakening molecular bonds upon impact. It is effective against armored targets though still requires brute strength to cause crippling damage.",
+      "special": "None",
+      "tech-level": 11,
+      "range": 0,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 650,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 4",
+        "Smasher"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Stealth Dagger",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "Also called the invisiknife, this weapon is made from low-density plastic and very hard to detect using standard weapons scanners.",
+      "special": "Electronics (sensors) checks made to detect this weapon suffer DM-4.",
+      "tech-level": 8,
+      "range": 0,
+      "damage": {
+        "value": "1D+2",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 175,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 0,
+      "name": "Stone Axe",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "A simple weapon constructed by attaching a weight (usually a rock) to a branch or bone handle. While the head is solid, the overall durability of the stone axe is questionable.",
+      "special": "Any attack roll with an Effect of -3 or less will cause it to break.",
+      "tech-level": 0,
+      "range": 0,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 5,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 42,
+      "name": "Stun Grenade",
+      "type": "Grenade",
+      "skill": "Dexterity",
+      "description": "Stun grenades release a powerful pulse of energy, usually in the form of light and/or sound that incapacitates targets rather than killing them.",
+      "special": "None",
+      "tech-level": 7,
+      "range": 20,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 30,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 9",
+        "Stun"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "Stun-fist",
+      "type": "Melee",
+      "skill": "Unarmed",
+      "description": "A stun-fist is a high-technology knuckle-duster containing a shock unit (along with insulation for the Traveller) that incapacitates the victim rather than pummels them.",
+      "special": "None",
+      "tech-level": 8,
+      "range": 0,
+      "damage": {
+        "value": "1D+2",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 250,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Stun"
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Stunner",
+      "type": "Pistol",
+      "skill": "Energy",
+      "description": "A non-lethal weapon designed to inflict a massive shock to the target, incapacitating it.",
+      "special": "None",
+      "tech-level": 8,
+      "range": 5,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 500,
+      "magazine": 100,
+      "magazine-cost": 200,
+      "traits": [
+        "Stun",
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 31,
+      "name": "Stunner",
+      "type": "Pistol",
+      "skill": "Energy",
+      "description": "A non-lethal weapon designed to inflict a massive shock to the target, incapacitating it.",
+      "special": "None",
+      "tech-level": 10,
+      "range": 5,
+      "damage": {
+        "value": "2D+3",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 750,
+      "magazine": 100,
+      "magazine-cost": 200,
+      "traits": [
+        "Stun",
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Stunner",
+      "type": "Pistol",
+      "skill": "Energy",
+      "description": "A non-lethal weapon designed to inflict a massive shock to the target, incapacitating it.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 10,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 1000,
+      "magazine": 100,
+      "magazine-cost": 200,
+      "traits": [
+        "Stun",
+        "Zero-G"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Stun-stick",
+      "type": "Melee",
+      "skill": "Bludgeoning",
+      "description": "A short and innocuous looking weapon, this ceramic stick can deliver a painful and debilitating shock to anyone who touches the wrong end.",
+      "special": "None",
+      "tech-level": 8,
+      "range": 0,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 300,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Stun"
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Submachine Gun",
+      "type": "Rifle",
+      "skill": "Slug",
+      "description": "A short weapon capable of automatic fire, it puts the power of an assault rifle into a small package. However, it lacks a rifle's accuracy at range.",
+      "special": "None",
+      "tech-level": 6,
+      "range": 25,
+      "damage": {
+        "value": "3D",
+        "scale": "Traveller"
+      },
+      "mass": 3,
+      "cost": 400,
+      "magazine": 20,
+      "magazine-cost": 10,
+      "traits": [
+        "Auto 3"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Tac Launcher (Anti-aircraft)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A support weapon capable of firing battlefield tactical (Tac) missiles, this launcher provides a cheap and easy way to arm a vehicle with missiles.",
+      "special": "None",
+      "tech-level": 10,
+      "range": "10",
+      "damage": {
+        "value": "8D",
+        "scale": "Traveller"
+      },
+      "mass": 0.25,
+      "cost": 16000,
+      "magazine": 4,
+      "magazine-cost": 8000,
+      "traits": [
+        "Scope",
+        "Smart",
+        "Track"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Tac Launcher (Anti-personnel)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A support weapon capable of firing battlefield tactical (Tac) missiles, this launcher provides a cheap and easy way to arm a vehicle with missiles.",
+      "special": "None",
+      "tech-level": 10,
+      "range": "6",
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 0.25,
+      "cost": 12000,
+      "magazine": 4,
+      "magazine-cost": 4000,
+      "traits": [
+        "Blast 10",
+        "Scope",
+        "Smart"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Tac Launcher (Armor-piercing)",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "A support weapon capable of firing battlefield tactical (Tac) missiles, this launcher provides a cheap and easy way to arm a vehicle with missiles.",
+      "special": "None",
+      "tech-level": 10,
+      "range": "6",
+      "damage": {
+        "value": "8D",
+        "scale": "Traveller"
+      },
+      "mass": 0.25,
+      "cost": 15000,
+      "magazine": 4,
+      "magazine-cost": 6000,
+      "traits": [
+        "AP 10",
+        "Scope",
+        "Smart"
+      ]
+    },
+    {
+      "id": 58,
+      "name": "TDX",
+      "type": "Explosive",
+      "skill": "Explosives",
+      "description": "An advanced gravity-polarized explosive, TDX explodes only along the horizontal axis.",
+      "special": "None",
+      "tech-level": 12,
+      "range": 0,
+      "damage": {
+        "value": "4D * Explosives Effect",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 1000,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 15"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Thermal Smoke Grenade",
+      "type": "Grenade",
+      "skill": "Dexterity",
+      "description": "This acts as a smoke grenade but also throws out hot particles that block IR vision as well.",
+      "special": "Imposes DM-2 to all attacks on targets within the cloud. Smoke clouds dissipate after 1D * 3 rounds, though heavy winds and rain can drastically reduce this time.",
+      "tech-level": 7,
+      "range": 20,
+      "damage": {
+        "value": "",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 30,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 9"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Tranq Gas Grenade",
+      "type": "Grenade",
+      "skill": "Dexterity",
+      "description": "This grenade creates a cloud of gas that, if inhaled, will likely render an enemy unconscious.",
+      "special": "Any living target within the cloud that does not have a respirator or sealed suit will be attacked as if by a poison with a Difficult (10+) END check, Damage unconscious and Interval of 1D seconds. Gas clouds dissipate after 1D * 3 rounds, though heavy winds and rain can drastically reduce this time.",
+      "tech-level": 8,
+      "range": 20,
+      "damage": {
+        "value": "Special",
+        "scale": "Traveller"
+      },
+      "mass": 0.5,
+      "cost": 75,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Blast 9"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Unarmed",
+      "type": "Melee",
+      "skill": "Unarmed",
+      "description": "Attacking without a weapon.",
+      "special": "None",
+      "tech-level": 0,
+      "range": 0,
+      "damage": {
+        "value": "1D",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 0,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 12,
+      "name": "Universal Autopistol",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "This is a small-caliber semi-automatic handgun designed to be used by a variety of alien hands and appendages, enabling armed forces to issue a standard sidearm to non-human personnel. The weapon is also known as a staple gun because of its shape and modest effectiveness.",
+      "special": "None",
+      "tech-level": 8,
+      "range": 10,
+      "damage": {
+        "value": "3D-3",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 300,
+      "magazine": 10,
+      "magazine-cost": 10,
+      "traits": []
+    },
+    {
+      "id": 47,
+      "name": "Vulcan Machinegun",
+      "type": "Heavy",
+      "skill": "Vehicle",
+      "description": "This weapon is constructed from six machinegun barrels which rotate through the firing position in order to maintain a very high rate of fire without adverse heating.",
+      "special": "The vulcan machinegun may use variant ammunition types.",
+      "tech-level": 7,
+      "range": 500,
+      "damage": {
+        "value": "4D",
+        "scale": "Traveller"
+      },
+      "mass": 0.25,
+      "cost": 12000,
+      "magazine": 1000,
+      "magazine-cost": 1250,
+      "traits": [
+        "Auto 6"
+      ]
+    },
+    {
+      "id": 0,
+      "name": "War Pick",
+      "type": "Melee",
+      "skill": "Blade",
+      "description": "War picks are specifically designed to punch through armor and remain reasonably effective against even modern protection.",
+      "special": "None",
+      "tech-level": 3,
+      "range": 0,
+      "damage": {
+        "value": "2D+2",
+        "scale": "Traveller"
+      },
+      "mass": 4,
+      "cost": 275,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "AP 4"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Whip",
+      "type": "Other",
+      "skill": "Whip",
+      "description": "This is a long whip that takes some practice and skill to use effectively. It may be used either to inflict damage or entangle an opponent at a distance of 5 meters.",
+      "special": "The Traveller can choose to entangle an opponent instead of dealing damage. A successful entangling attack will force an immediate grapple between the attacker and the target.",
+      "tech-level": 1,
+      "range": "Melee - 5",
+      "damage": {
+        "value": "D3",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 15,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": []
+    },
+    {
+      "id": 47,
+      "name": "Whip (Shock)",
+      "type": "Other",
+      "skill": "Whip",
+      "description": "The shock whip is more an instrument of torture than a useful weapon. It is normally used on a low setting to inflict pain from both the whip's own action and accompanying shock effect but the charge can be increased to make it an effective, if unusual, weapon.",
+      "special": "Use of a shock whip grants DM+1 to Intimidate and Persuade checks while questioning (torturing) a Traveller.",
+      "tech-level": 9,
+      "range": "Melee",
+      "damage": {
+        "value": "23",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 450,
+      "magazine": 0,
+      "magazine-cost": 0,
+      "traits": [
+        "Stun"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Zip Gun",
+      "type": "Pistol",
+      "skill": "Slug",
+      "description": "A Zip Gun is a one-shot weapon cobbled together from whatever materials are available. They are, by definition, unique.",
+      "special": "Zip guns suffer DM-1 to their attack rolls.",
+      "tech-level": 3,
+      "range": 5,
+      "damage": {
+        "value": "2D-3",
+        "scale": "Traveller"
+      },
+      "mass": 0,
+      "cost": 50,
+      "magazine": 1,
+      "magazine-cost": 5,
+      "traits": [
+        "Dangerous"
+      ]
+    }
+  ]
+}

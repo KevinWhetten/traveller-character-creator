@@ -1,0 +1,202 @@
+{
+  "toolkits": [
+    {
+      "id": 1,
+      "name": "Carpenter's Tool Set",
+      "description": "A basic set of woodworking tools including standard tools necessary to cut, shape, and build with wood.",
+      "special": "Allows a Traveller to cut, shape, and build with wood.",
+      "tech-level": 2,
+      "mass": 12,
+      "cost": 300
+    },
+    {
+      "id": 1,
+      "name": "Chain Saw",
+      "description": "A motorized saw for cutting and shaping trees.",
+      "special": "The chainsaw can possibly be used as a weapon, but it is very awkward and inflicts DM-2 to attack rolls. Damage is 4D if it does strike home.",
+      "tech-level": 6,
+      "mass": 6,
+      "cost": 500
+    },
+    {
+      "id": 1,
+      "name": "Combat Engineering Tool Set",
+      "description": "A specialized toolkit for the construction of field fortifications and removal of obstacles, along with other military applications. A basic kit contains spades, entrenching tools, wire cutters, probes, marking tape, and the like. Can be used for cutting, moving/cracking small obstructions or detonating mines.",
+      "special": "Allows a Traveller to when cut, move/crack small obstructions or detonating mines.",
+      "tech-level": 3,
+      "mass": 12,
+      "cost": 150 
+    },
+    {
+      "id": 1,
+      "name": "Combat Engineering Tool Set",
+      "description": "A specialized toolkit for the construction of field fortifications and removal of obstacles, along with other military applications. A basic kit contains spades, entrenching tools, wire cutters, probes, marking tape, and the like. Includes a small metal detector. Can be used for cutting, moving/cracking small obstructions or detonating mines.",
+      "special": "Grants DM+1 to checks when cutting, moving/cracking small obstructions or detonating mines.",
+      "tech-level": 6,
+      "mass": 15,
+      "cost": 300
+    },
+    {
+      "id": 1,
+      "name": "Combat Engineering Tool Set",
+      "description": "A specialized toolkit for the construction of field fortifications and removal of obstacles, along with other military applications. A basic kit contains spades, entrenching tools, wire cutters, probes, marking tape, and the like. Includes a small metal detector, and a dozen explosive strips. Can be used for cutting, moving/cracking small obstructions or detonating mines.",
+      "special": "Grants DM+2 to checks when cutting, moving/cracking small obstructions or detonating mines.",
+      "tech-level": 3,
+      "mass": 12,
+      "cost": 150
+    },
+    {
+      "id": 1,
+      "name": "Cutting Torch",
+      "description": "A basic cutting tool using incandescent gas fed by a heavy canister. Cutting torches are effective against most metals and alloys, but will not work on starship hulls or armored vehicles constructed at TL10 or higher.",
+      "special": "Effective against most metals and alloys, but will not work on starship hulls or armored vehicles constructed at TL10 or higher.",
+      "tech-level": 5,
+      "mass": 3,
+      "cost": 500
+    },
+    {
+      "id": 1,
+      "name": "Electronic Tool Set",
+      "description": "Necessary tools for basic electronic assembly and repair including instruments, soldering gear, and so on.",
+      "special": "Allows a Traveller to perform basic electronic assembly and repair including instruments, soldering gear, and so on.",
+      "tech-level": 7,
+      "mass": 2,
+      "cost": 2000
+    },
+    {
+      "id": 1,
+      "name": "Electronic Welding Kit",
+      "description": "A basic arc welding kit useful for many light applications. It is self-powered from batteries but requires an external power source for big jobs.",
+      "special": "Able to weld materials up to TL 5.",
+      "tech-level": 5,
+      "mass": 6,
+      "cost": 1500
+    },
+    {
+      "id": 1,
+      "name": "Electronic Welding Kit (Advanced)",
+      "description": "A basic arc welding kit useful for many light applications. It is self-powered from batteries but requires an external power source for big jobs.",
+      "special": "Able to weld materials up to TL 10.",
+      "tech-level": 10,
+      "mass": 3,
+      "cost": 5000
+    },
+    {
+      "id": 2,
+      "name": "Engineering Tool Set",
+      "description": "Required for performing repairs and installing new equipment.",
+      "special": "Allows a Traveller to perform repairs and install new equipment.",
+      "tech-level": 12,
+      "mass": 12,
+      "cost": 4000
+    },
+    {
+      "id": 1,
+      "name": "Excavation Tool Set",
+      "description": "A set of basic digging tools; shovels, picks, and sledgehammer to equip 2-3 people. Working with improvised tools instead of these will increase the time taken for any excavation task by at least four times.",
+      "special": "Equips 2-3 people with digging tools, reducing the amount of time it takes for any excavation task by at least four times.",
+      "tech-level": 3,
+      "mass": 12,
+      "cost": 30
+    },
+    {
+      "id": 3,
+      "name": "Forensics Tool Set",
+      "description": "Required for investigating crime scenes and testing samples.",
+      "special": "Allows a Traveller to investigate crime scenes and test samples.",
+      "tech-level": 8,
+      "mass": 12,
+      "cost": 2000
+    },
+    {
+      "id": 1,
+      "name": "Laser Cutting Gear",
+      "description": "A backpack power supply and laser or plasma cutting unit, this cutting gear is standard for use aboard starships.",
+      "special": "It can cut through most materials, though cutting through hull armor requires a very long time to create a breach.",
+      "tech-level": 9,
+      "mass": 4,
+      "cost": 4000
+    },
+    {
+      "id": 1,
+      "name": "Laser Drill",
+      "description": "A heavy-duty, semi-portable laser used for mining, the laser drill is a tripod-mounted projector much more powerful than the laser rifle. It is also more cumbersome and far less accurate, being intended for work at point blank ranges.",
+      "special": "Used for mining. A power pack (not interchangeable with those used for lighter laser weapons) can be hooked up to the drill, providing 1 hour of intermittent use; a cable can also be run to the power source of a ship, vehicle, or prospector's buggy which provides unlimited power at the cost or mobility. Extra power-packs cost Cr3000, and extra tripods cost Cr250.",
+      "tech-level": 9,
+      "mass": 16,
+      "cost": 7500
+    },
+    {
+      "id": 1,
+      "name": "Laser Scalpel",
+      "description": "A low-power but high-precision handheld laser 'knife' the size of a pen.",
+      "special": "Used for medical and other delicate cutting purposes., and carries an internal battery which could support up to 30 minutes of continued operation, and it can be hooked up (by a flexible power cord) to an external power source for longer-duration work or recharging.",
+      "tech-level": 10,
+      "mass": 0,
+      "cost": 2000
+    },
+    {
+      "id": 4,
+      "name": "Mechanical Tool Set",
+      "description": "A set of standard mechanical and plumbing tools including everything necessary to repair and alter mechanical devices; wrenches, pliers, and a largish hammer, among other things.",
+      "special": "Allows a Traveller to repair and alter mechanical devices.",
+      "tech-level": 5,
+      "mass": 12,
+      "cost": 1000
+    },
+    {
+      "id": 4,
+      "name": "Metalwork Tool Set",
+      "description": "A basic set of tools for working, welding, and shaping metal.",
+      "special": "Allows a Traveller to work, weld, and shape metal.",
+      "tech-level": 5,
+      "mass": 12,
+      "cost": 3000
+    },
+    {
+      "id": 4,
+      "name": "Rescue Tool Set",
+      "description": "A comprehensive set of supports, cutting gear, and other tools used to reach and rescue trapped persons. The kit does not include any sensors.",
+      "special": "Used to reach and rescue trapped persons.",
+      "tech-level": 7,
+      "mass": 15,
+      "cost": 2000
+    },
+    {
+      "id": 5,
+      "name": "Scientific Tool Set",
+      "description": "Required for scientific testing and analysis.",
+      "special": "Allows a Traveller to perform scientific testing and analysis.",
+      "tech-level": 5,
+      "mass": 8,
+      "cost": 2000
+    },
+    {
+      "id": 4,
+      "name": "Starship Engineer Tool Set",
+      "description": "A full tool kit for shipboard engineering personnel.",
+      "special": "Includes PRIS goggles, iris valve opener, electronic and gravitic test and repair equipment, wrenches, sockets, and a large hammer.",
+      "tech-level": 12,
+      "mass": 12,
+      "cost": 4000
+    },
+    {
+      "id": 6,
+      "name": "Surveying Tool Set",
+      "description": "Required for planetary surveys or mapping.",
+      "special": "Allows a Traveller to perform planetary surveys or mapping.",
+      "tech-level": 6,
+      "mass": 12,
+      "cost": 1000
+    },
+    {
+      "id": 4,
+      "name": "Tool Laser",
+      "description": "A handheld laser welder/cutting-torch. It is about the size of a large flashlight.",
+      "special": "powered by a small internal power-pack (providing power for up to 20 minutes of continual use). The tool laser's energy output is variable, and thus can be used from anything from gentle electronic welding to small-scale metalwork or cutting through several centimeters of steel; anything beyond that requires a welding kit.",
+      "tech-level": 12,
+      "mass": 0,
+      "cost": 500
+    }
+  ]
+}

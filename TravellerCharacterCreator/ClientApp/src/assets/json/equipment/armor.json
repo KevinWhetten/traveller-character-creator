@@ -1,0 +1,1039 @@
+{
+  "armor": [
+    {
+      "id": 1,
+      "name": "Ablat",
+      "description": "Ablat is a cheap alternative to reflec, and is fashioned from a material which will ablate (vaporize) when hit by laser fire or other energy weapons. The ablation of the material carries away the energy of the laser, and protects the Traveller. Continued fire against Ablat degrades its effectiveness, but the armor is cheap and easily replaceable. Ablat also has a minimal value against other forms of attack but it cannot be combined with other types of armor.",
+      "special": "Each laser hit on ablat armor reduces its Protection score by one.",
+      "protection": [
+        {
+          "value": 1,
+          "damage-types": []
+        },
+        {
+          "value": 6,
+          "damage-types": [
+            "lasers"
+          ]
+        }
+      ],
+      "tech-level": 9,
+      "rads": 0,
+      "mass": 2,
+      "cost": 75,
+      "required-skill": "none",
+      "powered": false
+    },
+    {
+      "id": 2,
+      "name": "Ballistic Vest",
+      "description": "A flexible and relatively light flak jacket intended to be worn semi-discreetly. It is still fairly obviously armor but can be concealed under a light jacket, whereas a flak jacket is much more blatant.",
+      "special": "Can be concealed under a light jacket.",
+      "protection": [
+        {
+          "value": 4,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 8,
+      "rads": 0,
+      "mass": 1,
+      "cost": 500,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 13,
+      "name": "Breastplate",
+      "description": "A metal breastplate covers the front and back of the torso, offering decent protection against hand weapons and archaic projectiles. It is less useful against firearms.",
+      "special": "None",
+      "protection": [
+        {
+          "value": 3,
+          "damage-types": [],
+          "other": ""
+        }
+      ],
+      "tech-level": 1,
+      "rads": 0,
+      "mass": 5,
+      "cost": 200,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 3,
+      "name": "Ceramic Carapace",
+      "description": "Made from specifically contoured plates of advanced ceramic/metal alloys positioned over the vital organs of the Traveller, keeping them well protected. Ceramic alloys are designed to slough off heat and flame, giving the armor a much higher rate of protection against lasers, flamethrowers, and other heat/fire-based attacks. Against such weapons, the armor gains an additional +6 Protection.",
+      "special": "Against lasers, flamethrowers, and other heat/fire-based attacks, the armor gains an additional +6 Protection.",
+      "protection": [
+        {
+          "value": 10,
+          "damage-types": []
+        },
+        {
+          "value": 16,
+          "damage-types": [
+            "lasers",
+            "fire"
+          ]
+        }
+      ],
+      "tech-level": 12,
+      "rads": 0,
+      "mass": 4,
+      "cost": 12000,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 4,
+      "name": "Cloth",
+      "description": "A heavy-duty coverall tailored from ballistic cloth, it sometimes contains light metal or ceramic plates at critical points. The fabric absorbs impact energy, distributing the blow over the body of the target, usually resulting in bruising.",
+      "special": "Cloth armor can be concealed under clothing but is fairly easy to spot - a Routine (6+) Investigate or Recon check is all that is required to spot the armor.",
+      "protection": [
+        {
+          "value": 5,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 7,
+      "rads": 0,
+      "mass": 10,
+      "cost": 250,
+      "required-skill": "none",
+      "powered": false
+    },
+    {
+      "id": 5,
+      "name": "Cloth",
+      "description": "A heavy-duty coverall tailored from ballistic cloth, it sometimes contains light metal or ceramic plates at critical points. The fabric absorbs impact energy, distributing the blow over the body of the target, usually resulting in bruising.",
+      "special": "Cloth armor can be concealed under clothing but is fairly easy to spot - a Routine (6+) Investigate or Recon check is all that is required to spot the armor.",
+      "protection": [
+        {
+          "value": 8,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 10,
+      "rads": 0,
+      "mass": 5,
+      "cost": 500,
+      "required-skill": "none",
+      "powered": false
+    },
+    {
+      "id": 6,
+      "name": "Cloth",
+      "description": "A heavy-duty coverall tailored from ballistic cloth, it sometimes contains light metal or ceramic plates at critical points. The fabric absorbs impact energy, distributing the blow over the body of the target, usually resulting in bruising.",
+      "special": "Cloth armor can be concealed under clothing but is fairly easy to spot - a Routine (6+) Investigate or Recon check is all that is required to spot the armor. It is also light enough that it can be worn under other types of armor, adding its protection.",
+      "protection": [
+        {
+          "value": 4,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 12,
+      "rads": 0,
+      "mass": 2,
+      "cost": 750,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 7,
+      "name": "Combat Armor",
+      "description": "Combat armor is a complete array of metal and synthetic armor, strictly military and not available on the open market.",
+      "special": "It contains oxygen tanks for six hours and a recycling unit which can more than double this endurance if the user is not unduly exerting himself.",
+      "protection": [
+        {
+          "value": 13,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 10,
+      "rads": 85,
+      "mass": 20,
+      "cost": 96000,
+      "required-skill": "Vacc Suit 1",
+      "powered": false
+    },
+    {
+      "id": 8,
+      "name": "Combat Armor",
+      "description": "Combat armor is a complete array of metal and synthetic armor, strictly military and not available on the open market.",
+      "special": "It contains oxygen tanks for six hours and a recycling unit which can more than double this endurance if the user is not unduly exerting himself.",
+      "protection": [
+        {
+          "value": 17,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 12,
+      "rads": 145,
+      "mass": 16,
+      "cost": 88000,
+      "required-skill": "Vacc Suit 0",
+      "powered": false
+    },
+    {
+      "id": 11,
+      "name": "Combat Armor",
+      "description": "Combat armor is a complete array of metal and synthetic armor, strictly military and not available on the open market.",
+      "special": "It contains oxygen tanks for six hours and a recycling unit which can more than double this endurance if the user is not unduly exerting himself.",
+      "protection": [
+        {
+          "value": 19,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 14,
+      "rads": 180,
+      "mass": 12,
+      "cost": 160000,
+      "required-skill": "Vacc Suit 0",
+      "powered": false
+    },
+    {
+      "id": 12,
+      "name": "Combat Armor (Ceramic)",
+      "description": "A heavy suit of advanced materials, overlapping ceramic alloy plates grant the armor and integrated helmet extreme durability. Besides the six-hour capacity for complete environmental sealing, the ceramic alloy grants a much higher degree of protection against lasers, flamethrowers, and other energy-based attacks.",
+      "special": "Grants a much higher degree of protection against lasers, flamethrowers, and other energy-based attacks.",
+      "protection": [
+        {
+          "value": 12,
+          "damage-types": []
+        },
+        {
+          "value": 18,
+          "damage-types": [
+            "fire",
+            "lasers",
+            "energy"
+          ]
+        }
+      ],
+      "tech-level": 13,
+      "rads": 150,
+      "mass": 15,
+      "cost": 300000,
+      "required-skill": "Vacc Suit 1",
+      "powered": false
+    },
+    {
+      "id": 13,
+      "name": "Combat Armor (Psi-Enhanced)",
+      "description": "This suit of advanced combat armor is rigged with a latticework of neural crystals, drawing from the Traveller's natural psionic strength to crate an invisible reinforcement across the armor.",
+      "special": "As well as having a full 8 hour air supply built into the suit when sealed, the Traveller adds half (rounded down) his PSI to the Protection score of the armor while worn.",
+      "protection": [
+        {
+          "value": 15,
+          "damage-types": [],
+          "other": "+1/2 PSI"
+        }
+      ],
+      "tech-level": 16,
+      "rads": 250,
+      "mass": 10,
+      "cost": 500000,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 14,
+      "name": "Combat Environment Suit",
+      "description": "Combat armor is a complete array of metal and synthetic armor, strictly military and not available on the open market.",
+      "special": "It contains oxygen tanks for six hours and a recycling unit which can more than double this endurance if the user is not unduly exerting himself.",
+      "protection": [
+        {
+          "value": 8,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 10,
+      "rads": 20,
+      "mass": 2,
+      "cost": 1000,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 15,
+      "name": "Conduit-Bleed",
+      "description": "Designed specifically to super-cool plasma energy, this dense suit of polymer-alloy mixtures is perfectly suited to pad the impact of most blows as well. The advances made to these materials means directed plasma energy is far less likely to harm the Traveller.",
+      "special": "Plasma energy is far less likely to harm the Traveller.",
+      "protection": [
+        {
+          "value": 4,
+          "damage-types": []
+        },
+        {
+          "value": 15,
+          "damage-types": [
+            "plasma"
+          ]
+        }
+      ],
+      "tech-level": 14,
+      "rads": 0,
+      "mass": 8,
+      "cost": 3500,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 16,
+      "name": "Diplo Vest",
+      "description": "Essentially a shirt-only version of the protec suit, the diplo vest can be worn under a normal shirt. The advantage is that while a protec suit is easily spotted, a diplo vest is completely concealed. It is ideal for sensitive occasions where armor is not appropriate, hence the term 'diplo' (diplomatic) vest.",
+      "special": "Can be completely concealed under a normal shirt.",
+      "protection": [
+        {
+          "value": 3,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 10,
+      "rads": 0,
+      "mass": 0,
+      "cost": 250,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 17,
+      "name": "Dispersion",
+      "description": "A semi-metallic polymer that wraps the Traveller in advanced energy-dispersion materials. This protective suit is not quite as physically protective as anti-ballistic cloth, but is built to absorb and eliminate most wavelengths of energy that strike it.",
+      "special": "Built to absorb and eliminate most wavelengths of energy that strike it.",
+      "protection": [
+        {
+          "value": 2,
+          "damage-types": []
+        },
+        {
+          "value": 10,
+          "damage-types": [
+            "fire",
+            "lasers",
+            "energy"
+          ]
+        }
+      ],
+      "tech-level": 12,
+      "rads": 0,
+      "mass": 3,
+      "cost": 2000,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 19,
+      "name": "Fireproof Suit",
+      "description": "A fireproof suit is a complete body suit of light flexible material designed to resist heat and shed burning chemicals. It resembles the suits worn by racing drivers under their coveralls. It has no value against any weapons other than lasers, energy weapons, and fire.",
+      "special": "Designed to resist heat and shed burning chemicals.",
+      "protection": [
+        {
+          "value": 0,
+          "damage-types": []
+        },
+        {
+          "value": 4,
+          "damage-types": [
+            "fire",
+            "lasers",
+            "energy"
+          ]
+        }
+      ],
+      "tech-level": 7,
+      "rads": 0,
+      "mass": 1,
+      "cost": 50,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 20,
+      "name": "Explosive Ordnance Disposal Suit",
+      "description": "This very heavily armored suit is designed to mitigate the worst effects of an explosion at extremely close ranges but does so at the expense of mobility. Fine dexterity is not affected, as the hands of the Traveller retain freedom of action but other movements are difficult due to the heavy protection.",
+      "special": "The speed of the Traveller is halved and all physical actions that do not require manual dexterity alone suffer a Bane.",
+      "protection": [
+        {
+          "value": 12,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 8,
+      "rads": 0,
+      "mass": 35,
+      "cost": 8000,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 21,
+      "name": "Flak Jacket",
+      "description": "A heavy sleeveless jacket of ballistic cloth, often with ceramic or metal inserts to stop powerful projectiles. Generally covering only the torso and groin, a flak jacket can be concealed under a bulky coat but will be spotted by all but the most cursory of glances.",
+      "special": "A flak jacket can be concealed under a bulky coat but will be spotted by all but the most cursory of glances.",
+      "protection": [
+        {
+          "value": 3,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 7,
+      "rads": 0,
+      "mass": 8,
+      "cost": 100,
+      "required-skill": "none",
+      "powered": false
+    },
+    {
+      "id": 22,
+      "name": "Flak Jacket",
+      "description": "A heavy sleeveless jacket of ballistic cloth, often with ceramic or metal inserts to stop powerful projectiles. Generally covering only the torso and groin, a flak jacket can be concealed under a bulky coat but will be spotted by all but the most cursory of glances.",
+      "special": "A flak jacket can be concealed under a bulky coat but will be spotted by all but the most cursory of glances.",
+      "protection": [
+        {
+          "value": 5,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 8,
+      "rads": 0,
+      "mass": 6,
+      "cost": 300,
+      "required-skill": "none",
+      "powered": false
+    },
+    {
+      "id": 23,
+      "name": "Flak Shell",
+      "description": "A heavy back-and-breastplate formed from metal or ceramic composites. A flak shell is essentially a stronger and more advanced flak jacket, but is extremely heavy.",
+      "special": "Imposes DM-1 on all skill checks that involve physical action.",
+      "protection": [
+        {
+          "value": 8,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 9,
+      "rads": 0,
+      "mass": 8,
+      "cost": 1000,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 24,
+      "name": "Hostile Environment Suit (Emergency)",
+      "description": "A disposable emergency vacc suit designed to protect the Traveller from corrosive, insidious, and similarly hazardous atmospheres (and, of course, vacuum). The suit is good for 6-8 hours, after which there is a 1 in 6 (non-cumulative) chance it will fail every hour. Emergency suits are usually carried by starships to allow engineering crew to make emergency repairs under unusual conditions. The suit can be refurbished for Cr6000, but each refurbishment inflicts a DM-1 to the chance of failure after the 'safe' time, and additionally reduces time to possible failure by 1 hour. Once the failure chance has reached a 4 in 6 chance, the suit is too degraded to be any further use. Electronics suite not included.",
+      "special": "Protect the Traveller from corrosive, insidious, and similarly hazardous atmospheres (and, of course, vacuum). Good for 6-8 hours, after which there is a 1 in 6 (non-cumulative) chance it will fail every hour. Can be refurbished for Cr6000, but each refurbishment inflicts a DM-1 to the chance of failure after the 'safe' time, and additionally reduces time to possible failure by 1 hour. Once the failure chance has reached a 4 in 6 chance, the suit is too degraded to be any further use.",
+      "protection": [
+        {
+          "value": 4,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 10,
+      "rads": 0,
+      "mass": 20,
+      "cost": 9000,
+      "required-skill": "Vacc Suit 1",
+      "powered": false
+    },
+    {
+      "id": 25,
+      "name": "Hostile Environment Suit (Vacc)",
+      "description": "Hostile environment suits are designed for conditions where a normal vacc suit would be insufficient, such as deep underwater, worlds with toxic atmosphere, extremes of radiation or temperature.",
+      "special": "HEV suits provide life support for six hours.",
+      "protection": [
+        {
+          "value": 8,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 9,
+      "rads": 75,
+      "mass": 22,
+      "cost": 24000,
+      "required-skill": "Vacc Suit 1",
+      "powered": false
+    },
+    {
+      "id": 26,
+      "name": "Hostile Environment Suit (Vacc)",
+      "description": "Hostile environment suits are designed for conditions where a normal vacc suit would be insufficient, such as deep underwater, worlds with toxic atmosphere, extremes of radiation or temperature.",
+      "special": "HEV suits provide life support for six hours.",
+      "protection": [
+        {
+          "value": 9,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 10,
+      "rads": 90,
+      "mass": 13,
+      "cost": 20000,
+      "required-skill": "Vacc Suit 1",
+      "powered": false
+    },
+    {
+      "id": 27,
+      "name": "Hostile Environment Suit (Vacc)",
+      "description": "Hostile environment suits are designed for conditions where a normal vacc suit would be insufficient, such as deep underwater, worlds with toxic atmosphere, extremes of radiation or temperature.",
+      "special": "HEV suits provide life support for six hours.",
+      "protection": [
+        {
+          "value": 12,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 11,
+      "rads": 140,
+      "mass": 13,
+      "cost": 22000,
+      "required-skill": "Vacc Suit 0",
+      "powered": false
+    },
+    {
+      "id": 28,
+      "name": "Hostile Environment Suit (Vacc)",
+      "description": "Hostile environment suits are designed for conditions where a normal vacc suit would be insufficient, such as deep underwater, worlds with toxic atmosphere, extremes of radiation or temperature.",
+      "special": "HEV suits provide life support for six hours.",
+      "protection": [
+        {
+          "value": 14,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 13,
+      "rads": 170,
+      "mass": 10,
+      "cost": 40000,
+      "required-skill": "Vacc Suit 0",
+      "powered": false
+    },
+    {
+      "id": 29,
+      "name": "Hostile Environment Suit (Vacc)",
+      "description": "Hostile environment suits are designed for conditions where a normal vacc suit would be insufficient, such as deep underwater, worlds with toxic atmosphere, extremes of radiation or temperature.",
+      "special": "HEV suits provide life support for six hours.",
+      "protection": [
+        {
+          "value": 15,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 14,
+      "rads": 185,
+      "mass": 9,
+      "cost": 60000,
+      "required-skill": "Vacc Suit 0",
+      "powered": false
+    },
+    {
+      "id": 30,
+      "name": "Jack",
+      "description": "A jacket or body suit of tough natural or synthetic material such as leather, pseudohide, or something similar covering the torso and arms. Jack may be armor or simply a tough piece of clothing. It is somewhat better than ordinary clothing or bare skin when defending against blades, but fairly useless against high velocity attacks. The leather or hide armor of low-tech troops is usually equivalent to jack.",
+      "special": "None",
+      "protection": [
+        {
+          "value": 1,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 1,
+      "rads": 0,
+      "mass": 1,
+      "cost": 50,
+      "required-skill": "none",
+      "powered": false
+    },
+    {
+      "id": 3,
+      "name": "Mail Hauberk",
+      "description": "A knee-length coat of interlocking large or small metal rings set on a leather backing, a hauberk offers excellent protection against hand weapons, and is used mainly by heavy infantry and cavalry. Scale mail (constructed with small plates rather than rings) offers similar protection and is a variation of the mail hauberk.",
+      "special": "None",
+      "protection": [
+        {
+          "value": 4,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 2,
+      "rads": 0,
+      "mass": 8,
+      "cost": 500,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 31,
+      "name": "Mechanical Carapace",
+      "description": "A suit of sealed carapace plates attached to a simple framework of mechanical ratchets and pneumatics, this armor is durable but not very sophisticated.",
+      "special": "Fuelled for up to ten hours (Cr25 to refuel). The suit adds STR +1 to the Traveller, but inflicts a DEX -1 penalty.",
+      "protection": [
+        {
+          "value": 8,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 9,
+      "rads": 30,
+      "mass": 30,
+      "cost": 15000,
+      "required-skill": "Vacc Suit 2",
+      "powered": false
+    },
+    {
+      "id": 32,
+      "name": "Mechanical Carapace",
+      "description": "A suit of sealed carapace plates attached to a simple framework of mechanical ratchets and pneumatics, this armor is durable but not very sophisticated.",
+      "special": "Fuelled for up to ten hours (Cr25 to refuel). The suit adds STR +1 to the Traveller, but inflicts a DEX -1 penalty.",
+      "protection": [
+        {
+          "value": 10,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 12,
+      "rads": 60,
+      "mass": 25,
+      "cost": 30000,
+      "required-skill": "Vacc Suit 1",
+      "powered": false
+    },
+    {
+      "id": 33,
+      "name": "Mesh",
+      "description": "A jacket or body suit made of natural or synthetic leather and reinforced with a lining of flexible metal mesh. It is primarily useful against hand weapons.",
+      "special": "None",
+      "protection": [
+        {
+          "value": 2,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 6,
+      "rads": 0,
+      "mass": 2,
+      "cost": 150,
+      "required-skill": "none",
+      "powered": false
+    },
+    {
+      "id": 34,
+      "name": "Neural Sheath",
+      "description": "Cloth weaved with thin-spun chains of advanced neural crystals, this protective suit is worthless against physical damage but immensely useful against blocking energies created and manipulated by psions. The neural sheath is extremely thin and lightweight. Any form of damage originating from neural or psionic powers or weaponry or attack is affected by a neural sheath.",
+      "special": "Can be worn beneath any other form of armor or clothing.",
+      "protection": [
+        {
+          "value": 0,
+          "damage-types": []
+        },
+        {
+          "value": 20,
+          "damage-types": [
+            "psionics"
+          ]
+        }
+      ],
+      "tech-level": 17,
+      "rads": 0,
+      "mass": 2,
+      "cost": 80000,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 13,
+      "name": "Plate (Full)",
+      "description": "A complete suit of armor comprising shaped and fitted metal plates, riveted and interlocked to cover the entire body. It includes gauntlets, heavy leather boots, and a helmet. Plate is designed to distribute the weight over the body, so hampers movement less than might be expected. However, it is heavy and tiring to wear, and the sheer mass of metal that has to be moved makes physical activity difficult.",
+      "special": "Imposes DM-2 on all checks that involve physical activity, but there is no penalty to close combat attacks.",
+      "protection": [
+        {
+          "value": 6,
+          "damage-types": [],
+          "other": ""
+        }
+      ],
+      "tech-level": 3,
+      "rads": 0,
+      "mass": 20,
+      "cost": 1000,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 13,
+      "name": "Plate (Half)",
+      "description": "Favored by heavy cavalry even after infantry have dispensed with meaningful armor themselves, half-plate consists of articulated plates backed by light mail and padding.",
+      "special": "None",
+      "protection": [
+        {
+          "value": 5,
+          "damage-types": [],
+          "other": ""
+        }
+      ],
+      "tech-level": 2,
+      "rads": 0,
+      "mass": 12,
+      "cost": 800,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 35,
+      "name": "Poly Carapace",
+      "description": "A bodysuit of fibrous material with attached plates of polymer plastics designed to shield major arteries and organs, the carapace comes complete with an armored face mask and half-helmet. It is good protection against all forms of weapons, but can be restrictive to limb movement.",
+      "special": "Poly carapace armor imposes DM-1 to all skill checks that require physical action.",
+      "protection": [
+        {
+          "value": 10,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 10,
+      "rads": 0,
+      "mass": 2,
+      "cost": 10000,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 36,
+      "name": "Poly Carapace (Lightweight)",
+      "description": "A bodysuit of fibrous material with attached plates of polymer plastics designed to shield major arteries and organs, the carapace comes complete with an armored face mask and half-helmet. It is good protection against all forms of weapons, but can be restrictive to limb movement.",
+      "special": "Poly carapace armor imposes DM-1 to all skill checks that require physical action.",
+      "protection": [
+        {
+          "value": 12,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 11,
+      "rads": 0,
+      "mass": 2,
+      "cost": 15000,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 37,
+      "name": "Poly Carapace (Advanced)",
+      "description": "A bodysuit of fibrous material with attached plates of polymer plastics designed to shield major arteries and organs, the carapace comes complete with an armored face mask and half-helmet. It is good protection against all forms of weapons, but can be restrictive to limb movement.",
+      "special": "Poly carapace armor imposes DM-1 to all skill checks that require physical action.",
+      "protection": [
+        {
+          "value": 16,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 13,
+      "rads": 0,
+      "mass": 2,
+      "cost": 35000,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 38,
+      "name": "Post-Apocalyptic",
+      "description": "This is scavenged armor cobbled together from plate pieces, salvaged rubber, and other toughened materials that can be riveted, welded, or glued together. It covers the torso and upper legs, and maybe an arm.",
+      "special": "None",
+      "protection": [
+        {
+          "value": 4,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 6,
+      "rads": 0,
+      "mass": 3,
+      "cost": 150,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 39,
+      "name": "Powered Plate",
+      "description": "A large and bulky suit of insulated powered armor made up of metallic plates forming a complete body shell, powered plate is tough and inflexible.",
+      "special": "So long as the suit's hundred-hour power cell (Cr250 to replace) has energy, the suit adds STR +2 to the Traveller but inflicts a DEX -2 penalty.",
+      "protection": [
+        {
+          "value": 14,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 10,
+      "rads": 120,
+      "mass": 40,
+      "cost": 50000,
+      "required-skill": "Vacc Suit 1",
+      "powered": true
+    },
+    {
+      "id": 40,
+      "name": "Powered Plate",
+      "description": "A large and bulky suit of insulated powered armor made up of metallic plates forming a complete body shell, powered plate is tough and inflexible.",
+      "special": "So long as the suit's 200-hour power cell (Cr250 to replace) has energy, the suit adds STR +3 to the Traveller but inflicts a DEX -1 penalty.",
+      "protection": [
+        {
+          "value": 18,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 14,
+      "rads": 200,
+      "mass": 30,
+      "cost": 85000,
+      "required-skill": "Vacc Suit 0",
+      "powered": true
+    },
+    {
+      "id": 41,
+      "name": "Powered Plate (Ceramic)",
+      "description": "An advanced form of the more common powered plate made of advanced ceramic-metal hybrid alloys, this armored suit has a higher rate of protection against lasers, flamethrowers, and other heat/fire-based attacks.",
+      "special": "While the suit is running efficiently on its 85 hour power cell (Cr250 to replace), it adds STR +2 to the Traveller but inflicts a DEX -2 penalty.",
+      "protection": [
+        {
+          "value": 16,
+          "damage-types": []
+        },
+        {
+          "value": 20,
+          "damage-types": [
+            "fire",
+            "lasers",
+            "energy"
+          ]
+        }
+      ],
+      "tech-level": 13,
+      "rads": 175,
+      "mass": 35,
+      "cost": 90000,
+      "required-skill": "Vacc Suit 1",
+      "powered": true
+    },
+    {
+      "id": 42,
+      "name": "Powered Plate (Grav-Enhanced)",
+      "description": "A much improved version of the powered plate suit, this high-tech powered armor comes equipped with gravitic gyros in its limbs and torso. These increase the augmentation of the Traveller's abilities without drawing much from the suit's power cell. Additionally, the grav-enhanced powered plate can use the grav-gyros in its legs to move faster.",
+      "special": "500 hour power cell (Cr750 to replace). Adds STR +3 to the Traveller while only reducing DEX when unpowered, and then only by -1. Increases the Traveller's speed by +50%.",
+      "protection": [
+        {
+          "value": 20,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 15,
+      "rads": 220,
+      "mass": 32,
+      "cost": 120000,
+      "required-skill": "Vacc Suit 0",
+      "powered": true
+    },
+    {
+      "id": 43,
+      "name": "Pressure Sleeve",
+      "description": "A form-fitting garment similar to a wetsuit, worn as an under-uniform by some spacefaring services. The pressure sleeve is designed to protect the user in low pressure environments (allowing normal function in Very Thin and Trace atmospheres) and give some protection against vacuum. The ankles seal to boots, and a set of gloves are normally carried in a belt pouch. To be of any use, the suit's hood must be pulled up and sealed to a life-support mask (not included with the price of the suit). The pressure sleeve is designed to give personnel a survival margin in an emergency. It is not a substitute for a proper vacc suit, though it can be worn under one. Electronics suite not included.",
+      "special": "A user with a proper mask can function indefinitely in Very Thin atmosphere, for about 15 minutes in Trace Atmosphere, and about 5 minutes in hard vacuum.",
+      "protection": [
+        {
+          "value": 0,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 10,
+      "rads": 0,
+      "mass": 0,
+      "cost": 600,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 44,
+      "name": "Protec Suit",
+      "description": "A slim-fitting business suit woven from protective fibers, the protec suit is obviously armor but also confers a degree of respectability without making the Traveller appear like a thug. It is capable of turning melee weapons while softening the blow of small arms fire.",
+      "special": "Obviously armor, but confers a degree of respectability without making the Traveller appear like a thug.",
+      "protection": [
+        {
+          "value": 4,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 9,
+      "rads": 0,
+      "mass": 1,
+      "cost": 500,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 45,
+      "name": "Reflec",
+      "description": "Reflective material on a plastic base can be tailored into a body suit which is ineffective against most weapons, but superior in defense against laser fire. Reflec is expensive and often difficult to obtain.",
+      "special": "Imposes a Bane on any Stealth check the Traveller attempts.",
+      "protection": [
+        {
+          "value": 10,
+          "damage-types": [
+            "lasers"
+          ]
+        }
+      ],
+      "tech-level": 10,
+      "rads": 0,
+      "mass": 1,
+      "cost": 1500,
+      "required-skill": "none",
+      "powered": false
+    },
+    {
+      "id": 46,
+      "name": "Rescue Suit",
+      "description": "A rescue suit is a heavy vacc suit designed for emergency situations such as damage control or entering a damaged spacecraft. It is very tough, and some models are sold as 'boarding suits' to mercenary forces who cannot afford or obtain combat armor. Rescue suits are mainly designed to protect against physical hazards like torn wreckage and debris, plus radiation.",
+      "special": "The rescue suit carries oxygen tanks with a six hour capacity and a variety of tools for use in an emergency situation.",
+      "protection": [
+        {
+          "value": 12,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 12,
+      "rads": 120,
+      "mass": 22,
+      "cost": 25000,
+      "required-skill": "Vacc Suit 1",
+      "powered": false
+    },
+    {
+      "id": 47,
+      "name": "Softsuit (Emergency)",
+      "description": "A disposable emergency vacc suit including gloves and a soft, collapsible 'bubble' helmet, the softsuit offers no protection against hostile environments or attack - only against vacuum and non-corrosive atmospheres. Starships are required to carry enough emergency suits or rescue balls to allow the crew and all passengers to survive depressurization. Well-equipped ships include a softsuit at each crew position and a few spares at strategic points, in addition to crew-members' own vacc suits. It is rather flimsy, and it offers no protection against radiation, making it a poor choice for repair work or routine duty and a desperate last resort for EVA work. Electronics suite not included.",
+      "special": "Includes a small air bottle (4 hour capacity) and can be plugged into shipboard life-support points to prolong this supply.",
+      "protection": [
+        {
+          "value": 0,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 10,
+      "rads": 0,
+      "mass": 10,
+      "cost": 2000,
+      "required-skill": "Vacc Suit 0",
+      "powered": false
+    },
+    {
+      "id": 48,
+      "name": "Tactical Riot Armor",
+      "description": "Developed for law enforcement agencies, tactical riot armor protects the torso, arms, and head of the Traveller primarily from improvised weapons used by rebellious civilians. The design of this armor emphasises intimidation while rendering the Traveller anonymous among others so equipped.",
+      "special": "The Traveller gains a Boon to all Persuade checks made to intimidate while wearing this armor.",
+      "protection": [
+        {
+          "value": 4,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 7,
+      "rads": 0,
+      "mass": 6,
+      "cost": 600,
+      "required-skill": "None",
+      "powered": false
+    },
+    {
+      "id": 49,
+      "name": "Vacc Suit",
+      "description": "At lower Tech Levels, a rather bulky suit providing protection from hard vacuum and temperatures encountered in space. The suit also gives some radiation protection and includes a six-hour air supply.",
+      "special": "Provides protection from hard vacuum and temperatures encountered in space.",
+      "protection": [
+        {
+          "value": 4,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 8,
+      "rads": 10,
+      "mass": 17,
+      "cost": 12000,
+      "required-skill": "Vacc Suit 1",
+      "powered": false
+    },
+    {
+      "id": 50,
+      "name": "Vacc Suit",
+      "description": "A thinner and easier to use suit providing protection from hard vacuum and temperatures encountered in space. The suit also gives some radiation protection and includes a six-hour air supply.",
+      "special": "Provides protection from hard vacuum and temperatures encountered in space.",
+      "protection": [
+        {
+          "value": 8,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 10,
+      "rads": 60,
+      "mass": 10,
+      "cost": 11000,
+      "required-skill": "Vacc Suit 0",
+      "powered": false
+    },
+    {
+      "id": 51,
+      "name": "Vacc Suit",
+      "description": "A thin and easy to use suit providing protection from hard vacuum and temperatures encountered in space. The suit also gives some radiation protection and includes a six-hour air supply.",
+      "special": "Provides protection from hard vacuum and temperatures encountered in space.",
+      "protection": [
+        {
+          "value": 10,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 12,
+      "rads": 90,
+      "mass": 8,
+      "cost": 20000,
+      "required-skill": "Vacc Suit 0",
+      "powered": false
+    },
+    {
+      "id": 52,
+      "name": "Vacc Suit (Boarding)",
+      "description": "An armored suit hardened to the dangers of exposure to vacuum or hostile environments, the boarding vacc suit was originally used to help battle against space pirates when life support failed during an attack. As technology improves the suits become thinner and sturdier, revolutionizing their use in ship-to-ship combat. A boarding vacc suit will sometimes have a melee weapon/pistol combination grafted to the cuffs of the suit.",
+      "special": "Provides protection from hard vacuum and temperatures encountered in space, as well as hostile environments.",
+      "protection": [
+        {
+          "value": 11,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 11,
+      "rads": 50,
+      "mass": 25,
+      "cost": 18000,
+      "required-skill": "Vacc Suit 1",
+      "powered": false
+    },
+    {
+      "id": 53,
+      "name": "Vacc Suit (Boarding)",
+      "description": "An armored suit hardened to the dangers of exposure to vacuum or hostile environments, the boarding vacc suit was originally used to help battle against space pirates when life support failed during an attack. As technology improves the suits become thinner and sturdier, revolutionizing their use in ship-to-ship combat. A boarding vacc suit will sometimes have a melee weapon/pistol combination grafted to the cuffs of the suit.",
+      "special": "Provides protection from hard vacuum and temperatures encountered in space, as well as hostile environments.",
+      "protection": [
+        {
+          "value": 13,
+          "damage-types": []
+        }
+      ],
+      "tech-level": 12,
+      "rads": 75,
+      "mass": 12,
+      "cost": 24000,
+      "required-skill": "Vacc Suit 1",
+      "powered": false
+    }
+  ]
+}

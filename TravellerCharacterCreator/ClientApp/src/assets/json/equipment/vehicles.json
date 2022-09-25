@@ -3,6 +3,7 @@
     {
       "id": 1,
       "name": "Air/Raft",
+      "description": "An open-topped vehicle supported by anti-gravity technology. Air/Rafts are capable of reaching orbit, but passengers must wear vacc suits. They are ubiquitous, remarkably reliable, and flexible vehicles.",
       "tech-level": 8,
       "skill": "Grav",
       "agility": 1,
@@ -37,6 +38,7 @@
     {
       "id": 2,
       "name": "Armoured Fighting Vehicle (AFV)",
+      "description": "A heavily armored ATV known as an Armored Fighting Vehicle, equipped with a turret-mounted autocannon.",
       "tech-level": 12,
       "skill": "Wheel",
       "agility": -2,
@@ -71,6 +73,7 @@
     {
       "id": 3,
       "name": "All Terrain Vehicle (ATV)",
+      "description": "An enclosed, pressurized, all-terrain ground vehicle. The vehicle is capable of floating on calm water, and has a suite of built-in sensors and communications equipment (usually a laser transceiver) making it ideal for exploration. An ATV has a hardpoint for a turret, but does not normally come with a weapon.",
       "tech-level": 12,
       "skill": "Wheel",
       "agility": -2,
@@ -107,6 +110,7 @@
     {
       "id": 4,
       "name": "G/Bike",
+      "description": "Much like its ground-based predecessors, the G/bike's speed and size make it a favorite with many Travellers needing to make their own way around a strange planet. It is also the focus of many subcultures and gangs across Charted Space.",
       "tech-level": 12,
       "skill": "Grav",
       "agility": 3,
@@ -139,6 +143,7 @@
     {
       "id": 5,
       "name": "G/Carrier",
+      "description": "A grav carrier is effectively a flying armored personnel carrier, and is a standard fighting vehicle of many military forces across Charted Space.",
       "tech-level": 15,
       "skill": "Grav",
       "agility": -1,
@@ -174,6 +179,7 @@
     {
       "id": 6,
       "name": "Grav Floater",
+      "description": "This is a simple platform or chair that a single Traveller can stand or sit, and be carried around. It cannot achieve any great speed but can, like an air/raft, achieve any altitude up to orbit.",
       "tech-level": 11,
       "skill": "Grav",
       "agility": 2,
@@ -204,6 +210,7 @@
     {
       "id": 7,
       "name": "Ground Car",
+      "description": "A conventional wheeled automobile. It provides cheap, practical motoring.",
       "tech-level": 8,
       "skill": "Wheel",
       "agility": 0,

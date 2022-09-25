@@ -140,7 +140,7 @@
   {
     "Name": "Walker",
     "ParentSkill": "Drive",
-    "Description": "Vehicles that use two or more legs to manoeuvre."
+    "Description": "Vehicles that use two or more legs to maneuver."
   },
   {
     "Name": "Wheel",
@@ -190,7 +190,7 @@
   {
     "Name": "M-Drive",
     "ParentSkill": "Engineer",
-    "Description": "Maintaining and operating a spacecraft's manoeuvre drive, as well as its artificial gravity."
+    "Description": "Maintaining and operating a spacecraft's maneuver drive, as well as its artificial gravity."
   },
   {
     "Name": "J-Drive",

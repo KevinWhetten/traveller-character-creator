@@ -1,0 +1,429 @@
+﻿{
+  "weapon-accessories": [
+    {
+      "id": "",
+      "name": "Auxiliary Grenade Launcher",
+      "description": "An underslung grenade launcher can be added to any rifle weapon.",
+      "special": "This grenade launcher has a magazine of one grenade that takes three Minor Actions to reload. Otherwise, it is identical to the grenade launcher and can use any suitable grenade as ammunition.",
+      "tech-level": 7,
+      "range": 100,
+      "damage": {
+        "value": "As grenade",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 1000,
+      "magazine": 1,
+      "magazine-cost": "As grenades",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Bandolier",
+      "description": "This is a set of cartridge loops mounted on a leather or fabric strap or sling. A different bandolier must be purchased for each ammunition type.",
+      "special": "A bandolier can hold 7 individual shotgun cartridges, 20 pistol rounds, or 14 rifle rounds.",
+      "tech-level": 3,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 10,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Bayonet",
+      "description": "A knife-like weapon similar to a dagger or blade, a bayonet may or may not have a cutting edge; it will always have a stabbing point. When not attached to a rifle, a bayonet is treated as a dagger and will normally be carried in a belt scabbard. When attached to the muzzle of a rifle or similar weapon, it transforms the gun into a polearm. More advanced bayonets may incorporate tools such as wire cutters and bottle openers, but the basic function is the same.",
+      "special": "When not attached to a rifle, a bayonet is treated as a dagger. A fixed bayonet requires the Melee (blade) skill but, at the referee's option, any military-trained character with the Gun Combat skill will have been taught to fight with the bayonet and can use this skill instead if it is higher.",
+      "tech-level": 3,
+      "range": 0,
+      "damage": {
+        "value": "2D",
+        "scale": "Traveller"
+      },
+      "mass": 1,
+      "cost": 20,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Bipod",
+      "description": "A weapon can be given a bipod support frame to stabilize and support it, making it much easier to handle.",
+      "special": "Takes 2 Minor Actions to set up. When a weapon is fired, Bulky and Very Bulky traits are ignored.",
+      "tech-level": 4,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 1,
+      "cost": 50,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "FOF Safety",
+      "description": "This is an integrated Friend-or-Foe scanner which can be added to any firearm. The scanner itself is built directly into the firing mechanism of any trigger-activated weapon. A transmitting tag is then worn by other personnel, emitting a signal to any FOF safeties it is coded to for up to 50 meters away. To better eliminate friendly fire incidents and other disloyal behavior, many corporate or mercenary militaries use these devices as standard. Two transmitter tags are included in the purchase of the FOF safety and additional transmitter tags can be purchased for Cr25 each.",
+      "special": "If the scanner tries to target an object within 1 meter of a transmitting tag, the gun will not fire.",
+      "tech-level": 9,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 250,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Gyrostabilizer",
+      "description": "Stabilizers can be added to a Bulky weapon, reducing its recoil and removing the Bulky trait. Gyrostabilizers cannot be added to Destructive weapons.",
+      "special": "Removes the Bulky trait from a weapon.",
+      "tech-level": 9,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 1,
+      "cost": 500,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Heavy Tripod",
+      "description": "This is a collapsible mount, allowing travellers to use weapons usually intended for vehicles in the field, though mobility will be restricted when carrying such weapons on foot. Weapons commonly used in this fashion include tac launchers and light autocannon.",
+      "special": "Any weapon of up to 0.25 tons may be mounted and used upon a tripod. It normally takes 1D minutes to set up a tripod and make the weapon ready for firing.",
+      "tech-level": 4,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 5,
+      "cost": 100,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "High-Capacity Magazine",
+      "description": "The ability for a weapon to hold more ammunition before requiring a change in magazine is always beneficial, especially on high rate-of-fire automatic weapons. High-capacity magazines, while bulky in use, are designed to solve this problem. Multiply the mass and cost of a weapon's standard magazine to purchase a high-capacity version. The referee may rule that some weapons (such as many shotguns) cannot use high-capacity magazines.",
+      "special": "This will double the magazine's capacity of the weapon.",
+      "tech-level": 4,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": "x2",
+      "cost": "x3",
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Holographic Sights",
+      "description": "Holographic sights project an aim point for the Traveller, and automatically compensate for wind, gravity, and other adverse conditions.",
+      "special": "Grants the Scope trait plus DM+1 to all attack rolls made against targets 50 meters or more away.",
+      "tech-level": 10,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0.5,
+      "cost": 2000,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Intelligent Weapon",
+      "description": "Adds Computer/0 to any weapon.",
+      "special": "Adds Computer/0 to any weapon.",
+      "tech-level": 11,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 1000,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Intelligent Weapon",
+      "description": "Adds Computer/1 to any weapon.",
+      "special": "Adds Computer/1 to any weapon.",
+      "tech-level": 0,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 5000,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Laser Sight",
+      "description": "Integrated optics and laser sights.",
+      "special": "Grant DM+1 to any attack made at ranges of less than 50 meters.",
+      "tech-level": 8,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 200,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Laser Sight",
+      "description": "X-ray lasers and improved display technology removes the tell-tale 'red dot' of a vislight laser..",
+      "special": "Grant DM+1 to any attack made at ranges of less than 50 meters.",
+      "tech-level": 10,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 200,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Personal Heads-Up Display",
+      "description": "A Personal HUD projects an aiming point onto an image of the target, automatically correcting for wind, gravity, and other factors. Various display devices are available, ranging from a helmet visor to a pair of designer shades. Modules that allow additional weapons to be used on the same P-HUD system cost Cr250 each and require an hour or so to fit and calibrate. There is no real limit on how many weapons can be calibrated to one P-HUD.",
+      "special": "A P-HUD grants DM+1 on all attacks at all ranges, for any ranged weapon it is keyed to.",
+      "tech-level": 9,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0.5,
+      "cost": 1500,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Personal Heads-Up Display",
+      "description": "A Personal HUD projects an aiming point onto an image of the target, automatically correcting for wind, gravity, and other factors. Incorporates a holographic projector and no obvious visual device need be worn. Modules that allow additional weapons to be used on the same P-HUD system cost Cr250 each and require an hour or so to fit and calibrate. There is no real limit on how many weapons can be calibrated to one P-HUD.",
+      "special": "A P-HUD grants DM+1 on all attacks at all ranges, for any ranged weapon it is keyed to.",
+      "tech-level": 11,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 2500,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Psi-Enhanced Targeting",
+      "description": "Using a linked wire network worn around the temples or integrated into headgear, a psionic Traveller can use his mental abilities to home in on a target. Truer than the images seen by organic eyes, the targeting system feeds telepathically-enhanced firing angles and timing directly to the Traveller's brain. No other targeting aids or sights may be used in conjunction with this device.",
+      "special": "Allows a Traveller to add his PSI modifier to any shooting attack that does not use the Auto trait.",
+      "tech-level": 16,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0.5,
+      "cost": 3000,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Scan Jammer",
+      "description": "A highly illegal addition to a weapon, frequently used by spies, agents, and assassins, the scan jammer emits a localized sensor jamming field causing nearby scanning receivers to flicker and fail.",
+      "special": "All Electronics (sensors) checks made to discover the weapon suffer DM-4.",
+      "tech-level": 8,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 2500,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Scope",
+      "description": "A high-quality telescopic scope for attachment to a rifle or heavy weapon, allowing accurate shots to be made at extreme ranges.",
+      "special": "Any hand-held rifle or heavy weapon equipped with this gains the Scope trait.",
+      "tech-level": 5,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 50,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Scope",
+      "description": "A high-quality telescopic scope for attachment to a rifle or heavy weapon, allowing accurate shots to be made at extreme ranges. Image enhancement and light intensification are added, allowing the scope to be used in low-light environments without penalty.",
+      "special": "Any hand-held rifle or heavy weapon equipped with this gains the Scope trait.",
+      "tech-level": 7,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 50,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Secure Weapon",
+      "description": "A secure weapon requires authentication in some fashion (scanning the user's DNA or iris patterns, entering a password, transmission of an unlocking code from a comm, etc.) before it can be fired.",
+      "special": "Requires authentication before it can be fired.",
+      "tech-level": 10,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 250,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Shoulder Stock",
+      "description": "A shoulder stock may be attached temporarily to a pistol weapon, resulting in a crude carbine arrangement and greater accuracy at slightly longer ranges. The overall length of the pistol is increased by the length of the stock, and the pistol cannot be holstered while it is attached.",
+      "special": "Attaching (or detaching) the stock requires 1D rounds. Increases the effective and long range of a pistol by +25%, but does not increase its extreme range.",
+      "tech-level": 4,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 1,
+      "cost": 75,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Smart Tracker",
+      "description": "This is a display option that may be added to any intelligent weapon, increasing the accuracy of a firearm.",
+      "special": "The smart tracker allows the Traveller to 'tag' any target he has successfully hit with the weapon by spending a Minor Action in the same round the weapon scores a hit. Any tagged target fired upon by the weapon in the following round will gain DM+2 to hit. A target must be tagged each round for the bonus to continue.",
+      "tech-level": 11,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 500,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "Suppressor",
+      "description": "A suppressor can be added to any non-automatic, non-heavy slug thrower, masking the sound produced by firing.",
+      "special": "A suppressor adds the Silent trait to a weapon.",
+      "tech-level": 8,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 250,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "X-Ray Outlining Aid",
+      "description": "Adding a special outlining element to an existing sighted scope, the Traveller can see exactly where his target lies behind an obscuring object.",
+      "special": "So long as the object is not made of metal, shielded, or more than a meter thick, the target may not hide (though it will still gain its usual Armor bonus).",
+      "tech-level": 9,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 300,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    },
+    {
+      "id": "",
+      "name": "X-Ray Outlining Aid",
+      "description": "Adding a special outlining element to an existing sighted scope, the Traveller can see exactly where his target lies behind an obscuring object.",
+      "special": "So long as the object is not made of metal, shielded, or more than 3 meters thick, the target may not hide (though it will still gain its usual Armor bonus).",
+      "tech-level": 11,
+      "range": 0,
+      "damage": {
+        "value": "",
+        "scale": ""
+      },
+      "mass": 0,
+      "cost": 500,
+      "magazine": 0,
+      "magazine-cost": "",
+      "traits": []
+    }
+  ]
+}

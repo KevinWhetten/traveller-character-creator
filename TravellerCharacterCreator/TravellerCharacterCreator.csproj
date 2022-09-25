@@ -19,12 +19,59 @@
         <Content Remove="$(SpaRoot)**" />
         <Content Include="ClientApp\package-lock.json" />
         <Content Include="ClientApp\package.json" />
+        <Content Include="ClientApp\src\assets\json\careers.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\ammunition.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\armor.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\augments.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\battle-dress.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\communications.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\computers.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\gadjets.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\home-comforts.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\medical-supplies.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\modifications.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\robots.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\sensors.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\software.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\spacecraft.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\structures.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\survival-supplies.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\tools.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\vehicles.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\weapon-accessories.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\weapons.json" />
+        <Content Include="ClientApp\src\assets\json\skills\skills.json" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="ClientApp\src\app\services\metadata-services" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="JSON Data\careers.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\ammunition.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\armor.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\augments.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\battle-dress.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\communications.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\computers.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\gadjets.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\home-comforts.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\medical-supplies.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\modifications.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\robots.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\sensors.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\software.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\spacecraft.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\structures.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\survival-supplies.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\tools.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\vehicles.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\weapon-accessories.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\weapons.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Skills\skills.json" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

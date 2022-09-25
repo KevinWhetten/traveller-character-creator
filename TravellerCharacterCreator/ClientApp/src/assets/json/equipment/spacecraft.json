@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Far Trader",
       "type": "A-2",
-      "description": "",
+      "description": "While nominally a modified free trader, the far trader has a series of modifications that have become accepted as standard, and many free traders are either modified to this specification or are built this way from new. The far trader swaps cargo space and low berths for a larger jump drive and fuel tank, allowing it to reach systems a basic free trader cannot travel to. While less cargo can mean less profits, the ability to reach farther systems or to travel between stars at a faster rate can more than make up for this in the hands of a clever captain.",
       "tech-level": 12,
       "crew": [
         "Pilot",
@@ -52,7 +52,7 @@
       "computer": {
         "bandwidth": 5,
         "software": [
-          "Manoeuvre/0",
+          "Maneuver/0",
           "Jump Control/2",
           "Library"
         ]
@@ -102,7 +102,7 @@
       "id": 2,
       "name": "Free Trader",
       "type": "A",
-      "description": "",
+      "description": "Using a 200-ton hull, the free trader is an elementary interstellar merchant ship designed to ply the space lanes while carrying a mixture of cargo and passengers. It is the archetypal tramp freighter and common among adventuring groups and mercenary bands, often retrofitted with turrets, weapons, and other 'special' modifications. As such, actual specifications can vary wildly, often being proportional to the age of the ship, but the free trader presented here is typical of a vessel fresh out of the shipyard.",
       "tech-level": 12,
       "crew": [
         "Pilot",
@@ -195,7 +195,7 @@
       "id": 3,
       "name": "Laboratory Ship",
       "type": "L",
-      "description": "",
+      "description": "A highly specialized vessel, the laboratory ship is built to transport scientists and their equipment across the stars in order to conduct research, usually in remote locations. The ship itself is fitted with highly advanced sensors, while a pinnace can carry an ATV down to a planet's surface in order to conduct field expeditions. A special feature of this ship is that it is built so internal gravity can be created by spinning the hull. This is done to permit experiments to be carried out that might otherwise be affected by the gravitic plates installed as standard on all ships.",
       "tech-level": 12,
       "crew": [
         "Pilot",
@@ -244,7 +244,7 @@
         "software": []
       },
       "sensors": {
-        "grade": "Imporoved",
+        "grade": "Improved",
         "bonus": 1,
         "power-requirement": 4,
         "tons": 3
@@ -300,7 +300,7 @@
       "id": 4,
       "name": "Mercenary Cruiser",
       "type": "C",
-      "description": "",
+      "description": "The mercenary cruiser is built to carry small troop units for corporate, governmental, or more commonly, mercenary operations. It has enough space to carry a combat platoon, plus crew and support personnel, along with their equipment, albeit in fairly cramped confines. The platoon can be deployed to a planet's surface with the two modular cutters housed inside the ship, and can then disembark using the ATVs the two cutters carry. Turrets are fitted as standard but while shipyards do not generally include weapons, it is a rare mercenary cruiser that is not armed to the teeth.",
       "tech-level": 12,
       "crew": [
         "Pilot",
@@ -416,7 +416,7 @@
       "id": 5,
       "name": "Patrol Corvette",
       "type": "T",
-      "description": "",
+      "description": "The patrol corvette is used by military organizations as a cheap but effective vessel for customs patrols, anti-piracy work, and system defense. Despite being only a 400 ton hull, this corvette remains more than a match for typical pirate vessels of a similar size. The auxiliary ship's boat and G/carrier on board, combined with a streamlined hull, allow the patrol corvette to pursue targets through atmospheres and down onto planetary surfaces, ensuring there is no escape.",
       "tech-level": 12,
       "crew": [
         "Pilot",
@@ -534,7 +534,7 @@
       "id": 6,
       "name": "Safari Ship",
       "type": "K",
-      "description": "",
+      "description": "Though at first appearance uniquely specialized, the safari ship is relatively common throughout the galaxy. It is primarily designed as an excursion vessel, capable of conducting trophy-taking expeditions (photographic or real) to distant worlds, all in a high degree of comfort. Indeed, some owners will outfit their safari ship to higher standards of luxury than many yachts. Included within the hull are two holding tanks with variable environments for live specimens, and a trophy lounge which makes for a very comfortable mess area for passengers and crew. While the ship is streamlined and can land planetside, a launch and ATV permit expeditions across a planet's surface without requiring the whole vessel to leave orbit.",
       "tech-level": 12,
       "crew": [
         "Pilot",
@@ -657,7 +657,7 @@
       "id": 7,
       "name": "Scout/Courier",
       "type": "S",
-      "description": "",
+      "description": "The scout ship is built for exploration, survey, and courier duties, with many thousands in service throughout Charted Space. Despite the small 100 ton hull, the scout is faster than most merchant ships and can jump further too. While multiple crew positions are technically required, it is standard practice for a scout to be crewed by just one or two highly skilled individuals who understand the requirements needed for self-sufficiency.",
       "tech-level": 12,
       "crew": [
         "Pilot",
@@ -765,7 +765,7 @@
       "id": 8,
       "name": "Seeker Mining Ship",
       "type": "J",
-      "description": "",
+      "description": "A variation on the traditional scout/courier, the seeker is occasionally produced in this configuration by shipyards but it is far more common for it to be created by re-fitting an old scout retired from active service. A seeker has fewer staterooms and a smaller fuel tank, but its larger cargo bay and mining drones allow a single well-skilled prospector to scavenge asteroids and make a living looking for deposits of valuable minerals.",
       "tech-level": 12,
       "crew": [
         "Pilot",
@@ -859,9 +859,9 @@
     },
     {
       "id": 9,
-      "name": "Subsidised Liner",
+      "name": "Subsidized Liner",
       "type": "M",
-      "description": "",
+      "description": "The subsidized liner is built for carrying passengers and cargo on long haul routes, in a modicum of comfort; while a steward is present, passengers should expect cheap interstellar travel rather than luxury. Overall, the ship is capable of carrying 24 passengers in addition to its crew, with a further 20 in low berths. With a 2 parsec jump capability, a lot of destinations are possible. Though the hull of the ship itself is un-streamlined, a launch allows passengers to be ferried to the surface of a world, or act as a life boat in emergencies.",
       "tech-level": 12,
       "crew": [
         "Pilot",
@@ -956,7 +956,7 @@
       "id": 10,
       "name": "Subsidised Merchant",
       "type": "R",
-      "description": "",
+      "description": "The subsidized merchant (also called the fat trader) is a trading vessel intended to meet the commercial needs of clusters of worlds. It is twice the size of a free trader but carries cargo far more efficiently with a cavernous cargo bay more than twice the size of that within its little cousin. In fact, if its cargo bay doors were larger, the subsidized merchant could theoretically swallow a free trader whole. This ship normally requires a crew of five, although the pilot also operates the launch, a steward is only necessary if carrying commercial passengers, and gunners may be added to the list if weapons are installed.",
       "tech-level": 12,
       "crew": [
         "Pilot",
@@ -1057,7 +1057,7 @@
       "id": 11,
       "name": "Yacht",
       "type": "Y",
-      "description": "",
+      "description": "The yacht is a noble's plaything, used to entertain friends and undertake political or commercial missions. The staterooms are all well-appointed but even they fail to make the grade in comparison to the luxury stateroom intended for the yacht's owner. The yacht carries an air/raft and a ship's boat within docking compartments; an ATV is also carried, with the ship's boat being used to ferry it from orbit to surface and back again.",
       "tech-level": 12,
       "crew": [
         "Pilot",
@@ -1164,7 +1164,7 @@
       "id": 12,
       "name": "Launch",
       "type": "",
-      "description": "",
+      "description": "Also called a life boat, dut to one of its expected roles, this craft uses a 20-ton hull and can easily be flown by a single skilled individual. A launch can be configured to engage in a wide variety of roles, but ambitions schemes will find themselves limited by the small hull and weak power plant. However, for the price, the launch provides a means to very cheap space travel.",
       "tech-level": 9,
       "crew": [
         "Pilot"
@@ -1241,7 +1241,7 @@
       "id": 13,
       "name": "Light Fighter",
       "type": "",
-      "description": "",
+      "description": "Consisting of little more than a power plant and pulse laser with a pilot strapped to the top, the light fighter is a small, fast, and highly manoeuvrable craft designed to make high-speed runs on enemy ships and destroy other small craft. Designed to adhere to a strict budget, the light fighter allows even the poorest worlds a chance at self-defense.",
       "tech-level": 9,
       "crew": [
         "Pilot"
@@ -1324,7 +1324,7 @@
       "id": 14,
       "name": "Modular Cutter",
       "type": "",
-      "description": "",
+      "description": "The modular cutter is notable for having 30 tons dedicated to a detachable module; this allows the cutter to quickly and efficiently change roles during a voyage without needing extensive refits at a starport. While there are a great many customized modules available for the cutter, the three most common and routinely available for the cutter are listed below. ATV Module: The ATV module costs MCr1.8. Fuel Module: The Fuel module costs MCr1. Open Module: The Open module costs MCr2.",
       "tech-level": 11,
       "crew": [
         "Pilot"
@@ -1416,7 +1416,7 @@
       "id": 15,
       "name": "Pinnace",
       "type": "",
-      "description": "",
+      "description": "The pinnace is a popular choice as an auxiliary vessel for adventuring or exploratory ships, as it has the speed, range, and cargo capacity to support extended missions. It combines a generous cargo hold with a speed that leaves most starships trailing far behind, and can be configured for light combat operations with the addition of weaponry to its fixed mount.",
       "tech-level": 9,
       "crew": [
         "Pilot"
@@ -1504,7 +1504,7 @@
       "id": 15,
       "name": "Ship's Boat",
       "type": "",
-      "description": "",
+      "description": "The ship's boat is both fast and versatile, making it a popular choice for auxiliary craft. While most commonly seen hauling small cargo and passenger loads between ships and worlds, in smaller militaries the ship's boat is also used as a boarding craft by marine assault teams.",
       "tech-level": 13,
       "crew": [
         "Pilot"
@@ -1592,7 +1592,7 @@
       "id": 16,
       "name": "Shuttle",
       "type": "",
-      "description": "",
+      "description": "One of the most common craft seen in space, the shuttle is present throughout the galaxy and becomes a standard vessel for orbital operations as soon as a civilization makes it first firm steps into space. It is designed to carry passengers and cargo from orbit to surface and back again, as well as act as an interplanetary transport.",
       "tech-level": 10,
       "crew": [
         "Pilot"
@@ -1680,7 +1680,7 @@
       "id": 17,
       "name": "Slow Boat",
       "type": "",
-      "description": "",
+      "description": "The slow boat appears either as an early design of the ship's boat, before power plants and maneuver drives become more efficient, or as an intentional throttling back of the ship's boats performance. Either way, the slow boat is comparable to the ship's boat but it trades speed for increased cargo space.",
       "tech-level": 10,
       "crew": [
         "Pilot"
@@ -1768,7 +1768,7 @@
       "id": 18,
       "name": "Slow Pinnace",
       "type": "",
-      "description": "",
+      "description": "Like the slow boat, the slow pinnace trades speed and raw performance for increased cargo space, though this craft is based on the traditional pinnace. As a larger hull, it provides even more cargo carrying capacity than a slow boat, and many are customized to become troop or vehicle transports, or to serve as fuel skimmers for larger ships.",
       "tech-level": 10,
       "crew": [
         "Pilot"
