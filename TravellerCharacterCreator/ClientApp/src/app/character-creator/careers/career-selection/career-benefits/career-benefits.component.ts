@@ -1,4 +1,4 @@
-﻿import {Component, Input, OnInit} from '@angular/core';
+﻿import {Component, Input} from '@angular/core';
 import {Career} from "../../../../models/career";
 
 @Component({
@@ -6,14 +6,8 @@ import {Career} from "../../../../models/career";
   templateUrl: './career-benefits.component.html',
   styleUrls: ['./career-benefits.component.scss']
 })
-export class CareerBenefitsComponent implements OnInit {
+export class CareerBenefitsComponent {
   @Input() career: Career;
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
   defineNumber(number: number) {
     return Array(number).fill(1).map((x, i) => i + 1);

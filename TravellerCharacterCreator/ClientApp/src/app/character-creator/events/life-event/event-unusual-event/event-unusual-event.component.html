@@ -9,11 +9,11 @@
   </div>
 
   <div class="eventResult" *ngIf="submitted">
-    <app-unusual-event-psionics *ngIf="eventResult == 1" (eventComplete)="submit()"></app-unusual-event-psionics>
-    <app-unusual-event-aliens *ngIf="eventResult == 2" (eventComplete)="submit()"></app-unusual-event-aliens>
-    <app-unusual-event-alien-artifact *ngIf="eventResult == 3" (eventComplete)="submit()"></app-unusual-event-alien-artifact>
-    <app-unusual-event-amnesia *ngIf="eventResult == 4" (eventComplete)="submit()"></app-unusual-event-amnesia>
-    <app-unusual-event-contact-with-government *ngIf="eventResult == 5" (eventComplete)="submit()"></app-unusual-event-contact-with-government>
-    <app-unusual-event-ancient-technology *ngIf="eventResult == 6" (eventComplete)="submit()"></app-unusual-event-ancient-technology>
+    <app-unusual-event-psionics *ngIf="eventResult === 1" (eventComplete)="submit()"></app-unusual-event-psionics>
+    <app-unusual-event-aliens *ngIf="eventResult === 2" (eventComplete)="submit()"></app-unusual-event-aliens>
+    <app-unusual-event-alien-artifact *ngIf="eventResult === 3" (eventComplete)="submit()"></app-unusual-event-alien-artifact>
+    <app-unusual-event-amnesia *ngIf="eventResult === 4" (eventComplete)="submit()"></app-unusual-event-amnesia>
+    <app-unusual-event-contact-with-government *ngIf="eventResult === 5" (eventComplete)="submit()"></app-unusual-event-contact-with-government>
+    <app-unusual-event-ancient-technology *ngIf="eventResult === 6" (eventComplete)="submit()"></app-unusual-event-ancient-technology>
   </div>
 </div>

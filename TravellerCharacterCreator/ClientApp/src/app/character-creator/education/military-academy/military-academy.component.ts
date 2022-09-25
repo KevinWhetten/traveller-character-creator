@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {CharacterService} from "../../../services/character.service";
 import {SkillService} from "../../../services/data-services/skill.service";
 import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
@@ -11,7 +11,7 @@ import {LoggingService} from "../../../services/metadata-services/logging.servic
   templateUrl: './military-academy.component.html',
   styleUrls: ['./military-academy.component.css']
 })
-export class MilitaryAcademyComponent implements OnInit {
+export class MilitaryAcademyComponent {
   applied: boolean = false;
   armyAcademy: boolean = false;
   marinesAcademy: boolean = false;
@@ -28,9 +28,6 @@ export class MilitaryAcademyComponent implements OnInit {
               private _loggingService: LoggingService,
               private _pageService: PageService,
               private _skillService: SkillService) {
-  }
-
-  ngOnInit(): void {
   }
 
   army(passed: boolean) {

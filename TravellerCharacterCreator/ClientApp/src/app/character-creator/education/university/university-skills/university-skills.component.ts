@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
-import {Router} from "@angular/router";
 import {SkillService} from "../../../../services/data-services/skill.service";
 import {CharacterSkill} from "../../../../models/character-skill";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
@@ -11,7 +10,7 @@ import {AlertType} from "../../../../controls/alert/alert.component";
   templateUrl: './university-skills.component.html',
   styleUrls: ['./university-skills.component.css']
 })
-export class UniversitySkillsComponent implements OnInit {
+export class UniversitySkillsComponent {
   private level1Skill: string = '';
   private level0Skill: string = '';
   hasError: boolean = false;
@@ -39,9 +38,6 @@ export class UniversitySkillsComponent implements OnInit {
   constructor(private _characterService: CharacterService,
               private _characterMetadataService: CharacterMetadataService,
               private _skillService: SkillService) {
-  }
-
-  ngOnInit(): void {
   }
 
   level0SkillChanged(skill: string) {

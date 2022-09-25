@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {SkillService} from "../../../../services/data-services/skill.service";
 import {CharacterService} from "../../../../services/character.service";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
@@ -8,7 +8,7 @@ import {CharacterMetadataService} from "../../../../services/metadata-services/c
   templateUrl: './agent-deal-mishap.component.html',
   styleUrls: ['./agent-deal-mishap.component.css']
 })
-export class AgentDealMishapComponent implements OnInit {
+export class AgentDealMishapComponent {
   @Output() mishapComplete = new EventEmitter;
   accepted: boolean = false;
   rejected: boolean = false;
@@ -18,9 +18,6 @@ export class AgentDealMishapComponent implements OnInit {
   constructor(private _characterService: CharacterService,
               private _metadataService: CharacterMetadataService,
               private _skillService: SkillService) {
-  }
-
-  ngOnInit(): void {
   }
 
   accept() {

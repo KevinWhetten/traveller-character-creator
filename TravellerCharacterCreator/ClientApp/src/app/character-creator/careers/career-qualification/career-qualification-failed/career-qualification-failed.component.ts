@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import {CareerService} from "../../../../services/data-services/career.service";
 import {CharacterService} from "../../../../services/character.service";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
@@ -9,15 +9,12 @@ import {RollingService} from "../../../../services/data-services/rolling.service
   templateUrl: './career-qualification-failed.component.html',
   styleUrls: ['./career-qualification-failed.component.css']
 })
-export class CareerQualificationFailedComponent implements OnInit {
+export class CareerQualificationFailedComponent {
 
   constructor(private _careerService: CareerService,
               private _characterService: CharacterService,
               private _metadataService: CharacterMetadataService,
               private _rollingService: RollingService) { }
-
-  ngOnInit(): void {
-  }
 
   draft() {
     this._metadataService.setCurrentUrl('character-creator/careers/draft');

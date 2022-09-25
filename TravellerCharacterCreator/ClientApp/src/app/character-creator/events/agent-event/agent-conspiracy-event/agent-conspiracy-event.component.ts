@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {CharacterMetadataService} from "../../../../services/metadata-services/character-metadata.service";
 import {LoggingService} from "../../../../services/metadata-services/logging.service";
@@ -8,15 +8,12 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
   templateUrl: './agent-conspiracy-event.component.html',
   styleUrls: ['./agent-conspiracy-event.component.scss']
 })
-export class AgentConspiracyEventComponent implements OnInit {
+export class AgentConspiracyEventComponent {
   @Output() eventComplete = new EventEmitter;
 
   constructor(private _characterService: CharacterService,
               private _loggingService: LoggingService,
               private _metadataService: CharacterMetadataService) { }
-
-  ngOnInit(): void {
-  }
 
   submit() {
     this._loggingService.addLog('I uncovered a major conspiracy against my employers.');

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {SkillService} from "../../../../services/data-services/skill.service";
 
@@ -7,14 +7,11 @@ import {SkillService} from "../../../../services/data-services/skill.service";
   templateUrl: './agent-learn-mishap.component.html',
   styleUrls: ['./agent-learn-mishap.component.scss']
 })
-export class AgentLearnMishapComponent implements OnInit {
+export class AgentLearnMishapComponent {
   @Output() mishapComplete = new EventEmitter;
 
   constructor(private _characterService: CharacterService,
               private _skillService: SkillService) { }
-
-  ngOnInit(): void {
-  }
 
   submit() {
     this._characterService.addEnemy('I learned something I shouldn\'t have as an Agent, and now this person wants to kill me.');

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {LoggingService} from "../../../../services/metadata-services/logging.service";
 
 @Component({
@@ -6,13 +6,10 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
   templateUrl: './agent-disaster-event.component.html',
   styleUrls: ['./agent-disaster-event.component.css']
 })
-export class AgentDisasterEventComponent implements OnInit {
+export class AgentDisasterEventComponent {
   @Output() eventComplete = new EventEmitter;
 
   constructor(private _loggingService: LoggingService) {
-  }
-
-  ngOnInit(): void {
   }
 
   continue() {

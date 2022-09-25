@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 import {RollingService} from "../../../../services/data-services/rolling.service";
 import {SkillService} from "../../../../services/data-services/skill.service";
@@ -9,7 +9,7 @@ import {LoggingService} from "../../../../services/metadata-services/logging.ser
   templateUrl: './agent-training-event.component.html',
   styleUrls: ['./agent-training-event.component.scss']
 })
-export class AgentTrainingEventComponent implements OnInit {
+export class AgentTrainingEventComponent {
   @Output() eventComplete = new EventEmitter;
   chosenSkill: string;
   rolled: boolean = false;
@@ -19,9 +19,6 @@ export class AgentTrainingEventComponent implements OnInit {
               private _loggingService: LoggingService,
               private _rollingService: RollingService,
               private _skillService: SkillService) {
-  }
-
-  ngOnInit(): void {
   }
 
   submit(passed: boolean) {

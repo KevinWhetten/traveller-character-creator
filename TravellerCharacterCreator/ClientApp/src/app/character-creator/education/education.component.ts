@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {Component} from '@angular/core';
 import {CharacterService} from "../../services/character.service";
 import {CharacterMetadataService} from "../../services/metadata-services/character-metadata.service";
 import {LoggingService} from "../../services/metadata-services/logging.service";
@@ -9,14 +8,11 @@ import {LoggingService} from "../../services/metadata-services/logging.service";
   templateUrl: './education.component.html',
   styleUrls: ['./education.component.css']
 })
-export class EducationComponent implements OnInit {
+export class EducationComponent {
 
   constructor(private _characterMetadataService: CharacterMetadataService,
               private _characterService: CharacterService,
               private _loggingService: LoggingService) {
-  }
-
-  ngOnInit(): void {
   }
 
   toUniversity() {

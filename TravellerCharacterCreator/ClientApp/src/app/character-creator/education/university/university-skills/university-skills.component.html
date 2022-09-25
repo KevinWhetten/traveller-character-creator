@@ -9,14 +9,14 @@
     choose here will increase by one more if you graduate.</p>
   <div class="flex">
     <div class="column">
-      <app-skill-select (onChange)="level0SkillChanged($event)"
+      <app-skill-select (skillChange)="level0SkillChanged($event)"
                         [label]="'Level 0'"
                         [targetSkillLevel]="1"
                         [groups]="getFullUniversitySkillGroups()"
                         [groupNames]="getFullUniversityGroupNames()"></app-skill-select>
     </div>
     <div class="column">
-      <app-skill-select (onChange)="level1SkillChanged($event)"
+      <app-skill-select (skillChange)="level1SkillChanged($event)"
                         [label]="'Level 1'"
                         [targetSkillLevel]="1"
                         [groups]="getFullUniversitySkillGroups()"

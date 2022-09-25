@@ -1,4 +1,4 @@
-﻿import {Component, Input, OnInit} from '@angular/core';
+﻿import {Component, Input} from '@angular/core';
 import {Career} from "../../../../models/career";
 import {CharacterService} from "../../../../services/character.service";
 import {RollingService} from "../../../../services/data-services/rolling.service";
@@ -8,14 +8,11 @@ import {RollingService} from "../../../../services/data-services/rolling.service
   templateUrl: './career-progress.component.html',
   styleUrls: ['./career-progress.component.scss']
 })
-export class CareerProgressComponent implements OnInit {
+export class CareerProgressComponent {
   @Input() career: Career;
 
   constructor(private _characterService: CharacterService,
               private _rollingService: RollingService) {
-  }
-
-  ngOnInit(): void {
   }
 
   getModifier(characteristic: string) {

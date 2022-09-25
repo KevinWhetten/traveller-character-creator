@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterService} from "../../../../services/character.service";
 
 @Component({
@@ -6,14 +6,11 @@ import {CharacterService} from "../../../../services/character.service";
   templateUrl: './injury-injured.component.html',
   styleUrls: ['./injury-injured.component.css']
 })
-export class InjuryInjuredComponent implements OnInit {
+export class InjuryInjuredComponent {
   @Output() injured = new EventEmitter;
   characteristic: string;
 
   constructor(private _characterService: CharacterService) { }
-
-  ngOnInit(): void {
-  }
 
   submit() {
     switch(this.characteristic){

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {AlertType} from "../alert/alert.component";
 import {CharacterService} from "../../services/character.service";
 import {CharacterMetadataService} from "../../services/metadata-services/character-metadata.service";
@@ -9,12 +9,12 @@ import {RollingService} from "../../services/data-services/rolling.service";
   templateUrl: './skill-roll.component.html',
   styleUrls: ['./skill-roll.component.scss']
 })
-export class SkillRollComponent implements OnInit {
+export class SkillRollComponent {
   @Input() skill: string;
   @Input() target: number;
   @Output() rolled = new EventEmitter<boolean>();
-  @Output() result = new EventEmitter<number>();
-  @Output() rawResult = new EventEmitter<{rawResult: number, modifier: number}>();
+  @Output() rollResult = new EventEmitter<number>();
+  @Output() rawRollResult = new EventEmitter<{rawResult: number, modifier: number}>();
 
   roll: number;
   hasError: boolean;
@@ -24,9 +24,6 @@ export class SkillRollComponent implements OnInit {
   constructor(private _characterService: CharacterService,
               private _metadataService: CharacterMetadataService,
               private _rollingService: RollingService) {
-  }
-
-  ngOnInit(): void {
   }
 
   getModifier() {
@@ -40,8 +37,8 @@ export class SkillRollComponent implements OnInit {
       } else {
         this.rolled.emit(false);
       }
-      this.result.emit(this.roll + this.getModifier());
-      this.rawResult.emit({rawResult: this.roll, modifier: this.getModifier()});
+      this.rollResult.emit(this.roll + this.getModifier());
+      this.rawRollResult.emit({rawResult: this.roll, modifier: this.getModifier()});
     } else {
       this.hasError = true;
       this.errorMessage = 'The roll must be between 2 and 12.';

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {CharacterMetadataService} from "../../../services/metadata-services/character-metadata.service";
 import {CharacterService} from "../../../services/character.service";
 
@@ -7,7 +7,7 @@ import {CharacterService} from "../../../services/character.service";
   templateUrl: './psionic-test.component.html',
   styleUrls: ['./psionic-test.component.css']
 })
-export class PsionicTestComponent implements OnInit {
+export class PsionicTestComponent {
   @Output() tested = new EventEmitter;
   @Output() eventComplete = new EventEmitter;
   rolled: boolean = false;
@@ -15,9 +15,6 @@ export class PsionicTestComponent implements OnInit {
 
   constructor(private _characterService: CharacterService,
               private _metadataService: CharacterMetadataService) {
-  }
-
-  ngOnInit(): void {
   }
 
   recordPsi(rolledNum: number) {
@@ -33,8 +30,7 @@ export class PsionicTestComponent implements OnInit {
   completeTesting() {
     if (this.psi > 0) {
       this._characterService.setPsi(this.psi);
-    }
-    else {
+    } else {
       this._characterService.setPsi(0);
     }
     this.eventComplete.emit();

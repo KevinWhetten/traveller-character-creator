@@ -1,4 +1,4 @@
-﻿import {Component, OnInit} from '@angular/core';
+﻿import {Component} from '@angular/core';
 import {CharacterService} from "../../services/character.service";
 import {RollingService} from "../../services/data-services/rolling.service";
 
@@ -7,13 +7,10 @@ import {RollingService} from "../../services/data-services/rolling.service";
   templateUrl: './characteristics.component.html',
   styleUrls: ['./characteristics.component.css']
 })
-export class CharacteristicsComponent implements OnInit {
+export class CharacteristicsComponent {
 
   constructor(private _characterService: CharacterService,
               private _rollingService: RollingService) {
-  }
-
-  ngOnInit(): void {
   }
 
   getStrength() {

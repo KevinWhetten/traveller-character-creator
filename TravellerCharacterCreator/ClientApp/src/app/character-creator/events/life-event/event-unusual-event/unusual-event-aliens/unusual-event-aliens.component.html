@@ -5,7 +5,7 @@
 <app-skill-select [targetSkillLevel]="1"
                   [groups]="getScienceGroup()"
                   [groupNames]="['Science']"
-                  (onChange)="selectedScienceSkill = $event"></app-skill-select>
+                  (skillChange)="selectedScienceSkill = $event"></app-skill-select>
 
 <app-story></app-story>
 

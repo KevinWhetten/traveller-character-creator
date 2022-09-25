@@ -3,7 +3,7 @@
   <div class="qualification">
     <p><strong>Qualification: </strong>
       <span *ngIf="career.Qualification.target > 0">{{career.Qualification.characteristic}}
-        {{career.Qualification.characteristic != 'Automatic'
+        {{career.Qualification.characteristic !== 'Automatic'
           ? career.Qualification.target + '+'
           : ''}}
         <span class="blue-text">({{getQualificationBonus() + getModifier(career.Qualification.characteristic) >= 0
@@ -17,7 +17,7 @@
   <div *ngIf="career.Commission.target > 0" class="commission">
     <p><strong>Commission:</strong>
       {{career.Commission.characteristic}}
-      {{career.Commission.characteristic != 'Automatic'
+      {{career.Commission.characteristic !== 'Automatic'
         ? career.Commission.target + '+'
         : ''}}
       <span class="blue-text">({{getCommissionBonus() + getModifier(career.Commission.characteristic) >= 0

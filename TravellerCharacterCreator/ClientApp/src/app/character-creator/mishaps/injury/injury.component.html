@@ -2,7 +2,7 @@
   <app-roll [numberOfDice]="1"
             [numberOfRolls]="rolls"
             [select]="'lowest'"
-            (result)="injury = $event"></app-roll>
+            (rollResult)="injury = $event"></app-roll>
 </div>
 
 <div [ngSwitch]="injury">

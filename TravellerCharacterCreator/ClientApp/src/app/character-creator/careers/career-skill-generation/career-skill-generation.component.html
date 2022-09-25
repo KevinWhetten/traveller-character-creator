@@ -1,29 +1,29 @@
 <div class="container">
   <h1>Learn a Skill</h1>
-  <h2 *ngIf="selectedTable == undefined">Pick one of the following tables to roll on:</h2>
-  <h2 *ngIf="selectedTable != undefined">Roll D6 and select the result:</h2>
-  <h3 *ngIf="selectedTable != undefined">(If there is a dropdown, you get to choose which of the available skills to increase)</h3>
+  <h2 *ngIf="selectedTable === undefined">Pick one of the following tables to roll on:</h2>
+  <h2 *ngIf="selectedTable !== undefined">Roll D6 and select the result:</h2>
+  <h3 *ngIf="selectedTable !== undefined">(If there is a dropdown, you get to choose which of the available skills to increase)</h3>
   <div class="grid">
     <div *ngFor="let table of getEligibleTables()">
       <table>
         <tr>
-          <th class="d6">{{table.Name != 'Dummy' ? 'D6' : ''}}</th>
-          <th class="table-name">{{table.Name != 'Dummy' ? table.Name : ''}}</th>
+          <th class="d6">{{table.Name !== 'Dummy' ? 'D6' : ''}}</th>
+          <th class="table-name">{{table.Name !== 'Dummy' ? table.Name : ''}}</th>
           <th class="skill-select">
-            <button *ngIf="table.Name != 'Dummy' && selectedTable == undefined" (click)="selectTable(table)">Select Table</button>
-            <button *ngIf="selectedTable == table.Name" (click)="trainSkill()">Train Skill</button>
+            <button *ngIf="table.Name !== 'Dummy' && selectedTable === undefined" (click)="selectTable(table)">Select Table</button>
+            <button *ngIf="selectedTable === table.Name" (click)="trainSkill()">Train Skill</button>
           </th>
         </tr>
         <tr *ngFor="let i of [1,2,3,4,5,6]">
-          <td>{{table.Name != 'Dummy' ? i : ''}}</td>
+          <td>{{table.Name !== 'Dummy' ? i : ''}}</td>
           <td>
-            <input *ngIf="table.Name == selectedTable" type="radio" id="table-{{i}}" name="training-skill" (change)="changeSelection(table.Trainings[i].SkillNames[0])">
+            <input *ngIf="table.Name === selectedTable" type="radio" id="table-{{i}}" name="training-skill" (change)="changeSelection(table.Trainings[i].SkillNames[0])">
             <label for="table-{{i}}">
-              {{table.Name != 'Dummy' ? table.Trainings[i].BenefitName : ''}}
+              {{table.Name !== 'Dummy' ? table.Trainings[i].BenefitName : ''}}
             </label>
           </td>
           <td *ngIf="table.Trainings[i].SkillNames.length > 1">
-            <select *ngIf="table.Name == selectedTable" [(ngModel)]="trainingSubskill">
+            <select *ngIf="table.Name === selectedTable" [(ngModel)]="trainingSubskill">
               <option *ngFor="let skill of table.Trainings[i].SkillNames" value="{{skill}}">{{skill}}</option>
             </select>
           </td>
