@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SywE+xzRrLD5OjH7Zf1bHVrvC+F1WLqtelTEtM8Uxgebqn+yimxTTjr6ht7LRvX3L9QZp50nvDmD0pVnnv+CQg==",
+  "dgSpecHash": "bXLxr2JPmaz04yIRNWXPgEINKcNCYvw3VaoisNfoXwucQEMVmRAS1n5AUWQPADXEJJrtv/WD8fL/YmsjjlFL/A==",
   "success": true,
-  "projectFilePath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\TravellerCreatorModels.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\krwhe\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.14\\microsoft.netcore.app.ref.6.0.14.nupkg.sha512",
-    "C:\\Users\\krwhe\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.14\\microsoft.windowsdesktop.app.ref.6.0.14.nupkg.sha512",
-    "C:\\Users\\krwhe\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.14\\microsoft.aspnetcore.app.ref.6.0.14.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\source\\traveller-character-creator\\TravellerCreatorModels\\TravellerCreatorModels.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

@@ -2,12 +2,12 @@
 
 public class Coordinates
 {
-    private int x { get; set; }
-    private int y { get; set; }
+    public int X { get; }
+    public int Y { get; }
     
     public Coordinates(int x, int y)
     {
-        this.x = x;
-        this.y = y;
+        X = x;
+        Y = y;
     }
 }

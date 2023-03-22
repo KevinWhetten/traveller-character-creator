@@ -3,38 +3,38 @@ using TravellerCreatorModels.Basic;
 
 namespace TravellerCharacterCreatorBL.BasicGeneration;
 
-public interface ISubSectorGenerator
+public interface ISubsectorGenerator
 {
-    SubSector GenerateSubSector(Coordinates coordinates);
+    Subsector GenerateSubsector(Coordinates coordinates);
 }
 
-public class SubSectorGenerator : ISubSectorGenerator
+public class SubsectorGenerator : ISubsectorGenerator
 {
     private readonly IHexGenerator _hexGenerator;
 
-    public SubSectorGenerator()
+    public SubsectorGenerator()
     {
         _hexGenerator = new HexGenerator();
     }
 
-    public SubSectorGenerator(IHexGenerator hexGenerator)
+    public SubsectorGenerator(IHexGenerator hexGenerator)
     {
         _hexGenerator = hexGenerator;
     }
 
-    public SubSector GenerateSubSector(Coordinates coordinates)
+    public Subsector GenerateSubsector(Coordinates coordinates)
     {
-        var subSector = new SubSector {
+        var subsector = new Subsector {
             Coordinates = coordinates
         };
 
         for (var x = 0; x < 8; x++) {
             for (var y = 0; y < 10; y++) {
                 Hex newHex = _hexGenerator.GenerateHex(new Coordinates(x, y));
-                subSector.Hexes.Add(newHex);
+                subsector.Hexes.Add(newHex);
             }
         }
 
-        return subSector;
+        return subsector;
     }
 }

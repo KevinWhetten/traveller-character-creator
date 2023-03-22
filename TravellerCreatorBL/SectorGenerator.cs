@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.Design;
-using TravellerCharacterCreatorBL.BasicGeneration;
+﻿using TravellerCharacterCreatorBL.BasicGeneration;
 using TravellerCreatorModels;
 using TravellerCreatorModels.Basic;
 
@@ -7,16 +6,16 @@ namespace TravellerCharacterCreatorBL;
 
 public class SectorGenerator
 {
-    private readonly ISubSectorGenerator _subSectorGenerator;
+    private readonly ISubsectorGenerator _subsectorGenerator;
 
     public SectorGenerator()
     {
-        _subSectorGenerator = new SubSectorGenerator();
+        _subsectorGenerator = new SubsectorGenerator();
     }
 
-    public SectorGenerator(ISubSectorGenerator subSectorGenerator)
+    public SectorGenerator(ISubsectorGenerator subsectorGenerator)
     {
-        _subSectorGenerator = subSectorGenerator;
+        _subsectorGenerator = subsectorGenerator;
     }
 
     public Sector GenerateSector(SectorType sectorType)
@@ -35,10 +34,10 @@ public class SectorGenerator
     {
         var sector = new Sector();
         
-        for (var x = 0; x < 6; x++) {
-            for (var y = 0; y < 6; y++) {
-                SubSector newSubSector = _subSectorGenerator.GenerateSubSector(new Coordinates(x, y));
-                sector.SubSectors.Add(newSubSector);
+        for (var x = 1; x <= 4; x++) {
+            for (var y = 1; y <= 4; y++) {
+                var newSubsector = _subsectorGenerator.GenerateSubsector(new Coordinates(x, y));
+                sector.Subsectors.Add(newSubsector);
             }
         }
 

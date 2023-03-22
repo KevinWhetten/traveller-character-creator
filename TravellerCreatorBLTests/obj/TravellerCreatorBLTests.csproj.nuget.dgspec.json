@@ -1,35 +1,45 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBLTests\\TravellerCreatorBLTests.csproj": {}
+    "C:\\source\\traveller-character-creator\\TravellerCreatorBLTests\\TravellerCreatorBLTests.csproj": {}
   },
   "projects": {
-    "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBLTests\\TravellerCreatorBLTests.csproj": {
+    "C:\\source\\traveller-character-creator\\TravellerCreatorBLTests\\TravellerCreatorBLTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBLTests\\TravellerCreatorBLTests.csproj",
+        "projectUniqueName": "C:\\source\\traveller-character-creator\\TravellerCreatorBLTests\\TravellerCreatorBLTests.csproj",
         "projectName": "TravellerCreatorBLTests",
-        "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBLTests\\TravellerCreatorBLTests.csproj",
-        "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
-        "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBLTests\\obj\\",
+        "projectPath": "C:\\source\\traveller-character-creator\\TravellerCreatorBLTests\\TravellerCreatorBLTests.csproj",
+        "packagesPath": "C:\\Users\\krw\\.nuget\\packages\\",
+        "outputPath": "C:\\source\\traveller-character-creator\\TravellerCreatorBLTests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\krw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBL\\TravellerCreatorBL.csproj": {
-                "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBL\\TravellerCreatorBL.csproj"
+              "C:\\source\\traveller-character-creator\\TravellerCreatorBL\\TravellerCreatorBL.csproj": {
+                "projectPath": "C:\\source\\traveller-character-creator\\TravellerCreatorBL\\TravellerCreatorBL.csproj"
               }
             }
           }
@@ -72,58 +82,54 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBL\\TravellerCreatorBL.csproj": {
+    "C:\\source\\traveller-character-creator\\TravellerCreatorBL\\TravellerCreatorBL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBL\\TravellerCreatorBL.csproj",
+        "projectUniqueName": "C:\\source\\traveller-character-creator\\TravellerCreatorBL\\TravellerCreatorBL.csproj",
         "projectName": "TravellerCreatorBL",
-        "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBL\\TravellerCreatorBL.csproj",
-        "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
-        "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBL\\obj\\",
+        "projectPath": "C:\\source\\traveller-character-creator\\TravellerCreatorBL\\TravellerCreatorBL.csproj",
+        "packagesPath": "C:\\Users\\krw\\.nuget\\packages\\",
+        "outputPath": "C:\\source\\traveller-character-creator\\TravellerCreatorBL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\krw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj": {
-                "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj"
+              "C:\\source\\traveller-character-creator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj": {
+                "projectPath": "C:\\source\\traveller-character-creator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj"
               },
-              "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\TravellerCreatorModels.csproj": {
-                "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\TravellerCreatorModels.csproj"
+              "C:\\source\\traveller-character-creator\\TravellerCreatorModels\\TravellerCreatorModels.csproj": {
+                "projectPath": "C:\\source\\traveller-character-creator\\TravellerCreatorModels\\TravellerCreatorModels.csproj"
               }
             }
           }
@@ -148,47 +154,43 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj": {
+    "C:\\source\\traveller-character-creator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj",
+        "projectUniqueName": "C:\\source\\traveller-character-creator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj",
         "projectName": "TravellerCreatorGlobalMethods",
-        "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj",
-        "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
-        "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorGlobalMethods\\obj\\",
+        "projectPath": "C:\\source\\traveller-character-creator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj",
+        "packagesPath": "C:\\Users\\krw\\.nuget\\packages\\",
+        "outputPath": "C:\\source\\traveller-character-creator\\TravellerCreatorGlobalMethods\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\krw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -217,55 +219,51 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\TravellerCreatorModels.csproj": {
+    "C:\\source\\traveller-character-creator\\TravellerCreatorModels\\TravellerCreatorModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\TravellerCreatorModels.csproj",
+        "projectUniqueName": "C:\\source\\traveller-character-creator\\TravellerCreatorModels\\TravellerCreatorModels.csproj",
         "projectName": "TravellerCreatorModels",
-        "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\TravellerCreatorModels.csproj",
-        "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
-        "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\obj\\",
+        "projectPath": "C:\\source\\traveller-character-creator\\TravellerCreatorModels\\TravellerCreatorModels.csproj",
+        "packagesPath": "C:\\Users\\krw\\.nuget\\packages\\",
+        "outputPath": "C:\\source\\traveller-character-creator\\TravellerCreatorModels\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\krw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj": {
-                "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj"
+              "C:\\source\\traveller-character-creator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj": {
+                "projectPath": "C:\\source\\traveller-character-creator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj"
               }
             }
           }
@@ -290,26 +288,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

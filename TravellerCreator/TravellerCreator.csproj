@@ -20,6 +20,7 @@
         <Content Remove="$(SpaRoot)**" />
         <Content Include="ClientApp\package-lock.json" />
         <Content Include="ClientApp\package.json" />
+        <Content Include="ClientApp\proxy.conf.json" />
         <Content Include="ClientApp\src\assets\json\careers.json" />
         <Content Include="ClientApp\src\assets\json\equipment\ammunition.json" />
         <Content Include="ClientApp\src\assets\json\equipment\armor.json" />
@@ -48,11 +49,7 @@
 
     <ItemGroup>
       <Folder Include="ClientApp\src\app\DTOs" />
-      <Folder Include="ClientApp\src\app\services\hex-services" />
       <Folder Include="ClientApp\src\app\services\metadata-services" />
-      <Folder Include="ClientApp\src\app\services\sector-creator" />
-      <Folder Include="ClientApp\src\app\services\sector-creator\hex-services\system-services\planet-services\settlement-services" />
-      <Folder Include="ClientApp\src\app\services\sector-creator\hex-services\system-services\star-services" />
     </ItemGroup>
 
     <ItemGroup>
