@@ -1,0 +1,124 @@
+{
+  "computers": [
+    {
+      "id": 1,
+      "name": "Computer Terminal",
+      "description": "This is a 'dumb terminal' with only limited processing power. It serves as an interface to a more powerful computer such as a ship's computer or planetary network. Terminals range in size depending on their control method - a holographic display terminal can be much smaller than one with a physical keyboard and screen.",
+      "special": "Serves as an interface to a more powerful computer.",
+      "tech-level": 6,
+      "processing": 0,
+      "mass": 0,
+      "cost": 200
+    },
+    {
+      "id": 1,
+      "name": "Mainframe",
+      "description": "By the standards of its Tech Level, the mainframe is a very sophisticated and powerful computer, generally used by militaries and corporations for tasks beyond the abilities of more generalized computers. A mainframe has much of its mass dedicated to cooling and power supply.",
+      "special": "By the standards of its Tech Level, the mainframe is a very sophisticated and powerful computer.",
+      "tech-level": 5,
+      "processing": 0,
+      "mass": 5000,
+      "cost": 2000000
+    },
+    {
+      "id": 1,
+      "name": "Mainframe",
+      "description": "By the standards of its Tech Level, the mainframe is a very sophisticated and powerful computer, generally used by militaries and corporations for tasks beyond the abilities of more generalized computers. A mainframe has much of its mass dedicated to cooling and power supply, and will generally be accessed by computer terminals.",
+      "special": "By the standards of its Tech Level, the mainframe is a very sophisticated and powerful computer.",
+      "tech-level": 6,
+      "processing": 1,
+      "mass": 4000,
+      "cost": 4000000
+    },
+    {
+      "id": 1,
+      "name": "Mainframe",
+      "description": "By the standards of its Tech Level, the mainframe is a very sophisticated and powerful computer, generally used by militaries and corporations for tasks beyond the abilities of more generalized computers. A mainframe has much of its mass dedicated to cooling and power supply, and will generally be accessed by computer terminals.",
+      "special": "By the standards of its Tech Level, the mainframe is a very sophisticated and powerful computer.",
+      "tech-level": 7,
+      "processing": 2,
+      "mass": 5000,
+      "cost": 5000000
+    },
+    {
+      "id": 2,
+      "name": "Portable Computer",
+      "description": "A portable computer is a computer system with considerable processing power, yet able to be easily carried - in today's world, this covers laptops and tablets of all sizes. It is more powerful than a computer terminal, and can be used without access to a network.",
+      "special": "Able to be easily carried.",
+      "tech-level": 7,
+      "processing": 0,
+      "mass": 5,
+      "cost": 500
+    },
+    {
+      "id": 3,
+      "name": "Portable Computer",
+      "description": "A portable computer is a computer system with considerable processing power, yet able to be easily carried - in today's world, this covers laptops and tablets of all sizes. It is more powerful than a computer terminal, and can be used without access to a network.",
+      "special": "Able to be easily carried.",
+      "tech-level": 8,
+      "processing": 1,
+      "mass": 2,
+      "cost": 250
+    },
+    {
+      "id": 4,
+      "name": "Portable Computer",
+      "description": "A portable computer is a computer system with considerable processing power, yet able to be easily carried - in today's world, this covers laptops and tablets of all sizes. It is more powerful than a computer terminal, and can be used without access to a network.",
+      "special": "Able to be easily carried.",
+      "tech-level": 9,
+      "processing": 1,
+      "mass": 1,
+      "cost": 100
+    },
+    {
+      "id": 5,
+      "name": "Portable Computer",
+      "description": "A portable computer is a computer system with considerable processing power, yet able to be easily carried - in today's world, this covers laptops and tablets of all sizes. It is more powerful than a computer terminal, and can be used without access to a network.",
+      "special": "Able to be easily carried.",
+      "tech-level": 10,
+      "processing": 2,
+      "mass": 0.5,
+      "cost": 500
+    },
+    {
+      "id": 6,
+      "name": "Portable Computer",
+      "description": "A portable computer is a computer system with considerable processing power, yet able to be easily carried - in today's world, this covers laptops and tablets of all sizes. It is more powerful than a computer terminal, and can be used without access to a network.",
+      "special": "Able to be easily carried.",
+      "tech-level": 11,
+      "processing": 2,
+      "mass": 0.5,
+      "cost": 300
+    },
+    {
+      "id": 7,
+      "name": "Portable Computer",
+      "description": "A portable computer is a computer system with considerable processing power, yet able to be easily carried - in today's world, this covers laptops and tablets of all sizes. It is more powerful than a computer terminal, and can be used without access to a network.",
+      "special": "Able to be easily carried.",
+      "tech-level": 12,
+      "processing": 3,
+      "mass": 0.5,
+      "cost": 1000
+    },
+    {
+      "id": 8,
+      "name": "Portable Computer",
+      "description": "A portable computer is a computer system with considerable processing power, yet able to be easily carried - in today's world, this covers laptops and tablets of all sizes. It is more powerful than a computer terminal, and can be used without access to a network.",
+      "special": "Able to be easily carried.",
+      "tech-level": 13,
+      "processing": 4,
+      "mass": 0.5,
+      "cost": 1500
+    },
+    {
+      "id": 9,
+      "name": "Portable Computer",
+      "description": "A portable computer is a computer system with considerable processing power, yet able to be easily carried - in today's world, this covers laptops and tablets of all sizes. It is more powerful than a computer terminal, and can be used without access to a network.",
+      "special": "Able to be easily carried.",
+      "tech-level": 14,
+      "processing": 5,
+      "mass": 0.5,
+      "cost": 5000
+    }
+  ]
+}

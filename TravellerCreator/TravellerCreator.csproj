@@ -1,0 +1,110 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+        <SpaRoot>ClientApp\</SpaRoot>
+        <SpaProxyServerUrl>https://localhost:44489</SpaProxyServerUrl>
+        <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>TravellerCharacterCreator</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- Don't publish the SPA source files, but do show them in the project files list -->
+        <Content Remove="$(SpaRoot)**" />
+        <Content Include="ClientApp\package-lock.json" />
+        <Content Include="ClientApp\package.json" />
+        <Content Include="ClientApp\src\assets\json\careers.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\ammunition.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\armor.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\augments.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\battle-dress.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\communications.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\computers.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\gadjets.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\home-comforts.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\medical-supplies.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\modifications.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\robots.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\sensors.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\software.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\spacecraft.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\structures.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\survival-supplies.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\tools.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\vehicles.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\weapon-accessories.json" />
+        <Content Include="ClientApp\src\assets\json\equipment\weapons.json" />
+        <Content Include="ClientApp\src\assets\json\skills\skills.json" />
+        <None Remove="$(SpaRoot)**" />
+        <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ClientApp\src\app\DTOs" />
+      <Folder Include="ClientApp\src\app\services\hex-services" />
+      <Folder Include="ClientApp\src\app\services\metadata-services" />
+      <Folder Include="ClientApp\src\app\services\sector-creator" />
+      <Folder Include="ClientApp\src\app\services\sector-creator\hex-services\system-services\planet-services\settlement-services" />
+      <Folder Include="ClientApp\src\app\services\sector-creator\hex-services\system-services\star-services" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="JSON Data\careers.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\ammunition.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\armor.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\augments.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\battle-dress.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\communications.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\computers.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\gadjets.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\home-comforts.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\medical-supplies.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\modifications.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\robots.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\sensors.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\software.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\spacecraft.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\structures.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\survival-supplies.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\tools.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\vehicles.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\weapon-accessories.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Equipment\weapons.json" />
+      <_ContentIncludedByDefault Remove="JSON Data\Skills\skills.json" />
+      <_ContentIncludedByDefault Remove="Pages\Error.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\_ViewImports.cshtml" />
+    </ItemGroup>
+
+    <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+        <!-- Ensure Node.js is installed -->
+        <Exec Command="node --version" ContinueOnError="true">
+            <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+        </Exec>
+        <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+        <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+        <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    </Target>
+
+    <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+        <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+        <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+        <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
+
+        <!-- Include the newly-built files in the publish output -->
+        <ItemGroup>
+            <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+            <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+                <RelativePath>wwwroot\%(RecursiveDir)%(FileName)%(Extension)</RelativePath>
+                <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+                <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            </ResolvedFileToPublish>
+        </ItemGroup>
+    </Target>
+</Project>

@@ -1,0 +1,283 @@
+{
+  "medical-supplies": [
+    {
+      "id": 12,
+      "name": "Adrenalizer",
+      "description": "An injected cocktail of alien adrenalines, this drug is used to keep the Traveller awake and active for many hours at a time. Although it is known to have a detrimental 'crash' when it wears off, soldiers on patrol duty will sometimes use adrenalizer to stay alert, and it tends to be very popular among medical students.",
+      "special": "Equivalent of ten hours of sleep and enables a Traveller to function for the next 36 hours without penalty, after which he will have 2D * 5 minutes to find someplace to lay down - because the amount of lost sleep will hit him without fail at the end of that time.",
+      "tech-level": 10,
+      "cost": 150
+    },
+    {
+      "id": 6,
+      "name": "Anagathics",
+      "description": "These drugs slow the Traveller's aging process. Synthetic anagathics become possible at TL 15, but there are some natural spices and other rare compounds that have comparable effects, though all are illegal or heavily controlled on many worlds. One dose must be taken each month to maintain the anti-aging effect.",
+      "special": "Stops the ageing process for 1 month.",
+      "tech-level": 15,
+      "cost": 20000
+    },
+    {
+      "id": 7,
+      "name": "Anti-rad",
+      "description": "Anti-rad drugs must be administered before or immediately (within ten minutes) after radiation exposure. They absorb up to 100 rads per dose. A Traveller may only use anti-rad drugs once per day - taking any more causes permanent END damage of 1D per dose.",
+      "special": "Absorbs up to 100 rads per dose if administered within ten minutes of exposure.",
+      "tech-level": 8,
+      "cost": 1000
+    },
+    {
+      "id": 0,
+      "name": "Autodoc",
+      "description": "An Autodoc is a small self-contained diagnostic pharmaceutical and surgical system about the size of a low berth chamber or large coffin. Often found on spacecraft.",
+      "special": "Diagnoses and treats disease, infection, injuries, and other medical conditions as efficiently as a qualified doctor (treat as Medic 3).",
+      "tech-level": 13,
+      "cost": 100000,
+      "mass": 500
+    },
+    {
+      "id": 0,
+      "name": "Autodoc",
+      "description": "An Autodoc is a small self-contained diagnostic pharmaceutical and surgical system about the size of a low berth chamber or large coffin. Often found on spacecraft.",
+      "special": "Diagnoses and treats disease, infection, injuries, and other medical conditions as efficiently as a qualified doctor (treat as Medic 3). Also capable of reanimation, provided no more than 2D minutes have passed since the Traveller's death. This period can be doubled by extremely cold conditions or extended up to 1D days by placing the Traveller's corpse in a low berth.",
+      "tech-level": 14,
+      "cost": 1000000,
+      "mass": 500
+    },
+    {
+      "id": 8,
+      "name": "Combat Drug",
+      "description": "Combat drugs increase reaction times and improve a body's responses to trauma. A Traveller using combat drugs gains DM+4 to all initiative rolls. He gains a free reaction every round with no penalty applied, and reduces all damage sustained by -2 points. The drug kicks in around 20 seconds (three rounds) after ingestion or injection, and lasts for around ten minutes. When the drug wears off, the Traveller is Fatigued.",
+      "special": "Gains DM+4 to all initiative rolls, a free reaction every round, and reduces all damage sustained by -2 points starting around 20 seconds after injection and lasts around ten minutes.",
+      "tech-level": 10,
+      "cost": 1000
+    },
+    {
+      "id": 1,
+      "name": "Cryoberth",
+      "description": "A cryoberth, or 'icebox' is a coffin-like machine similar to the low or frozen berths used on some spacecraft. The main difference is that a cryoberth works much faster than a low berth, freezing and preserving its occupant almost instantly. A berth is usually connected to a vehicle's or ship's power supply.",
+      "special": "Can be used to place a severely injured Traveller into stasis until he receives medical treatment. A cryoberth's internal power system can function up to one week on its own batteries.",
+      "tech-level": 10,
+      "cost": 50000,
+      "mass": 200
+    },
+    {
+      "id": 9,
+      "name": "Fast Drug",
+      "description": "Also called Hibernation, this drug puts the Traveller into a state akin to suspended animation, slowing his metabolic rate down to a ratio of 60 to 1.",
+      "special": "Causes a subjective day for the Traveller to actually be two months. Fast Drug is normally used to prolong life support reserves or as a cheap substitute for a cryoberth.",
+      "tech-level": 10,
+      "cost": 200
+    },
+    {
+      "id": 9,
+      "name": "Field Medical Kit",
+      "description": "This is a backpack-sized medical kit for doctors, combat medics, and paramedics. The kit contains drugs, surgical supplies, and diagnostic equipment as well as very basic surgical tools. A field surgery kit provides all the necessary equipment required for most basic (or desperate) operations.",
+      "special": "Allows a doctor to perform basic medical operations.",
+      "tech-level": 6,
+      "cost": 500,
+      "mass": 3
+    },
+    {
+      "id": 9,
+      "name": "Field Surgical Kit",
+      "description": "Tools for performing surgery including including scalpels, saws, forceps, sutures with needle drivers and surgical string. At low Tech Levels, the kit is basic but fulfils the same functions as its more advanced cousins. It is possible to perform surgery using improvised tools but the results (and patient survival rates) are somewhat better with the correct equipment. This kit does not include anaesthetics or other drugs. The field surgical kit is a very basic set of workmanlike tools.",
+      "special": "Surgery performed using these tools will suffer DM-2 to Medic checks.",
+      "tech-level": 5,
+      "cost": 0,
+      "mass": 1000
+    },
+    {
+      "id": 9,
+      "name": "First Aid Kit",
+      "description": "This first aid kit consists of little more than material for a splint, and a few herbs and plants reputed to have medicinal qualities - but it is better than nothing.",
+      "special": "First Aid performed using this kit will inflict DM-2 to Medic checks.",
+      "tech-level": 2,
+      "cost": 10
+    },
+    {
+      "id": 9,
+      "name": "First Aid Kit",
+      "description": "This first aid kit consists of material for a splint, clean bandages, safety pins, sutures with needle drivers, and basic pharmaceuticals (antibiotics, painkillers, and possibly alcohol to sterilize wounds). First Aid performed using this kit will inflict DM-1 to Medic checks.",
+      "special": "First Aid performed using this kit will inflict DM-2 to Medic checks.",
+      "tech-level": 5,
+      "cost": 10
+    },
+    {
+      "id": 9,
+      "name": "Inhibitor Drug",
+      "description": "Psionic inhibitors dampen the brain's ability to generate psychic effects. A Traveller who takes (or, more often, is forcibly injected with) an inhibitor drug suffers a Bane to all PSI-related checks and cannot regain PSI points. Each hour, the Traveller may make an END check to throw off the effects of the drug. Inhibitor drugs have no effect on non-psionic individuals.",
+      "special": "Suffers a Bane to all PSI-related checks and cannot regain PSI points. Each hour, may make an END check to end the effect. Has no effect on non-psionic individuals.",
+      "tech-level": 5,
+      "cost": 10
+    },
+    {
+      "id": 2,
+      "name": "Medkit",
+      "description": "Contains diagnostic devices and scanners, surgical tools, and a panoply of drugs and antibiotics, allowing a medic to practice his art in the field.",
+      "special": "Allows a medic to practice his art in the field.",
+      "tech-level": 8,
+      "cost": 1000
+    },
+    {
+      "id": 3,
+      "name": "Medkit",
+      "description": "Contains diagnostic devices and scanners, surgical tools, and a panoply of drugs and antibiotics, allowing a medic to practice his art in the field.",
+      "special": "Grants DM+1 on Medic checks performed for first aid.",
+      "tech-level": 10,
+      "cost": 1500
+    },
+    {
+      "id": 4,
+      "name": "Medkit",
+      "description": "Contains diagnostic devices and scanners, surgical tools, and a panoply of drugs and antibiotics, allowing a medic to practice his art in the field.",
+      "special": "Grants DM+2 on Medic checks performed for first aid.",
+      "tech-level": 12,
+      "cost": 5000
+    },
+    {
+      "id": 5,
+      "name": "Medkit",
+      "description": "Contains diagnostic devices and scanners, surgical tools, and a panoply of drugs and antibiotics, allowing a medic to practice his art in the field.",
+      "special": "Grants DM+3 on Medic checks performed for first aid.",
+      "tech-level": 14,
+      "cost": 10000
+    },
+    {
+      "id": 11,
+      "name": "Meta-Performance Enhancer",
+      "description": "Also called the Titan Drug, this boosts the Traveller's STR by 1D points. Working in a similar fashion to how some narcotics can enhance strength, the Titan Drug does the same thing without the dangerous side effects. The drug kicks in 10 rounds after injection, and lasts for around fifteen minutes. When the drug wears off, the Traveller's muscles will cramp painfully under the stress and fatigue. He suffers 1D damage and has his STR reduced to 1D (or his original STR if it is lower) for 1D hours.",
+      "special": "10 rounds after injection, increases a Traveller's STR by 1D. After ten minutes, the Traveller suffers 1D damage and has his STR reduced to 1D (or his original STR if it is lower) for 1D hours.",
+      "tech-level": 10,
+      "cost": 600
+    },
+    {
+      "id": 11,
+      "name": "Metabolic Accelerator",
+      "description": "This boosts the Traveller's reaction time to superhuman levels. To the Traveller, everyone else appears to be moving much slower. A Traveller using a metabolic accelerator in combat gains DM+8 to all initiative rolls. He also gains two free reactions every round with no penalties applied for either. The drug kicks in 45 seconds after ingestion or injection, and lasts for around ten minutes. When the drug wears off, the Traveller's system crashes. He suffers 2D points of damage and is Fatigued.",
+      "special": "45 seconds after injection, the Traveller gains DM+8 to all initiative rolls and two free reactions every round. After ten minutes, the Traveller suffers 2D points of damage and is fatigued.",
+      "tech-level": 10,
+      "cost": 500
+    },
+    {
+      "id": 1,
+      "name": "Nervous Response Dampener",
+      "description": "This 'battlefield vitamin' is a mild anti-anxiety drug, helping Travellers cope with the horrors of war. Taken a few hours before battle, the dampeners last for a day or so, granting the Traveller DM+2 to any checks related to avoiding fear or shock for 2D * 3 hours.",
+      "special": "Grants the Traveller DM+2 to any checks related to avoiding fear or shock for 2D * 3 hours.",
+      "tech-level": 9,
+      "cost": 100
+    },
+    {
+      "id": 1,
+      "name": "Null Drug",
+      "description": "Used to dampen the psionic abilities of others, null is a general classification of anti-psionic chemicals injected into the target. Once injected, the drug takes 2D minutes to take effect, completely shutting off psionic ability for 2D hours. No psionic powers may be used during this time.",
+      "special": "2D minutes after injection, completely shuts off psionic ability for 2D hours.",
+      "tech-level": 16,
+      "cost": 5000
+    },
+    {
+      "id": 12,
+      "name": "Panacea",
+      "description": "These are wide-spectrum medicinal drugs specifically designed not to interact harmfully. They can therefore be used on any wound or illness and are guaranteed not to make things worse. A Traveller using panaceas may make a Medic check as if he had Medic 0 when treating an infection or disease.",
+      "special": "Allows a Traveller to make a Medic check as if he had Medic 0.",
+      "tech-level": 8,
+      "cost": 200
+    },
+    {
+      "id": 12,
+      "name": "Personal Automedic",
+      "description": "A personal automedic is an automated drug dispenser tailored to a specific Traveller's body chemistry.",
+      "special": "Monitors the wearer's bio-signs for any changes, then dispense anti-toxins, antibiotics, stimulants, sedatives, and other pharmaceuticals required to keep the Traveller at peak efficiency or prevent collapse. Under normal conditions a personal automedic will need to be restocked and the batteries recharged every 4 weeks (at a cost of Cr500). In the event of poisoning or infection, a personal automedic will administer a specific antidote if it possesses it and recognizes the threat (as determined by the referee), neutralizing the poison or disease immediately. If not, it will react to general symptoms and use general or broad-spectrum remedies as its database thinks best. Most automedics are also equipped to store and dispense a single dose of Slow Drug (purchased separately) should it ever be needed. If the Traveller is seriously injured or dying the automedic will automatically use the Slow Drug. The Traveller can also manually activate the Medical Slow at any time if needed. If desired, this can be replaced with a dose of other drugs instead.",
+      "tech-level": 11,
+      "cost": 15000
+    },
+    {
+      "id": 12,
+      "name": "Personal Mediscanner",
+      "description": "This is a small monitoring unit normally worn on the belt or upper arm. A personal mediscanner monitors a Traveller's life signs, including blood composition, blood sugar, and body temperature. It warns when exhaustion or dehydration are imminent, gives information to the Traveller or medical personnel about poisoning and other hazardous conditions, and allows quick diagnosis of many ailments.",
+      "special": "Using the information from a personal mediscanner provides DM+1 on Medic checks.",
+      "tech-level": 12,
+      "cost": 1000
+    },
+    {
+      "id": 12,
+      "name": "Portable Mediscanner",
+      "description": "This is a larger version of the personal mediscanner for use by field medics. The device is not optimized for a single Traveller, and takes 1D minutes to calibrate itself to each new subject. It gives the same data as the personal version (though with slightly less detailed), providing a DM+1 on Medic checks once it has finished its analysis. Add-on chips for alien species are available for Cr500 each.",
+      "special": "Using the information from a portable mediscanner provides DM+1 on Medic checks.",
+      "tech-level": 12,
+      "cost": 1000
+    },
+    {
+      "id": 1,
+      "name": "Psi-Drug (Single)",
+      "description": "These drugs restore 3 PSI if taken when the Traveller has already spent PSI points, or temporarily increase the Traveller's PSI by 2 when he is at full strength. A Traveller who takes more than one dose of this drug must make an END check, with DM-1 per dose taken in the last week. If the check is failed, the Traveller falls ill, suffering 3D damage and permanently reducing his PSI by one.",
+      "special": "Restores a Traveller's PSI by 3, or increases it by 2. If taken multiple times, the Traveller makes an END check, with DM-1 per dose of psi-drug taken in the last week. On a failure, the Traveller takes 3D damage.",
+      "tech-level": 8,
+      "cost": 1000
+    },
+    {
+      "id": 1,
+      "name": "Psi-Drug (Double)",
+      "description": "These drugs restore 6 PSI if taken when the Traveller has already spent PSI points, or temporarily increase the Traveller's PSI by 4 when he is at full strength. A Traveller who takes more than one dose of this drug must make an END check, with DM-1 per dose taken in the last week. If the check is failed, the Traveller falls ill, suffering 3D damage and permanently reducing his PSI by one.",
+      "special": "Restores a Traveller's PSI by 6, or increases it by 4. If taken multiple times, the Traveller makes an END check, with DM-1 per dose of psi-drug taken in the last week. On a failure, the Traveller takes 3D damage.",
+      "tech-level": 8,
+      "cost": 4000
+    },
+    {
+      "id": 1,
+      "name": "Psi-Drug (Special)",
+      "description": "These drugs restore 9 PSI if taken when the Traveller has already spent PSI points, or temporarily increase the Traveller's PSI by 6 when he is at full strength. A Traveller who takes more than one dose of this drug must make an END check, with DM-1 per dose taken in the last week. If the check is failed, the Traveller falls ill, suffering 3D damage and permanently reducing his PSI by one.",
+      "special": "Restores a Traveller's PSI by 9, or increases it by 6. The Traveller makes an END check, with DM-1 per dose of psi-drug taken in the last week. On a failure, the Traveller takes 3D damage.",
+      "tech-level": 8,
+      "cost": 10000
+    },
+    {
+      "id": 1,
+      "name": "Radiation Emergency Applicator",
+      "description": "A type of emergency anti-rad drug cocktail, these one-use pneumatic syringes can be triggered to punch through clothing granting up to Armor 2, pumping seven different chemicals into the Traveller. So long as the applicator is used within one hour of receiving a dose of radiation, the Traveller's rads are reduced by 1D * 10. No matter how much or quickly the applicator is used, intense and steady vomiting will occur for 1D minutes after use.",
+      "special": "If used within one hour of exposure, reduces a Traveller's rads by 1D * 10. Causes intense vomiting for 1D minutes after use.",
+      "tech-level": 10,
+      "cost": 250
+    },
+    {
+      "id": 13,
+      "name": "Slow Drug",
+      "description": "This is a variant of the metabolic accelerator. It can only be applied safely in a medical facility where life-support and cryotechnology is available, as it increases the metabolism to around thirty times normal, allowing a patient to undergo a month of healing in a single day. Using Medicinal Slow outside of a hospital or sickbay is a messy and painful way to commit suicide, as the Traveller will rapidly cook his internal organs and suffer massive brain damage.",
+      "special": "Allows a patient in a medical facility where life-support and cryotechnology is available to undergo a month of healing in a single day. Likely results in death if used elsewhere.",
+      "tech-level": 11,
+      "cost": 500
+    },
+    {
+      "id": 1,
+      "name": "Starlight Drops",
+      "description": "These eye drops enhance the Traveller's vision dramatically. By adding a few drops of this stinging liquid into each eye and waiting for the burning sensation to pass, the Traveller gains the IR Vision trait. The effects of the drug last for 1D hours, during which time the Traveller's eyes take on a cloudy appearance. A dropper os starlight drops contains 6 doses.",
+      "special": "Grants the Traveller the IR Vision trait for 1D hours.",
+      "tech-level": 0,
+      "cost": 0
+    },
+    {
+      "id": 14,
+      "name": "Stims",
+      "description": "These remove fatigue, though at a cost.",
+      "special": "A Traveller who uses stims removes Fatigue, but also sustains one point of damage. If stims are used repeatedly without natural sleep in between, the Traveller suffers a cumulative additional point of damage every time.",
+      "tech-level": 8,
+      "cost": 50
+    },
+    {
+      "id": 12,
+      "name": "Trauma Pack",
+      "description": "The trauma pack is a vital device carried by battlefield medics. It is a small satchel of chemicals and drugs used to pump life back in a wounded body. Unsubtle (and dealt in multiple doses), the chemicals can make a patient ignore wounds for a few hours - hopefully enough time to get him to a proper medical facility.",
+      "special": "The use of a trauma pack requires a Medic check, but will restore 1D END to wounded Traveller. This END can be used to bring a technically 'dead' Traveller back from 0 or less END, so long as their last wound was suffered within 1D rounds. This regained END lasts for 1D hours, at which point it vanishes, potentially killing the Traveller. A Traveller can only benefit from the administration of a trauma pack once per day.",
+      "tech-level": 8,
+      "cost": 750,
+      "mass": 2
+    },
+    {
+      "id": 1,
+      "name": "Truth Serum",
+      "description": "Truth serum is designed to force the Traveller to answer questions truthfully. It must be tailored to the species being questioned, and carries some risks. One dose usually forces the Traveller to pass a Difficult (10+) END check or be unable to lie for 1D minutes. At the end of this period, the subject suffers 2D damage and becomes unconscious for an hour. Truth serum tends to make the Traveller vague and confused, so his answers may be nonsensical even though he is not deliberately lying. Obtaining useful information from a Traveller usually requires the Persuade skill, with the truth serum granting DM+2.",
+      "special": "Causes a Traveller to be unable to lie for 1D minutes, after which he takes 2D damage and falls unconscious for 1 hour. If a Traveller is trying to get information from a subject who has ingested truth serum, grants DM+2 to Persuade checks.",
+      "tech-level": 15,
+      "cost": 500,
+      "mass": 0
+    }
+  ]
+}

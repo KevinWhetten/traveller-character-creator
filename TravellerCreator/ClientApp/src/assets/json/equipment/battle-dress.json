@@ -1,0 +1,375 @@
+{
+  "battle-dress": [
+    {
+      "id": 1,
+      "name": "Battle Dress",
+      "description": "The standard entry-level battle dress suit, combining mobility with protection and weapons capability.",
+      "special": "The suit's built-in Computer/2 usually runs an Expert Tactics (military)/2 program to give tactical advice. The suit also includes a comprehensive communications suite and six hours of air.",
+      "protection": [
+        {
+          "value": 22,
+          "damage-type": []
+        }
+      ],
+      "tech-level": 13,
+      "rads": 245,
+      "str-bonus": 4,
+      "dex-bonus": 4,
+      "slots": 16,
+      "mass": 100,
+      "cost": 200000,
+      "required-skill": "Vacc Suit 2"
+    },
+    {
+      "id": 2,
+      "name": "Battle Dress",
+      "description": "The standard entry-level battle dress suit, combining mobility with protection and weapons capability.",
+      "special": "The suit's built-in Computer/3 usually runs an Expert Tactics (military)/2 program to give tactical advice. The suit also includes a comprehensive communications suite and six hours of air.",
+      "protection": [
+        {
+          "value": 25,
+          "damage-type": []
+        }
+      ],
+      "tech-level": 14,
+      "rads": 290,
+      "str-bonus": 6,
+      "dex-bonus": 4,
+      "slots": 16,
+      "mass": 100,
+      "cost": 220000,
+      "required-skill": "Vacc Suit 1"
+    },
+    {
+      "id": 3,
+      "name": "Battle Dress (Artillery)",
+      "description": "Artillery battle dress is more heavily armored than standard, and has heavier servos that enable it to carry powerful integral weapons. However, it is too large and clumsy to use handheld weapons normally.",
+      "special": "Any attempt to use handheld weapons will result in a Bane being applied to all attack rolls.",
+      "protection": [
+        {
+          "value": 26,
+          "damage-type": []
+        }
+      ],
+      "tech-level": 13,
+      "rads": 245,
+      "str-bonus": 6,
+      "dex-bonus": 2,
+      "slots": 30,
+      "mass": 180,
+      "cost": 275000,
+      "required-skill": "Vacc Suit 2"
+    },
+    {
+      "id": 4,
+      "name": "Battle Dress (Artillery)",
+      "description": "Artillery battle dress is more heavily armored than standard, and has heavier servos that enable it to carry powerful integral weapons. However, it is too large and clumsy to use handheld weapons normally.",
+      "special": "Any attempt to use handheld weapons will result in a Bane being applied to all attack rolls.",
+      "protection": [
+        {
+          "value": 29,
+          "damage-type": []
+        }
+      ],
+      "tech-level": 14,
+      "rads": 290,
+      "str-bonus": 8,
+      "dex-bonus": 2,
+      "slots": 30,
+      "mass": 180,
+      "cost": 320000,
+      "required-skill": "Vacc Suit 1"
+    },
+    {
+      "id": 5,
+      "name": "Battle Dress (Assault)",
+      "description": "Assault battle dress sacrifices mobility for extra armor and firepower. In addition, a hand-held weapon is almost always carried by troops in assault battle dress.",
+      "special": "A laser weapon is usually fitted to the suit's left arm (not included), and a grenade launcher is often installed on the right shoulder to allow for self-support and engagement of differing targets (also not included).",
+      "protection": [
+        {
+          "value": 25,
+          "damage-type": []
+        }
+      ],
+      "tech-level": 13,
+      "rads": 250,
+      "str-bonus": 4,
+      "dex-bonus": 4,
+      "slots": 20,
+      "mass": 140,
+      "cost": 300000,
+      "required-skill": "Vacc Suit 2"
+    },
+    {
+      "id": 6,
+      "name": "Battle Dress (Assault)",
+      "description": "Assault battle dress sacrifices mobility for extra armor and firepower. In addition, a hand-held weapon is almost always carried by troops in assault battle dress.",
+      "special": "A laser weapon is usually fitted to the suit's left arm (not included), and a grenade launcher is often installed on the right shoulder to allow for self-support and engagement of differing targets (also not included).",
+      "protection": [
+        {
+          "value": 28,
+          "damage-type": []
+        }
+      ],
+      "tech-level": 14,
+      "rads": 300,
+      "str-bonus": 6,
+      "dex-bonus": 4,
+      "slots": 20,
+      "mass": 140,
+      "cost": 330000,
+      "required-skill": "Vacc Suit 1"
+    },
+    {
+      "id": 7,
+      "name": "Battle Dress (Ceramic)",
+      "description": "Designed and built with a layer of advanced ceramic-metal hybrid materials around its armored plates, ceramic battle dress is especially useful for soldiers who fight enemies relying on laser or energy-based weaponry.",
+      "special": "This battle dress is all but immune to laser or energy-based weapons.",
+      "protection": [
+        {
+          "value": 22,
+          "damage-type": []
+        },
+        {
+          "value": 32,
+          "damage-type": ["fire", "lasers", "energy"]
+        }
+      ],
+      "tech-level": 13,
+      "rads": 245,
+      "str-bonus": 4,
+      "dex-bonus": 4,
+      "slots": 16,
+      "mass": 100,
+      "cost": 400000,
+      "required-skill": "Vacc Suit 2"
+    },
+    {
+      "id": 8,
+      "name": "Battle Dress (Ceramic)",
+      "description": "Designed and built with a layer of advanced ceramic-metal hybrid materials around its armored plates, ceramic battle dress is especially useful for soldiers who fight enemies relying on laser or energy-based weaponry.",
+      "special": "This battle dress is all but immune to laser or energy-based weapons.",
+      "protection": [
+        {
+          "value": 25,
+          "damage-type": []
+        },
+        {
+          "value": 35,
+          "damage-type": ["fire", "lasers", "energy"]
+        }
+      ],
+      "tech-level": 14,
+      "rads": 290,
+      "str-bonus": 6,
+      "dex-bonus": 4,
+      "slots": 16,
+      "mass": 100,
+      "cost": 440000,
+      "required-skill": "Vacc Suit 1"
+    },
+    {
+      "id": 9,
+      "name": "Battle Dress (Combat Pioneer)",
+      "description": "Combat Pioneer battle dress is slightly heavier than the standard model.",
+      "special": "It mounts no weapons but has a specialist sensor package designed to detect explosives and other hazards and can utilize a range of backpack-mounted powered tools including drills, shovels, and decontamination equipment. The suit can self-decontaminate.",
+      "protection": [
+        {
+          "value": 23,
+          "damage-type": []
+        }
+      ],
+      "tech-level": 13,
+      "rads": 275,
+      "str-bonus": 4,
+      "dex-bonus": 4,
+      "slots": 12,
+      "mass": 120,
+      "cost": 270000,
+      "required-skill": "Vacc Suit 2"
+    },
+    {
+      "id": 10,
+      "name": "Battle Dress (Command)",
+      "description": "The command configuration of battle dress is used by officers. Its defensive capabilities are superior to those of standard battle dress, and it carries a more comprehensive communications suite and command-assist computer software.",
+      "special": "Provides a Boon to all Tactics (military) checks the Traveller makes.",
+      "protection": [
+        {
+          "value": 24,
+          "damage-type": []
+        }
+      ],
+      "tech-level": 13,
+      "rads": 275,
+      "str-bonus": 4,
+      "dex-bonus": 4,
+      "slots": 18,
+      "mass": 110,
+      "cost": 325000,
+      "required-skill": "Vacc Suit 2"
+    },
+    {
+      "id": 11,
+      "name": "Battle Dress (Command)",
+      "description": "The command configuration of battle dress is used by officers. Its defensive capabilities are superior to those of standard battle dress, and it carries a more comprehensive communications suite and command-assist computer software.",
+      "special": "Provides a Boon to all Tactics (military) checks the Traveller makes.",
+      "protection": [
+        {
+          "value": 27,
+          "damage-type": []
+        }
+      ],
+      "tech-level": 14,
+      "rads": 310,
+      "str-bonus": 6,
+      "dex-bonus": 4,
+      "slots": 18,
+      "mass": 110,
+      "cost": 350000,
+      "required-skill": "Vacc Suit 1"
+    },
+    {
+      "id": 12,
+      "name": "Battle Dress (Logistics)",
+      "description": "This suit is optimized for its load-carrying capability. The logistics suit allows the Traveller to carry small-vehicle loads of ammunition and supplies into places where only infantry can go. Standard missions include ferrying field repair kits (with spares), bulk ammunition boxes, and fast-load kits for close support grenade launchers. Logistic suits are also used by some battlefield medics.",
+      "special": "Given suitable durable packaging, a Traveller using this suit can carry loads equal to six times his STR + END (using the battle dress' enhanced STR) and will not count as being heavily encumbered.",
+      "protection": [
+        {
+          "value": 22,
+          "damage-type": []
+        }
+      ],
+      "tech-level": 13,
+      "rads": 245,
+      "str-bonus": 8,
+      "dex-bonus": 0,
+      "slots": 20,
+      "mass": 220,
+      "cost": 290000,
+      "required-skill": "Vacc Suit 2"
+    },
+    {
+      "id": 13,
+      "name": "Battle Dress (Logistics)",
+      "description": "This suit is optimized for its load-carrying capability. The logistics suit allows the Traveller to carry small-vehicle loads of ammunition and supplies into places where only infantry can go. Standard missions include ferrying field repair kits (with spares), bulk ammunition boxes, and fast-load kits for close support grenade launchers. Logistic suits are also used by some battlefield medics.",
+      "special": "Given suitable durable packaging, a Traveller using this suit can carry loads equal to six times his STR + END (using the battle dress' enhanced STR) and will not count as being heavily encumbered.",
+      "protection": [
+        {
+          "value": 25,
+          "damage-type": []
+        }
+      ],
+      "tech-level": 14,
+      "rads": 290,
+      "str-bonus": 8,
+      "dex-bonus": 0,
+      "slots": 20,
+      "mass": 220,
+      "cost": 320000,
+      "required-skill": "Vacc Suit 2"
+    },
+    {
+      "id": 14,
+      "name": "Battle Dress (Psi-Commando)",
+      "description": "Similar to the psi-enhanced battle dress, the psi commando suit retains the invisible telekinetic shield but also features enhancements that include active psionic interfaces and superior heating and cooling systems designed to aid teleportation abilities.",
+      "special": "The Traveller adds half (round up) his PSI to the Protection score of the armor while worn. In addition, the psi-commando battle dress counts as being part of th eTraveller's own body when teleporting (thus not increasing th ePSI cost of Teleportation) and doubles the vertical distances that may be teleported.",
+      "protection": [
+        {
+          "value": 26,
+          "damage-type": [],
+          "other": "+1/2 PSI"
+        }
+      ],
+      "tech-level": 15,
+      "rads": 300,
+      "str-bonus": 6,
+      "dex-bonus": 4,
+      "slots": 20,
+      "mass": 110,
+      "cost": 1200000,
+      "required-skill": "Vacc Suit 1"
+    },
+    {
+      "id": 15,
+      "name": "Battle Dress (Psi-Enhanced)",
+      "description": "This suit of armor is interwoven with highly specialized crystalline fibers and conduits that pick up on the latent psion abilities of the Traveller. The mental energies created and manipulated by the conduits create an invisible telekinetic field inside the plating of the suit, protecting them from attack.",
+      "special": "The Traveller adds half (round up) his PSI to the Protection score of the armor while worn.",
+      "protection": [
+        {
+          "value": 22,
+          "damage-type": [],
+          "other": "+1/2 PSI"
+        }
+      ],
+      "tech-level": 13,
+      "rads": 245,
+      "str-bonus": 4,
+      "dex-bonus": 4,
+      "slots": 16,
+      "mass": 100,
+      "cost": 800000,
+      "required-skill": "Vacc Suit 1"
+    },
+    {
+      "id": 16,
+      "name": "Battle Dress (Psi-Enhanced)",
+      "description": "This suit of armor is interwoven with highly specialized crystalline fibers and conduits that pick up on the latent psion abilities of the Traveller. The mental energies created and manipulated by the conduits create an invisible telekinetic field inside the plating of the suit, protecting them from attack.",
+      "special": "The Traveller adds half (round up) his PSI to the Protection score of the armor while worn.",
+      "protection": [
+        {
+          "value": 25,
+          "damage-type": [],
+          "other": "+1/2 PSI"
+        }
+      ],
+      "tech-level": 14,
+      "rads": 290,
+      "str-bonus": 6,
+      "dex-bonus": 4,
+      "slots": 16,
+      "mass": 100,
+      "cost": 880000,
+      "required-skill": "Vacc Suit 1"
+    },
+    {
+      "id": 17,
+      "name": "Battle Dress (Scout)",
+      "description": "Scout Battle Dress is normally used by reconnaissance units, artillery spotters, and other soldiers needing good protection allied to mobility. It is popular among some officers and rapid-assault units.",
+      "special": "Grav assist is fitted as standard.",
+      "protection": [
+        {
+          "value": 20,
+          "damage-type": []
+        }
+      ],
+      "tech-level": 13,
+      "rads": 230,
+      "str-bonus": 2,
+      "dex-bonus": 6,
+      "slots": 12,
+      "mass": 90,
+      "cost": 270000,
+      "required-skill": "Vacc Suit 1"
+    },
+    {
+      "id": 18,
+      "name": "Battle Dress (Scout)",
+      "description": "Scout Battle Dress is normally used by reconnaissance units, artillery spotters, and other soldiers needing good protection allied to mobility. It is popular among some officers and rapid-assault units.",
+      "special": "Grav assist is fitted as standard.",
+      "protection": [
+        {
+          "value": 23,
+          "damage-type": []
+        }
+      ],
+      "tech-level": 14,
+      "rads": 260,
+      "str-bonus": 4,
+      "dex-bonus": 6,
+      "slots": 12,
+      "mass": 90,
+      "cost": 300000,
+      "required-skill": "Vacc Suit 1"
+    }
+  ]
+}
