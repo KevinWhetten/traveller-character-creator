@@ -1,0 +1,17 @@
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\bin\Debug\net6.0\TravellerCreatorBL.deps.json
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\bin\Debug\net6.0\TravellerCreatorBL.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\bin\Debug\net6.0\TravellerCreatorBL.pdb
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\obj\Debug\net6.0\TravellerCreatorBL.csproj.AssemblyReference.cache
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\obj\Debug\net6.0\TravellerCreatorBL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\obj\Debug\net6.0\TravellerCreatorBL.AssemblyInfoInputs.cache
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\obj\Debug\net6.0\TravellerCreatorBL.AssemblyInfo.cs
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\obj\Debug\net6.0\TravellerCreatorBL.csproj.CoreCompileInputs.cache
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\obj\Debug\net6.0\TravellerCreatorBL.csproj.CopyComplete
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\obj\Debug\net6.0\TravellerCreatorBL.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\obj\Debug\net6.0\refint\TravellerCreatorBL.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\obj\Debug\net6.0\TravellerCreatorBL.pdb
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\obj\Debug\net6.0\ref\TravellerCreatorBL.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\bin\Debug\net6.0\TravellerCreatorGlobalMethods.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\bin\Debug\net6.0\TravellerCreatorModels.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\bin\Debug\net6.0\TravellerCreatorGlobalMethods.pdb
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\bin\Debug\net6.0\TravellerCreatorModels.pdb

@@ -1,0 +1,27 @@
+<h1>University</h1>
+<div>
+  <h2>Congratulations! You were accepted!</h2>
+  <app-alert *ngIf="hasError"
+             [message]="errorMessage"
+             [type]="getError()"></app-alert>
+  <h3>Please choose a level 0 and a level 1 skill:</h3>
+  <p class="small">Note: Choosing a skill will bring all the other skills in that category to level 0. The skills you
+    choose here will increase by one more if you graduate.</p>
+  <div class="flex">
+    <div class="column">
+      <app-skill-select (skillChange)="level0SkillChanged($event)"
+                        [label]="'Level 0'"
+                        [targetSkillLevel]="1"
+                        [groups]="getFullUniversitySkillGroups()"
+                        [groupNames]="getFullUniversityGroupNames()"></app-skill-select>
+    </div>
+    <div class="column">
+      <app-skill-select (skillChange)="level1SkillChanged($event)"
+                        [label]="'Level 1'"
+                        [targetSkillLevel]="1"
+                        [groups]="getFullUniversitySkillGroups()"
+                        [groupNames]="getFullUniversityGroupNames()"></app-skill-select>
+    </div>
+  </div>
+  <button class="primary right" (click)="saveSkills()">Save Skills</button>
+</div>

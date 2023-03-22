@@ -1,0 +1,142 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$TravellerCharacterCreator-primary: mat.define-palette(mat.$indigo-palette);
+$TravellerCharacterCreator-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$TravellerCharacterCreator-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$TravellerCharacterCreator-theme: mat.define-light-theme((
+  color: (
+    primary: $TravellerCharacterCreator-primary,
+    accent: $TravellerCharacterCreator-accent,
+    warn: $TravellerCharacterCreator-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($TravellerCharacterCreator-theme);
+
+h1 {
+  margin-top: 32px;
+  font-size: 32pt;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+h2 {
+  margin-top: 28px;
+  font-size: 28pt;
+  margin-bottom: 14px;
+  font-weight: bold;
+}
+
+h3 {
+  margin-top: 24px;
+  font-size: 24pt;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+h4 {
+  margin-top: 20px;
+  font-size: 20pt;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+h5 {
+  margin-top: 16px;
+  font-size: 16pt;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+h6 {
+  margin-top: 16px;
+  font-size: 14pt;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+h7 {
+  margin-top: 16px;
+  font-size: 12pt;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+h8 {
+  margin-top: 16px;
+  font-size: 12pt;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 14pt;
+}
+
+button {
+  height: 50px;
+  min-width: 75px;
+  border: solid 2px black;
+  border-radius: 5px;
+  margin: 0 8px;
+
+  &.primary {
+    color: white;
+    background-color: darkred;
+
+    &:hover {
+      background-color: #ab0000;
+    }
+  }
+
+  &.right {
+    float: right;
+  }
+
+  &.secondary {
+    color: white;
+    background-color: black;
+
+    &:hover {
+      background-color: #444;
+    }
+  }
+
+  &.left {
+    float: left;
+  }
+
+  &.small {
+    height: 25px;
+    min-width: 50px;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,9 +1,0 @@
-<h2>Specialist Training</h2>
-
-<p>You are given specialist training in vehicles.</p>
-<h3>Gain one of the following skills at level 1:</h3>
-<app-skill-select [groups]="getGroups()"
-                  [groupNames]="getGroupNames()"
-                  [targetSkillLevel]="1"
-                  (skillChange)="skillChanged($event)"></app-skill-select>
-<button class="primary" (click)="submit()">Submit</button>

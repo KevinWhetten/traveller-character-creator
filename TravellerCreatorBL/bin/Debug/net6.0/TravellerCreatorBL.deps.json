@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "TravellerCreatorBL/1.0.0": {
+        "dependencies": {
+          "TravellerCreatorGlobalMethods": "1.0.0",
+          "TravellerCreatorModels": "1.0.0"
+        },
+        "runtime": {
+          "TravellerCreatorBL.dll": {}
+        }
+      },
+      "TravellerCreatorGlobalMethods/1.0.0": {
+        "runtime": {
+          "TravellerCreatorGlobalMethods.dll": {}
+        }
+      },
+      "TravellerCreatorModels/1.0.0": {
+        "dependencies": {
+          "TravellerCreatorGlobalMethods": "1.0.0"
+        },
+        "runtime": {
+          "TravellerCreatorModels.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TravellerCreatorBL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TravellerCreatorGlobalMethods/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TravellerCreatorModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

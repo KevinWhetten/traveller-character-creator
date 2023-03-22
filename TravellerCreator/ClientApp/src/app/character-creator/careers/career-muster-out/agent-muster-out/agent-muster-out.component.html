@@ -1,0 +1,40 @@
+<h1>Mustering Out - Agent</h1>
+
+<h2>You have {{getBenefitNum()}} rolls ({{getCashBenefitNum()}} cash rolls) left.</h2>
+<p>* You have 3 cash rolls to make throughout your lifetime, so use them well.</p>
+
+<div class="benefits-table">
+  <app-career-benefits [career]="career"></app-career-benefits>
+</div>
+
+<div class="form" *ngIf="getBenefitNum() > 0 && !this.option6">
+  <div class="type">
+    <label for="type-select">Select Type:</label>
+    <select id="type-select" [(ngModel)]="benefitType">
+      <option value="benefit">Benefit</option>
+      <option value="cash">Cash</option>
+    </select>
+  </div>
+  <div class="roll">
+    <label for="benefit-roll">Roll D6:</label>
+    <input type="number" id="benefit-roll" [(ngModel)]="benefitRoll" min="1" max="6">
+    <button class="primary right" (click)="submitRoll()">Submit</button>
+  </div>
+</div>
+
+<div class="form" *ngIf="this.option6">
+  <h2>You rolled Option 6!</h2>
+  <label for="option-6">Choose a benefit:</label>
+  <select id="option-6" [(ngModel)]="option6Choice">
+    <option value="armour">Armour</option>
+    <option value="end">END +1</option>
+  </select>
+  <button class="primary right" (click)="resolveOption6()">Submit</button>
+</div>
+
+<button class="primary right" *ngIf="getBenefitNum() === 0" (click)="proceed()">All Done!</button>
+
+<h2>Benefits Obtained:</h2>
+<ul>
+  <li *ngFor="let benefit of benefitsObtained">{{benefit}}</li>
+</ul>

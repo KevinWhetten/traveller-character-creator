@@ -1,0 +1,17 @@
+<h2>Senior Agent</h2>
+
+<p>You are befriended by a senior agent. Choose one:</p>
+
+<div class="radio-field">
+  <div class="choice">
+    <input type="radio" name="event-choice" id="investigate" value="investigate" [(ngModel)]="choice">
+    <label for="investigate">Increase Investigate by 1</label>
+  </div>
+
+  <div class="choice">
+    <input type="radio" name="event-choice" id="advancement" value="advancement" [(ngModel)]="choice">
+    <label for="advancement">Gain DM+4 to your next Advancement roll.</label>
+  </div>
+</div>
+
+<button class="primary right" (click)="submit()">Submit</button>

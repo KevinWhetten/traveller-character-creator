@@ -1,0 +1,9 @@
+<h3>Sickness or Injury</h3>
+
+<p>You are injured or become sick.</p>
+
+<app-injury *ngIf="!isInjured" (injure)="injured()"></app-injury>
+
+<app-story *ngIf="isInjured"></app-story>
+
+<button *ngIf="isInjured" class="primary right" (click)="submit()">Submit</button>

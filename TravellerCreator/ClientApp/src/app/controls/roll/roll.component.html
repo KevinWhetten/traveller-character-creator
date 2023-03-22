@@ -1,0 +1,8 @@
+<div class="container">
+  <app-alert *ngIf="hasError" [type]="error" [message]="errorMessage"></app-alert>
+  <div class="qualification-field flex-row">
+    <label>Roll {{numberOfDice}}D ({{modifier >= 0 ? '+' + modifier : modifier}}) {{numberOfRolls > 1 ? numberOfRolls + ' times and take the ' + select + ' result.' : ''}}:</label>
+    <input *ngFor="let roll of getRange(); index as i" type="number" id="qualification{{roll}}" [(ngModel)]="rolls[i]" min="{{numberOfDice}}" max="{{numberOfDice * 6}}">
+    <button class="primary right" (click)="submit()">Submit</button>
+  </div>
+</div>

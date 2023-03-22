@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreator", "TravellerCreator\TravellerCreator.csproj", "{2D36E10F-5FB8-45B6-9426-F6ECD03C6B40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorAPI", "TravellerCreatorAPI\TravellerCreatorAPI.csproj", "{A2FA82E7-693D-4D3D-B07D-CBE708B00315}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorBL", "TravellerCreatorBL\TravellerCreatorBL.csproj", "{87AF5ABF-882D-4130-89A7-DEC1817A13D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorModels", "TravellerCreatorModels\TravellerCreatorModels.csproj", "{A7041C29-5E3D-40D9-9752-CE53FCB88C7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorGlobalMethods", "TravellerCreatorGlobalMethods\TravellerCreatorGlobalMethods.csproj", "{A26718B5-72A9-45FD-A787-7A2615AE2A7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorBLTests", "TravellerCreatorBLTests\TravellerCreatorBLTests.csproj", "{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D36E10F-5FB8-45B6-9426-F6ECD03C6B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D36E10F-5FB8-45B6-9426-F6ECD03C6B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D36E10F-5FB8-45B6-9426-F6ECD03C6B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D36E10F-5FB8-45B6-9426-F6ECD03C6B40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2FA82E7-693D-4D3D-B07D-CBE708B00315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FA82E7-693D-4D3D-B07D-CBE708B00315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FA82E7-693D-4D3D-B07D-CBE708B00315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FA82E7-693D-4D3D-B07D-CBE708B00315}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87AF5ABF-882D-4130-89A7-DEC1817A13D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87AF5ABF-882D-4130-89A7-DEC1817A13D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87AF5ABF-882D-4130-89A7-DEC1817A13D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87AF5ABF-882D-4130-89A7-DEC1817A13D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7041C29-5E3D-40D9-9752-CE53FCB88C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7041C29-5E3D-40D9-9752-CE53FCB88C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7041C29-5E3D-40D9-9752-CE53FCB88C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7041C29-5E3D-40D9-9752-CE53FCB88C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A26718B5-72A9-45FD-A787-7A2615AE2A7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A26718B5-72A9-45FD-A787-7A2615AE2A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A26718B5-72A9-45FD-A787-7A2615AE2A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A26718B5-72A9-45FD-A787-7A2615AE2A7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

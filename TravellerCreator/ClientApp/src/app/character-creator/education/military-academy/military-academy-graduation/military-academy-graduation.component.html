@@ -1,0 +1,41 @@
+<h1>Military Academy</h1>
+<h2>Graduation!</h2>
+
+<div *ngIf="!success && !honors && !failure">
+  <p>Now we get to see if you graduate!</p>
+  <app-characteristic-roll [characteristic]="'INT'"
+                           [target]="7"
+                           (rollResult)="submitGraduation($event)">
+  </app-characteristic-roll>
+</div>
+
+<div *ngIf="success">
+  <h3>Congratulations! You Graduated!</h3>
+  <h4>Your studies have paid off!</h4>
+  <ul>
+    <li class="main">Select 3 skills to increase to level 1:</li>
+    <li class="main">Your EDU has increased by 1!</li>
+    <li class="main">You will gain automatic enty into the {{getAcademy()}} Career next term!</li>
+    <li class="main">You will get to take a Comission roll before next term in a military career starts. Success will mean the Traveller enters the career at officer rank (01).</li>
+  </ul>
+
+  <button class="primary right" (click)="moveOn()">Huzzah!</button>
+</div>
+
+<div *ngIf="honors">
+  <h3>Congratulations! You Graduated with Honors!</h3>
+  <h4>Your studies have paid off!</h4>
+  <ul>
+    <li class="main">Select 3 skills to increase to level 1:</li>
+    <li class="main">Your EDU has increased by 1!</li>
+    <li class="main">Your SOC has increased by 1!</li>
+    <li class="main">You will gain automatic enty into the {{getAcademy()}} Career next term!</li>
+    <li class="main">You get to enter a military career next term at officer rank (01)!</li>
+  </ul>
+  <button class="primary right" (click)="moveOn()">Huzzah!</button>
+</div>
+
+<div *ngIf="failure">
+  Failure...
+  <button class="primary right" (click)="moveOn()">Dang!</button>
+</div>

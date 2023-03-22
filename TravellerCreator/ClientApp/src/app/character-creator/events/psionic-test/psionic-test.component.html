@@ -1,0 +1,11 @@
+<h4>Test for PSI</h4>
+
+<app-roll *ngIf="!rolled"
+          [modifier]="getModifier()"
+          (rollResult)="recordPsi($event)"></app-roll>
+
+<div *ngIf="rolled">
+  <h3 *ngIf="psi > 0">You have PSI: {{psi}}</h3>
+  <h3 *ngIf="psi <= 0">You have no Psionic Ability after all.</h3>
+  <button class="primary right" (click)="completeTesting()">Ok</button>
+</div>

@@ -1,0 +1,28 @@
+<h2>Investigation</h2>
+
+<p>An investigation takes a dangerous turn.</p>
+
+<div *ngIf="!rolled">
+  <h3>Choose one of the following skills, and roll:</h3>
+  <app-skill-select [groups]="getSkills()"
+                    [groupNames]="getSkillGroupNames()"
+                    (skillChange)="changeSkill($event)"></app-skill-select>
+
+  <app-skill-roll [skill]="this.skillName"
+                  [target]="8"
+                  (rolled)="submit($event)">
+  </app-skill-roll>
+</div>
+
+<div *ngIf="rolled && success">
+  <h3>Success! Pick one of the following skills to increase by one level:</h3>
+  <app-skill-select [groups]="getIncreaseSkills()"
+                    [groupNames]="getIncreaseSkillGroupNames()"
+                    (skillChange)="changeSkill($event)"></app-skill-select>
+  <button class="primary right" (click)="submitIncrease()">Submit</button>
+</div>
+
+<div *ngIf="rolled && !success">
+  <h3>Failure...</h3>
+  <app-career-mishap (mishapResolved)="proceed()"></app-career-mishap>
+</div>

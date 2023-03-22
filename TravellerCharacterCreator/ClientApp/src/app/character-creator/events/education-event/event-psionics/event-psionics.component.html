@@ -1,7 +1,0 @@
-﻿<form>
-  <h2>Psionics</h2>
-  <p>You are approached by an underground (and highly illegal) psionic group who sense potential in you.
-    You may test your PSI and attempt to enter the Psion career in any subsequent turn.</p>
-  <app-psionic-test (tested)="tested = true;" (eventComplete)="accept()"></app-psionic-test>
-  <button *ngIf="!tested" class="secondary" (click)="refuse()">I don't want to...</button>
-</form>

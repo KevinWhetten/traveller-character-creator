@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Basic Training</h1>
+  <h2>Choose one of the following {{serviceSkillsTable.Name}}:</h2>
+  <div *ngFor="let skill of getTrainings(); index as i">
+    <div *ngIf="skillIsUntrained(skill)">
+      <input type="radio" id="training-{{i}}" [(ngModel)]="basicTrainingSkill" value="{{skill}}">
+      <label for="training-{{i}}">{{skill}} 0</label>
+    </div>
+  </div>
+  <button class="primary right" (click)="submit()">Submit</button>
+</div>

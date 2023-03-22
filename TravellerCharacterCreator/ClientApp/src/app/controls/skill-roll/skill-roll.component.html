@@ -1,9 +1,0 @@
-<div class="container">
-  <app-alert *ngIf="hasError" [type]="error" [message]="errorMessage"></app-alert>
-  <div class="qualification-field flex-row">
-    <label for="qualification">Roll 2D ({{skill}} {{target}}+):</label>
-    <input type="number" id="qualification" [(ngModel)]="roll" min="2" max="12">
-    <p>({{getModifier() >= 0 ? '+' + getModifier() : getModifier()}})</p>
-    <button class="primary" (click)="submit()">Submit</button>
-  </div>
-</div>

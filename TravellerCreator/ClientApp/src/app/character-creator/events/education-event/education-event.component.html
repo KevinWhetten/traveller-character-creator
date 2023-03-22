@@ -1,0 +1,24 @@
+<div>
+  <h1>Education Event!</h1>
+  <div *ngIf="!submitted">
+    <form>
+      <label for="event">Roll 2d6</label>
+      <input name="education-event" [(ngModel)]="eventResult" id="event" type="number" min="2" max="12">
+      <button class="primary right" type="submit" (submit)="submit()" (click)="submit()">Submit</button>
+    </form>
+  </div>
+
+  <div class="eventResult" *ngIf="submitted">
+    <app-event-psionics *ngIf="eventResult === 2" (graduate)="graduate()"></app-event-psionics>
+    <app-event-tragedy *ngIf="eventResult === 3"></app-event-tragedy>
+    <app-event-prank *ngIf="eventResult === 4" (graduate)="graduate()"></app-event-prank>
+    <app-event-party *ngIf="eventResult === 5" (graduate)="graduate()"></app-event-party>
+    <app-event-friends *ngIf="eventResult === 6" (graduate)="graduate()"></app-event-friends>
+    <app-life-event *ngIf="eventResult === 7" (eventComplete)="graduate()"></app-life-event>
+    <app-event-political *ngIf="eventResult === 8" (graduate)="graduate()"></app-event-political>
+    <app-event-hobby *ngIf="eventResult === 9" (graduate)="graduate()"></app-event-hobby>
+    <app-event-tutor *ngIf="eventResult === 10" (graduate)="graduate()"></app-event-tutor>
+    <app-event-draft *ngIf="eventResult === 11" (graduate)="graduate()"></app-event-draft>
+    <app-event-recognition *ngIf="eventResult === 12" (graduate)="graduate()"></app-event-recognition>
+  </div>
+</div>

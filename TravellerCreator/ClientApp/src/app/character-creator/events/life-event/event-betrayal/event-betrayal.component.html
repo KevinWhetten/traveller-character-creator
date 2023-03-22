@@ -1,0 +1,37 @@
+<h3>Betrayal</h3>
+
+<p>You are betrayed in some fashion by a friend. If you have any Contacts or Allies, convert one into a Rival or Enemy.
+  Otherwise, gain a Rival or Enemy.</p>
+
+<h4>Choose an Ally or Contact</h4>
+
+<h5>Allies:</h5>
+<div *ngIf="getAllies().length">
+  <select id="allies" [(ngModel)]="contact">
+    <option *ngFor="let ally of getAllies()" value="{{ally}}">{{ally}}</option>
+  </select>
+  <button class="primary right" (click)="convertAllyToRival()">To Rival</button>
+  <button class="primary right" (click)="convertAllyToEnemy()">To Enemy</button>
+</div>
+<div *ngIf="!getAllies().length">
+  <p>You don't have any Allies.</p>
+</div>
+
+<h5>Contacts:</h5>
+<div *ngIf="getContacts().length">
+  <select id="contacts">
+    <option *ngFor="let contact of getContacts()" value="{{contact}}">{{contact}}</option>
+  </select>
+  <button class="primary right" (click)="convertContactToRival()">To Rival</button>
+  <button class="primary right" (click)="convertContactToEnemy()">To Enemy</button>
+</div>
+<div *ngIf="!getContacts().length">
+  <p>You don't have any contacts.</p>
+</div>
+
+<div *ngIf="!getAllies().length && !getContacts().length">
+  <button class="primary right" (click)="gainRival()">Gain Rival</button>
+  <button class="primary right" (click)="gainEnemy()">Gain Enemy</button>
+</div>
+
+<app-story></app-story>

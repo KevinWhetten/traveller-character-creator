@@ -1,0 +1,12 @@
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorGlobalMethods\bin\Debug\net6.0\TravellerCreatorGlobalMethods.deps.json
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorGlobalMethods\bin\Debug\net6.0\TravellerCreatorGlobalMethods.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorGlobalMethods\bin\Debug\net6.0\TravellerCreatorGlobalMethods.pdb
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorGlobalMethods\obj\Debug\net6.0\TravellerCreatorGlobalMethods.csproj.AssemblyReference.cache
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorGlobalMethods\obj\Debug\net6.0\TravellerCreatorGlobalMethods.GeneratedMSBuildEditorConfig.editorconfig
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorGlobalMethods\obj\Debug\net6.0\TravellerCreatorGlobalMethods.AssemblyInfoInputs.cache
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorGlobalMethods\obj\Debug\net6.0\TravellerCreatorGlobalMethods.AssemblyInfo.cs
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorGlobalMethods\obj\Debug\net6.0\TravellerCreatorGlobalMethods.csproj.CoreCompileInputs.cache
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorGlobalMethods\obj\Debug\net6.0\TravellerCreatorGlobalMethods.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorGlobalMethods\obj\Debug\net6.0\refint\TravellerCreatorGlobalMethods.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorGlobalMethods\obj\Debug\net6.0\TravellerCreatorGlobalMethods.pdb
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorGlobalMethods\obj\Debug\net6.0\ref\TravellerCreatorGlobalMethods.dll

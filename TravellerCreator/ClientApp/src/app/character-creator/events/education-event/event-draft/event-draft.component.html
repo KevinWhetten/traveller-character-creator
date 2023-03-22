@@ -1,0 +1,36 @@
+﻿<h2>The Draft</h2>
+<p>War comes and a wide-ranging draft is instigated. You have a few options:</p>
+<ol>
+  <li>You can <strong>flee</strong> the draft, <strong>not graduate</strong>, and join the
+    <strong>Drifter</strong> career next term.
+  </li>
+  <li>You can <strong>be drafted</strong> and <strong>not graduate</strong>.</li>
+  <li *ngIf="!avoidDraftFailure">You can try to <strong>leverege your Social Standing
+    ({{socialStatusDm < 0 ? socialStatusDm : '+' + socialStatusDm}})</strong> to <strong>avoid the
+    draft</strong> and
+    <strong>complete your education</strong>.
+  </li>
+</ol>
+
+<p *ngIf="avoidDraftFailure">You attempted to pull some strings to get out of the draft, but failed.</p>
+
+<h3 *ngIf="!avoidDraftAttempt || avoidDraftFailure">Which would you like to choose?</h3>
+<button *ngIf="!this.avoidDraftAttempt" class="primary right" (click)="this.avoidDraftAttempt = true;">Leverage Social
+  Standing ({{this._percentageService.get2d6Percentage(9, this.socialStatusDm)}}%)
+</button>
+
+<button *ngIf="!this.avoidDraftAttempt || avoidDraftFailure" class="primary right" (click)="drafted()">Be Drafted</button>
+<button *ngIf="!this.avoidDraftAttempt || avoidDraftFailure" class="primary right" (click)="fleeDraft()">Flee!</button>
+
+<form *ngIf="this.avoidDraftAttempt && ! avoidDraftFailure && !avoided">
+  <p>You are attempting to pull some strings to get out of the draft.</p>
+  <app-characteristic-roll [characteristic]="'SOC'"
+                           [target]="9"
+                           (rolled)="avoidDraft($event)">
+  </app-characteristic-roll>
+</form>
+
+<div *ngIf="avoided">
+  <h3>You successfully avoided the draft!</h3>
+  <button class="primary right" (click)="proceed()">Take that, Lowlifes!</button>
+</div>

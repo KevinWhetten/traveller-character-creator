@@ -1,0 +1,15 @@
+﻿<h2>Friends Forever</h2>
+<p>You become involved in a tightly knit clique or group and make a pact to remain friends forever, wherever in
+    the galaxy you may end up.</p>
+<form *ngIf="!this.friendGroup">
+    <label for="friends">Roll 1d3</label>
+    <input name="friends" [(ngModel)]="friendRoll" id="friends" type="number" min="1" max="3">
+    <button class="primary right" type="submit" (submit)="this.friendGroup = true" (click)="this.friendGroup = true">
+        Submit
+    </button>
+</form>
+<form *ngIf="this.friendGroup">
+    <p>Cool! You gained {{friendRoll}} Allies.</p>
+    <app-story></app-story>
+    <button class="primary right" type="submit" (submit)="friends()" (click)="friends()">Cool!</button>
+</form>

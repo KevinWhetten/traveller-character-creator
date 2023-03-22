@@ -1,0 +1,8 @@
+﻿<h2>Hobby!</h2>
+<p>You develop a healthy interest in a hobby or other area of study. Choose a skill of your choice to gain at level 0!</p>
+<app-skill-select [groups]="getBasicGroups()"
+                  [groupNames]="['Basic Skills']"
+                  [targetSkillLevel]="0"
+                  (skillChange)="hobbySkill = $event">
+</app-skill-select>
+<button class="primary right" type="submit" (submit)="hobby()" (click)="hobby()">Submit</button>

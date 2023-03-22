@@ -1,0 +1,20 @@
+<h1>University</h1>
+<div>
+  <p>Most worlds have one or more universities within their major sttlements, but even citizens of the most remote
+    system can engage in university through the use of computer networks and interstellar communications. A
+    university education will channel a character's efforts into a narrow range of skills, but there are few other ways
+    to become more skillful with them so quickly.</p>
+  <div *ngIf="!failed">
+    <h2>Let's see if you get accepted into University:</h2>
+    <app-characteristic-roll [characteristic]="'EDU'"
+                             [extraMod]="getModifier()"
+                             [target]="7"
+                             (rolled)="submit($event)">
+    </app-characteristic-roll>
+  </div>
+  <div *ngIf="failed">
+    <h2>You were not accepted.</h2>
+    <p>Time to try for a career!</p>
+    <button class="primary right" (click)="toCareer()">Ok</button>
+  </div>
+</div>

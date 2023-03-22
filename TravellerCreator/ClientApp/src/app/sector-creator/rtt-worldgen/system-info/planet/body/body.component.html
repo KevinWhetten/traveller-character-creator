@@ -1,0 +1,44 @@
+<div *ngIf="body.parent == null">
+  <div class="body-type">
+    <h4>({{body.position}}) {{body.orbit}} {{body.type}} Planet:</h4>
+    <p>{{this.getCode(body)}}</p>
+  </div>
+
+  <div class="body-info" *ngFor="let desiring of GetMostDesiringRace()">
+    <p><span class="bold">Desirability ({{desiring.Name}}):</span> {{desiring.Desired}} - <span
+      class="bold">Biosphere:</span> {{body.biosphere}}</p>
+  </div>
+
+  <div class="body-info">
+    <p><span class="bold">Settlement:</span> {{body.settlement.settlementType}} - Industry Level: {{body.settlement.industry}}</p>
+  </div>
+
+  <div class="body-info">
+    <p><span class="bold">Bases:</span> {{body.settlement.bases.length >= 1 ? body.settlement.bases.join(" ") : "None"}}</p>
+  </div>
+</div>
+
+<div *ngIf="body.parent != null">
+  <div class="body-info">
+    <h4 class="bold" *ngIf="body.satellites.length >= 1">Satellites:</h4>
+    <div class="satellite" *ngFor="let satellite of body.satellites; index as i">
+      <div class="body-type">
+        <h5>({{i}}) {{satellite.orbit}} {{satellite.type}} Satellite:</h5>
+        <p>{{this.getCode(satellite)}}</p>
+      </div>
+
+      <div class="body-info" *ngFor="let desiring of GetMostDesiringRace()">
+        <p><span class="bold">Desirability ({{desiring.Name}}):</span> {{desiring.Desired}} - <span class="bold">Biosphere:</span> {{body.biosphere}}</p>
+      </div>
+
+      <div class="body-info">
+        <p><span class="bold">Settlement:</span> {{satellite.settlement.settlementType}} - <span class="bold">Industry Level:</span> {{satellite.settlement.industry}}
+        </p>
+      </div>
+
+      <div class="body-info">
+        <p><span class="bold">Bases:</span> {{satellite.settlement.bases.length >= 1 ? satellite.settlement.bases.join(" ") : "None"}}</p>
+      </div>
+    </div>
+  </div>
+</div>
