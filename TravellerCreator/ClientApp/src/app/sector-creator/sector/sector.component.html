@@ -1,6 +1,8 @@
 <h2>Sector</h2>
 <div class="grid">
-  <div class="subsector" *ngFor="let subsector of basicSector.subsectors">
-    <app-subsector [basicSubsector]="subsector"></app-subsector>
+  <div *ngIf="isBasicSector()">
+    <div class="subsector" *ngFor="let subsector of sector.subsectors">
+      <app-basic-subsector [subsector]="getBasicSubsector(subsector)"></app-basic-subsector>
+    </div>
   </div>
 </div>

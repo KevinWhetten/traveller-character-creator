@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Sector as BasicSector} from "../models/basic/sector";
+import {ISector} from "../models/interfaces/sector";
+import {ISubsector} from "../models/interfaces/subsector";
+import {BasicSubsector} from "../models/basic/basic-subsector";
+import {SectorType} from "../models/enums/sector-type";
 
 @Component({
   selector: 'app-sector',
@@ -7,7 +10,7 @@ import {Sector as BasicSector} from "../models/basic/sector";
   styleUrls: ['./sector.component.css']
 })
 export class SectorComponent implements OnInit {
-  @Input() basicSector: BasicSector;
+  @Input() sector: ISector;
 
   constructor() {
   }
@@ -15,4 +18,11 @@ export class SectorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isBasicSector() {
+    return this.sector.sectorType == SectorType.Basic;
+  }
+
+  getBasicSubsector(subsector: ISubsector) {
+    return subsector as BasicSubsector;
+  }
 }

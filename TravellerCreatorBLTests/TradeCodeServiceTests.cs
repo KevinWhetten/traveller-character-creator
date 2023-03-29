@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using TravellerCharacterCreatorBL.BasicGeneration;
+using TravellerCharacterCreatorBL;
 using TravellerCreatorModels.Basic;
+using TravellerCreatorModels.Enums;
 
 namespace TravellerCreatorBLTests;
 
@@ -32,7 +33,7 @@ public class TradeCodeServiceTests
     [TestCase(10, 9, 7, false)]
     public void AddAgriculturalTradeCode(int atmosphere, int hydrosphere, int population, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Atmosphere = atmosphere,
             Hydrographics = hydrosphere,
             Population = population
@@ -53,7 +54,7 @@ public class TradeCodeServiceTests
     [TestCase(1, 1, 1, false)]
     public void AddAsteroidTradeCode(int size, int atmosphere, int hydrographics, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Size = size,
             Atmosphere = atmosphere,
             Hydrographics = hydrographics
@@ -74,7 +75,7 @@ public class TradeCodeServiceTests
     [TestCase(1, 1, 1, false)]
     public void AddBarrenTradeCode(int population, int government, int lawLevel, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Population = population,
             Government = government,
             LawLevel = lawLevel
@@ -99,7 +100,7 @@ public class TradeCodeServiceTests
     [TestCase(15, 1, false)]
     public void AddDesertTradeCode(int atmosphere, int hydrographics, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Atmosphere = atmosphere,
             Hydrographics = hydrographics
         };
@@ -117,7 +118,7 @@ public class TradeCodeServiceTests
     [TestCase(9, 4, false)]
     public void AddFluidOceansTradeCode(int atmosphere, int hydrographics, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Atmosphere = atmosphere,
             Hydrographics = hydrographics
         };
@@ -142,7 +143,7 @@ public class TradeCodeServiceTests
     [TestCase(10, 10, 10, false)]
     public void AddGardenCode(int atmosphere, int hydrographics, int population, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Atmosphere = atmosphere,
             Hydrographics = hydrographics,
             Population = population
@@ -159,7 +160,7 @@ public class TradeCodeServiceTests
     [TestCase(10, true)]
     public void AddHighPopulationTradeCode(int population, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Population = population
         };
 
@@ -174,7 +175,7 @@ public class TradeCodeServiceTests
     [TestCase(15, true)]
     public void AddHighTechnologyTradeCode(int techLevel, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             TechLevel = techLevel
         };
 
@@ -198,7 +199,7 @@ public class TradeCodeServiceTests
     [TestCase(2, 10, false)]
     public void AddIceCappedTradeCode(int atmosphere, int hydrographics, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Atmosphere = atmosphere,
             Hydrographics = hydrographics
         };
@@ -234,7 +235,7 @@ public class TradeCodeServiceTests
     [TestCase(11, 9, false)]
     public void AddIndustrialTradeCode(int atmosphere, int population, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Atmosphere = atmosphere,
             Population = population
         };
@@ -252,7 +253,7 @@ public class TradeCodeServiceTests
     [TestCase(10, false)]
     public void AddLowPopulationTradeCode(int population, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Population = population
         };
         
@@ -270,7 +271,7 @@ public class TradeCodeServiceTests
     [TestCase(10, false)]
     public void AddLowTechnologyTradeCode(int techLevel, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             TechLevel = techLevel
         };
         
@@ -289,7 +290,7 @@ public class TradeCodeServiceTests
     [TestCase(2, 2, 10, true)]
     public void AddNonAgriculturalTradeCode(int atmosphere, int hydrographics, int population, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Atmosphere = atmosphere,
             Hydrographics = hydrographics,
             Population = population
@@ -309,7 +310,7 @@ public class TradeCodeServiceTests
     [TestCase(10, false)]
     public void AddNonIndustrialTradeCode(int population, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Population = population
         };
         
@@ -327,7 +328,7 @@ public class TradeCodeServiceTests
     [TestCase(3, 4, false)]
     public void AddPoorTradeCode(int atmosphere, int hydrographics, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Atmosphere = atmosphere,
             Hydrographics = hydrographics
         };
@@ -353,7 +354,7 @@ public class TradeCodeServiceTests
     [TestCase(8, 9, false)]
     public void AddRichTradeCode(int atmosphere, int population, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Atmosphere = atmosphere,
             Population = population
         };
@@ -371,7 +372,7 @@ public class TradeCodeServiceTests
     [TestCase(10, true)]
     public void AddWaterWorldTradeCode(int hydrographics, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Hydrographics = hydrographics
         };
         
@@ -388,7 +389,7 @@ public class TradeCodeServiceTests
     [TestCase(10, false)]
     public void AddVacuumTradeCode(int atmosphere, bool expected)
     {
-        var planet = new Planet {
+        var planet = new BasicPlanet {
             Atmosphere = atmosphere
         };
         

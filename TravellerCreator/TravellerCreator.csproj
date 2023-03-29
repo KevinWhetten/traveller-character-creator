@@ -49,6 +49,7 @@
 
     <ItemGroup>
       <Folder Include="ClientApp\src\app\DTOs" />
+      <Folder Include="ClientApp\src\app\sector-creator\services" />
       <Folder Include="ClientApp\src\app\services\metadata-services" />
     </ItemGroup>
 

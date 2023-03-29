@@ -132,8 +132,8 @@ import { RogueMishapComponent } from './character-creator/mishaps/rogue-mishap/r
 import { InjuryTableComponent } from './character-creator/mishaps/injury/injury-table/injury-table.component';
 import { SectorCreatorComponent } from './sector-creator/sector-creator.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import {SubsectorComponent} from "./sector-creator/subsector/subsector.component";
 import { SectorComponent } from './sector-creator/sector/sector.component';
+import {BasicSubsectorComponent} from "./sector-creator/subsector/basic-subsector/basic-subsector.component";
 
 @NgModule({
     declarations: [
@@ -263,9 +263,8 @@ import { SectorComponent } from './sector-creator/sector/sector.component';
         RogueMishapComponent,
         InjuryTableComponent,
         SectorCreatorComponent,
-        SubsectorComponent,
-        SubsectorComponent,
-        SectorComponent,
+        BasicSubsectorComponent,
+        SectorComponent
     ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),

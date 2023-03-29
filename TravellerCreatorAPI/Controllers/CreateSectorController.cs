@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TravellerCharacterCreatorBL;
-using TravellerCreatorModels;
-using TravellerCreatorModels.Basic;
+using TravellerCreatorModels.Enums;
+using TravellerCreatorModels.Interfaces;
 
 namespace TravellerCharacterCreatorAPI.Controllers;
 
@@ -16,44 +15,82 @@ public class CreateSectorController : ControllerBase
     {
         _sectorGenerator = new SectorGenerator();
     }
-    
+
     [HttpGet]
     [Route("BasicSector")]
     // https://www.traveller-srd.com/core-rules/world-creation/
-    public Sector GetBasicSector()
+    public IActionResult GetBasicSector()
     {
-        return _sectorGenerator.GenerateSector(SectorType.Basic);
+        try {
+            return Ok(_sectorGenerator.GenerateSector(SectorType.Basic));
+        }
+        catch (Exception) {
+            return StatusCode(500);
+        }
     }
-    
+
     [HttpGet]
     [Route("SpaceOperaSector")]
     // https://www.traveller-srd.com/core-rules/world-creation/
-    public Sector GetSpaceOperaSector()
+    public IActionResult GetSpaceOperaSector()
     {
-        return _sectorGenerator.GenerateSector(SectorType.SpaceOpera);
+        try {
+            return Ok(_sectorGenerator.GenerateSector(SectorType.SpaceOpera));
+        }
+        catch (Exception) {
+            return StatusCode(500);
+        }
     }
-    
+
     [HttpGet]
     [Route("HardScienceSector")]
     // https://www.traveller-srd.com/core-rules/world-creation/
-    public Sector GetHardScienceSector()
+    public IActionResult GetHardScienceSector()
     {
-        return _sectorGenerator.GenerateSector(SectorType.HardScience);
+        try {
+            return Ok(_sectorGenerator.GenerateSector(SectorType.HardScience));
+        }
+        catch (Exception) {
+            return StatusCode(500);
+        }
     }
-    
+
     [HttpGet]
-    [Route("SecondSurveySector")]
+    [Route("StarFrontiersSector")]
     // https://travellermap.com/doc/secondsurvey
-    public Sector GetSecondSurveySector()
+    public IActionResult GetStarFrontiersSector()
     {
-        return _sectorGenerator.GenerateSector(SectorType.SecondSurvey);
+        try {
+            return Ok(_sectorGenerator.GenerateSector(SectorType.StarFrontiers));
+        }
+        catch (Exception) {
+            return StatusCode(500);
+        }
     }
-    
+
+    [HttpGet]
+    [Route("T5Sector")]
+    // https://travellermap.com/doc/secondsurvey
+    public IActionResult GetSecondSurveySector()
+    {
+        try {
+            return Ok(_sectorGenerator.GenerateSector(SectorType.SecondSurvey));
+        }
+        catch (Exception) {
+            return StatusCode(500);
+        }
+    }
+
     [HttpGet]
     [Route("RTTWorldgenSector")]
     // https://wiki.rpg.net/index.php/RTT_Worldgen
-    public Sector GetRTTWorldgenSector()
+    public IActionResult GetRTTWorldgenSector()
     {
-        return _sectorGenerator.GenerateSector(SectorType.RTTWorldgen);
+        try {
+            return Ok(_sectorGenerator.GenerateSector(SectorType.RTTWorldgen));
+        }
+        catch (Exception) {
+            return StatusCode(500);
+        }
     }
 }

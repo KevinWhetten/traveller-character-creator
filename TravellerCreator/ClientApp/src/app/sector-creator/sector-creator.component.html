@@ -1,9 +1,33 @@
 <h1>Sector Creator</h1>
 
-<button class="primary" (click)="generateBasicSector()">Generate Basic Sector</button>
-<button class="primary" (click)="generateSpaceOperaSector()">Generate Space Opera Sector</button>
-<button class="primary" (click)="generateHardScienceSector()">Generate Hard Science Sector</button>
-<button class="primary" (click)="generateSecondSurveySector()">Generate Second Survey Sector</button>
-<button class="primary" (click)="generateRttSector()">Generate RTTWorldgen Sector</button>
+<div class="sector-checkbox">
+  <div>
+    <input type="radio" name="sector" id="basic-sector" [value]="0" [(ngModel)]="sectorType"/>
+    <label for="basic-sector">Basic Sector</label>
+  </div>
+  <div>
+    <input type="radio" name="sector" id="space-opera-sector" [value]="1" [(ngModel)]="sectorType"/>
+    <label for="space-opera-sector">Space Opera Sector</label>
+  </div>
+  <div>
+    <input type="radio" name="sector" id="hard-science-sector" [value]="2" [(ngModel)]="sectorType"/>
+    <label for="hard-science-sector">Hard Science Sector</label>
+  </div>
+  <div>
+    <input type="radio" name="sector" id="t5-sector" [value]="3" [(ngModel)]="sectorType"/>
+    <label for="t5-sector">T5 Sector</label>
+  </div>
+  <div>
+    <input type="radio" name="sector" id="rtt-worldgen-sector" [value]="4" [(ngModel)]="sectorType"/>
+    <label for="rtt-worldgen-sector">RTT Worldgen Sector</label>
+  </div>
+  <div>
+    <input type="radio" name="sector" id="star-frontiers-sector" [value]="5" [(ngModel)]="sectorType"/>
+    <label for="star-frontiers-sector">Star Frontiers Sector</label>
+  </div>
+</div>
 
-<app-sector [basicSector]="basicSector"></app-sector>
+<button class="primary" (click)="generateSector()">Generate Sector</button>
+<button class="primary" (click)="downloadSector()">Download Sector</button>
+
+<app-sector [sector]="sector"></app-sector>
