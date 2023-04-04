@@ -18,5 +18,5 @@ public interface IPlanet
     List<Base> Bases { get; set; }
     TravelCode TravelCode { get; set; }
     public PlanetType PlanetType { get; set; }
-    public List<IPlanet> Moons { get; set; }
+    public List<IPlanet> Satellites { get; set; }
 }

@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorGlobalMetho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorBLTests", "TravellerCreatorBLTests\TravellerCreatorBLTests.csproj", "{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorServices", "TravellerCreatorServices\TravellerCreatorServices.csproj", "{C539E69A-BC7A-4BB2-BA1E-988AEC3A11EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorServicesTests", "TravellerCreatorServicesTests\TravellerCreatorServicesTests.csproj", "{BAF61E01-99E4-4A9F-AC38-F25944860387}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +46,13 @@ Global
 		{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C539E69A-BC7A-4BB2-BA1E-988AEC3A11EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C539E69A-BC7A-4BB2-BA1E-988AEC3A11EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C539E69A-BC7A-4BB2-BA1E-988AEC3A11EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C539E69A-BC7A-4BB2-BA1E-988AEC3A11EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAF61E01-99E4-4A9F-AC38-F25944860387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAF61E01-99E4-4A9F-AC38-F25944860387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAF61E01-99E4-4A9F-AC38-F25944860387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAF61E01-99E4-4A9F-AC38-F25944860387}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

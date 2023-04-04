@@ -4,27 +4,29 @@ import {TravelCode} from "../models/enums/travel-code";
 import {StarSystemType} from "../models/enums/star-system-type";
 import {IPlanet} from "../models/interfaces/planet";
 import {Base} from "../models/enums/base";
-import {BasicStarSystem} from "../models/basic/basic-star-system";
+import {MongooseStarSystem} from "../models/mongoose/mongoose-star-system";
+import {TradeCode} from "../models/enums/trade-code";
+import {RollingService} from "../../services/rolling.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UWPService {
 
-  constructor() {
+  constructor(protected _rollingService: RollingService) {
   }
 
-  static GetFileFormatHeader(): string {
+   GetFileFormatHeader(): string {
     return `Hex  Name UWP       Remarks              {Ix}  (Ex)    [Cx]   N      B Z PBG W  A  Stellar
 ---- ---- --------- -------------------- ----- ------- ------ ------ - - --- -- -- -------\n`
   }
 
-  static GetFileFormat(hex: IHex): string {
+   GetFileFormat(hex: IHex): string {
     let starSystem = hex.starSystems[0];
     let planet = {} as IPlanet;
-    if(starSystem.type == StarSystemType.Basic)
+    if(starSystem.type == StarSystemType.Mongoose)
     {
-      planet = (starSystem as BasicStarSystem).planet;
+      planet = (starSystem as MongooseStarSystem).planets[0];
     }
 
     let hexNum = this.getCoordinates(hex);
@@ -49,8 +51,10 @@ export class UWPService {
     return `${hexNum} ${hexNum} ${uwp} ${tradeClassifications} { 0 } (A46+2) [1716]        ${b} ${z} ${pbg} 1 ${a}        \n`;
   }
 
-  static GetHexadecimal(num: number): string {
-    if (num <= 9) {
+   GetHexadecimal(num: number, allowNegative: boolean = true): string {
+    if (!allowNegative && num <= 0) {
+      return '0';
+    } else if (num <= 9) {
       return num.toString();
     }
     switch (num) {
@@ -66,12 +70,42 @@ export class UWPService {
         return 'E';
       case 15:
         return 'F';
+      case 16:
+        return 'G';
+      case 17:
+        return 'H';
+      case 18:
+        return 'J';
+      case 19:
+        return 'K';
+      case 20:
+        return 'L';
+      case 21:
+        return 'M';
+      case 22:
+        return 'N';
+      case 23:
+        return 'P';
+      case 24:
+        return 'Q';
+      case 25:
+        return 'R';
+      case 26:
+        return 'S';
+      case 27:
+        return 'T';
+      case 28:
+        return 'U';
+      case 29:
+        return 'V';
+      case 30:
+        return 'W';
       default:
         return ' ';
     }
   }
 
-  private static GetTravelCode(travelCode: TravelCode): string {
+  private  GetTravelCode(travelCode: TravelCode): string {
     switch (travelCode) {
       case TravelCode.None:
         return '';
@@ -82,18 +116,18 @@ export class UWPService {
     }
   }
 
-  static getCoordinates(hex: IHex): string {
+   getCoordinates(hex: IHex): string {
     return `${hex.coordinates.x.toString().padStart(2, '0')}${hex.coordinates.y.toString().padStart(2, '0')}`
   }
 
-  static GetUWP(planet: IPlanet): string {
+   GetUWP(planet: IPlanet): string {
     if (planet != null) {
-      return `${planet.starport}${this.GetHexadecimal(planet.size)}${this.GetHexadecimal(planet.atmosphere)}${this.GetHexadecimal(planet.hydrographics)}${this.GetHexadecimal(planet.population)}${this.GetHexadecimal(planet.government)}${this.GetHexadecimal(planet.lawLevel)}-${this.GetHexadecimal(planet.techLevel)}`;
+      return `${planet.starport}${this.GetHexadecimal(planet.size, false)}${this.GetHexadecimal(planet.atmosphere, false)}${this.GetHexadecimal(planet.hydrographics, false)}${this.GetHexadecimal(planet.population, false)}${this.GetHexadecimal(planet.government, false)}${this.GetHexadecimal(planet.lawLevel, false)}-${this.GetHexadecimal(planet.techLevel, false)}`;
     }
     return '';
   }
 
-  static getTradeCodes(planet: IPlanet): string {
+   getTradeCodes(planet: IPlanet): string {
     if (planet != null) {
       let tradeClassifications = '';
 
@@ -105,7 +139,7 @@ export class UWPService {
     return '';
   }
 
-  private static getTradeCode(tradeCode: string): string {
+  private  getTradeCode(tradeCode: string): string {
     switch (Number.parseInt(tradeCode)) {
       case 0:
         return 'Ag';
@@ -148,19 +182,19 @@ export class UWPService {
     }
   }
 
-  static getBases(planet: IPlanet): string {
+   getBases(planet: IPlanet): string {
     if (planet != null) {
       let bases = '';
 
       planet.bases.forEach(base => {
-        bases += UWPService.getBase(base);
+        bases += this.getBase(base);
       });
       return bases;
     }
     return '';
   }
 
-  private static getBase(base: Base): string {
+  private  getBase(base: Base): string {
     switch (base) {
       case Base.Naval:
         return 'N';
@@ -173,35 +207,78 @@ export class UWPService {
     }
   }
 
-  static GetIx(planet: IPlanet): string {
+   GetIx(planet: IPlanet): number {
+    let importance = 0;
+
+    if(planet.starport == 'A' || planet.starport == 'B'){
+      importance++;
+    } else if (planet.starport == 'D' || planet.starport == 'X'){
+      importance--;
+    }
+
+    if(planet.techLevel >= 16){
+      importance++;
+    }
+    if(planet.techLevel >= 10) {
+      importance++;
+    }
+    if(planet.techLevel <= 8){
+      importance--;
+    }
+
+    if(planet.tradeCodes.includes(TradeCode.Agricultural)){
+      importance++;
+    }
+    if(planet.tradeCodes.includes(TradeCode.HighPopulation)){
+      importance++;
+    }
+    if(planet.tradeCodes.includes(TradeCode.Industrial)){
+      importance++;
+    }
+    if(planet.tradeCodes.includes(TradeCode.Rich)){
+      importance++;
+    }
+
+    if(planet.population <= 6){
+      importance--;
+    }
+
+    if(planet.bases.includes(Base.Naval) && planet.bases.includes(Base.Scout)){
+      importance++;
+    }
+
+    if(planet.bases.includes(Base.WayStation)){
+      importance++;
+    }
+
+    return importance;
+  }
+
+   GetEx(planet: IPlanet): string {
     return "";
   }
 
-  static GetEx(planet: IPlanet): string {
+   GetCx(planet: IPlanet): string {
     return "";
   }
 
-  static GetCx(planet: IPlanet): string {
+   GetN(planet: IPlanet): string {
     return "";
   }
 
-  static GetN(planet: IPlanet): string {
+   GetZ(planet: IPlanet): string {
     return "";
   }
 
-  static GetZ(planet: IPlanet): string {
-    return "";
-  }
-
-  static GetPBG(hex: IHex): string {
+   GetPBG(hex: IHex): string {
     return `00${hex != null && hex.starSystems.length > 0 && hex.starSystems[0].gasGiant ? '1' : '0'}`
   }
 
-  static GetAllegiance(planet: IPlanet): string {
+   GetAllegiance(planet: IPlanet): string {
     return "";
   }
 
-  static GetStellar(planet: IPlanet): string {
+   GetStellar(planet: IPlanet): string {
     return "";
   }
 }

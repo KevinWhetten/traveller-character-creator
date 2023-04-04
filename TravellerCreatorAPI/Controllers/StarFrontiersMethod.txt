@@ -1,0 +1,247 @@
+﻿STAR FRONTIERS STAR SYSTEM GENERATOR
+By Scott Ireland
+There are many times when the players will want to go and explore new stars. Given the vast expanse of space, there are virtually infinite stars the players could visit. A referee may often have to generate solar system’s on the fly as the players decide where they wish to go. It can be a difficult task as there are many questions that must be answered. What follows is a guide for generating star systems. It should be noted that some broad assumptions are made. This by no means is meant to cover every single cosmic condition possible. It is merely a tool for creating worlds within an imaginary setting.
+
+STAR LOCATION
+The referee would take a sheet of standard grid paper and roll for each space on TABLE IA. Should the referee desire a higher probability of stars being present, a modifier of 1 or 2 could be added to the roll:
+TABLE IA
+Roll (d10) Result
+1-8 Empty
+9 Nebula
+10+ Star
+
+Nebulas tend to be large in size. If a nebula is indicated, roll on TABLE IB for each square that touches a nebula square. If a nebula is no longer indicated, switch to TABLE IA. The type of nebula can be found by rolling on TABLE IC.
+
+TABLE IB
+Roll (d10) Result
+1-4 Empty
+5-9 Nebula
+10+ Star
+
+TABLE IC
+Roll (d10) Result
+1-4 Absorption Nebula
+5-8 Emission Nebula
+9-10 Stellar Nebula
+
+Explanation of Nebula Types
+Absorption Nebula These nebula are made up of "dark matter", containing no developing stars.
+Emission Nebula These nebula are made up of the gases of developing stars.
+Stellar Nebula These nebula are made up of the debris from stars that have gone nova. They are more dangerous to navigate through due to high levels of shock waves and radiation.
+Should a star be indicated on either table, continue with the section on SOLAR SYSTEM GENERATION.
+
+SOLAR SYSTEM GENERATION
+The next step is to determine what type of star is present. Roll first on TABLE IIA for the number of stars, and then roll on TABLE IIB; once for single stars, twice for binary stars.
+
+TABLE IIA
+Roll (d10) Result
+1-7 Single Star
+8-10 Binary Star
+TABLE IIB
+Roll (d10) Result
+1 Black Hole / Neutron Star (50% / 50%)
+2-10 Normal Star - Roll on TABLE III
+
+TABLE III
+Roll (d10) Class Max. Planets #1 Habitable #2
+1 WD (White Dwarf) 0 no
+2 M 10 no
+3 K 15 yes
+4 G 15 yes
+5 F 10 yes
+6 A 5 no
+7 B 0 no
+8 O 0 no
+9 RG (Red Giant) 5 no
+10 SG (Super Giant) 0 no
+
+#1 Indicates the maximum number of planets possible in the system.
+#2 Indicates that the system has the possibility to contain habitable planets.
+
+For the main sequence stars (roll 2-8 on TABLE III), roll an additional d10. This is the star's spectral subclass (0-9).
+For binary stars, the max. planets number is divided in half for each star.
+
+Once the type of star has been determined, the number of planetary orbits must be computed. This can be done by using the following formula, where P = # of Planets:
+P = d100 x (Max. Planets / 100)
+
+After the number of planets have been determined, each world must then be classified by what ZONE it is in. There are 3 possible zones for habitable systems: Inner Zone, Habitable Zone, and Outer Zone. There are 2 possible zones for inhabitable systems: Inner Zone and Outer Zone. This may seem confusing, but it is important. Planets in the Inner Zone (i.e. closer to the sun) are more likely to be hotter, with a reduced chance for a standard atmosphere and liquid water. Worlds in the outer zone (i.e. farther away from the sun) are more likely to be colder with reduced chances for a standard atmosphere and liquid water as well. Planets in the habitable zone are more likely to contain an atmosphere and liquid water capable of supporting life. It should be noted that because a world is in a habitable zone doesn't mean it will be habitable.
+
+Systems marked as habitable should first determine which orbit is the base HZ (habitable zone):
+HZ = P / 3
+
+In addition, there is a chance that up to 2 additional planets may be habitable. Roll on the following 2 tables:
+
+TABLE IVA
+Roll (d10) Result
+1-5 One planet closer towards the star (HZ - 1) is habitable (if the planet exists).
+6-10 Next closer planet isn't habitable.
+
+TABLE IVB
+Roll (d10) Result
+1-5 One planet further from the star (HZ + 1) is habitable (if the planet exists).
+6-10 Next further planet isn't habitable.
+
+Every planet number between the lowest habitable zone and the star is considered in the Inner Zone.
+Every planet number larger than the highest habitable zone is considered in the Outer Zone.
+
+For star systems that contain planets, but aren't habitable, the base outer zone is figured by the following formula:
+OZ = P / 3
+
+Any planet number between the star and the above number is considered in the Inner Zone. All of the rest of the planets are considered in Outer Zone.
+
+WORLD CREATION
+Now that we know what our star is, how many planets there are, and which zone each planet is in, we can flesh out some of the general details about each world. 
+
+We will first determine the type of world present. For each planet, roll on the following table:
+
+TABLE IV
+Roll (d10) Result
+1-2 Asteroid Belt
+3-6 Planet
+7-10 Gas Giant
+
+WORLD SIZE (S)
+Each world will have a size associated with it. For each world, roll on the appropriate table below:
+
+ASTEROID BELT (AB)
+All asteroids are considered to have a size of 0 (S0).
+
+PLANET (P)
+Roll (d10) Result (Diameter x1000 km)
+1-5 d10
+6-10 d10 + 10
+
+GAS GIANT (GG) *
+Roll (d10) Result (Diameter x1000 km)
+1-5 10 + 10d10
+6-10 100 + 10d10
+* Gas Giants have a 50% chance of having rings (r)
+
+ATMOSPHERE (A)
+Once the world sizes are determined, the type of atmosphere on each world can be found. For each planet, roll on the following table, noting the exceptions and modifiers that follow:
+Roll (S + d10 - d10) ** Result
+0- None
+1 Trace
+2 Very Thin *
+3 Thin *
+4 Thin *
+5 Standard *
+6 Standard *
+7 Dense *
+8 Dense*
+9 Very Dense *
+10+ Exotic
+
+** Modifiers to Atmosphere Type
+
+Inner / Outer Zone Worlds Roll (d10) Result
+1-6 Roll @ -5
+7-9 Exotic Atmosphere - ignore roll
+10 No modifier
+
+World S0 or S1 No Atmosphere - ignore roll
+Gas Giant Exotic Atmosphere - ignore roll
+* 50% Chance of being tainted (!)
+
+Explanation of Atmosphere Types
+Trace: This atmosphere contains just a hint of gas. Characters must wear a space suit in order to survive.
+Very Thin: This atmosphere is slightly denser than Trace. Characters must wear a space suit in order to survive. Characters exposed without protection can survive for a number of rounds equal to their STAMINA score, taking 1 point of damage per round.
+Thin: Characters can survive in this atmosphere without protection. Due to the low pressure, characters will tire more easily (i.e. adventure for only half as long as normal). During times of strenuous physical exertion (ex. Combat), a STAMINA check must be made per round. A failed check indicates that all activities are at a -2 CS penalty until the character rests or is treated (i.e. given a Stim Dose).
+Standard: Characters suffer no ill effects in this type of atmosphere.
+Dense: Characters can survive in this atmosphere without protection. Due to the high pressure, characters will tire more easily (i.e. adventure for only half as long as normal). During times of strenuous physical exertion (ex. Combat), a STAMINA check must be made per round. A failed check indicates that all activities are at a -2 CS penalty until the character rests or is treated (i.e. given a Stim Dose).
+Very Dense: Characters must wear a space suit in order to survive in this type of atmosphere. Characters exposed to this air without protection can survive for a number of rounds equal to their STAMINA score, taking 1 point of damage per round.
+Exotic: This atmosphere contains a wild mix of numerous lethal gases. Characters must wear a space suit in order to survive.
+Tainted: Atmospheres marked as tainted (!) are not breathable without some protection. Characters must wear some sort of filter mask in order to survive, or suffer the effects of the air (poison, corrosive, etc.)
+
+HYDROGRAPHICS (H)
+After the atmosphere as been determined, each worlds hydrographics (surface liquid) can be determined. Roll for each world on the following table, noting the modifiers that follow:
+Roll (S + d10 - d10) ** Result *
+0- None
+1 10%
+2 20%
+3 30%
+4 40%
+5 50%
+6 60%
+7 70%
+8 80%
+9 90%
+10+ 100%
+
+** Modifiers to Hydrographics Type
+Inner Zone Worlds No water - ignore roll
+Outer Zone Worlds Roll (d10) Result
+1-9 Roll @ -5
+10 No modifier
+
+Atmosphere <= Trace (A1) or >= Exotic (A10) Roll @ -5
+Gas Giant 100% Liquid
+* If the atmosphere is exotic (A10), then the surface water is tainted (!). Otherwise, there is a 50% chance the surface water is tainted.
+
+Explanation of Hydrographic Types
+Gas Giant Gas Giants will contain a liquid surface, though this is usually a liquid metal of some form.
+Outer Zone Non gas giants in the Outer Zone with a hydrographics rating will have their surface water in the form of ice.
+Tainted The surface water must be filtered before it can be used. It can be poison, corrosive, etc.
+
+MOONS (M)
+One final detail to add is the number of moons a world may have. The number of moons are determined by the following table:
+Roll (d10) Result
+1-3 #M = (S / 10) - d5
+4-7 #M = (S / 10)
+8-10 #M = (S / 10) + d5
+
+Most moons will be small airless, waterless planetoids (S0/A0/H0). A few might contain an atmosphere and water. For each moon, roll on the following table. If a higher chance of a special moon is desired, a modifier of 1 or 2 can be added. Moons are considered to be in the same ZONE as the world they orbit. Moons must be of a size less than the world they orbit.
+
+MOON SIZE
+Roll (d10) Result
+1-9 S0/A0/H0
+10+ S = d10 roll for A and H
+
+EXAMPLES
+Here are some example systems, showing notation that can be used when describing them. The following guide shows what the TYPE and STATISTIC notations represent:
+P = Planet
+AB = Asteroid Belt. All Asteroid Belts have S0/A0/H0/M0 as their statistics.
+GG = Gas Giant. All Gas Giants have A10/H10 as their statistics.
+S = Size.
+A = Atmosphere
+H = Hydrographics
+M = Moon.
++ = World in Habitable Zone
+! = Tainted
+r = Rings
+
+EXAMPLE 1
+Star Orbit Type Statistics
+G7 1 P+ S6/A4/H3/M0
+2 AB
+3 GG S75r/M6
+M2 S4/A2/H1!
+M6 S10/A5!/H5
+4 GG S50/M2
+
+NOTES:
+Star is single. It is class G7 with 4 worlds.
+World 1 is within the habitable zone (+). It is 6000 km (S6) in diameter. It possesses a thin atmosphere (A4). It is 30% covered in water (H3). It has no moons (M0).
+World 2 is within the outer zone . It is an asteroid belt.
+World 3 is within the outer zone. It is a gas giant that measures 75,000 km in diameter and has rings (S75r). It has 6 moons (M6). Moons 1, 3, 4, 5 are all small planetoids. Moon 2 has a very thin atmosphere (A2) and 10% covered in toxic ice (H1!, outer zone). Moon 6 is a large moon (S10) and has a tainted standard atmosphere (A5!). Its surface is covered by 50% ice (H5, outer zone).
+World 4 is within the outer zone. It is a gas giant that measures 50,000 km in diameter (S50). It has 2 small moons.
+
+EXAMPLE 2
+Star Orbit Type Statistics
+O4
+K2 1 P S2/A0/H0/M0
+2 P+ S6/A10/H0/M0
+3 P+ S6/A5/H6/M1
+M1 S2/A0/H0
+4 AB
+5 GG S62r/M2
+6 P S3/A0/H0/M0
+
+NOTES:
+Star is binary. The primary star is class O4 with no planets. The secondary star is class K2 with 6 worlds.
+World 1 is in the inner zone. It is 2000 km in diameter (S2). It has no atmosphere, water, or moon (A0/H0/M0).
+World 2 is in the habitable zone (+). It is 6000 km in diameter (S6). It has an exotic atmosphere (H10). It has no water or moons (H0/M0).
+World 3 is in the habitable zone (+). It is 6000 km in diameter (S6). It has a standard atmosphere (A5). It is 60% covered in water (H6) and has 1 moon (M1). Moon 1 is 2000 km in diameter (S2) and has no air or water (A0/H0).
+World 4 is in the outer zone. It is an asteroid belt.
+World 5 is in the outer zone. It is a gas giant. It is 62,000 km in diameter with rings (S62r). It has 2 moons (M2). Both moons are small planetoids.
+World 6 is in the outer zone. It is 3000 km in diameter (S3). It has no atmosphere, water or moon (A0/H0/M0).

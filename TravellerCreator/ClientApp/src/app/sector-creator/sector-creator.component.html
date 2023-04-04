@@ -2,8 +2,8 @@
 
 <div class="sector-checkbox">
   <div>
-    <input type="radio" name="sector" id="basic-sector" [value]="0" [(ngModel)]="sectorType"/>
-    <label for="basic-sector">Basic Sector</label>
+    <input type="radio" name="sector" id="mongoose-sector" [value]="0" [(ngModel)]="sectorType"/>
+    <label for="mongoose-sector">Mongoose Sector</label>
   </div>
   <div>
     <input type="radio" name="sector" id="space-opera-sector" [value]="1" [(ngModel)]="sectorType"/>
@@ -30,4 +30,6 @@
 <button class="primary" (click)="generateSector()">Generate Sector</button>
 <button class="primary" (click)="downloadSector()">Download Sector</button>
 
-<app-sector [sector]="sector"></app-sector>
+<app-mongoose-sector *ngIf="isMongooseSector()" [sector]="mongooseSector"></app-mongoose-sector>
+<app-star-frontiers-sector *ngIf="isStarFrontiersSector()" [sector]="starFrontiersSector"></app-star-frontiers-sector>
+<app-rttworldgen-sector *ngIf="isRTTWorldgenSector()" [sector]="rttWorldgenSector"></app-rttworldgen-sector>

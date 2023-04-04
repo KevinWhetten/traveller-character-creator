@@ -5,18 +5,18 @@ namespace TravellerCreatorModels.StarFrontiers;
 
 public class StarFrontiersStar : IStar
 {
-    public Luminosity Luminosity { get; set; }
+    public SpectralType SpectralType { get; set; }
     public int SpectralSubclass { get; set; }
     
 
     public StarFrontiersStar()
     {
-        Luminosity = Luminosity.A;
+        SpectralType = SpectralType.A;
         SpectralSubclass = 0;
     }
-    public StarFrontiersStar(Luminosity luminosity, int spectralSubclass)
+    public StarFrontiersStar(SpectralType spectralType, int spectralSubclass)
     {
-        Luminosity = luminosity;
+        SpectralType = spectralType;
         SpectralSubclass = spectralSubclass;
     }
 }

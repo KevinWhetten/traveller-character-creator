@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {PageService} from "../services/page.service";
+import {PageService} from "../character-creator/services/page.service";
 
 @Component({
   selector: 'app-nav-menu',

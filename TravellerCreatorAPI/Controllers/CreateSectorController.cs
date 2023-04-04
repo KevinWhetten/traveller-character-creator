@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TravellerCharacterCreatorBL;
 using TravellerCreatorModels.Enums;
-using TravellerCreatorModels.Interfaces;
 
 namespace TravellerCharacterCreatorAPI.Controllers;
 
@@ -56,25 +55,12 @@ public class CreateSectorController : ControllerBase
     }
 
     [HttpGet]
-    [Route("StarFrontiersSector")]
-    // https://travellermap.com/doc/secondsurvey
-    public IActionResult GetStarFrontiersSector()
-    {
-        try {
-            return Ok(_sectorGenerator.GenerateSector(SectorType.StarFrontiers));
-        }
-        catch (Exception) {
-            return StatusCode(500);
-        }
-    }
-
-    [HttpGet]
     [Route("T5Sector")]
     // https://travellermap.com/doc/secondsurvey
-    public IActionResult GetSecondSurveySector()
+    public IActionResult GetT5Sector()
     {
         try {
-            return Ok(_sectorGenerator.GenerateSector(SectorType.SecondSurvey));
+            return Ok(_sectorGenerator.GenerateSector(SectorType.T5));
         }
         catch (Exception) {
             return StatusCode(500);
@@ -88,6 +74,19 @@ public class CreateSectorController : ControllerBase
     {
         try {
             return Ok(_sectorGenerator.GenerateSector(SectorType.RTTWorldgen));
+        }
+        catch (Exception ex) {
+            return StatusCode(500, $"{ex.Message}{ex.StackTrace}");
+        }
+    }
+
+    [HttpGet]
+    [Route("StarFrontiersSector")]
+    // StarFrontiersMethod.txt
+    public IActionResult GetStarFrontiersSector()
+    {
+        try {
+            return Ok(_sectorGenerator.GenerateSector(SectorType.StarFrontiers));
         }
         catch (Exception) {
             return StatusCode(500);

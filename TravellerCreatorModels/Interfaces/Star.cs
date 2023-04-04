@@ -4,6 +4,6 @@ namespace TravellerCreatorModels.Interfaces;
 
 public interface IStar
 {
-    Luminosity Luminosity { get; set; }
+    SpectralType SpectralType { get; set; }
     int SpectralSubclass { get; set; }
 }

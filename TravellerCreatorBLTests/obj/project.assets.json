@@ -976,7 +976,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "TravellerCreatorGlobalMethods": "1.0.0",
-          "TravellerCreatorModels": "1.0.0"
+          "TravellerCreatorModels": "1.0.0",
+          "TravellerCreatorServices": "1.0.0"
         },
         "compile": {
           "bin/placeholder/TravellerCreatorBL.dll": {}
@@ -1006,6 +1007,19 @@
         },
         "runtime": {
           "bin/placeholder/TravellerCreatorModels.dll": {}
+        }
+      },
+      "TravellerCreatorServices/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "TravellerCreatorModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TravellerCreatorServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TravellerCreatorServices.dll": {}
         }
       }
     }
@@ -3953,6 +3967,11 @@
       "type": "project",
       "path": "../TravellerCreatorModels/TravellerCreatorModels.csproj",
       "msbuildProject": "../TravellerCreatorModels/TravellerCreatorModels.csproj"
+    },
+    "TravellerCreatorServices/1.0.0": {
+      "type": "project",
+      "path": "../TravellerCreatorServices/TravellerCreatorServices.csproj",
+      "msbuildProject": "../TravellerCreatorServices/TravellerCreatorServices.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3961,11 +3980,12 @@
       "NUnit >= 3.13.2",
       "NUnit3TestAdapter >= 4.0.0",
       "TravellerCreatorBL >= 1.0.0",
+      "TravellerCreatorServices >= 1.0.0",
       "coverlet.collector >= 3.1.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\krwhe\\.nuget\\packages\\": {}
+    "C:\\Users\\Kevin - Work\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -3973,11 +3993,11 @@
       "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBLTests\\TravellerCreatorBLTests.csproj",
       "projectName": "TravellerCreatorBLTests",
       "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBLTests\\TravellerCreatorBLTests.csproj",
-      "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Kevin - Work\\.nuget\\packages\\",
       "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBLTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Kevin - Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3993,6 +4013,9 @@
           "projectReferences": {
             "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBL\\TravellerCreatorBL.csproj": {
               "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBL\\TravellerCreatorBL.csproj"
+            },
+            "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorServices\\TravellerCreatorServices.csproj": {
+              "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorServices\\TravellerCreatorServices.csproj"
             }
           }
         }

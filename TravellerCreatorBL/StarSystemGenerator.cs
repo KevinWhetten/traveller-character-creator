@@ -1,7 +1,8 @@
 ﻿using TravellerCreatorGlobalMethods;
-using TravellerCreatorModels.Basic;
 using TravellerCreatorModels.Enums;
 using TravellerCreatorModels.Interfaces;
+using TravellerCreatorModels.Mongoose;
+using TravellerCreatorModels.RTTWorldgen;
 using TravellerCreatorModels.StarFrontiers;
 
 namespace TravellerCharacterCreatorBL;
@@ -13,28 +14,34 @@ public class StarSystemGenerator
 
     public StarSystemGenerator()
     {
-        _planetGenerator = new PlanetGenerator(new TradeCodeService());
+        _planetGenerator = new PlanetGenerator();
         _starGenerator = new StarGenerator();
     }
 
-    public IStarSystem GenerateBasicStarSystem(SectorType sectorType)
+    public IStarSystem GenerateMongooseStarSystem(SectorType sectorType)
     {
-        var starSystem = new BasicStarSystem {
+        var starSystem = new MongooseStarSystem {
             Type = StarSystemType.Basic,
-            Planet = Roll.D6(1) >= 4
-                ? (BasicPlanet) _planetGenerator.GeneratePlanet(sectorType)
-                : null
+            Planets = new List<IPlanet>()
         };
+        var planet = Roll.D6(1) >= 4
+            ? (MongoosePlanet) _planetGenerator.GenerateMongoosePlanet(sectorType)
+            : null;
+
+        if (planet != null) {
+            starSystem.Planets.Add(planet);
+        }
 
         if (sectorType is SectorType.SpaceOpera or SectorType.HardScience
-            && starSystem.Planet is {Size: <= 4}) {
-            int size = starSystem.Planet.Size;
-            int atmosphere = starSystem.Planet.Atmosphere;
+            && starSystem.Planets.Count > 0
+            && starSystem.Planets[0] is {Size: <= 4}) {
+            int size = starSystem.Planets[0].Size;
+            int atmosphere = starSystem.Planets[0].Atmosphere;
 
             if (size is >= 0 and <= 2) {
-                starSystem.Planet.Atmosphere = 0;
+                starSystem.Planets[0].Atmosphere = 0;
             } else {
-                starSystem.Planet.Atmosphere = atmosphere switch {
+                starSystem.Planets[0].Atmosphere = atmosphere switch {
                     (<= 2) => 0,
                     (>= 3 and <= 5) => 1,
                     (_) => 10
@@ -47,7 +54,7 @@ public class StarSystemGenerator
         return starSystem;
     }
 
-    public IStarSystem GenerateStarFrontiersSystem()
+    public IStarSystem GenerateStarFrontiersStarSystem()
     {
         var starSystem = new StarFrontiersStarSystem();
         int numStars = Roll.D10(1) <= 7 ? 1 : 2;
@@ -56,12 +63,12 @@ public class StarSystemGenerator
             starSystem.Stars.Add(_starGenerator.GenerateStarFrontiersStar());
         }
 
-        int numPlanets = starSystem.Stars.First().Luminosity switch {
-            Luminosity.M => Roll.D10(1),
-            Luminosity.K => Roll.D(15, 1),
-            Luminosity.G => Roll.D(15, 1),
-            Luminosity.F => Roll.D10(1),
-            Luminosity.A => Roll.D(5, 1),
+        int numPlanets = starSystem.Stars.First().SpectralType switch {
+            SpectralType.M => Roll.D10(1),
+            SpectralType.K => Roll.D(15, 1),
+            SpectralType.G => Roll.D(15, 1),
+            SpectralType.F => Roll.D10(1),
+            SpectralType.A => Roll.D(5, 1),
             _ => 0
         };
         int habitableBase = numPlanets / 3;
@@ -76,8 +83,32 @@ public class StarSystemGenerator
         }
 
         for (var i = 0; i < numPlanets; i++) {
-            starSystem.Planets.Add(_planetGenerator.GenerateStarFrontiersPlanet(habitablePlanets.Contains(i), habitableBase, i));
+            starSystem.Planets.Add(
+                _planetGenerator.GenerateStarFrontiersPlanet(habitablePlanets.Contains(i), habitableBase, i));
         }
+
+        return starSystem;
+    }
+
+    public IStarSystem GenerateRTTWorldgenStarSystem(RTTWorldgenStarSystemType starSystemType)
+    {
+        var starSystem = new RTTWorldgenStarSystem {
+            Stars = _starGenerator.GenerateRTTWorldgenStarSystemStars(starSystemType)
+        };
+
+        starSystem.Planets = _planetGenerator.GenerateRTTWorldgenPlanets(starSystem.Stars);
+
+        return starSystem;
+    }
+
+    public IStarSystem GenerateRTTWorldgenStarSystem(RTTWorldgenStar star)
+    {
+        var starSystem = new RTTWorldgenStarSystem {
+            Stars = new List<IStar> {star}
+        };
+
+        starSystem.Planets = _planetGenerator.GenerateRTTWorldgenPlanets(starSystem.Stars);
+
 
         return starSystem;
     }

@@ -36,3 +36,5 @@ C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorAPI\obj\Debug\net7.
 C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorAPI\obj\Debug\net7.0\TravellerCreatorAPI.pdb
 C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorAPI\obj\Debug\net7.0\TravellerCreatorAPI.genruntimeconfig.cache
 C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorAPI\obj\Debug\net7.0\ref\TravellerCreatorAPI.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorAPI\bin\Debug\net7.0\TravellerCreatorServices.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorAPI\bin\Debug\net7.0\TravellerCreatorServices.pdb

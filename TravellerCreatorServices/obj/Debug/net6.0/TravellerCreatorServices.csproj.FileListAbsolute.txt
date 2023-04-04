@@ -1,0 +1,17 @@
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\bin\Debug\net6.0\TravellerCreatorServices.deps.json
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\bin\Debug\net6.0\TravellerCreatorServices.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\bin\Debug\net6.0\TravellerCreatorServices.pdb
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\bin\Debug\net6.0\TravellerCreatorGlobalMethods.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\bin\Debug\net6.0\TravellerCreatorModels.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\bin\Debug\net6.0\TravellerCreatorModels.pdb
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\bin\Debug\net6.0\TravellerCreatorGlobalMethods.pdb
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\obj\Debug\net6.0\TravellerCreatorServices.csproj.AssemblyReference.cache
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\obj\Debug\net6.0\TravellerCreatorServices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\obj\Debug\net6.0\TravellerCreatorServices.AssemblyInfoInputs.cache
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\obj\Debug\net6.0\TravellerCreatorServices.AssemblyInfo.cs
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\obj\Debug\net6.0\TravellerCreatorServices.csproj.CoreCompileInputs.cache
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\obj\Debug\net6.0\TravellerCreatorServices.csproj.CopyComplete
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\obj\Debug\net6.0\TravellerCreatorServices.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\obj\Debug\net6.0\refint\TravellerCreatorServices.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\obj\Debug\net6.0\TravellerCreatorServices.pdb
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorServices\obj\Debug\net6.0\ref\TravellerCreatorServices.dll

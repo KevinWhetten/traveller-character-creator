@@ -6,6 +6,5 @@ export interface IStarSystem {
   stars: IStar[];
   type: StarSystemType;
   gasGiant: boolean;
-  planet: IPlanet;
   planets: IPlanet[];
 }

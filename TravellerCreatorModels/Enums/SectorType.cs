@@ -5,7 +5,7 @@ public enum SectorType
     Basic,
     SpaceOpera,
     HardScience,
-    SecondSurvey,
+    T5,
     RTTWorldgen,
     StarFrontiers
 }

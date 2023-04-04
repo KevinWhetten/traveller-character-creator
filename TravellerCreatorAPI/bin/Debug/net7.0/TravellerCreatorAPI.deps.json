@@ -130,7 +130,8 @@
       "TravellerCreatorBL/1.0.0": {
         "dependencies": {
           "TravellerCreatorGlobalMethods": "1.0.0",
-          "TravellerCreatorModels": "1.0.0"
+          "TravellerCreatorModels": "1.0.0",
+          "TravellerCreatorServices": "1.0.0"
         },
         "runtime": {
           "TravellerCreatorBL.dll": {}
@@ -147,6 +148,14 @@
         },
         "runtime": {
           "TravellerCreatorModels.dll": {}
+        }
+      },
+      "TravellerCreatorServices/1.0.0": {
+        "dependencies": {
+          "TravellerCreatorModels": "1.0.0"
+        },
+        "runtime": {
+          "TravellerCreatorServices.dll": {}
         }
       }
     }
@@ -322,6 +331,11 @@
       "sha512": ""
     },
     "TravellerCreatorModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TravellerCreatorServices/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

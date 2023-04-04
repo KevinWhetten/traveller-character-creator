@@ -210,3 +210,5 @@ C:\source\traveller-character-creator\TravellerCreatorBLTests\obj\Debug\net6.0\r
 C:\source\traveller-character-creator\TravellerCreatorBLTests\obj\Debug\net6.0\TravellerCreatorBLTests.pdb
 C:\source\traveller-character-creator\TravellerCreatorBLTests\obj\Debug\net6.0\TravellerCreatorBLTests.genruntimeconfig.cache
 C:\source\traveller-character-creator\TravellerCreatorBLTests\obj\Debug\net6.0\ref\TravellerCreatorBLTests.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBLTests\bin\Debug\net6.0\TravellerCreatorServices.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBLTests\bin\Debug\net6.0\TravellerCreatorServices.pdb

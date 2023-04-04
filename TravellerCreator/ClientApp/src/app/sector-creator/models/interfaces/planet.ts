@@ -12,11 +12,11 @@ export interface IPlanet {
   population: number;
   government: number;
   lawLevel: number;
-  starport: number;
+  starport: string;
   techLevel: number;
   tradeCodes: TradeCode[];
   bases: Base[];
   travelCode: TravelCode;
   planetType: PlanetType;
-  moons: IPlanet[];
+  satellites: IPlanet[];
 }

@@ -1,7 +1,8 @@
-﻿using TravellerCreatorModels.Basic;
-using TravellerCreatorModels.Enums;
+﻿using TravellerCreatorModels.Enums;
 using TravellerCreatorModels.Interfaces;
+using TravellerCreatorModels.Mongoose;
 using TravellerCreatorModels.Other;
+using TravellerCreatorModels.RTTWorldgen;
 using TravellerCreatorModels.StarFrontiers;
 
 namespace TravellerCharacterCreatorBL;
@@ -18,21 +19,21 @@ public class SectorGenerator
     public ISector GenerateSector(SectorType sectorType)
     {
         return sectorType switch {
-            SectorType.Basic or SectorType.SpaceOpera or SectorType.HardScience => GenerateBasicSector(sectorType),
-            SectorType.StarFrontiers => GenerateStarFrontiersSector(),
-            SectorType.SecondSurvey => GenerateT5Sector(),
+            SectorType.Basic or SectorType.SpaceOpera or SectorType.HardScience => GenerateMongooseSector(sectorType),
+            SectorType.T5 => GenerateT5Sector(),
             SectorType.RTTWorldgen => GenerateRTTWorldgenSector(),
+            SectorType.StarFrontiers => GenerateStarFrontiersSector(),
             _ => throw new Exception()
         };
     }
 
-    private ISector GenerateBasicSector(SectorType sectorType)
+    private ISector GenerateMongooseSector(SectorType sectorType)
     {
-        var sector = new BasicSector();
+        var sector = new MongooseSector();
         
         for (var y = 1; y <= 4; y++) {
             for (var x = 1; x <= 4; x++) {
-                var newSubsector = _subsectorGenerator.GenerateBasicSubsector(new Coordinates(x, y), sectorType);
+                var newSubsector = _subsectorGenerator.GenerateMongooseSubsector(new Coordinates(x, y), sectorType);
                 sector.Subsectors.Add(newSubsector);
             }
         }
@@ -61,6 +62,15 @@ public class SectorGenerator
 
     private ISector GenerateRTTWorldgenSector()
     {
-        throw new NotImplementedException();
+        var sector = new RTTWorldgenSector();
+
+        for (var y = 1; y <= 4; y++) {
+            for (var x = 1; x <= 4; x++) {
+                ISubsector newSubsector = _subsectorGenerator.GenerateRTTWorldgenSubsector(new Coordinates(x, y));
+                sector.Subsectors.Add(newSubsector);
+            }
+        }
+        
+        return sector;
     }
 }

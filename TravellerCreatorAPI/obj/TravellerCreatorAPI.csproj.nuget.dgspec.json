@@ -10,11 +10,11 @@
         "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorAPI\\TravellerCreatorAPI.csproj",
         "projectName": "TravellerCreatorAPI",
         "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorAPI\\TravellerCreatorAPI.csproj",
-        "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Kevin - Work\\.nuget\\packages\\",
         "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kevin - Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,11 +82,11 @@
         "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBL\\TravellerCreatorBL.csproj",
         "projectName": "TravellerCreatorBL",
         "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBL\\TravellerCreatorBL.csproj",
-        "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Kevin - Work\\.nuget\\packages\\",
         "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kevin - Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -105,6 +105,9 @@
               },
               "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\TravellerCreatorModels.csproj": {
                 "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\TravellerCreatorModels.csproj"
+              },
+              "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorServices\\TravellerCreatorServices.csproj": {
+                "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorServices\\TravellerCreatorServices.csproj"
               }
             }
           }
@@ -158,11 +161,11 @@
         "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj",
         "projectName": "TravellerCreatorGlobalMethods",
         "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj",
-        "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Kevin - Work\\.nuget\\packages\\",
         "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorGlobalMethods\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kevin - Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -227,11 +230,11 @@
         "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\TravellerCreatorModels.csproj",
         "projectName": "TravellerCreatorModels",
         "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\TravellerCreatorModels.csproj",
-        "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Kevin - Work\\.nuget\\packages\\",
         "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kevin - Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -247,6 +250,79 @@
             "projectReferences": {
               "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj": {
                 "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorGlobalMethods\\TravellerCreatorGlobalMethods.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorServices\\TravellerCreatorServices.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorServices\\TravellerCreatorServices.csproj",
+        "projectName": "TravellerCreatorServices",
+        "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorServices\\TravellerCreatorServices.csproj",
+        "packagesPath": "C:\\Users\\Kevin - Work\\.nuget\\packages\\",
+        "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorServices\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kevin - Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\TravellerCreatorModels.csproj": {
+                "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorModels\\TravellerCreatorModels.csproj"
               }
             }
           }

@@ -32,3 +32,5 @@ C:\source\traveller-character-creator\TravellerCreatorBL\obj\Debug\net6.0\Travel
 C:\source\traveller-character-creator\TravellerCreatorBL\obj\Debug\net6.0\refint\TravellerCreatorBL.dll
 C:\source\traveller-character-creator\TravellerCreatorBL\obj\Debug\net6.0\TravellerCreatorBL.pdb
 C:\source\traveller-character-creator\TravellerCreatorBL\obj\Debug\net6.0\ref\TravellerCreatorBL.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\bin\Debug\net6.0\TravellerCreatorServices.dll
+C:\Source\Personal\TravellerCharacterCreator\TravellerCreatorBL\bin\Debug\net6.0\TravellerCreatorServices.pdb

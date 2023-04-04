@@ -329,7 +329,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "TravellerCreatorGlobalMethods": "1.0.0",
-          "TravellerCreatorModels": "1.0.0"
+          "TravellerCreatorModels": "1.0.0",
+          "TravellerCreatorServices": "1.0.0"
         },
         "compile": {
           "bin/placeholder/TravellerCreatorBL.dll": {}
@@ -359,6 +360,19 @@
         },
         "runtime": {
           "bin/placeholder/TravellerCreatorModels.dll": {}
+        }
+      },
+      "TravellerCreatorServices/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "TravellerCreatorModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TravellerCreatorServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TravellerCreatorServices.dll": {}
         }
       }
     }
@@ -833,6 +847,11 @@
       "type": "project",
       "path": "../TravellerCreatorModels/TravellerCreatorModels.csproj",
       "msbuildProject": "../TravellerCreatorModels/TravellerCreatorModels.csproj"
+    },
+    "TravellerCreatorServices/1.0.0": {
+      "type": "project",
+      "path": "../TravellerCreatorServices/TravellerCreatorServices.csproj",
+      "msbuildProject": "../TravellerCreatorServices/TravellerCreatorServices.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -843,7 +862,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\krwhe\\.nuget\\packages\\": {}
+    "C:\\Users\\Kevin - Work\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -851,11 +870,11 @@
       "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorAPI\\TravellerCreatorAPI.csproj",
       "projectName": "TravellerCreatorAPI",
       "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorAPI\\TravellerCreatorAPI.csproj",
-      "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Kevin - Work\\.nuget\\packages\\",
       "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Kevin - Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {CharacterService} from "../services/character.service";
-import {CharacterMetadataService} from "../services/metadata-services/character-metadata.service";
+import {CharacterMetadataService} from "./services/metadata-services/character-metadata.service";
 
 @Component({
   selector: 'app-character-creator',

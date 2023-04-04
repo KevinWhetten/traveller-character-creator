@@ -13,11 +13,11 @@ export class StarFrontiersPlanet implements IPlanet{
   name: string;
   population: number;
   size: number;
-  starport: number;
+  starport: string;
   techLevel: number;
   temperature: number;
   tradeCodes: TradeCode[];
   travelCode: TravelCode;
   planetType: PlanetType;
-  moons: StarFrontiersPlanet[];
+  satellites: StarFrontiersPlanet[];
 }

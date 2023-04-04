@@ -16,6 +16,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TravellerCreatorBL\TravellerCreatorBL.csproj" />
+      <ProjectReference Include="..\TravellerCreatorServices\TravellerCreatorServices.csproj" />
     </ItemGroup>
 
 </Project>
