@@ -1,0 +1,51 @@
+﻿<div class="characteristics">
+  <h2>CHARACTERISTICS</h2>
+  <div class="flex-col">
+    <div class="column">
+      <div class="characteristic">
+        <p>STR:</p>
+        <p>{{getStrength()}}
+          ({{getStrengthDm() >= 0 ? '+' + getStrengthDm() : getStrengthDm()}}
+          {{getMaxStrength() !== getStrength() ? ', Max: ' + getMaxStrength() : ''}})</p>
+      </div>
+      <div class="characteristic">
+        <p>DEX:</p>
+        <p>{{getDexterity()}}
+          ({{getDexterityDm() >= 0 ? '+' + getDexterityDm() : getDexterityDm()}}
+          {{getMaxDexterity() !== getDexterity() ? ', Max:  ' + getMaxDexterity() : ''}})</p>
+      </div>
+      <div class="characteristic">
+        <p>END:</p>
+        <p>{{getEndurance()}}
+          ({{getEnduranceDm() >= 0 ? '+' + getEnduranceDm() : getEnduranceDm()}}
+          {{getMaxEndurance() !== getEndurance() ? ', Max:  ' + getMaxEndurance() : ''}})</p>
+      </div>
+      <div *ngIf="getPsi() >= 0" class="characteristic">
+        <p>PSI:</p>
+        <p>{{getPsi()}}
+          ({{getPsiDm() >= 0 ? '+' + getPsiDm() : getPsiDm()}}
+          {{getMaxPsi() !== getPsi() ? ', Max:  ' + getMaxPsi() : ''}})</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="characteristic">
+        <p>INT:</p>
+        <p>{{getIntellect()}}
+          ({{getIntellectDm() >= 0 ? '+' + getIntellectDm() : getIntellectDm()}}
+          {{getMaxIntellect() !== getIntellect() ? ', Max:  ' + getMaxIntellect() : ''}})</p>
+      </div>
+      <div class="characteristic">
+        <p>EDU:</p>
+        <p>{{getEndurance()}}
+          ({{getEnduranceDm() >= 0 ? '+' + getEnduranceDm() : getEnduranceDm()}}
+          {{getEndurance() !== getEndurance() ? ', Max:  ' + getMaxEndurance() : ''}})</p>
+      </div>
+      <div class="characteristic">
+        <p>SOC:</p>
+        <p>{{getSocialStanding()}}
+          ({{getSocialStandingDm() >= 0 ? '+' + getSocialStandingDm() : getSocialStandingDm()}}
+          {{getMaxSocialStanding() !== getSocialStanding() ? ', Max:  ' + getMaxSocialStanding() : ''}})</p>
+      </div>
+    </div>
+  </div>
+</div>
