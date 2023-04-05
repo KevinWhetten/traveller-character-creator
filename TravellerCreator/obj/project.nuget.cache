@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "i2iQ5DEXFFJstwZloTlpyi0vEIDo9fPtvnIs5XutoXve0+c/q9/tuDGJ1N3Itzv6qk/kYmsqHJwx0Fxoh8oBcQ==",
+  "success": true,
+  "projectFilePath": "C:\\source\\traveller-character-creator\\TravellerCreator\\TravellerCreator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\krw\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\6.0.3\\microsoft.aspnetcore.spaproxy.6.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

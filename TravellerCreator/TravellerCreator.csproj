@@ -51,6 +51,7 @@
       <Folder Include="ClientApp\src\app\character-creator\components" />
       <Folder Include="ClientApp\src\app\character-creator\controls" />
       <Folder Include="ClientApp\src\app\services\metadata-services" />
+      <Folder Include="obj\Debug\net6.0" />
     </ItemGroup>
 
     <ItemGroup>

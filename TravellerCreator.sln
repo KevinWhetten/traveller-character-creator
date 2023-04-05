@@ -2,19 +2,15 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreator", "TravellerCreator\TravellerCreator.csproj", "{2D36E10F-5FB8-45B6-9426-F6ECD03C6B40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorAPI", "TravellerCreatorAPI\TravellerCreatorAPI.csproj", "{A2FA82E7-693D-4D3D-B07D-CBE708B00315}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.API", "SectorCreator.API\SectorCreator.API.csproj", "{A2FA82E7-693D-4D3D-B07D-CBE708B00315}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorBL", "TravellerCreatorBL\TravellerCreatorBL.csproj", "{87AF5ABF-882D-4130-89A7-DEC1817A13D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.BL", "SectorCreator.BL\SectorCreator.BL.csproj", "{87AF5ABF-882D-4130-89A7-DEC1817A13D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorModels", "TravellerCreatorModels\TravellerCreatorModels.csproj", "{A7041C29-5E3D-40D9-9752-CE53FCB88C7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.Models", "SectorCreator.Models\SectorCreator.Models.csproj", "{A7041C29-5E3D-40D9-9752-CE53FCB88C7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorGlobalMethods", "TravellerCreatorGlobalMethods\TravellerCreatorGlobalMethods.csproj", "{A26718B5-72A9-45FD-A787-7A2615AE2A7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.Global", "SectorCreator.Global\SectorCreator.Global.csproj", "{A26718B5-72A9-45FD-A787-7A2615AE2A7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorBLTests", "TravellerCreatorBLTests\TravellerCreatorBLTests.csproj", "{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorServices", "TravellerCreatorServices\TravellerCreatorServices.csproj", "{C539E69A-BC7A-4BB2-BA1E-988AEC3A11EA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreatorServicesTests", "TravellerCreatorServicesTests\TravellerCreatorServicesTests.csproj", "{BAF61E01-99E4-4A9F-AC38-F25944860387}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.Models.Tests", "SectorCreator.Models.Tests\SectorCreator.Models.Tests.csproj", "{BAF61E01-99E4-4A9F-AC38-F25944860387}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,14 +38,6 @@ Global
 		{A26718B5-72A9-45FD-A787-7A2615AE2A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A26718B5-72A9-45FD-A787-7A2615AE2A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A26718B5-72A9-45FD-A787-7A2615AE2A7C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F417E3F0-A112-4F2F-A58E-3CD65BC782D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C539E69A-BC7A-4BB2-BA1E-988AEC3A11EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C539E69A-BC7A-4BB2-BA1E-988AEC3A11EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C539E69A-BC7A-4BB2-BA1E-988AEC3A11EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C539E69A-BC7A-4BB2-BA1E-988AEC3A11EA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BAF61E01-99E4-4A9F-AC38-F25944860387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BAF61E01-99E4-4A9F-AC38-F25944860387}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAF61E01-99E4-4A9F-AC38-F25944860387}.Release|Any CPU.ActiveCfg = Release|Any CPU
