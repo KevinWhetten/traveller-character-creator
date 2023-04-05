@@ -1,6 +1,6 @@
 ﻿using TravellerCreatorGlobalMethods;
-using TravellerCreatorModels.Enums;
-using TravellerCreatorModels.RTTWorldgen;
+using TravellerCreatorModels.SectorCreator.Enums;
+using TravellerCreatorModels.SectorCreator.RTTWorldgen;
 
 namespace TravellerCreatorServices.RTTWorldgen.Planets;
 

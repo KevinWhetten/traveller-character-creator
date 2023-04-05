@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using TravellerCharacterCreatorBL;
-using TravellerCreatorModels.Other;
+using TravellerCharacterCreatorBL.SectorCreator;
+using TravellerCreatorModels.SectorCreator.Other;
 
 namespace TravellerCreatorBLTests;
 

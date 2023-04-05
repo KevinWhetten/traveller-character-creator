@@ -3,5 +3,9 @@ export enum Base {
   Scout,
   Research,
   TAS,
-  WayStation,
+  Shipyard,
+  MegaCorporateHeadquarters,
+  AncientSite,
+  DataRepository,
+  WayStation
 }

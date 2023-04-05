@@ -132,53 +132,122 @@ export class UWPService {
       let tradeClassifications = '';
 
       planet.tradeCodes.forEach(tradeCode => {
-        tradeClassifications += `${this.getTradeCode(tradeCode.toString())} `
+        tradeClassifications += `${this.getTradeCode(tradeCode)} `
       });
       return tradeClassifications.trim();
     }
     return '';
   }
 
-  private  getTradeCode(tradeCode: string): string {
-    switch (Number.parseInt(tradeCode)) {
-      case 0:
-        return 'Ag';
-      case 1:
-        return 'As';
-      case 2:
-        return 'Ba';
-      case 3:
-        return 'De';
-      case 4:
-        return 'Fl';
-      case 5:
-        return 'Ga';
-      case 6:
-        return 'Hi';
-      case 7:
-        return 'Ht';
-      case 8:
-        return 'Ic';
-      case 9:
-        return 'In';
-      case 10:
-        return 'Lo';
-      case 11:
-        return 'Lt';
-      case 12:
-        return 'Na';
-      case 13:
-        return 'Ni';
-      case 14:
-        return 'Po';
-      case 15:
-        return 'Ri';
-      case 16:
-        return 'Wa';
-      case 17:
-        return 'Va';
-      default:
-        return '';
+  private  getTradeCode(tradeCode: TradeCode): string {
+    switch (tradeCode) {
+      // Planetary
+      case TradeCode.Asteroid:
+        return "As";
+      case TradeCode.Desert:
+        return "De";
+      case TradeCode.FluidOceans:
+        return "Fl";
+      case TradeCode.Garden:
+        return "Ga";
+      case TradeCode.Hellworld:
+        return "He";
+      case TradeCode.IceCapped:
+        return "Ic";
+      case TradeCode.OceanWorld:
+        return "Oc";
+      case TradeCode.Vacuum:
+        return "Va";
+      case TradeCode.WaterWorld:
+        return "Wa";
+        // Population
+      case TradeCode.Dieback:
+        return "Di";
+      case TradeCode.Barren:
+        return "Ba";
+      case TradeCode.LowPopulation:
+        return "Lo";
+      case TradeCode.NonIndustrial:
+        return "Ni";
+      case TradeCode.PreHighPopulation:
+        return "Ph";
+      case TradeCode.HighPopulation:
+        return "Hi";
+        // Economic
+      case TradeCode.PreAgricultural:
+        return "Pa";
+      case TradeCode.Agricultural:
+        return "Ag";
+      case TradeCode.NonAgricultural:
+        return "Na";
+      case TradeCode.PreIndustrial:
+        return "Pi";
+      case TradeCode.Industrial:
+        return "In";
+      case TradeCode.Poor:
+        return "Po";
+      case TradeCode.PreRich:
+        return "Pr";
+      case TradeCode.Rich:
+        return "Ri";
+        // Climate
+      case TradeCode.Frozen:
+        return "Fr";
+      case TradeCode.Hot:
+        return "Ho";
+      case TradeCode.Cold:
+        return "Co";
+      case TradeCode.Locked:
+        return "Lk";
+      case TradeCode.Tropic:
+        return "Tr";
+      case TradeCode.Tundra:
+        return "Tu";
+      case TradeCode.TwilightZone:
+        return "Tz";
+        // Secondary
+      case TradeCode.Farming:
+        return "Fa";
+      case TradeCode.Mining:
+        return "Mi";
+      case TradeCode.MilitaryRule:
+        return "Mr";
+      case TradeCode.PrisonCamp:
+        return "Px";
+      case TradeCode.PenalColony:
+        return "Pe";
+      case TradeCode.Reserve:
+        return "Re";
+        // Political
+      case TradeCode.SubsectorCapital:
+        return "Cp";
+      case TradeCode.SectorCapital:
+        return "Cs";
+      case TradeCode.Capital:
+        return "Cx";
+      case TradeCode.Colony:
+        return "Cy";
+        // Special
+      case TradeCode.Satellite:
+        return "Sa";
+      case TradeCode.Forbidden:
+        return "Fo";
+      case TradeCode.Puzzle:
+        return "Pz";
+      case TradeCode.Danger:
+        return "Da";
+      case TradeCode.DataRepository:
+        return "Ab";
+      case TradeCode.AncientSite:
+        return "An";
+      case TradeCode.ResearchStation:
+        return "Rs";
+
+        // Other
+      case TradeCode.HighTechnology:
+        return "Ht";
+      case TradeCode.LowTechnology:
+        return "Lt";
     }
   }
 

@@ -3985,7 +3985,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kevin - Work\\.nuget\\packages\\": {}
+    "C:\\Users\\krwhe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -3993,11 +3993,11 @@
       "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBLTests\\TravellerCreatorBLTests.csproj",
       "projectName": "TravellerCreatorBLTests",
       "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBLTests\\TravellerCreatorBLTests.csproj",
-      "packagesPath": "C:\\Users\\Kevin - Work\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
       "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorBLTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Kevin - Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

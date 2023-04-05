@@ -1,5 +1,5 @@
 ﻿using TravellerCreatorGlobalMethods;
-using TravellerCreatorModels.RTTWorldgen;
+using TravellerCreatorModels.SectorCreator.RTTWorldgen;
 
 namespace TravellerCreatorServices.RTTWorldgen.Planets;
 

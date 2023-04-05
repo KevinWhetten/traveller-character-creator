@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using TravellerCreatorModels.Enums;
-using TravellerCreatorModels.Mongoose;
+using TravellerCreatorModels.SectorCreator.Enums;
+using TravellerCreatorModels.SectorCreator.Mongoose;
 using TravellerCreatorServices;
 
 namespace TravellerCreatorServicesTests;

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "PC4yAKkl5kVoZ9T2/z7l0TdKIcsduyuPD66oI43jHuPNt1Lnlxsl23a46oTzmvn25RvX37kPOSbWqLEgZJ20SA==",
+  "dgSpecHash": "P9+WVU916hSTDn6oL6YK1aNjpyrqjz4w+kPAtAFFLkdqipEyjkqTKrj0QpUUTEAOWNaDJsLyQVHdVqyNjbkrWA==",
   "success": true,
   "projectFilePath": "C:\\Source\\Personal\\TravellerCharacterCreator\\TravellerCreatorServices\\TravellerCreatorServices.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Kevin - Work\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.14\\microsoft.netcore.app.ref.6.0.14.nupkg.sha512",
-    "C:\\Users\\Kevin - Work\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.14\\microsoft.windowsdesktop.app.ref.6.0.14.nupkg.sha512",
-    "C:\\Users\\Kevin - Work\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.14\\microsoft.aspnetcore.app.ref.6.0.14.nupkg.sha512"
+    "C:\\Users\\krwhe\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.14\\microsoft.netcore.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\krwhe\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.14\\microsoft.windowsdesktop.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\krwhe\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.14\\microsoft.aspnetcore.app.ref.6.0.14.nupkg.sha512"
   ],
   "logs": []
 }

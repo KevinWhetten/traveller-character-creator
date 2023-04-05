@@ -7,6 +7,7 @@ import {PlanetChemistry} from "../enums/planet-chemistry";
 import {Rings} from "../enums/rings";
 import {WorldType} from "../enums/world-type";
 import {PlanetOrbit} from "../enums/planet-orbit";
+import {CompanionOrbit} from "../enums/companion-orbit";
 
 export class RTTWorldgenPlanet implements IPlanet {
   id: string;
@@ -25,7 +26,9 @@ export class RTTWorldgenPlanet implements IPlanet {
   lawLevel: number;
   starport: string;
   techLevel: number;
+  industrialBase: number;
 
+  desirability: number;
   tradeCodes: TradeCode[];
   bases: Base[];
   travelCode: TravelCode;
@@ -34,9 +37,11 @@ export class RTTWorldgenPlanet implements IPlanet {
   worldType: WorldType;
   planetOrbit: PlanetOrbit;
   orbitPosition: number;
+  isMainWorld: boolean;
 
   parentId: string;
   starId: string;
+  satelliteOrbit: CompanionOrbit;
 
   satellites: RTTWorldgenPlanet[];
 }

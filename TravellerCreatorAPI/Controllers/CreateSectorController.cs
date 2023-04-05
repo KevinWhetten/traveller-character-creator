@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TravellerCharacterCreatorBL;
-using TravellerCreatorModels.Enums;
+using TravellerCharacterCreatorBL.SectorCreator;
+using TravellerCreatorModels.SectorCreator.Enums;
 
 namespace TravellerCharacterCreatorAPI.Controllers;
 

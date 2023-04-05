@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using TravellerCreatorModels.Enums;
-using TravellerCreatorModels.RTTWorldgen;
+using TravellerCreatorModels.SectorCreator.Enums;
+using TravellerCreatorModels.SectorCreator.RTTWorldgen;
 using TravellerCreatorServices;
 using TravellerCreatorServices.RTTWorldgen;
 
