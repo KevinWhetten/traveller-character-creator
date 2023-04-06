@@ -1,4 +1,5 @@
 export enum StarSystemType {
-  Mongoose,
-  StarFrontiers,
+  BrownDwarf,
+  Regular,
+  DistantCompanion
 }

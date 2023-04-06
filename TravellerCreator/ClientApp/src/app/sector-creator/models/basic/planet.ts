@@ -3,7 +3,7 @@ import {Base} from "../enums/base";
 import {TravelCode} from "../enums/travel-code";
 import {PlanetType} from "../enums/planet-type";
 
-export interface IPlanet {
+export class Planet {
   name: string;
   size: number;
   atmosphere: number;
@@ -18,5 +18,5 @@ export interface IPlanet {
   bases: Base[];
   travelCode: TravelCode;
   planetType: PlanetType;
-  satellites: IPlanet[];
+  satellites: Planet[];
 }

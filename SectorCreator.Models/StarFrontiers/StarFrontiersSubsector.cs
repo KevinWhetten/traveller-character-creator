@@ -1,16 +1,11 @@
 ﻿using SectorCreator.Global;
-using SectorCreator.Models.Base;
+using SectorCreator.Models.Basic;
 
 namespace SectorCreator.Models.StarFrontiers;
 
 public class StarFrontiersSubsector : Subsector
 {
   public StarFrontiersSubsector(Coordinates coordinates)
-  {
-    Generate(coordinates);
-  }
-
-  private void Generate(Coordinates coordinates)
   {
     Coordinates = coordinates;
 

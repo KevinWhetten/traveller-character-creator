@@ -1,5 +1,5 @@
 ﻿using SectorCreator.Global.Enums;
-using SectorCreator.Models.Base;
+using SectorCreator.Models.Basic;
 using SectorCreator.Models.Mongoose;
 using SectorCreator.Models.RTTWorldgen;
 using SectorCreator.Models.StarFrontiers;

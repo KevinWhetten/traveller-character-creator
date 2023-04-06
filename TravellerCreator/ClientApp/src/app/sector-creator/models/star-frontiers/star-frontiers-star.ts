@@ -1,7 +1,4 @@
-﻿import {IStar} from "../interfaces/star";
-import {Luminosity} from "../enums/luminosity";
+﻿import {Star} from "../basic/star";
 
-export class StarFrontiersStar implements IStar {
-  luminosity: Luminosity;
-  spectralSubclass: number;
+export class StarFrontiersStar extends Star {
 }

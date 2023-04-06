@@ -1,12 +1,12 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models.Base;
+using SectorCreator.Models.Basic;
 
 namespace SectorCreator.Models.RTTWorldgen;
 
 public class RttWorldgenStarSystem : StarSystem
 {
-  public void Generate(RttWorldgenStarSystemType starSystemType)
+  public void Generate(StarSystemType starSystemType)
   {
     GenerateStars(starSystemType);
     GeneratePlanets();
@@ -20,9 +20,9 @@ public class RttWorldgenStarSystem : StarSystem
 
   #region GenerateStars
 
-  private void GenerateStars(RttWorldgenStarSystemType starSystemType)
+  private void GenerateStars(StarSystemType starSystemType)
   {
-    if (starSystemType == RttWorldgenStarSystemType.BrownDwarf)
+    if (starSystemType == StarSystemType.BrownDwarf)
     {
       Stars.Add(new RttWorldgenStar()
       {
@@ -38,11 +38,11 @@ public class RttWorldgenStarSystem : StarSystem
     var isPrimaryStar = true;
     for (var i = 0; i < numStars; i++)
     {
-      var rttWorldgenStarType = isPrimaryStar ? RttWorldgenStarType.Companion : RttWorldgenStarType.Primary;
+      var rttWorldgenStarType = isPrimaryStar ? StarType.Companion : StarType.Primary;
       var star = new RttWorldgenStar();
       if (isPrimaryStar)
       {
-        var primaryStar = (RttWorldgenStar) Stars.First(x => ((RttWorldgenStar) x).RttWorldgenStarType == RttWorldgenStarType.Primary);
+        var primaryStar = (RttWorldgenStar) Stars.First(x => ((RttWorldgenStar) x).StarType == StarType.Primary);
         star.Generate(rttWorldgenStarType, primaryStar);
       }
       else
@@ -59,16 +59,16 @@ public class RttWorldgenStarSystem : StarSystem
     {
       star.SpectralSubclass = Roll.D10(1) - 1;
 
-      if (star.RttWorldgenStarType == RttWorldgenStarType.Companion)
+      if (star.StarType == StarType.Companion)
       {
         star.GenerateOrbit();
       }
     }
   }
 
-  private int GetNumStars(RttWorldgenStarSystemType starSystemType)
+  private int GetNumStars(StarSystemType starSystemType)
   {
-    if (starSystemType == RttWorldgenStarSystemType.BrownDwarf)
+    if (starSystemType == StarSystemType.BrownDwarf)
     {
       return 1;
     }
@@ -96,7 +96,7 @@ public class RttWorldgenStarSystem : StarSystem
   private void GenerateEpistellarPlanets()
   {
     var roll = Roll.D6(1) - 3;
-    var primaryStar = (Stars.First(x => ((RttWorldgenStar) x).RttWorldgenStarType == RttWorldgenStarType.Primary) as RttWorldgenStar)!;
+    var primaryStar = (Stars.First(x => ((RttWorldgenStar) x).StarType == StarType.Primary) as RttWorldgenStar)!;
 
     if (primaryStar is { SpectralType: SpectralType.M, Luminosity: Luminosity.V }) {
       roll--;
@@ -117,7 +117,7 @@ public class RttWorldgenStarSystem : StarSystem
   private void GenerateInnerPlanets(int orbitNum)
   {
     var numPlanets = Roll.D6(1) - 1;
-    var primaryStar = Stars.First(x => ((RttWorldgenStar)x).RttWorldgenStarType == RttWorldgenStarType.Primary) as RttWorldgenStar;
+    var primaryStar = Stars.First(x => ((RttWorldgenStar)x).StarType == StarType.Primary) as RttWorldgenStar;
     
     if (primaryStar!.SpectralType == SpectralType.M && primaryStar.Luminosity == Luminosity.V) {
       numPlanets--;
@@ -137,7 +137,7 @@ public class RttWorldgenStarSystem : StarSystem
   private void GenerateOuterPlanets(int orbitNum)
   {
     var numPlanets = Roll.D6(1) - 1;
-    var primaryStar = Stars.First(x => ((RttWorldgenStar)x).RttWorldgenStarType == RttWorldgenStarType.Primary) as RttWorldgenStar;
+    var primaryStar = Stars.First(x => ((RttWorldgenStar)x).StarType == StarType.Primary) as RttWorldgenStar;
 
     if ((primaryStar!.SpectralType == SpectralType.M && primaryStar.Luminosity == Luminosity.V)
         || primaryStar.SpectralType == SpectralType.L) {

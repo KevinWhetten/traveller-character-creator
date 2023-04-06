@@ -1,6 +1,6 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models.Base;
+using SectorCreator.Models.Basic;
 
 namespace SectorCreator.Models.Mongoose;
 
@@ -12,7 +12,7 @@ public class MongooseStarSystem : StarSystem
 
     if (Roll.D6(1) >= 4)
     {
-      var planet = PlanetFactory.Generate(sectorType);
+      var planet = new Planet(PlanetFactory.Generate(sectorType));
       Planets.Add(planet);
     }
 

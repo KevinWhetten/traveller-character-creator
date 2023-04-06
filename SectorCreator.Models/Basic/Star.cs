@@ -1,6 +1,6 @@
 ﻿using SectorCreator.Global.Enums;
 
-namespace SectorCreator.Models.Base;
+namespace SectorCreator.Models.Basic;
 
 public class Star
 {

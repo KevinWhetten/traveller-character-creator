@@ -132,7 +132,7 @@ import { RogueMishapComponent } from './character-creator/components/mishaps/rog
 import { InjuryTableComponent } from './character-creator/components/mishaps/injury/injury-table/injury-table.component';
 import { SectorCreatorComponent } from './sector-creator/sector-creator.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import {MongooseSubsectorComponent} from "./sector-creator/subsector/basic-subsector/mongoose-subsector.component";
+import {MongooseSubsectorComponent} from "./sector-creator/subsector/mongoose-subsector/mongoose-subsector.component";
 import { StarFrontiersSubsectorComponent } from './sector-creator/subsector/star-frontiers-subsector/star-frontiers-subsector.component';
 import { MongooseSectorComponent } from './sector-creator/sector/mongoose-sector/mongoose-sector.component';
 import { StarFrontiersSectorComponent } from './sector-creator/sector/star-frontiers-sector/star-frontiers-sector.component';

@@ -1,8 +1,4 @@
-﻿import {ISubsector} from "../interfaces/subsector";
-import {Coordinates} from "../other/coordinates";
-import {T5Hex} from "./t5.hex";
+﻿import {Subsector} from "../basic/subsector";
 
-export class T5Subsector implements ISubsector{
-  coordinates: Coordinates;
-  hexes: T5Hex[];
+export class T5Subsector extends Subsector {
 }

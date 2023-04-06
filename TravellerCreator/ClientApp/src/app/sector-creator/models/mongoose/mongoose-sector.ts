@@ -1,8 +1,4 @@
-﻿import {ISector} from "../interfaces/sector";
-import {MongooseSubsector} from "./mongoose-subsector";
-import {SectorType} from "../enums/sector-type";
+﻿import {Sector} from "../basic/sector";
 
-export class MongooseSector implements ISector {
-  sectorType: SectorType = SectorType.Basic;
-  subsectors: MongooseSubsector[] = [];
+export class MongooseSector extends Sector {
 }

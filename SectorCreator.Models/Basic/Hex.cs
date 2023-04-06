@@ -1,6 +1,6 @@
 ﻿using SectorCreator.Global;
 
-namespace SectorCreator.Models.Base;
+namespace SectorCreator.Models.Basic;
 
 public class Hex
 {

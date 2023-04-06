@@ -3,6 +3,6 @@ export enum SectorType {
   SpaceOpera,
   HardScience,
   T5,
-  RTTWorldgen,
+  RttWorldgen,
   StarFrontiers
 }

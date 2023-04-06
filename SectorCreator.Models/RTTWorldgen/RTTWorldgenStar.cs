@@ -1,19 +1,19 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models.Base;
+using SectorCreator.Models.Basic;
 
 namespace SectorCreator.Models.RTTWorldgen;
 
 public class RttWorldgenStar : Star
 {
   public Guid Id { get; } = Guid.NewGuid();
-  public RttWorldgenStarType RttWorldgenStarType { get; set; }
+  public StarType StarType { get; set; }
   public Luminosity Luminosity { get; set; }
   public CompanionOrbit CompanionOrbit { get; set; }
   public int ExpansionSize { get; set; }
   public int Age { get; set; }
 
-  public void Generate(RttWorldgenStarType starType, RttWorldgenStar? primaryStar = null)
+  public void Generate(StarType starType, RttWorldgenStar? primaryStar = null)
   {
     var primaryStarLuminosityRoll = 0;
     if (primaryStar != null)
@@ -41,12 +41,12 @@ public class RttWorldgenStar : Star
     };
   }
 
-  protected SpectralType GenerateSpectralType(RttWorldgenStarType starType, int primaryRoll = 0)
+  protected SpectralType GenerateSpectralType(StarType starType, int primaryRoll = 0)
   {
     var roll = starType switch
     {
-      RttWorldgenStarType.Primary => Roll.D6(2),
-      RttWorldgenStarType.Companion => primaryRoll + Roll.D6(1) - 1,
+      StarType.Primary => Roll.D6(2),
+      StarType.Companion => primaryRoll + Roll.D6(1) - 1,
       _ => throw new ArgumentOutOfRangeException(nameof(starType), starType, null)
     };
 

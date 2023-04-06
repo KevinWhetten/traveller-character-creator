@@ -1,11 +1,6 @@
-﻿import {IStarSystem} from "../interfaces/star-system";
+﻿import {StarSystem} from "../basic/star-system";
 import {StarSystemType} from "../enums/star-system-type";
-import {MongoosePlanet} from "./mongoose-planet";
-import {IStar} from "../interfaces/star";
 
-export class MongooseStarSystem implements IStarSystem {
+export class MongooseStarSystem extends StarSystem {
   type: StarSystemType;
-  gasGiant: boolean;
-  planets: MongoosePlanet[];
-  stars: IStar[];
 }

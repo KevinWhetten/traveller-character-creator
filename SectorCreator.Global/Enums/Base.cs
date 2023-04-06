@@ -9,5 +9,6 @@ public enum Base
     Shipyard,
     MegaCorporateHeadquarters,
     AncientSite,
-    DataRepository
+    DataRepository,
+    WayStation
 }

@@ -1,8 +1,4 @@
-﻿import {ISector} from "../interfaces/sector";
-import {SectorType} from "../enums/sector-type";
-import {T5Subsector} from "./t5.subsector";
+﻿import {Sector} from "../basic/sector";
 
-export class T5Sector implements ISector{
-  sectorType: SectorType;
-  subsectors: T5Subsector[];
+export class T5Sector extends Sector {
 }

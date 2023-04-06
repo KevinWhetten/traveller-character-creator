@@ -1,8 +1,4 @@
-﻿import {ISubsector} from "../interfaces/subsector";
-import {Coordinates} from "../other/coordinates";
-import {RTTWorldgenHex} from "./rtt-worldgen.hex";
+﻿import {Subsector} from "../basic/subsector";
 
-export class RTTWorldgenSubsector implements ISubsector{
-  coordinates: Coordinates;
-  hexes: RTTWorldgenHex[];
+export class RTTWorldgenSubsector extends Subsector{
 }

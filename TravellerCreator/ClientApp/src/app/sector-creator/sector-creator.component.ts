@@ -73,7 +73,7 @@ export class SectorCreatorComponent implements OnInit {
           this.t5Sector = x;
         });
         break;
-      case SectorType.RTTWorldgen:
+      case SectorType.RttWorldgen:
         url += "RTTWorldgenSector";
         this._httpClient.get<RTTWorldgenSector>(url).subscribe((x: RTTWorldgenSector) => {
           this.rttWorldgenSector = x;

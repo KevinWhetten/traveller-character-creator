@@ -1,5 +1,7 @@
 ﻿export enum PlanetType {
   AsteroidBelt,
   Terrestrial,
-  GasGiant
+  Jovian,
+  DwarfPlanet,
+  Helian
 }

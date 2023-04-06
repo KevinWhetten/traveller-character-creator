@@ -1,6 +1,6 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models.Base;
+using SectorCreator.Models.Basic;
 
 namespace SectorCreator.Models;
 
@@ -147,7 +147,7 @@ public class PlanetFactory
     Planet.LawLevel = Roll.D6(2) - 7 + Planet.Government;
   }
 
-  public static void GenerateStarport(SectorType sectorType)
+  protected static void GenerateStarport(SectorType sectorType)
   {
     var roll = sectorType != SectorType.HardScience
       ? Roll.D6(2)
@@ -241,73 +241,71 @@ public class PlanetFactory
 
   protected static void GetTravelCode()
   {
-    Planet.TravelCode = Planet.Atmosphere >= 10
-                 && Planet.Government is 0 or 7 or 10
-                 && Planet.LawLevel is 0 or >= 9
+    Planet.TravelCode = Planet is { Atmosphere: >= 10, Government: 0 or 7 or 10, LawLevel: 0 or >= 9 }
       ? TravelCode.Amber
       : TravelCode.None;
   }
 
   protected static void GetBases()
   {
-    Planet.Bases = new List<Global.Enums.Base>();
+    Planet.Bases = new List<Base>();
     switch (Planet.Starport)
     {
       case 'A':
       {
         if (Roll.D6(2) >= 8)
         {
-          Planet.Bases.Add(Global.Enums.Base.Naval);
+          Planet.Bases.Add(Base.Naval);
         }
 
         if (Roll.D6(2) >= 10)
         {
-          Planet.Bases.Add(Global.Enums.Base.Scout);
+          Planet.Bases.Add(Base.Scout);
         }
 
         if (Roll.D6(2) >= 8)
         {
-          Planet.Bases.Add(Global.Enums.Base.Research);
+          Planet.Bases.Add(Base.Research);
         }
 
-        Planet.Bases.Add(Global.Enums.Base.Tas);
+        Planet.Bases.Add(Base.Tas);
         break;
       }
       case 'B':
       {
         if (Roll.D6(2) >= 8)
         {
-          Planet.Bases.Add(Global.Enums.Base.Naval);
+          Planet.Bases.Add(Base.Naval);
         }
 
         if (Roll.D6(2) >= 8)
         {
-          Planet.Bases.Add(Global.Enums.Base.Scout);
+          Planet.Bases.Add(Base.Scout);
         }
 
         if (Roll.D6(2) >= 10)
         {
-          Planet.Bases.Add(Global.Enums.Base.Research);
+          Planet.Bases.Add(Base.Research);
         }
 
-        Planet.Bases.Add(Global.Enums.Base.Tas);
+        Planet.Bases.Add(Base.Tas);
         break;
       }
       case 'C':
       {
         if (Roll.D6(2) >= 8)
         {
-          Planet.Bases.Add(Global.Enums.Base.Scout);
+          Planet.Bases.Add(Base.Scout);
         }
 
         if (Roll.D6(2) >= 10)
         {
-          Planet.Bases.Add(Global.Enums.Base.Research);
+          Planet.Bases.Add(Base.Research);
         }
 
         if (Roll.D6(2) >= 10)
         {
-          Planet.Bases.Add(Global.Enums.Base.Tas);
+          Planet.Bases.Add(Base.Tas);
         }
 
         break;
@@ -316,7 +314,7 @@ public class PlanetFactory
       {
         if (Roll.D6(2) >= 7)
         {
-          Planet.Bases.Add(Global.Enums.Base.Scout);
+          Planet.Bases.Add(Base.Scout);
         }
 
         break;

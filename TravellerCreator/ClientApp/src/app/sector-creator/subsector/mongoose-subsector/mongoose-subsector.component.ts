@@ -81,11 +81,9 @@ export class MongooseSubsectorComponent implements OnInit {
 
     if (hex.starSystems.length > 0) {
       let starSystem = hex.starSystems[0] as MongooseStarSystem;
-      if (starSystem != null && starSystem.type == StarSystemType.Mongoose) {
-        worldNum += starSystem.planets.length;
-        if (starSystem.gasGiant) {
-          worldNum++;
-        }
+      worldNum += starSystem.planets.length;
+      if (starSystem.gasGiant) {
+        worldNum++;
       }
     }
 

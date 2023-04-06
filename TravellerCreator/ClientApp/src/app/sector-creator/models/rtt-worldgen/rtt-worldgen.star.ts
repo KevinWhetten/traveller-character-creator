@@ -1,15 +1,12 @@
-﻿import {IStar} from "../interfaces/star";
-import {Luminosity} from "../enums/luminosity";
-import {RTTWorldgenStarType} from "../enums/rttworldgen-star-type";
-import {SpectralType} from "../enums/spectral-type";
+﻿import {StarType} from "../enums/star-type";
 import {CompanionOrbit} from "../enums/companion-orbit";
+import {Star} from "../basic/star";
+import {Luminosity} from "../enums/luminosity";
 
-export class RTTWorldgenStar implements IStar {
+export class RTTWorldgenStar extends Star {
   id: string;
-  rttWorldgenStarType: RTTWorldgenStarType;
-  spectralType: SpectralType;
+  rttWorldgenStarType: StarType;
   luminosity: Luminosity;
-  spectralSubclass: number;
   companionOrbit: CompanionOrbit;
   expansionSize: number;
   age: number;

@@ -1,6 +1,6 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models.Base;
+using SectorCreator.Models.Basic;
 
 namespace SectorCreator.Models.RTTWorldgen;
 
@@ -12,13 +12,13 @@ public class RttWorldgenHex : Hex
         
         if (Roll.D6(1) >= 4)
         {
-            newStarSystem.Generate(RttWorldgenStarSystemType.BrownDwarf);
+            newStarSystem.Generate(StarSystemType.BrownDwarf);
             StarSystems.Add(newStarSystem);
         }
 
         if (Roll.D6(1) >= 4)
         {
-            newStarSystem.Generate(RttWorldgenStarSystemType.Regular);
+            newStarSystem.Generate(StarSystemType.Regular);
             StarSystems.Add(newStarSystem);
         }
 

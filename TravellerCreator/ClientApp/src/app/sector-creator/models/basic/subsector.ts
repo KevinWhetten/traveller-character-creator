@@ -1,7 +1,7 @@
 import {Coordinates} from "../other/coordinates";
-import {IHex} from "./hex";
+import {Hex} from "./hex";
 
-export interface ISubsector {
+export class Subsector {
   coordinates: Coordinates;
-  hexes: IHex[];
+  hexes: Hex[];
 }

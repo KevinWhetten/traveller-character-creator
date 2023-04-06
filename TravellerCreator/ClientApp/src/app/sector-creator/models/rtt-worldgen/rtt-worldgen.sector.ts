@@ -1,8 +1,4 @@
-﻿import {ISector} from "../interfaces/sector";
-import {SectorType} from "../enums/sector-type";
-import {RTTWorldgenSubsector} from "./rtt-worldgen.subsector";
+﻿import {Sector} from "../basic/sector";
 
-export class RTTWorldgenSector implements ISector {
-  sectorType: SectorType;
-  subsectors: RTTWorldgenSubsector[];
+export class RTTWorldgenSector extends Sector {
 }

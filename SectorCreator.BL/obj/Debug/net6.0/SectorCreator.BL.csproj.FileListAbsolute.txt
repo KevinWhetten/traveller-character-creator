@@ -1,0 +1,17 @@
+C:\source\traveller-character-creator\SectorCreator.BL\bin\Debug\net6.0\SectorCreator.BL.deps.json
+C:\source\traveller-character-creator\SectorCreator.BL\bin\Debug\net6.0\SectorCreator.BL.dll
+C:\source\traveller-character-creator\SectorCreator.BL\bin\Debug\net6.0\SectorCreator.BL.pdb
+C:\source\traveller-character-creator\SectorCreator.BL\bin\Debug\net6.0\SectorCreator.Global.dll
+C:\source\traveller-character-creator\SectorCreator.BL\bin\Debug\net6.0\SectorCreator.Models.dll
+C:\source\traveller-character-creator\SectorCreator.BL\bin\Debug\net6.0\SectorCreator.Global.pdb
+C:\source\traveller-character-creator\SectorCreator.BL\bin\Debug\net6.0\SectorCreator.Models.pdb
+C:\source\traveller-character-creator\SectorCreator.BL\obj\Debug\net6.0\SectorCreator.BL.csproj.AssemblyReference.cache
+C:\source\traveller-character-creator\SectorCreator.BL\obj\Debug\net6.0\SectorCreator.BL.GeneratedMSBuildEditorConfig.editorconfig
+C:\source\traveller-character-creator\SectorCreator.BL\obj\Debug\net6.0\SectorCreator.BL.AssemblyInfoInputs.cache
+C:\source\traveller-character-creator\SectorCreator.BL\obj\Debug\net6.0\SectorCreator.BL.AssemblyInfo.cs
+C:\source\traveller-character-creator\SectorCreator.BL\obj\Debug\net6.0\SectorCreator.BL.csproj.CoreCompileInputs.cache
+C:\source\traveller-character-creator\SectorCreator.BL\obj\Debug\net6.0\SectorCreator.BL.csproj.CopyComplete
+C:\source\traveller-character-creator\SectorCreator.BL\obj\Debug\net6.0\SectorCreator.BL.dll
+C:\source\traveller-character-creator\SectorCreator.BL\obj\Debug\net6.0\refint\SectorCreator.BL.dll
+C:\source\traveller-character-creator\SectorCreator.BL\obj\Debug\net6.0\SectorCreator.BL.pdb
+C:\source\traveller-character-creator\SectorCreator.BL\obj\Debug\net6.0\ref\SectorCreator.BL.dll

@@ -1,12 +1,11 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models.Base;
+using SectorCreator.Models.Basic;
 
 namespace SectorCreator.Models.StarFrontiers;
 
 public class StarFrontiersStar : Star
 {
-
     public StarFrontiersStar()
     {
         SpectralType = Roll.D10(1) switch {
