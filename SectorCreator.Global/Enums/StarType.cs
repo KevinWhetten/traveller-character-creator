@@ -1,6 +1,6 @@
 ﻿namespace SectorCreator.Global.Enums;
 
-public enum RttWorldgenStarType
+public enum StarType
 {
     Primary,
     Companion

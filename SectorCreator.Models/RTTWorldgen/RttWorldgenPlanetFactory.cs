@@ -4,7 +4,7 @@ using SectorCreator.Models.RTTWorldgen.Planets;
 
 namespace SectorCreator.Models.RTTWorldgen;
 
-public class RttWorldgenPlanetFactory : PlanetFactory
+public abstract class RttWorldgenPlanetFactory : PlanetFactory
 {
   private static RttWorldgenPlanet RttWorldgenPlanet => (RttWorldgenPlanet)Planet;
   public static RttWorldgenPlanet GenerateRttWorldgenPlanet(RttWorldgenStar primaryStar, PlanetOrbit planetOrbit, int orbitPosition)

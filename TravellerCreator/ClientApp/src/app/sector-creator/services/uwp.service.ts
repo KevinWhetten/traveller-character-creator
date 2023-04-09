@@ -1,12 +1,11 @@
 import {Injectable} from '@angular/core';
-import {IHex} from "../models/interfaces/hex";
 import {TravelCode} from "../models/enums/travel-code";
-import {StarSystemType} from "../models/enums/star-system-type";
-import {IPlanet} from "../models/interfaces/planet";
 import {Base} from "../models/enums/base";
-import {MongooseStarSystem} from "../models/mongoose/mongoose-star-system";
 import {TradeCode} from "../models/enums/trade-code";
 import {RollingService} from "../../services/rolling.service";
+import {Planet} from "../models/basic/planet";
+import {Hex} from "../models/basic/hex";
+import {StarSystem} from "../models/basic/star-system";
 
 @Injectable({
   providedIn: 'root'
@@ -21,13 +20,10 @@ export class UWPService {
 ---- ---- --------- -------------------- ----- ------- ------ ------ - - --- -- -- -------\n`
   }
 
-   GetFileFormat(hex: IHex): string {
+   GetFileFormat(hex: Hex): string {
     let starSystem = hex.starSystems[0];
-    let planet = {} as IPlanet;
-    if(starSystem.type == StarSystemType.Mongoose)
-    {
-      planet = (starSystem as MongooseStarSystem).planets[0];
-    }
+    let planet = {} as Planet;
+      planet = (starSystem as StarSystem).planets[0];
 
     let hexNum = this.getCoordinates(hex);
     if (planet == null) {
@@ -116,18 +112,18 @@ export class UWPService {
     }
   }
 
-   getCoordinates(hex: IHex): string {
+   getCoordinates(hex: Hex): string {
     return `${hex.coordinates.x.toString().padStart(2, '0')}${hex.coordinates.y.toString().padStart(2, '0')}`
   }
 
-   GetUWP(planet: IPlanet): string {
+   GetUWP(planet: Planet): string {
     if (planet != null) {
       return `${planet.starport}${this.GetHexadecimal(planet.size, false)}${this.GetHexadecimal(planet.atmosphere, false)}${this.GetHexadecimal(planet.hydrographics, false)}${this.GetHexadecimal(planet.population, false)}${this.GetHexadecimal(planet.government, false)}${this.GetHexadecimal(planet.lawLevel, false)}-${this.GetHexadecimal(planet.techLevel, false)}`;
     }
     return '';
   }
 
-   getTradeCodes(planet: IPlanet): string {
+   getTradeCodes(planet: Planet): string {
     if (planet != null) {
       let tradeClassifications = '';
 
@@ -251,7 +247,7 @@ export class UWPService {
     }
   }
 
-   getBases(planet: IPlanet): string {
+   getBases(planet: Planet): string {
     if (planet != null) {
       let bases = '';
 
@@ -276,7 +272,7 @@ export class UWPService {
     }
   }
 
-   GetIx(planet: IPlanet): number {
+   GetIx(planet: Planet): number {
     let importance = 0;
 
     if(planet.starport == 'A' || planet.starport == 'B'){
@@ -323,31 +319,31 @@ export class UWPService {
     return importance;
   }
 
-   GetEx(planet: IPlanet): string {
+   GetEx(planet: Planet): string {
     return "";
   }
 
-   GetCx(planet: IPlanet): string {
+   GetCx(planet: Planet): string {
     return "";
   }
 
-   GetN(planet: IPlanet): string {
+   GetN(planet: Planet): string {
     return "";
   }
 
-   GetZ(planet: IPlanet): string {
+   GetZ(planet: Planet): string {
     return "";
   }
 
-   GetPBG(hex: IHex): string {
+   GetPBG(hex: Hex): string {
     return `00${hex != null && hex.starSystems.length > 0 && hex.starSystems[0].gasGiant ? '1' : '0'}`
   }
 
-   GetAllegiance(planet: IPlanet): string {
+   GetAllegiance(planet: Planet): string {
     return "";
   }
 
-   GetStellar(planet: IPlanet): string {
+   GetStellar(planet: Planet): string {
     return "";
   }
 }

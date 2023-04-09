@@ -7,11 +7,6 @@ public class StarFrontiersSubsector : Subsector
 {
   public StarFrontiersSubsector(Coordinates coordinates)
   {
-    Generate(coordinates);
-  }
-
-  private void Generate(Coordinates coordinates)
-  {
     Coordinates = coordinates;
 
     for (var y = 1; y <= 10; y++)

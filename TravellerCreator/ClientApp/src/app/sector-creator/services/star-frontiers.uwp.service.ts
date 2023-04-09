@@ -63,7 +63,7 @@ export class StarFrontiersUWPService extends UWPService {
           starSystem.planets.forEach(planet => {
             if (planet.planetType == PlanetType.AsteroidBelt) {
               beltNum++;
-            } else if (planet.planetType == PlanetType.GasGiant) {
+            } else if (planet.planetType == PlanetType.Jovian) {
               gasGiantNum++;
             } else {
               planetNum++;

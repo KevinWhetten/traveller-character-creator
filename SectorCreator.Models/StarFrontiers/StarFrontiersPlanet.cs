@@ -2,6 +2,6 @@
 
 namespace SectorCreator.Models.StarFrontiers;
 
-public abstract class StarFrontiersPlanet : Planet
+public class StarFrontiersPlanet : Planet
 {
 }

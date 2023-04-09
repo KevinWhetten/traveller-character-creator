@@ -6,8 +6,8 @@ import {SectorType} from "./models/enums/sector-type";
 import {StarFrontiersSector} from "./models/star-frontiers/star-frontiers-sector";
 import {MongooseSubsector} from "./models/mongoose/mongoose-subsector";
 import {StarFrontiersSubsector} from "./models/star-frontiers/star-frontiers-subsector";
-import {RttWorldgenSector} from "./models/rtt-worldgen/rtt-worldgen.sector";
-import {RttWorldgenSubsector} from "./models/rtt-worldgen/rtt-worldgen.subsector";
+import {RTTWorldgenSector} from "./models/rtt-worldgen/rtt-worldgen.sector";
+import {RTTWorldgenSubsector} from "./models/rtt-worldgen/rtt-worldgen.subsector";
 import {T5Sector} from "./models/t5/t5.sector";
 import {T5Subsector} from "./models/t5/t5.subsector";
 
@@ -21,7 +21,7 @@ export class SectorCreatorComponent implements OnInit {
   mongooseSector: MongooseSector;
   starFrontiersSector: StarFrontiersSector;
   t5Sector: T5Sector;
-  rttWorldgenSector: RttWorldgenSector;
+  rttWorldgenSector: RTTWorldgenSector;
 
   constructor(private _router: Router,
               private _httpClient: HttpClient) {
@@ -34,8 +34,8 @@ export class SectorCreatorComponent implements OnInit {
     this.starFrontiersSector.subsectors = [] as StarFrontiersSubsector[];
     this.t5Sector = {} as T5Sector;
     this.t5Sector.subsectors = [] as T5Subsector[];
-    this.rttWorldgenSector = {} as RttWorldgenSector;
-    this.rttWorldgenSector.subsectors = [] as RttWorldgenSubsector[];
+    this.rttWorldgenSector = {} as RTTWorldgenSector;
+    this.rttWorldgenSector.subsectors = [] as RTTWorldgenSubsector[];
   }
 
   generateSector() {
@@ -74,8 +74,8 @@ export class SectorCreatorComponent implements OnInit {
         });
         break;
       case SectorType.RttWorldgen:
-        url += "RttWorldgenSector";
-        this._httpClient.get<RttWorldgenSector>(url).subscribe((x: RttWorldgenSector) => {
+        url += "RTTWorldgenSector";
+        this._httpClient.get<RTTWorldgenSector>(url).subscribe((x: RTTWorldgenSector) => {
           this.rttWorldgenSector = x;
         });
         break;
@@ -100,7 +100,7 @@ export class SectorCreatorComponent implements OnInit {
     return this.starFrontiersSector.subsectors.length >= 1;
   }
 
-  isRttWorldgenSector() {
+  isRTTWorldgenSector() {
     return this.rttWorldgenSector.subsectors.length >= 1;
   }
 }

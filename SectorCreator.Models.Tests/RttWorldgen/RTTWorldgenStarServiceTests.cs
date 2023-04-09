@@ -40,7 +40,7 @@ public class RttWorldgenStarServiceTests : RttWorldgenStar
             SpectralType.L
         };
 
-        var result = GenerateSpectralType(RttWorldgenStarType.Primary);
+        var result = GenerateSpectralType(StarType.Primary);
 
         Assert.IsTrue(expected.Contains(result));
     }
@@ -52,7 +52,7 @@ public class RttWorldgenStarServiceTests : RttWorldgenStar
     [Repeat(50)]
     public void GenerateCompanionSpectralType(int primaryRoll, SpectralType expected)
     {
-        var result = GenerateSpectralType(RttWorldgenStarType.Companion, primaryRoll);
+        var result = GenerateSpectralType(StarType.Companion, primaryRoll);
 
         Assert.That((int) result, Is.GreaterThanOrEqualTo((int) expected));
     }
@@ -68,7 +68,7 @@ public class RttWorldgenStarServiceTests : RttWorldgenStar
     [Repeat(50)]
     public void GenerateCompanionSpectralTypeEquals(int primaryRoll, SpectralType expected)
     {
-        var result = GenerateSpectralType(RttWorldgenStarType.Companion, primaryRoll);
+        var result = GenerateSpectralType(StarType.Companion, primaryRoll);
 
         Assert.That(result, Is.EqualTo(expected));
     }

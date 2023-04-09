@@ -2,7 +2,7 @@ export enum Base {
   Naval,
   Scout,
   Research,
-  TAS,
+  Tas,
   Shipyard,
   MegaCorporateHeadquarters,
   AncientSite,

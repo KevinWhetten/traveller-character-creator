@@ -1,8 +1,4 @@
-﻿import {ISubsector} from "../interfaces/subsector";
-import {Coordinates} from "../other/coordinates";
-import {MongooseHex} from "./mongoose-hex";
+﻿import {Subsector} from "../basic/subsector";
 
-export class MongooseSubsector implements ISubsector{
-  coordinates: Coordinates;
-  hexes: MongooseHex[];
+export class MongooseSubsector extends Subsector{
 }

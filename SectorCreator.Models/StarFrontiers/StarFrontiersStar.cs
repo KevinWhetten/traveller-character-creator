@@ -6,7 +6,6 @@ namespace SectorCreator.Models.StarFrontiers;
 
 public class StarFrontiersStar : Star
 {
-
     public StarFrontiersStar()
     {
         SpectralType = Roll.D10(1) switch {

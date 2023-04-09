@@ -1,5 +1,5 @@
 ﻿export enum SpectralType {
-  WD,
+  Wd,
   A,
   F,
   G,
@@ -8,7 +8,7 @@
   L,
   B,
   O,
-  RG,
-  SG,
+  Rg,
+  Sg,
   D
 }

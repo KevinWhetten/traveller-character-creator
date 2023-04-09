@@ -1,8 +1,4 @@
-﻿import {ISector} from "../interfaces/sector";
-import {StarFrontiersSubsector} from "./star-frontiers-subsector";
-import {SectorType} from "../enums/sector-type";
+﻿import {Sector} from "../basic/sector";
 
-export class StarFrontiersSector implements ISector {
-  sectorType: SectorType = SectorType.StarFrontiers;
-  subsectors: StarFrontiersSubsector[];
+export class StarFrontiersSector extends Sector {
 }

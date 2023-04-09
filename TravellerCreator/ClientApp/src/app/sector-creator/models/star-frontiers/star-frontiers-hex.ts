@@ -1,8 +1,4 @@
-﻿import {IHex} from "../interfaces/hex";
-import {Coordinates} from "../other/coordinates";
-import {StarFrontiersStarSystem} from "./star-frontiers-star-system";
+﻿import {Hex} from "../basic/hex";
 
-export class StarFrontiersHex implements IHex {
-  coordinates: Coordinates;
-  starSystems: StarFrontiersStarSystem[];
+export class StarFrontiersHex extends Hex {
 }

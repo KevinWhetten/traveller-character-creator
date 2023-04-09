@@ -1,12 +1,7 @@
-﻿export enum Luminosity {
-  WD,
-  M,
-  K,
-  G,
-  F,
-  A,
-  B,
-  O,
-  RG,
-  SG
+export enum Luminosity {
+  I,
+  III,
+  IV,
+  V,
+  Ve
 }

@@ -1,6 +1,6 @@
 ﻿namespace SectorCreator.Global.Enums;
 
-public enum RttWorldgenStarSystemType
+public enum StarSystemType
 {
     BrownDwarf,
     Regular,

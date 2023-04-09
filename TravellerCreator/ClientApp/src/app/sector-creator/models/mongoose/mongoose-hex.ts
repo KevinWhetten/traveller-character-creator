@@ -1,12 +1,9 @@
-﻿import {IHex} from "../interfaces/hex";
-import {Coordinates} from "../other/coordinates";
-import {MongooseStarSystem} from "./mongoose-star-system";
+﻿import {Coordinates} from "../other/coordinates";
+import {Hex} from "../basic/hex";
 
-export class MongooseHex implements IHex {
-  coordinates: Coordinates;
-  starSystems: MongooseStarSystem[] = [];
-
+export class MongooseHex extends Hex {
   constructor(coordinates: Coordinates) {
+    super();
     this.coordinates = coordinates;
   }
 }
