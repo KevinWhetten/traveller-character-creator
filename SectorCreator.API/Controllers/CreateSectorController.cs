@@ -68,7 +68,7 @@ public class CreateSectorController : ControllerBase
     }
 
     [HttpGet]
-    [Route("RTTWorldgenSector")]
+    [Route("RttWorldgenSector")]
     // https://wiki.rpg.net/index.php/RTT_Worldgen
     public IActionResult GetRttWorldgenSector()
     {

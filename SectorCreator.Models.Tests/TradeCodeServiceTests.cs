@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models;
 using SectorCreator.Models.Mongoose;
 
-namespace SectorCreator.Services.Tests;
+namespace SectorCreator.Models.Tests;
 
 public class TradeCodeServiceTests
 {

@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {RTTWorldgenSubsector} from "../../models/rtt-worldgen/rtt-worldgen.subsector";
-import {RTTWorldgenPlanet} from "../../models/rtt-worldgen/rtt-worldgen.planet";
-import {RTTWorldgenHex} from "../../models/rtt-worldgen/rtt-worldgen.hex";
-import {RTTWorldgenUWPService} from "../../services/rttworldgen.uwp.service";
+import {RttWorldgenSubsector} from "../../models/rtt-worldgen/rtt-worldgen.subsector";
+import {RttWorldgenPlanet} from "../../models/rtt-worldgen/rtt-worldgen.planet";
+import {RttWorldgenHex} from "../../models/rtt-worldgen/rtt-worldgen.hex";
+import {RttWorldgenUWPService} from "../../services/rttworldgen.uwp.service";
 
 
 @Component({
@@ -10,11 +10,11 @@ import {RTTWorldgenUWPService} from "../../services/rttworldgen.uwp.service";
   templateUrl: './rttworldgen-subsector.component.html',
   styleUrls: ['./rttworldgen-subsector.component.css']
 })
-export class RTTWorldgenSubsectorComponent implements OnInit {
-  @Input() subsector: RTTWorldgenSubsector;
-  planet: RTTWorldgenPlanet | null;
+export class RttWorldgenSubsectorComponent implements OnInit {
+  @Input() subsector: RttWorldgenSubsector;
+  planet: RttWorldgenPlanet | null;
 
-  constructor(private _uwpService: RTTWorldgenUWPService) {
+  constructor(private _uwpService: RttWorldgenUWPService) {
   }
 
   ngOnInit(): void {
@@ -24,8 +24,8 @@ export class RTTWorldgenSubsectorComponent implements OnInit {
     return `${this.subsector.coordinates.x}, ${this.subsector.coordinates.y}`;
   }
 
-  getCoordinates(hex: RTTWorldgenHex): string {
-    this.planet = this._uwpService.GetBestRTTWorldgenPlanet(hex);
+  getCoordinates(hex: RttWorldgenHex): string {
+    this.planet = this._uwpService.GetBestRttWorldgenPlanet(hex);
 
     return this._uwpService.getCoordinates(hex);
   }
@@ -87,11 +87,11 @@ export class RTTWorldgenSubsectorComponent implements OnInit {
     return '';
   }
 
-  getPBG(hex: RTTWorldgenHex): string {
+  getPBG(hex: RttWorldgenHex): string {
     return this._uwpService.GetPBG(hex)
   }
 
-  getWorldNum(hex: RTTWorldgenHex): string {
+  getWorldNum(hex: RttWorldgenHex): string {
     let worldNum = 0;
 
     if (hex.starSystems.length > 0) {
@@ -107,11 +107,11 @@ export class RTTWorldgenSubsectorComponent implements OnInit {
     return this._uwpService.GetHexadecimal(worldNum);
   }
 
-  getAllegiance(hex: RTTWorldgenHex): string {
+  getAllegiance(hex: RttWorldgenHex): string {
     return '';
   }
 
-  getStellar(hex: RTTWorldgenHex): string {
+  getStellar(hex: RttWorldgenHex): string {
     return '';
   }
 

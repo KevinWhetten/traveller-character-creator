@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RTTWorldgenSubsectorComponent } from './rttworldgen-subsector.component';
+import { RttWorldgenSubsectorComponent } from './rttworldgen-subsector.component';
 
-describe('RTTWorldgenSubsectorComponent', () => {
-  let component: RTTWorldgenSubsectorComponent;
-  let fixture: ComponentFixture<RTTWorldgenSubsectorComponent>;
+describe('RttWorldgenSubsectorComponent', () => {
+  let component: RttWorldgenSubsectorComponent;
+  let fixture: ComponentFixture<RttWorldgenSubsectorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RTTWorldgenSubsectorComponent ]
+      declarations: [ RttWorldgenSubsectorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RTTWorldgenSubsectorComponent);
+    fixture = TestBed.createComponent(RttWorldgenSubsectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

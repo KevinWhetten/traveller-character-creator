@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "syGrcixeXCnVKdeM14IEtJwMm5PvhKioyJVzKNMNyo0=",
+  "Source": "SectorCreator.API",
+  "BasePath": "_content/SectorCreator.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

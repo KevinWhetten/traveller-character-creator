@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ww+hsaDcbmN+EO++C1bN8Gily1Ydpy/8IFC+INUuJREWZ2OX1kY2qKcaZrhXwlpscNUkjgs1nrokTUNtUJcgPA==",
+  "dgSpecHash": "R/Or4jyjq6WgiJBV5b+IxFWjiliEI37DlujrisBJv5Yc/XW6U/VwHJJDwY9Nqur8y7bujZeH4AidgDolmR57Ww==",
   "success": true,
-  "projectFilePath": "C:\\source\\traveller-character-creator\\SectorCreator.BL\\SectorCreator.BL.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.BL\\SectorCreator.BL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\krwhe\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.14\\microsoft.netcore.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\krwhe\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.14\\microsoft.windowsdesktop.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\krwhe\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.14\\microsoft.aspnetcore.app.ref.6.0.14.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import {UWPService} from "./uwp.service";
 import {RollingService} from "../../services/rolling.service";
-import {RTTWorldgenHex} from "../models/rtt-worldgen/rtt-worldgen.hex";
-import {RTTWorldgenPlanet} from "../models/rtt-worldgen/rtt-worldgen.planet";
+import {RttWorldgenHex} from "../models/rtt-worldgen/rtt-worldgen.hex";
+import {RttWorldgenPlanet} from "../models/rtt-worldgen/rtt-worldgen.planet";
 import {PlanetType} from "../models/enums/planet-type";
 
 @Injectable({
   providedIn: 'root'
 })
-export class RTTWorldgenUWPService extends UWPService {
+export class RttWorldgenUWPService extends UWPService {
 
   constructor(protected _rollingService: RollingService) {
     super(_rollingService);
   }
 
-  GetBestRTTWorldgenPlanet(hex: RTTWorldgenHex): RTTWorldgenPlanet | null {
+  GetBestRttWorldgenPlanet(hex: RttWorldgenHex): RttWorldgenPlanet | null {
     let bestPlanet = null;
     let mostImportant = -10;
     hex.starSystems.forEach(starSystem => {

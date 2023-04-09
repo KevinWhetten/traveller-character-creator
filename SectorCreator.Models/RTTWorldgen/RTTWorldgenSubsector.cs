@@ -1,5 +1,5 @@
 ﻿using SectorCreator.Global;
-using SectorCreator.Models.Base;
+using SectorCreator.Models.Basic;
 
 namespace SectorCreator.Models.RTTWorldgen;
 

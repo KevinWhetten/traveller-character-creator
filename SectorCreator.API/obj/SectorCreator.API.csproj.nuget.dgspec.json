@@ -1,45 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "C:\\source\\traveller-character-creator\\SectorCreator.API\\SectorCreator.API.csproj": {}
+    "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.API\\SectorCreator.API.csproj": {}
   },
   "projects": {
-    "C:\\source\\traveller-character-creator\\SectorCreator.API\\SectorCreator.API.csproj": {
+    "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.API\\SectorCreator.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\source\\traveller-character-creator\\SectorCreator.API\\SectorCreator.API.csproj",
+        "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.API\\SectorCreator.API.csproj",
         "projectName": "SectorCreator.API",
-        "projectPath": "C:\\source\\traveller-character-creator\\SectorCreator.API\\SectorCreator.API.csproj",
-        "packagesPath": "C:\\Users\\krw\\.nuget\\packages\\",
-        "outputPath": "C:\\source\\traveller-character-creator\\SectorCreator.API\\obj\\",
+        "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.API\\SectorCreator.API.csproj",
+        "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
+        "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\krw\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\source\\traveller-character-creator\\SectorCreator.BL\\SectorCreator.BL.csproj": {
-                "projectPath": "C:\\source\\traveller-character-creator\\SectorCreator.BL\\SectorCreator.BL.csproj"
+              "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.BL\\SectorCreator.BL.csproj": {
+                "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.BL\\SectorCreator.BL.csproj"
               }
             }
           }
@@ -82,49 +72,39 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\source\\traveller-character-creator\\SectorCreator.BL\\SectorCreator.BL.csproj": {
+    "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.BL\\SectorCreator.BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\source\\traveller-character-creator\\SectorCreator.BL\\SectorCreator.BL.csproj",
+        "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.BL\\SectorCreator.BL.csproj",
         "projectName": "SectorCreator.BL",
-        "projectPath": "C:\\source\\traveller-character-creator\\SectorCreator.BL\\SectorCreator.BL.csproj",
-        "packagesPath": "C:\\Users\\krw\\.nuget\\packages\\",
-        "outputPath": "C:\\source\\traveller-character-creator\\SectorCreator.BL\\obj\\",
+        "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.BL\\SectorCreator.BL.csproj",
+        "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
+        "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.BL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\krw\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\source\\traveller-character-creator\\SectorCreator.Global\\SectorCreator.Global.csproj": {
-                "projectPath": "C:\\source\\traveller-character-creator\\SectorCreator.Global\\SectorCreator.Global.csproj"
+              "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Global\\SectorCreator.Global.csproj": {
+                "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Global\\SectorCreator.Global.csproj"
               },
-              "C:\\source\\traveller-character-creator\\SectorCreator.Models\\SectorCreator.Models.csproj": {
-                "projectPath": "C:\\source\\traveller-character-creator\\SectorCreator.Models\\SectorCreator.Models.csproj"
+              "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Models\\SectorCreator.Models.csproj": {
+                "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Models\\SectorCreator.Models.csproj"
               }
             }
           }
@@ -149,43 +129,47 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\source\\traveller-character-creator\\SectorCreator.Global\\SectorCreator.Global.csproj": {
+    "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Global\\SectorCreator.Global.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\source\\traveller-character-creator\\SectorCreator.Global\\SectorCreator.Global.csproj",
+        "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Global\\SectorCreator.Global.csproj",
         "projectName": "SectorCreator.Global",
-        "projectPath": "C:\\source\\traveller-character-creator\\SectorCreator.Global\\SectorCreator.Global.csproj",
-        "packagesPath": "C:\\Users\\krw\\.nuget\\packages\\",
-        "outputPath": "C:\\source\\traveller-character-creator\\SectorCreator.Global\\obj\\",
+        "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Global\\SectorCreator.Global.csproj",
+        "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
+        "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Global\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\krw\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -214,51 +198,55 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\source\\traveller-character-creator\\SectorCreator.Models\\SectorCreator.Models.csproj": {
+    "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Models\\SectorCreator.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\source\\traveller-character-creator\\SectorCreator.Models\\SectorCreator.Models.csproj",
+        "projectUniqueName": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Models\\SectorCreator.Models.csproj",
         "projectName": "SectorCreator.Models",
-        "projectPath": "C:\\source\\traveller-character-creator\\SectorCreator.Models\\SectorCreator.Models.csproj",
-        "packagesPath": "C:\\Users\\krw\\.nuget\\packages\\",
-        "outputPath": "C:\\source\\traveller-character-creator\\SectorCreator.Models\\obj\\",
+        "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Models\\SectorCreator.Models.csproj",
+        "packagesPath": "C:\\Users\\krwhe\\.nuget\\packages\\",
+        "outputPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Models\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\krw\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\krwhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\source\\traveller-character-creator\\SectorCreator.Global\\SectorCreator.Global.csproj": {
-                "projectPath": "C:\\source\\traveller-character-creator\\SectorCreator.Global\\SectorCreator.Global.csproj"
+              "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Global\\SectorCreator.Global.csproj": {
+                "projectPath": "C:\\Source\\Personal\\TravellerCharacterCreator\\SectorCreator.Global\\SectorCreator.Global.csproj"
               }
             }
           }
@@ -283,12 +271,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

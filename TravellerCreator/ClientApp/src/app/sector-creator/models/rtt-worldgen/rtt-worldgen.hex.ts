@@ -1,8 +1,8 @@
 ﻿import {IHex} from "../interfaces/hex";
 import {Coordinates} from "../other/coordinates";
-import {RTTWorldgenStarSystem} from "./rtt-worldgen.star-system";
+import {RttWorldgenStarSystem} from "./rtt-worldgen.star-system";
 
-export class RTTWorldgenHex implements IHex {
+export class RttWorldgenHex implements IHex {
   coordinates: Coordinates;
-  starSystems: RTTWorldgenStarSystem[];
+  starSystems: RttWorldgenStarSystem[];
 }

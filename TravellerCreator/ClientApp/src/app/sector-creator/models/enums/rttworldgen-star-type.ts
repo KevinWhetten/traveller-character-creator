@@ -1,4 +1,4 @@
-﻿export enum RTTWorldgenStarType {
+﻿export enum RttWorldgenStarType {
   Primary,
   Companion
 }

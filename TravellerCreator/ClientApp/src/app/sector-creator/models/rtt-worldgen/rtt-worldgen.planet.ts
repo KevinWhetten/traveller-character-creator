@@ -9,7 +9,7 @@ import {WorldType} from "../enums/world-type";
 import {PlanetOrbit} from "../enums/planet-orbit";
 import {CompanionOrbit} from "../enums/companion-orbit";
 
-export class RTTWorldgenPlanet implements IPlanet {
+export class RttWorldgenPlanet implements IPlanet {
   id: string;
   name: string;
 
@@ -43,5 +43,5 @@ export class RTTWorldgenPlanet implements IPlanet {
   starId: string;
   satelliteOrbit: CompanionOrbit;
 
-  satellites: RTTWorldgenPlanet[];
+  satellites: RttWorldgenPlanet[];
 }

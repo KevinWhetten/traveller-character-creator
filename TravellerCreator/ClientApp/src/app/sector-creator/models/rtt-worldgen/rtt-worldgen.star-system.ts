@@ -1,12 +1,12 @@
 ﻿import {IStarSystem} from "../interfaces/star-system";
 import {StarSystemType} from "../enums/star-system-type";
-import {RTTWorldgenPlanet} from "./rtt-worldgen.planet";
-import {RTTWorldgenStar} from "./rtt-worldgen.star";
+import {RttWorldgenPlanet} from "./rtt-worldgen.planet";
+import {RttWorldgenStar} from "./rtt-worldgen.star";
 
-export class RTTWorldgenStarSystem implements IStarSystem{
-  stars: RTTWorldgenStar[];
+export class RttWorldgenStarSystem implements IStarSystem{
+  stars: RttWorldgenStar[];
   type: StarSystemType;
 
   gasGiant: boolean;
-  planets: RTTWorldgenPlanet[];
+  planets: RttWorldgenPlanet[];
 }

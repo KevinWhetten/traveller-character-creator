@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.Global", "Sec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.Models.Tests", "SectorCreator.Models.Tests\SectorCreator.Models.Tests.csproj", "{BAF61E01-99E4-4A9F-AC38-F25944860387}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.Global.Tests", "SectorCreator.Global.Tests\SectorCreator.Global.Tests.csproj", "{732E6339-A6F1-4BED-A7D2-8701C5C641F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.BL.Tests", "SectorCreator.BL.Tests\SectorCreator.BL.Tests.csproj", "{4D10B53C-F150-4A4B-AACC-33CEB003ECF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +46,13 @@ Global
 		{BAF61E01-99E4-4A9F-AC38-F25944860387}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAF61E01-99E4-4A9F-AC38-F25944860387}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAF61E01-99E4-4A9F-AC38-F25944860387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{732E6339-A6F1-4BED-A7D2-8701C5C641F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{732E6339-A6F1-4BED-A7D2-8701C5C641F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{732E6339-A6F1-4BED-A7D2-8701C5C641F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{732E6339-A6F1-4BED-A7D2-8701C5C641F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D10B53C-F150-4A4B-AACC-33CEB003ECF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D10B53C-F150-4A4B-AACC-33CEB003ECF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D10B53C-F150-4A4B-AACC-33CEB003ECF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D10B53C-F150-4A4B-AACC-33CEB003ECF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
