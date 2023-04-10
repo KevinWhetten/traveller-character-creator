@@ -1,14 +1,26 @@
 ﻿namespace SectorCreator.Models.RTTWorldgen.Planets;
 
-public static class ChthonianPlanet
+public interface IChthonianPlanet
 {
-    public static RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
+    RttWorldgenPlanet Generate(RttWorldgenPlanet planet);
+}
+
+public class ChthonianPlanet : IChthonianPlanet
+{
+    private readonly IPlanetValidation _planetValidation;
+
+    public ChthonianPlanet(IPlanetValidation planetValidation)
+    {
+        _planetValidation = planetValidation;
+    }
+    
+    public RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
     {
         planet.Size = 16;
         planet.Atmosphere = 1;
         planet.Hydrographics = 0;
         planet.Biosphere = 0;
-        planet = PlanetValidation.ValidatePlanet(planet);
+        planet = _planetValidation.ValidatePlanet(planet);
         return planet;
     }
 }

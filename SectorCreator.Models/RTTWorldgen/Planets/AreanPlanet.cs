@@ -3,22 +3,36 @@ using SectorCreator.Global.Enums;
 
 namespace SectorCreator.Models.RTTWorldgen.Planets;
 
-public static class AreanPlanet
+public interface IAreanPlanet
 {
-    public static RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
+    RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
+}
+
+public class AreanPlanet : IAreanPlanet
+{
+    private readonly IRollingService _rollingService;
+    private readonly IPlanetValidation _planetValidation;
+
+    public AreanPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
     {
-        planet.Size = Roll.D6(1) - 1;
+        _rollingService = rollingService;
+        _planetValidation = planetValidation;
+    }
+    
+    public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
+    {
+        planet.Size = _rollingService.D6(1) - 1;
         planet.Atmosphere = GetAtmosphere(primaryStar);
         planet.Hydrographics = GetHydrographics(planet);
         planet.Chemistry = GetChemistry(primaryStar, planet);
         planet.Biosphere = GetBiosphere(primaryStar, planet);
-        planet = PlanetValidation.ValidatePlanet(planet);
+        planet = _planetValidation.ValidatePlanet(planet);
         return planet;
     }
 
-    private static int GetAtmosphere(RttWorldgenStar primaryStar)
+    private int GetAtmosphere(RttWorldgenStar primaryStar)
     {
-        var roll = Roll.D6(1);
+        var roll = _rollingService.D6(1);
         if (primaryStar.SpectralType == SpectralType.D) {
             roll -= 2;
         }
@@ -30,9 +44,9 @@ public static class AreanPlanet
         };
     }
 
-    private static int GetHydrographics(RttWorldgenPlanet planet)
+    private int GetHydrographics(RttWorldgenPlanet planet)
     {
-        var hydrographics = Roll.D3(2) + planet.Size - 7;
+        var hydrographics = _rollingService.D3(2) + planet.Size - 7;
         if (planet.Atmosphere == 1) {
             hydrographics -= 4;
         }
@@ -40,9 +54,9 @@ public static class AreanPlanet
         return hydrographics;
     }
 
-    private static PlanetChemistry GetChemistry(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
+    private PlanetChemistry GetChemistry(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
-        var roll = Roll.D6(1);
+        var roll = _rollingService.D6(1);
         if (primaryStar.SpectralType == SpectralType.L || planet.PlanetOrbit == PlanetOrbit.Outer) {
             roll += 2;
         }
@@ -55,15 +69,15 @@ public static class AreanPlanet
         };
     }
 
-    private static int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
+    private int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
-        var biosphere = 0;
+        int biosphere;
         if (primaryStar.Age >= 4 + (int) planet.Chemistry && planet.Atmosphere == 10) {
-            biosphere = Roll.D6(1) + planet.Size - 2;
-        } else if (primaryStar.Age >= Roll.D3(1) + (int) planet.Chemistry) {
+            biosphere = _rollingService.D6(1) + planet.Size - 2;
+        } else if (primaryStar.Age >= _rollingService.D3(1) + (int) planet.Chemistry) {
             biosphere = planet.Atmosphere switch {
-                1 => Roll.D6(1) - 4,
-                10 => Roll.D3(1),
+                1 => _rollingService.D6(1) - 4,
+                10 => _rollingService.D3(1),
                 _ => 0
             };
         } else {

@@ -3,42 +3,55 @@ using SectorCreator.Global.Enums;
 
 namespace SectorCreator.Models.RTTWorldgen.Planets;
 
-public static class SnowballPlanet
+public interface ISnowballPlanet
 {
-    public static RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
+    RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
+}
+
+public class SnowballPlanet : ISnowballPlanet
+{
+    private readonly IRollingService _rollingService;
+    private readonly IPlanetValidation _planetValidation;
+    public SnowballPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
     {
-        var hydrosphereRoll = Roll.D6(1);
+        _rollingService = rollingService;
+        _planetValidation = planetValidation;
+    }
+    
+    public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
+    {
+        var hydrosphereRoll = _rollingService.D6(1);
         
-        planet.Size = Roll.D6(1) - 1;
+        planet.Size = _rollingService.D6(1) - 1;
         planet.Atmosphere = GetAtmosphere();
         planet.Hydrographics = GetHydrographics(hydrosphereRoll);
         planet.Chemistry = GetChemistry(primaryStar, planet);
         planet.Biosphere = GetBiosphere(primaryStar, planet, hydrosphereRoll);
-        planet = PlanetValidation.ValidatePlanet(planet);
+        planet = _planetValidation.ValidatePlanet(planet);
         return planet;
     }
 
-    private static int GetAtmosphere()
+    private int GetAtmosphere()
     {
-        return Roll.D6(1) switch {
+        return _rollingService.D6(1) switch {
             (<= 4) => 0,
             (<= 6) => 1,
             _ => 0
         };
     }
 
-    private static int GetHydrographics(int hydrosphereRoll)
+    private int GetHydrographics(int hydrosphereRoll)
     {
         return hydrosphereRoll switch {
             (<= 3) => 10,
-            (<= 6) => Roll.D6(2) - 2,
+            (<= 6) => _rollingService.D6(2) - 2,
             _ => 0
         };
     }
 
-    private static PlanetChemistry GetChemistry(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
+    private PlanetChemistry GetChemistry(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
-        var roll = Roll.D6(1);
+        var roll = _rollingService.D6(1);
         if (primaryStar.SpectralType == SpectralType.L) {
             roll += 2;
         }
@@ -55,15 +68,15 @@ public static class SnowballPlanet
         };
     }
 
-    private static int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet, int hydrosphereRoll)
+    private int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet, int hydrosphereRoll)
     {
         if (hydrosphereRoll >= 4) {
             if (primaryStar.Age >= 6 + (int) planet.Chemistry) {
-                return Roll.D6(1) + planet.Size - 2;
+                return _rollingService.D6(1) + planet.Size - 2;
             }
 
-            if (primaryStar.Age >= Roll.D6(1)) {
-                return Roll.D6(1) - 3;
+            if (primaryStar.Age >= _rollingService.D6(1)) {
+                return _rollingService.D6(1) - 3;
             }
 
             return 0;

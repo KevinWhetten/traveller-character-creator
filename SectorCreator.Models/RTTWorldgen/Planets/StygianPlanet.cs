@@ -2,15 +2,29 @@
 
 namespace SectorCreator.Models.RTTWorldgen.Planets;
 
-public static class StygianPlanet
+public interface IStygianPlanet
 {
-    public static RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
+    RttWorldgenPlanet Generate(RttWorldgenPlanet planet);
+}
+
+public class StygianPlanet : IStygianPlanet
+{
+    private readonly IRollingService _rollingService;
+    private readonly IPlanetValidation _planetValidation;
+
+    public StygianPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
     {
-        planet.Size = Roll.D6(1) - 1;
+        _rollingService = rollingService;
+        _planetValidation = planetValidation;
+    }
+
+    public RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
+    {
+        planet.Size = _rollingService.D6(1) - 1;
         planet.Atmosphere = 0;
         planet.Hydrographics = 0;
         planet.Biosphere = 0;
-        planet = PlanetValidation.ValidatePlanet(planet);
+        planet = _planetValidation.ValidatePlanet(planet);
         return planet;
     }
 }

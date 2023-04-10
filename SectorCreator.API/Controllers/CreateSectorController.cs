@@ -1,6 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SectorCreator.BL;
+using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using TravellerCharacterCreatorBL;
+using SectorCreator.Models.Factories;
+using SectorCreator.Models.RTTWorldgen;
+using SectorCreator.Models.RTTWorldgen.Planets;
+using SectorCreator.Models.StarFrontiers;
 
 namespace SectorCreator.API.Controllers;
 
@@ -8,11 +13,45 @@ namespace SectorCreator.API.Controllers;
 [Route("[controller]")]
 public class CreateSectorController : ControllerBase
 {
-    private readonly SectorGenerator _sectorGenerator;
+    private readonly ISectorGenerator _sectorGenerator;
 
     public CreateSectorController()
     {
-        _sectorGenerator = new SectorGenerator();
+        _sectorGenerator = new SectorGenerator(
+            new SectorFactory(
+                new SubsectorFactory(
+                    new HexFactory(
+                        new StarSystemFactory(
+                            new RollingService(), new PlanetFactory(
+                                new RollingService()
+                            ), new RttWorldgenPlanetFactory(
+                                new RollingService(),
+                                new AcheronianPlanet(new RollingService(), new PlanetValidation()),
+                                new AreanPlanet(new RollingService(), new PlanetValidation()),
+                                new AridPlanet(new RollingService(), new PlanetValidation()),
+                                new AsphodelianPlanet(new RollingService(), new PlanetValidation()),
+                                new ChthonianPlanet(new PlanetValidation()),
+                                new HebeanPlanet(new RollingService(), new PlanetValidation()),
+                                new HelianPlanet(new RollingService(), new PlanetValidation()),
+                                new JaniLithicPlanet(new RollingService(), new PlanetValidation()),
+                                new JovianPlanet(new RollingService(), new PlanetValidation()),
+                                new MeltballPlanet(new RollingService(), new PlanetValidation()),
+                                new OceanicPlanet(new RollingService(), new PlanetValidation()),
+                                new PanthalassicPlanet(new RollingService(), new PlanetValidation()),
+                                new PromethianPlanet(new RollingService(), new PlanetValidation()),
+                                new RockballPlanet(new RollingService(), new PlanetValidation()),
+                                new SnowballPlanet(new RollingService(), new PlanetValidation()),
+                                new StygianPlanet(new RollingService(), new PlanetValidation()),
+                                new TectonicPlanet(new RollingService(), new PlanetValidation()),
+                                new TelluricPlanet(new RollingService(), new PlanetValidation()),
+                                new VesperianPlanet(new RollingService(), new PlanetValidation())),
+                            new StarFrontiersPlanetFactory(new RollingService())
+                        ),
+                        new RollingService()
+                    )
+                )
+            )
+        );
     }
 
     [HttpGet]
@@ -21,7 +60,7 @@ public class CreateSectorController : ControllerBase
     public IActionResult GetBasicSector()
     {
         try {
-            return Ok(_sectorGenerator.GenerateSector(SectorType.Basic));
+            return Ok(_sectorGenerator.GenerateMongooseSector(SectorType.Basic));
         }
         catch (Exception) {
             return StatusCode(500);
@@ -34,7 +73,7 @@ public class CreateSectorController : ControllerBase
     public IActionResult GetSpaceOperaSector()
     {
         try {
-            return Ok(_sectorGenerator.GenerateSector(SectorType.SpaceOpera));
+            return Ok(_sectorGenerator.GenerateMongooseSector(SectorType.SpaceOpera));
         }
         catch (Exception) {
             return StatusCode(500);
@@ -47,7 +86,7 @@ public class CreateSectorController : ControllerBase
     public IActionResult GetHardScienceSector()
     {
         try {
-            return Ok(_sectorGenerator.GenerateSector(SectorType.HardScience));
+            return Ok(_sectorGenerator.GenerateMongooseSector(SectorType.HardScience));
         }
         catch (Exception) {
             return StatusCode(500);
@@ -60,7 +99,7 @@ public class CreateSectorController : ControllerBase
     public IActionResult GetT5Sector()
     {
         try {
-            return Ok(_sectorGenerator.GenerateSector(SectorType.T5));
+            return Ok(_sectorGenerator.GenerateT5Sector());
         }
         catch (Exception) {
             return StatusCode(500);
@@ -73,7 +112,7 @@ public class CreateSectorController : ControllerBase
     public IActionResult GetRttWorldgenSector()
     {
         try {
-            return Ok(_sectorGenerator.GenerateSector(SectorType.RttWorldgen));
+            return Ok(_sectorGenerator.GenerateRttWorldgenSector());
         }
         catch (Exception ex) {
             return StatusCode(500, $"{ex.Message}{ex.StackTrace}");
@@ -86,7 +125,7 @@ public class CreateSectorController : ControllerBase
     public IActionResult GetStarFrontiersSector()
     {
         try {
-            return Ok(_sectorGenerator.GenerateSector(SectorType.StarFrontiers));
+            return Ok(_sectorGenerator.GenerateStarFrontiersSector());
         }
         catch (Exception) {
             return StatusCode(500);

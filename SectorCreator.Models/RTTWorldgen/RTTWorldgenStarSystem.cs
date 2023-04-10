@@ -1,157 +1,51 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
+using SectorCreator.Models.Factories;
+using SectorCreator.Models.RTTWorldgen.Planets;
 
 namespace SectorCreator.Models.RTTWorldgen;
 
 public class RttWorldgenStarSystem : StarSystem
 {
-  public void Generate(StarSystemType starSystemType)
-  {
-    GenerateStars(starSystemType);
-    GeneratePlanets();
-  }
+    private readonly IRollingService _rollingService;
+    private readonly RttWorldgenPlanetFactory _rttWorldgenPlanetFactory = new(new RollingService(),
+        new AcheronianPlanet(new RollingService(), new PlanetValidation()),
+        new AreanPlanet(new RollingService(), new PlanetValidation()),
+        new AridPlanet(new RollingService(), new PlanetValidation()),
+        new AsphodelianPlanet(new RollingService(), new PlanetValidation()),
+        new ChthonianPlanet(new PlanetValidation()),
+        new HebeanPlanet(new RollingService(), new PlanetValidation()),
+        new HelianPlanet(new RollingService(), new PlanetValidation()),
+        new JaniLithicPlanet(new RollingService(), new PlanetValidation()),
+        new JovianPlanet(new RollingService(), new PlanetValidation()),
+        new MeltballPlanet(new RollingService(), new PlanetValidation()),
+        new OceanicPlanet(new RollingService(), new PlanetValidation()),
+        new PanthalassicPlanet(new RollingService(), new PlanetValidation()),
+        new PromethianPlanet(new RollingService(), new PlanetValidation()),
+        new RockballPlanet(new RollingService(), new PlanetValidation()),
+        new SnowballPlanet(new RollingService(), new PlanetValidation()),
+        new StygianPlanet(new RollingService(), new PlanetValidation()),
+        new TectonicPlanet(new RollingService(), new PlanetValidation()),
+        new TelluricPlanet(new RollingService(), new PlanetValidation()),
+        new VesperianPlanet(new RollingService(), new PlanetValidation()));
 
-  public void Generate(RttWorldgenStar star)
-  {
-    Stars.Add(star);
-    GeneratePlanets();
-  }
-
-  #region GenerateStars
-
-  private void GenerateStars(StarSystemType starSystemType)
-  {
-    if (starSystemType == StarSystemType.BrownDwarf)
+    public RttWorldgenStarSystem(IRollingService rollingService)
     {
-      Stars.Add(new RttWorldgenStar()
-      {
-        SpectralType = SpectralType.D,
-        Luminosity = Luminosity.I,
-        SpectralSubclass = Roll.D10(1) - 1
-      });
-      return;
+        _rollingService = rollingService;
     }
 
-    var numStars = GetNumStars(starSystemType);
-
-    var isPrimaryStar = true;
-    for (var i = 0; i < numStars; i++)
+    public RttWorldgenStarSystem(RttWorldgenPlanetFactory rttWorldgenPlanetFactory, IRollingService rollingService)
     {
-      var rttWorldgenStarType = isPrimaryStar ? StarType.Companion : StarType.Primary;
-      var star = new RttWorldgenStar();
-      if (isPrimaryStar)
-      {
-        var primaryStar = (RttWorldgenStar) Stars.First(x => ((RttWorldgenStar) x).StarType == StarType.Primary);
-        star.Generate(rttWorldgenStarType, primaryStar);
-      }
-      else
-      {
-        star.Generate(rttWorldgenStarType);
-      }
-
-      Stars.Add(star);
-
-      isPrimaryStar = false;
+        _rttWorldgenPlanetFactory = rttWorldgenPlanetFactory;
+        _rollingService = rollingService;
     }
 
-    foreach (var star in Stars.Cast<RttWorldgenStar>())
+    public void Generate(StarSystemType starSystemType)
     {
-      star.SpectralSubclass = Roll.D10(1) - 1;
-
-      if (star.StarType == StarType.Companion)
-      {
-        star.GenerateOrbit();
-      }
     }
-  }
 
-  private int GetNumStars(StarSystemType starSystemType)
-  {
-    if (starSystemType == StarSystemType.BrownDwarf)
+    public void Generate(RttWorldgenStar star)
     {
-      return 1;
     }
-
-    var roll = Roll.D6(3);
-    return roll switch
-    {
-      >= 11 and <= 15 => 2,
-      >= 16 => 3,
-      _ => 1
-    };
-  }
-
-  #endregion
-
-  #region GeneratePlanets
-
-  private void GeneratePlanets()
-  {
-    GenerateEpistellarPlanets();
-    GenerateInnerPlanets(Planets.Count + 1);
-    GenerateOuterPlanets(Planets.Count + 1);
-  }
-
-  private void GenerateEpistellarPlanets()
-  {
-    var roll = Roll.D6(1) - 3;
-    var primaryStar = (Stars.First(x => ((RttWorldgenStar) x).StarType == StarType.Primary) as RttWorldgenStar)!;
-
-    if (primaryStar is { SpectralType: SpectralType.M, Luminosity: Luminosity.V }) {
-      roll--;
-    } else if (primaryStar.Luminosity == Luminosity.III
-               || primaryStar.SpectralType is SpectralType.D or SpectralType.L) {
-      roll = 0;
-    }
-
-    roll = Math.Min(roll, 2);
-
-    for (var i = 0; i < roll; i++)
-    {
-      var planet = RttWorldgenPlanetFactory.GenerateRttWorldgenPlanet(primaryStar, PlanetOrbit.Epistellar, i + 1);
-      Planets.Add(planet);
-    }
-  }
-
-  private void GenerateInnerPlanets(int orbitNum)
-  {
-    var numPlanets = Roll.D6(1) - 1;
-    var primaryStar = Stars.First(x => ((RttWorldgenStar)x).StarType == StarType.Primary) as RttWorldgenStar;
-    
-    if (primaryStar!.SpectralType == SpectralType.M && primaryStar.Luminosity == Luminosity.V) {
-      numPlanets--;
-    } else if (Stars.Exists(x => ((RttWorldgenStar)x).CompanionOrbit == CompanionOrbit.Close)) {
-      numPlanets = 0;
-    } else if (primaryStar.SpectralType == SpectralType.L) {
-      numPlanets = Roll.D3(1) - 1;
-    }
-
-    for (var i = 0; i < numPlanets; i++)
-    {
-      var planet = RttWorldgenPlanetFactory.GenerateRttWorldgenPlanet(primaryStar, PlanetOrbit.Inner, orbitNum + i);
-      Planets.Add(planet);
-    }
-  }
-
-  private void GenerateOuterPlanets(int orbitNum)
-  {
-    var numPlanets = Roll.D6(1) - 1;
-    var primaryStar = Stars.First(x => ((RttWorldgenStar)x).StarType == StarType.Primary) as RttWorldgenStar;
-
-    if ((primaryStar!.SpectralType == SpectralType.M && primaryStar.Luminosity == Luminosity.V)
-        || primaryStar.SpectralType == SpectralType.L) {
-      numPlanets--;
-    } else if (Stars.Exists(x => ((RttWorldgenStar)x).CompanionOrbit == CompanionOrbit.Moderate)) {
-      numPlanets = 0;
-    }
-
-    for (var i = 0; i < numPlanets; i++)
-    {
-      var planet = RttWorldgenPlanetFactory.GenerateRttWorldgenPlanet(primaryStar, PlanetOrbit.Outer, orbitNum + i);
-      Planets.Add(planet);
-    }
-  }
-
-  #endregion
 }

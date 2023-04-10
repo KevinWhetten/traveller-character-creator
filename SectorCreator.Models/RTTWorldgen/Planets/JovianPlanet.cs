@@ -3,23 +3,37 @@ using SectorCreator.Global.Enums;
 
 namespace SectorCreator.Models.RTTWorldgen.Planets;
 
-public static class JovianPlanet
+public interface IJovianPlanet
 {
-    public static RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
+    RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
+}
+
+public class JovianPlanet : IJovianPlanet
+{
+    private readonly IRollingService _rollingService;
+    private readonly IPlanetValidation _planetValidation;
+
+    public JovianPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
+    {
+        _rollingService = rollingService;
+        _planetValidation = planetValidation;
+    }
+
+    public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
     {
         planet.Size = 16;
         planet.Atmosphere = 16;
         planet.Hydrographics = 16;
         planet.Biosphere = GetBiosphere(primaryStar, planet);
         planet.Chemistry = GetChemistry(primaryStar, planet);
-        planet = PlanetValidation.ValidatePlanet(planet);
+        planet = _planetValidation.ValidatePlanet(planet);
         return planet;
     }
 
-    private static int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
+    private int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
         var biosphere = 0;
-        var roll = Roll.D6(1);
+        var roll = _rollingService.D6(1);
         if (planet.PlanetOrbit == PlanetOrbit.Inner) {
             roll += 2;
         }
@@ -30,12 +44,12 @@ public static class JovianPlanet
                 break;
             case <= 8:
                 if (primaryStar.Age >= 7) {
-                    biosphere = Roll.D6(2);
+                    biosphere = _rollingService.D6(2);
                     if (primaryStar.SpectralType == SpectralType.D) {
                         biosphere -= 3;
                     }
-                } else if (primaryStar.Age >= Roll.D6(1)) {
-                    biosphere = Roll.D3(1);
+                } else if (primaryStar.Age >= _rollingService.D6(1)) {
+                    biosphere = _rollingService.D3(1);
                 } else {
                     biosphere = 0;
                 }
@@ -49,10 +63,10 @@ public static class JovianPlanet
         return biosphere;
     }
 
-    private static PlanetChemistry GetChemistry(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
+    private PlanetChemistry GetChemistry(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
         if (planet.Biosphere >= 1) {
-            var chemistry = Roll.D6(1);
+            var chemistry = _rollingService.D6(1);
             if (primaryStar.SpectralType == SpectralType.L) {
                 chemistry++;
             }

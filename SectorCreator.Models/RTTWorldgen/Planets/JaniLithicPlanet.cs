@@ -2,21 +2,35 @@
 
 namespace SectorCreator.Models.RTTWorldgen.Planets;
 
-public static class JaniLithicPlanet
+public interface IJaniLithicPlanet
 {
-    public static RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
+    RttWorldgenPlanet Generate(RttWorldgenPlanet planet);
+}
+
+public class JaniLithicPlanet : IJaniLithicPlanet
+{
+    private readonly IRollingService _rollingService;
+    private readonly IPlanetValidation _planetValidation;
+
+    public JaniLithicPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
     {
-        planet.Size = Roll.D6(1) + 4;
+        _rollingService = rollingService;
+        _planetValidation = planetValidation;
+    }
+
+    public RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
+    {
+        planet.Size = _rollingService.D6(1) + 4;
         planet.Atmosphere = GetAtmosphere();
         planet.Hydrographics = 0;
         planet.Biosphere = 0;
-        planet = PlanetValidation.ValidatePlanet(planet);
+        planet = _planetValidation.ValidatePlanet(planet);
         return planet;
     }
 
-    private static int GetAtmosphere()
+    private int GetAtmosphere()
     {
-        return Roll.D6(1) switch {
+        return _rollingService.D6(1) switch {
             (<= 3) => 1,
             (<= 6) => 10,
             _ => 0

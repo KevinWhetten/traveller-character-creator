@@ -10,3 +10,15 @@ C:\source\traveller-character-creator\SectorCreator.Global\obj\Debug\net6.0\Sect
 C:\source\traveller-character-creator\SectorCreator.Global\obj\Debug\net6.0\refint\SectorCreator.Global.dll
 C:\source\traveller-character-creator\SectorCreator.Global\obj\Debug\net6.0\SectorCreator.Global.pdb
 C:\source\traveller-character-creator\SectorCreator.Global\obj\Debug\net6.0\ref\SectorCreator.Global.dll
+C:\Source\Personal\TravellerCharacterCreator\SectorCreator.Global\bin\Debug\net6.0\SectorCreator.Global.deps.json
+C:\Source\Personal\TravellerCharacterCreator\SectorCreator.Global\bin\Debug\net6.0\SectorCreator.Global.dll
+C:\Source\Personal\TravellerCharacterCreator\SectorCreator.Global\bin\Debug\net6.0\SectorCreator.Global.pdb
+C:\Source\Personal\TravellerCharacterCreator\SectorCreator.Global\obj\Debug\net6.0\SectorCreator.Global.csproj.AssemblyReference.cache
+C:\Source\Personal\TravellerCharacterCreator\SectorCreator.Global\obj\Debug\net6.0\SectorCreator.Global.GeneratedMSBuildEditorConfig.editorconfig
+C:\Source\Personal\TravellerCharacterCreator\SectorCreator.Global\obj\Debug\net6.0\SectorCreator.Global.AssemblyInfoInputs.cache
+C:\Source\Personal\TravellerCharacterCreator\SectorCreator.Global\obj\Debug\net6.0\SectorCreator.Global.AssemblyInfo.cs
+C:\Source\Personal\TravellerCharacterCreator\SectorCreator.Global\obj\Debug\net6.0\SectorCreator.Global.csproj.CoreCompileInputs.cache
+C:\Source\Personal\TravellerCharacterCreator\SectorCreator.Global\obj\Debug\net6.0\SectorCreator.Global.dll
+C:\Source\Personal\TravellerCharacterCreator\SectorCreator.Global\obj\Debug\net6.0\refint\SectorCreator.Global.dll
+C:\Source\Personal\TravellerCharacterCreator\SectorCreator.Global\obj\Debug\net6.0\SectorCreator.Global.pdb
+C:\Source\Personal\TravellerCharacterCreator\SectorCreator.Global\obj\Debug\net6.0\ref\SectorCreator.Global.dll

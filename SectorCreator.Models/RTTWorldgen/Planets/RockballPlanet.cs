@@ -3,21 +3,35 @@ using SectorCreator.Global.Enums;
 
 namespace SectorCreator.Models.RTTWorldgen.Planets;
 
-public static class RockballPlanet
+public interface IRockballPlanet
 {
-    public static RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
+    RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
+}
+
+public class RockballPlanet : IRockballPlanet
+{
+    private readonly IRollingService _rollingService;
+    private readonly IPlanetValidation _planetValidation;
+
+    public RockballPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
     {
-        planet.Size = Roll.D6(1) - 1;
+        _rollingService = rollingService;
+        _planetValidation = planetValidation;
+    }
+
+    public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
+    {
+        planet.Size = _rollingService.D6(1) - 1;
         planet.Atmosphere = 0;
         planet.Hydrographics = GetHydrographics(primaryStar, planet);
         planet.Biosphere = 0;
-        planet = PlanetValidation.ValidatePlanet(planet);
+        planet = _planetValidation.ValidatePlanet(planet);
         return planet;
     }
 
-    private static int GetHydrographics(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
+    private int GetHydrographics(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
-        var hydrographics = Roll.D6(2) + planet.Size - 11;
+        var hydrographics = _rollingService.D6(2) + planet.Size - 11;
         if (primaryStar.SpectralType == SpectralType.L) {
             hydrographics++;
         }

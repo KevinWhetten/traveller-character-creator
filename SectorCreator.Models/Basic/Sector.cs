@@ -4,6 +4,6 @@ namespace SectorCreator.Models.Basic;
 
 public class Sector
 {
-    public SectorType SectorType { get; set; }
-    public List<Subsector> Subsectors { get; set; } = new();
+    public SectorType SectorType { get; protected init; }
+    public List<Subsector> Subsectors { get; } = new();
 }

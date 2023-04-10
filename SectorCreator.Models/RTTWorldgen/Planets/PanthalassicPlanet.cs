@@ -3,13 +3,27 @@ using SectorCreator.Global.Enums;
 
 namespace SectorCreator.Models.RTTWorldgen.Planets;
 
-public static class PanthalassicPlanet
+public interface IPanthalassicPlanet
 {
-    public static RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
+    RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
+}
+
+public class PanthalassicPlanet : IPanthalassicPlanet
+{
+    private readonly IRollingService _rollingService;
+    private readonly IPlanetValidation _planetValidation;
+
+    public PanthalassicPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
     {
-        planet.Size = Roll.D6(1) + 9;
-        planet.Size = Roll.D6(1) + 9;
-        planet.Atmosphere = Math.Min(Roll.D6(1) + 8, 13);
+        _rollingService = rollingService;
+        _planetValidation = planetValidation;
+    }
+
+    public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
+    {
+        planet.Size = _rollingService.D6(1) + 9;
+        planet.Size = _rollingService.D6(1) + 9;
+        planet.Atmosphere = Math.Min(_rollingService.D6(1) + 8, 13);
         planet.Hydrographics = 11;
         planet.Chemistry = GetChemistry(primaryStar);
         planet.Biosphere = GetBiosphere(primaryStar, planet);
@@ -17,13 +31,13 @@ public static class PanthalassicPlanet
         if (planet.Chemistry == PlanetChemistry.Ammonia) {
             planet.Chemistry = PlanetChemistry.Methane;
         }
-        planet = PlanetValidation.ValidatePlanet(planet);
+        planet = _planetValidation.ValidatePlanet(planet);
         return planet;
     }
 
-    private static PlanetChemistry GetChemistry(RttWorldgenStar primaryStar)
+    private PlanetChemistry GetChemistry(RttWorldgenStar primaryStar)
     {
-        var chemistryRoll = Roll.D6(1);
+        var chemistryRoll = _rollingService.D6(1);
         if (primaryStar.SpectralType == SpectralType.K && primaryStar.Luminosity == Luminosity.V) {
             chemistryRoll += 2;
         } else if (primaryStar.SpectralType == SpectralType.M && primaryStar.Luminosity == Luminosity.V) {
@@ -33,7 +47,7 @@ public static class PanthalassicPlanet
         }
 
         return chemistryRoll switch {
-            <= 6 => Roll.D6(2) switch {
+            <= 6 => _rollingService.D6(2) switch {
                 <= 8 => PlanetChemistry.Water,
                 <= 11 => PlanetChemistry.Sulfur,
                 <= 12 => PlanetChemistry.Chlorine,
@@ -45,12 +59,12 @@ public static class PanthalassicPlanet
         };
     }
 
-    private static int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
+    private int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
         if (primaryStar.Age >= 4 + (int) planet.Chemistry)
-            return Roll.D6(2);
-        if (primaryStar.Age >= Roll.D3(1) + (int) planet.Chemistry)
-            return Roll.D3(1);
+            return _rollingService.D6(2);
+        if (primaryStar.Age >= _rollingService.D3(1) + (int) planet.Chemistry)
+            return _rollingService.D3(1);
         
         return 0;
     }

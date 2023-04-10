@@ -10,4 +10,8 @@
       <ProjectReference Include="..\SectorCreator.Global\SectorCreator.Global.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="T5" />
+    </ItemGroup>
+
 </Project>

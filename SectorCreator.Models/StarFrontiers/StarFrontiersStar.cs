@@ -6,9 +6,16 @@ namespace SectorCreator.Models.StarFrontiers;
 
 public class StarFrontiersStar : Star
 {
-    public StarFrontiersStar()
+    private readonly IRollingService _rollingService;
+
+    public StarFrontiersStar(IRollingService rollingService)
     {
-        SpectralType = Roll.D10(1) switch {
+        _rollingService = rollingService;
+    }
+
+    private void Generate()
+    {
+        SpectralType = _rollingService.D10(1) switch {
             1 => SpectralType.Wd,
             2 => SpectralType.M,
             3 => SpectralType.K,
@@ -21,6 +28,6 @@ public class StarFrontiersStar : Star
             10 => SpectralType.Sg,
             _ => throw new ArgumentOutOfRangeException()
         };
-        SpectralSubclass = Roll.D10(1);
+        SpectralSubclass = _rollingService.D10(1);
     }
 }

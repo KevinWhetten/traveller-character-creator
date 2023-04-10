@@ -5,11 +5,17 @@ using SectorCreator.Models.RTTWorldgen;
 
 namespace SectorCreator.Models;
 
-public static class TradeCodeService
+public class TradeCodeService
 {
-  public static List<TradeCode> TradeCodes = new();
+  private readonly IRollingService _rollingService;
+  private List<TradeCode> TradeCodes = new();
 
-  public static List<TradeCode> GetTradeCodes(Planet planet)
+  public TradeCodeService(IRollingService rollingService)
+  {
+    _rollingService = rollingService;
+  }
+  
+  public List<TradeCode> GetTradeCodes(Planet planet)
   {
     TradeCodes = new List<TradeCode>();
     // Planetary
@@ -78,7 +84,7 @@ public static class TradeCodeService
 
   #region Planetary
 
-  public static void AddAsteroidTradeCode(Planet planet)
+  public void AddAsteroidTradeCode(Planet planet)
   {
     if (planet.Size is 0 && planet.Atmosphere is 0 && planet.Hydrographics is 0)
     {
@@ -86,7 +92,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddDesertTradeCode(Planet planet)
+  public void AddDesertTradeCode(Planet planet)
   {
     if (planet is { Atmosphere: >= 2, Hydrographics: 0 })
     {
@@ -94,7 +100,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddFluidOceansTradeCode(Planet planet)
+  public void AddFluidOceansTradeCode(Planet planet)
   {
     if (planet is { Atmosphere: >= 10, Hydrographics: >= 1 })
     {
@@ -102,7 +108,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddGardenTradeCode(Planet planet)
+  public void AddGardenTradeCode(Planet planet)
   {
     if (planet is { Atmosphere: >= 5, Hydrographics: >= 4 and <= 9, Population: >= 4 and <= 8 })
     {
@@ -110,7 +116,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddHellworldTradeCode(Planet planet)
+  private void AddHellworldTradeCode(Planet planet)
   {
     if (planet is { Size: >= 3, Atmosphere: 2 or 4 or 7 or >= 9 and <= 12, Hydrographics: >= 0 and <= 2 })
     {
@@ -118,7 +124,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddIceCappedTradeCode(Planet planet)
+  public void AddIceCappedTradeCode(Planet planet)
   {
     if (planet.Atmosphere is >= 0 and <= 1
         && planet.Hydrographics >= 1)
@@ -127,7 +133,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddOceanWorldTradeCode(Planet planet)
+  private void AddOceanWorldTradeCode(Planet planet)
   {
     if (planet.Atmosphere is 0 or 1
         && planet.Hydrographics >= 10)
@@ -136,7 +142,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddVacuumTradeCode(Planet planet)
+  public void AddVacuumTradeCode(Planet planet)
   {
     if (planet.Atmosphere == 0)
     {
@@ -144,7 +150,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddWaterWorldTradeCode(Planet planet)
+  public void AddWaterWorldTradeCode(Planet planet)
   {
     if (planet.Hydrographics == 10)
     {
@@ -156,7 +162,7 @@ public static class TradeCodeService
 
   #region Population
 
-  private static void AddDiebackTradeCode(Planet planet)
+  private void AddDiebackTradeCode(Planet planet)
   {
     if (planet is { Population: 0, Government: 0, LawLevel: 0, TechLevel: >= 1 })
     {
@@ -164,7 +170,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddBarrenTradeCode(Planet planet)
+  public void AddBarrenTradeCode(Planet planet)
   {
     if (planet.Population is 0 && planet.Government is 0 && planet.LawLevel == 0)
     {
@@ -172,7 +178,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddLowPopulationTradeCode(Planet planet)
+  public void AddLowPopulationTradeCode(Planet planet)
   {
     if (planet.Population is >= 1 and <= 3)
     {
@@ -180,7 +186,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddNonIndustrialTradeCode(Planet planet)
+  public void AddNonIndustrialTradeCode(Planet planet)
   {
     if (planet.Population is >= 4 and <= 6)
     {
@@ -188,7 +194,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddPreHighPopulationTradeCode(Planet planet)
+  private void AddPreHighPopulationTradeCode(Planet planet)
   {
     if (planet.Population == 8)
     {
@@ -196,7 +202,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddHighPopulationTradeCode(Planet planet)
+  public void AddHighPopulationTradeCode(Planet planet)
   {
     if (planet.Population >= 9)
     {
@@ -208,7 +214,7 @@ public static class TradeCodeService
 
   #region Economic
 
-  private static void AddPreAgriculturalTradeCode(Planet planet)
+  private void AddPreAgriculturalTradeCode(Planet planet)
   {
     if (planet.Atmosphere is >= 4 and <= 9
         && planet.Hydrographics is >= 4 and <= 8
@@ -218,7 +224,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddAgriculturalTradeCode(Planet planet)
+  public void AddAgriculturalTradeCode(Planet planet)
   {
     if (planet.Atmosphere is >= 4 and <= 9
         && planet.Hydrographics is >= 4 and <= 8
@@ -228,7 +234,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddNonAgriculturalTradeCode(Planet planet)
+  public void AddNonAgriculturalTradeCode(Planet planet)
   {
     if (planet.Atmosphere is >= 0 and <= 3
         && planet.Hydrographics is >= 0 and <= 3
@@ -238,7 +244,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddPreIndustrializedTradeCode(Planet planet)
+  private void AddPreIndustrializedTradeCode(Planet planet)
   {
     if (planet.Atmosphere is 0 or 1 or 2 or 4 or 7 or 9
         && planet.Population is 7 or 8)
@@ -247,7 +253,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddIndustrialTradeCode(Planet planet)
+  public void AddIndustrialTradeCode(Planet planet)
   {
     if (planet.Atmosphere is >= 0 and <= 2 or 4 or 7 or 9
         && planet.Population >= 9)
@@ -256,7 +262,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddPoorTradeCode(Planet planet)
+  public void AddPoorTradeCode(Planet planet)
   {
     if (planet.Atmosphere is >= 2 and <= 5
         && planet.Hydrographics is >= 0 and <= 3)
@@ -265,7 +271,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddPreRichTradeCode(Planet planet)
+  private void AddPreRichTradeCode(Planet planet)
   {
     if (planet.Atmosphere is 6 or 8
         && planet.Population is 5 or 9)
@@ -274,7 +280,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddRichTradeCode(Planet planet)
+  public void AddRichTradeCode(Planet planet)
   {
     if (planet.Atmosphere is 6 or 8
         && planet.Population is >= 6 and <= 8)
@@ -287,7 +293,7 @@ public static class TradeCodeService
 
   #region Climate
 
-  private static void AddFrozenTradeCode(Planet planet)
+  private void AddFrozenTradeCode(Planet planet)
   {
     if (planet.Temperature <= 2
         || planet is RttWorldgenPlanet
@@ -301,7 +307,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddHotTradeCode(Planet planet)
+  private void AddHotTradeCode(Planet planet)
   {
     if (planet.Temperature >= 10
         || planet is RttWorldgenPlanet
@@ -314,7 +320,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddColdTradeCode(Planet planet)
+  private void AddColdTradeCode(Planet planet)
   {
     if (planet.Temperature is >= 3 and <= 5)
     {
@@ -322,7 +328,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddLockedTradeCode(Planet planet)
+  private void AddLockedTradeCode(Planet planet)
   {
     if (planet is RttWorldgenPlanet worldgenPlanet
         && worldgenPlanet.ParentId != Guid.Empty
@@ -332,7 +338,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddTropicTradeCode(Planet planet)
+  private void AddTropicTradeCode(Planet planet)
   {
     if (planet.Size is >= 6 and <= 9
         && planet.Atmosphere is >= 4 and <= 9
@@ -343,7 +349,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddTundraTradeCode(Planet planet)
+  private void AddTundraTradeCode(Planet planet)
   {
     if (planet.Size is >= 6 and <= 9
         && planet.Atmosphere is >= 4 and <= 9
@@ -354,7 +360,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddTwilightZoneTradeCode(Planet planet)
+  private void AddTwilightZoneTradeCode(Planet planet)
   {
     if (planet is RttWorldgenPlanet { OrbitPosition: <= 1 })
     {
@@ -366,7 +372,7 @@ public static class TradeCodeService
 
   #region Secondary
 
-  private static void AddFarmingTradeCode(Planet planet)
+  private void AddFarmingTradeCode(Planet planet)
   {
     if (planet is RttWorldgenPlanet
         {
@@ -381,7 +387,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddMiningTradeCode(Planet planet)
+  private void AddMiningTradeCode(Planet planet)
   {
     if (planet is RttWorldgenPlanet
         {
@@ -394,19 +400,19 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddCaptiveTradeCode(Planet planet)
+  private void AddCaptiveTradeCode(Planet planet)
   {
     if (planet.Government != 6) return;
 
     TradeCode? captiveType = planet switch
     {
       RttWorldgenPlanet worldgenPlanet =>
-        Roll.D6(1) switch
+        _rollingService.D6(1) switch
         {
           <= 3 => TradeCode.MilitaryRule,
           >= 4 => worldgenPlanet.IsMainWorld ? TradeCode.PrisonCamp : TradeCode.PenalColony
         },
-      _ => Roll.D3(1) switch
+      _ => _rollingService.D3(1) switch
       {
         1 => TradeCode.MilitaryRule,
         2 => TradeCode.PrisonCamp,
@@ -421,7 +427,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddReserveTradeCode(Planet planet)
+  private void AddReserveTradeCode(Planet planet)
   {
     if (planet is { TechLevel: <= 5, Starport: 'X', Population: >= 1 })
     {
@@ -436,21 +442,21 @@ public static class TradeCodeService
 
   #region Political
 
-  private static void AddSubsectorCapitalTradeCode(Planet planet)
+  private void AddSubsectorCapitalTradeCode(Planet planet)
   {
     if (planet.Atmosphere >= 0)
     {
     }
   }
 
-  private static void AddSectorCapitalTradeCode(Planet planet)
+  private void AddSectorCapitalTradeCode(Planet planet)
   {
     if (planet.Atmosphere >= 0)
     {
     }
   }
 
-  private static void AddCapitalTradeCode(Planet planet)
+  private void AddCapitalTradeCode(Planet planet)
   {
     if (planet is RttWorldgenPlanet
         {
@@ -461,7 +467,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddColonyTradeCode(Planet planet)
+  private void AddColonyTradeCode(Planet planet)
   {
     if (planet.Atmosphere >= 0)
     {
@@ -472,7 +478,7 @@ public static class TradeCodeService
 
   #region Special
 
-  private static void AddSatelliteTradeCode(Planet planet)
+  private void AddSatelliteTradeCode(Planet planet)
   {
     if (planet is RttWorldgenPlanet worldgenPlanet
         && worldgenPlanet.ParentId != Guid.Empty)
@@ -481,7 +487,7 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddForbiddenTradeCode(Planet planet)
+  private void AddForbiddenTradeCode(Planet planet)
   {
     if (planet.TravelCode == TravelCode.Red)
     {
@@ -489,56 +495,56 @@ public static class TradeCodeService
     }
   }
 
-  private static void AddAmberTradeCode(Planet planet)
+  private void AddAmberTradeCode(Planet planet)
   {
     if (planet.TravelCode == TravelCode.Amber)
     {
       planet.TradeCodes.Add(TradeCode.Danger);
     }
-    else if (Roll.D6(2) == 12)
+    else if (_rollingService.D6(2) == 12)
     {
       planet.TradeCodes.Add(TradeCode.Puzzle);
     }
   }
 
-  private static void AddDataRepositoryTradeCode(Planet planet)
+  private void AddDataRepositoryTradeCode(Planet planet)
   {
-    if (Roll.D6(3) == 18)
+    if (_rollingService.D6(3) == 18)
     {
       planet.TradeCodes.Add(TradeCode.DataRepository);
-      planet.Bases.Add(Global.Enums.Base.DataRepository);
+      planet.Bases.Add(Base.DataRepository);
     }
   }
 
-  private static void AddAncientSiteTradeCode(Planet planet)
+  private void AddAncientSiteTradeCode(Planet planet)
   {
-    if (Roll.D6(3) == 18)
+    if (_rollingService.D6(3) == 18)
     {
       planet.TradeCodes.Add(TradeCode.AncientSite);
-      planet.Bases.Add(Global.Enums.Base.AncientSite);
+      planet.Bases.Add(Base.AncientSite);
     }
   }
 
-  private static void AddResearchStationTradeCode(Planet planet)
+  private void AddResearchStationTradeCode(Planet planet)
   {
-    var roll = Roll.D6(2);
+    var roll = _rollingService.D6(2);
     switch (planet.Starport)
     {
       case 'A':
         if (roll >= 6)
         {
           planet.TradeCodes.Add(TradeCode.ResearchStation);
-          planet.Bases.Add(Global.Enums.Base.Research);
+          planet.Bases.Add(Base.Research);
         }
 
         if (roll >= 9)
         {
-          planet.Bases.Add(Global.Enums.Base.Shipyard);
+          planet.Bases.Add(Base.Shipyard);
         }
 
         if (roll >= 12)
         {
-          planet.Bases.Add(Global.Enums.Base.MegaCorporateHeadquarters);
+          planet.Bases.Add(Base.MegaCorporateHeadquarters);
         }
 
         break;
@@ -546,12 +552,12 @@ public static class TradeCodeService
         if (roll >= 8)
         {
           planet.TradeCodes.Add(TradeCode.ResearchStation);
-          planet.Bases.Add(Global.Enums.Base.Research);
+          planet.Bases.Add(Base.Research);
         }
 
         if (roll >= 11)
         {
-          planet.Bases.Add(Global.Enums.Base.Shipyard);
+          planet.Bases.Add(Base.Shipyard);
         }
 
         break;
@@ -559,7 +565,7 @@ public static class TradeCodeService
         if (roll >= 10)
         {
           planet.TradeCodes.Add(TradeCode.ResearchStation);
-          planet.Bases.Add(Global.Enums.Base.Research);
+          planet.Bases.Add(Base.Research);
         }
 
         break;
@@ -570,7 +576,7 @@ public static class TradeCodeService
 
   #region Other
 
-  public static void AddHighTechnologyTradeCode(Planet planet)
+  public void AddHighTechnologyTradeCode(Planet planet)
   {
     if (planet.TechLevel >= 12)
     {
@@ -578,7 +584,7 @@ public static class TradeCodeService
     }
   }
 
-  public static void AddLowTechnologyTradeCode(Planet planet)
+  public void AddLowTechnologyTradeCode(Planet planet)
   {
     if (planet.TechLevel <= 5)
     {

@@ -1,22 +1,44 @@
-﻿using SectorCreator.Global.Enums;
+using SectorCreator.Global.Enums;
+using SectorCreator.Models;
 using SectorCreator.Models.Basic;
-using SectorCreator.Models.Mongoose;
-using SectorCreator.Models.RTTWorldgen;
-using SectorCreator.Models.StarFrontiers;
-using SectorCreator.Models.T5;
+using SectorCreator.Models.Factories;
 
-namespace TravellerCharacterCreatorBL;
+namespace SectorCreator.BL;
 
-public class SectorGenerator
+public interface ISectorGenerator
 {
-    public Sector GenerateSector(SectorType sectorType)
+    Sector GenerateMongooseSector(SectorType sectorType);
+    Sector GenerateT5Sector();
+    Sector GenerateRttWorldgenSector();
+    Sector GenerateStarFrontiersSector();
+}
+
+public class SectorGenerator : ISectorGenerator
+{
+    private readonly ISectorFactory _sectorFactory;
+
+    public SectorGenerator(ISectorFactory sectorFactory)
     {
-        return sectorType switch {
-            SectorType.Basic or SectorType.SpaceOpera or SectorType.HardScience => new MongooseSector(sectorType),
-            SectorType.T5 => new T5Sector(),
-            SectorType.RttWorldgen => new RttWorldgenSector(),
-            SectorType.StarFrontiers => new StarFrontiersSector(),
-            _ => throw new Exception()
-        };
+        _sectorFactory = sectorFactory;
+    }
+    
+    public Sector GenerateMongooseSector(SectorType sectorType)
+    {
+        return _sectorFactory.GenerateMongooseSector(sectorType);
+    }
+
+    public Sector GenerateT5Sector()
+    {
+        return _sectorFactory.GenerateT5Sector();
+    }
+
+    public Sector GenerateRttWorldgenSector()
+    {
+        return _sectorFactory.GenerateRttWorldgenSector();
+    }
+
+    public Sector GenerateStarFrontiersSector()
+    {
+        return _sectorFactory.GenerateStarFrontiersSector();
     }
 }

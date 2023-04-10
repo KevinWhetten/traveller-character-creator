@@ -6,12 +6,18 @@ namespace SectorCreator.Models.RTTWorldgen;
 
 public class RttWorldgenStar : Star
 {
+  private readonly IRollingService _rollingService;
   public Guid Id { get; } = Guid.NewGuid();
   public StarType StarType { get; set; }
   public Luminosity Luminosity { get; set; }
   public CompanionOrbit CompanionOrbit { get; set; }
   public int ExpansionSize { get; set; }
   public int Age { get; set; }
+
+  public RttWorldgenStar(IRollingService rollingService)
+  {
+    _rollingService = rollingService;
+  }
 
   public void Generate(StarType starType, RttWorldgenStar? primaryStar = null)
   {
@@ -45,8 +51,8 @@ public class RttWorldgenStar : Star
   {
     var roll = starType switch
     {
-      StarType.Primary => Roll.D6(2),
-      StarType.Companion => primaryRoll + Roll.D6(1) - 1,
+      StarType.Primary => _rollingService.D6(2),
+      StarType.Companion => primaryRoll + _rollingService.D6(1) - 1,
       _ => throw new ArgumentOutOfRangeException(nameof(starType), starType, null)
     };
 
@@ -94,13 +100,13 @@ public class RttWorldgenStar : Star
 
     if (SpectralType == SpectralType.D || Luminosity == Luminosity.III)
     {
-      ExpansionSize = Roll.D6(1);
+      ExpansionSize = _rollingService.D6(1);
     }
   }
 
   private int GetAge()
   {
-    return Roll.D6(3) - 3;
+    return _rollingService.D6(3) - 3;
   }
 
   private void FinishFTypeGeneration()
@@ -111,7 +117,7 @@ public class RttWorldgenStar : Star
     }
     else
     {
-      var roll = Roll.D6(1);
+      var roll = _rollingService.D6(1);
       switch (roll)
       {
         case <= 2:
@@ -137,7 +143,7 @@ public class RttWorldgenStar : Star
     }
     else
     {
-      var roll = Roll.D6(1);
+      var roll = _rollingService.D6(1);
       switch (roll)
       {
         case <= 2:
@@ -163,7 +169,7 @@ public class RttWorldgenStar : Star
     }
     else
     {
-      var roll = Roll.D6(1);
+      var roll = _rollingService.D6(1);
       switch (roll)
       {
         case <= 2:
@@ -183,7 +189,7 @@ public class RttWorldgenStar : Star
 
   private void FinishMTypeGeneration(bool isCompanion)
   {
-    switch (Roll.D6(2) + (isCompanion ? 2 : 0))
+    switch (_rollingService.D6(2) + (isCompanion ? 2 : 0))
     {
       case <= 9:
         Luminosity = Luminosity.V;
@@ -199,7 +205,7 @@ public class RttWorldgenStar : Star
   
   public CompanionOrbit GenerateOrbit()
   {
-    return Roll.D6(1) switch {
+    return _rollingService.D6(1) switch {
       <= 2 => CompanionOrbit.Tight,
       <= 4 => CompanionOrbit.Close,
       5 => CompanionOrbit.Moderate,

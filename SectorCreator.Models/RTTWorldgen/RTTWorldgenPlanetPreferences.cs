@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 
 namespace SectorCreator.Models.RTTWorldgen
@@ -15,7 +16,7 @@ namespace SectorCreator.Models.RTTWorldgen
   {
     public string Code => "Hu";
     public Color Color => Color.Red;
-    public RttWorldgenStar Star => new()
+    public RttWorldgenStar Star => new(new RollingService())
     {
       Luminosity = Luminosity.V,
       SpectralType = SpectralType.G
@@ -32,11 +33,11 @@ namespace SectorCreator.Models.RTTWorldgen
       LawLevel = 1,
       Starport = 'C',
       TechLevel = 11,
-      Bases = new List<Global.Enums.Base> {
-        Global.Enums.Base.Naval,
-        Global.Enums.Base.Scout,
-        Global.Enums.Base.Research,
-        Global.Enums.Base.Tas
+      Bases = new List<Base> {
+        Base.Naval,
+        Base.Scout,
+        Base.Research,
+        Base.Tas
       },
       TradeCodes = new List<TradeCode>
       {

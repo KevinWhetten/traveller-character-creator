@@ -3,22 +3,36 @@ using SectorCreator.Global.Enums;
 
 namespace SectorCreator.Models.RTTWorldgen.Planets;
 
-public static class PromethianPlanet
+public interface IPromethianPlanet
 {
-    public static RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
+    RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
+}
+
+public class PromethianPlanet : IPromethianPlanet
+{
+    private readonly IRollingService _rollingService;
+    private readonly IPlanetValidation _planetValidation;
+
+    public PromethianPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
     {
-        planet.Size = Roll.D6(1) - 1;
+        _rollingService = rollingService;
+        _planetValidation = planetValidation;
+    }
+
+    public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
+    {
+        planet.Size = _rollingService.D6(1) - 1;
         planet.Chemistry = GetChemistry(primaryStar, planet);
         planet.Biosphere = GetBiosphere(primaryStar, planet);
         planet.Atmosphere = GetAtmosphere(planet);
-        planet.Hydrographics = Roll.D6(2) - 2;
-        planet = PlanetValidation.ValidatePlanet(planet);
+        planet.Hydrographics = _rollingService.D6(2) - 2;
+        planet = _planetValidation.ValidatePlanet(planet);
         return planet;
     }
 
-    private static PlanetChemistry GetChemistry(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
+    private PlanetChemistry GetChemistry(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
-        var roll = Roll.D6(1);
+        var roll = _rollingService.D6(1);
         if (primaryStar.SpectralType == SpectralType.L) {
             roll += 2;
         }
@@ -37,7 +51,7 @@ public static class PromethianPlanet
         };
     }
 
-    private static int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
+    private int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
         if (primaryStar.Age >= 4 + (int) planet.Chemistry) {
             var mod = 0;
@@ -45,20 +59,20 @@ public static class PromethianPlanet
                 mod = -3;
             }
 
-            return Roll.D6(2) + mod;
+            return _rollingService.D6(2) + mod;
         }
 
-        if (primaryStar.Age < Roll.D3(1) + (int) planet.Chemistry) {
-            return Roll.D3(1);
+        if (primaryStar.Age < _rollingService.D3(1) + (int) planet.Chemistry) {
+            return _rollingService.D3(1);
         }
 
         return 0;
     }
 
-    private static int GetAtmosphere(RttWorldgenPlanet planet)
+    private int GetAtmosphere(RttWorldgenPlanet planet)
     {
         if (planet.Biosphere >= 3 && planet.Chemistry == PlanetChemistry.Water) {
-            var atmosphere = Roll.D6(2) + planet.Size - 7;
+            var atmosphere = _rollingService.D6(2) + planet.Size - 7;
             atmosphere = Math.Min(atmosphere, 9);
             return Math.Max(atmosphere, 2);
         }

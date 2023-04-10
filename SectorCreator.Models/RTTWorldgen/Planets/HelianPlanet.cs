@@ -2,23 +2,37 @@
 
 namespace SectorCreator.Models.RTTWorldgen.Planets;
 
-public static class HelianPlanet
+public interface IHelianPlanet
 {
-    public static RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
+    RttWorldgenPlanet Generate(RttWorldgenPlanet planet);
+}
+
+public class HelianPlanet : IHelianPlanet
+{
+    private readonly IRollingService _rollingService;
+    private readonly IPlanetValidation _planetValidation;
+
+    public HelianPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
     {
-        planet.Size = Roll.D6(1) + 9;
+        _rollingService = rollingService;
+        _planetValidation = planetValidation;
+    }
+
+    public RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
+    {
+        planet.Size = _rollingService.D6(1) + 9;
         planet.Atmosphere = 13;
         planet.Hydrographics = GetHydrographics();
         planet.Biosphere = 0;
-        planet = PlanetValidation.ValidatePlanet(planet);
+        planet = _planetValidation.ValidatePlanet(planet);
         return planet;
     }
 
-    private static int GetHydrographics()
+    private int GetHydrographics()
     {
-        return Roll.D6(1) switch {
+        return _rollingService.D6(1) switch {
             (<= 2) => 0,
-            (<= 4) => Roll.D6(2) - 1,
+            (<= 4) => _rollingService.D6(2) - 1,
             (<= 6) => 15,
             _ => 0
         };
