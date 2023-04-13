@@ -1,17 +1,26 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
+using SectorCreator.Models.Basic;
 using SectorCreator.Models.RTTWorldgen;
-using SectorCreator.Models.RTTWorldgen.Planets;
+using SectorCreator.Models.RTTWorldgen.Worlds;
 
 namespace SectorCreator.Models.Factories;
 
-public class RttWorldgenPlanetFactory : PlanetFactory
+public interface IRttWorldgenPlanetFactory
+{
+    RttWorldgenPlanet GenerateRttWorldgenPlanet(RttWorldgenStar primaryStar, PlanetOrbit planetOrbit,
+        int orbitPosition);
+
+    Planet Generate(SectorType sectorType);
+}
+
+public class RttWorldgenPlanetFactory : PlanetFactory, IRttWorldgenPlanetFactory
 {
     private readonly IRollingService _rollingService;
-    private readonly IAcheronianPlanet _acheronianPlanet;
-    private readonly IAreanPlanet _areanPlanet;
-    private readonly IAridPlanet _aridPlanet;
-    private readonly IAsphodelianPlanet _asphodelianPlanet;
+    private readonly IAcheronianWorld _acheronianWorld;
+    private readonly IAreanWorld _areanWorld;
+    private readonly IAridWorld _aridWorld;
+    private readonly IAsphodelianWorld _asphodelianWorld;
     private readonly IChthonianPlanet _chthonianPlanet;
     private readonly IHebeanPlanet _hebeanPlanet;
     private readonly IHelianPlanet _helianPlanet;
@@ -29,10 +38,10 @@ public class RttWorldgenPlanetFactory : PlanetFactory
     private readonly IVesperianPlanet _vesperianPlanet;
 
     public RttWorldgenPlanetFactory(IRollingService rollingService,
-        IAcheronianPlanet acheronianPlanet,
-        IAreanPlanet areanPlanet,
-        IAridPlanet aridPlanet,
-        IAsphodelianPlanet asphodelianPlanet,
+        IAcheronianWorld acheronianWorld,
+        IAreanWorld areanWorld,
+        IAridWorld aridWorld,
+        IAsphodelianWorld asphodelianWorld,
         IChthonianPlanet chthonianPlanet,
         IHebeanPlanet hebeanPlanet,
         IHelianPlanet helianPlanet,
@@ -51,10 +60,10 @@ public class RttWorldgenPlanetFactory : PlanetFactory
         : base(rollingService)
     {
         _rollingService = rollingService;
-        _acheronianPlanet = acheronianPlanet;
-        _areanPlanet = areanPlanet;
-        _aridPlanet = aridPlanet;
-        _asphodelianPlanet = asphodelianPlanet;
+        _acheronianWorld = acheronianWorld;
+        _areanWorld = areanWorld;
+        _aridWorld = aridWorld;
+        _asphodelianWorld = asphodelianWorld;
         _chthonianPlanet = chthonianPlanet;
         _hebeanPlanet = hebeanPlanet;
         _helianPlanet = helianPlanet;
@@ -72,11 +81,7 @@ public class RttWorldgenPlanetFactory : PlanetFactory
         _vesperianPlanet = vesperianPlanet;
     }
 
-    private RttWorldgenPlanet RttWorldgenPlanet
-    {
-        get => (RttWorldgenPlanet) Planet;
-        set => throw new NotImplementedException();
-    }
+    private RttWorldgenPlanet RttWorldgenPlanet { get; set; } = new();
 
     public RttWorldgenPlanet GenerateRttWorldgenPlanet(RttWorldgenStar primaryStar, PlanetOrbit planetOrbit,
         int orbitPosition)
@@ -125,16 +130,16 @@ public class RttWorldgenPlanetFactory : PlanetFactory
 
         switch (RttWorldgenPlanet.WorldType) {
             case WorldType.Acheronian:
-                RttWorldgenPlanet = _acheronianPlanet.Generate(RttWorldgenPlanet);
+                RttWorldgenPlanet = _acheronianWorld.Generate(RttWorldgenPlanet);
                 break;
             case WorldType.Arean:
-                RttWorldgenPlanet = _areanPlanet.Generate(RttWorldgenPlanet, primaryStar);
+                RttWorldgenPlanet = _areanWorld.Generate(RttWorldgenPlanet, primaryStar);
                 break;
             case WorldType.Arid:
-                RttWorldgenPlanet = _aridPlanet.Generate(RttWorldgenPlanet, primaryStar);
+                RttWorldgenPlanet = _aridWorld.Generate(RttWorldgenPlanet, primaryStar);
                 break;
             case WorldType.Asphodelian:
-                RttWorldgenPlanet = _asphodelianPlanet.Generate(RttWorldgenPlanet);
+                RttWorldgenPlanet = _asphodelianWorld.Generate(RttWorldgenPlanet);
                 break;
             case WorldType.Chthonian:
                 RttWorldgenPlanet = _chthonianPlanet.Generate(RttWorldgenPlanet);

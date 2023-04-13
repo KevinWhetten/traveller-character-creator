@@ -3,9 +3,7 @@ using SectorCreator.BL;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Factories;
-using SectorCreator.Models.RTTWorldgen;
-using SectorCreator.Models.RTTWorldgen.Planets;
-using SectorCreator.Models.StarFrontiers;
+using SectorCreator.Models.RTTWorldgen.Worlds;
 
 namespace SectorCreator.API.Controllers;
 
@@ -22,14 +20,17 @@ public class CreateSectorController : ControllerBase
                 new SubsectorFactory(
                     new HexFactory(
                         new StarSystemFactory(
-                            new RollingService(), new PlanetFactory(
-                                new RollingService()
-                            ), new RttWorldgenPlanetFactory(
+                            new RollingService(), 
+                            new PlanetFactory(new RollingService()), 
+                            new StarFrontiersStarFactory(new RollingService()),
+                            new RttWorldgenStarFactory(new RollingService()),
+                            new StarFrontiersPlanetFactory(new RollingService()),
+                            new RttWorldgenPlanetFactory(
                                 new RollingService(),
-                                new AcheronianPlanet(new RollingService(), new PlanetValidation()),
-                                new AreanPlanet(new RollingService(), new PlanetValidation()),
-                                new AridPlanet(new RollingService(), new PlanetValidation()),
-                                new AsphodelianPlanet(new RollingService(), new PlanetValidation()),
+                                new AcheronianWorld(new RollingService(), new PlanetValidation()),
+                                new AreanWorld(new RollingService(), new PlanetValidation()),
+                                new AridWorld(new RollingService(), new PlanetValidation()),
+                                new AsphodelianWorld(new RollingService(), new PlanetValidation()),
                                 new ChthonianPlanet(new PlanetValidation()),
                                 new HebeanPlanet(new RollingService(), new PlanetValidation()),
                                 new HelianPlanet(new RollingService(), new PlanetValidation()),
@@ -44,8 +45,7 @@ public class CreateSectorController : ControllerBase
                                 new StygianPlanet(new RollingService(), new PlanetValidation()),
                                 new TectonicPlanet(new RollingService(), new PlanetValidation()),
                                 new TelluricPlanet(new RollingService(), new PlanetValidation()),
-                                new VesperianPlanet(new RollingService(), new PlanetValidation())),
-                            new StarFrontiersPlanetFactory(new RollingService())
+                                new VesperianPlanet(new RollingService(), new PlanetValidation()))
                         ),
                         new RollingService()
                     )

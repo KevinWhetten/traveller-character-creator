@@ -1,13 +1,12 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
-using SectorCreator.Models.StarFrontiers;
 
 namespace SectorCreator.Models.Factories;
 
 public interface IStarFrontiersPlanetFactory
 {
-    StarFrontiersPlanet Generate(bool habitable, int habitableBase, int orbitNum);
+    Planet Generate(bool habitable, int habitableBase, int orbitNum);
     Planet Generate(SectorType sectorType);
 }
 
@@ -21,9 +20,9 @@ public class StarFrontiersPlanetFactory : PlanetFactory, IStarFrontiersPlanetFac
         _rollingService = rollingService;
     }
 
-    private StarFrontiersPlanet StarFrontiersPlanet => (StarFrontiersPlanet) Planet;
+    private Planet StarFrontiersPlanet => Planet;
 
-    public StarFrontiersPlanet Generate(bool habitable, int habitableBase, int orbitNum)
+    public Planet Generate(bool habitable, int habitableBase, int orbitNum)
     {
         GenerateType();
         GenerateSize();
@@ -91,7 +90,7 @@ public class StarFrontiersPlanetFactory : PlanetFactory, IStarFrontiersPlanetFac
         };
     }
 
-    protected void GenerateAtmosphere(bool habitable)
+    private void GenerateAtmosphere(bool habitable)
     {
         if (StarFrontiersPlanet.Size is 0 or 1) {
             StarFrontiersPlanet.Atmosphere = 0;
@@ -109,7 +108,7 @@ public class StarFrontiersPlanetFactory : PlanetFactory, IStarFrontiersPlanetFac
         }
     }
 
-    protected void GenerateHydrographics(bool habitable, int habitableBase, int planetNum)
+    private void GenerateHydrographics(bool habitable, int habitableBase, int planetNum)
     {
         StarFrontiersPlanet.Hydrographics = StarFrontiersPlanet.Size + _rollingService.D10(1) - _rollingService.D10(1);
 

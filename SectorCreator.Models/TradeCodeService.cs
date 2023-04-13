@@ -8,7 +8,7 @@ namespace SectorCreator.Models;
 public class TradeCodeService
 {
   private readonly IRollingService _rollingService;
-  private List<TradeCode> TradeCodes = new();
+  public List<TradeCode> TradeCodes = new();
 
   public TradeCodeService(IRollingService rollingService)
   {

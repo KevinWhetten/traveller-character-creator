@@ -1,9 +1,7 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
-using SectorCreator.Models.Mongoose;
 using SectorCreator.Models.RTTWorldgen;
-using SectorCreator.Models.StarFrontiers;
 
 namespace SectorCreator.Models.Factories;
 
@@ -64,7 +62,7 @@ public class HexFactory : IHexFactory
             hex.StarSystems.Add(_starSystemFactory.GenerateRttWorldgenStarSystem(StarSystemType.Regular));
         }
 
-        foreach (var starSystem in hex.StarSystems.Cast<RttWorldgenStarSystem>()) {
+        foreach (var starSystem in hex.StarSystems) {
             foreach (var star in starSystem.Stars.Cast<RttWorldgenStar>()
                          .Where(star => star.CompanionOrbit == CompanionOrbit.Distant)) {
                 starSystem.Stars.Remove(star);

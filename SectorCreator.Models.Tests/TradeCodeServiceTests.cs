@@ -1,16 +1,19 @@
 // using System.Collections.Generic;
 // using NUnit.Framework;
+// using SectorCreator.Global;
 // using SectorCreator.Global.Enums;
-// using SectorCreator.Models.Mongoose;
+// using SectorCreator.Models.Basic;
 //
 // namespace SectorCreator.Models.Tests;
 //
 // public class TradeCodeServiceTests
 // {
+//   private readonly TradeCodeService _tradeCodeService = new(new RollingService());
+//   
 //   [SetUp]
 //   public void Setup()
 //   {
-//     TradeCodeService.TradeCodes = new List<TradeCode>();
+//     _tradeCodeService.TradeCodes = new List<TradeCode>();
 //   }
 //
 //   [TestCase(3, 3, 4, false)]
@@ -30,16 +33,16 @@
 //   [TestCase(10, 9, 7, false)]
 //   public void AddAgriculturalTradeCode(int atmosphere, int hydrosphere, int population, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Atmosphere = atmosphere,
 //       Hydrographics = hydrosphere,
 //       Population = population
 //     };
 //
-//     TradeCodeService.AddAgriculturalTradeCode(planet);
+//     _tradeCodeService.AddAgriculturalTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.Agricultural), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.Agricultural), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, 0, 0, true)]
@@ -52,16 +55,16 @@
 //   [TestCase(1, 1, 1, false)]
 //   public void AddAsteroidTradeCode(int size, int atmosphere, int hydrographics, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Size = size,
 //       Atmosphere = atmosphere,
 //       Hydrographics = hydrographics
 //     };
 //
-//     TradeCodeService.AddAsteroidTradeCode(planet);
+//     _tradeCodeService.AddAsteroidTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.Asteroid), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.Asteroid), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, 0, 0, true)]
@@ -74,16 +77,16 @@
 //   [TestCase(1, 1, 1, false)]
 //   public void AddBarrenTradeCode(int population, int government, int lawLevel, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Population = population,
 //       Government = government,
 //       LawLevel = lawLevel
 //     };
 //
-//     TradeCodeService.AddBarrenTradeCode(planet);
+//     _tradeCodeService.AddBarrenTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.Barren), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.Barren), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, 0, false)]
@@ -100,15 +103,15 @@
 //   [TestCase(15, 1, false)]
 //   public void AddDesertTradeCode(int atmosphere, int hydrographics, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Atmosphere = atmosphere,
 //       Hydrographics = hydrographics
 //     };
 //
-//     TradeCodeService.AddDesertTradeCode(planet);
+//     _tradeCodeService.AddDesertTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.Desert), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.Desert), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, 0, false)]
@@ -119,15 +122,15 @@
 //   [TestCase(9, 4, false)]
 //   public void AddFluidOceansTradeCode(int atmosphere, int hydrographics, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Atmosphere = atmosphere,
 //       Hydrographics = hydrographics
 //     };
 //
-//     TradeCodeService.AddFluidOceansTradeCode(planet);
+//     _tradeCodeService.AddFluidOceansTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.FluidOceans), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.FluidOceans), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, 0, 0, false)]
@@ -145,16 +148,16 @@
 //   [TestCase(10, 10, 10, false)]
 //   public void AddGardenCode(int atmosphere, int hydrographics, int population, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Atmosphere = atmosphere,
 //       Hydrographics = hydrographics,
 //       Population = population
 //     };
 //
-//     TradeCodeService.AddGardenTradeCode(planet);
+//     _tradeCodeService.AddGardenTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.Garden), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.Garden), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, false)]
@@ -163,14 +166,14 @@
 //   [TestCase(10, true)]
 //   public void AddHighPopulationTradeCode(int population, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Population = population
 //     };
 //
-//     TradeCodeService.AddHighPopulationTradeCode(planet);
+//     _tradeCodeService.AddHighPopulationTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.HighPopulation), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.HighPopulation), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, false)]
@@ -179,14 +182,14 @@
 //   [TestCase(15, true)]
 //   public void AddHighTechnologyTradeCode(int techLevel, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       TechLevel = techLevel
 //     };
 //
-//     TradeCodeService.AddHighTechnologyTradeCode(planet);
+//     _tradeCodeService.AddHighTechnologyTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.HighTechnology), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.HighTechnology), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, 0, false)]
@@ -204,15 +207,15 @@
 //   [TestCase(2, 10, false)]
 //   public void AddIceCappedTradeCode(int atmosphere, int hydrographics, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Atmosphere = atmosphere,
 //       Hydrographics = hydrographics
 //     };
 //
-//     TradeCodeService.AddIceCappedTradeCode(planet);
+//     _tradeCodeService.AddIceCappedTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.IceCapped), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.IceCapped), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, 0, false)]
@@ -241,15 +244,15 @@
 //   [TestCase(11, 9, false)]
 //   public void AddIndustrialTradeCode(int atmosphere, int population, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Atmosphere = atmosphere,
 //       Population = population
 //     };
 //
-//     TradeCodeService.AddIndustrialTradeCode(planet);
+//     _tradeCodeService.AddIndustrialTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.Industrial), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.Industrial), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, false)]
@@ -260,14 +263,14 @@
 //   [TestCase(10, false)]
 //   public void AddLowPopulationTradeCode(int population, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Population = population
 //     };
 //
-//     TradeCodeService.AddLowPopulationTradeCode(planet);
+//     _tradeCodeService.AddLowPopulationTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.LowPopulation), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.LowPopulation), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, true)]
@@ -279,14 +282,14 @@
 //   [TestCase(10, false)]
 //   public void AddLowTechnologyTradeCode(int techLevel, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       TechLevel = techLevel
 //     };
 //
-//     TradeCodeService.AddLowTechnologyTradeCode(planet);
+//     _tradeCodeService.AddLowTechnologyTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.LowTechnology), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.LowTechnology), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, 0, 0, false)]
@@ -299,16 +302,16 @@
 //   [TestCase(2, 2, 10, true)]
 //   public void AddNonAgriculturalTradeCode(int atmosphere, int hydrographics, int population, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Atmosphere = atmosphere,
 //       Hydrographics = hydrographics,
 //       Population = population
 //     };
 //
-//     TradeCodeService.AddNonAgriculturalTradeCode(planet);
+//     _tradeCodeService.AddNonAgriculturalTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.NonAgricultural), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.NonAgricultural), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, false)]
@@ -320,14 +323,14 @@
 //   [TestCase(10, false)]
 //   public void AddNonIndustrialTradeCode(int population, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Population = population
 //     };
 //
-//     TradeCodeService.AddNonIndustrialTradeCode(planet);
+//     _tradeCodeService.AddNonIndustrialTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.NonIndustrial), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.NonIndustrial), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, 0, false)]
@@ -339,15 +342,15 @@
 //   [TestCase(3, 4, false)]
 //   public void AddPoorTradeCode(int atmosphere, int hydrographics, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Atmosphere = atmosphere,
 //       Hydrographics = hydrographics
 //     };
 //
-//     TradeCodeService.AddPoorTradeCode(planet);
+//     _tradeCodeService.AddPoorTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.Poor), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.Poor), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, 0, false)]
@@ -366,15 +369,15 @@
 //   [TestCase(8, 9, false)]
 //   public void AddRichTradeCode(int atmosphere, int population, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Atmosphere = atmosphere,
 //       Population = population
 //     };
 //
-//     TradeCodeService.AddRichTradeCode(planet);
+//     _tradeCodeService.AddRichTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.Rich), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.Rich), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, false)]
@@ -385,14 +388,14 @@
 //   [TestCase(10, true)]
 //   public void AddWaterWorldTradeCode(int hydrographics, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Hydrographics = hydrographics
 //     };
 //
-//     TradeCodeService.AddWaterWorldTradeCode(planet);
+//     _tradeCodeService.AddWaterWorldTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.WaterWorld), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.WaterWorld), Is.EqualTo(expected));
 //   }
 //
 //   [TestCase(0, true)]
@@ -403,20 +406,21 @@
 //   [TestCase(10, false)]
 //   public void AddVacuumTradeCode(int atmosphere, bool expected)
 //   {
-//     var planet = new MongoosePlanet
+//     var planet = new Planet
 //     {
 //       Atmosphere = atmosphere
 //     };
 //
-//     TradeCodeService.AddVacuumTradeCode(planet);
+//     _tradeCodeService.AddVacuumTradeCode(planet);
 //
-//     Assert.That(TradeCodeService.TradeCodes.Contains(TradeCode.Vacuum), Is.EqualTo(expected));
+//     Assert.That(_tradeCodeService.TradeCodes.Contains(TradeCode.Vacuum), Is.EqualTo(expected));
 //   }
 //
 //   [Test]
 //   public void GetTradeCodes()
 //   {
 //     // TODO: Finish
-//     TradeCodeService.GetTradeCodes(new MongoosePlanet());
+//     _tradeCodeService.GetTradeCodes(new Planet());
 //   }
 // }
+//

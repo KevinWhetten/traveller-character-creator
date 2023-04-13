@@ -2,7 +2,7 @@
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
 using SectorCreator.Models.RTTWorldgen;
-using SectorCreator.Models.StarFrontiers;
+using SectorCreator.Models.RTTWorldgen.Worlds;
 
 namespace SectorCreator.Models.Factories;
 
@@ -17,21 +17,56 @@ public interface IStarSystemFactory
 
 public class StarSystemFactory : IStarSystemFactory
 {
-    private readonly StarFrontiersPlanetFactory _starFrontiersPlanetFactory;
     private readonly IRollingService _rollingService;
     private readonly IPlanetFactory _planetFactory;
-    private readonly RttWorldgenPlanetFactory _rttWorldgenPlanetFactory;
+    private readonly IStarFrontiersStarFactory _starFrontiersStarFactory;
+    private readonly IRttWorldgenStarFactory _rttWorldgenStarFactory;
+    private readonly IStarFrontiersPlanetFactory _starFrontiersPlanetFactory;
+    private readonly IRttWorldgenPlanetFactory _rttWorldgenPlanetFactory;
+
+    public StarSystemFactory()
+    {
+        _starFrontiersStarFactory = new StarFrontiersStarFactory(new RollingService());
+        _rttWorldgenStarFactory = new RttWorldgenStarFactory(new RollingService());
+        _starFrontiersPlanetFactory = new StarFrontiersPlanetFactory(new RollingService());
+        _rollingService = new RollingService();
+        _planetFactory = new PlanetFactory(new RollingService());
+        _rttWorldgenPlanetFactory = new RttWorldgenPlanetFactory(
+            new RollingService(),
+            new AcheronianWorld(new RollingService(), new PlanetValidation()),
+            new AreanWorld(new RollingService(), new PlanetValidation()),
+            new AridWorld(new RollingService(), new PlanetValidation()),
+            new AsphodelianWorld(new RollingService(), new PlanetValidation()),
+            new ChthonianPlanet(new PlanetValidation()),
+            new HebeanPlanet(new RollingService(), new PlanetValidation()),
+            new HelianPlanet(new RollingService(), new PlanetValidation()),
+            new JaniLithicPlanet(new RollingService(), new PlanetValidation()),
+            new JovianPlanet(new RollingService(), new PlanetValidation()),
+            new MeltballPlanet(new RollingService(), new PlanetValidation()),
+            new OceanicPlanet(new RollingService(), new PlanetValidation()),
+            new PanthalassicPlanet(new RollingService(), new PlanetValidation()),
+            new PromethianPlanet(new RollingService(), new PlanetValidation()),
+            new RockballPlanet(new RollingService(), new PlanetValidation()),
+            new SnowballPlanet(new RollingService(), new PlanetValidation()),
+            new StygianPlanet(new RollingService(), new PlanetValidation()),
+            new TectonicPlanet(new RollingService(), new PlanetValidation()),
+            new TelluricPlanet(new RollingService(), new PlanetValidation()),
+            new VesperianPlanet(new RollingService(), new PlanetValidation()));
+    }
 
     public StarSystemFactory(IRollingService rollingService, IPlanetFactory planetFactory,
-        RttWorldgenPlanetFactory rttWorldgenPlanetFactory, StarFrontiersPlanetFactory starFrontiersPlanetFactory)
+        IStarFrontiersStarFactory starFrontiersStarFactory, IRttWorldgenStarFactory rttWorldgenStarFactory,
+        StarFrontiersPlanetFactory starFrontiersPlanetFactory, RttWorldgenPlanetFactory rttWorldgenPlanetFactory)
     {
         _starFrontiersPlanetFactory = starFrontiersPlanetFactory;
+        _starFrontiersStarFactory = starFrontiersStarFactory;
+        _rttWorldgenStarFactory = rttWorldgenStarFactory;
         _rollingService = rollingService;
         _planetFactory = planetFactory;
         _rttWorldgenPlanetFactory = rttWorldgenPlanetFactory;
     }
 
-    public StarSystem GenerateMongooseStarSystem(SectorType sectorType)
+    public virtual StarSystem GenerateMongooseStarSystem(SectorType sectorType)
     {
         var starSystem = new StarSystem();
 
@@ -48,17 +83,17 @@ public class StarSystemFactory : IStarSystemFactory
         return starSystem;
     }
 
-    public StarSystem GenerateT5StarSystem()
+    public virtual StarSystem GenerateT5StarSystem()
     {
         throw new NotImplementedException();
     }
 
-    public StarSystem GenerateRttWorldgenStarSystem(StarSystemType starSystemType)
+    public virtual StarSystem GenerateRttWorldgenStarSystem(StarSystemType starSystemType)
     {
         var starSystem = new StarSystem();
 
         if (starSystemType == StarSystemType.BrownDwarf) {
-            starSystem.Stars.Add(new RttWorldgenStar(new RollingService()) {
+            starSystem.Stars.Add(new RttWorldgenStar() {
                 SpectralType = SpectralType.D,
                 Luminosity = Luminosity.I,
                 SpectralSubclass = _rollingService.D10(1) - 1
@@ -75,14 +110,14 @@ public class StarSystemFactory : IStarSystemFactory
             var isPrimaryStar = true;
             for (var i = 0; i < numPlanets; i++) {
                 var rttWorldgenStarType = isPrimaryStar ? StarType.Companion : StarType.Primary;
-                var star = new RttWorldgenStar(new RollingService());
+                var star = _rttWorldgenStarFactory.Generate(rttWorldgenStarType);
                 if (isPrimaryStar) {
                     var primaryStar =
                         (RttWorldgenStar) starSystem.Stars.First(
                             x => ((RttWorldgenStar) x).StarType == StarType.Primary);
-                    star.Generate(rttWorldgenStarType, primaryStar);
+                    _rttWorldgenStarFactory.Generate(rttWorldgenStarType, primaryStar);
                 } else {
-                    star.Generate(rttWorldgenStarType);
+                    _rttWorldgenStarFactory.Generate(rttWorldgenStarType);
                 }
 
                 starSystem.Stars.Add(star);
@@ -94,7 +129,7 @@ public class StarSystemFactory : IStarSystemFactory
                 star.SpectralSubclass = _rollingService.D10(1) - 1;
 
                 if (star.StarType == StarType.Companion) {
-                    star.GenerateOrbit();
+                    _rttWorldgenStarFactory.GenerateOrbit();
                 }
             }
         }
@@ -158,7 +193,7 @@ public class StarSystemFactory : IStarSystemFactory
         return starSystem;
     }
 
-    public StarSystem GenerateRttWorldgenStarSystem(RttWorldgenStar star)
+    public virtual StarSystem GenerateRttWorldgenStarSystem(RttWorldgenStar star)
     {
         var starSystem = new StarSystem();
 
@@ -222,7 +257,7 @@ public class StarSystemFactory : IStarSystemFactory
         return starSystem;
     }
 
-    public StarSystem GenerateStarFrontiersStarSystem()
+    public virtual StarSystem GenerateStarFrontiersStarSystem()
     {
         var starSystem = new StarSystem();
 
@@ -232,9 +267,7 @@ public class StarSystemFactory : IStarSystemFactory
         };
 
         for (var i = 0; i < numStars; i++) {
-            // Magnetar 1.0%
-            // Magnetar&Pulsar 0.2 %
-            // Pulsar = 98.8%
+            starSystem.Stars.Add(_starFrontiersStarFactory.Generate());
         }
 
         if (_rollingService.D6(1) >= 4) {

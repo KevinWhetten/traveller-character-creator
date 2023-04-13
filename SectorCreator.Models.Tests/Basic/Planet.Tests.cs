@@ -12,10 +12,22 @@ public class PlanetTests
     public void WhenConstructingParameterless()
     {
         var planet = new Planet();
+        
+        Assert.That(planet.Size, Is.EqualTo(0));
+        Assert.That(planet.Atmosphere, Is.EqualTo(0));
+        Assert.That(planet.Hydrographics, Is.EqualTo(0));
+        Assert.That(planet.PlanetType, Is.EqualTo(PlanetType.AsteroidBelt));
         Assert.That(planet.Satellites.Count, Is.EqualTo(0));
+        Assert.That(planet.Population, Is.EqualTo(0));
+        Assert.That(planet.Government, Is.EqualTo(0));
+        Assert.That(planet.LawLevel, Is.EqualTo(0));
+        Assert.That(planet.TechLevel, Is.EqualTo(0));
+        Assert.That(planet.Name, Is.EqualTo("Un-named"));
+        Assert.That(planet.Temperature, Is.EqualTo(0));
+        Assert.That(planet.Starport, Is.EqualTo(0));
         Assert.That(planet.Bases.Count, Is.EqualTo(0));
         Assert.That(planet.TradeCodes.Count, Is.EqualTo(0));
-        Assert.That(planet.Name, Is.EqualTo("Un-named"));
+        Assert.That(planet.TravelCode, Is.EqualTo(TravelCode.None));
     }
 
     private static List<Planet> testPlanets = new() {

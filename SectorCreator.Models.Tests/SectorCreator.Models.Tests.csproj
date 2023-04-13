@@ -21,8 +21,4 @@
       <ProjectReference Include="..\SectorCreator.Models\SectorCreator.Models.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="RttWorldgen" />
-    </ItemGroup>
-
 </Project>
