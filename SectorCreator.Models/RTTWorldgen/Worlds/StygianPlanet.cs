@@ -10,12 +10,12 @@ public interface IStygianPlanet
 public class StygianPlanet : IStygianPlanet
 {
     private readonly IRollingService _rollingService;
-    private readonly IPlanetValidation _planetValidation;
+    private readonly IWorldValidation _worldValidation;
 
-    public StygianPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
+    public StygianPlanet(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
-        _planetValidation = planetValidation;
+        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
@@ -24,7 +24,7 @@ public class StygianPlanet : IStygianPlanet
         planet.Atmosphere = 0;
         planet.Hydrographics = 0;
         planet.Biosphere = 0;
-        planet = _planetValidation.ValidatePlanet(planet);
+        planet = _worldValidation.ValidatePlanet(planet);
         return planet;
     }
 }

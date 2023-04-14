@@ -11,12 +11,12 @@ public interface IVesperianPlanet
 public class VesperianPlanet : IVesperianPlanet
 {
     private readonly IRollingService _rollingService;
-    private readonly IPlanetValidation _planetValidation;
+    private readonly IWorldValidation _worldValidation;
 
-    public VesperianPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
+    public VesperianPlanet(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
-        _planetValidation = planetValidation;
+        _worldValidation = worldValidation;
     }   
     
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
@@ -26,7 +26,7 @@ public class VesperianPlanet : IVesperianPlanet
         planet.Biosphere = GetBiosphere(primaryStar);
         planet.Atmosphere = GetAtmosphere(planet);
         planet.Hydrographics = _rollingService.D6(2) - 2;
-        planet = _planetValidation.ValidatePlanet(planet);
+        planet = _worldValidation.ValidatePlanet(planet);
         return planet;
     }
 

@@ -11,12 +11,12 @@ public interface IAridWorld
 public class AridWorld : IAridWorld
 {
     private readonly IRollingService _rollingService;
-    private readonly IPlanetValidation _planetValidation;
+    private readonly IWorldValidation _worldValidation;
 
-    public AridWorld(IRollingService rollingService, IPlanetValidation planetValidation)
+    public AridWorld(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
-        _planetValidation = planetValidation;
+        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
@@ -26,7 +26,7 @@ public class AridWorld : IAridWorld
         planet.Biosphere = GetBiosphere(primaryStar, planet);
         planet.Atmosphere = GetAtmosphere(planet);
         planet.Hydrographics = _rollingService.D3(1);
-        planet = _planetValidation.ValidatePlanet(planet);
+        planet = _worldValidation.ValidatePlanet(planet);
         return planet;
     }
 
@@ -48,8 +48,7 @@ public class AridWorld : IAridWorld
         return roll switch {
             (<= 6) => PlanetChemistry.Water,
             (<= 8) => PlanetChemistry.Ammonia,
-            (<= 10) => PlanetChemistry.Methane,
-            _ => PlanetChemistry.None
+            _ => PlanetChemistry.Methane
         };
     }
 

@@ -21,12 +21,12 @@ public class RttWorldgenPlanetFactory : PlanetFactory, IRttWorldgenPlanetFactory
     private readonly IAreanWorld _areanWorld;
     private readonly IAridWorld _aridWorld;
     private readonly IAsphodelianWorld _asphodelianWorld;
-    private readonly IChthonianPlanet _chthonianPlanet;
-    private readonly IHebeanPlanet _hebeanPlanet;
-    private readonly IHelianPlanet _helianPlanet;
-    private readonly IJaniLithicPlanet _janiLithicPlanet;
-    private readonly IJovianPlanet _jovianPlanet;
-    private readonly IMeltballPlanet _meltballPlanet;
+    private readonly IChthonianWorld _chthonianWorld;
+    private readonly IHebeanWorld _hebeanWorld;
+    private readonly IHelianWorld _helianWorld;
+    private readonly IJaniLithicWorld _janiLithicWorld;
+    private readonly IJovianWorld _jovianWorld;
+    private readonly IMeltballWorld _meltballWorld;
     private readonly IOceanicPlanet _oceanicPlanet;
     private readonly IPanthalassicPlanet _panthalassicPlanet;
     private readonly IPromethianPlanet _promethianPlanet;
@@ -42,12 +42,12 @@ public class RttWorldgenPlanetFactory : PlanetFactory, IRttWorldgenPlanetFactory
         IAreanWorld areanWorld,
         IAridWorld aridWorld,
         IAsphodelianWorld asphodelianWorld,
-        IChthonianPlanet chthonianPlanet,
-        IHebeanPlanet hebeanPlanet,
-        IHelianPlanet helianPlanet,
-        IJaniLithicPlanet janiLithicPlanet,
-        IJovianPlanet jovianPlanet,
-        IMeltballPlanet meltballPlanet,
+        IChthonianWorld chthonianWorld,
+        IHebeanWorld hebeanWorld,
+        IHelianWorld helianWorld,
+        IJaniLithicWorld janiLithicWorld,
+        IJovianWorld jovianWorld,
+        IMeltballWorld meltballWorld,
         IOceanicPlanet oceanicPlanet,
         IPanthalassicPlanet panthalassicPlanet,
         IPromethianPlanet promethianPlanet,
@@ -64,12 +64,12 @@ public class RttWorldgenPlanetFactory : PlanetFactory, IRttWorldgenPlanetFactory
         _areanWorld = areanWorld;
         _aridWorld = aridWorld;
         _asphodelianWorld = asphodelianWorld;
-        _chthonianPlanet = chthonianPlanet;
-        _hebeanPlanet = hebeanPlanet;
-        _helianPlanet = helianPlanet;
-        _janiLithicPlanet = janiLithicPlanet;
-        _jovianPlanet = jovianPlanet;
-        _meltballPlanet = meltballPlanet;
+        _chthonianWorld = chthonianWorld;
+        _hebeanWorld = hebeanWorld;
+        _helianWorld = helianWorld;
+        _janiLithicWorld = janiLithicWorld;
+        _jovianWorld = jovianWorld;
+        _meltballWorld = meltballWorld;
         _oceanicPlanet = oceanicPlanet;
         _panthalassicPlanet = panthalassicPlanet;
         _promethianPlanet = promethianPlanet;
@@ -142,22 +142,22 @@ public class RttWorldgenPlanetFactory : PlanetFactory, IRttWorldgenPlanetFactory
                 RttWorldgenPlanet = _asphodelianWorld.Generate(RttWorldgenPlanet);
                 break;
             case WorldType.Chthonian:
-                RttWorldgenPlanet = _chthonianPlanet.Generate(RttWorldgenPlanet);
+                RttWorldgenPlanet = _chthonianWorld.Generate(RttWorldgenPlanet);
                 break;
             case WorldType.Hebean:
-                RttWorldgenPlanet = _hebeanPlanet.Generate(RttWorldgenPlanet);
+                RttWorldgenPlanet = _hebeanWorld.Generate(RttWorldgenPlanet);
                 break;
             case WorldType.Helian:
-                RttWorldgenPlanet = _helianPlanet.Generate(RttWorldgenPlanet);
+                RttWorldgenPlanet = _helianWorld.Generate(RttWorldgenPlanet);
                 break;
             case WorldType.JaniLithic:
-                RttWorldgenPlanet = _janiLithicPlanet.Generate(RttWorldgenPlanet);
+                RttWorldgenPlanet = _janiLithicWorld.Generate(RttWorldgenPlanet);
                 break;
             case WorldType.Jovian:
-                RttWorldgenPlanet = _jovianPlanet.Generate(RttWorldgenPlanet, primaryStar);
+                RttWorldgenPlanet = _jovianWorld.Generate(RttWorldgenPlanet, primaryStar);
                 break;
             case WorldType.Meltball:
-                RttWorldgenPlanet = _meltballPlanet.Generate(RttWorldgenPlanet);
+                RttWorldgenPlanet = _meltballWorld.Generate(RttWorldgenPlanet);
                 break;
             case WorldType.Oceanic:
                 RttWorldgenPlanet = _oceanicPlanet.Generate(RttWorldgenPlanet, primaryStar);

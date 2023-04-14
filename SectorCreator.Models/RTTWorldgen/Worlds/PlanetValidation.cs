@@ -1,11 +1,11 @@
 ﻿namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
-public interface IPlanetValidation
+public interface IWorldValidation
 {
     RttWorldgenPlanet ValidatePlanet(RttWorldgenPlanet planet);
 }
 
-public class PlanetValidation : IPlanetValidation
+public class WorldValidation : IWorldValidation
 {
     public RttWorldgenPlanet ValidatePlanet(RttWorldgenPlanet planet)
     {

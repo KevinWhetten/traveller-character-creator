@@ -11,14 +11,14 @@ public interface IAreanWorld
 public class AreanWorld : IAreanWorld
 {
     private readonly IRollingService _rollingService;
-    private readonly IPlanetValidation _planetValidation;
+    private readonly IWorldValidation _worldValidation;
 
-    public AreanWorld(IRollingService rollingService, IPlanetValidation planetValidation)
+    public AreanWorld(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
-        _planetValidation = planetValidation;
+        _worldValidation = worldValidation;
     }
-    
+
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
     {
         planet.Size = _rollingService.D6(1) - 1;
@@ -26,7 +26,7 @@ public class AreanWorld : IAreanWorld
         planet.Hydrographics = GetHydrographics(planet);
         planet.Chemistry = GetChemistry(primaryStar, planet);
         planet.Biosphere = GetBiosphere(primaryStar, planet);
-        planet = _planetValidation.ValidatePlanet(planet);
+        planet = _worldValidation.ValidatePlanet(planet);
         return planet;
     }
 
@@ -39,8 +39,7 @@ public class AreanWorld : IAreanWorld
 
         return roll switch {
             (<= 3) => 1,
-            (<= 6) => 10,
-            _ => 0
+            _ => 10
         };
     }
 
@@ -64,8 +63,7 @@ public class AreanWorld : IAreanWorld
         return roll switch {
             (<= 4) => PlanetChemistry.Water,
             (<= 6) => PlanetChemistry.Ammonia,
-            (<= 8) => PlanetChemistry.Methane,
-            _ => PlanetChemistry.None
+            _ => PlanetChemistry.Methane
         };
     }
 
@@ -75,11 +73,9 @@ public class AreanWorld : IAreanWorld
         if (primaryStar.Age >= 4 + (int) planet.Chemistry && planet.Atmosphere == 10) {
             biosphere = _rollingService.D6(1) + planet.Size - 2;
         } else if (primaryStar.Age >= _rollingService.D3(1) + (int) planet.Chemistry) {
-            biosphere = planet.Atmosphere switch {
-                1 => _rollingService.D6(1) - 4,
-                10 => _rollingService.D3(1),
-                _ => 0
-            };
+            biosphere = planet.Atmosphere == 1
+                ? _rollingService.D6(1) - 4
+                : _rollingService.D3(1);
         } else {
             biosphere = 0;
         }

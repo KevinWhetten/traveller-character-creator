@@ -11,12 +11,12 @@ public interface IPanthalassicPlanet
 public class PanthalassicPlanet : IPanthalassicPlanet
 {
     private readonly IRollingService _rollingService;
-    private readonly IPlanetValidation _planetValidation;
+    private readonly IWorldValidation _worldValidation;
 
-    public PanthalassicPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
+    public PanthalassicPlanet(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
-        _planetValidation = planetValidation;
+        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
@@ -31,7 +31,7 @@ public class PanthalassicPlanet : IPanthalassicPlanet
         if (planet.Chemistry == PlanetChemistry.Ammonia) {
             planet.Chemistry = PlanetChemistry.Methane;
         }
-        planet = _planetValidation.ValidatePlanet(planet);
+        planet = _worldValidation.ValidatePlanet(planet);
         return planet;
     }
 

@@ -10,12 +10,12 @@ public interface IAcheronianWorld
 public class AcheronianWorld : IAcheronianWorld
 {
     private readonly IRollingService _rollingService;
-    private readonly IPlanetValidation _planetValidation;
+    private readonly IWorldValidation _worldValidation;
 
-    public AcheronianWorld(IRollingService rollingService, IPlanetValidation planetValidation)
+    public AcheronianWorld(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
-        _planetValidation = planetValidation;
+        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
@@ -24,7 +24,7 @@ public class AcheronianWorld : IAcheronianWorld
         planet.Atmosphere = 1;
         planet.Hydrographics = 0;
         planet.Biosphere = 0;
-        planet = _planetValidation.ValidatePlanet(planet);
+        planet = _worldValidation.ValidatePlanet(planet);
         return planet;
     }
 }

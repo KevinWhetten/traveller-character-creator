@@ -12,7 +12,7 @@ public class RollingService : IRollingService
 {
     private Random Random => new();
 
-    public int D3(int i)
+    public virtual int D3(int i)
     {
         var sum = 0;
 
@@ -23,7 +23,7 @@ public class RollingService : IRollingService
         return sum;
     }
 
-    public int D6(int i)
+    public virtual int D6(int i)
     {
         var sum = 0;
 

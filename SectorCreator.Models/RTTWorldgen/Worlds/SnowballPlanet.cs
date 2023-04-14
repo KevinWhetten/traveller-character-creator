@@ -11,11 +11,11 @@ public interface ISnowballPlanet
 public class SnowballPlanet : ISnowballPlanet
 {
     private readonly IRollingService _rollingService;
-    private readonly IPlanetValidation _planetValidation;
-    public SnowballPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
+    private readonly IWorldValidation _worldValidation;
+    public SnowballPlanet(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
-        _planetValidation = planetValidation;
+        _worldValidation = worldValidation;
     }
     
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
@@ -27,7 +27,7 @@ public class SnowballPlanet : ISnowballPlanet
         planet.Hydrographics = GetHydrographics(hydrosphereRoll);
         planet.Chemistry = GetChemistry(primaryStar, planet);
         planet.Biosphere = GetBiosphere(primaryStar, planet, hydrosphereRoll);
-        planet = _planetValidation.ValidatePlanet(planet);
+        planet = _worldValidation.ValidatePlanet(planet);
         return planet;
     }
 

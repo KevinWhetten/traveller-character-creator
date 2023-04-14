@@ -10,12 +10,12 @@ public interface IAsphodelianWorld
 public class AsphodelianWorld : IAsphodelianWorld
 {
     private readonly IRollingService _rollingService;
-    private readonly IPlanetValidation _planetValidation;
+    private readonly IWorldValidation _worldValidation;
 
-    public AsphodelianWorld(IRollingService rollingService, IPlanetValidation planetValidation)
+    public AsphodelianWorld(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
-        _planetValidation = planetValidation;
+        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
@@ -24,7 +24,7 @@ public class AsphodelianWorld : IAsphodelianWorld
         planet.Atmosphere = 1;
         planet.Hydrographics = 0;
         planet.Biosphere = 0;
-        planet = _planetValidation.ValidatePlanet(planet);
+        planet = _worldValidation.ValidatePlanet(planet);
         return planet;
     }
 }

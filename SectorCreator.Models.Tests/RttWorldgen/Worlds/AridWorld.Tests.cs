@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.RTTWorldgen;
@@ -9,18 +10,38 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class AridWorldTests
 {
-    private readonly AridWorld _classUnderTest = new(new RollingService(), new PlanetValidation());
-  
-    [TestCase()]
+    private AridWorld _classUnderTest = new(new RollingService(), new WorldValidation());
+
+    [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.A, Luminosity.I, 5, PlanetChemistry.Water, 0, 10)]
+    [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.K, Luminosity.V, 5, PlanetChemistry.Ammonia, 0, 10)]
+    [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.M, Luminosity.V, 5, PlanetChemistry.Methane, 0, 10)]
+    [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.L, Luminosity.V, 5, PlanetChemistry.Methane, 0, 10)]
+    [TestCase(1, 3, 12, 1, 0, PlanetOrbit.Outer, SpectralType.L, Luminosity.V, 5, PlanetChemistry.Methane, 0, 10)]
+    [TestCase(1, 5, 12, 1, 2, PlanetOrbit.Inner, SpectralType.A, Luminosity.I, 5, PlanetChemistry.Water, 1, 10)]
+    [TestCase(1, 5, 12, 1, 5, PlanetOrbit.Inner, SpectralType.A, Luminosity.I, 5, PlanetChemistry.Water, 12, 9)]
+    [TestCase(1, 5, 12, 1, 5, PlanetOrbit.Inner, SpectralType.D, Luminosity.I, 5, PlanetChemistry.Water, 9, 9)]
     [Repeat(50)]
-    public void WhenGenerating()
+    public void WhenGenerating(int sizeRoll, int chemistryRoll, int biosphereRoll, int atmosphereRoll,
+        int age, PlanetOrbit orbit, SpectralType spectralType, Luminosity luminosity,
+        int expectedSize, PlanetChemistry expectedChemistry, int expectedBiosphere, int expectedAtmosphere)
     {
-        var aridWorld = _classUnderTest.Generate(new RttWorldgenPlanet(), new RttWorldgenStar());
-        
-        Assert.True(aridWorld.Size is >= 5 and <= 10);
-        Assert.True(aridWorld.Chemistry is PlanetChemistry.Water or PlanetChemistry.Ammonia or PlanetChemistry.Methane);
-        Assert.True(aridWorld.Biosphere is >= 0 and <= 12);
-        Assert.True(aridWorld.Atmosphere is >= 0 and <= 10);
-        Assert.True(aridWorld.Hydrographics is >= 1 and <= 3);
+        // Setup
+        var rollingServiceMock = new Mock<IRollingService>();
+        rollingServiceMock.SetupSequence(x => x.D6(1))
+            .Returns(sizeRoll)
+            .Returns(chemistryRoll);
+        rollingServiceMock.Setup(x => x.D6(2)).Returns(biosphereRoll);
+        rollingServiceMock.Setup(x => x.D3(1)).Returns(1);
+        _classUnderTest = new AridWorld(rollingServiceMock.Object, new WorldValidation());
+
+        // Act
+        var aridWorld = _classUnderTest.Generate(new RttWorldgenPlanet {PlanetOrbit = orbit},
+            new RttWorldgenStar {SpectralType = spectralType, Luminosity = luminosity, Age = age});
+
+        // Assert
+        Assert.That(aridWorld.Size, Is.EqualTo(expectedSize));
+        Assert.That(aridWorld.Chemistry, Is.EqualTo(expectedChemistry));
+        Assert.That(aridWorld.Biosphere, Is.EqualTo(expectedBiosphere));
+        Assert.That(aridWorld.Atmosphere, Is.EqualTo(expectedAtmosphere));
     }
 }

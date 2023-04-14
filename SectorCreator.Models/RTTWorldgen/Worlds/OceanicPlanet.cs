@@ -11,12 +11,12 @@ public interface IOceanicPlanet
 public class OceanicPlanet : IOceanicPlanet
 {
     private readonly IRollingService _rollingService;
-    private readonly IPlanetValidation _planetValidation;
+    private readonly IWorldValidation _worldValidation;
 
-    public OceanicPlanet(IRollingService rollingService, IPlanetValidation planetValidation)
+    public OceanicPlanet(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
-        _planetValidation = planetValidation;
+        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
@@ -26,7 +26,7 @@ public class OceanicPlanet : IOceanicPlanet
         planet.Biosphere = GetBiosphere(primaryStar, planet);
         planet.Atmosphere = GetAtmosphere(primaryStar, planet);
         planet.Hydrographics = 11;
-        planet = _planetValidation.ValidatePlanet(planet);
+        planet = _worldValidation.ValidatePlanet(planet);
         return planet;
     }
 
