@@ -1,5 +1,6 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
+using SectorCreator.Models.Services;
 
 namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
@@ -56,12 +57,12 @@ public class AridWorld : IAridWorld
     {
         int biosphere;
 
-        if (primaryStar.Age >= 4 + (int) planet.Chemistry) {
+        if (primaryStar.Age >= 4 + ChemistryService.GetAgeMod(planet.Chemistry)) {
             biosphere = _rollingService.D6(2);
             if (primaryStar.SpectralType == SpectralType.D) {
                 biosphere -= 3;
             }
-        } else if (primaryStar.Age >= _rollingService.D3(1) + (int) planet.Chemistry) {
+        } else if (primaryStar.Age >= _rollingService.D3(1) + ChemistryService.GetAgeMod(planet.Chemistry)) {
             biosphere = _rollingService.D3(1);
         } else {
             biosphere = 0;

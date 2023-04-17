@@ -16,12 +16,14 @@ public interface IHexFactory
 public class HexFactory : IHexFactory
 {
     private readonly IStarSystemFactory _starSystemFactory;
+    private readonly IRttWorldgenStarSystemFactory _rttWorldgenStarSystemFactory;
     private readonly IRollingService _rollingService;
 
-    public HexFactory(IStarSystemFactory starSystemFactory, IRollingService rollingService)
+    public HexFactory(IRollingService rollingService, IStarSystemFactory starSystemFactory, IRttWorldgenStarSystemFactory rttWorldgenStarSystemFactory)
     {
-        _starSystemFactory = starSystemFactory;
         _rollingService = rollingService;
+        _starSystemFactory = starSystemFactory;
+        _rttWorldgenStarSystemFactory = rttWorldgenStarSystemFactory;
     }
 
     public Hex GenerateMongooseHex(Coordinates subsectorCoordinates, Coordinates hexCoordinates, SectorType sectorType)
@@ -55,18 +57,21 @@ public class HexFactory : IHexFactory
         };
 
         if (_rollingService.D6(1) >= 4) {
-            hex.StarSystems.Add(_starSystemFactory.GenerateRttWorldgenStarSystem(StarSystemType.BrownDwarf));
+            hex.StarSystems.Add(_rttWorldgenStarSystemFactory.Generate(StarSystemType.BrownDwarf));
         }
 
         if (_rollingService.D6(1) >= 4) {
-            hex.StarSystems.Add(_starSystemFactory.GenerateRttWorldgenStarSystem(StarSystemType.Regular));
+            hex.StarSystems.Add(_rttWorldgenStarSystemFactory.Generate(StarSystemType.Regular));
         }
 
-        foreach (var starSystem in hex.StarSystems) {
-            foreach (var star in starSystem.Stars.Cast<RttWorldgenStar>()
-                         .Where(star => star.CompanionOrbit == CompanionOrbit.Distant)) {
-                starSystem.Stars.Remove(star);
-                hex.StarSystems.Add(_starSystemFactory.GenerateRttWorldgenStarSystem(star));
+        for (var index = 0; index < hex.StarSystems.Count; index++) {
+            var starSystem = hex.StarSystems[index];
+            for (var i = 0; i < starSystem.Stars.Count; i++) {
+                var star = (RttWorldgenStar) starSystem.Stars[i];
+                if (star.CompanionOrbit == CompanionOrbit.Distant) {
+                    starSystem.Stars.Remove(star);
+                    hex.StarSystems.Add(_rttWorldgenStarSystemFactory.Generate(star));
+                }
             }
         }
 

@@ -3,17 +3,17 @@ using SectorCreator.Global.Enums;
 
 namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
-public interface IRockballPlanet
+public interface IRockballWorld
 {
     RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
 }
 
-public class RockballPlanet : IRockballPlanet
+public class RockballWorld : IRockballWorld
 {
     private readonly IRollingService _rollingService;
     private readonly IWorldValidation _worldValidation;
 
-    public RockballPlanet(IRollingService rollingService, IWorldValidation worldValidation)
+    public RockballWorld(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
         _worldValidation = worldValidation;

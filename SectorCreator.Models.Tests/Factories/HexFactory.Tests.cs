@@ -1,153 +1,96 @@
-﻿// using Moq;
-// using NUnit.Framework;
-// using SectorCreator.Global;
-// using SectorCreator.Global.Enums;
-// using SectorCreator.Models.Basic;
-// using SectorCreator.Models.Factories;
-//
-// namespace SectorCreator.Models.Tests.Factories;
-//
-// [TestFixture]
-// public class HexFactoryTests
-// {
-//     private HexFactory _hexFactory;
-//
-//     [SetUp]
-//     public void SetUp()
-//     {
-//         var starSystemFactoryMock = new Mock<StarSystemFactory>();
-//         starSystemFactoryMock.Setup(x => x.GenerateMongooseStarSystem(It.IsAny<SectorType>())).Returns(new StarSystem());
-//         starSystemFactoryMock.Setup(x => x.GenerateT5StarSystem()).Returns(new StarSystem());
-//
-//         _hexFactory = new HexFactory(starSystemFactoryMock.Object, new RollingService());
-//     }
-//
-//     [TestCase(1, 1, 1, 1, 1, 1)]
-//     [TestCase(2, 1, 1, 1, 9, 1)]
-//     [TestCase(3, 1, 1, 1, 17, 1)]
-//     [TestCase(4, 1, 1, 1, 25, 1)]
-//     [TestCase(1, 2, 1, 1, 1, 11)]
-//     [TestCase(2, 2, 1, 1, 9, 11)]
-//     [TestCase(3, 2, 1, 1, 17, 11)]
-//     [TestCase(4, 2, 1, 1, 25, 11)]
-//     [TestCase(1, 3, 1, 1, 1, 21)]
-//     [TestCase(2, 3, 1, 1, 9, 21)]
-//     [TestCase(3, 3, 1, 1, 17, 21)]
-//     [TestCase(4, 3, 1, 1, 25, 21)]
-//     [TestCase(1, 4, 1, 1, 1, 31)]
-//     [TestCase(2, 4, 1, 1, 9, 31)]
-//     [TestCase(3, 4, 1, 1, 17, 31)]
-//     [TestCase(4, 4, 1, 1, 25, 31)]
-//     [TestCase(1, 1, 8, 10, 8, 10)]
-//     [TestCase(2, 1, 8, 10, 16, 10)]
-//     [TestCase(3, 1, 8, 10, 24, 10)]
-//     [TestCase(4, 1, 8, 10, 32, 10)]
-//     [TestCase(1, 2, 8, 10, 8, 20)]
-//     [TestCase(2, 2, 8, 10, 16, 20)]
-//     [TestCase(3, 2, 8, 10, 24, 20)]
-//     [TestCase(4, 2, 8, 10, 32, 20)]
-//     [TestCase(1, 3, 8, 10, 8, 30)]
-//     [TestCase(2, 3, 8, 10, 16, 30)]
-//     [TestCase(3, 3, 8, 10, 24, 30)]
-//     [TestCase(4, 3, 8, 10, 32, 30)]
-//     [TestCase(1, 4, 8, 10, 8, 40)]
-//     [TestCase(2, 4, 8, 10, 16, 40)]
-//     [TestCase(3, 4, 8, 10, 24, 40)]
-//     [TestCase(4, 4, 8, 10, 32, 40)]
-//     public void GenerateMongooseHex(int x1, int y1, int x2, int y2, int expectedX, int expectedY)
-//     {
-//         var subsectorCoordinates = new Coordinates(x1, y1);
-//         var hexCoordinates = new Coordinates(x2, y2);
-//         var hex = _hexFactory.GenerateMongooseHex(subsectorCoordinates, hexCoordinates, SectorType.Basic);
-//
-//         Assert.That(hex.Coordinates.X, Is.EqualTo(expectedX));
-//         Assert.That(hex.Coordinates.Y, Is.EqualTo(expectedY));
-//         Assert.True(hex.StarSystems.Count is 0 or 1);
-//     }
-//
-//     [TestCase(1, 1, 1, 1, 1, 1)]
-//     [TestCase(2, 1, 1, 1, 9, 1)]
-//     [TestCase(3, 1, 1, 1, 17, 1)]
-//     [TestCase(4, 1, 1, 1, 25, 1)]
-//     [TestCase(1, 2, 1, 1, 1, 11)]
-//     [TestCase(2, 2, 1, 1, 9, 11)]
-//     [TestCase(3, 2, 1, 1, 17, 11)]
-//     [TestCase(4, 2, 1, 1, 25, 11)]
-//     [TestCase(1, 3, 1, 1, 1, 21)]
-//     [TestCase(2, 3, 1, 1, 9, 21)]
-//     [TestCase(3, 3, 1, 1, 17, 21)]
-//     [TestCase(4, 3, 1, 1, 25, 21)]
-//     [TestCase(1, 4, 1, 1, 1, 31)]
-//     [TestCase(2, 4, 1, 1, 9, 31)]
-//     [TestCase(3, 4, 1, 1, 17, 31)]
-//     [TestCase(4, 4, 1, 1, 25, 31)]
-//     [TestCase(1, 1, 8, 10, 8, 10)]
-//     [TestCase(2, 1, 8, 10, 16, 10)]
-//     [TestCase(3, 1, 8, 10, 24, 10)]
-//     [TestCase(4, 1, 8, 10, 32, 10)]
-//     [TestCase(1, 2, 8, 10, 8, 20)]
-//     [TestCase(2, 2, 8, 10, 16, 20)]
-//     [TestCase(3, 2, 8, 10, 24, 20)]
-//     [TestCase(4, 2, 8, 10, 32, 20)]
-//     [TestCase(1, 3, 8, 10, 8, 30)]
-//     [TestCase(2, 3, 8, 10, 16, 30)]
-//     [TestCase(3, 3, 8, 10, 24, 30)]
-//     [TestCase(4, 3, 8, 10, 32, 30)]
-//     [TestCase(1, 4, 8, 10, 8, 40)]
-//     [TestCase(2, 4, 8, 10, 16, 40)]
-//     [TestCase(3, 4, 8, 10, 24, 40)]
-//     [TestCase(4, 4, 8, 10, 32, 40)]
-//     public void GenerateT5Hex(int x1, int y1, int x2, int y2, int expectedX, int expectedY)
-//     {
-//         var subsectorCoordinates = new Coordinates(x1, y1);
-//         var hexCoordinates = new Coordinates(x2, y2);
-//         var hex = _hexFactory.GenerateT5Hex(subsectorCoordinates, hexCoordinates);
-//
-//         Assert.That(hex.Coordinates.X, Is.EqualTo(expectedX));
-//         Assert.That(hex.Coordinates.Y, Is.EqualTo(expectedY));
-//         Assert.True(hex.StarSystems.Count is 0 or 1);
-//     }
-//
-//     [TestCase(1, 1, 1, 1, 1, 1)]
-//     [TestCase(2, 1, 1, 1, 9, 1)]
-//     [TestCase(3, 1, 1, 1, 17, 1)]
-//     [TestCase(4, 1, 1, 1, 25, 1)]
-//     [TestCase(1, 2, 1, 1, 1, 11)]
-//     [TestCase(2, 2, 1, 1, 9, 11)]
-//     [TestCase(3, 2, 1, 1, 17, 11)]
-//     [TestCase(4, 2, 1, 1, 25, 11)]
-//     [TestCase(1, 3, 1, 1, 1, 21)]
-//     [TestCase(2, 3, 1, 1, 9, 21)]
-//     [TestCase(3, 3, 1, 1, 17, 21)]
-//     [TestCase(4, 3, 1, 1, 25, 21)]
-//     [TestCase(1, 4, 1, 1, 1, 31)]
-//     [TestCase(2, 4, 1, 1, 9, 31)]
-//     [TestCase(3, 4, 1, 1, 17, 31)]
-//     [TestCase(4, 4, 1, 1, 25, 31)]
-//     [TestCase(1, 1, 8, 10, 8, 10)]
-//     [TestCase(2, 1, 8, 10, 16, 10)]
-//     [TestCase(3, 1, 8, 10, 24, 10)]
-//     [TestCase(4, 1, 8, 10, 32, 10)]
-//     [TestCase(1, 2, 8, 10, 8, 20)]
-//     [TestCase(2, 2, 8, 10, 16, 20)]
-//     [TestCase(3, 2, 8, 10, 24, 20)]
-//     [TestCase(4, 2, 8, 10, 32, 20)]
-//     [TestCase(1, 3, 8, 10, 8, 30)]
-//     [TestCase(2, 3, 8, 10, 16, 30)]
-//     [TestCase(3, 3, 8, 10, 24, 30)]
-//     [TestCase(4, 3, 8, 10, 32, 30)]
-//     [TestCase(1, 4, 8, 10, 8, 40)]
-//     [TestCase(2, 4, 8, 10, 16, 40)]
-//     [TestCase(3, 4, 8, 10, 24, 40)]
-//     [TestCase(4, 4, 8, 10, 32, 40)]
-//     public void GenerateRttWorldgenHex(int x1, int y1, int x2, int y2, int expectedX, int expectedY)
-//     {
-//         var subsectorCoordinates = new Coordinates(x1, y1);
-//         var hexCoordinates = new Coordinates(x2, y2);
-//         var hex = _hexFactory.GenerateRttWorldgenHex(subsectorCoordinates, hexCoordinates);
-//
-//         Assert.That(hex.Coordinates.X, Is.EqualTo(expectedX));
-//         Assert.That(hex.Coordinates.Y, Is.EqualTo(expectedY));
-//         Assert.True(hex.StarSystems.Count is 0 or 1);
-//     }
-// }
+﻿using Moq;
+using NUnit.Framework;
+using SectorCreator.Global;
+using SectorCreator.Global.Enums;
+using SectorCreator.Models.Basic;
+using SectorCreator.Models.Factories;
+using SectorCreator.Models.RTTWorldgen;
+
+namespace SectorCreator.Models.Tests.Factories;
+
+[TestFixture]
+public class HexFactoryTests
+{
+    private HexFactory _classUnderTest;
+    private readonly Mock<IStarSystemFactory> _starSystemFactoryMock = new();
+    private readonly Mock<IRollingService> _rollingServiceMock = new();
+    private readonly Mock<IRttWorldgenStarSystemFactory> _rttWorldgenStarSystemFactoryMock = new();
+
+    [SetUp]
+    public void SetUp()
+    {
+        _starSystemFactoryMock.Setup(x => x.GenerateMongooseStarSystem(It.IsAny<SectorType>()))
+            .Returns(new StarSystem());
+        _starSystemFactoryMock.Setup(x => x.GenerateT5StarSystem()).Returns(new StarSystem());
+
+        _classUnderTest = new HexFactory(_rollingServiceMock.Object, _starSystemFactoryMock.Object, _rttWorldgenStarSystemFactoryMock.Object);
+    }
+
+    [TestCase(false)]
+    [TestCase(true)]
+    public void WhenGeneratingMongooseHex(bool starSystem)
+    {
+        _rollingServiceMock.Setup(x => x.D6(1)).Returns(starSystem ? 6 : 0);
+
+        var hex = _classUnderTest.GenerateMongooseHex(new Coordinates(1, 1),
+            new Coordinates(1, 1), SectorType.Basic);
+
+        Assert.That(hex.StarSystems.Count, Is.EqualTo(starSystem ? 1 : 0));
+    }
+
+    [Test]
+    public void WhenGeneratingT5Hex()
+    {
+        throw new InconclusiveException("Not Implemented");
+    }
+
+    [TestCase(false, false, CompanionOrbit.Close, 0)]
+    [TestCase(true, false, CompanionOrbit.Close, 1)]
+    [TestCase(false, true, CompanionOrbit.Close, 1)]
+    [TestCase(true, true, CompanionOrbit.Close, 2)]
+    [TestCase(false, true, CompanionOrbit.Distant, 2)]
+    [TestCase(true, true, CompanionOrbit.Distant, 3)]
+    public void WhenGeneratingRttWorldgenHex(bool brownDwarfStarSystem, bool starSystem, CompanionOrbit companionOrbit,
+        int expectedStarSystems)
+    {
+        var returnedStarSystem = new StarSystem {Stars = {new RttWorldgenStar {CompanionOrbit = companionOrbit}}};
+        _rttWorldgenStarSystemFactoryMock.Setup(x => x.Generate(It.IsAny<StarSystemType>()))
+            .Returns(returnedStarSystem);
+        _rttWorldgenStarSystemFactoryMock.Setup(x => x.Generate(It.IsAny<RttWorldgenStar>()))
+            .Returns(new StarSystem());
+
+        _rollingServiceMock.SetupSequence(x => x.D6(1))
+            .Returns(brownDwarfStarSystem ? 6 : 0)
+            .Returns(starSystem ? 6 : 0);
+
+        var hex = _classUnderTest.GenerateRttWorldgenHex(new Coordinates(1, 1),
+            new Coordinates(1, 1));
+
+        Assert.That(hex.StarSystems.Count, Is.EqualTo(expectedStarSystems));
+    }
+
+    [TestCase(false)]
+    [TestCase(true)]
+    public void WhenGeneratingStarFrontiersHex(bool starSystem)
+    {
+        _rollingServiceMock.Setup(x => x.D10(1)).Returns(starSystem ? 10 : 0);
+
+        var hex = _classUnderTest.GenerateStarFrontiersHex(new Coordinates(1, 1), new Coordinates(1, 1));
+
+        Assert.That(hex.StarSystems.Count, Is.EqualTo(starSystem ? 1 : 0));
+    }
+
+    [TestCase(1, 1, 1, 1, 1, 1)]
+    [TestCase(1, 1, 5, 6, 5, 6)]
+    [TestCase(2, 3, 1, 1, 9, 21)]
+    [TestCase(2, 3, 5, 6, 13, 26)]
+    public void WhenSettingCoordinates(int subsectorCoordinateX, int subsectorCoordinateY, int hexCoordinateX,
+        int hexCoordinateY, int expectedCoordinateX, int expectedCoordinateY)
+    {
+        var hex = _classUnderTest.GenerateMongooseHex(new Coordinates(subsectorCoordinateX, subsectorCoordinateY),
+            new Coordinates(hexCoordinateX, hexCoordinateY), SectorType.Basic);
+
+        Assert.That(hex.Coordinates.X, Is.EqualTo(expectedCoordinateX));
+        Assert.That(hex.Coordinates.Y, Is.EqualTo(expectedCoordinateY));
+    }
+}

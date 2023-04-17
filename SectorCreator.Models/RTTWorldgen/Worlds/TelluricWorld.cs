@@ -2,17 +2,17 @@
 
 namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
-public interface ITelluricPlanet
+public interface ITelluricWorld
 {
     RttWorldgenPlanet Generate(RttWorldgenPlanet planet);
 }
 
-public class TelluricPlanet : ITelluricPlanet
+public class TelluricWorld : ITelluricWorld
 {
     private readonly IRollingService _rollingService;
     private readonly IWorldValidation _worldValidation;
 
-    public TelluricPlanet(IRollingService rollingService, IWorldValidation worldValidation)
+    public TelluricWorld(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
         _worldValidation = worldValidation;
@@ -32,8 +32,7 @@ public class TelluricPlanet : ITelluricPlanet
     {
         return _rollingService.D6(1) switch {
                     (<= 4) => 0,
-                    (<= 6) => 15,
-                    _ => 0
+                    (>= 5) => 15
                 };
     }
 }

@@ -1,18 +1,19 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
+using SectorCreator.Models.Services;
 
 namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
-public interface ISnowballPlanet
+public interface ISnowballWorld
 {
     RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
 }
 
-public class SnowballPlanet : ISnowballPlanet
+public class SnowballWorld : ISnowballWorld
 {
     private readonly IRollingService _rollingService;
     private readonly IWorldValidation _worldValidation;
-    public SnowballPlanet(IRollingService rollingService, IWorldValidation worldValidation)
+    public SnowballWorld(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
         _worldValidation = worldValidation;
@@ -35,8 +36,7 @@ public class SnowballPlanet : ISnowballPlanet
     {
         return _rollingService.D6(1) switch {
             (<= 4) => 0,
-            (<= 6) => 1,
-            _ => 0
+            (>= 5) => 1
         };
     }
 
@@ -44,8 +44,7 @@ public class SnowballPlanet : ISnowballPlanet
     {
         return hydrosphereRoll switch {
             (<= 3) => 10,
-            (<= 6) => _rollingService.D6(2) - 2,
-            _ => 0
+            (>= 4) => _rollingService.D6(2) - 2
         };
     }
 
@@ -63,15 +62,14 @@ public class SnowballPlanet : ISnowballPlanet
         return roll switch {
             (<= 4) => PlanetChemistry.Water,
             (<= 6) => PlanetChemistry.Ammonia,
-            (<= 8) => PlanetChemistry.Methane,
-            _ => PlanetChemistry.None
+            (>= 7) => PlanetChemistry.Methane
         };
     }
 
     private int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet, int hydrosphereRoll)
     {
         if (hydrosphereRoll >= 4) {
-            if (primaryStar.Age >= 6 + (int) planet.Chemistry) {
+            if (primaryStar.Age >= 6 + ChemistryService.GetAgeMod(planet.Chemistry)) {
                 return _rollingService.D6(1) + planet.Size - 2;
             }
 

@@ -19,12 +19,14 @@ public class CreateSectorController : ControllerBase
             new SectorFactory(
                 new SubsectorFactory(
                     new HexFactory(
+                        new RollingService(),
                         new StarSystemFactory(
-                            new RollingService(), 
-                            new PlanetFactory(new RollingService()), 
+                            new RollingService(),
+                            new PlanetFactory(new RollingService()),
                             new StarFrontiersStarFactory(new RollingService()),
-                            new RttWorldgenStarFactory(new RollingService()),
-                            new StarFrontiersPlanetFactory(new RollingService()),
+                            new StarFrontiersPlanetFactory(new RollingService())
+                        ),
+                        new RttWorldgenStarSystemFactory(new RollingService(),
                             new RttWorldgenPlanetFactory(
                                 new RollingService(),
                                 new AcheronianWorld(new RollingService(), new WorldValidation()),
@@ -37,17 +39,18 @@ public class CreateSectorController : ControllerBase
                                 new JaniLithicWorld(new RollingService(), new WorldValidation()),
                                 new JovianWorld(new RollingService(), new WorldValidation()),
                                 new MeltballWorld(new RollingService(), new WorldValidation()),
-                                new OceanicPlanet(new RollingService(), new WorldValidation()),
-                                new PanthalassicPlanet(new RollingService(), new WorldValidation()),
-                                new PromethianPlanet(new RollingService(), new WorldValidation()),
-                                new RockballPlanet(new RollingService(), new WorldValidation()),
-                                new SnowballPlanet(new RollingService(), new WorldValidation()),
-                                new StygianPlanet(new RollingService(), new WorldValidation()),
-                                new TectonicPlanet(new RollingService(), new WorldValidation()),
-                                new TelluricPlanet(new RollingService(), new WorldValidation()),
-                                new VesperianPlanet(new RollingService(), new WorldValidation()))
-                        ),
-                        new RollingService()
+                                new OceanicWorld(new RollingService(), new WorldValidation()),
+                                new PanthalassicWorld(new RollingService(), new WorldValidation()),
+                                new PrometheanWorld(new RollingService(), new WorldValidation()),
+                                new RockballWorld(new RollingService(), new WorldValidation()),
+                                new SnowballWorld(new RollingService(), new WorldValidation()),
+                                new StygianWorld(new RollingService(), new WorldValidation()),
+                                new TectonicWorld(new RollingService(), new WorldValidation()),
+                                new TelluricWorld(new RollingService(), new WorldValidation()),
+                                new VesperianWorld(new RollingService(), new WorldValidation())
+                            ),
+                            new RttWorldgenStarFactory(new RollingService())
+                        )
                     )
                 )
             )

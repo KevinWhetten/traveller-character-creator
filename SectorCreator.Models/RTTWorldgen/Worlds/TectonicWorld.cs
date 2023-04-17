@@ -1,30 +1,31 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
+using SectorCreator.Models.Services;
 
 namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
-public interface ITectonicPlanet
+public interface ITectonicWorld
 {
     RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
 }
 
-public class TectonicPlanet : ITectonicPlanet
+public class TectonicWorld : ITectonicWorld
 {
     private readonly IRollingService _rollingService;
     private readonly IWorldValidation _worldValidation;
 
-    public TectonicPlanet(IRollingService rollingService, IWorldValidation worldValidation)
+    public TectonicWorld(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
         _worldValidation = worldValidation;
     }
-    
+
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
     {
         planet.Size = _rollingService.D6(1) + 4;
         planet.Chemistry = GetChemistry(primaryStar, planet);
         planet.Biosphere = GetBiosphere(primaryStar, planet);
-        planet.Hydrographics = GetAtmosphere(planet);
+        planet.Atmosphere = GetAtmosphere(planet);
         planet.Hydrographics = _rollingService.D6(2) - 2;
         planet = _worldValidation.ValidatePlanet(planet);
         return planet;
@@ -50,23 +51,21 @@ public class TectonicPlanet : ITectonicPlanet
             (<= 6) => _rollingService.D6(2) switch {
                 (<= 8) => PlanetChemistry.Water,
                 (<= 11) => PlanetChemistry.Sulfur,
-                (<= 12) => PlanetChemistry.Chlorine,
-                _ => PlanetChemistry.None
+                _ => PlanetChemistry.Chlorine
             },
             (<= 8) => PlanetChemistry.Ammonia,
-            (<= 10) => PlanetChemistry.Methane,
-            _ => PlanetChemistry.None
+            _ => PlanetChemistry.Methane
         };
     }
 
     private int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
-        if (primaryStar.Age >= 4 + (int) planet.Chemistry) {
+        if (primaryStar.Age >= 4 + ChemistryService.GetAgeMod(planet.Chemistry)) {
             var mod = primaryStar.SpectralType == SpectralType.D ? -3 : 0;
             return _rollingService.D6(2) + mod;
         }
 
-        if (primaryStar.Age >= _rollingService.D3(1) + (int) planet.Chemistry) {
+        if (primaryStar.Age >= _rollingService.D3(1) + ChemistryService.GetAgeMod(planet.Chemistry)) {
             return _rollingService.D3(1);
         }
 
@@ -82,8 +81,7 @@ public class TectonicPlanet : ITectonicPlanet
             return atmosphereRoll;
         }
 
-        if (planet.Biosphere >= 3
-            && planet.Chemistry is PlanetChemistry.Sulfur or PlanetChemistry.Chlorine) {
+        if (planet.Biosphere >= 3 && planet.Chemistry is PlanetChemistry.Sulfur or PlanetChemistry.Chlorine) {
             return 11;
         }
 

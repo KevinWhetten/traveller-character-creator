@@ -13,6 +13,5 @@ public class SectorTests
         var result = new Sector();
         
         Assert.That(result.Subsectors.Count, Is.EqualTo(0));
-        Assert.That(result.SectorType, Is.EqualTo(SectorType.Basic));
     }
 }

@@ -12,8 +12,8 @@ public class JovianWorldTests
 {
     private JovianWorld _classUnderTest = new(new RollingService(), new WorldValidation());
 
-    [TestCase(4, 7, 2, 3, PlanetOrbit.Epistellar, 0, SpectralType.A, 0, PlanetChemistry.Water)]
-    [TestCase(4, 7, 2, 3, PlanetOrbit.Inner, 0, SpectralType.A, 0, PlanetChemistry.Water)]
+    [TestCase(4, 7, 2, 3, PlanetOrbit.Epistellar, 0, SpectralType.A, 0, PlanetChemistry.None)]
+    [TestCase(4, 7, 2, 3, PlanetOrbit.Inner, 0, SpectralType.A, 0, PlanetChemistry.None)]
     [TestCase(4, 7, 2, 3, PlanetOrbit.Inner, 3, SpectralType.A, 2, PlanetChemistry.Water)]
     [TestCase(4, 7, 2, 3, PlanetOrbit.Inner, 7, SpectralType.A, 7, PlanetChemistry.Water)]
     [TestCase(4, 7, 2, 3, PlanetOrbit.Inner, 7, SpectralType.D, 4, PlanetChemistry.Water)]

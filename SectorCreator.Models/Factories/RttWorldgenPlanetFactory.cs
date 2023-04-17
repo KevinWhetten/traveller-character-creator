@@ -27,15 +27,15 @@ public class RttWorldgenPlanetFactory : PlanetFactory, IRttWorldgenPlanetFactory
     private readonly IJaniLithicWorld _janiLithicWorld;
     private readonly IJovianWorld _jovianWorld;
     private readonly IMeltballWorld _meltballWorld;
-    private readonly IOceanicPlanet _oceanicPlanet;
-    private readonly IPanthalassicPlanet _panthalassicPlanet;
-    private readonly IPromethianPlanet _promethianPlanet;
-    private readonly IRockballPlanet _rockballPlanet;
-    private readonly ISnowballPlanet _snowballPlanet;
-    private readonly IStygianPlanet _stygianPlanet;
-    private readonly ITectonicPlanet _tectonicPlanet;
-    private readonly ITelluricPlanet _telluricPlanet;
-    private readonly IVesperianPlanet _vesperianPlanet;
+    private readonly IOceanicWorld _oceanicWorld;
+    private readonly IPanthalassicWorld _panthalassicWorld;
+    private readonly IPrometheanWorld _prometheanWorld;
+    private readonly IRockballWorld _rockballWorld;
+    private readonly ISnowballWorld _snowballWorld;
+    private readonly IStygianWorld _stygianWorld;
+    private readonly ITectonicWorld _tectonicWorld;
+    private readonly ITelluricWorld _telluricWorld;
+    private readonly IVesperianWorld _vesperianWorld;
 
     public RttWorldgenPlanetFactory(IRollingService rollingService,
         IAcheronianWorld acheronianWorld,
@@ -48,15 +48,15 @@ public class RttWorldgenPlanetFactory : PlanetFactory, IRttWorldgenPlanetFactory
         IJaniLithicWorld janiLithicWorld,
         IJovianWorld jovianWorld,
         IMeltballWorld meltballWorld,
-        IOceanicPlanet oceanicPlanet,
-        IPanthalassicPlanet panthalassicPlanet,
-        IPromethianPlanet promethianPlanet,
-        IRockballPlanet rockballPlanet,
-        ISnowballPlanet snowballPlanet,
-        IStygianPlanet stygianPlanet,
-        ITectonicPlanet tectonicPlanet,
-        ITelluricPlanet telluricPlanet,
-        IVesperianPlanet vesperianPlanet)
+        IOceanicWorld oceanicWorld,
+        IPanthalassicWorld panthalassicWorld,
+        IPrometheanWorld prometheanWorld,
+        IRockballWorld rockballWorld,
+        ISnowballWorld snowballWorld,
+        IStygianWorld stygianWorld,
+        ITectonicWorld tectonicWorld,
+        ITelluricWorld telluricWorld,
+        IVesperianWorld vesperianWorld)
         : base(rollingService)
     {
         _rollingService = rollingService;
@@ -70,15 +70,15 @@ public class RttWorldgenPlanetFactory : PlanetFactory, IRttWorldgenPlanetFactory
         _janiLithicWorld = janiLithicWorld;
         _jovianWorld = jovianWorld;
         _meltballWorld = meltballWorld;
-        _oceanicPlanet = oceanicPlanet;
-        _panthalassicPlanet = panthalassicPlanet;
-        _promethianPlanet = promethianPlanet;
-        _rockballPlanet = rockballPlanet;
-        _snowballPlanet = snowballPlanet;
-        _stygianPlanet = stygianPlanet;
-        _tectonicPlanet = tectonicPlanet;
-        _telluricPlanet = telluricPlanet;
-        _vesperianPlanet = vesperianPlanet;
+        _oceanicWorld = oceanicWorld;
+        _panthalassicWorld = panthalassicWorld;
+        _prometheanWorld = prometheanWorld;
+        _rockballWorld = rockballWorld;
+        _snowballWorld = snowballWorld;
+        _stygianWorld = stygianWorld;
+        _tectonicWorld = tectonicWorld;
+        _telluricWorld = telluricWorld;
+        _vesperianWorld = vesperianWorld;
     }
 
     private RttWorldgenPlanet RttWorldgenPlanet { get; set; } = new();
@@ -160,31 +160,31 @@ public class RttWorldgenPlanetFactory : PlanetFactory, IRttWorldgenPlanetFactory
                 RttWorldgenPlanet = _meltballWorld.Generate(RttWorldgenPlanet);
                 break;
             case WorldType.Oceanic:
-                RttWorldgenPlanet = _oceanicPlanet.Generate(RttWorldgenPlanet, primaryStar);
+                RttWorldgenPlanet = _oceanicWorld.Generate(RttWorldgenPlanet, primaryStar);
                 break;
             case WorldType.Panthalassic:
-                RttWorldgenPlanet = _panthalassicPlanet.Generate(RttWorldgenPlanet, primaryStar);
+                RttWorldgenPlanet = _panthalassicWorld.Generate(RttWorldgenPlanet, primaryStar);
                 break;
-            case WorldType.Promethian:
-                RttWorldgenPlanet = _promethianPlanet.Generate(RttWorldgenPlanet, primaryStar);
+            case WorldType.Promethean:
+                RttWorldgenPlanet = _prometheanWorld.Generate(RttWorldgenPlanet, primaryStar);
                 break;
             case WorldType.Rockball:
-                RttWorldgenPlanet = _rockballPlanet.Generate(RttWorldgenPlanet, primaryStar);
+                RttWorldgenPlanet = _rockballWorld.Generate(RttWorldgenPlanet, primaryStar);
                 break;
             case WorldType.Snowball:
-                RttWorldgenPlanet = _snowballPlanet.Generate(RttWorldgenPlanet, primaryStar);
+                RttWorldgenPlanet = _snowballWorld.Generate(RttWorldgenPlanet, primaryStar);
                 break;
             case WorldType.Stygian:
-                RttWorldgenPlanet = _stygianPlanet.Generate(RttWorldgenPlanet);
+                RttWorldgenPlanet = _stygianWorld.Generate(RttWorldgenPlanet);
                 break;
             case WorldType.Tectonic:
-                RttWorldgenPlanet = _tectonicPlanet.Generate(RttWorldgenPlanet, primaryStar);
+                RttWorldgenPlanet = _tectonicWorld.Generate(RttWorldgenPlanet, primaryStar);
                 break;
             case WorldType.Telluric:
-                RttWorldgenPlanet = _telluricPlanet.Generate(RttWorldgenPlanet);
+                RttWorldgenPlanet = _telluricWorld.Generate(RttWorldgenPlanet);
                 break;
             case WorldType.Vesperian:
-                RttWorldgenPlanet = _vesperianPlanet.Generate(RttWorldgenPlanet, primaryStar);
+                RttWorldgenPlanet = _vesperianWorld.Generate(RttWorldgenPlanet, primaryStar);
                 break;
             case WorldType.None:
                 break;
@@ -243,7 +243,7 @@ public class RttWorldgenPlanetFactory : PlanetFactory, IRttWorldgenPlanetFactory
             (<= 5) => WorldType.Meltball,
             (>= 6) => _rollingService.D6(1) switch {
                 (<= 4) => WorldType.Hebean,
-                (>= 5) => WorldType.Promethian
+                (>= 5) => WorldType.Promethean
             }
         };
     }
@@ -256,7 +256,7 @@ public class RttWorldgenPlanetFactory : PlanetFactory, IRttWorldgenPlanetFactory
             7 => WorldType.Meltball,
             8 => _rollingService.D6(1) switch {
                 (<= 4) => WorldType.Hebean,
-                (<= 6) => WorldType.Promethian,
+                (<= 6) => WorldType.Promethean,
                 _ => WorldType.None
             },
             _ => WorldType.None
@@ -272,7 +272,7 @@ public class RttWorldgenPlanetFactory : PlanetFactory, IRttWorldgenPlanetFactory
             8 => _rollingService.D6(1) switch {
                 (<= 3) => WorldType.Hebean,
                 (<= 5) => WorldType.Arean,
-                6 => WorldType.Promethian,
+                6 => WorldType.Promethean,
                 _ => WorldType.None
             },
             _ => WorldType.None

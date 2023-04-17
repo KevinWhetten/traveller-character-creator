@@ -2,17 +2,17 @@
 
 namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
-public interface IStygianPlanet
+public interface IStygianWorld
 {
     RttWorldgenPlanet Generate(RttWorldgenPlanet planet);
 }
 
-public class StygianPlanet : IStygianPlanet
+public class StygianWorld : IStygianWorld
 {
     private readonly IRollingService _rollingService;
     private readonly IWorldValidation _worldValidation;
 
-    public StygianPlanet(IRollingService rollingService, IWorldValidation worldValidation)
+    public StygianWorld(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
         _worldValidation = worldValidation;

@@ -1,5 +1,6 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
+using SectorCreator.Models.Services;
 
 namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
@@ -70,9 +71,9 @@ public class AreanWorld : IAreanWorld
     private int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
         int biosphere;
-        if (primaryStar.Age >= 4 + (int) planet.Chemistry && planet.Atmosphere == 10) {
+        if (primaryStar.Age >= 4 + ChemistryService.GetAgeMod(planet.Chemistry) && planet.Atmosphere == 10) {
             biosphere = _rollingService.D6(1) + planet.Size - 2;
-        } else if (primaryStar.Age >= _rollingService.D3(1) + (int) planet.Chemistry) {
+        } else if (primaryStar.Age >= _rollingService.D3(1) + ChemistryService.GetAgeMod(planet.Chemistry)) {
             biosphere = planet.Atmosphere == 1
                 ? _rollingService.D6(1) - 4
                 : _rollingService.D3(1);

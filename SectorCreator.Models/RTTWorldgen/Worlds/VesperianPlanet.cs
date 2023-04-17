@@ -3,22 +3,22 @@ using SectorCreator.Global.Enums;
 
 namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
-public interface IVesperianPlanet
+public interface IVesperianWorld
 {
     RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
 }
 
-public class VesperianPlanet : IVesperianPlanet
+public class VesperianWorld : IVesperianWorld
 {
     private readonly IRollingService _rollingService;
     private readonly IWorldValidation _worldValidation;
 
-    public VesperianPlanet(IRollingService rollingService, IWorldValidation worldValidation)
+    public VesperianWorld(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
         _worldValidation = worldValidation;
-    }   
-    
+    }
+
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
     {
         planet.Size = _rollingService.D6(1) + 4;
@@ -34,8 +34,7 @@ public class VesperianPlanet : IVesperianPlanet
     {
         return _rollingService.D6(2) switch {
             (<= 11) => PlanetChemistry.Water,
-            12 => PlanetChemistry.Chlorine,
-            _ => PlanetChemistry.None
+            (>= 12) => PlanetChemistry.Chlorine
         };
     }
 
@@ -55,14 +54,11 @@ public class VesperianPlanet : IVesperianPlanet
     private int GetAtmosphere(RttWorldgenPlanet planet)
     {
         if (planet.Biosphere >= 3) {
-            if (planet.Chemistry == PlanetChemistry.Water) {
-                var atmosphere = _rollingService.D6(2) + planet.Size - 7;
-                atmosphere = Math.Min(atmosphere, 9);
-                return Math.Max(atmosphere, 2);
-            }
-            if (planet.Chemistry == PlanetChemistry.Chlorine) {
-                return 11;
-            }
+            if (planet.Chemistry != PlanetChemistry.Water) return 11;
+
+            var atmosphere = _rollingService.D6(2) + planet.Size - 7;
+            atmosphere = Math.Min(atmosphere, 9);
+            return Math.Max(atmosphere, 2);
         }
 
         return 10;

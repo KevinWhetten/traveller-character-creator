@@ -47,7 +47,7 @@ public class SubsectorFactory : ISubsectorFactory
 
         for (var y = 1; y <= 10; y++) {
             for (var x = 1; x <= 8; x++) {
-                Hex newHex = _hexFactory.GenerateT5Hex(subsector.Coordinates, new Coordinates(x, y));
+                var newHex = _hexFactory.GenerateT5Hex(subsector.Coordinates, new Coordinates(x, y));
                 subsector.Hexes.Add(newHex);
             }
         }

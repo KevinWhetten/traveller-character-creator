@@ -1,19 +1,20 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
+using SectorCreator.Models.Services;
 
 namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
-public interface IOceanicPlanet
+public interface IOceanicWorld
 {
     RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
 }
 
-public class OceanicPlanet : IOceanicPlanet
+public class OceanicWorld : IOceanicWorld
 {
     private readonly IRollingService _rollingService;
     private readonly IWorldValidation _worldValidation;
 
-    public OceanicPlanet(IRollingService rollingService, IWorldValidation worldValidation)
+    public OceanicWorld(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
         _worldValidation = worldValidation;
@@ -54,12 +55,12 @@ public class OceanicPlanet : IOceanicPlanet
     {
         int biosphere;
 
-        if (primaryStar.Age >= 4 + (int) planet.Chemistry) {
+        if (primaryStar.Age >= 4 + ChemistryService.GetAgeMod(planet.Chemistry)) {
             biosphere = _rollingService.D6(2);
             if (primaryStar.SpectralType == SpectralType.D) {
                 biosphere -= 3;
             }
-        } else if (primaryStar.Age >= _rollingService.D3(1) + (int) planet.Chemistry) {
+        } else if (primaryStar.Age >= _rollingService.D3(1) + ChemistryService.GetAgeMod(planet.Chemistry)) {
             biosphere = _rollingService.D3(1);
         } else {
             biosphere = 0;

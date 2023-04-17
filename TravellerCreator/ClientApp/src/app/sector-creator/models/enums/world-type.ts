@@ -7,7 +7,7 @@
   Rockball,
   Meltball,
   Hebean,
-  Promethian,
+  Promethean,
   Arean,
   Snowball,
   JaniLithic,

@@ -1,19 +1,20 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
+using SectorCreator.Models.Services;
 
 namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
-public interface IPromethianPlanet
+public interface IPrometheanWorld
 {
     RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
 }
 
-public class PromethianPlanet : IPromethianPlanet
+public class PrometheanWorld : IPrometheanWorld
 {
     private readonly IRollingService _rollingService;
     private readonly IWorldValidation _worldValidation;
 
-    public PromethianPlanet(IRollingService rollingService, IWorldValidation worldValidation)
+    public PrometheanWorld(IRollingService rollingService, IWorldValidation worldValidation)
     {
         _rollingService = rollingService;
         _worldValidation = worldValidation;
@@ -46,14 +47,13 @@ public class PromethianPlanet : IPromethianPlanet
         return roll switch {
             <= 4 => PlanetChemistry.Water,
             <= 6 => PlanetChemistry.Ammonia,
-            <= 8 => PlanetChemistry.Methane,
-            _ => PlanetChemistry.None
+            _ => PlanetChemistry.Methane
         };
     }
 
     private int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
-        if (primaryStar.Age >= 4 + (int) planet.Chemistry) {
+        if (primaryStar.Age >= 4 + ChemistryService.GetAgeMod(planet.Chemistry)) {
             var mod = 0;
             if (primaryStar.SpectralType == SpectralType.D) {
                 mod = -3;
@@ -62,7 +62,7 @@ public class PromethianPlanet : IPromethianPlanet
             return _rollingService.D6(2) + mod;
         }
 
-        if (primaryStar.Age < _rollingService.D3(1) + (int) planet.Chemistry) {
+        if (primaryStar.Age >= _rollingService.D3(1) + ChemistryService.GetAgeMod(planet.Chemistry)) {
             return _rollingService.D3(1);
         }
 

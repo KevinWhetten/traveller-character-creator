@@ -4,7 +4,7 @@ using SectorCreator.Models.Basic;
 namespace SectorCreator.Models.Tests.Basic;
 
 [TestFixture]
-public class Subsector_Tests
+public class SubsectorTests
 {
     [Test]
     public void WhenConstructing()

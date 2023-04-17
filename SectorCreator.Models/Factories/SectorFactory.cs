@@ -53,21 +53,13 @@ public class SectorFactory : ISectorFactory
     public Sector GenerateRttWorldgenSector()
     {
         var sector = new Sector();
-        var homeworlds = new List<RttWorldgenPlanet>();
 
         for (var y = 1; y <= 4; y++) {
             for (var x = 1; x <= 4; x++) {
                 var newSubsector = _subsectorFactory.GenerateRttWorldgenSubsector(new Coordinates(x, y));
-                homeworlds.AddRange(from hex in newSubsector.Hexes
-                    from starSystem in hex.StarSystems
-                    from RttWorldgenPlanet planet in starSystem.Planets
-                    where planet.Biosphere >= 12
-                    select planet);
                 sector.Subsectors.Add(newSubsector);
             }
         }
-
-        foreach (var unused in homeworlds) { }
 
         return sector;
     }
