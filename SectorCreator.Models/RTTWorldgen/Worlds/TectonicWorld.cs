@@ -61,7 +61,7 @@ public class TectonicWorld : ITectonicWorld
     private int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
         if (primaryStar.Age >= 4 + ChemistryService.GetAgeMod(planet.Chemistry)) {
-            var mod = primaryStar.SpectralType == SpectralType.D ? -3 : 0;
+            var mod = primaryStar.SpectralType == SpectralType.L ? -3 : 0;
             return _rollingService.D6(2) + mod;
         }
 

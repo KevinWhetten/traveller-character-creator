@@ -27,7 +27,7 @@ public class PrometheanWorldTests
   [TestCase(1, 6, 1, 1, SpectralType.L, 0, PlanetOrbit.Outer, 0, PlanetChemistry.Methane, 0, 10)]
   [TestCase(1, 1, 1, 1, SpectralType.A, 3, PlanetOrbit.Inner, 0, PlanetChemistry.Water, 1, 10)]
   [TestCase(1, 1, 1, 1, SpectralType.A, 7, PlanetOrbit.Inner, 0, PlanetChemistry.Water, 7, 2)]
-  [TestCase(1, 1, 1, 1, SpectralType.D, 7, PlanetOrbit.Inner, 0, PlanetChemistry.Water, 4, 2)]
+  [TestCase(1, 1, 1, 1, SpectralType.L, 7, PlanetOrbit.Inner, 0, PlanetChemistry.Water, 4, 2)]
   [TestCase(6, 1, 1, 1, SpectralType.A, 7, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 7, 5)]
   public void WhenGenerating(int sizeRoll, int chemistryRoll, int biosphereRoll, int atmosphereRoll,
     SpectralType spectralType, int age, PlanetOrbit orbit,

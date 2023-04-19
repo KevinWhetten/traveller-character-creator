@@ -1,6 +1,7 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
+using SectorCreator.Models.Factories.StarSystemFactories;
 using SectorCreator.Models.RTTWorldgen;
 
 namespace SectorCreator.Models.Factories;

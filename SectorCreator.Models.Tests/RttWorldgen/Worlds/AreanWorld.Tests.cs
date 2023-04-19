@@ -13,13 +13,13 @@ public class AreanWorldTests
     private AreanWorld _classUnderTest = new(new RollingService(), new WorldValidation());
 
     [TestCase(6, 5, 6, 3, 6, 0, SpectralType.A, 5, 10, 4, PlanetChemistry.Water, 0)]
-    [TestCase(6, 5, 6, 3, 6, 0, SpectralType.D, 5, 1, 0, PlanetChemistry.Water, 0)]
+    [TestCase(6, 5, 6, 3, 6, 0, SpectralType.L, 5, 1, 0, PlanetChemistry.Water, 0)]
     [TestCase(6, 5, 6, 3, 6, 0, SpectralType.L, 5, 10, 4, PlanetChemistry.Ammonia, 0)]
     [TestCase(6, 5, 6, 6, 6, 0, SpectralType.L, 5, 10, 4, PlanetChemistry.Methane, 0)]
     [TestCase(6, 5, 6, 3, 6, 2, SpectralType.A, 5, 10, 4, PlanetChemistry.Water, 1)]
-    [TestCase(6, 5, 6, 3, 6, 2, SpectralType.D, 5, 1, 0, PlanetChemistry.Water, 2)]
+    [TestCase(6, 5, 6, 3, 6, 2, SpectralType.L, 5, 1, 0, PlanetChemistry.Water, 2)]
     [TestCase(6, 5, 6, 3, 6, 5, SpectralType.A, 5, 10, 4, PlanetChemistry.Water, 9)]
-    [TestCase(6, 5, 6, 3, 6, 5, SpectralType.D, 5, 1, 0, PlanetChemistry.Water, 2)]
+    [TestCase(6, 5, 6, 3, 6, 5, SpectralType.L, 5, 1, 0, PlanetChemistry.Water, 2)]
     public void WhenGenerating(int sizeRoll, int atmosphereRoll, int hydrographicsRoll, int chemistryRoll,
         int biosphereRoll, int age, SpectralType starSpectralType, int expectedSize, int expectedAtmosphere,
         int expectedHydrographics,

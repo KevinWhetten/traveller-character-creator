@@ -1,9 +1,9 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
-using SectorCreator.Models.RTTWorldgen;
+using SectorCreator.Models.Factories.StarFactories;
 
-namespace SectorCreator.Models.Factories;
+namespace SectorCreator.Models.Factories.StarSystemFactories;
 
 public interface IStarSystemFactory
 {

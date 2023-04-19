@@ -196,7 +196,7 @@ public class RttWorldgenPlanetFactory : PlanetFactory, IRttWorldgenPlanetFactory
     private void GetWorldType(RttWorldgenStar primaryStar)
     {
         if (
-            primaryStar.Luminosity == Luminosity.III || primaryStar.SpectralType == SpectralType.D) {
+            primaryStar.Luminosity == Luminosity.III || primaryStar.SpectralType == SpectralType.L) {
             if (RttWorldgenPlanet.OrbitPosition <= primaryStar.ExpansionSize) {
                 RttWorldgenPlanet.WorldType = RttWorldgenPlanet.PlanetType switch {
                     PlanetType.DwarfPlanet => WorldType.Stygian,

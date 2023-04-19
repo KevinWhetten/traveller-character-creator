@@ -31,7 +31,7 @@ public class OceanicWorldTests
   [TestCase(3, 1, 2, 0, SpectralType.A, Luminosity.IV, PlanetOrbit.Inner, 7, PlanetChemistry.Water, 0, 2)]
   [TestCase(1, 1, 1, 3, SpectralType.A, Luminosity.I, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 1, 1)]
   [TestCase(1, 1, 6, 6, SpectralType.A, Luminosity.I, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 6, 5)]
-  [TestCase(1, 1, 6, 6, SpectralType.D, Luminosity.I, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 3, 5)]
+  [TestCase(1, 1, 6, 6, SpectralType.L, Luminosity.I, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 3, 5)]
   public void WhenGenerating(int sizeRoll, int chemistryRoll, int atmosphereRoll, int age,
     SpectralType spectralType, Luminosity luminosity, PlanetOrbit planetOrbit,
     int expectedSize, PlanetChemistry expectedChemistry, int expectedBiosphere, int expectedAtmosphere)

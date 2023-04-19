@@ -4,9 +4,11 @@ using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
 using SectorCreator.Models.Factories;
+using SectorCreator.Models.Factories.StarFactories;
+using SectorCreator.Models.Factories.StarSystemFactories;
 using SectorCreator.Models.RTTWorldgen;
 
-namespace SectorCreator.Models.Tests.Factories;
+namespace SectorCreator.Models.Tests.Factories.StarSystemFactories;
 
 public class StarSystemFactoryTests
 {
@@ -57,8 +59,15 @@ public class StarSystemFactoryTests
         throw new InconclusiveException("Not Implemented");
     }
 
-    [TestCase(0, false)]
-    public void WhenGeneratingStarFrontiersStarSystem(int numStarsRoll, int planetRoll, bool expectedGasGiant)
+    [TestCase(1, 1, false, 0, 1)]
+    [TestCase(7, 1, false, 0, 1)]
+    [TestCase(8, 1, false, 0, 2)]
+    [TestCase(10, 1, false, 0, 2)]
+    [TestCase(1, 3, false, 0, 1)]
+    [TestCase(1, 4, false, 1, 1)]
+    [TestCase(1, 6, false, 1, 1)]
+    [TestCase(10, 4, false, 1, 2)]
+    public void WhenGeneratingStarFrontiersStarSystem(int numStarsRoll, int planetRoll, bool expectedGasGiant, int expectedPlanetNum, int expectedStarNum)
     {
         _rollingServiceMock.Setup(x => x.D10(1))
             .Returns(numStarsRoll);
@@ -67,8 +76,8 @@ public class StarSystemFactoryTests
 
         var starSystem = _classUnderTest.GenerateStarFrontiersStarSystem();
 
-        Assert.That(starSystem.Planets.Count, Is.EqualTo(1));
-        Assert.That(starSystem.Stars.Count, Is.EqualTo(0));
+        Assert.That(starSystem.Planets.Count, Is.EqualTo(expectedPlanetNum));
+        Assert.That(starSystem.Stars.Count, Is.EqualTo(expectedStarNum));
         Assert.That(starSystem.GasGiant, Is.EqualTo(expectedGasGiant));
     }
 }

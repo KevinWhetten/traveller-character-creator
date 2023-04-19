@@ -55,7 +55,7 @@ public class PrometheanWorld : IPrometheanWorld
     {
         if (primaryStar.Age >= 4 + ChemistryService.GetAgeMod(planet.Chemistry)) {
             var mod = 0;
-            if (primaryStar.SpectralType == SpectralType.D) {
+            if (primaryStar.SpectralType == SpectralType.L) {
                 mod = -3;
             }
 

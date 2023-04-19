@@ -3,6 +3,8 @@ using SectorCreator.BL;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Factories;
+using SectorCreator.Models.Factories.StarFactories;
+using SectorCreator.Models.Factories.StarSystemFactories;
 using SectorCreator.Models.RTTWorldgen.Worlds;
 
 namespace SectorCreator.API.Controllers;

@@ -21,4 +21,12 @@
       <ProjectReference Include="..\SectorCreator.Models\SectorCreator.Models.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Factories\StarFactories" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Factories\StarSystemFactories\RttWorldgenStarSystemFactory.Tests.cs" />
+    </ItemGroup>
+
 </Project>

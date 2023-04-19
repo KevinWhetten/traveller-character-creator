@@ -45,7 +45,7 @@ public class JovianWorld : IJovianWorld
             case <= 8:
                 if (primaryStar.Age >= 7) {
                     biosphere = _rollingService.D6(2);
-                    if (primaryStar.SpectralType == SpectralType.D) {
+                    if (primaryStar.SpectralType == SpectralType.L) {
                         biosphere -= 3;
                     }
                 } else if (primaryStar.Age >= _rollingService.D6(1)) {

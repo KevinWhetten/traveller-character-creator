@@ -1,9 +1,10 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
+using SectorCreator.Models.Factories.StarFactories;
 using SectorCreator.Models.RTTWorldgen;
 
-namespace SectorCreator.Models.Factories;
+namespace SectorCreator.Models.Factories.StarSystemFactories;
 
 public interface IRttWorldgenStarSystemFactory
 {
@@ -30,7 +31,7 @@ public class RttWorldgenStarSystemFactory : IRttWorldgenStarSystemFactory
 
         if (starSystemType == StarSystemType.BrownDwarf) {
             starSystem.Stars.Add(new RttWorldgenStar() {
-                SpectralType = SpectralType.D,
+                SpectralType = SpectralType.L,
                 Luminosity = Luminosity.I,
                 SpectralSubclass = _rollingService.D10(1) - 1
             });
@@ -77,7 +78,7 @@ public class RttWorldgenStarSystemFactory : IRttWorldgenStarSystemFactory
         if (primaryStar1 is {SpectralType: SpectralType.M, Luminosity: Luminosity.V}) {
             roll--;
         } else if (primaryStar1.Luminosity == Luminosity.III
-                   || primaryStar1.SpectralType is SpectralType.D or SpectralType.L) {
+                   || primaryStar1.SpectralType == SpectralType.L) {
             roll = 0;
         }
 
@@ -136,7 +137,7 @@ public class RttWorldgenStarSystemFactory : IRttWorldgenStarSystemFactory
         if (primaryStar is {SpectralType: SpectralType.M, Luminosity: Luminosity.V}) {
             roll--;
         } else if (primaryStar.Luminosity == Luminosity.III
-                   || primaryStar.SpectralType is SpectralType.D or SpectralType.L) {
+                   || primaryStar.SpectralType is SpectralType.L or SpectralType.L) {
             roll = 0;
         }
 
