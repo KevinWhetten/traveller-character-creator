@@ -19,7 +19,7 @@ public class AridWorldTests
     [TestCase(1, 3, 12, 1, 0, PlanetOrbit.Outer, SpectralType.L, Luminosity.V, 5, PlanetChemistry.Methane, 0, 10)]
     [TestCase(1, 5, 12, 1, 2, PlanetOrbit.Inner, SpectralType.A, Luminosity.I, 5, PlanetChemistry.Water, 1, 10)]
     [TestCase(1, 5, 12, 1, 5, PlanetOrbit.Inner, SpectralType.A, Luminosity.I, 5, PlanetChemistry.Water, 12, 9)]
-    [TestCase(1, 5, 12, 1, 5, PlanetOrbit.Inner, SpectralType.L, Luminosity.I, 5, PlanetChemistry.Water, 9, 9)]
+    [TestCase(1, 5, 12, 1, 5, PlanetOrbit.Inner, SpectralType.D, Luminosity.I, 5, PlanetChemistry.Water, 9, 9)]
     [Repeat(50)]
     public void WhenGenerating(int sizeRoll, int chemistryRoll, int biosphereRoll, int atmosphereRoll,
         int age, PlanetOrbit orbit, SpectralType spectralType, Luminosity luminosity,

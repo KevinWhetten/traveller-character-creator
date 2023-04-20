@@ -12,5 +12,6 @@ public enum SpectralType
     B,
     O,
     Rg,
-    Sg
+    Sg,
+    D
 }

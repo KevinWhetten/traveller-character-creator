@@ -34,7 +34,7 @@ public class AreanWorld : IAreanWorld
     private int GetAtmosphere(RttWorldgenStar primaryStar)
     {
         var roll = _rollingService.D6(1);
-        if (primaryStar.SpectralType == SpectralType.L) {
+        if (primaryStar.SpectralType == SpectralType.D) {
             roll -= 2;
         }
 

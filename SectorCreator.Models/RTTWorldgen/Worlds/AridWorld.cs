@@ -59,7 +59,7 @@ public class AridWorld : IAridWorld
 
         if (primaryStar.Age >= 4 + ChemistryService.GetAgeMod(planet.Chemistry)) {
             biosphere = _rollingService.D6(2);
-            if (primaryStar.SpectralType == SpectralType.L) {
+            if (primaryStar.SpectralType == SpectralType.D) {
                 biosphere -= 3;
             }
         } else if (primaryStar.Age >= _rollingService.D3(1) + ChemistryService.GetAgeMod(planet.Chemistry)) {
