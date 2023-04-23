@@ -9,7 +9,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class StygianWorldTests
 {
-    private StygianWorld _classUnderTest = new(new RollingService(), new WorldValidation());
+    private StygianWorld _classUnderTest = new(new RollingService());
 
     [TestCase(1, 0)]
     [TestCase(2, 1)]
@@ -22,7 +22,7 @@ public class StygianWorldTests
         // Setup
         var mockRollingService = new Mock<IRollingService>();
         mockRollingService.Setup(x => x.D6(1)).Returns(sizeRoll);
-        _classUnderTest = new StygianWorld(mockRollingService.Object, new WorldValidation());
+        _classUnderTest = new StygianWorld(mockRollingService.Object);
 
         // Act
         var stygianWorld = _classUnderTest.Generate(new RttWorldgenPlanet());

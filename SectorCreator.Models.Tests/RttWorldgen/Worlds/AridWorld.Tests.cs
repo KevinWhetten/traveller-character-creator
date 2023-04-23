@@ -10,7 +10,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class AridWorldTests
 {
-    private AridWorld _classUnderTest = new(new RollingService(), new WorldValidation());
+    private AridWorld _classUnderTest = new(new RollingService());
 
     [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.A, Luminosity.I, 5, PlanetChemistry.Water, 0, 10)]
     [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.K, Luminosity.V, 5, PlanetChemistry.Ammonia, 0, 10)]
@@ -32,7 +32,7 @@ public class AridWorldTests
             .Returns(chemistryRoll);
         rollingServiceMock.Setup(x => x.D6(2)).Returns(biosphereRoll);
         rollingServiceMock.Setup(x => x.D3(1)).Returns(1);
-        _classUnderTest = new AridWorld(rollingServiceMock.Object, new WorldValidation());
+        _classUnderTest = new AridWorld(rollingServiceMock.Object);
 
         // Act
         var aridWorld = _classUnderTest.Generate(new RttWorldgenPlanet {PlanetOrbit = orbit},

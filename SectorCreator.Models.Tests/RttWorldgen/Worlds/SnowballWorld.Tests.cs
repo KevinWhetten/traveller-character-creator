@@ -9,7 +9,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds
 {
     public class SnowballWorldTests
     {
-        private SnowballWorld _classUnderTest = new SnowballWorld(new RollingService(), new WorldValidation());
+        private SnowballWorld _classUnderTest = new(new RollingService());
 
         [TestCase(1, 1, 1, 2, 1, 0, SpectralType.A, PlanetOrbit.Inner, 0, 0, 10, PlanetChemistry.Water, 0)]
         [TestCase(3, 1, 1, 2, 1, 0, SpectralType.A, PlanetOrbit.Inner, 2, 0, 10, PlanetChemistry.Water, 0)]
@@ -52,7 +52,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds
                 .Returns(6);
             mockRollingService.Setup(x => x.D6(2))
                 .Returns(hydrographicsRoll);
-            _classUnderTest = new SnowballWorld(mockRollingService.Object, new WorldValidation());
+            _classUnderTest = new SnowballWorld(mockRollingService.Object);
 
             // Act
             var rockballWorld = _classUnderTest.Generate(new RttWorldgenPlanet {PlanetOrbit = planetOrbit},

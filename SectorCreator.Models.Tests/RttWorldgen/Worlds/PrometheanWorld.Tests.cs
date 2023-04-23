@@ -9,7 +9,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class PrometheanWorldTests
 {
-  private PrometheanWorld _classUnderTest = new PrometheanWorld(new RollingService(), new WorldValidation());
+  private PrometheanWorld _classUnderTest = new(new RollingService());
 
   [TestCase(1, 1, 1, 1, SpectralType.A, 0, PlanetOrbit.Inner, 0, PlanetChemistry.Water, 0, 10)]
   [TestCase(3, 1, 1, 1, SpectralType.A, 0, PlanetOrbit.Inner, 2, PlanetChemistry.Water, 0, 10)]
@@ -43,7 +43,7 @@ public class PrometheanWorldTests
       .Returns(1);
     mockRollingService.Setup(x => x.D6(2))
       .Returns(7);
-    _classUnderTest = new PrometheanWorld(mockRollingService.Object, new WorldValidation());
+    _classUnderTest = new PrometheanWorld(mockRollingService.Object);
 
     // Act
     var prometheanWorld = _classUnderTest.Generate(new RttWorldgenPlanet {PlanetOrbit = orbit},

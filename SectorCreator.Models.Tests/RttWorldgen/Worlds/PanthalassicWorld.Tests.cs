@@ -9,7 +9,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class PanthalassicWorldTests
 {
-  private PanthalassicWorld _classUnderTest = new PanthalassicWorld(new RollingService(), new WorldValidation());
+  private PanthalassicWorld _classUnderTest = new(new RollingService());
 
   [TestCase(1, 1, 1, 1, 1, SpectralType.A, Luminosity.I, 0, 10, 9, PlanetChemistry.Water, 0)]
   [TestCase(3, 1, 1, 1, 1, SpectralType.A, Luminosity.I, 0, 12, 9, PlanetChemistry.Water, 0)]
@@ -44,7 +44,7 @@ public class PanthalassicWorldTests
       .Returns(chemistryRoll2d6);
     mockRollingService.Setup(x => x.D3(1))
       .Returns(1);
-    _classUnderTest = new PanthalassicWorld(mockRollingService.Object, new WorldValidation());
+    _classUnderTest = new PanthalassicWorld(mockRollingService.Object);
 
     // Act
     var panthalassicWorld = _classUnderTest.Generate(new RttWorldgenPlanet(),

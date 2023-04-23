@@ -12,22 +12,21 @@ public interface IPrometheanWorld
 public class PrometheanWorld : IPrometheanWorld
 {
     private readonly IRollingService _rollingService;
-    private readonly IWorldValidation _worldValidation;
 
-    public PrometheanWorld(IRollingService rollingService, IWorldValidation worldValidation)
+    public PrometheanWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
-        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
     {
+        planet.WorldType = WorldType.Promethean;
         planet.Size = _rollingService.D6(1) - 1;
         planet.Chemistry = GetChemistry(primaryStar, planet);
         planet.Biosphere = GetBiosphere(primaryStar, planet);
         planet.Atmosphere = GetAtmosphere(planet);
         planet.Hydrographics = _rollingService.D6(2) - 2;
-        planet = _worldValidation.ValidatePlanet(planet);
+        planet = WorldValidation.ValidatePlanet(planet);
         return planet;
     }
 

@@ -1,4 +1,5 @@
 ﻿using SectorCreator.Global;
+using SectorCreator.Global.Enums;
 
 namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
@@ -10,21 +11,20 @@ public interface IJaniLithicWorld
 public class JaniLithicWorld : IJaniLithicWorld
 {
     private readonly IRollingService _rollingService;
-    private readonly IWorldValidation _worldValidation;
 
-    public JaniLithicWorld(IRollingService rollingService, IWorldValidation worldValidation)
+    public JaniLithicWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
-        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
     {
+        planet.WorldType = WorldType.JaniLithic;
         planet.Size = _rollingService.D6(1) + 4;
         planet.Atmosphere = GetAtmosphere();
         planet.Hydrographics = 0;
         planet.Biosphere = 0;
-        planet = _worldValidation.ValidatePlanet(planet);
+        planet = WorldValidation.ValidatePlanet(planet);
         return planet;
     }
 

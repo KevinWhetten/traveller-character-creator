@@ -3,11 +3,11 @@ using NUnit.Framework;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
-using SectorCreator.Models.Factories;
-using SectorCreator.Models.Factories.StarSystemFactories;
+using SectorCreator.Models.Factories.Basic;
+using SectorCreator.Models.Factories.RttWorldgen;
 using SectorCreator.Models.RTTWorldgen;
 
-namespace SectorCreator.Models.Tests.Factories;
+namespace SectorCreator.Models.Tests.Factories.Basic;
 
 [TestFixture]
 public class HexFactoryTests
@@ -54,11 +54,11 @@ public class HexFactoryTests
     public void WhenGeneratingRttWorldgenHex(bool brownDwarfStarSystem, bool starSystem, CompanionOrbit companionOrbit,
         int expectedStarSystems)
     {
-        var returnedStarSystem = new StarSystem {Stars = {new RttWorldgenStar {CompanionOrbit = companionOrbit}}};
+        var returnedStarSystem = new RttWorldgenStarSystem() {Stars = {new RttWorldgenStar {CompanionOrbit = companionOrbit}}};
         _rttWorldgenStarSystemFactoryMock.Setup(x => x.Generate(It.IsAny<StarSystemType>()))
             .Returns(returnedStarSystem);
         _rttWorldgenStarSystemFactoryMock.Setup(x => x.Generate(It.IsAny<RttWorldgenStar>()))
-            .Returns(new StarSystem());
+            .Returns(new RttWorldgenStarSystem());
 
         _rollingServiceMock.SetupSequence(x => x.D6(1))
             .Returns(brownDwarfStarSystem ? 6 : 0)

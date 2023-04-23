@@ -1,4 +1,5 @@
 ﻿using SectorCreator.Global;
+using SectorCreator.Global.Enums;
 
 namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
@@ -10,21 +11,20 @@ public interface IAcheronianWorld
 public class AcheronianWorld : IAcheronianWorld
 {
     private readonly IRollingService _rollingService;
-    private readonly IWorldValidation _worldValidation;
 
-    public AcheronianWorld(IRollingService rollingService, IWorldValidation worldValidation)
+    public AcheronianWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
-        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
     {
+        planet.WorldType = WorldType.Acheronian;
         planet.Size = _rollingService.D6(1) + 4;
         planet.Atmosphere = 1;
         planet.Hydrographics = 0;
         planet.Biosphere = 0;
-        planet = _worldValidation.ValidatePlanet(planet);
+        planet = WorldValidation.ValidatePlanet(planet);
         return planet;
     }
 }

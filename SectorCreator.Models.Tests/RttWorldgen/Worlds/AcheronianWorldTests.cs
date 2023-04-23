@@ -9,7 +9,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class AcheronianWorldTests
 {
-    private AcheronianWorld _classUnderTest = new(new RollingService(), new WorldValidation());
+    private AcheronianWorld _classUnderTest = new(new RollingService());
 
     [TestCase(1, 5)]
     [TestCase(2, 6)]
@@ -23,7 +23,7 @@ public class AcheronianWorldTests
         var rollingServiceMock = new Mock<IRollingService>();
         rollingServiceMock.Setup(x => x.D6(1)).Returns(roll);
         
-        _classUnderTest = new AcheronianWorld(rollingServiceMock.Object, new WorldValidation());
+        _classUnderTest = new AcheronianWorld(rollingServiceMock.Object);
         
         // Act
         var acheronianPlanet = _classUnderTest.Generate(new RttWorldgenPlanet());

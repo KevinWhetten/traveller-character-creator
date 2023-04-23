@@ -7,9 +7,10 @@ using SectorCreator.Models.Services.TradeCodeService;
 
 namespace SectorCreator.Models.Tests.Services.TradeCodeServiceTests;
 
+[TestFixture]
 public class TradeCodeService_SecondaryTests
 {
-    private TradeCodeService _classUnderTest = new TradeCodeService(new RollingService());
+    private readonly TradeCodeService _classUnderTest = new(new RollingService());
 
     [TestCase(6, 6, 4, PlanetOrbit.Inner, false, true)]
     [TestCase(3, 6, 4, PlanetOrbit.Inner, false, false)]

@@ -2,9 +2,9 @@
 using SectorCreator.BL;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models.Factories;
-using SectorCreator.Models.Factories.StarFactories;
-using SectorCreator.Models.Factories.StarSystemFactories;
+using SectorCreator.Models.Factories.Basic;
+using SectorCreator.Models.Factories.RttWorldgen;
+using SectorCreator.Models.Factories.StarFrontiers;
 using SectorCreator.Models.RTTWorldgen.Worlds;
 
 namespace SectorCreator.API.Controllers;
@@ -29,29 +29,29 @@ public class CreateSectorController : ControllerBase
                             new StarFrontiersPlanetFactory(new RollingService())
                         ),
                         new RttWorldgenStarSystemFactory(new RollingService(),
+                            new RttWorldgenStarFactory(new RollingService()),
                             new RttWorldgenPlanetFactory(
                                 new RollingService(),
-                                new AcheronianWorld(new RollingService(), new WorldValidation()),
-                                new AreanWorld(new RollingService(), new WorldValidation()),
-                                new AridWorld(new RollingService(), new WorldValidation()),
-                                new AsphodelianWorld(new RollingService(), new WorldValidation()),
-                                new ChthonianWorld(new WorldValidation()),
-                                new HebeanWorld(new RollingService(), new WorldValidation()),
-                                new HelianWorld(new RollingService(), new WorldValidation()),
-                                new JaniLithicWorld(new RollingService(), new WorldValidation()),
-                                new JovianWorld(new RollingService(), new WorldValidation()),
-                                new MeltballWorld(new RollingService(), new WorldValidation()),
-                                new OceanicWorld(new RollingService(), new WorldValidation()),
-                                new PanthalassicWorld(new RollingService(), new WorldValidation()),
-                                new PrometheanWorld(new RollingService(), new WorldValidation()),
-                                new RockballWorld(new RollingService(), new WorldValidation()),
-                                new SnowballWorld(new RollingService(), new WorldValidation()),
-                                new StygianWorld(new RollingService(), new WorldValidation()),
-                                new TectonicWorld(new RollingService(), new WorldValidation()),
-                                new TelluricWorld(new RollingService(), new WorldValidation()),
-                                new VesperianWorld(new RollingService(), new WorldValidation())
-                            ),
-                            new RttWorldgenStarFactory(new RollingService())
+                                new AcheronianWorld(new RollingService()),
+                                new AreanWorld(new RollingService()),
+                                new AridWorld(new RollingService()),
+                                new AsphodelianWorld(new RollingService()),
+                                new ChthonianWorld(),
+                                new HebeanWorld(new RollingService()),
+                                new HelianWorld(new RollingService()),
+                                new JaniLithicWorld(new RollingService()),
+                                new JovianWorld(new RollingService()),
+                                new MeltballWorld(new RollingService()),
+                                new OceanicWorld(new RollingService()),
+                                new PanthalassicWorld(new RollingService()),
+                                new PrometheanWorld(new RollingService()),
+                                new RockballWorld(new RollingService()),
+                                new SnowballWorld(new RollingService()),
+                                new StygianWorld(new RollingService()),
+                                new TectonicWorld(new RollingService()),
+                                new TelluricWorld(new RollingService()),
+                                new VesperianWorld(new RollingService())
+                            )
                         )
                     )
                 )

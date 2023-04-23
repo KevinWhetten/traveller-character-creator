@@ -10,7 +10,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class VesperianWorldTests
 {
-    private VesperianWorld _classUnderTest = new(new RollingService(), new WorldValidation());
+    private VesperianWorld _classUnderTest = new(new RollingService());
 
     [TestCase(1, 2, 2, 2, 0, 5, PlanetChemistry.Water, 0, 10)]
     [TestCase(3, 2, 2, 2, 0, 7, PlanetChemistry.Water, 0, 10)]
@@ -42,7 +42,7 @@ public class VesperianWorldTests
             .Returns(atmosphereRoll);
         mockRollingService.Setup(x => x.D3(1))
             .Returns(biosphereRoll);
-        _classUnderTest = new VesperianWorld(mockRollingService.Object, new WorldValidation());
+        _classUnderTest = new VesperianWorld(mockRollingService.Object);
 
         // Act
         var telluricWorld = _classUnderTest.Generate(new RttWorldgenPlanet(),

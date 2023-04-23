@@ -1,4 +1,6 @@
-﻿namespace SectorCreator.Models.RTTWorldgen.Worlds;
+﻿using SectorCreator.Global.Enums;
+
+namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
 public interface IChthonianWorld
 {
@@ -7,20 +9,14 @@ public interface IChthonianWorld
 
 public class ChthonianWorld : IChthonianWorld
 {
-    private readonly IWorldValidation _worldValidation;
-
-    public ChthonianWorld(IWorldValidation worldValidation)
-    {
-        _worldValidation = worldValidation;
-    }
-    
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
     {
+        planet.WorldType = WorldType.Chthonian;
         planet.Size = 16;
         planet.Atmosphere = 1;
         planet.Hydrographics = 0;
         planet.Biosphere = 0;
-        planet = _worldValidation.ValidatePlanet(planet);
+        planet = WorldValidation.ValidatePlanet(planet);
         return planet;
     }
 }

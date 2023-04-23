@@ -9,7 +9,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class AsphodelianWorldTests
 {
-    private AsphodelianWorld _classUnderTest = new(new RollingService(), new WorldValidation());
+    private AsphodelianWorld _classUnderTest = new(new RollingService());
 
     [TestCase(1, 10)]
     [TestCase(2, 11)]
@@ -22,7 +22,7 @@ public class AsphodelianWorldTests
         // Setup
         var mockRollingService = new Mock<IRollingService>();
         mockRollingService.Setup(x => x.D6(1)).Returns(sizeRoll);
-        _classUnderTest = new AsphodelianWorld(mockRollingService.Object, new WorldValidation());
+        _classUnderTest = new AsphodelianWorld(mockRollingService.Object);
         
         // Act
         var asphodelianWorld = _classUnderTest.Generate(new RttWorldgenPlanet());

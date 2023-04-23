@@ -10,7 +10,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class TectonicWorldTests
 {
-    private TectonicWorld _classUnderTest = new(new RollingService(), new WorldValidation());
+    private TectonicWorld _classUnderTest = new(new RollingService());
 
     [TestCase(1, 1, 2, 1, 2, 2, PlanetOrbit.Inner, 0, SpectralType.A, Luminosity.I, 5, PlanetChemistry.Water, 0, 10, 0)]
     [TestCase(3, 1, 2, 1, 2, 2, PlanetOrbit.Inner, 0, SpectralType.A, Luminosity.I, 7, PlanetChemistry.Water, 0, 10, 0)]
@@ -63,7 +63,7 @@ public class TectonicWorldTests
             .Returns(hydrographicsRoll);
         mockRollingService.Setup(x => x.D3(1))
             .Returns(biosphereRoll);
-        _classUnderTest = new TectonicWorld(mockRollingService.Object, new WorldValidation());
+        _classUnderTest = new TectonicWorld(mockRollingService.Object);
 
         // Act
         var tectonicWorld = _classUnderTest.Generate(new RttWorldgenPlanet {PlanetOrbit = orbit},

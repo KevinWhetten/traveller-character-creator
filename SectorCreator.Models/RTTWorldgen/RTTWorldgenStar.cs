@@ -6,7 +6,7 @@ namespace SectorCreator.Models.RTTWorldgen;
 public class RttWorldgenStar : Star
 {
     public Guid Id { get; set; }
-    public StarType StarType { get; set; }
+    public bool IsPrimary { get; set; } = true;
     public Luminosity Luminosity { get; set; }
     public CompanionOrbit CompanionOrbit { get; set; }
     public int ExpansionSize { get; set; }

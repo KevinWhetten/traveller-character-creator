@@ -9,7 +9,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class JaniLithicWorldTests
 {
-    private JaniLithicWorld _classUnderTest = new(new RollingService(), new WorldValidation());
+    private JaniLithicWorld _classUnderTest = new(new RollingService());
 
     [TestCase(1, 1, 5, 1)]
     [TestCase(3, 1, 7, 1)]
@@ -24,7 +24,7 @@ public class JaniLithicWorldTests
         mockRollingService.SetupSequence(x => x.D6(1))
             .Returns(sizeRoll)
             .Returns(atmosphereRoll);
-        _classUnderTest = new JaniLithicWorld(mockRollingService.Object, new WorldValidation());
+        _classUnderTest = new JaniLithicWorld(mockRollingService.Object);
 
         // Act
         var janiLithicWorld = _classUnderTest.Generate(new RttWorldgenPlanet());

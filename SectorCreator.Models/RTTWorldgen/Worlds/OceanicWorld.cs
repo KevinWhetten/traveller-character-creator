@@ -12,22 +12,21 @@ public interface IOceanicWorld
 public class OceanicWorld : IOceanicWorld
 {
     private readonly IRollingService _rollingService;
-    private readonly IWorldValidation _worldValidation;
 
-    public OceanicWorld(IRollingService rollingService, IWorldValidation worldValidation)
+    public OceanicWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
-        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
     {
+        planet.WorldType = WorldType.Oceanic;
         planet.Size = _rollingService.D6(1) + 4;
         planet.Chemistry = GetChemistry(primaryStar, planet);
         planet.Biosphere = GetBiosphere(primaryStar, planet);
         planet.Atmosphere = GetAtmosphere(primaryStar, planet);
         planet.Hydrographics = 11;
-        planet = _worldValidation.ValidatePlanet(planet);
+        planet = WorldValidation.ValidatePlanet(planet);
         return planet;
     }
 

@@ -22,11 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Factories\StarFactories" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Remove="Factories\StarSystemFactories\RttWorldgenStarSystemFactory.Tests.cs" />
+      <Folder Include="Factories\StarFrontiers" />
     </ItemGroup>
 
 </Project>

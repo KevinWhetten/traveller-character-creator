@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using Moq;
 using NUnit.Framework;
 using SectorCreator.Global;
@@ -10,9 +9,10 @@ using SectorCreator.Models.Services.TradeCodeService;
 
 namespace SectorCreator.Models.Tests.Services.TradeCodeServiceTests;
 
+[TestFixture]
 public class TradeCodeService_SpecialTests
 {
-    private TradeCodeService _classUnderTest = new TradeCodeService(new RollingService());
+    private TradeCodeService _classUnderTest = new(new RollingService());
 
     [TestCase(true, true)]
     [TestCase(false, false)]

@@ -11,21 +11,20 @@ public interface IRockballWorld
 public class RockballWorld : IRockballWorld
 {
     private readonly IRollingService _rollingService;
-    private readonly IWorldValidation _worldValidation;
 
-    public RockballWorld(IRollingService rollingService, IWorldValidation worldValidation)
+    public RockballWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
-        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
     {
+        planet.WorldType = WorldType.Rockball;
         planet.Size = _rollingService.D6(1) - 1;
         planet.Atmosphere = 0;
         planet.Hydrographics = GetHydrographics(primaryStar, planet);
         planet.Biosphere = 0;
-        planet = _worldValidation.ValidatePlanet(planet);
+        planet = WorldValidation.ValidatePlanet(planet);
         return planet;
     }
 

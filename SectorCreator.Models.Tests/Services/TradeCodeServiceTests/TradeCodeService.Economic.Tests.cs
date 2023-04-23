@@ -6,9 +6,10 @@ using SectorCreator.Models.Services.TradeCodeService;
 
 namespace SectorCreator.Models.Tests.Services.TradeCodeServiceTests;
 
+[TestFixture]
 public class TradeCodeService_EconomicTests
 {
-    private TradeCodeService _classUnderTest = new TradeCodeService(new RollingService());
+    private readonly TradeCodeService _classUnderTest = new(new RollingService());
     
     [TestCase(0, 0, 0, false)]
     [TestCase(3, 0, 0, false)]

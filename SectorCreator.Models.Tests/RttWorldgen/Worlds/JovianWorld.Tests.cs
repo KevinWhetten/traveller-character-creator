@@ -10,7 +10,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class JovianWorldTests
 {
-    private JovianWorld _classUnderTest = new(new RollingService(), new WorldValidation());
+    private JovianWorld _classUnderTest = new(new RollingService());
 
     [TestCase(4, 7, 2, 3, PlanetOrbit.Epistellar, 0, SpectralType.A, 0, PlanetChemistry.None)]
     [TestCase(4, 7, 2, 3, PlanetOrbit.Inner, 0, SpectralType.A, 0, PlanetChemistry.None)]
@@ -38,7 +38,7 @@ public class JovianWorldTests
             .Returns(d6x2Roll);
         mockRollingService.Setup(x => x.D3(1))
             .Returns(d3Roll);
-        _classUnderTest = new JovianWorld(mockRollingService.Object, new WorldValidation());
+        _classUnderTest = new JovianWorld(mockRollingService.Object);
 
         // Act
         var janiLithicWorld = _classUnderTest.Generate(new RttWorldgenPlanet {PlanetOrbit = orbit},

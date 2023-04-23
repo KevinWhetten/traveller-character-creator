@@ -12,23 +12,22 @@ public interface ISnowballWorld
 public class SnowballWorld : ISnowballWorld
 {
     private readonly IRollingService _rollingService;
-    private readonly IWorldValidation _worldValidation;
-    public SnowballWorld(IRollingService rollingService, IWorldValidation worldValidation)
+    public SnowballWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
-        _worldValidation = worldValidation;
     }
     
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
     {
         var hydrosphereRoll = _rollingService.D6(1);
         
+        planet.WorldType = WorldType.Snowball;
         planet.Size = _rollingService.D6(1) - 1;
         planet.Atmosphere = GetAtmosphere();
         planet.Hydrographics = GetHydrographics(hydrosphereRoll);
         planet.Chemistry = GetChemistry(primaryStar, planet);
         planet.Biosphere = GetBiosphere(primaryStar, planet, hydrosphereRoll);
-        planet = _worldValidation.ValidatePlanet(planet);
+        planet = WorldValidation.ValidatePlanet(planet);
         return planet;
     }
 

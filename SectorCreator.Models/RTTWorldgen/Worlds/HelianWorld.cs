@@ -1,4 +1,5 @@
 ﻿using SectorCreator.Global;
+using SectorCreator.Global.Enums;
 
 namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
@@ -10,21 +11,20 @@ public interface IHelianWorld
 public class HelianWorld : IHelianWorld
 {
     private readonly IRollingService _rollingService;
-    private readonly IWorldValidation _worldValidation;
 
-    public HelianWorld(IRollingService rollingService, IWorldValidation worldValidation)
+    public HelianWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
-        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet)
     {
+        planet.WorldType = WorldType.Helian;
         planet.Size = _rollingService.D6(1) + 9;
         planet.Atmosphere = 13;
         planet.Hydrographics = GetHydrographics();
         planet.Biosphere = 0;
-        planet = _worldValidation.ValidatePlanet(planet);
+        planet = WorldValidation.ValidatePlanet(planet);
         return planet;
     }
 

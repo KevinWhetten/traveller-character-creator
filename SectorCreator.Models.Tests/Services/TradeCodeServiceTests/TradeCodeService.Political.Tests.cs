@@ -6,6 +6,7 @@ using SectorCreator.Models.Services.TradeCodeService;
 
 namespace SectorCreator.Models.Tests.Services.TradeCodeServiceTests;
 
+[TestFixture]
 public class TradeCodeService_PoliticalTests
 {
     private readonly TradeCodeService _classUnderTest = new(new RollingService());

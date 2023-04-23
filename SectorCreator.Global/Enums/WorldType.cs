@@ -3,6 +3,7 @@
 public enum WorldType
 {
     None,
+    AsteroidBelt,
     Stygian,
     Acheronian,
     Asphodelian,

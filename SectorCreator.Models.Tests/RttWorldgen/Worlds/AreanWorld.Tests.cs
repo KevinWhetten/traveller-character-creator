@@ -10,7 +10,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class AreanWorldTests
 {
-    private AreanWorld _classUnderTest = new(new RollingService(), new WorldValidation());
+    private AreanWorld _classUnderTest = new(new RollingService());
 
     [TestCase(6, 5, 6, 3, 6, 0, SpectralType.A, 5, 10, 4, PlanetChemistry.Water, 0)]
     [TestCase(6, 5, 6, 3, 6, 0, SpectralType.D, 5, 1, 0, PlanetChemistry.Water, 0)]
@@ -35,7 +35,7 @@ public class AreanWorldTests
         rollingServiceMock.SetupSequence(x => x.D3(2))
             .Returns(hydrographicsRoll);
         rollingServiceMock.Setup(x => x.D3(1)).Returns(1);
-        _classUnderTest = new AreanWorld(rollingServiceMock.Object, new WorldValidation());
+        _classUnderTest = new AreanWorld(rollingServiceMock.Object);
 
         // Act
         var areanPlanet = _classUnderTest.Generate(new RttWorldgenPlanet(),

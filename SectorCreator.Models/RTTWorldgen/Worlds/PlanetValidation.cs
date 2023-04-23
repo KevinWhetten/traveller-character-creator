@@ -1,13 +1,8 @@
 ﻿namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
-public interface IWorldValidation
+public static class WorldValidation
 {
-    RttWorldgenPlanet ValidatePlanet(RttWorldgenPlanet planet);
-}
-
-public class WorldValidation : IWorldValidation
-{
-    public RttWorldgenPlanet ValidatePlanet(RttWorldgenPlanet planet)
+    public static RttWorldgenPlanet ValidatePlanet(RttWorldgenPlanet planet)
     {
         planet.Size = Math.Max(planet.Size, 0);
         planet.Atmosphere = Math.Max(planet.Atmosphere, 0);

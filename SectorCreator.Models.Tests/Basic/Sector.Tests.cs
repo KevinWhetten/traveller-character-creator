@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
 
 namespace SectorCreator.Models.Tests.Basic;

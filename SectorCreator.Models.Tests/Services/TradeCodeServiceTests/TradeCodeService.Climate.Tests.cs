@@ -8,9 +8,10 @@ using SectorCreator.Models.Services.TradeCodeService;
 
 namespace SectorCreator.Models.Tests.Services.TradeCodeServiceTests;
 
+[TestFixture]
 public class TradeCodeService_ClimateTests
 {
-    private TradeCodeService _classUnderTest = new TradeCodeService(new RollingService());
+    private readonly TradeCodeService _classUnderTest = new(new RollingService());
     
     [TestCase(1, true)]
     [TestCase(2, true)]

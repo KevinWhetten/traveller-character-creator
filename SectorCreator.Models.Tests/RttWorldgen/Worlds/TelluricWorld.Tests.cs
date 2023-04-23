@@ -9,7 +9,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class TelluricWorldTests
 {
-    private TelluricWorld _classUnderTest = new(new RollingService(), new WorldValidation());
+    private TelluricWorld _classUnderTest = new(new RollingService());
 
     [TestCase(1, 1,5, 0)]
     [TestCase(3, 1,7, 0)]
@@ -25,7 +25,7 @@ public class TelluricWorldTests
         mockRollingService.SetupSequence(x => x.D6(1))
             .Returns(sizeRoll)
             .Returns(hydrographicsRoll);
-        _classUnderTest = new TelluricWorld(mockRollingService.Object, new WorldValidation());
+        _classUnderTest = new TelluricWorld(mockRollingService.Object);
 
         // Act
         var telluricWorld = _classUnderTest.Generate(new RttWorldgenPlanet());

@@ -3,13 +3,14 @@ using NUnit.Framework;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
-using SectorCreator.Models.Factories;
-using SectorCreator.Models.Factories.StarFactories;
-using SectorCreator.Models.Factories.StarSystemFactories;
+using SectorCreator.Models.Factories.Basic;
+using SectorCreator.Models.Factories.RttWorldgen;
+using SectorCreator.Models.Factories.StarFrontiers;
 using SectorCreator.Models.RTTWorldgen;
 
-namespace SectorCreator.Models.Tests.Factories.StarSystemFactories;
+namespace SectorCreator.Models.Tests.Factories.Basic;
 
+[TestFixture]
 public class StarSystemFactoryTests
 {
     StarSystemFactory _classUnderTest;
@@ -23,11 +24,13 @@ public class StarSystemFactoryTests
     [SetUp]
     public void SetUp()
     {
+        var spectralRoll = 0;
+        
         _rollingServiceMock.Setup(x => x.D6(It.IsAny<int>())).Returns(1);
         _planetFactoryMock.Setup(x => x.Generate(It.IsAny<SectorType>()))
             .Returns(new Planet());
         _starFrontiersStarFactoryMock.Setup(x => x.Generate()).Returns(new Star());
-        _rttWorldgenStarFactoryMock.Setup(x => x.Generate(It.IsAny<StarType>(), It.IsAny<RttWorldgenStar>()))
+        _rttWorldgenStarFactoryMock.Setup(x => x.Generate(It.IsAny<bool>(), out spectralRoll, It.IsAny<int>()))
             .Returns(new RttWorldgenStar());
         _starFrontiersPlanetFactoryMock.Setup(x => x.Generate(It.IsAny<SectorType>())).Returns(new Planet());
         _rttWorldgenPlanetFactoryMock.Setup(x => x.Generate(It.IsAny<SectorType>()))
@@ -67,7 +70,8 @@ public class StarSystemFactoryTests
     [TestCase(1, 4, false, 1, 1)]
     [TestCase(1, 6, false, 1, 1)]
     [TestCase(10, 4, false, 1, 2)]
-    public void WhenGeneratingStarFrontiersStarSystem(int numStarsRoll, int planetRoll, bool expectedGasGiant, int expectedPlanetNum, int expectedStarNum)
+    public void WhenGeneratingStarFrontiersStarSystem(int numStarsRoll, int planetRoll, bool expectedGasGiant, int expectedPlanetNum,
+        int expectedStarNum)
     {
         _rollingServiceMock.Setup(x => x.D10(1))
             .Returns(numStarsRoll);

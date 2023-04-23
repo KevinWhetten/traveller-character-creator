@@ -5,32 +5,31 @@ namespace SectorCreator.Models.RTTWorldgen.Worlds;
 
 public interface IVesperianWorld
 {
-    RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
+    public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar);
 }
 
 public class VesperianWorld : IVesperianWorld
 {
-    private readonly IRollingService _rollingService;
-    private readonly IWorldValidation _worldValidation;
+    private static IRollingService _rollingService;
 
-    public VesperianWorld(IRollingService rollingService, IWorldValidation worldValidation)
+    public VesperianWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
-        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
     {
+        planet.WorldType = WorldType.Vesperian;
         planet.Size = _rollingService.D6(1) + 4;
         planet.Chemistry = GetChemistry();
         planet.Biosphere = GetBiosphere(primaryStar);
         planet.Atmosphere = GetAtmosphere(planet);
         planet.Hydrographics = _rollingService.D6(2) - 2;
-        planet = _worldValidation.ValidatePlanet(planet);
+        planet = WorldValidation.ValidatePlanet(planet);
         return planet;
     }
 
-    private PlanetChemistry GetChemistry()
+    private static PlanetChemistry GetChemistry()
     {
         return _rollingService.D6(2) switch {
             (<= 11) => PlanetChemistry.Water,
@@ -38,7 +37,7 @@ public class VesperianWorld : IVesperianWorld
         };
     }
 
-    private int GetBiosphere(RttWorldgenStar primaryStar)
+    private static int GetBiosphere(RttWorldgenStar primaryStar)
     {
         if (primaryStar.Age >= 4) {
             return _rollingService.D6(2);
@@ -51,7 +50,7 @@ public class VesperianWorld : IVesperianWorld
         return 0;
     }
 
-    private int GetAtmosphere(RttWorldgenPlanet planet)
+    private static int GetAtmosphere(RttWorldgenPlanet planet)
     {
         if (planet.Biosphere >= 3) {
             if (planet.Chemistry != PlanetChemistry.Water) return 11;

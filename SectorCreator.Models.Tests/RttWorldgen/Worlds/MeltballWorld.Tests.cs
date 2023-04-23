@@ -9,7 +9,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class MeltballWorldTests
 {
-    private MeltballWorld _classUnderTest = new(new RollingService(), new WorldValidation());
+    private MeltballWorld _classUnderTest = new(new RollingService());
 
     [TestCase(1, 0)]
     [TestCase(2, 1)]
@@ -22,7 +22,7 @@ public class MeltballWorldTests
         // Setup
         var mockRollingService = new Mock<IRollingService>();
         mockRollingService.Setup(x => x.D6(1)).Returns(sizeRoll);
-        _classUnderTest = new MeltballWorld(mockRollingService.Object, new WorldValidation());
+        _classUnderTest = new MeltballWorld(mockRollingService.Object);
 
         // Act
         var meltballWorld = _classUnderTest.Generate(new RttWorldgenPlanet());

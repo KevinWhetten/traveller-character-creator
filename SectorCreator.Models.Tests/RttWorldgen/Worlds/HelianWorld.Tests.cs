@@ -9,7 +9,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class HelianWorldTests
 {
-    private HelianWorld _classUnderTest = new(new RollingService(), new WorldValidation());
+    private HelianWorld _classUnderTest = new(new RollingService());
 
     [TestCase(1, 1, 7, 10, 0)]
     [TestCase(3, 1, 7, 12, 0)]
@@ -26,7 +26,7 @@ public class HelianWorldTests
             .Returns(sizeRoll)
             .Returns(hydrographicsRoll1);
         mockRollingService.Setup(x => x.D6(2)).Returns(hydrographicsRoll2);
-        _classUnderTest = new HelianWorld(mockRollingService.Object, new WorldValidation());
+        _classUnderTest = new HelianWorld(mockRollingService.Object);
 
         var helianWorld = _classUnderTest.Generate(new RttWorldgenPlanet());
 

@@ -3,10 +3,11 @@ using NUnit.Framework;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
-using SectorCreator.Models.Factories;
+using SectorCreator.Models.Factories.Basic;
 
-namespace SectorCreator.Models.Tests.Factories;
+namespace SectorCreator.Models.Tests.Factories.Basic;
 
+[TestFixture]
 public class SectorFactoryTests
 {
     private SectorFactory _classUnderTest;

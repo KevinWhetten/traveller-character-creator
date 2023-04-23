@@ -3,6 +3,7 @@ using SectorCreator.Models.Basic;
 
 namespace SectorCreator.Models.Tests.Basic;
 
+[TestFixture]
 public class HexTests
 {
     [Test]

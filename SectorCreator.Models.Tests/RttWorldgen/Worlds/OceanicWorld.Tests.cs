@@ -10,7 +10,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class OceanicWorldTests
 {
-  private OceanicWorld _classUnderTest = new OceanicWorld(new RollingService(), new WorldValidation());
+  private OceanicWorld _classUnderTest = new(new RollingService());
 
   [TestCase(1, 1, 1, 0, SpectralType.A, Luminosity.I, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 0, 1)]
   [TestCase(3, 1, 2, 0, SpectralType.A, Luminosity.I, PlanetOrbit.Inner, 7, PlanetChemistry.Water, 0, 3)]
@@ -44,7 +44,7 @@ public class OceanicWorldTests
       .Returns(atmosphereRoll);
     mockRollingService.Setup(x => x.D6(2)).Returns(atmosphereRoll);
     mockRollingService.Setup(x => x.D3(1)).Returns(1);
-    _classUnderTest = new OceanicWorld(mockRollingService.Object, new WorldValidation());
+    _classUnderTest = new OceanicWorld(mockRollingService.Object);
 
     // Act
     var oceanicWorld = _classUnderTest.Generate(new RttWorldgenPlanet {PlanetOrbit = planetOrbit},

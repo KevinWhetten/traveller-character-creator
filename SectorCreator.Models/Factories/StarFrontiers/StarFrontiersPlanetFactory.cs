@@ -1,8 +1,9 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
+using SectorCreator.Models.Factories.Basic;
 
-namespace SectorCreator.Models.Factories;
+namespace SectorCreator.Models.Factories.StarFrontiers;
 
 public interface IStarFrontiersPlanetFactory
 {
@@ -63,7 +64,7 @@ public class StarFrontiersPlanetFactory : PlanetFactory, IStarFrontiersPlanetFac
         GenerateLawLevel();
         GenerateStarport(SectorType.StarFrontiers);
         GenerateTechnologyLevel();
-        GetBases();
+        GenerateBases();
         GetTravelCode();
     }
 

@@ -2,7 +2,7 @@
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
 
-namespace SectorCreator.Models.Factories.StarFactories;
+namespace SectorCreator.Models.Factories.StarFrontiers;
 
 public interface IStarFrontiersStarFactory
 {

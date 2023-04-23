@@ -2,6 +2,7 @@
 
 public enum Luminosity
 {
+    None,
     I,
     III,
     IV,

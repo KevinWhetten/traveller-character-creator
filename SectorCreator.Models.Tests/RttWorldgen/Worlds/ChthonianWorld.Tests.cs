@@ -7,7 +7,7 @@ namespace SectorCreator.Models.Tests.RttWorldgen.Worlds;
 [TestFixture]
 public class ChthonianWorldTests
 {
-    private readonly ChthonianWorld _classUnderTest = new(new WorldValidation());
+    private readonly ChthonianWorld _classUnderTest = new();
 
     [Test]
     public void WhenGenerating()

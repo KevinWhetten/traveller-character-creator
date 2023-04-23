@@ -2,6 +2,7 @@
 
 public enum PlanetType
 {
+    None,
     AsteroidBelt,
     Terrestrial,
     Jovian,

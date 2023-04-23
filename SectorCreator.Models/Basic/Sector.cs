@@ -1,6 +1,4 @@
-﻿using SectorCreator.Global.Enums;
-
-namespace SectorCreator.Models.Basic;
+﻿namespace SectorCreator.Models.Basic;
 
 public class Sector
 {

@@ -11,22 +11,21 @@ public interface IJovianWorld
 public class JovianWorld : IJovianWorld
 {
     private readonly IRollingService _rollingService;
-    private readonly IWorldValidation _worldValidation;
 
-    public JovianWorld(IRollingService rollingService, IWorldValidation worldValidation)
+    public JovianWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
-        _worldValidation = worldValidation;
     }
 
     public RttWorldgenPlanet Generate(RttWorldgenPlanet planet, RttWorldgenStar primaryStar)
     {
+        planet.WorldType = WorldType.Jovian;
         planet.Size = 16;
         planet.Atmosphere = 16;
         planet.Hydrographics = 16;
         planet.Biosphere = GetBiosphere(primaryStar, planet);
         planet.Chemistry = GetChemistry(primaryStar, planet);
-        planet = _worldValidation.ValidatePlanet(planet);
+        planet = WorldValidation.ValidatePlanet(planet);
         return planet;
     }
 

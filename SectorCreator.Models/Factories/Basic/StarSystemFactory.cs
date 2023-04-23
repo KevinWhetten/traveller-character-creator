@@ -1,9 +1,9 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
-using SectorCreator.Models.Factories.StarFactories;
+using SectorCreator.Models.Factories.StarFrontiers;
 
-namespace SectorCreator.Models.Factories.StarSystemFactories;
+namespace SectorCreator.Models.Factories.Basic;
 
 public interface IStarSystemFactory
 {
