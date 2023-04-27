@@ -23,7 +23,7 @@ public class RttWorldgenPlanetTests
         Assert.That(planet.LawLevel, Is.EqualTo(0));
         Assert.That(planet.TechLevel, Is.EqualTo(0));
         Assert.That(planet.Name, Is.EqualTo("Un-named"));
-        Assert.That(planet.Temperature, Is.EqualTo(0));
+        Assert.That(planet.Temperature, Is.EqualTo(Temperature.None));
         Assert.That(planet.Starport, Is.EqualTo(0));
         Assert.That(planet.Bases.Count, Is.EqualTo(0));
         Assert.That(planet.TradeCodes.Count, Is.EqualTo(0));

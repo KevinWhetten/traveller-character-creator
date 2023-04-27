@@ -4,8 +4,13 @@ public enum Luminosity
 {
     None,
     I,
+    Ia,
+    Ib,
+    II,
     III,
     IV,
     V,
-    Ve
+    Ve,
+    VI,
+    D
 }

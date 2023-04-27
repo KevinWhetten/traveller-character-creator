@@ -23,7 +23,7 @@ public class PlanetTests
         Assert.That(planet.LawLevel, Is.EqualTo(0));
         Assert.That(planet.TechLevel, Is.EqualTo(0));
         Assert.That(planet.Name, Is.EqualTo("Un-named"));
-        Assert.That(planet.Temperature, Is.EqualTo(0));
+        Assert.That(planet.Temperature, Is.EqualTo(Temperature.None));
         Assert.That(planet.Starport, Is.EqualTo(0));
         Assert.That(planet.Bases.Count, Is.EqualTo(0));
         Assert.That(planet.TradeCodes.Count, Is.EqualTo(0));
@@ -41,7 +41,7 @@ public class PlanetTests
             LawLevel = 6,
             TechLevel = 2,
             Name = "This is a name",
-            Temperature = 8,
+            Temperature = Temperature.Temperate,
             Starport = 'D',
             Bases = new List<Base>(),
             TradeCodes = new List<TradeCode>(),

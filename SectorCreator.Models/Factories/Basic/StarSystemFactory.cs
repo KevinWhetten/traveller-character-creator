@@ -2,13 +2,13 @@
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
 using SectorCreator.Models.Factories.StarFrontiers;
+using SectorCreator.Models.Factories.t5;
 
 namespace SectorCreator.Models.Factories.Basic;
 
 public interface IStarSystemFactory
 {
     StarSystem GenerateMongooseStarSystem(SectorType sectorType);
-    StarSystem GenerateT5StarSystem();
     StarSystem GenerateStarFrontiersStarSystem();
 }
 
@@ -39,11 +39,6 @@ public class StarSystemFactory : IStarSystemFactory
         }
 
         return starSystem;
-    }
-
-    public virtual StarSystem GenerateT5StarSystem()
-    {
-        throw new NotImplementedException();
     }
 
     public virtual StarSystem GenerateStarFrontiersStarSystem()

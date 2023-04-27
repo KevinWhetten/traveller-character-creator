@@ -6,6 +6,7 @@ public interface IRollingService
     int D6(int i);
     int D10(int i);
     int D(int max, int i);
+    int Flux();
 }
 
 public class RollingService : IRollingService
@@ -54,5 +55,10 @@ public class RollingService : IRollingService
         }
 
         return sum;
+    }
+
+    public int Flux()
+    {
+        return D6(1) - D6(1);
     }
 }

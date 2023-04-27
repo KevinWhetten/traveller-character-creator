@@ -5,6 +5,7 @@ using SectorCreator.Global.Enums;
 using SectorCreator.Models.Factories.Basic;
 using SectorCreator.Models.Factories.RttWorldgen;
 using SectorCreator.Models.Factories.StarFrontiers;
+using SectorCreator.Models.Factories.t5;
 using SectorCreator.Models.RTTWorldgen.Worlds;
 
 namespace SectorCreator.API.Controllers;
@@ -28,6 +29,7 @@ public class CreateSectorController : ControllerBase
                             new StarFrontiersStarFactory(new RollingService()),
                             new StarFrontiersPlanetFactory(new RollingService())
                         ),
+                        new It5StarSystemFactory(new RollingService()),
                         new RttWorldgenStarSystemFactory(new RollingService(),
                             new RttWorldgenStarFactory(new RollingService()),
                             new RttWorldgenPlanetFactory(

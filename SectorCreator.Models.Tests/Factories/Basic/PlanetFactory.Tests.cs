@@ -142,23 +142,23 @@ public class PlanetFactoryTests
         Assert.That(_classUnderTest.Planet.Atmosphere, Is.EqualTo(expectedAtmosphere));
     }
 
-    [TestCase(0, 7, 7)]
-    [TestCase(1, 7, 7)]
-    [TestCase(2, 7, 5)]
-    [TestCase(3, 7, 5)]
-    [TestCase(4, 7, 6)]
-    [TestCase(5, 7, 6)]
-    [TestCase(6, 7, 7)]
-    [TestCase(7, 7, 7)]
-    [TestCase(8, 7, 8)]
-    [TestCase(9, 7, 8)]
-    [TestCase(10, 7, 9)]
-    [TestCase(11, 7, 13)]
-    [TestCase(12, 7, 13)]
-    [TestCase(13, 7, 9)]
-    [TestCase(14, 7, 6)]
-    [TestCase(15, 7, 9)]
-    public void WhenGeneratingPlanetTemperature(int atmosphere, int temperatureRoll, int expectedTemperature)
+    [TestCase(0, 7, Temperature.Temperate)]
+    [TestCase(1, 7, Temperature.Temperate)]
+    [TestCase(2, 7, Temperature.Cold)]
+    [TestCase(3, 7, Temperature.Cold)]
+    [TestCase(4, 7, Temperature.Temperate)]
+    [TestCase(5, 7, Temperature.Temperate)]
+    [TestCase(6, 7, Temperature.Temperate)]
+    [TestCase(7, 7, Temperature.Temperate)]
+    [TestCase(8, 7, Temperature.Temperate)]
+    [TestCase(9, 7, Temperature.Temperate)]
+    [TestCase(10, 7, Temperature.Temperate)]
+    [TestCase(11, 7, Temperature.Boiling)]
+    [TestCase(12, 7, Temperature.Boiling)]
+    [TestCase(13, 7, Temperature.Temperate)]
+    [TestCase(14, 7, Temperature.Temperate)]
+    [TestCase(15, 7, Temperature.Temperate)]
+    public void WhenGeneratingPlanetTemperature(int atmosphere, int temperatureRoll, Temperature expectedTemperature)
     {
         _mockRollingService.Setup(x => x.D6(2))
             .Returns(temperatureRoll);
@@ -205,16 +205,12 @@ public class PlanetFactoryTests
         Assert.That(_classUnderTest.Planet.Hydrographics, Is.EqualTo(expectedHydrographics));
     }
 
-    [TestCase(0, 5)]
-    [TestCase(2, 5)]
-    [TestCase(3, 5)]
-    [TestCase(5, 5)]
-    [TestCase(6, 5)]
-    [TestCase(9, 5)]
-    [TestCase(10, 3)]
-    [TestCase(11, 3)]
-    [TestCase(12, 0)]
-    public void WhenGeneratingHydrographicsWithTemperature(int temperature, int expectedHydrographics)
+    [TestCase(Temperature.Frozen, 5)]
+    [TestCase(Temperature.Cold, 5)]
+    [TestCase(Temperature.Temperate, 5)]
+    [TestCase(Temperature.Hot, 3)]
+    [TestCase(Temperature.Boiling, 0)]
+    public void WhenGeneratingHydrographicsWithTemperature(Temperature temperature, int expectedHydrographics)
     {
         _mockRollingService.Setup(x => x.D6(2))
             .Returns(7);

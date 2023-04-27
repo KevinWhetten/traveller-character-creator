@@ -5,6 +5,7 @@ using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
 using SectorCreator.Models.Factories.Basic;
 using SectorCreator.Models.Factories.RttWorldgen;
+using SectorCreator.Models.Factories.t5;
 using SectorCreator.Models.RTTWorldgen;
 
 namespace SectorCreator.Models.Tests.Factories.Basic;
@@ -13,8 +14,9 @@ namespace SectorCreator.Models.Tests.Factories.Basic;
 public class HexFactoryTests
 {
     private HexFactory _classUnderTest;
-    private readonly Mock<IStarSystemFactory> _starSystemFactoryMock = new();
     private readonly Mock<IRollingService> _rollingServiceMock = new();
+    private readonly Mock<IStarSystemFactory> _starSystemFactoryMock = new();
+    private readonly Mock<IT5StarSystemFactory> _t5StarSystemFactoryMock = new();
     private readonly Mock<IRttWorldgenStarSystemFactory> _rttWorldgenStarSystemFactoryMock = new();
 
     [SetUp]
@@ -22,9 +24,9 @@ public class HexFactoryTests
     {
         _starSystemFactoryMock.Setup(x => x.GenerateMongooseStarSystem(It.IsAny<SectorType>()))
             .Returns(new StarSystem());
-        _starSystemFactoryMock.Setup(x => x.GenerateT5StarSystem()).Returns(new StarSystem());
+        _t5StarSystemFactoryMock.Setup(x => x.Generate()).Returns(new StarSystem());
 
-        _classUnderTest = new HexFactory(_rollingServiceMock.Object, _starSystemFactoryMock.Object, _rttWorldgenStarSystemFactoryMock.Object);
+        _classUnderTest = new HexFactory(_rollingServiceMock.Object, _starSystemFactoryMock.Object, _t5StarSystemFactoryMock.Object, _rttWorldgenStarSystemFactoryMock.Object);
     }
 
     [TestCase(false)]

@@ -77,13 +77,21 @@ public class PlanetFactory : IPlanetFactory
     {
         var roll = _rollingService.D6(2);
 
-        Planet.Temperature = roll + Planet.Atmosphere switch {
+        roll += Planet.Atmosphere switch {
             2 or 3 => -2,
             4 or 5 or 14 => -1,
             8 or 9 => 1,
             10 or 13 or 15 => + 2,
             11 or 12 => 6,
             _ => 0
+        };
+
+        Planet.Temperature = roll switch {
+            (<= 2) => Temperature.Frozen,
+            (<= 5) => Temperature.Cold,
+            (<= 9) => Temperature.Temperate,
+            <= 11 => Temperature.Hot,
+            >= 12 => Temperature.Boiling
         };
     }
 
@@ -98,8 +106,8 @@ public class PlanetFactory : IPlanetFactory
 
         if (Planet.Atmosphere is not 13 or 15) {
             Planet.Hydrographics += Planet.Temperature switch {
-                (>= 12) => -6,
-                (>= 10) => -2,
+                Temperature.Boiling => -6,
+                Temperature.Hot => -2,
                 _ => 0
             };
         }

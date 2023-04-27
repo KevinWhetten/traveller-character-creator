@@ -12,7 +12,7 @@ public partial class TradeCodeService
                 Size: >= 2 and <= 9,
                 Hydrographics: >= 1,
                 PlanetOrbit: PlanetOrbit.Outer
-            } || planet is not RttWorldgenPlanet && planet.Temperature <= 2) {
+            } || planet is not RttWorldgenPlanet && planet.Temperature == Temperature.Frozen) {
             planet.TradeCodes.Add(TradeCode.Frozen);
         }
     }
@@ -22,14 +22,14 @@ public partial class TradeCodeService
         if (planet is RttWorldgenPlanet {
                 Size: >= 2 and <= 9,
                 PlanetOrbit: PlanetOrbit.Epistellar
-            } || planet is not RttWorldgenPlanet && planet.Temperature >= 10) {
+            } || planet is not RttWorldgenPlanet && planet.Temperature is Temperature.Hot or Temperature.Boiling) {
             planet.TradeCodes.Add(TradeCode.Hot);
         }
     }
 
     public void AddColdTradeCode(Planet planet)
     {
-        if (planet.Temperature is >= 3 and <= 5) {
+        if (planet.Temperature == Temperature.Cold) {
             planet.TradeCodes.Add(TradeCode.Cold);
         }
     }
@@ -48,7 +48,7 @@ public partial class TradeCodeService
         if (planet.Size is >= 6 and <= 9
             && planet.Atmosphere is >= 4 and <= 9
             && planet.Hydrographics is >= 3 and <= 7
-            && planet.Temperature >= 8) {
+            && planet.Temperature == Temperature.Hot) {
             planet.TradeCodes.Add(TradeCode.Tropic);
         }
     }
@@ -58,7 +58,7 @@ public partial class TradeCodeService
         if (planet.Size is >= 6 and <= 9
             && planet.Atmosphere is >= 4 and <= 9
             && planet.Hydrographics is >= 3 and <= 7
-            && planet.Temperature <= 5) {
+            && planet.Temperature == Temperature.Cold) {
             planet.TradeCodes.Add(TradeCode.Tundra);
         }
     }

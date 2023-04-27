@@ -2,6 +2,7 @@
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
 using SectorCreator.Models.Factories.RttWorldgen;
+using SectorCreator.Models.Factories.t5;
 using SectorCreator.Models.RTTWorldgen;
 
 namespace SectorCreator.Models.Factories.Basic;
@@ -16,14 +17,16 @@ public interface IHexFactory
 
 public class HexFactory : IHexFactory
 {
-    private readonly IStarSystemFactory _starSystemFactory;
-    private readonly IRttWorldgenStarSystemFactory _rttWorldgenStarSystemFactory;
     private readonly IRollingService _rollingService;
+    private readonly IStarSystemFactory _starSystemFactory;
+    private readonly IT5StarSystemFactory _t5StarSystemFactory;
+    private readonly IRttWorldgenStarSystemFactory _rttWorldgenStarSystemFactory;
 
-    public HexFactory(IRollingService rollingService, IStarSystemFactory starSystemFactory, IRttWorldgenStarSystemFactory rttWorldgenStarSystemFactory)
+    public HexFactory(IRollingService rollingService, IStarSystemFactory starSystemFactory, IT5StarSystemFactory t5StarSystemFactory, IRttWorldgenStarSystemFactory rttWorldgenStarSystemFactory)
     {
         _rollingService = rollingService;
         _starSystemFactory = starSystemFactory;
+        _t5StarSystemFactory = t5StarSystemFactory;
         _rttWorldgenStarSystemFactory = rttWorldgenStarSystemFactory;
     }
 
@@ -46,7 +49,7 @@ public class HexFactory : IHexFactory
             Coordinates = SetCoordinates(subsectorCoordinates, hexCoordinates)
         };
 
-        hex.StarSystems.Add(_starSystemFactory.GenerateT5StarSystem());
+        hex.StarSystems.Add(_t5StarSystemFactory.Generate());
 
         return hex;
     }
