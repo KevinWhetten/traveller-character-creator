@@ -48,6 +48,6 @@ public class TradeCodeServiceTests
     public void GetTradeCodes()
     {
         // TODO: Finish
-        _classUnderTest.GetTradeCodes(new Planet());
+        _classUnderTest.AddTradeCodes(new Planet());
     }
 }

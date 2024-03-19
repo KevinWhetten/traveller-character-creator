@@ -6,8 +6,8 @@ namespace SectorCreator.Models.Factories.RttWorldgen;
 
 public interface IRttWorldgenStarSystemFactory
 {
-    RttWorldgenStarSystem Generate(StarSystemType starSystemType);
-    RttWorldgenStarSystem Generate(RttWorldgenStar star);
+    RttWorldgenStarSystem Generate(StarSystemType starSystemType, Coordinates coordinates);
+    RttWorldgenStarSystem Generate(RttWorldgenStar star, Coordinates coordinates);
 }
 
 public class RttWorldgenStarSystemFactory : IRttWorldgenStarSystemFactory
@@ -15,7 +15,7 @@ public class RttWorldgenStarSystemFactory : IRttWorldgenStarSystemFactory
     private readonly IRollingService _rollingService;
     private readonly IRttWorldgenStarFactory _rttWorldgenStarFactory;
     private readonly IRttWorldgenPlanetFactory _rttWorldgenPlanetFactory;
-    private readonly RttWorldgenStarSystem _starSystem = new();
+    private RttWorldgenStarSystem _starSystem = new();
 
     public RttWorldgenStarSystemFactory(IRollingService rollingService,
         IRttWorldgenStarFactory rttWorldgenStarFactory,
@@ -26,8 +26,12 @@ public class RttWorldgenStarSystemFactory : IRttWorldgenStarSystemFactory
         _rttWorldgenPlanetFactory = rttWorldgenPlanetFactory;
     }
 
-    public RttWorldgenStarSystem Generate(StarSystemType starSystemType)
+    public RttWorldgenStarSystem Generate(StarSystemType starSystemType, Coordinates coordinates)
     {
+        _starSystem = new RttWorldgenStarSystem {
+            Coordinates = coordinates
+        };
+
         if (starSystemType == StarSystemType.BrownDwarf) {
             AddBrownDwarfStarToSystem();
         } else {
@@ -39,9 +43,12 @@ public class RttWorldgenStarSystemFactory : IRttWorldgenStarSystemFactory
         return _starSystem;
     }
 
-    public RttWorldgenStarSystem Generate(RttWorldgenStar star)
+    public RttWorldgenStarSystem Generate(RttWorldgenStar star, Coordinates coordinates)
     {
-        _starSystem.Stars.Add(star);
+        _starSystem = new RttWorldgenStarSystem {
+            PrimaryStar =  star,
+            Coordinates = coordinates
+        };
         AddPlanetsToSystem();
 
         return _starSystem;
@@ -49,21 +56,21 @@ public class RttWorldgenStarSystemFactory : IRttWorldgenStarSystemFactory
 
     private void AddBrownDwarfStarToSystem()
     {
-        _starSystem.Stars.Add(_rttWorldgenStarFactory.GenerateBrownDwarf());
+        _starSystem.PrimaryStar = _rttWorldgenStarFactory.GenerateBrownDwarf();
     }
 
     private void AddStarsToSystem()
     {
         var numStars = GetNumStars();
 
-        var isPrimary = true;
         var primaryRoll = 0;
         for (var i = 0; i < numStars; i++) {
-            _starSystem.Stars.Add(_rttWorldgenStarFactory.Generate(isPrimary, out int spectralRoll, primaryRoll));
-            if (isPrimary) {
+            if (i == 0) {
+                _starSystem.PrimaryStar = _rttWorldgenStarFactory.Generate(StarType.Primary, out int spectralRoll);
                 primaryRoll = spectralRoll;
+            } else {
+                _starSystem.CompanionStars.Add(new RttWorldgenStar(_rttWorldgenStarFactory.Generate(StarType.Companion, primaryRoll)));
             }
-            isPrimary = false;
         }
     }
 
@@ -86,9 +93,9 @@ public class RttWorldgenStarSystemFactory : IRttWorldgenStarSystemFactory
     private void AddEpistellarPlanetsToSystem()
     {
         var orbitNum = _rollingService.D6(1) - 3;
-        var primaryStar = (RttWorldgenStar) _starSystem.Stars.First(x => ((RttWorldgenStar) x).IsPrimary);
+        var primaryStar = (RttWorldgenStar) _starSystem.PrimaryStar;
 
-        if (primaryStar.SpectralType == SpectralType.M && primaryStar.Luminosity == Luminosity.V) {
+        if (primaryStar is {SpectralType: SpectralType.M, Luminosity: Luminosity.V}) {
             orbitNum--;
         }
 
@@ -100,13 +107,14 @@ public class RttWorldgenStarSystemFactory : IRttWorldgenStarSystemFactory
         orbitNum = Math.Min(orbitNum, 2);
 
         for (var i = 0; i < orbitNum; i++) {
-            _starSystem.Planets.Add(_rttWorldgenPlanetFactory.GenerateRttWorldgenPlanet(primaryStar, PlanetOrbit.Epistellar, i + 1));
+            _starSystem.Planets.Add(_rttWorldgenPlanetFactory.GenerateRttWorldgenPlanet(primaryStar, PlanetOrbit.Epistellar, i + 1, _starSystem.Coordinates));
         }
     }
 
+
     private void AddInnerPlanetsToSystem()
     {
-        var primaryStar = (RttWorldgenStar) _starSystem.Stars.First(x => ((RttWorldgenStar) x).IsPrimary);
+        var primaryStar = (RttWorldgenStar) _starSystem.PrimaryStar;
 
         var orbitNum = primaryStar.SpectralType == SpectralType.L
             ? _rollingService.D3(1) - 1
@@ -116,20 +124,18 @@ public class RttWorldgenStarSystemFactory : IRttWorldgenStarSystemFactory
             orbitNum--;
         }
 
-        if (_starSystem.Stars.Exists(x => ((RttWorldgenStar) x).CompanionOrbit == CompanionOrbit.Close)) {
+        if (_starSystem.CompanionStars.Exists(x => ((RttWorldgenStar) x).CompanionOrbit == CompanionOrbit.Close)) {
             orbitNum = 0;
         }
 
         for (var i = 0; i < orbitNum; i++) {
-            _starSystem.Planets.Add(
-                _rttWorldgenPlanetFactory.GenerateRttWorldgenPlanet(primaryStar, PlanetOrbit.Inner, _starSystem.Planets.Count + 1));
+            _starSystem.Planets.Add(new RttWorldgenPlanet(_rttWorldgenPlanetFactory.GenerateRttWorldgenPlanet(primaryStar, PlanetOrbit.Inner, _starSystem.Planets.Count + 1, _starSystem.Coordinates)));
         }
     }
 
     private void AddOuterPlanetsToSystem()
     {
-        var primaryStar =
-            (RttWorldgenStar) _starSystem.Stars.First(x => ((RttWorldgenStar) x).IsPrimary);
+        var primaryStar = (RttWorldgenStar) _starSystem.PrimaryStar;
 
         var orbitNum = _rollingService.D6(1) - 1;
 
@@ -137,13 +143,12 @@ public class RttWorldgenStarSystemFactory : IRttWorldgenStarSystemFactory
             orbitNum--;
         }
 
-        if (_starSystem.Stars.Exists(x => ((RttWorldgenStar) x).CompanionOrbit == CompanionOrbit.Moderate)) {
+        if (_starSystem.CompanionStars.Exists(x => ((RttWorldgenStar) x).CompanionOrbit == CompanionOrbit.Moderate)) {
             orbitNum = 0;
         }
 
         for (var i = 0; i < orbitNum; i++) {
-            _starSystem.Planets.Add(_rttWorldgenPlanetFactory.GenerateRttWorldgenPlanet(primaryStar, PlanetOrbit.Inner,
-                _starSystem.Planets.Count + 1));
+            _starSystem.Planets.Add(new RttWorldgenPlanet(_rttWorldgenPlanetFactory.GenerateRttWorldgenPlanet(primaryStar, PlanetOrbit.Outer, _starSystem.Planets.Count + 1, _starSystem.Coordinates)));
         }
     }
 }

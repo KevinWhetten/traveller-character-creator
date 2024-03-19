@@ -7,16 +7,14 @@ namespace SectorCreator.Models.Services.TradeCodeService;
 public partial class TradeCodeService
 {
   private readonly IRollingService _rollingService;
-  private List<TradeCode> TradeCodes = new();
 
   public TradeCodeService(IRollingService rollingService)
   {
     _rollingService = rollingService;
   }
   
-  public List<TradeCode> GetTradeCodes(Planet planet)
+  public void AddTradeCodes(Planet planet)
   {
-    TradeCodes = new List<TradeCode>();
     // Planetary
     AddAsteroidTradeCode(planet);
     AddDesertTradeCode(planet);
@@ -78,7 +76,6 @@ public partial class TradeCodeService
     // Other
     AddHighTechnologyTradeCode(planet);
     AddLowTechnologyTradeCode(planet);
-    return TradeCodes;
   }
 
   #region Other

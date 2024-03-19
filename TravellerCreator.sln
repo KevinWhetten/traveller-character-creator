@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.Global.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.BL", "SectorCreator.BL\SectorCreator.BL.csproj", "{D0BDF537-BB9B-49AE-A3D6-96F0FEBDF3A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkovChain", "MarkovChain\MarkovChain.csproj", "{7571FC43-C670-4D9F-B926-0ADBE4FCD102}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameGeneratorTests", "NameGeneratorTests\NameGeneratorTests.csproj", "{6BD303B1-AFF0-4AEC-9E54-B43A59F0ED52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +52,13 @@ Global
 		{D0BDF537-BB9B-49AE-A3D6-96F0FEBDF3A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0BDF537-BB9B-49AE-A3D6-96F0FEBDF3A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0BDF537-BB9B-49AE-A3D6-96F0FEBDF3A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7571FC43-C670-4D9F-B926-0ADBE4FCD102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7571FC43-C670-4D9F-B926-0ADBE4FCD102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7571FC43-C670-4D9F-B926-0ADBE4FCD102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7571FC43-C670-4D9F-B926-0ADBE4FCD102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BD303B1-AFF0-4AEC-9E54-B43A59F0ED52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BD303B1-AFF0-4AEC-9E54-B43A59F0ED52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BD303B1-AFF0-4AEC-9E54-B43A59F0ED52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BD303B1-AFF0-4AEC-9E54-B43A59F0ED52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

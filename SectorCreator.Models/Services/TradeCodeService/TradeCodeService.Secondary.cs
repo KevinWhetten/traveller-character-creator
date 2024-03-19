@@ -34,7 +34,7 @@ public partial class TradeCodeService
     {
         if (planet.Government != 6) return;
 
-        TradeCode? captiveType = planet switch {
+        string? captiveType = planet switch {
             RttWorldgenPlanet worldgenPlanet =>
                 _rollingService.D6(1) switch {
                     <= 3 => TradeCode.MilitaryRule,
@@ -43,11 +43,12 @@ public partial class TradeCodeService
             _ => _rollingService.D3(1) switch {
                 1 => TradeCode.MilitaryRule,
                 2 => TradeCode.PrisonCamp,
-                3 => TradeCode.PenalColony
+                3 => TradeCode.PenalColony,
+                _ => throw new ArgumentOutOfRangeException()
             }
         };
 
-        planet.TradeCodes.Add(captiveType.Value);
+        planet.TradeCodes.Add(captiveType);
     }
 
     public void AddReserveTradeCode(Planet planet)

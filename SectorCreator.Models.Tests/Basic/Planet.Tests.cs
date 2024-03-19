@@ -43,8 +43,8 @@ public class PlanetTests
             Name = "This is a name",
             Temperature = Temperature.Temperate,
             Starport = 'D',
-            Bases = new List<Base>(),
-            TradeCodes = new List<TradeCode>(),
+            Bases = new List<string>(),
+            TradeCodes = new List<string>(),
             TravelCode = TravelCode.Amber
         },
         new Planet()

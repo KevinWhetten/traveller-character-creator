@@ -2,7 +2,7 @@
 
 public enum TravelCode
 {
-    None,
-    Amber,
-    Red
+    None = '-',
+    Amber = 'A',
+    Red = 'R'
 }

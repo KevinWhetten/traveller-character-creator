@@ -6,7 +6,7 @@ namespace SectorCreator.Models.Factories.Basic;
 
 public interface IPlanetFactory
 {
-    public Planet Generate(SectorType sectorType);
+    public Planet Generate(SectorType sectorType, Coordinates coordinates);
 }
 
 public class PlanetFactory : IPlanetFactory
@@ -20,8 +20,11 @@ public class PlanetFactory : IPlanetFactory
 
     public Planet Planet { get; set; } = new();
 
-    public virtual Planet Generate(SectorType sectorType)
+    public virtual Planet Generate(SectorType sectorType, Coordinates coordinates)
     {
+        Planet = new Planet();
+        Planet.Coordinates = coordinates;
+        
         GenerateName();
         GenerateSize();
         GenerateAtmosphere(sectorType);
@@ -263,7 +266,7 @@ public class PlanetFactory : IPlanetFactory
 
     public void GenerateBases()
     {
-        Planet.Bases = new List<Base>();
+        Planet.Bases = new List<string>();
         switch (Planet.Starport) {
             case 'A': {
                 if (_rollingService.D6(2) >= 8) {

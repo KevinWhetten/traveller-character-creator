@@ -11,7 +11,7 @@ public class StarSystemTests
     {
         var starSystem = new StarSystem();
         
-        Assert.That(starSystem.Stars.Count, Is.EqualTo(0));
+        Assert.That(starSystem.CompanionStars.Count, Is.EqualTo(0));
         Assert.That(starSystem.Planets.Count, Is.EqualTo(0));
         Assert.That(starSystem.GasGiant, Is.EqualTo(false));
     }

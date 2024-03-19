@@ -8,8 +8,8 @@ namespace SectorCreator.Models.Factories.Basic;
 
 public interface IStarSystemFactory
 {
-    StarSystem GenerateMongooseStarSystem(SectorType sectorType);
-    StarSystem GenerateStarFrontiersStarSystem();
+    StarSystem GenerateMongooseStarSystem(SectorType sectorType, Coordinates coordinates);
+    StarSystem GenerateStarFrontiersStarSystem(Coordinates coordinates);
 }
 
 public class StarSystemFactory : IStarSystemFactory
@@ -28,11 +28,13 @@ public class StarSystemFactory : IStarSystemFactory
         _starFrontiersPlanetFactory = starFrontiersPlanetFactory;
     }
 
-    public virtual StarSystem GenerateMongooseStarSystem(SectorType sectorType)
+    public virtual StarSystem GenerateMongooseStarSystem(SectorType sectorType, Coordinates coordinates)
     {
-        var starSystem = new StarSystem();
+        var starSystem = new StarSystem {
+            Coordinates = coordinates
+        };
 
-        starSystem.Planets.Add(_planetFactory.Generate(sectorType));
+        starSystem.Planets.Add(_planetFactory.Generate(sectorType, starSystem.Coordinates));
 
         if (_rollingService.D6(2) >= 4) {
             starSystem.GasGiant = true;
@@ -41,9 +43,11 @@ public class StarSystemFactory : IStarSystemFactory
         return starSystem;
     }
 
-    public virtual StarSystem GenerateStarFrontiersStarSystem()
+    public virtual StarSystem GenerateStarFrontiersStarSystem(Coordinates coordinates)
     {
-        var starSystem = new StarSystem();
+        var starSystem = new StarSystem {
+            Coordinates = coordinates
+        };
 
         var numStars = _rollingService.D10(1) switch {
             (<= 7) => 1,
@@ -51,11 +55,11 @@ public class StarSystemFactory : IStarSystemFactory
         };
 
         for (var i = 0; i < numStars; i++) {
-            starSystem.Stars.Add(_starFrontiersStarFactory.Generate());
+            starSystem.CompanionStars.Add(_starFrontiersStarFactory.Generate());
         }
 
         if (_rollingService.D6(1) >= 4) {
-            starSystem.Planets.Add(_starFrontiersPlanetFactory.Generate(SectorType.StarFrontiers));
+            starSystem.Planets.Add(_starFrontiersPlanetFactory.Generate(SectorType.StarFrontiers, starSystem.Coordinates));
         }
 
         return starSystem;

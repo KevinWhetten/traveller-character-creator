@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {RttWorldgenSector} from "../../models/rtt-worldgen/rtt-worldgen.sector";
+import {RTTWorldgenSector} from "../../models/rtt-worldgen/rtt-worldgen.sector";
 
 @Component({
   selector: 'app-rttworldgen-sector',
@@ -7,7 +7,7 @@ import {RttWorldgenSector} from "../../models/rtt-worldgen/rtt-worldgen.sector";
   styleUrls: ['./rttworldgen-sector.component.css']
 })
 export class RttWorldgenSectorComponent implements OnInit {
-  @Input() sector: RttWorldgenSector;
+  @Input() sector: RTTWorldgenSector;
 
   constructor() { }
 

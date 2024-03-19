@@ -6,25 +6,37 @@ namespace SectorCreator.Models.Factories.RttWorldgen;
 
 public interface IRttWorldgenStarFactory
 {
-    RttWorldgenStar Generate(bool isPrimary, out int spectralRoll, int primaryRoll = 0);
+    RttWorldgenStar Generate(StarType starType, out int spectralRoll);
+    RttWorldgenStar Generate(StarType starType, int primaryRoll = 0);
     RttWorldgenStar GenerateBrownDwarf();
 }
 
 public class RttWorldgenStarFactory : IRttWorldgenStarFactory
 {
     private readonly IRollingService _rollingService;
-    public readonly RttWorldgenStar Star = new();
+    public RttWorldgenStar Star = new();
+    public StarType starType;
 
     public RttWorldgenStarFactory(IRollingService rollingService)
     {
         _rollingService = rollingService;
     }
 
-    public RttWorldgenStar Generate(bool isPrimary, out int spectralRoll, int primaryRoll = 0)
+    public RttWorldgenStar Generate(StarType starType, out int spectralRoll)
     {
-        Star.IsPrimary = isPrimary;
+        Star = new RttWorldgenStar();
+        
+        spectralRoll = GenerateSpectralType();
+        GenerateAge();
+        ModifySpectralType();
+        GenerateOrbit();
 
-        spectralRoll = GenerateSpectralType(primaryRoll);
+        return Star;
+    }
+
+    public RttWorldgenStar Generate(StarType starType, int primaryRoll)
+    {
+        GenerateSpectralType(primaryRoll);
         GenerateAge();
         ModifySpectralType();
         GenerateOrbit();
@@ -45,7 +57,7 @@ public class RttWorldgenStarFactory : IRttWorldgenStarFactory
     public int GenerateSpectralType(int primaryStarRoll = 0)
     {
         int roll;
-        if (Star.IsPrimary) {
+        if (starType == StarType.Primary) {
             roll = _rollingService.D6(2);
         } else {
             roll = primaryStarRoll + _rollingService.D6(1) - 1;
@@ -91,7 +103,7 @@ public class RttWorldgenStarFactory : IRttWorldgenStarFactory
     private void ModifySpectralTypeM()
     {
         var roll = _rollingService.D6(2)
-                   + (Star.IsPrimary ? 0 : 2);
+                   + (starType == StarType.Primary ? 0 : 2);
         switch (roll) {
             case <= 9:
                 Star.Luminosity = Luminosity.V;
@@ -179,7 +191,7 @@ public class RttWorldgenStarFactory : IRttWorldgenStarFactory
 
     public void GenerateOrbit()
     {
-        if (Star.IsPrimary) {
+        if (starType == StarType.Primary) {
             Star.CompanionOrbit = CompanionOrbit.None;
         } else {
             Star.CompanionOrbit = _rollingService.D6(1) switch {

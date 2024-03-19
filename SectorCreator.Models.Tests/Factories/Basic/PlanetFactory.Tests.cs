@@ -25,7 +25,7 @@ public class PlanetFactoryTests
     [Test]
     public void WhenGenerating()
     {
-        _classUnderTest.Generate(SectorType.Basic);
+        _classUnderTest.Generate(SectorType.Basic, new Coordinates());
 
         Assert.That(true);
     }
@@ -721,7 +721,7 @@ public class PlanetFactoryTests
         },
         new() {
             Rolls = new List<int> {7},
-            Bases = new List<Base> {Base.Scout}
+            Bases = new List<string> {Base.Scout}
         }
     });
 
@@ -755,31 +755,31 @@ public class PlanetFactoryTests
         },
         new() {
             Rolls = new List<int> {8, 9, 9},
-            Bases = new List<Base> {Base.Scout}
+            Bases = new List<string> {Base.Scout}
         },
         new() {
             Rolls = new List<int> {7, 10, 9},
-            Bases = new List<Base> {Base.Research}
+            Bases = new List<string> {Base.Research}
         },
         new() {
             Rolls = new List<int> {7, 9, 10},
-            Bases = new List<Base> {Base.Tas}
+            Bases = new List<string> {Base.Tas}
         },
         new() {
             Rolls = new List<int> {8, 10, 9},
-            Bases = new List<Base> {Base.Scout, Base.Research}
+            Bases = new List<string> {Base.Scout, Base.Research}
         },
         new() {
             Rolls = new List<int> {8, 9, 10},
-            Bases = new List<Base> {Base.Scout, Base.Tas}
+            Bases = new List<string> {Base.Scout, Base.Tas}
         },
         new() {
             Rolls = new List<int> {7, 10, 10},
-            Bases = new List<Base> {Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Research, Base.Tas}
         },
         new() {
             Rolls = new List<int> {8, 10, 10},
-            Bases = new List<Base> {Base.Scout, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Scout, Base.Research, Base.Tas}
         }
     });
 
@@ -808,39 +808,39 @@ public class PlanetFactoryTests
     private static List<object> StarportBBasesTestCase = new(new List<BaseTestCase> {
         new() {
             Rolls = new List<int> {0, 0, 0},
-            Bases = new List<Base> {Base.Tas}
+            Bases = new List<string> {Base.Tas}
         },
         new() {
             Rolls = new List<int> {7, 7, 9},
-            Bases = new List<Base> {Base.Tas}
+            Bases = new List<string> {Base.Tas}
         },
         new() {
             Rolls = new List<int> {8, 7, 9},
-            Bases = new List<Base> {Base.Naval, Base.Tas}
+            Bases = new List<string> {Base.Naval, Base.Tas}
         },
         new() {
             Rolls = new List<int> {7, 8, 9},
-            Bases = new List<Base> {Base.Scout, Base.Tas}
+            Bases = new List<string> {Base.Scout, Base.Tas}
         },
         new() {
             Rolls = new List<int> {7, 7, 10},
-            Bases = new List<Base> {Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Research, Base.Tas}
         },
         new() {
             Rolls = new List<int> {8, 8, 9},
-            Bases = new List<Base> {Base.Naval, Base.Scout, Base.Tas}
+            Bases = new List<string> {Base.Naval, Base.Scout, Base.Tas}
         },
         new() {
             Rolls = new List<int> {8, 7, 10},
-            Bases = new List<Base> {Base.Naval, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Naval, Base.Research, Base.Tas}
         },
         new() {
             Rolls = new List<int> {7, 8, 10},
-            Bases = new List<Base> {Base.Scout, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Scout, Base.Research, Base.Tas}
         },
         new() {
             Rolls = new List<int> {8, 8, 10},
-            Bases = new List<Base> {Base.Naval, Base.Scout, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Naval, Base.Scout, Base.Research, Base.Tas}
         }
     });
 
@@ -870,39 +870,39 @@ public class PlanetFactoryTests
     private static List<object> StarportABasesTestCase = new(new List<BaseTestCase> {
         new() {
             Rolls = new List<int> {0, 0, 0},
-            Bases = new List<Base> {Base.Tas}
+            Bases = new List<string> {Base.Tas}
         },
         new() {
             Rolls = new List<int> {7, 9, 7},
-            Bases = new List<Base> {Base.Tas}
+            Bases = new List<string> {Base.Tas}
         },
         new() {
             Rolls = new List<int> {8, 9, 7},
-            Bases = new List<Base> {Base.Naval, Base.Tas}
+            Bases = new List<string> {Base.Naval, Base.Tas}
         },
         new() {
             Rolls = new List<int> {7, 10, 7},
-            Bases = new List<Base> {Base.Scout, Base.Tas}
+            Bases = new List<string> {Base.Scout, Base.Tas}
         },
         new() {
             Rolls = new List<int> {7, 9, 8},
-            Bases = new List<Base> {Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Research, Base.Tas}
         },
         new() {
             Rolls = new List<int> {8, 10, 7},
-            Bases = new List<Base> {Base.Naval, Base.Scout, Base.Tas}
+            Bases = new List<string> {Base.Naval, Base.Scout, Base.Tas}
         },
         new() {
             Rolls = new List<int> {8, 9, 8},
-            Bases = new List<Base> {Base.Naval, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Naval, Base.Research, Base.Tas}
         },
         new() {
             Rolls = new List<int> {7, 10, 8},
-            Bases = new List<Base> {Base.Scout, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Scout, Base.Research, Base.Tas}
         },
         new() {
             Rolls = new List<int> {8, 10, 8},
-            Bases = new List<Base> {Base.Naval, Base.Scout, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Naval, Base.Scout, Base.Research, Base.Tas}
         }
     });
 
@@ -931,6 +931,6 @@ public class PlanetFactoryTests
 
 internal class BaseTestCase
 {
-    internal List<Base> Bases = new();
+    internal List<string> Bases = new();
     internal List<int> Rolls = new();
 }

@@ -1,14 +1,14 @@
 ﻿namespace SectorCreator.Global.Enums;
 
-public enum Base
+public class Base
 {
-    Naval,
-    Scout,
-    Research,
-    Tas,
-    Shipyard,
-    MegaCorporateHeadquarters,
-    AncientSite,
-    DataRepository,
-    WayStation
+    public static readonly string Naval = "N";
+    public static readonly string Scout = "S";
+    public static readonly string Research = "R";
+    public static readonly string Tas = "T";
+    public static readonly string Shipyard = "S";
+    public static readonly string MegaCorporateHeadquarters = "M";
+    public static readonly string AncientSite = "A";
+    public static readonly string DataRepository = "D";
+    public static readonly string WayStation = "W";
 }

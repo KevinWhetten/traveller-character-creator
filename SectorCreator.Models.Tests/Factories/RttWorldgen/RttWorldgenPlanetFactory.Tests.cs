@@ -38,8 +38,8 @@ public class RttWorldgenPlanetFactoryTests
             new TelluricWorld(new RollingService()),
             new VesperianWorld(new RollingService()));
 
-        _classUnderTest.GenerateRttWorldgenPlanet(new RttWorldgenStar(), PlanetOrbit.Epistellar, 1);
-        
+        _classUnderTest.GenerateRttWorldgenPlanet(new RttWorldgenStar(), PlanetOrbit.Epistellar, 1, new Coordinates());
+
         Assert.That(true);
     }
 
@@ -53,10 +53,11 @@ public class RttWorldgenPlanetFactoryTests
     {
         _mockRollingService.Setup(x => x.D6(1)).Returns(planetTypeRoll);
         _classUnderTest = new RttWorldgenPlanetFactory(_mockRollingService.Object);
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GeneratePlanetType(new RttWorldgenStar());
+        planet = _classUnderTest.GeneratePlanetType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.PlanetType, Is.EqualTo(expectedPlanetType));
+        Assert.That(planet.PlanetType, Is.EqualTo(expectedPlanetType));
     }
 
     [TestCase(1, PlanetType.AsteroidBelt)]
@@ -69,10 +70,11 @@ public class RttWorldgenPlanetFactoryTests
     {
         _mockRollingService.Setup(x => x.D6(1)).Returns(planetTypeRoll);
         _classUnderTest = new RttWorldgenPlanetFactory(_mockRollingService.Object);
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GeneratePlanetType(new RttWorldgenStar {SpectralType = SpectralType.L});
+        planet = _classUnderTest.GeneratePlanetType(planet, new RttWorldgenStar {SpectralType = SpectralType.L});
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.PlanetType, Is.EqualTo(expectedPlanetType));
+        Assert.That(planet.PlanetType, Is.EqualTo(expectedPlanetType));
     }
 
     [TestCase(1, 0)]
@@ -87,10 +89,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetType = PlanetType.AsteroidBelt
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateSatellites();
+        planet = _classUnderTest.GenerateSatellites(planet);
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.Satellites.Count, Is.EqualTo(expectedSatellites));
+        Assert.That(planet.Satellites.Count, Is.EqualTo(expectedSatellites));
     }
 
     [TestCase(1, 0)]
@@ -105,10 +108,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetType = PlanetType.DwarfPlanet
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateSatellites();
+        planet = _classUnderTest.GenerateSatellites(planet);
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.Satellites.Count, Is.EqualTo(expectedSatellites));
+        Assert.That(planet.Satellites.Count, Is.EqualTo(expectedSatellites));
     }
 
     [TestCase(1, 0)]
@@ -123,10 +127,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetType = PlanetType.Terrestrial
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateSatellites();
+        planet = _classUnderTest.GenerateSatellites(planet);
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.Satellites.Count, Is.EqualTo(expectedSatellites));
+        Assert.That(planet.Satellites.Count, Is.EqualTo(expectedSatellites));
     }
 
     [TestCase(1, 0)]
@@ -143,10 +148,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetType = PlanetType.Helian
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateSatellites();
+        planet = _classUnderTest.GenerateSatellites(planet);
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.Satellites.Count, Is.EqualTo(expectedSatellites));
+        Assert.That(planet.Satellites.Count, Is.EqualTo(expectedSatellites));
     }
 
     [TestCase(1, PlanetType.DwarfPlanet)]
@@ -164,13 +170,14 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetType = PlanetType.Helian
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateSatellites();
+        planet = _classUnderTest.GenerateSatellites(planet);
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.Satellites.Count, Is.EqualTo(3));
-        Assert.That(_classUnderTest.RttWorldgenPlanet.Satellites[0].PlanetType, Is.EqualTo(expectedSatelliteType));
-        Assert.That(_classUnderTest.RttWorldgenPlanet.Satellites[1].PlanetType, Is.EqualTo(PlanetType.DwarfPlanet));
-        Assert.That(_classUnderTest.RttWorldgenPlanet.Satellites[2].PlanetType, Is.EqualTo(PlanetType.DwarfPlanet));
+        Assert.That(planet.Satellites.Count, Is.EqualTo(3));
+        Assert.That(planet.Satellites[0].PlanetType, Is.EqualTo(expectedSatelliteType));
+        Assert.That(planet.Satellites[1].PlanetType, Is.EqualTo(PlanetType.DwarfPlanet));
+        Assert.That(planet.Satellites[2].PlanetType, Is.EqualTo(PlanetType.DwarfPlanet));
     }
 
     [TestCase(1, 1)]
@@ -188,10 +195,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetType = PlanetType.Jovian
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateSatellites();
+        planet = _classUnderTest.GenerateSatellites(planet);
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.Satellites.Count, Is.EqualTo(expectedSatellites));
+        Assert.That(planet.Satellites.Count, Is.EqualTo(expectedSatellites));
     }
 
     [TestCase(1, PlanetType.Terrestrial)]
@@ -210,13 +218,14 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetType = PlanetType.Jovian
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateSatellites();
+        planet = _classUnderTest.GenerateSatellites(planet);
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.Satellites.Count, Is.EqualTo(3));
-        Assert.That(_classUnderTest.RttWorldgenPlanet.Satellites[0].PlanetType, Is.EqualTo(expectedSatelliteType));
-        Assert.That(_classUnderTest.RttWorldgenPlanet.Satellites[1].PlanetType, Is.EqualTo(PlanetType.DwarfPlanet));
-        Assert.That(_classUnderTest.RttWorldgenPlanet.Satellites[2].PlanetType, Is.EqualTo(PlanetType.DwarfPlanet));
+        Assert.That(planet.Satellites.Count, Is.EqualTo(3));
+        Assert.That(planet.Satellites[0].PlanetType, Is.EqualTo(expectedSatelliteType));
+        Assert.That(planet.Satellites[1].PlanetType, Is.EqualTo(PlanetType.DwarfPlanet));
+        Assert.That(planet.Satellites[2].PlanetType, Is.EqualTo(PlanetType.DwarfPlanet));
     }
 
     [TestCase(PlanetType.AsteroidBelt, WorldType.AsteroidBelt)]
@@ -231,10 +240,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetType = planetType
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar {SpectralType = SpectralType.D});
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar {SpectralType = SpectralType.D});
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [TestCase(PlanetType.AsteroidBelt, WorldType.AsteroidBelt)]
@@ -249,10 +259,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetType = planetType
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar {Luminosity = Luminosity.III});
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar {Luminosity = Luminosity.III});
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [Test]
@@ -264,10 +275,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Epistellar
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(WorldType.AsteroidBelt));
+        Assert.That(planet.WorldType, Is.EqualTo(WorldType.AsteroidBelt));
     }
 
     [TestCase(1, 1, WorldType.Rockball)]
@@ -292,10 +304,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Epistellar
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [TestCase(1, WorldType.JaniLithic)]
@@ -314,10 +327,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Epistellar
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [TestCase(1, WorldType.Helian)]
@@ -336,10 +350,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Epistellar
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [TestCase(1, WorldType.Jovian)]
@@ -358,10 +373,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Epistellar
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [Test]
@@ -373,10 +389,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Inner
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(WorldType.AsteroidBelt));
+        Assert.That(planet.WorldType, Is.EqualTo(WorldType.AsteroidBelt));
     }
 
     [TestCase(1, WorldType.Rockball)]
@@ -395,10 +412,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Inner
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [TestCase(1, 1, PlanetType.AsteroidBelt, WorldType.Rockball)]
@@ -421,10 +439,11 @@ public class RttWorldgenPlanetFactoryTests
                 ParentType = parentType
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [TestCase(2, WorldType.Telluric)]
@@ -448,10 +467,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Inner
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [TestCase(1, WorldType.Helian)]
@@ -470,10 +490,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Inner
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [Test]
@@ -485,10 +506,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Inner
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(WorldType.Jovian));
+        Assert.That(planet.WorldType, Is.EqualTo(WorldType.Jovian));
     }
 
     [Test]
@@ -500,10 +522,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Outer
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(WorldType.AsteroidBelt));
+        Assert.That(planet.WorldType, Is.EqualTo(WorldType.AsteroidBelt));
     }
 
     [TestCase(1, WorldType.Rockball)]
@@ -522,10 +545,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Outer
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [TestCase(1, 1, PlanetType.AsteroidBelt, WorldType.Rockball)]
@@ -558,10 +582,11 @@ public class RttWorldgenPlanetFactoryTests
                 ParentType = parentType
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [TestCase(1, WorldType.Arid)]
@@ -580,10 +605,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Outer
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [TestCase(1, WorldType.Arid)]
@@ -603,10 +629,11 @@ public class RttWorldgenPlanetFactoryTests
                 ParentId = Guid.NewGuid()
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(expectedWorldType));
+        Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
 
     [Test]
@@ -618,10 +645,11 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Outer
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(WorldType.Helian));
+        Assert.That(planet.WorldType, Is.EqualTo(WorldType.Helian));
     }
 
     [Test]
@@ -633,9 +661,10 @@ public class RttWorldgenPlanetFactoryTests
                 PlanetOrbit = PlanetOrbit.Outer
             }
         };
+        var planet = new RttWorldgenPlanet();
 
-        _classUnderTest.GenerateWorldType(new RttWorldgenStar());
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar());
 
-        Assert.That(_classUnderTest.RttWorldgenPlanet.WorldType, Is.EqualTo(WorldType.Jovian));
+        Assert.That(planet.WorldType, Is.EqualTo(WorldType.Jovian));
     }
 }

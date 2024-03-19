@@ -37,7 +37,7 @@ public class HexFactory : IHexFactory
         };
 
         if (_rollingService.D6(1) >= 4) {
-            hex.StarSystems.Add(_starSystemFactory.GenerateMongooseStarSystem(sectorType));
+            hex.StarSystems.Add(_starSystemFactory.GenerateMongooseStarSystem(sectorType, hex.Coordinates));
         }
 
         return hex;
@@ -60,21 +60,21 @@ public class HexFactory : IHexFactory
             Coordinates = SetCoordinates(subsectorCoordinates, hexCoordinates)
         };
 
-        if (_rollingService.D6(1) >= 4) {
-            hex.StarSystems.Add(_rttWorldgenStarSystemFactory.Generate(StarSystemType.BrownDwarf));
+        if (_rollingService.D6(1) > 4) {
+            hex.StarSystems.Add(_rttWorldgenStarSystemFactory.Generate(StarSystemType.BrownDwarf, hex.Coordinates));
         }
 
-        if (_rollingService.D6(1) >= 4) {
-            hex.StarSystems.Add(_rttWorldgenStarSystemFactory.Generate(StarSystemType.Regular));
+        if (_rollingService.D6(1) > 4) {
+            hex.StarSystems.Add(_rttWorldgenStarSystemFactory.Generate(StarSystemType.Regular, hex.Coordinates));
         }
 
         for (var index = 0; index < hex.StarSystems.Count; index++) {
             var starSystem = hex.StarSystems[index];
-            for (var i = 0; i < starSystem.Stars.Count; i++) {
-                var star = (RttWorldgenStar) starSystem.Stars[i];
+            for (var i = 0; i < starSystem.CompanionStars.Count; i++) {
+                var star = (RttWorldgenStar) starSystem.CompanionStars[i];
                 if (star.CompanionOrbit == CompanionOrbit.Distant) {
-                    starSystem.Stars.Remove(star);
-                    hex.StarSystems.Add(_rttWorldgenStarSystemFactory.Generate(star));
+                    starSystem.CompanionStars.Remove(star);
+                    hex.StarSystems.Add(_rttWorldgenStarSystemFactory.Generate(star, hex.Coordinates));
                 }
             }
         }
@@ -89,7 +89,7 @@ public class HexFactory : IHexFactory
         };
 
         if (_rollingService.D10(1) >= 5) {
-            hex.StarSystems.Add(_starSystemFactory.GenerateStarFrontiersStarSystem());
+            hex.StarSystems.Add(_starSystemFactory.GenerateStarFrontiersStarSystem(hex.Coordinates));
         }
 
         return hex;

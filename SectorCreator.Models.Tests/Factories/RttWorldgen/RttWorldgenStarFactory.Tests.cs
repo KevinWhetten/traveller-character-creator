@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
+using SectorCreator.Models.Basic;
 using SectorCreator.Models.Factories.RttWorldgen;
 
 namespace SectorCreator.Models.Tests.Factories.RttWorldgen;
@@ -17,7 +18,7 @@ public class RttWorldgenStarFactoryTests
     {
         _classUnderTest = new RttWorldgenStarFactory(_mockRollingService.Object);
 
-        _classUnderTest.Generate(true, out int spectralRoll);
+        _classUnderTest.Generate(StarType.Primary, out int spectralRoll);
         
         Assert.That(spectralRoll, Is.TypeOf<int>());
     }
@@ -68,9 +69,7 @@ public class RttWorldgenStarFactoryTests
     {
         _mockRollingService.Setup(x => x.D6(1)).Returns(spectralTypeRoll);
         _classUnderTest = new RttWorldgenStarFactory(_mockRollingService.Object) {
-            Star = {
-                IsPrimary = false
-            }
+            starType = StarType.Companion
         };
 
         _classUnderTest.GenerateSpectralType(primaryStarRoll);
@@ -87,11 +86,7 @@ public class RttWorldgenStarFactoryTests
     public void WhenGeneratingSystemAge(int ageRoll, int expectedAge)
     {
         _mockRollingService.Setup(x => x.D6(3)).Returns(ageRoll);
-        _classUnderTest = new RttWorldgenStarFactory(_mockRollingService.Object) {
-            Star = {
-                IsPrimary = false
-            }
-        };
+        _classUnderTest = new RttWorldgenStarFactory(_mockRollingService.Object);
 
         _classUnderTest.GenerateAge();
 
@@ -227,9 +222,9 @@ public class RttWorldgenStarFactoryTests
         _mockRollingService.Setup(x => x.D6(2)).Returns(roll);
         _classUnderTest = new RttWorldgenStarFactory(_mockRollingService.Object) {
             Star = {
-                SpectralType = SpectralType.M,
-                IsPrimary = isPrimary
-            }
+                SpectralType = SpectralType.M
+            },
+            starType = isPrimary ? StarType.Primary : StarType.Companion
         };
 
         _classUnderTest.ModifySpectralType();
@@ -254,11 +249,9 @@ public class RttWorldgenStarFactoryTests
     {
         _mockRollingService.Setup(x => x.D6(1)).Returns(orbitRoll);
         _classUnderTest = new RttWorldgenStarFactory(_mockRollingService.Object) {
-            Star = {
-                IsPrimary = isPrimary
-            }
+            starType = isPrimary ? StarType.Primary : StarType.Companion
         };
-        
+
         _classUnderTest.GenerateOrbit();
         
         Assert.That(_classUnderTest.Star.CompanionOrbit, Is.EqualTo(expectedOrbit));

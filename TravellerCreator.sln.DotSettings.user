@@ -4,6 +4,11 @@
   &lt;Assembly Path="C:\Users\krwhe\.nuget\packages\microsoft.aspnetcore.app.ref\6.0.14\ref\net6.0\Microsoft.AspNetCore.Components.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\krwhe\AppData\Local\JetBrains\Rider2022.1\resharper-host\temp\Rider\vAny\CoverageData\_TravellerCreator.-1607514821\Snapshot\snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d8860bb1_002De69f_002D4328_002Db8ac_002Dc9c12a09b432/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="WhenGeneratingRttWorldgenSectorSector" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::BAF61E01-99E4-4A9F-AC38-F25944860387::net6.0::SectorCreator.Models.Tests.Factories.Basic.SectorFactoryTests.WhenGeneratingRttWorldgenSectorSector&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	
 	
 	

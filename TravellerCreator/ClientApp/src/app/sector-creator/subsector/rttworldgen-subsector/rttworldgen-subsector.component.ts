@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {RttWorldgenSubsector} from "../../models/rtt-worldgen/rtt-worldgen.subsector";
-import {RttWorldgenPlanet} from "../../models/rtt-worldgen/rtt-worldgen.planet";
-import {RttWorldgenHex} from "../../models/rtt-worldgen/rtt-worldgen.hex";
+import {RTTWorldgenSubsector} from "../../models/rtt-worldgen/rtt-worldgen.subsector";
+import {RTTWorldgenPlanet} from "../../models/rtt-worldgen/rtt-worldgen.planet";
+import {RTTWorldgenHex} from "../../models/rtt-worldgen/rtt-worldgen.hex";
 import {RttWorldgenUWPService} from "../../services/rttworldgen.uwp.service";
 
 
@@ -11,8 +11,8 @@ import {RttWorldgenUWPService} from "../../services/rttworldgen.uwp.service";
   styleUrls: ['./rttworldgen-subsector.component.css']
 })
 export class RttWorldgenSubsectorComponent implements OnInit {
-  @Input() subsector: RttWorldgenSubsector;
-  planet: RttWorldgenPlanet | null;
+  @Input() subsector: RTTWorldgenSubsector;
+  planet: RTTWorldgenPlanet | null;
 
   constructor(private _uwpService: RttWorldgenUWPService) {
   }
@@ -24,7 +24,7 @@ export class RttWorldgenSubsectorComponent implements OnInit {
     return `${this.subsector.coordinates.x}, ${this.subsector.coordinates.y}`;
   }
 
-  getCoordinates(hex: RttWorldgenHex): string {
+  getCoordinates(hex: RTTWorldgenHex): string {
     this.planet = this._uwpService.GetBestRttWorldgenPlanet(hex);
 
     return this._uwpService.getCoordinates(hex);
@@ -87,11 +87,11 @@ export class RttWorldgenSubsectorComponent implements OnInit {
     return '';
   }
 
-  getPBG(hex: RttWorldgenHex): string {
+  getPBG(hex: RTTWorldgenHex): string {
     return this._uwpService.GetPBG(hex)
   }
 
-  getWorldNum(hex: RttWorldgenHex): string {
+  getWorldNum(hex: RTTWorldgenHex): string {
     let worldNum = 0;
 
     if (hex.starSystems.length > 0) {
@@ -107,11 +107,11 @@ export class RttWorldgenSubsectorComponent implements OnInit {
     return this._uwpService.GetHexadecimal(worldNum);
   }
 
-  getAllegiance(hex: RttWorldgenHex): string {
+  getAllegiance(hex: RTTWorldgenHex): string {
     return '';
   }
 
-  getStellar(hex: RttWorldgenHex): string {
+  getStellar(hex: RTTWorldgenHex): string {
     return '';
   }
 

@@ -27,13 +27,15 @@ public class StarSystemFactoryTests
         var spectralRoll = 0;
         
         _rollingServiceMock.Setup(x => x.D6(It.IsAny<int>())).Returns(1);
-        _planetFactoryMock.Setup(x => x.Generate(It.IsAny<SectorType>()))
+        _planetFactoryMock.Setup(x => x.Generate(It.IsAny<SectorType>(), It.IsAny<Coordinates>()))
             .Returns(new Planet());
         _starFrontiersStarFactoryMock.Setup(x => x.Generate()).Returns(new Star());
-        _rttWorldgenStarFactoryMock.Setup(x => x.Generate(It.IsAny<bool>(), out spectralRoll, It.IsAny<int>()))
+        _rttWorldgenStarFactoryMock.Setup(x => x.Generate(It.IsAny<StarType>(), out spectralRoll))
             .Returns(new RttWorldgenStar());
-        _starFrontiersPlanetFactoryMock.Setup(x => x.Generate(It.IsAny<SectorType>())).Returns(new Planet());
-        _rttWorldgenPlanetFactoryMock.Setup(x => x.Generate(It.IsAny<SectorType>()))
+        _rttWorldgenStarFactoryMock.Setup(x => x.Generate(It.IsAny<StarType>(),It.IsAny<int>()))
+            .Returns(new RttWorldgenStar());
+        _starFrontiersPlanetFactoryMock.Setup(x => x.Generate(It.IsAny<SectorType>(), It.IsAny<Coordinates>())).Returns(new Planet());
+        _rttWorldgenPlanetFactoryMock.Setup(x => x.Generate(It.IsAny<SectorType>(), It.IsAny<Coordinates>()))
             .Returns(new RttWorldgenPlanet());
 
         _classUnderTest = new StarSystemFactory(_rollingServiceMock.Object, _planetFactoryMock.Object,
@@ -49,10 +51,10 @@ public class StarSystemFactoryTests
         _rollingServiceMock.Setup(x => x.D6(2))
             .Returns(gasGiantRoll);
 
-        var starSystem = _classUnderTest.GenerateMongooseStarSystem(SectorType.Basic);
+        var starSystem = _classUnderTest.GenerateMongooseStarSystem(SectorType.Basic, new Coordinates());
 
         Assert.That(starSystem.Planets.Count, Is.EqualTo(1));
-        Assert.That(starSystem.Stars.Count, Is.EqualTo(0));
+        Assert.That(starSystem.CompanionStars.Count, Is.EqualTo(0));
         Assert.That(starSystem.GasGiant, Is.EqualTo(expectedGasGiant));
     }
 
@@ -78,10 +80,10 @@ public class StarSystemFactoryTests
         _rollingServiceMock.Setup(x => x.D6(1))
             .Returns(planetRoll);
 
-        var starSystem = _classUnderTest.GenerateStarFrontiersStarSystem();
+        var starSystem = _classUnderTest.GenerateStarFrontiersStarSystem(new Coordinates());
 
         Assert.That(starSystem.Planets.Count, Is.EqualTo(expectedPlanetNum));
-        Assert.That(starSystem.Stars.Count, Is.EqualTo(expectedStarNum));
+        Assert.That(starSystem.CompanionStars.Count, Is.EqualTo(expectedStarNum));
         Assert.That(starSystem.GasGiant, Is.EqualTo(expectedGasGiant));
     }
 }

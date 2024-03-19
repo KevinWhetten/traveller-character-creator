@@ -73,7 +73,7 @@ public partial class TradeCodeService
 
     public void AddWaterWorldTradeCode(Planet planet)
     {
-        if (planet.Hydrographics == 10)
+        if (planet.Hydrographics is >= 10 and <= 15)
         {
             planet.TradeCodes.Add(TradeCode.WaterWorld);
         }

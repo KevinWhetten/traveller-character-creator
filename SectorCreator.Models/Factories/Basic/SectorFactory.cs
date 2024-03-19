@@ -52,14 +52,14 @@ public class SectorFactory : ISectorFactory
     public Sector GenerateRttWorldgenSector()
     {
         var sector = new Sector();
-
+        
         for (var y = 1; y <= 4; y++) {
             for (var x = 1; x <= 4; x++) {
                 var newSubsector = _subsectorFactory.GenerateRttWorldgenSubsector(new Coordinates(x, y));
                 sector.Subsectors.Add(newSubsector);
             }
         }
-
+        
         return sector;
     }
 

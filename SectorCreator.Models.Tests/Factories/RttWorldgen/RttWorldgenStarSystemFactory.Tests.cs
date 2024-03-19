@@ -17,21 +17,21 @@ public class RttWorldgenStarSystemFactoryTests
     private readonly Mock<IRttWorldgenStarFactory> _mockRttWorldgenStarFactory = new();
     private readonly Mock<IRttWorldgenPlanetFactory> _mockRttWorldgenPlanetFactory = new();
 
-    [TestCase(3, 1)]
-    [TestCase(10, 1)]
-    [TestCase(11, 2)]
-    [TestCase(15, 2)]
-    [TestCase(16, 3)]
-    [TestCase(18, 3)]
+    [TestCase(3, 0)]
+    [TestCase(10, 0)]
+    [TestCase(11, 1)]
+    [TestCase(15, 1)]
+    [TestCase(16, 2)]
+    [TestCase(18, 2)]
     public void WhenGeneratingNumberOfStars(int starNumRoll, int expectedStarNum)
     {
         _mockRollingService.Setup(x => x.D6(3)).Returns(starNumRoll);
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(StarSystemType.Regular);
+        var result = _classUnderTest.Generate(StarSystemType.Regular, new Coordinates());
 
-        Assert.That(result.Stars.Count, Is.EqualTo(expectedStarNum));
+        Assert.That(result.CompanionStars.Count, Is.EqualTo(expectedStarNum));
     }
 
     [TestCase(1, 0)]
@@ -43,15 +43,17 @@ public class RttWorldgenStarSystemFactoryTests
     {
         var spectralRoll = 0;
         _mockRollingService.SetupSequence(x => x.D6(1)).Returns(orbitRoll);
-        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<bool>(), out spectralRoll, It.IsAny<int>()))
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), out spectralRoll))
+            .Returns(new RttWorldgenStar());
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), It.IsAny<int>()))
             .Returns(new RttWorldgenStar());
         _mockRttWorldgenPlanetFactory.Setup(x =>
-                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>()))
+                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>(), It.IsAny<Coordinates>()))
             .Returns(new RttWorldgenPlanet());
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(StarSystemType.Regular);
+        var result = _classUnderTest.Generate(StarSystemType.Regular, new Coordinates());
 
         Assert.That(result.Planets.Count, Is.EqualTo(expectedOrbitNum));
     }
@@ -63,15 +65,17 @@ public class RttWorldgenStarSystemFactoryTests
     {
         var spectralRoll = 0;
         _mockRollingService.SetupSequence(x => x.D6(1)).Returns(orbitRoll);
-        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<bool>(), out spectralRoll, It.IsAny<int>()))
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), out spectralRoll))
+            .Returns(new RttWorldgenStar {SpectralType = SpectralType.M, Luminosity = Luminosity.V});
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), It.IsAny<int>()))
             .Returns(new RttWorldgenStar {SpectralType = SpectralType.M, Luminosity = Luminosity.V});
         _mockRttWorldgenPlanetFactory.Setup(x =>
-                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>()))
+                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>(), It.IsAny<Coordinates>()))
             .Returns(new RttWorldgenPlanet());
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(StarSystemType.Regular);
+        var result = _classUnderTest.Generate(StarSystemType.Regular, new Coordinates());
 
         Assert.That(result.Planets.Count, Is.EqualTo(expectedOrbitNum));
     }
@@ -84,15 +88,17 @@ public class RttWorldgenStarSystemFactoryTests
     {
         var spectralRoll = 0;
         _mockRollingService.SetupSequence(x => x.D6(1)).Returns(orbitRoll);
-        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<bool>(), out spectralRoll, It.IsAny<int>()))
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), out spectralRoll))
+            .Returns(new RttWorldgenStar {SpectralType = spectralType, Luminosity = luminosity});
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), It.IsAny<int>()))
             .Returns(new RttWorldgenStar {SpectralType = spectralType, Luminosity = luminosity});
         _mockRttWorldgenPlanetFactory.Setup(x =>
-                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>()))
+                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>(), It.IsAny<Coordinates>()))
             .Returns(new RttWorldgenPlanet());
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(StarSystemType.Regular);
+        var result = _classUnderTest.Generate(StarSystemType.Regular, new Coordinates());
 
         Assert.That(result.Planets.Count, Is.EqualTo(expectedOrbitNum));
     }
@@ -111,15 +117,17 @@ public class RttWorldgenStarSystemFactoryTests
             .Returns(orbitRoll);
         _mockRollingService.SetupSequence(x => x.D3(1))
             .Returns(orbitRoll / 2);
-        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<bool>(), out spectralRoll, It.IsAny<int>()))
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), out spectralRoll))
+            .Returns(new RttWorldgenStar());
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), It.IsAny<int>()))
             .Returns(new RttWorldgenStar());
         _mockRttWorldgenPlanetFactory.Setup(x =>
-                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>()))
+                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>(), It.IsAny<Coordinates>()))
             .Returns(new RttWorldgenPlanet());
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(StarSystemType.Regular);
+        var result = _classUnderTest.Generate(StarSystemType.Regular, new Coordinates());
 
         Assert.That(result.Planets.Count, Is.EqualTo(expectedOrbitNum));
     }
@@ -138,15 +146,17 @@ public class RttWorldgenStarSystemFactoryTests
             .Returns(orbitRoll);
         _mockRollingService.SetupSequence(x => x.D3(1))
             .Returns(orbitRoll / 2);
-        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<bool>(), out spectralRoll, It.IsAny<int>()))
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), out spectralRoll))
+            .Returns(new RttWorldgenStar {SpectralType = SpectralType.M, Luminosity = Luminosity.V});
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), It.IsAny<int>()))
             .Returns(new RttWorldgenStar {SpectralType = SpectralType.M, Luminosity = Luminosity.V});
         _mockRttWorldgenPlanetFactory.Setup(x =>
-                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>()))
+                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>(), It.IsAny<Coordinates>()))
             .Returns(new RttWorldgenPlanet());
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(StarSystemType.Regular);
+        var result = _classUnderTest.Generate(StarSystemType.Regular, new Coordinates());
 
         Assert.That(result.Planets.Count, Is.EqualTo(expectedOrbitNum));
     }
@@ -165,15 +175,17 @@ public class RttWorldgenStarSystemFactoryTests
             .Returns(0);
         _mockRollingService.SetupSequence(x => x.D3(1))
             .Returns(orbitRoll / 2);
-        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<bool>(), out spectralRoll, It.IsAny<int>()))
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), out spectralRoll))
+            .Returns(new RttWorldgenStar {SpectralType = SpectralType.L});
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), It.IsAny<int>()))
             .Returns(new RttWorldgenStar {SpectralType = SpectralType.L});
         _mockRttWorldgenPlanetFactory.Setup(x =>
-                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>()))
+                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>(), It.IsAny<Coordinates>()))
             .Returns(new RttWorldgenPlanet());
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(StarSystemType.Regular);
+        var result = _classUnderTest.Generate(StarSystemType.Regular, new Coordinates());
 
         Assert.That(result.Planets.Count, Is.EqualTo(expectedOrbitNum));
     }
@@ -190,17 +202,21 @@ public class RttWorldgenStarSystemFactoryTests
         _mockRollingService.SetupSequence(x => x.D6(1))
             .Returns(0)
             .Returns(orbitRoll);
+        _mockRollingService.SetupSequence(x => x.D6(3))
+            .Returns(15);
         _mockRollingService.SetupSequence(x => x.D3(1))
             .Returns(orbitRoll / 2);
-        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<bool>(), out spectralRoll, It.IsAny<int>()))
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), out spectralRoll))
+            .Returns(new RttWorldgenStar {CompanionOrbit = CompanionOrbit.Close});
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), It.IsAny<int>()))
             .Returns(new RttWorldgenStar {CompanionOrbit = CompanionOrbit.Close});
         _mockRttWorldgenPlanetFactory.Setup(x =>
-                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>()))
+                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>(), It.IsAny<Coordinates>()))
             .Returns(new RttWorldgenPlanet());
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(StarSystemType.Regular);
+        var result = _classUnderTest.Generate(StarSystemType.Regular, new Coordinates());
 
         Assert.That(result.Planets.Count, Is.EqualTo(0));
     }
@@ -220,15 +236,17 @@ public class RttWorldgenStarSystemFactoryTests
             .Returns(orbitRoll);
         _mockRollingService.SetupSequence(x => x.D3(1))
             .Returns(orbitRoll / 2);
-        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<bool>(), out spectralRoll, It.IsAny<int>()))
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), out spectralRoll))
+            .Returns(new RttWorldgenStar());
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), It.IsAny<int>()))
             .Returns(new RttWorldgenStar());
         _mockRttWorldgenPlanetFactory.Setup(x =>
-                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>()))
+                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>(), It.IsAny<Coordinates>()))
             .Returns(new RttWorldgenPlanet());
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(StarSystemType.Regular);
+        var result = _classUnderTest.Generate(StarSystemType.Regular, new Coordinates());
 
         Assert.That(result.Planets.Count, Is.EqualTo(expectedOrbitNum));
     }
@@ -248,15 +266,17 @@ public class RttWorldgenStarSystemFactoryTests
             .Returns(orbitRoll);
         _mockRollingService.SetupSequence(x => x.D3(1))
             .Returns(orbitRoll / 2);
-        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<bool>(), out spectralRoll, It.IsAny<int>()))
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), out spectralRoll))
+            .Returns(new RttWorldgenStar {SpectralType = SpectralType.M, Luminosity = Luminosity.V});
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), It.IsAny<int>()))
             .Returns(new RttWorldgenStar {SpectralType = SpectralType.M, Luminosity = Luminosity.V});
         _mockRttWorldgenPlanetFactory.Setup(x =>
-                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>()))
+                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>(), It.IsAny<Coordinates>()))
             .Returns(new RttWorldgenPlanet());
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(StarSystemType.Regular);
+        var result = _classUnderTest.Generate(StarSystemType.Regular, new Coordinates());
 
         Assert.That(result.Planets.Count, Is.EqualTo(expectedOrbitNum));
     }
@@ -277,15 +297,17 @@ public class RttWorldgenStarSystemFactoryTests
             .Returns(orbitRoll);
         _mockRollingService.SetupSequence(x => x.D3(1))
             .Returns(orbitRoll / 2);
-        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<bool>(), out spectralRoll, It.IsAny<int>()))
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), out spectralRoll))
+            .Returns(new RttWorldgenStar {SpectralType = SpectralType.L});
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), It.IsAny<int>()))
             .Returns(new RttWorldgenStar {SpectralType = SpectralType.L});
         _mockRttWorldgenPlanetFactory.Setup(x =>
-                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>()))
+                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>(), It.IsAny<Coordinates>()))
             .Returns(new RttWorldgenPlanet());
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(StarSystemType.Regular);
+        var result = _classUnderTest.Generate(StarSystemType.Regular, new Coordinates());
 
         Assert.That(result.Planets.Count, Is.EqualTo(expectedOrbitNum));
     }
@@ -303,17 +325,21 @@ public class RttWorldgenStarSystemFactoryTests
             .Returns(0)
             .Returns(0)
             .Returns(orbitRoll);
+        _mockRollingService.SetupSequence(x => x.D6(3))
+            .Returns(15);
         _mockRollingService.SetupSequence(x => x.D3(1))
             .Returns(orbitRoll / 2);
-        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<bool>(), out spectralRoll, It.IsAny<int>()))
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), out spectralRoll))
+            .Returns(new RttWorldgenStar {CompanionOrbit = CompanionOrbit.Moderate});
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), It.IsAny<int>()))
             .Returns(new RttWorldgenStar {CompanionOrbit = CompanionOrbit.Moderate});
         _mockRttWorldgenPlanetFactory.Setup(x =>
-                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>()))
+                x.GenerateRttWorldgenPlanet(It.IsAny<RttWorldgenStar>(), It.IsAny<PlanetOrbit>(), It.IsAny<int>(), It.IsAny<Coordinates>()))
             .Returns(new RttWorldgenPlanet());
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(StarSystemType.Regular);
+        var result = _classUnderTest.Generate(StarSystemType.Regular, new Coordinates());
 
         Assert.That(result.Planets.Count, Is.EqualTo(0));
     }
@@ -321,18 +347,24 @@ public class RttWorldgenStarSystemFactoryTests
     [Test]
     public void WhenGeneratingBrownDwarfSystem()
     {
-        _mockRttWorldgenStarFactory.Setup(x => x.GenerateBrownDwarf()).Returns(new RttWorldgenStar {
-            SpectralType = SpectralType.L,
-            Luminosity = Luminosity.I,
-            SpectralSubclass = 4
-        });
+        _mockRttWorldgenStarFactory.Setup(x => x.GenerateBrownDwarf())
+            .Returns(new RttWorldgenStar {
+                SpectralType = SpectralType.L,
+                Luminosity = Luminosity.I,
+                SpectralSubclass = 4
+            });
+        _mockRttWorldgenStarFactory.Setup(x => x.Generate(It.IsAny<StarType>(), It.IsAny<int>()))
+            .Returns(new RttWorldgenStar {
+                SpectralType = SpectralType.L,
+                Luminosity = Luminosity.I,
+                SpectralSubclass = 4
+            });
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(StarSystemType.BrownDwarf);
+        var result = _classUnderTest.Generate(StarSystemType.BrownDwarf, new Coordinates());
 
-        Assert.That(result.Stars.Count, Is.EqualTo(1));
-        Assert.That(result.Stars.First().SpectralType, Is.EqualTo(SpectralType.L));
+        Assert.That(result.PrimaryStar.SpectralType, Is.EqualTo(SpectralType.L));
     }
 
     [Test]
@@ -345,15 +377,14 @@ public class RttWorldgenStarSystemFactoryTests
             Id = Guid.NewGuid(),
             Luminosity = Luminosity.IV,
             SpectralSubclass = 7,
-            SpectralType = SpectralType.G,
-            IsPrimary = true
+            SpectralType = SpectralType.G
         };
         _classUnderTest = new RttWorldgenStarSystemFactory(_mockRollingService.Object,
             _mockRttWorldgenStarFactory.Object, _mockRttWorldgenPlanetFactory.Object);
 
-        var result = _classUnderTest.Generate(pregenStar);
+        var result = _classUnderTest.Generate(pregenStar, new Coordinates());
 
-        var resultStar = result.Stars.First();
+        var resultStar = result.PrimaryStar;
         Assert.That(((RttWorldgenStar) resultStar).Age, Is.EqualTo(pregenStar.Age));
         Assert.That(((RttWorldgenStar) resultStar).CompanionOrbit, Is.EqualTo(pregenStar.CompanionOrbit));
         Assert.That(((RttWorldgenStar) resultStar).ExpansionSize, Is.EqualTo(pregenStar.ExpansionSize));

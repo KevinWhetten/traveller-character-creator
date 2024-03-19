@@ -8,7 +8,7 @@ namespace SectorCreator.Models.Factories.StarFrontiers;
 public interface IStarFrontiersPlanetFactory
 {
     Planet Generate(bool habitable, int habitableBase, int orbitNum);
-    Planet Generate(SectorType sectorType);
+    Planet Generate(SectorType sectorType, Coordinates coordinates);
 }
 
 public class StarFrontiersPlanetFactory : PlanetFactory, IStarFrontiersPlanetFactory

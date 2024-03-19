@@ -138,6 +138,9 @@ import { MongooseSectorComponent } from './sector-creator/sector/mongoose-sector
 import { StarFrontiersSectorComponent } from './sector-creator/sector/star-frontiers-sector/star-frontiers-sector.component';
 import { RttWorldgenSectorComponent } from './sector-creator/sector/rttworldgen-sector/rttworldgen-sector.component';
 import { RttWorldgenSubsectorComponent } from './sector-creator/subsector/rttworldgen-subsector/rttworldgen-subsector.component';
+import { SubsectorSettingsComponent } from './sector-creator/settings/subsector-settings/subsector-settings.component';
+import { RaceSettingsComponent } from './sector-creator/settings/race-settings/race-settings.component';
+import { RaceComponent } from './sector-creator/settings/race-settings/race/race.component';
 
 @NgModule({
     declarations: [
@@ -272,7 +275,10 @@ import { RttWorldgenSubsectorComponent } from './sector-creator/subsector/rttwor
         MongooseSectorComponent,
         StarFrontiersSectorComponent,
         RttWorldgenSectorComponent,
-        RttWorldgenSubsectorComponent
+        RttWorldgenSubsectorComponent,
+        SubsectorSettingsComponent,
+        RaceSettingsComponent,
+        RaceComponent
     ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),

@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using System.Linq;
+using Moq;
 using NUnit.Framework;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
@@ -22,7 +23,7 @@ public class HexFactoryTests
     [SetUp]
     public void SetUp()
     {
-        _starSystemFactoryMock.Setup(x => x.GenerateMongooseStarSystem(It.IsAny<SectorType>()))
+        _starSystemFactoryMock.Setup(x => x.GenerateMongooseStarSystem(It.IsAny<SectorType>(), It.IsAny<Coordinates>()))
             .Returns(new StarSystem());
         _t5StarSystemFactoryMock.Setup(x => x.Generate()).Returns(new StarSystem());
 
@@ -56,10 +57,10 @@ public class HexFactoryTests
     public void WhenGeneratingRttWorldgenHex(bool brownDwarfStarSystem, bool starSystem, CompanionOrbit companionOrbit,
         int expectedStarSystems)
     {
-        var returnedStarSystem = new RttWorldgenStarSystem() {Stars = {new RttWorldgenStar {CompanionOrbit = companionOrbit}}};
-        _rttWorldgenStarSystemFactoryMock.Setup(x => x.Generate(It.IsAny<StarSystemType>()))
+        var returnedStarSystem = new RttWorldgenStarSystem() {CompanionStars = {new RttWorldgenStar {CompanionOrbit = companionOrbit}}};
+        _rttWorldgenStarSystemFactoryMock.Setup(x => x.Generate(It.IsAny<StarSystemType>(), It.IsAny<Coordinates>()))
             .Returns(returnedStarSystem);
-        _rttWorldgenStarSystemFactoryMock.Setup(x => x.Generate(It.IsAny<RttWorldgenStar>()))
+        _rttWorldgenStarSystemFactoryMock.Setup(x => x.Generate(It.IsAny<RttWorldgenStar>(), It.IsAny<Coordinates>()))
             .Returns(new RttWorldgenStarSystem());
 
         _rollingServiceMock.SetupSequence(x => x.D6(1))
@@ -70,6 +71,10 @@ public class HexFactoryTests
             new Coordinates(1, 1));
 
         Assert.That(hex.StarSystems.Count, Is.EqualTo(expectedStarSystems));
+        if (expectedStarSystems > 0) {
+            Assert.That(hex.StarSystems.First().CompanionStars.Count <= 3);
+            Assert.That(hex.StarSystems.First().Planets.Count <= 13);
+        }
     }
 
     [TestCase(false)]

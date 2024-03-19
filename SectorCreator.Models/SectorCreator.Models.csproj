@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\MarkovChain\MarkovChain.csproj" />
       <ProjectReference Include="..\SectorCreator.Global\SectorCreator.Global.csproj" />
     </ItemGroup>
 
