@@ -9,8 +9,6 @@ namespace SectorCreator.Models.Tests.Services.TradeCodeServiceTests;
 [TestFixture]
 public class TradeCodeService_PopulationTests
 {
-    private readonly TradeCodeService _classUnderTest = new(new RollingService());
-
     [TestCase(0, 0, 0, 0, false)]
     [TestCase(1, 0, 0, 0, false)]
     [TestCase(0, 1, 0, 0, false)]
@@ -25,7 +23,7 @@ public class TradeCodeService_PopulationTests
             TechLevel = techLevel
         };
 
-        _classUnderTest.AddDiebackTradeCode(planet);
+        TradeCodeService.AddDiebackTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.Dieback), Is.EqualTo(expected));
     }
@@ -46,7 +44,7 @@ public class TradeCodeService_PopulationTests
             LawLevel = lawLevel
         };
 
-        _classUnderTest.AddBarrenTradeCode(planet);
+        TradeCodeService.AddBarrenTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.Barren), Is.EqualTo(expected));
     }
@@ -63,7 +61,7 @@ public class TradeCodeService_PopulationTests
             Population = population
         };
 
-        _classUnderTest.AddLowPopulationTradeCode(planet);
+        TradeCodeService.AddLowPopulationTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.LowPopulation), Is.EqualTo(expected));
     }
@@ -81,7 +79,7 @@ public class TradeCodeService_PopulationTests
             Population = population
         };
 
-        _classUnderTest.AddNonIndustrialTradeCode(planet);
+        TradeCodeService.AddNonIndustrialTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.NonIndustrial), Is.EqualTo(expected));
     }
@@ -97,7 +95,7 @@ public class TradeCodeService_PopulationTests
             Population = population
         };
 
-        _classUnderTest.AddPreHighPopulationTradeCode(planet);
+        TradeCodeService.AddPreHighPopulationTradeCode(planet);
         
         Assert.That(planet.TradeCodes.Contains(TradeCode.PreHighPopulation), Is.EqualTo(expected));
     }
@@ -112,7 +110,7 @@ public class TradeCodeService_PopulationTests
             Population = population
         };
 
-        _classUnderTest.AddHighPopulationTradeCode(planet);
+        TradeCodeService.AddHighPopulationTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.HighPopulation), Is.EqualTo(expected));
     }

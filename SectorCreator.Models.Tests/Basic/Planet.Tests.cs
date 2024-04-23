@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
+using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
 
@@ -22,12 +23,12 @@ public class PlanetTests
         Assert.That(planet.Government, Is.EqualTo(0));
         Assert.That(planet.LawLevel, Is.EqualTo(0));
         Assert.That(planet.TechLevel, Is.EqualTo(0));
-        Assert.That(planet.Name, Is.EqualTo("Un-named"));
+        Assert.That(planet.Name, Is.EqualTo(""));
         Assert.That(planet.Temperature, Is.EqualTo(Temperature.None));
-        Assert.That(planet.Starport, Is.EqualTo(0));
+        Assert.That(planet.Starport.Class, Is.EqualTo(StarportClass.X));
         Assert.That(planet.Bases.Count, Is.EqualTo(0));
         Assert.That(planet.TradeCodes.Count, Is.EqualTo(0));
-        Assert.That(planet.TravelCode, Is.EqualTo(TravelCode.None));
+        Assert.That(planet.TravelZone, Is.EqualTo(TravelZone.None));
     }
 
     private static List<Planet> testPlanets = new() {
@@ -42,10 +43,10 @@ public class PlanetTests
             TechLevel = 2,
             Name = "This is a name",
             Temperature = Temperature.Temperate,
-            Starport = 'D',
+            Starport = new Starport{ Class = StarportClass.D},
             Bases = new List<string>(),
             TradeCodes = new List<string>(),
-            TravelCode = TravelCode.Amber
+            TravelZone = TravelZone.Amber
         },
         new Planet()
     };
@@ -53,7 +54,7 @@ public class PlanetTests
     [TestCaseSource(nameof(testPlanets))]
     public void WhenConstructingWithPlanet(Planet planet)
     {
-        var result = new Planet(planet);
+        var result = new Planet(new RollingService(), planet);
 
         Assert.That(result.Size, Is.EqualTo(planet.Size));
         Assert.That(result.Atmosphere, Is.EqualTo(planet.Atmosphere));
@@ -68,6 +69,6 @@ public class PlanetTests
         Assert.That(result.Starport, Is.EqualTo(planet.Starport));
         Assert.That(result.Bases, Is.EqualTo(planet.Bases));
         Assert.That(result.TradeCodes, Is.EqualTo(planet.TradeCodes));
-        Assert.That(result.TravelCode, Is.EqualTo(planet.TravelCode));
+        Assert.That(result.TravelZone, Is.EqualTo(planet.TravelZone));
     }
 }

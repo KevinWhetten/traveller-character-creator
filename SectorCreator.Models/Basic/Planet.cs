@@ -1,35 +1,37 @@
-﻿using MarkovChain;
-using SectorCreator.Global;
+﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models.Factories.RttWorldgen;
 
 namespace SectorCreator.Models.Basic;
 
 public class Planet
 {
+    protected readonly IRollingService _rollingService;
     public int Size { get; set; }
     public int Atmosphere { get; set; }
     public int Hydrographics { get; set; }
     public PlanetType PlanetType { get; set; }
-    public List<Planet> Satellites { get; } = new();
-    public string PopulatedBy { get; set; }
+    public List<Planet> Satellites { get; set; } = new();
     public int Population { get; set; }
     public int Government { get; set; }
     public int LawLevel { get; set; }
     public int TechLevel { get; set; }
     public string Name { get; set; } = "";
     public Temperature Temperature { get; set; }
-    public char Starport { get; set; } = 'X';
+    public Starport Starport { get; set; } = new(new RollingService()) {Class = StarportClass.X};
     public List<string> Bases { get; set; } = new();
     public List<string> TradeCodes { get; set; } = new();
-    public TravelCode TravelCode { get; set; } = TravelCode.None;
+    public TravelZone TravelZone { get; set; } = TravelZone.None;
+    public string Allegiance { get; set; } = "----";
     public Coordinates Coordinates { get; set; }
 
-    public Planet()
-    { }
-
-    public Planet(Planet planet)
+    public Planet(IRollingService rollingService)
     {
+        _rollingService = rollingService;
+    }
+
+    public Planet(IRollingService rollingService, Planet planet)
+    {
+        _rollingService = rollingService;
         Size = planet.Size;
         Atmosphere = planet.Atmosphere;
         Hydrographics = planet.Hydrographics;
@@ -44,23 +46,11 @@ public class Planet
         Starport = planet.Starport;
         Bases = planet.Bases;
         TradeCodes = planet.TradeCodes;
-        TravelCode = planet.TravelCode;
+        TravelZone = planet.TravelZone;
+        Coordinates = planet.Coordinates;
     }
 
-    public void Populate(int roll, Race race, int distanceBetween)
-    {
-        PopulatedBy = race.Name;
-
-        var hydrographicDifference = Math.Abs(race.Homeworld.Hydrographics - Hydrographics);
-        var sizeDifference = Math.Abs(race.Homeworld.Size - Size);
-        var temperatureDifference = Math.Abs(race.Homeworld.Temperature - Temperature);
-
-        Population = roll - hydrographicDifference - (sizeDifference / 2) - (distanceBetween / 2);
-
-        if (Population <= 0) {
-            Population = 1;
-        }
-    }
+    public Planet(){ }
 
     public void SetGovernment(int roll, Race race)
     {
@@ -68,7 +58,7 @@ public class Planet
             Government = 0;
             return;
         }
-        
+
         Government = race.Homeworld.Government + roll;
 
         if (Government < 0) Government = 0;
@@ -81,28 +71,69 @@ public class Planet
             LawLevel = 0;
             return;
         }
-        
+
         LawLevel = race.Homeworld.LawLevel + roll;
 
         if (LawLevel < 0) LawLevel = 0;
         if (LawLevel > 24) LawLevel = 24;
     }
 
-    public void GenerateStarport(int roll)
+    public void GenerateSpaceport()
     {
         if (Population == 0) {
-            Starport = 'X';
+            Starport.Class = StarportClass.Y;
             return;
         }
-        
-        Starport = (roll + Population) switch {
-            <= 2 => 'X',
-            <= 4 => 'E',
-            <= 6 => 'D',
-            <= 8 => 'C',
-            <= 10 => 'B',
-            _ => 'A'
+
+        Starport.Class = (_rollingService.Flux() + Population) switch {
+            <= 6 => StarportClass.Y,
+            <= 8 => StarportClass.H,
+            <= 10 => StarportClass.G,
+            _ => StarportClass.F
         };
+    }
+
+    public void GenerateStarport()
+    {
+        if (Population == 0) {
+            Starport.Class = StarportClass.X;
+            return;
+        }
+
+        Starport.Class = (_rollingService.Flux() + Population) switch {
+            <= 2 => StarportClass.X,
+            <= 4 => StarportClass.E,
+            <= 6 => StarportClass.D,
+            <= 8 => StarportClass.C,
+            <= 10 => StarportClass.B,
+            _ => StarportClass.A
+        };
+
+        Starport.GenerateSpecialFeature();
+        Starport.GenerateEvent();
+        Starport.GenerateEnforcement(LawLevel);
+
+        if (Starport.Installations.Contains(StarportInstallation.ArmyBase)) {
+            Bases.Add(Base.Military);
+        }
+
+        if (Starport.Installations.Contains(StarportInstallation.NavalBase)) {
+            Bases.Add(Base.Naval);
+        }
+
+        if (Starport.Installations.Contains(StarportInstallation.NavalDepot)) {
+            Bases.Add(Base.NavalDepot);
+        }
+
+        if (Starport.Installations.Contains(StarportInstallation.ExplorerBase)) {
+            Bases.Add(Base.Exploration);
+        }
+
+        if (Starport.Installations.Contains(StarportInstallation.WayStation)) {
+            Bases.Add(Base.WayStation);
+        }
+
+        Starport.GenerateDefenses(Bases.Contains(Base.Naval) || Bases.Contains(Base.Military), Bases.Contains(Base.NavalDepot));
     }
 
     public void GenerateTechLevel(int roll)
@@ -111,16 +142,16 @@ public class Planet
             TechLevel = 0;
             return;
         }
-        
+
         TechLevel = roll;
 
-        TechLevel += Starport switch {
-            'A' => 6,
-            'B' => 4,
-            'C' => 2,
-            'D' => 0,
-            'E' => -2,
-            'X' => -4,
+        TechLevel += Starport.Class switch {
+            StarportClass.A => 6,
+            StarportClass.B => 4,
+            StarportClass.C => 2,
+            StarportClass.D => 0,
+            StarportClass.E => -2,
+            StarportClass.X => -4,
             _ => 0
         };
 
@@ -166,90 +197,84 @@ public class Planet
         }
     }
 
-    public void GenerateBases(IRollingService rollingService)
+    public void GenerateBases()
     {
         if (Population == 0) return;
 
-        switch (Starport) {
-            case 'A':
-                if (rollingService.D6(2) >= 8) {
+        switch (Starport.Class) {
+            case StarportClass.A:
+                if (_rollingService.D6(2) >= 8) {
                     Bases.Add(Base.Naval);
                 }
 
-                if (rollingService.D6(2) >= 10) {
+                if (_rollingService.D6(2) >= 10) {
                     Bases.Add(Base.Scout);
                 }
 
-                if (rollingService.D6(2) >= 8) {
-                    Bases.Add(Base.Research);
+                if (_rollingService.D6(2) >= 8) {
+                    TradeCodes.Add(TradeCode.ResearchStation);
                 }
-                
-                Bases.Add(Base.Tas);
+
+                Starport.Installations.Add(StarportInstallation.TAS);
 
                 break;
-            case 'B':
-                if (rollingService.D6(2) >= 8) {
+            case StarportClass.B:
+                if (_rollingService.D6(2) >= 8) {
                     Bases.Add(Base.Naval);
                 }
 
-                if (rollingService.D6(2) >= 8) {
+                if (_rollingService.D6(2) >= 8) {
                     Bases.Add(Base.Scout);
                 }
 
-                if (rollingService.D6(2) >= 10) {
-                    Bases.Add(Base.Research);
+                if (_rollingService.D6(2) >= 10) {
+                    TradeCodes.Add(TradeCode.ResearchStation);
                 }
-                
-                Bases.Add(Base.Tas);
+
+                Starport.Installations.Add(StarportInstallation.TAS);
                 break;
-            case 'C':
-                if (rollingService.D6(2) >= 8) {
+            case StarportClass.C:
+                if (_rollingService.D6(2) >= 8) {
                     Bases.Add(Base.Scout);
                 }
 
-                if (rollingService.D6(2) >= 10) {
-                    Bases.Add(Base.Research);
+                if (_rollingService.D6(2) >= 10) {
+                    TradeCodes.Add(TradeCode.ResearchStation);
                 }
 
-                if (rollingService.D6(2) >= 10) {
-                    Bases.Add(Base.Tas);
+                if (_rollingService.D6(2) >= 10) {
+                    Starport.Installations.Add(StarportInstallation.TAS);
                 }
-                
+
                 break;
-            case 'D':
-                if (rollingService.D6(2) >= 7) {
+            case StarportClass.D:
+                if (_rollingService.D6(2) >= 7) {
                     Bases.Add(Base.Scout);
                 }
+
                 break;
-        }
-    }
-
-    public void SetTravelZone()
-    {
-        if (TradeCodes.Contains("Da") || TradeCodes.Contains("Pz")) {
-            TravelCode = TravelCode.Amber;
-        }
-
-        if (TradeCodes.Contains("Fo")) {
-            TravelCode = TravelCode.Red;
         }
     }
 
     public void GenerateName()
     {
-        var filePath = PopulatedBy switch {
-            "Human" => "../../../../MarkovChain/TextFiles/human_planets.txt",
-            "Aslan" => "../../../../MarkovChain/TextFiles/aslan_planets.txt",
-            "Mannu" => "../../../../MarkovChain/TextFiles/mannu_planets.txt",
-            "Largosians" => "../../../../MarkovChain/TextFiles/largosian_planets.txt",
-            "Tortosians" => "../../../../MarkovChain/TextFiles/tortosian_planets.txt",
-            "Ithromir" => "../../../../MarkovChain/TextFiles/ithromir_planets.txt",
-            "Chrotos" => "../../../../MarkovChain/TextFiles/chrotos_planets.txt",
-            "Ka'Sara" => "../../../../MarkovChain/TextFiles/kaSara_planets.txt",
-            "Vargr" => "../../../../MarkovChain/TextFiles/vargr_planets.txt"
+        if (Allegiance == "----") {
+            return;
+        }
+
+        var filePath = Allegiance switch {
+            "Humn" => "../../../../Data/LanguageFiles/human_planets.txt",
+            "Asln" => "../../../../Data/LanguageFiles/aslan_planets.txt",
+            "Keku" => "../../../../Data/LanguageFiles/kekuu_planets.txt",
+            "Stls" => "../../../../Data/LanguageFiles/ssitolusss_planets.txt",
+            "Tort" => "../../../../Data/LanguageFiles/tortosian_planets.txt",
+            "Blbs" => "../../../../Data/LanguageFiles/blubbus_planets.txt",
+            "Crts" => "../../../../Data/LanguageFiles/chrotos_planets.txt",
+            "KaSa" => "../../../../Data/LanguageFiles/kaSara_planets.txt",
+            "Vrgr" => "../../../../Data/LanguageFiles/vargr_planets.txt",
+            _ => "../../../../Data/LanguageFiles/human_planets.txt"
         };
 
-        var markovChain = new global::MarkovChain.MarkovChain(new LargosianSpelling());
-        Name = markovChain.GeneratePlanetName(filePath);
+        Name = NameGenerator.NameGenerator.GeneratePlanetName(filePath);
     }
 }

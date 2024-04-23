@@ -12,7 +12,7 @@ public interface ITectonicWorld
 public class TectonicWorld : ITectonicWorld
 {
     private readonly IRollingService _rollingService;
-
+    
     public TectonicWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
@@ -34,11 +34,11 @@ public class TectonicWorld : ITectonicWorld
     {
         var roll = _rollingService.D6(1);
 
-        if (primaryStar.SpectralType == SpectralType.K && primaryStar.Luminosity == Luminosity.V) {
+        if (primaryStar.SpectralType == SpectralType.K && primaryStar.LuminosityClass == LuminosityClass.V) {
             roll += 2;
-        } else if (primaryStar.SpectralType == SpectralType.M && primaryStar.Luminosity == Luminosity.V) {
+        } else if (primaryStar.SpectralType == SpectralType.M && primaryStar.LuminosityClass == LuminosityClass.V) {
             roll += 4;
-        } else if (primaryStar.SpectralType == SpectralType.L) {
+        } else if (primaryStar.SpectralType == SpectralType.BD) {
             roll += 5;
         }
 
@@ -60,7 +60,7 @@ public class TectonicWorld : ITectonicWorld
     private int GetBiosphere(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
         if (primaryStar.Age >= 4 + ChemistryService.GetAgeMod(planet.Chemistry)) {
-            var mod = primaryStar.SpectralType == SpectralType.L ? -3 : 0;
+            var mod = primaryStar.SpectralType == SpectralType.BD ? -3 : 0;
             return _rollingService.D6(2) + mod;
         }
 

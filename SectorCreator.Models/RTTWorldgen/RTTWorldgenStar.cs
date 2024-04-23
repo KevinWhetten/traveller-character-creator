@@ -9,14 +9,15 @@ public class RttWorldgenStar : Star
     public RttWorldgenStar(RttWorldgenStar newStar)
     {
         Id = newStar.Id;
-        Luminosity = newStar.Luminosity;
+        LuminosityClass = newStar.LuminosityClass;
         CompanionOrbit = newStar.CompanionOrbit;
         ExpansionSize = newStar.ExpansionSize;
+        SpectralType = newStar.SpectralType;
+        SpectralSubclass = newStar.SpectralSubclass;
         Age = newStar.Age;
     }
 
     public Guid Id { get; set; }
-    public Luminosity Luminosity { get; set; }
     public CompanionOrbit CompanionOrbit { get; set; }
     public int ExpansionSize { get; set; }
     public int Age { get; set; }

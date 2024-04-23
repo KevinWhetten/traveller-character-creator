@@ -5,7 +5,7 @@ using NUnit.Framework;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
-using SectorCreator.Models.Factories.Basic;
+using SectorCreator.Models.Basic.Factories;
 using SectorCreator.Models.RTTWorldgen;
 
 namespace SectorCreator.Models.Tests.Factories.Basic;
@@ -379,10 +379,10 @@ public class PlanetFactoryTests
     {
         _mockRollingService.Setup(x => x.D6(2))
             .Returns(govRoll);
+        var planet = new RttWorldgenPlanet();
+        planet.Populations.Add(new Population {PopulationNumber = population});
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
-            Planet = new RttWorldgenPlanet {
-                Population = population
-            }
+            Planet = planet
         };
 
         _classUnderTest.GenerateGovernment();
@@ -418,11 +418,13 @@ public class PlanetFactoryTests
     {
         _mockRollingService.Setup(x => x.D6(2))
             .Returns(lawLevelRoll);
+        var planet = new RttWorldgenPlanet {
+            Government = government
+        };
+
+        planet.Populations.Add(new Population {PopulationNumber = 5});
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
-            Planet = new RttWorldgenPlanet {
-                Population = 5,
-                Government = government
-            }
+            Planet = planet
         };
 
         _classUnderTest.GenerateLawLevel();
@@ -467,10 +469,11 @@ public class PlanetFactoryTests
     {
         _mockRollingService.Setup(x => x.D6(2))
             .Returns(starportRoll);
+
+        var planet = new RttWorldgenPlanet();
+        planet.Populations.Add(new Population {PopulationNumber = population});
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
-            Planet = new RttWorldgenPlanet {
-                Population = population
-            }
+            Planet = planet
         };
 
         _classUnderTest.GenerateStarport(SectorType.HardScience);
@@ -478,17 +481,17 @@ public class PlanetFactoryTests
         Assert.That(_classUnderTest.Planet.Starport, Is.EqualTo(expectedStarport));
     }
 
-    [TestCase('X', 0)]
-    [TestCase('E', 0)]
-    [TestCase('D', 0)]
-    [TestCase('C', 2)]
-    [TestCase('B', 4)]
-    [TestCase('A', 6)]
-    public void WhenGeneratingTechLevelForStarport(char starport, int expectedTechLevel)
+    [TestCase(StarportClass.X, 0)]
+    [TestCase(StarportClass.E, 0)]
+    [TestCase(StarportClass.D, 0)]
+    [TestCase(StarportClass.C, 2)]
+    [TestCase(StarportClass.B, 4)]
+    [TestCase(StarportClass.A, 6)]
+    public void WhenGeneratingTechLevelForStarport(StarportClass starportClass, int expectedTechLevel)
     {
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
             Planet = {
-                Starport = starport,
+                Starport = new Starport {Class = starportClass},
                 Size = 5,
                 Atmosphere = 5,
                 Hydrographics = 5,
@@ -514,7 +517,7 @@ public class PlanetFactoryTests
     {
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
             Planet = {
-                Starport = 'D',
+                Starport = new Starport {Class = StarportClass.D},
                 Size = size,
                 Atmosphere = 5,
                 Hydrographics = 5,
@@ -545,7 +548,7 @@ public class PlanetFactoryTests
     {
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
             Planet = {
-                Starport = 'D',
+                Starport = new Starport {Class = StarportClass.D},
                 Size = 5,
                 Atmosphere = atmosphere,
                 Hydrographics = 5,
@@ -570,7 +573,7 @@ public class PlanetFactoryTests
     {
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
             Planet = {
-                Starport = 'D',
+                Starport = new Starport {Class = StarportClass.D},
                 Size = 5,
                 Atmosphere = 5,
                 Hydrographics = hydrographics,
@@ -600,7 +603,7 @@ public class PlanetFactoryTests
     {
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
             Planet = {
-                Starport = 'D',
+                Starport = new Starport {Class = StarportClass.D},
                 Size = 5,
                 Atmosphere = 5,
                 Hydrographics = 5,
@@ -634,7 +637,7 @@ public class PlanetFactoryTests
     {
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
             Planet = {
-                Starport = 'D',
+                Starport = new Starport {Class = StarportClass.D},
                 Size = 5,
                 Atmosphere = 5,
                 Hydrographics = 5,
@@ -653,7 +656,7 @@ public class PlanetFactoryTests
     {
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
             Planet = {
-                Starport = 'X',
+                Starport = new Starport {Class = StarportClass.X},
                 Size = 0,
                 Atmosphere = 0,
                 Hydrographics = 0,
@@ -673,7 +676,7 @@ public class PlanetFactoryTests
     {
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
             Planet = {
-                Starport = 'A',
+                Starport = new Starport {Class = StarportClass.A},
                 Size = 5,
                 Atmosphere = 5,
                 Hydrographics = 5,
@@ -687,19 +690,19 @@ public class PlanetFactoryTests
         Assert.That(_classUnderTest.Planet.TechLevel, Is.EqualTo(4));
     }
 
-    [TestCase(5, 5, 5, TravelCode.None)]
-    [TestCase(10, 5, 5, TravelCode.None)]
-    [TestCase(5, 0, 5, TravelCode.None)]
-    [TestCase(5, 7, 5, TravelCode.None)]
-    [TestCase(5, 10, 5, TravelCode.None)]
-    [TestCase(5, 5, 0, TravelCode.None)]
-    [TestCase(5, 5, 10, TravelCode.None)]
-    [TestCase(10, 0, 0, TravelCode.Amber)]
-    [TestCase(11, 7, 9, TravelCode.Amber)]
-    [TestCase(12, 10, 10, TravelCode.Amber)]
-    [TestCase(9, 0, 0, TravelCode.None)]
-    [TestCase(10, 0, 8, TravelCode.None)]
-    public void WhenGettingTravelCode(int atmosphere, int government, int lawLevel, TravelCode expected)
+    [TestCase(5, 5, 5, TravelZone.None)]
+    [TestCase(10, 5, 5, TravelZone.None)]
+    [TestCase(5, 0, 5, TravelZone.None)]
+    [TestCase(5, 7, 5, TravelZone.None)]
+    [TestCase(5, 10, 5, TravelZone.None)]
+    [TestCase(5, 5, 0, TravelZone.None)]
+    [TestCase(5, 5, 10, TravelZone.None)]
+    [TestCase(10, 0, 0, TravelZone.Amber)]
+    [TestCase(11, 7, 9, TravelZone.Amber)]
+    [TestCase(12, 10, 10, TravelZone.Amber)]
+    [TestCase(9, 0, 0, TravelZone.None)]
+    [TestCase(10, 0, 8, TravelZone.None)]
+    public void WhenGettingTravelZone(int atmosphere, int government, int lawLevel, TravelZone expected)
     {
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
             Planet = {
@@ -709,9 +712,9 @@ public class PlanetFactoryTests
             }
         };
 
-        _classUnderTest.GetTravelCode();
+        _classUnderTest.GetTravelZone();
 
-        Assert.That(_classUnderTest.Planet.TravelCode, Is.EqualTo(expected));
+        Assert.That(_classUnderTest.Planet.TravelZone, Is.EqualTo(expected));
     }
 
 
@@ -732,7 +735,7 @@ public class PlanetFactoryTests
             .Returns(((BaseTestCase) args).Rolls.First());
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
             Planet = {
-                Starport = 'D'
+                Starport = new Starport {Class = StarportClass.D}
             }
         };
 
@@ -759,27 +762,29 @@ public class PlanetFactoryTests
         },
         new() {
             Rolls = new List<int> {7, 10, 9},
-            Bases = new List<string> {Base.Research}
+            TradeCodes = new List<string> {TradeCode.ResearchStation}
         },
         new() {
             Rolls = new List<int> {7, 9, 10},
-            Bases = new List<string> {Base.Tas}
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {8, 10, 9},
-            Bases = new List<string> {Base.Scout, Base.Research}
+            TradeCodes = new List<string> {TradeCode.ResearchStation}
         },
         new() {
             Rolls = new List<int> {8, 9, 10},
-            Bases = new List<string> {Base.Scout, Base.Tas}
+            Bases = new List<string> {Base.Scout}
         },
         new() {
             Rolls = new List<int> {7, 10, 10},
-            Bases = new List<string> {Base.Research, Base.Tas}
+
+            TradeCodes = new List<string> {TradeCode.ResearchStation}
         },
         new() {
             Rolls = new List<int> {8, 10, 10},
-            Bases = new List<string> {Base.Scout, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Scout},
+            TradeCodes = new List<string> {TradeCode.ResearchStation}
         }
     });
 
@@ -792,7 +797,7 @@ public class PlanetFactoryTests
             .Returns(((BaseTestCase) args).Rolls.Last());
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
             Planet = {
-                Starport = 'C'
+                Starport = new Starport {Class = StarportClass.C}
             }
         };
 
@@ -808,39 +813,50 @@ public class PlanetFactoryTests
     private static List<object> StarportBBasesTestCase = new(new List<BaseTestCase> {
         new() {
             Rolls = new List<int> {0, 0, 0},
-            Bases = new List<string> {Base.Tas}
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {7, 7, 9},
-            Bases = new List<string> {Base.Tas}
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {8, 7, 9},
-            Bases = new List<string> {Base.Naval, Base.Tas}
+            Bases = new List<string> {Base.Naval},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {7, 8, 9},
-            Bases = new List<string> {Base.Scout, Base.Tas}
+            Bases = new List<string> {Base.Scout},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {7, 7, 10},
-            Bases = new List<string> {Base.Research, Base.Tas}
+
+            TradeCodes = new List<string> {TradeCode.ResearchStation},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {8, 8, 9},
-            Bases = new List<string> {Base.Naval, Base.Scout, Base.Tas}
+            Bases = new List<string> {Base.Naval, Base.Scout},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {8, 7, 10},
-            Bases = new List<string> {Base.Naval, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Naval},
+            TradeCodes = new List<string> {TradeCode.ResearchStation},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {7, 8, 10},
-            Bases = new List<string> {Base.Scout, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Scout},
+            TradeCodes = new List<string> {TradeCode.ResearchStation},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {8, 8, 10},
-            Bases = new List<string> {Base.Naval, Base.Scout, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Naval, Base.Scout},
+            TradeCodes = new List<string> {TradeCode.ResearchStation},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         }
     });
 
@@ -853,7 +869,7 @@ public class PlanetFactoryTests
             .Returns(((BaseTestCase) args).Rolls.Last());
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
             Planet = {
-                Starport = 'B'
+                Starport = new Starport {Class = StarportClass.B}
             }
         };
 
@@ -864,45 +880,63 @@ public class PlanetFactoryTests
         foreach (var expected in ((BaseTestCase) args).Bases) {
             Assert.That(_classUnderTest.Planet.Bases, Does.Contain(expected));
         }
+
+        foreach (var expected in ((BaseTestCase) args).TradeCodes) {
+            Assert.That(_classUnderTest.Planet.TradeCodes, Does.Contain(expected));
+        }
+
+        foreach (var expected in ((BaseTestCase) args).Installations) {
+            Assert.That(_classUnderTest.Planet.Starport.Installations, Does.Contain(expected));
+        }
     }
 
 
     private static List<object> StarportABasesTestCase = new(new List<BaseTestCase> {
         new() {
             Rolls = new List<int> {0, 0, 0},
-            Bases = new List<string> {Base.Tas}
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {7, 9, 7},
-            Bases = new List<string> {Base.Tas}
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {8, 9, 7},
-            Bases = new List<string> {Base.Naval, Base.Tas}
+            Bases = new List<string> {Base.Naval},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {7, 10, 7},
-            Bases = new List<string> {Base.Scout, Base.Tas}
+            Bases = new List<string> {Base.Scout},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {7, 9, 8},
-            Bases = new List<string> {Base.Research, Base.Tas}
+            TradeCodes = new List<string> {TradeCode.ResearchStation},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {8, 10, 7},
-            Bases = new List<string> {Base.Naval, Base.Scout, Base.Tas}
+            Bases = new List<string> {Base.Naval, Base.Scout},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {8, 9, 8},
-            Bases = new List<string> {Base.Naval, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Naval},
+            TradeCodes = new List<string> {TradeCode.ResearchStation},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {7, 10, 8},
-            Bases = new List<string> {Base.Scout, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Scout},
+            TradeCodes = new List<string> {TradeCode.ResearchStation},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         },
         new() {
             Rolls = new List<int> {8, 10, 8},
-            Bases = new List<string> {Base.Naval, Base.Scout, Base.Research, Base.Tas}
+            Bases = new List<string> {Base.Naval, Base.Scout},
+            TradeCodes = new List<string> {TradeCode.ResearchStation},
+            Installations = new List<StarportInstallation> {StarportInstallation.TAS}
         }
     });
 
@@ -915,7 +949,7 @@ public class PlanetFactoryTests
             .Returns(((BaseTestCase) args).Rolls.Last());
         _classUnderTest = new PlanetFactory(_mockRollingService.Object) {
             Planet = {
-                Starport = 'A'
+                Starport = new Starport {Class = StarportClass.A}
             }
         };
 
@@ -926,6 +960,14 @@ public class PlanetFactoryTests
         foreach (var expected in ((BaseTestCase) args).Bases) {
             Assert.That(_classUnderTest.Planet.Bases, Does.Contain(expected));
         }
+
+        foreach (var expected in ((BaseTestCase) args).TradeCodes) {
+            Assert.That(_classUnderTest.Planet.TradeCodes, Does.Contain(expected));
+        }
+
+        foreach (var expected in ((BaseTestCase) args).Installations) {
+            Assert.That(_classUnderTest.Planet.Starport.Installations, Does.Contain(expected));
+        }
     }
 }
 
@@ -933,4 +975,6 @@ internal class BaseTestCase
 {
     internal List<string> Bases = new();
     internal List<int> Rolls = new();
+    internal List<string> TradeCodes = new();
+    internal List<StarportInstallation> Installations = new();
 }

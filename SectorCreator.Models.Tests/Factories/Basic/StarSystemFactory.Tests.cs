@@ -3,10 +3,10 @@ using NUnit.Framework;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
-using SectorCreator.Models.Factories.Basic;
-using SectorCreator.Models.Factories.RttWorldgen;
+using SectorCreator.Models.Basic.Factories;
 using SectorCreator.Models.Factories.StarFrontiers;
 using SectorCreator.Models.RTTWorldgen;
+using SectorCreator.Models.RTTWorldgen.Factories;
 
 namespace SectorCreator.Models.Tests.Factories.Basic;
 
@@ -30,9 +30,9 @@ public class StarSystemFactoryTests
         _planetFactoryMock.Setup(x => x.Generate(It.IsAny<SectorType>(), It.IsAny<Coordinates>()))
             .Returns(new Planet());
         _starFrontiersStarFactoryMock.Setup(x => x.Generate()).Returns(new Star());
-        _rttWorldgenStarFactoryMock.Setup(x => x.Generate(It.IsAny<StarType>(), out spectralRoll))
+        _rttWorldgenStarFactoryMock.Setup(x => x.Generate(out spectralRoll))
             .Returns(new RttWorldgenStar());
-        _rttWorldgenStarFactoryMock.Setup(x => x.Generate(It.IsAny<StarType>(),It.IsAny<int>()))
+        _rttWorldgenStarFactoryMock.Setup(x => x.Generate(It.IsAny<int>()))
             .Returns(new RttWorldgenStar());
         _starFrontiersPlanetFactoryMock.Setup(x => x.Generate(It.IsAny<SectorType>(), It.IsAny<Coordinates>())).Returns(new Planet());
         _rttWorldgenPlanetFactoryMock.Setup(x => x.Generate(It.IsAny<SectorType>(), It.IsAny<Coordinates>()))

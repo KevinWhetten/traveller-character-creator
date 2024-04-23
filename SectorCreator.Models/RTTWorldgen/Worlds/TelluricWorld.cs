@@ -11,7 +11,7 @@ public interface ITelluricWorld
 public class TelluricWorld : ITelluricWorld
 {
     private readonly IRollingService _rollingService;
-
+    
     public TelluricWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;

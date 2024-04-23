@@ -9,8 +9,6 @@ namespace SectorCreator.Models.Tests.Services.TradeCodeServiceTests;
 [TestFixture]
 public class TradeCodeServiceTests
 {
-    private readonly TradeCodeService _classUnderTest = new(new RollingService());
-
     [TestCase(0, false)]
     [TestCase(11, false)]
     [TestCase(12, true)]
@@ -21,7 +19,7 @@ public class TradeCodeServiceTests
             TechLevel = techLevel
         };
 
-        _classUnderTest.AddHighTechnologyTradeCode(planet);
+        TradeCodeService.AddHighTechnologyTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.HighTechnology), Is.EqualTo(expected));
     }
@@ -39,7 +37,7 @@ public class TradeCodeServiceTests
             TechLevel = techLevel
         };
 
-        _classUnderTest.AddLowTechnologyTradeCode(planet);
+        TradeCodeService.AddLowTechnologyTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.LowTechnology), Is.EqualTo(expected));
     }
@@ -48,6 +46,6 @@ public class TradeCodeServiceTests
     public void GetTradeCodes()
     {
         // TODO: Finish
-        _classUnderTest.AddTradeCodes(new Planet());
+        TradeCodeService.AddTradeCodes(new Planet());
     }
 }

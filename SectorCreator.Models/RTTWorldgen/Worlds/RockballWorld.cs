@@ -11,7 +11,7 @@ public interface IRockballWorld
 public class RockballWorld : IRockballWorld
 {
     private readonly IRollingService _rollingService;
-
+    
     public RockballWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
@@ -31,7 +31,7 @@ public class RockballWorld : IRockballWorld
     private int GetHydrographics(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
         var hydrographics = _rollingService.D6(2) + planet.Size - 11;
-        if (primaryStar.SpectralType == SpectralType.L) {
+        if (primaryStar.SpectralType == SpectralType.BD) {
             hydrographics++;
         }
 

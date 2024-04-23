@@ -2,8 +2,7 @@
 using NUnit.Framework;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models.Basic;
-using SectorCreator.Models.Factories.RttWorldgen;
+using SectorCreator.Models.RTTWorldgen.Factories;
 
 namespace SectorCreator.Models.Tests.Factories.RttWorldgen;
 
@@ -18,7 +17,7 @@ public class RttWorldgenStarFactoryTests
     {
         _classUnderTest = new RttWorldgenStarFactory(_mockRollingService.Object);
 
-        _classUnderTest.Generate(StarType.Primary, out int spectralRoll);
+        _classUnderTest.Generate(out var spectralRoll);
         
         Assert.That(spectralRoll, Is.TypeOf<int>());
     }
@@ -93,20 +92,20 @@ public class RttWorldgenStarFactoryTests
         Assert.That(_classUnderTest.Star.Age, Is.EqualTo(expectedAge));
     }
 
-    [TestCase(0, 1, SpectralType.A, Luminosity.V)]
-    [TestCase(3, 1, SpectralType.F, Luminosity.IV)]
-    [TestCase(3, 2, SpectralType.F, Luminosity.IV)]
-    [TestCase(3, 3, SpectralType.K, Luminosity.III)]
-    [TestCase(3, 4, SpectralType.D, Luminosity.None)]
-    [TestCase(3, 5, SpectralType.D, Luminosity.None)]
-    [TestCase(3, 6, SpectralType.D, Luminosity.None)]
-    [TestCase(4, 1, SpectralType.D, Luminosity.None)]
-    [TestCase(7, 1, SpectralType.D, Luminosity.None)]
-    [TestCase(10, 1, SpectralType.D, Luminosity.None)]
-    [TestCase(12, 1, SpectralType.D, Luminosity.None)]
-    [TestCase(15, 1, SpectralType.D, Luminosity.None)]
-    [TestCase(18, 1, SpectralType.D, Luminosity.None)]
-    public void WhenModifyingSpectralTypeA(int age, int roll, SpectralType expectedSpectralType, Luminosity expectedLuminosity)
+    [TestCase(0, 1, SpectralType.A, LuminosityClass.V)]
+    [TestCase(3, 1, SpectralType.F, LuminosityClass.IV)]
+    [TestCase(3, 2, SpectralType.F, LuminosityClass.IV)]
+    [TestCase(3, 3, SpectralType.K, LuminosityClass.III)]
+    [TestCase(3, 4, SpectralType.D, LuminosityClass.None)]
+    [TestCase(3, 5, SpectralType.D, LuminosityClass.None)]
+    [TestCase(3, 6, SpectralType.D, LuminosityClass.None)]
+    [TestCase(4, 1, SpectralType.D, LuminosityClass.None)]
+    [TestCase(7, 1, SpectralType.D, LuminosityClass.None)]
+    [TestCase(10, 1, SpectralType.D, LuminosityClass.None)]
+    [TestCase(12, 1, SpectralType.D, LuminosityClass.None)]
+    [TestCase(15, 1, SpectralType.D, LuminosityClass.None)]
+    [TestCase(18, 1, SpectralType.D, LuminosityClass.None)]
+    public void WhenModifyingSpectralTypeA(int age, int roll, SpectralType expectedSpectralType, LuminosityClass expectedLuminosityClass)
     {
         _mockRollingService.Setup(x => x.D6(1)).Returns(roll);
         _classUnderTest = new RttWorldgenStarFactory(_mockRollingService.Object) {
@@ -119,23 +118,23 @@ public class RttWorldgenStarFactoryTests
         _classUnderTest.ModifySpectralType();
 
         Assert.That(_classUnderTest.Star.SpectralType, Is.EqualTo(expectedSpectralType));
-        Assert.That(_classUnderTest.Star.Luminosity, Is.EqualTo(expectedLuminosity));
+        Assert.That(_classUnderTest.Star.LuminosityClass, Is.EqualTo(expectedLuminosityClass));
     }
 
-    [TestCase(0, 1, SpectralType.F, Luminosity.V)]
-    [TestCase(4, 1, SpectralType.F, Luminosity.V)]
-    [TestCase(6, 1, SpectralType.G, Luminosity.IV)]
-    [TestCase(6, 2, SpectralType.G, Luminosity.IV)]
-    [TestCase(6, 3, SpectralType.G, Luminosity.IV)]
-    [TestCase(6, 4, SpectralType.G, Luminosity.IV)]
-    [TestCase(6, 5, SpectralType.M, Luminosity.III)]
-    [TestCase(6, 6, SpectralType.M, Luminosity.III)]
-    [TestCase(7, 1, SpectralType.D, Luminosity.None)]
-    [TestCase(10, 1, SpectralType.D, Luminosity.None)]
-    [TestCase(12, 1, SpectralType.D, Luminosity.None)]
-    [TestCase(15, 1, SpectralType.D, Luminosity.None)]
-    [TestCase(18, 1, SpectralType.D, Luminosity.None)]
-    public void WhenModifyingSpectralTypeF(int age, int roll, SpectralType expectedSpectralType, Luminosity expectedLuminosity)
+    [TestCase(0, 1, SpectralType.F, LuminosityClass.V)]
+    [TestCase(4, 1, SpectralType.F, LuminosityClass.V)]
+    [TestCase(6, 1, SpectralType.G, LuminosityClass.IV)]
+    [TestCase(6, 2, SpectralType.G, LuminosityClass.IV)]
+    [TestCase(6, 3, SpectralType.G, LuminosityClass.IV)]
+    [TestCase(6, 4, SpectralType.G, LuminosityClass.IV)]
+    [TestCase(6, 5, SpectralType.M, LuminosityClass.III)]
+    [TestCase(6, 6, SpectralType.M, LuminosityClass.III)]
+    [TestCase(7, 1, SpectralType.D, LuminosityClass.None)]
+    [TestCase(10, 1, SpectralType.D, LuminosityClass.None)]
+    [TestCase(12, 1, SpectralType.D, LuminosityClass.None)]
+    [TestCase(15, 1, SpectralType.D, LuminosityClass.None)]
+    [TestCase(18, 1, SpectralType.D, LuminosityClass.None)]
+    public void WhenModifyingSpectralTypeF(int age, int roll, SpectralType expectedSpectralType, LuminosityClass expectedLuminosityClass)
     {
         _mockRollingService.Setup(x => x.D6(1)).Returns(roll);
         _classUnderTest = new RttWorldgenStarFactory(_mockRollingService.Object) {
@@ -148,22 +147,22 @@ public class RttWorldgenStarFactoryTests
         _classUnderTest.ModifySpectralType();
 
         Assert.That(_classUnderTest.Star.SpectralType, Is.EqualTo(expectedSpectralType));
-        Assert.That(_classUnderTest.Star.Luminosity, Is.EqualTo(expectedLuminosity));
+        Assert.That(_classUnderTest.Star.LuminosityClass, Is.EqualTo(expectedLuminosityClass));
     }
 
-    [TestCase(0, 1, SpectralType.G, Luminosity.V)]
-    [TestCase(4, 1, SpectralType.G, Luminosity.V)]
-    [TestCase(7, 1, SpectralType.G, Luminosity.V)]
-    [TestCase(10, 1, SpectralType.G, Luminosity.V)]
-    [TestCase(12, 1, SpectralType.K, Luminosity.IV)]
-    [TestCase(13, 2, SpectralType.K, Luminosity.IV)]
-    [TestCase(12, 3, SpectralType.K, Luminosity.IV)]
-    [TestCase(13, 4, SpectralType.M, Luminosity.III)]
-    [TestCase(12, 5, SpectralType.M, Luminosity.III)]
-    [TestCase(13, 6, SpectralType.M, Luminosity.III)]
-    [TestCase(15, 1, SpectralType.D, Luminosity.None)]
-    [TestCase(18, 1, SpectralType.D, Luminosity.None)]
-    public void WhenModifyingSpectralTypeG(int age, int roll, SpectralType expectedSpectralType, Luminosity expectedLuminosity)
+    [TestCase(0, 1, SpectralType.G, LuminosityClass.V)]
+    [TestCase(4, 1, SpectralType.G, LuminosityClass.V)]
+    [TestCase(7, 1, SpectralType.G, LuminosityClass.V)]
+    [TestCase(10, 1, SpectralType.G, LuminosityClass.V)]
+    [TestCase(12, 1, SpectralType.K, LuminosityClass.IV)]
+    [TestCase(13, 2, SpectralType.K, LuminosityClass.IV)]
+    [TestCase(12, 3, SpectralType.K, LuminosityClass.IV)]
+    [TestCase(13, 4, SpectralType.M, LuminosityClass.III)]
+    [TestCase(12, 5, SpectralType.M, LuminosityClass.III)]
+    [TestCase(13, 6, SpectralType.M, LuminosityClass.III)]
+    [TestCase(15, 1, SpectralType.D, LuminosityClass.None)]
+    [TestCase(18, 1, SpectralType.D, LuminosityClass.None)]
+    public void WhenModifyingSpectralTypeG(int age, int roll, SpectralType expectedSpectralType, LuminosityClass expectedLuminosityClass)
     {
         _mockRollingService.Setup(x => x.D6(1)).Returns(roll);
         _classUnderTest = new RttWorldgenStarFactory(_mockRollingService.Object) {
@@ -176,7 +175,7 @@ public class RttWorldgenStarFactoryTests
         _classUnderTest.ModifySpectralType();
 
         Assert.That(_classUnderTest.Star.SpectralType, Is.EqualTo(expectedSpectralType));
-        Assert.That(_classUnderTest.Star.Luminosity, Is.EqualTo(expectedLuminosity));
+        Assert.That(_classUnderTest.Star.LuminosityClass, Is.EqualTo(expectedLuminosityClass));
     }
 
     [TestCase(0)]
@@ -203,21 +202,21 @@ public class RttWorldgenStarFactoryTests
         _classUnderTest.ModifySpectralType();
 
         Assert.That(_classUnderTest.Star.SpectralType, Is.EqualTo(SpectralType.K));
-        Assert.That(_classUnderTest.Star.Luminosity, Is.EqualTo(Luminosity.V));
+        Assert.That(_classUnderTest.Star.LuminosityClass, Is.EqualTo(LuminosityClass.V));
     }
 
-    [TestCase(true, 2, SpectralType.M, Luminosity.V)]
-    [TestCase(true, 7, SpectralType.M, Luminosity.V)]
-    [TestCase(true, 9, SpectralType.M, Luminosity.V)]
-    [TestCase(true, 10, SpectralType.M, Luminosity.Ve)]
-    [TestCase(true, 12, SpectralType.M, Luminosity.Ve)]
-    [TestCase(false, 2, SpectralType.M, Luminosity.V)]
-    [TestCase(false, 7, SpectralType.M, Luminosity.V)]
-    [TestCase(false, 8, SpectralType.M, Luminosity.Ve)]
-    [TestCase(false, 10, SpectralType.M, Luminosity.Ve)]
-    [TestCase(false, 11, SpectralType.L, Luminosity.None)]
-    [TestCase(false, 12, SpectralType.L, Luminosity.None)]
-    public void WhenModifyingSpectralTypeM(bool isPrimary, int roll, SpectralType expectedSpectralType, Luminosity expectedLuminosity)
+    [TestCase(true, 2, SpectralType.M, LuminosityClass.V)]
+    [TestCase(true, 7, SpectralType.M, LuminosityClass.V)]
+    [TestCase(true, 9, SpectralType.M, LuminosityClass.V)]
+    [TestCase(true, 10, SpectralType.M, LuminosityClass.Ve)]
+    [TestCase(true, 12, SpectralType.M, LuminosityClass.Ve)]
+    [TestCase(false, 2, SpectralType.M, LuminosityClass.V)]
+    [TestCase(false, 7, SpectralType.M, LuminosityClass.V)]
+    [TestCase(false, 8, SpectralType.M, LuminosityClass.Ve)]
+    [TestCase(false, 10, SpectralType.M, LuminosityClass.Ve)]
+    [TestCase(false, 11, SpectralType.L, LuminosityClass.None)]
+    [TestCase(false, 12, SpectralType.L, LuminosityClass.None)]
+    public void WhenModifyingSpectralTypeM(bool isPrimary, int roll, SpectralType expectedSpectralType, LuminosityClass expectedLuminosityClass)
     {
         _mockRollingService.Setup(x => x.D6(2)).Returns(roll);
         _classUnderTest = new RttWorldgenStarFactory(_mockRollingService.Object) {
@@ -230,7 +229,7 @@ public class RttWorldgenStarFactoryTests
         _classUnderTest.ModifySpectralType();
 
         Assert.That(_classUnderTest.Star.SpectralType, Is.EqualTo(expectedSpectralType));
-        Assert.That(_classUnderTest.Star.Luminosity, Is.EqualTo(expectedLuminosity));
+        Assert.That(_classUnderTest.Star.LuminosityClass, Is.EqualTo(expectedLuminosityClass));
     }
 
     [TestCase(true, 1, CompanionOrbit.None)]

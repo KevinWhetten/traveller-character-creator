@@ -12,6 +12,7 @@ public interface ISnowballWorld
 public class SnowballWorld : ISnowballWorld
 {
     private readonly IRollingService _rollingService;
+    
     public SnowballWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
@@ -50,7 +51,7 @@ public class SnowballWorld : ISnowballWorld
     private PlanetChemistry GetChemistry(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
         var roll = _rollingService.D6(1);
-        if (primaryStar.SpectralType == SpectralType.L) {
+        if (primaryStar.SpectralType == SpectralType.BD) {
             roll += 2;
         }
 

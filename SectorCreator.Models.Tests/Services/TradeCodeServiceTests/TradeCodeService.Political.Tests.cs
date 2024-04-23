@@ -9,8 +9,6 @@ namespace SectorCreator.Models.Tests.Services.TradeCodeServiceTests;
 [TestFixture]
 public class TradeCodeService_PoliticalTests
 {
-    private readonly TradeCodeService _classUnderTest = new(new RollingService());
-
     [Test]
     public void AddSubsectorCapitalTradeCode()
     {
@@ -32,7 +30,7 @@ public class TradeCodeService_PoliticalTests
         var planet = new RttWorldgenPlanet {
             Biosphere = biosphere
         };
-        _classUnderTest.AddCapitalTradeCode(planet);
+        TradeCodeService.AddCapitalTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.Capital), Is.EqualTo(expected));
     }
 

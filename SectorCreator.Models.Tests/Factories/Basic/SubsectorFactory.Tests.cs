@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models.Factories.Basic;
+using SectorCreator.Models.Basic.Factories;
 
 namespace SectorCreator.Models.Tests.Factories.Basic;
 

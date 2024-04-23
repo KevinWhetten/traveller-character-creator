@@ -2,7 +2,7 @@
 
 public enum PlanetOrbit
 {
-    Epistellar,
     Inner,
+    Epistellar,
     Outer
 }

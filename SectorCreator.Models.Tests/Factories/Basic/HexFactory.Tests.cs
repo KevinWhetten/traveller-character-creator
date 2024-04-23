@@ -4,10 +4,10 @@ using NUnit.Framework;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
-using SectorCreator.Models.Factories.Basic;
-using SectorCreator.Models.Factories.RttWorldgen;
-using SectorCreator.Models.Factories.t5;
+using SectorCreator.Models.Basic.Factories;
+using SectorCreator.Models.Factories.T5;
 using SectorCreator.Models.RTTWorldgen;
+using SectorCreator.Models.RTTWorldgen.Factories;
 
 namespace SectorCreator.Models.Tests.Factories.Basic;
 

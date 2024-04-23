@@ -7,4 +7,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Reference Include="MarkovChain">
+        <HintPath>..\SectorCreator.Models.Tests\bin\Debug\net6.0\MarkovChain.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>

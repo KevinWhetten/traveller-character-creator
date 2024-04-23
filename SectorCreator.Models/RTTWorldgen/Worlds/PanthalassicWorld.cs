@@ -10,10 +10,9 @@ public interface IPanthalassicWorld
 }
 public class PanthalassicWorld: IPanthalassicWorld
 {
-  private int AgeMod;
-
   private readonly IRollingService _rollingService;
-
+  private int AgeMod;
+  
   public PanthalassicWorld(IRollingService rollingService)
   {
     _rollingService = rollingService;
@@ -34,15 +33,15 @@ public class PanthalassicWorld: IPanthalassicWorld
   private PlanetChemistry GetChemistry(RttWorldgenStar primaryStar)
   {
     var chemistryRoll = _rollingService.D6(1);
-    if (primaryStar.SpectralType == SpectralType.K && primaryStar.Luminosity == Luminosity.V)
+    if (primaryStar.SpectralType == SpectralType.K && primaryStar.LuminosityClass == LuminosityClass.V)
     {
       chemistryRoll += 2;
     }
-    else if (primaryStar.SpectralType == SpectralType.M && primaryStar.Luminosity == Luminosity.V)
+    else if (primaryStar.SpectralType == SpectralType.M && primaryStar.LuminosityClass == LuminosityClass.V)
     {
       chemistryRoll += 4;
     }
-    else if (primaryStar.SpectralType == SpectralType.L)
+    else if (primaryStar.SpectralType == SpectralType.BD)
     {
       chemistryRoll += 5;
     }

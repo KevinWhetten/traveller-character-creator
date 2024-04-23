@@ -3,7 +3,7 @@ using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
 using SectorCreator.Models.T5;
 
-namespace SectorCreator.Models.Factories.t5;
+namespace SectorCreator.Models.Factories.T5;
 
 public interface IT5StarSystemFactory
 {
@@ -14,8 +14,9 @@ public class It5StarSystemFactory : IT5StarSystemFactory
 {
     private readonly IRollingService _rollingService;
 
+
     public readonly T5Star Star = new();
-    public readonly T5Planet Planet = new();
+    public readonly T5Planet Planet = new(new RollingService());
     public readonly StarSystem StarSystem = new();
 
     public It5StarSystemFactory(IRollingService rollingService)
@@ -37,13 +38,13 @@ public class It5StarSystemFactory : IT5StarSystemFactory
 
     public void GeneratePlanetStarport()
     {
-        Planet.Starport = _rollingService.D6(2) switch {
-            (<= 4) => 'A',
-            5 or 6 => 'B',
-            7 or 8 => 'C',
-            9 => 'D',
-            10 or 11 => 'E',
-            (>= 12) => 'X'
+        Planet.Starport.Class = _rollingService.D6(2) switch {
+            (<= 4) => StarportClass.A,
+            5 or 6 => StarportClass.B,
+            7 or 8 => StarportClass.C,
+            9 => StarportClass.D,
+            10 or 11 => StarportClass.E,
+            (>= 12) => StarportClass.X
         };
     }
 
@@ -69,55 +70,55 @@ public class It5StarSystemFactory : IT5StarSystemFactory
 
     public void GenerateLuminosity()
     {
-        Star.Luminosity = Star.SpectralType switch {
+        Star.LuminosityClass = Star.SpectralType switch {
             SpectralType.O => _rollingService.Flux() switch {
-                (<= -6 or -5) => Luminosity.Ia,
-                -4 => Luminosity.Ib,
-                -3 => Luminosity.II,
-                (>= -2 and <= 0) => Luminosity.III,
-                (>= 1 and <= 3) => Luminosity.V,
-                4 => Luminosity.IV,
-                (>= 5) => Luminosity.D
+                (<= -6 or -5) => LuminosityClass.Ia,
+                -4 => LuminosityClass.Ib,
+                -3 => LuminosityClass.II,
+                (>= -2 and <= 0) => LuminosityClass.III,
+                (>= 1 and <= 3) => LuminosityClass.V,
+                4 => LuminosityClass.IV,
+                (>= 5) => LuminosityClass.VII
             },
             SpectralType.B => _rollingService.Flux() switch {
-                (<= -6 or -5) => Luminosity.Ia,
-                -4 => Luminosity.Ib,
-                -3 => Luminosity.II,
-                (>= -2 and <= 1) => Luminosity.III,
-                (2 or 3) => Luminosity.V,
-                4 => Luminosity.IV,
-                (>= 5) => Luminosity.D
+                (<= -6 or -5) => LuminosityClass.Ia,
+                -4 => LuminosityClass.Ib,
+                -3 => LuminosityClass.II,
+                (>= -2 and <= 1) => LuminosityClass.III,
+                (2 or 3) => LuminosityClass.V,
+                4 => LuminosityClass.IV,
+                (>= 5) => LuminosityClass.VII
             },
             SpectralType.A => _rollingService.Flux() switch {
-                (<= -6 or -5) => Luminosity.Ia,
-                -4 => Luminosity.Ib,
-                -3 => Luminosity.II,
-                -2 => Luminosity.III,
-                -1 => Luminosity.IV,
-                (>= 0 and <= 4) => Luminosity.V,
-                (>= 5) => Luminosity.D
+                (<= -6 or -5) => LuminosityClass.Ia,
+                -4 => LuminosityClass.Ib,
+                -3 => LuminosityClass.II,
+                -2 => LuminosityClass.III,
+                -1 => LuminosityClass.IV,
+                (>= 0 and <= 4) => LuminosityClass.V,
+                (>= 5) => LuminosityClass.VII
             },
             SpectralType.F or SpectralType.G or SpectralType.K => _rollingService.Flux() switch {
-                (<= -6 or -5) => Luminosity.II,
-                -4 => Luminosity.III,
-                -3 => Luminosity.IV,
-                (>= -2 and <= 3) => Luminosity.V,
-                4 => Luminosity.VI,
-                (>= 5) => Luminosity.D
+                (<= -6 or -5) => LuminosityClass.II,
+                -4 => LuminosityClass.III,
+                -3 => LuminosityClass.IV,
+                (>= -2 and <= 3) => LuminosityClass.V,
+                4 => LuminosityClass.VI,
+                (>= 5) => LuminosityClass.VII
             },
             SpectralType.M => _rollingService.Flux() switch {
-                (<= -3) => Luminosity.II,
-                -2 => Luminosity.III,
-                (>= -1 and <= 3) => Luminosity.V,
-                4 => Luminosity.VI,
-                (>= 5) => Luminosity.D
+                (<= -3) => LuminosityClass.II,
+                -2 => LuminosityClass.III,
+                (>= -1 and <= 3) => LuminosityClass.V,
+                4 => LuminosityClass.VI,
+                (>= 5) => LuminosityClass.VII
             }
         };
     }
 
     private void GenerateSpectralSubclass()
     {
-        Star.SpectralSubclass = Star.Luminosity != Luminosity.D ? _rollingService.D10(1) : 0;
+        Star.SpectralSubclass = Star.LuminosityClass != LuminosityClass.VII ? _rollingService.D10(1) : 0;
     }
 
     public void GenerateMainworldOrbit()
@@ -202,7 +203,7 @@ public class It5StarSystemFactory : IT5StarSystemFactory
 
     public void GenerateStarSystemPBG()
     {
-        var planets = _rollingService.D10(1) - 1;
+        var planets = _rollingService.D(9, 1) - 1;
         var belts = _rollingService.D6(1) - 3;
         var gasGiants = (_rollingService.D6(2) / 2) - 2;
 
@@ -210,7 +211,7 @@ public class It5StarSystemFactory : IT5StarSystemFactory
         belts = Math.Max(belts, 0);
         gasGiants = Math.Max(gasGiants, 0);
 
-        StarSystem.PBG = planets * 100 + belts * 10 + gasGiants;
+        StarSystem.PBG = $"{planets}{belts}{gasGiants}";
     }
 
     private void GeneratePlanetUWP()

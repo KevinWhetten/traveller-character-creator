@@ -12,7 +12,7 @@ public interface IAreanWorld
 public class AreanWorld : IAreanWorld
 {
     private readonly IRollingService _rollingService;
-
+    
     public AreanWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
@@ -56,7 +56,7 @@ public class AreanWorld : IAreanWorld
     private PlanetChemistry GetChemistry(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
         var roll = _rollingService.D6(1);
-        if (primaryStar.SpectralType == SpectralType.L || planet.PlanetOrbit == PlanetOrbit.Outer) {
+        if (primaryStar.SpectralType == SpectralType.BD || planet.PlanetOrbit == PlanetOrbit.Outer) {
             roll += 2;
         }
 

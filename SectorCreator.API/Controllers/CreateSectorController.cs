@@ -2,11 +2,12 @@
 using SectorCreator.BL;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models.Factories.Basic;
-using SectorCreator.Models.Factories.RttWorldgen;
+using SectorCreator.Models.Basic.Factories;
 using SectorCreator.Models.Factories.StarFrontiers;
-using SectorCreator.Models.Factories.t5;
+using SectorCreator.Models.Factories.T5;
+using SectorCreator.Models.RTTWorldgen.Factories;
 using SectorCreator.Models.RTTWorldgen.Worlds;
+using SectorCreator.WorldBuilder;
 
 namespace SectorCreator.API.Controllers;
 
@@ -14,17 +15,11 @@ namespace SectorCreator.API.Controllers;
 [Route("[controller]")]
 public class CreateSectorController : ControllerBase
 {
-    private readonly ISectorGenerator _sectorGenerator;
-
-    public CreateSectorController()
-    {
-        _sectorGenerator = new SectorGenerator(
+    private readonly ISectorGenerator _sectorGenerator = new SectorGenerator(
             new SectorFactory(
                 new SubsectorFactory(
-                    new HexFactory(
-                        new RollingService(),
-                        new StarSystemFactory(
-                            new RollingService(),
+                    new HexFactory(new RollingService(), 
+                        new StarSystemFactory(new RollingService(), 
                             new PlanetFactory(new RollingService()),
                             new StarFrontiersStarFactory(new RollingService()),
                             new StarFrontiersPlanetFactory(new RollingService())
@@ -32,8 +27,7 @@ public class CreateSectorController : ControllerBase
                         new It5StarSystemFactory(new RollingService()),
                         new RttWorldgenStarSystemFactory(new RollingService(),
                             new RttWorldgenStarFactory(new RollingService()),
-                            new RttWorldgenPlanetFactory(
-                                new RollingService(),
+                            new RttWorldgenPlanetFactory(new RollingService(),
                                 new AcheronianWorld(new RollingService()),
                                 new AreanWorld(new RollingService()),
                                 new AridWorld(new RollingService()),
@@ -59,7 +53,6 @@ public class CreateSectorController : ControllerBase
                 )
             )
         );
-    }
 
     [HttpGet]
     [Route("BasicSector")]
@@ -88,12 +81,12 @@ public class CreateSectorController : ControllerBase
     }
 
     [HttpGet]
-    [Route("HardScienceSector")]
-    // https://www.traveller-srd.com/core-rules/world-creation/
-    public IActionResult GetHardScienceSector()
+    [Route("WorldBuilderSector")]
+    // 
+    public IActionResult GetWorldBuilderSector()
     {
         try {
-            return Ok(_sectorGenerator.GenerateMongooseSector(SectorType.HardScience));
+            return Ok(new WorldBuilderSector());
         }
         catch (Exception) {
             return StatusCode(500);

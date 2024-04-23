@@ -12,28 +12,28 @@ public class OceanicWorldTests
 {
   private OceanicWorld _classUnderTest = new(new RollingService());
 
-  [TestCase(1, 1, 1, 0, SpectralType.A, Luminosity.I, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 0, 1)]
-  [TestCase(3, 1, 2, 0, SpectralType.A, Luminosity.I, PlanetOrbit.Inner, 7, PlanetChemistry.Water, 0, 3)]
-  [TestCase(6, 1, 3, 0, SpectralType.A, Luminosity.I, PlanetOrbit.Inner, 10, PlanetChemistry.Water, 0, 7)]
-  [TestCase(1, 4, 4, 0, SpectralType.K, Luminosity.V, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 0, 2)]
-  [TestCase(1, 5, 5, 0, SpectralType.K, Luminosity.V, PlanetOrbit.Inner, 5, PlanetChemistry.Ammonia, 0, 12)]
-  [TestCase(1, 2, 6, 0, SpectralType.M, Luminosity.V, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 0, 3)]
-  [TestCase(1, 3, 1, 0, SpectralType.M, Luminosity.V, PlanetOrbit.Inner, 5, PlanetChemistry.Ammonia, 0, 1)]
-  [TestCase(1, 4, 2, 0, SpectralType.M, Luminosity.V, PlanetOrbit.Inner, 5, PlanetChemistry.Ammonia, 0, 10)]
-  [TestCase(1, 5, 3, 0, SpectralType.M, Luminosity.V, PlanetOrbit.Inner, 5, PlanetChemistry.Methane, 0, 10)]
-  [TestCase(1, 1, 4, 0, SpectralType.L, Luminosity.V, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 0, 1)]
-  [TestCase(1, 2, 5, 0, SpectralType.L, Luminosity.V, PlanetOrbit.Inner, 5, PlanetChemistry.Ammonia, 0, 12)]
-  [TestCase(1, 3, 6, 0, SpectralType.L, Luminosity.V, PlanetOrbit.Inner, 5, PlanetChemistry.Ammonia, 0, 12)]
-  [TestCase(1, 4, 1, 0, SpectralType.L, Luminosity.V, PlanetOrbit.Inner, 5, PlanetChemistry.Methane, 0, 1)]
-  [TestCase(1, 4, 2, 0, SpectralType.A, Luminosity.I, PlanetOrbit.Outer, 5, PlanetChemistry.Water, 0, 1)]
-  [TestCase(1, 5, 3, 0, SpectralType.A, Luminosity.I, PlanetOrbit.Outer, 5, PlanetChemistry.Ammonia, 0, 10)]
-  [TestCase(6, 1, 12, 0, SpectralType.A, Luminosity.I, PlanetOrbit.Inner, 10, PlanetChemistry.Water, 0, 12)]
-  [TestCase(3, 1, 2, 0, SpectralType.A, Luminosity.IV, PlanetOrbit.Inner, 7, PlanetChemistry.Water, 0, 2)]
-  [TestCase(1, 1, 1, 3, SpectralType.A, Luminosity.I, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 1, 1)]
-  [TestCase(1, 1, 6, 6, SpectralType.A, Luminosity.I, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 6, 5)]
-  [TestCase(1, 1, 6, 6, SpectralType.D, Luminosity.I, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 3, 5)]
+  [TestCase(1, 1, 1, 0, SpectralType.A, LuminosityClass.None, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 0, 1)]
+  [TestCase(3, 1, 2, 0, SpectralType.A, LuminosityClass.None, PlanetOrbit.Inner, 7, PlanetChemistry.Water, 0, 3)]
+  [TestCase(6, 1, 3, 0, SpectralType.A, LuminosityClass.None, PlanetOrbit.Inner, 10, PlanetChemistry.Water, 0, 7)]
+  [TestCase(1, 4, 4, 0, SpectralType.K, LuminosityClass.V, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 0, 2)]
+  [TestCase(1, 5, 5, 0, SpectralType.K, LuminosityClass.V, PlanetOrbit.Inner, 5, PlanetChemistry.Ammonia, 0, 12)]
+  [TestCase(1, 2, 6, 0, SpectralType.M, LuminosityClass.V, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 0, 3)]
+  [TestCase(1, 3, 1, 0, SpectralType.M, LuminosityClass.V, PlanetOrbit.Inner, 5, PlanetChemistry.Ammonia, 0, 1)]
+  [TestCase(1, 4, 2, 0, SpectralType.M, LuminosityClass.V, PlanetOrbit.Inner, 5, PlanetChemistry.Ammonia, 0, 10)]
+  [TestCase(1, 5, 3, 0, SpectralType.M, LuminosityClass.V, PlanetOrbit.Inner, 5, PlanetChemistry.Methane, 0, 10)]
+  [TestCase(1, 1, 4, 0, SpectralType.L, LuminosityClass.V, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 0, 1)]
+  [TestCase(1, 2, 5, 0, SpectralType.L, LuminosityClass.V, PlanetOrbit.Inner, 5, PlanetChemistry.Ammonia, 0, 12)]
+  [TestCase(1, 3, 6, 0, SpectralType.L, LuminosityClass.V, PlanetOrbit.Inner, 5, PlanetChemistry.Ammonia, 0, 12)]
+  [TestCase(1, 4, 1, 0, SpectralType.L, LuminosityClass.V, PlanetOrbit.Inner, 5, PlanetChemistry.Methane, 0, 1)]
+  [TestCase(1, 4, 2, 0, SpectralType.A, LuminosityClass.None, PlanetOrbit.Outer, 5, PlanetChemistry.Water, 0, 1)]
+  [TestCase(1, 5, 3, 0, SpectralType.A, LuminosityClass.None, PlanetOrbit.Outer, 5, PlanetChemistry.Ammonia, 0, 10)]
+  [TestCase(6, 1, 12, 0, SpectralType.A, LuminosityClass.None, PlanetOrbit.Inner, 10, PlanetChemistry.Water, 0, 12)]
+  [TestCase(3, 1, 2, 0, SpectralType.A, LuminosityClass.IV, PlanetOrbit.Inner, 7, PlanetChemistry.Water, 0, 2)]
+  [TestCase(1, 1, 1, 3, SpectralType.A, LuminosityClass.None, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 1, 1)]
+  [TestCase(1, 1, 6, 6, SpectralType.A, LuminosityClass.None, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 6, 5)]
+  [TestCase(1, 1, 6, 6, SpectralType.D, LuminosityClass.None, PlanetOrbit.Inner, 5, PlanetChemistry.Water, 3, 5)]
   public void WhenGenerating(int sizeRoll, int chemistryRoll, int atmosphereRoll, int age,
-    SpectralType spectralType, Luminosity luminosity, PlanetOrbit planetOrbit,
+    SpectralType spectralType, LuminosityClass luminosityClass, PlanetOrbit planetOrbit,
     int expectedSize, PlanetChemistry expectedChemistry, int expectedBiosphere, int expectedAtmosphere)
   {
     // Setup
@@ -48,7 +48,7 @@ public class OceanicWorldTests
 
     // Act
     var oceanicWorld = _classUnderTest.Generate(new RttWorldgenPlanet {PlanetOrbit = planetOrbit},
-      new RttWorldgenStar {SpectralType = spectralType, Luminosity = luminosity, Age = age});
+      new RttWorldgenStar {SpectralType = spectralType, LuminosityClass = luminosityClass, Age = age});
 
     // Assert
     Assert.That(oceanicWorld.Size, Is.EqualTo(expectedSize));

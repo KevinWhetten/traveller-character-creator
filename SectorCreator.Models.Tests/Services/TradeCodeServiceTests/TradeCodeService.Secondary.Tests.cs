@@ -10,8 +10,6 @@ namespace SectorCreator.Models.Tests.Services.TradeCodeServiceTests;
 [TestFixture]
 public class TradeCodeService_SecondaryTests
 {
-    private readonly TradeCodeService _classUnderTest = new(new RollingService());
-
     [TestCase(6, 6, 4, PlanetOrbit.Inner, false, true)]
     [TestCase(3, 6, 4, PlanetOrbit.Inner, false, false)]
     [TestCase(4, 6, 4, PlanetOrbit.Inner, false, true)]
@@ -34,11 +32,13 @@ public class TradeCodeService_SecondaryTests
         var planet = new RttWorldgenPlanet {
             Atmosphere = atmosphere,
             Hydrographics = hydrographics,
-            Population = population,
             PlanetOrbit = planetOrbit,
             IsMainWorld = isMainWorld
         };
-        _classUnderTest.AddFarmingTradeCode(planet);
+        planet.Populations.Add(new Population {
+            PopulationNumber = population
+        });
+        TradeCodeService.AddFarmingTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.Farming), Is.EqualTo(expected));
     }
 
@@ -54,11 +54,13 @@ public class TradeCodeService_SecondaryTests
     public void AddMiningTradeCode(int population, bool isMainWorld, PlanetType planetType, bool expected)
     {
         var planet = new RttWorldgenPlanet {
-            Population = population,
             IsMainWorld = isMainWorld,
             PlanetType = planetType
         };
-        _classUnderTest.AddMiningTradeCode(planet);
+        planet.Populations.Add(new Population {
+            PopulationNumber = population
+        });
+        TradeCodeService.AddMiningTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.Mining), Is.EqualTo(expected));
     }
 
@@ -73,7 +75,7 @@ public class TradeCodeService_SecondaryTests
             Government = government,
             IsMainWorld = isMainWorld
         };
-        _classUnderTest.AddCaptiveTradeCode(planet);
+        TradeCodeService.AddCaptiveTradeCode(planet);
         var flag = false;
         flag = planet.TradeCodes.Contains(TradeCode.MilitaryRule) || flag;
         flag = planet.TradeCodes.Contains(TradeCode.PrisonCamp) || flag;
@@ -92,7 +94,7 @@ public class TradeCodeService_SecondaryTests
         var planet = new Planet {
             Government = government
         };
-        _classUnderTest.AddCaptiveTradeCode(planet);
+        TradeCodeService.AddCaptiveTradeCode(planet);
         var flag = false;
         flag = planet.TradeCodes.Contains(TradeCode.MilitaryRule) || flag;
         flag = planet.TradeCodes.Contains(TradeCode.PrisonCamp) || flag;
@@ -101,22 +103,26 @@ public class TradeCodeService_SecondaryTests
         Assert.That(flag, Is.EqualTo(expected));
     }
     
-    [TestCase(3, 'X', 1, 10, true)]
-    [TestCase(5, 'X', 1, 10, true)]
-    [TestCase(6, 'X', 1, 10, false)]
-    [TestCase(3, 'E', 1, 10, false)]
-    [TestCase(3, 'X', 0, 10, false)]
-    [TestCase(3, 'X', 1, 6, false)]
-    [TestCase(3, 'X', 1, 7, true)]
-    public void AddReserveTradeCode(int techLevel, char starport, int population, int biosphere, bool expected)
+    [TestCase(3, StarportClass.X, 1, 10, true)]
+    [TestCase(5, StarportClass.X, 1, 10, true)]
+    [TestCase(6, StarportClass.X, 1, 10, false)]
+    [TestCase(3, StarportClass.E, 1, 10, false)]
+    [TestCase(3, StarportClass.X, 0, 10, false)]
+    [TestCase(3, StarportClass.X, 1, 6, false)]
+    [TestCase(3, StarportClass.X, 1, 7, true)]
+    public void AddReserveTradeCode(int techLevel, StarportClass starport, int population, int biosphere, bool expected)
     {
         var planet = new RttWorldgenPlanet {
             TechLevel = techLevel,
-            Starport = starport,
-            Population = population,
+            Starport = new Starport {
+                Class= starport
+            },
             Biosphere = biosphere
         };
-        _classUnderTest.AddReserveTradeCode(planet);
+        planet.Populations.Add(new Population {
+            PopulationNumber = population
+        });
+        TradeCodeService.AddReserveTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.Reserve), Is.EqualTo(expected));
     }

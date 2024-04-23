@@ -11,7 +11,7 @@ public interface IJovianWorld
 public class JovianWorld : IJovianWorld
 {
     private readonly IRollingService _rollingService;
-
+    
     public JovianWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
@@ -63,7 +63,7 @@ public class JovianWorld : IJovianWorld
     {
         if (planet.Biosphere >= 1) {
             var chemistry = _rollingService.D6(1);
-            if (primaryStar.SpectralType == SpectralType.L) {
+            if (primaryStar.SpectralType == SpectralType.BD) {
                 chemistry++;
             }
 

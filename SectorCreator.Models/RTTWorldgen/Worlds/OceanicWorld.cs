@@ -12,7 +12,7 @@ public interface IOceanicWorld
 public class OceanicWorld : IOceanicWorld
 {
     private readonly IRollingService _rollingService;
-
+    
     public OceanicWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
@@ -33,11 +33,11 @@ public class OceanicWorld : IOceanicWorld
     private PlanetChemistry GetChemistry(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
         var chemistryRoll = _rollingService.D6(1);
-        if (primaryStar.SpectralType == SpectralType.K && primaryStar.Luminosity == Luminosity.V) {
+        if (primaryStar.SpectralType == SpectralType.K && primaryStar.LuminosityClass == LuminosityClass.V) {
             chemistryRoll += 2;
-        } else if (primaryStar.SpectralType == SpectralType.M && primaryStar.Luminosity == Luminosity.V) {
+        } else if (primaryStar.SpectralType == SpectralType.M && primaryStar.LuminosityClass == LuminosityClass.V) {
             chemistryRoll += 4;
-        } else if (primaryStar.SpectralType == SpectralType.L) {
+        } else if (primaryStar.SpectralType == SpectralType.BD) {
             chemistryRoll += 5;
         } else if (planet.PlanetOrbit == PlanetOrbit.Outer) {
             chemistryRoll += 2;
@@ -73,13 +73,13 @@ public class OceanicWorld : IOceanicWorld
         int atmosphere;
         if (planet.Chemistry == PlanetChemistry.Water) {
             atmosphere = _rollingService.D6(2) + planet.Size - 6;
-            if (primaryStar.SpectralType == SpectralType.K && primaryStar.Luminosity == Luminosity.V) {
+            if (primaryStar.SpectralType == SpectralType.K && primaryStar.LuminosityClass == LuminosityClass.V) {
                 atmosphere--;
-            } else if (primaryStar.SpectralType == SpectralType.M && primaryStar.Luminosity == Luminosity.V) {
+            } else if (primaryStar.SpectralType == SpectralType.M && primaryStar.LuminosityClass == LuminosityClass.V) {
                 atmosphere -= 2;
-            } else if (primaryStar.SpectralType == SpectralType.L) {
+            } else if (primaryStar.SpectralType == SpectralType.BD) {
                 atmosphere -= 3;
-            } else if (primaryStar.Luminosity == Luminosity.IV) {
+            } else if (primaryStar.LuminosityClass == LuminosityClass.IV) {
                 atmosphere--;
             }
 

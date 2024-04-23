@@ -12,7 +12,7 @@ public class StarTests
     {
         var result = new Star();
         
-        Assert.That(result.SpectralType, Is.EqualTo(SpectralType.Wd));
+        Assert.That(result.SpectralType, Is.EqualTo(SpectralType.O));
         Assert.That(result.SpectralSubclass, Is.EqualTo(0));
     }
 }

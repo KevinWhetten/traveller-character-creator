@@ -12,7 +12,7 @@ public interface IPrometheanWorld
 public class PrometheanWorld : IPrometheanWorld
 {
     private readonly IRollingService _rollingService;
-
+    
     public PrometheanWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
@@ -33,7 +33,7 @@ public class PrometheanWorld : IPrometheanWorld
     private PlanetChemistry GetChemistry(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
         var roll = _rollingService.D6(1);
-        if (primaryStar.SpectralType == SpectralType.L) {
+        if (primaryStar.SpectralType == SpectralType.BD) {
             roll += 2;
         }
 
@@ -54,7 +54,7 @@ public class PrometheanWorld : IPrometheanWorld
     {
         if (primaryStar.Age >= 4 + ChemistryService.GetAgeMod(planet.Chemistry)) {
             var mod = 0;
-            if (primaryStar.SpectralType == SpectralType.L) {
+            if (primaryStar.SpectralType == SpectralType.BD) {
                 mod = -3;
             }
 

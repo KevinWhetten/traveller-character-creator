@@ -12,17 +12,17 @@ public class AridWorldTests
 {
     private AridWorld _classUnderTest = new(new RollingService());
 
-    [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.A, Luminosity.I, 5, PlanetChemistry.Water, 0, 10)]
-    [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.K, Luminosity.V, 5, PlanetChemistry.Ammonia, 0, 10)]
-    [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.M, Luminosity.V, 5, PlanetChemistry.Methane, 0, 10)]
-    [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.L, Luminosity.V, 5, PlanetChemistry.Methane, 0, 10)]
-    [TestCase(1, 3, 12, 1, 0, PlanetOrbit.Outer, SpectralType.L, Luminosity.V, 5, PlanetChemistry.Methane, 0, 10)]
-    [TestCase(1, 5, 12, 1, 2, PlanetOrbit.Inner, SpectralType.A, Luminosity.I, 5, PlanetChemistry.Water, 1, 10)]
-    [TestCase(1, 5, 12, 1, 5, PlanetOrbit.Inner, SpectralType.A, Luminosity.I, 5, PlanetChemistry.Water, 12, 9)]
-    [TestCase(1, 5, 12, 1, 5, PlanetOrbit.Inner, SpectralType.D, Luminosity.I, 5, PlanetChemistry.Water, 9, 9)]
+    [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.A, LuminosityClass.Ia, 5, PlanetChemistry.Water, 0, 10)]
+    [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.K, LuminosityClass.V, 5, PlanetChemistry.Ammonia, 0, 10)]
+    [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.M, LuminosityClass.V, 5, PlanetChemistry.Methane, 0, 10)]
+    [TestCase(1, 5, 12, 1, 0, PlanetOrbit.Inner, SpectralType.L, LuminosityClass.V, 5, PlanetChemistry.Methane, 0, 10)]
+    [TestCase(1, 3, 12, 1, 0, PlanetOrbit.Outer, SpectralType.L, LuminosityClass.V, 5, PlanetChemistry.Methane, 0, 10)]
+    [TestCase(1, 5, 12, 1, 2, PlanetOrbit.Inner, SpectralType.A, LuminosityClass.Ia, 5, PlanetChemistry.Water, 1, 10)]
+    [TestCase(1, 5, 12, 1, 5, PlanetOrbit.Inner, SpectralType.A, LuminosityClass.Ia, 5, PlanetChemistry.Water, 12, 9)]
+    [TestCase(1, 5, 12, 1, 5, PlanetOrbit.Inner, SpectralType.D, LuminosityClass.Ia, 5, PlanetChemistry.Water, 9, 9)]
     [Repeat(50)]
     public void WhenGenerating(int sizeRoll, int chemistryRoll, int biosphereRoll, int atmosphereRoll,
-        int age, PlanetOrbit orbit, SpectralType spectralType, Luminosity luminosity,
+        int age, PlanetOrbit orbit, SpectralType spectralType, LuminosityClass luminosityClass,
         int expectedSize, PlanetChemistry expectedChemistry, int expectedBiosphere, int expectedAtmosphere)
     {
         // Setup
@@ -36,7 +36,7 @@ public class AridWorldTests
 
         // Act
         var aridWorld = _classUnderTest.Generate(new RttWorldgenPlanet {PlanetOrbit = orbit},
-            new RttWorldgenStar {SpectralType = spectralType, Luminosity = luminosity, Age = age});
+            new RttWorldgenStar {SpectralType = spectralType, LuminosityClass = luminosityClass, Age = age});
 
         // Assert
         Assert.That(aridWorld.Size, Is.EqualTo(expectedSize));

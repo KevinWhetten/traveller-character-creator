@@ -2,16 +2,23 @@
 
 public enum SpectralType
 {
-    Wd,
+    O,
+    B,
     A,
     F,
     G,
     K,
     M,
-    L,
-    B,
-    O,
+    
+    BD,
     Rg,
     Sg,
-    D
+    D,
+    NS,
+    BH,
+    PSR,
+    Neb,
+    L,
+    Y,
+    T
 }

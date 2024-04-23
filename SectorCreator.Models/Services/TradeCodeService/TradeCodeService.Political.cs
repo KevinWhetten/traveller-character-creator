@@ -6,17 +6,17 @@ namespace SectorCreator.Models.Services.TradeCodeService;
 
 public partial class TradeCodeService
 {
-    public void AddSubsectorCapitalTradeCode(Planet planet)
+    public static void AddSubsectorCapitalTradeCode(Planet planet)
     {
         if (planet.Atmosphere >= 0) { }
     }
 
-    public void AddSectorCapitalTradeCode(Planet planet)
+    public static void AddSectorCapitalTradeCode(Planet planet)
     {
         if (planet.Atmosphere >= 0) { }
     }
 
-    public void AddCapitalTradeCode(Planet planet)
+    public static void AddCapitalTradeCode(Planet planet)
     {
         if (planet is RttWorldgenPlanet {
                 Biosphere: >= 12
@@ -25,7 +25,7 @@ public partial class TradeCodeService
         }
     }
 
-    public void AddColonyTradeCode(Planet planet)
+    public static void AddColonyTradeCode(Planet planet)
     {
         if (planet.Atmosphere >= 0) { }
     }

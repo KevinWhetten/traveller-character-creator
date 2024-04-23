@@ -11,8 +11,6 @@ namespace SectorCreator.Models.Tests.Services.TradeCodeServiceTests;
 [TestFixture]
 public class TradeCodeService_ClimateTests
 {
-    private readonly TradeCodeService _classUnderTest = new(new RollingService());
-    
     [TestCase(Temperature.Frozen, true)]
     [TestCase(Temperature.Cold, false)]
     [TestCase(Temperature.Temperate, false)]
@@ -21,7 +19,7 @@ public class TradeCodeService_ClimateTests
     public void AddFrozenTradeCode(Temperature temperature, bool expected)
     {
         var planet = new Planet {Temperature = temperature};
-        _classUnderTest.AddFrozenTradeCode(planet);
+        TradeCodeService.AddFrozenTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.Frozen), Is.EqualTo(expected));
     }
 
@@ -42,7 +40,7 @@ public class TradeCodeService_ClimateTests
             Hydrographics = hydrographics,
             PlanetOrbit = planetOrbit
         };
-        _classUnderTest.AddFrozenTradeCode(planet);
+        TradeCodeService.AddFrozenTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.Frozen), Is.EqualTo(expected));
     }
 
@@ -54,7 +52,7 @@ public class TradeCodeService_ClimateTests
     public void AddHotTradeCode(Temperature temperature, bool expected)
     {
         var planet = new Planet {Temperature = temperature};
-        _classUnderTest.AddHotTradeCode(planet);
+        TradeCodeService.AddHotTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.Hot), Is.EqualTo(expected));
     }
 
@@ -68,7 +66,7 @@ public class TradeCodeService_ClimateTests
     {
         
         var planet = new RttWorldgenPlanet {Size = size, PlanetOrbit = planetOrbit};
-        _classUnderTest.AddHotTradeCode(planet);
+        TradeCodeService.AddHotTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.Hot), Is.EqualTo(expected));
     }
 
@@ -80,7 +78,7 @@ public class TradeCodeService_ClimateTests
     public void AddColdTradeCode(Temperature temperature, bool expected)
     {
         var planet = new Planet {Temperature = temperature};
-        _classUnderTest.AddColdTradeCode(planet);
+        TradeCodeService.AddColdTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.Cold), Is.EqualTo(expected));
     }
 
@@ -96,7 +94,7 @@ public class TradeCodeService_ClimateTests
             ParentId = parent ? Guid.NewGuid() : Guid.Empty,
             SatelliteOrbit = companionOrbit
         };
-        _classUnderTest.AddLockedTradeCode(planet);
+        TradeCodeService.AddLockedTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.Locked), Is.EqualTo(expected));
     }
 
@@ -123,7 +121,7 @@ public class TradeCodeService_ClimateTests
             Hydrographics = hydrographics,
             Temperature = temperature
         };
-        _classUnderTest.AddTropicTradeCode(planet);
+        TradeCodeService.AddTropicTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.Tropic), Is.EqualTo(expected));
     }
 
@@ -149,7 +147,7 @@ public class TradeCodeService_ClimateTests
             Hydrographics = hydrographics,
             Temperature = temperature
         };
-        _classUnderTest.AddTundraTradeCode(planet);
+        TradeCodeService.AddTundraTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.Tundra), Is.EqualTo(expected));
     }
     
@@ -162,7 +160,7 @@ public class TradeCodeService_ClimateTests
         var planet = new RttWorldgenPlanet {
             OrbitPosition = orbitPosition
         };
-        _classUnderTest.AddTwilightZoneTradeCode(planet);
+        TradeCodeService.AddTwilightZoneTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.TwilightZone), Is.EqualTo(expected));
     }
 }

@@ -11,7 +11,7 @@ public interface IAsphodelianWorld
 public class AsphodelianWorld : IAsphodelianWorld
 {
     private readonly IRollingService _rollingService;
-
+    
     public AsphodelianWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;

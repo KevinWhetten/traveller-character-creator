@@ -1,7 +1,7 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
-using SectorCreator.Models.Factories.Basic;
+using SectorCreator.Models.Basic.Factories;
 
 namespace SectorCreator.Models.Factories.StarFrontiers;
 
@@ -13,12 +13,10 @@ public interface IStarFrontiersPlanetFactory
 
 public class StarFrontiersPlanetFactory : PlanetFactory, IStarFrontiersPlanetFactory
 {
-    private readonly IRollingService _rollingService;
-
     public StarFrontiersPlanetFactory(IRollingService rollingService)
         : base(rollingService)
     {
-        _rollingService = rollingService;
+        
     }
 
     private Planet StarFrontiersPlanet => Planet;
@@ -65,7 +63,7 @@ public class StarFrontiersPlanetFactory : PlanetFactory, IStarFrontiersPlanetFac
         GenerateStarport(SectorType.StarFrontiers);
         GenerateTechnologyLevel();
         GenerateBases();
-        GetTravelCode();
+        GetTravelZone();
     }
 
     private void GenerateType()

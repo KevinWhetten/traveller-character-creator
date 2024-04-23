@@ -5,12 +5,12 @@ using NUnit.Framework;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
+using SectorCreator.Models.Basic.Factories;
 using SectorCreator.Models.CustomTypes;
-using SectorCreator.Models.Factories.Basic;
-using SectorCreator.Models.Factories.RttWorldgen;
 using SectorCreator.Models.Factories.StarFrontiers;
-using SectorCreator.Models.Factories.t5;
+using SectorCreator.Models.Factories.T5;
 using SectorCreator.Models.RTTWorldgen;
+using SectorCreator.Models.RTTWorldgen.Factories;
 using SectorCreator.Models.RTTWorldgen.Worlds;
 
 namespace SectorCreator.Models.Tests.Factories.Basic;
@@ -69,7 +69,7 @@ public class SectorFactoryTests
     public void WhenGeneratingRttWorldgenSectorSector()
     {
         var sector = _classUnderTest.GenerateRttWorldgenSector();
-        
+
         var fileStream = "";
 
         foreach (var subsector in sector.Subsectors) {
@@ -84,21 +84,24 @@ public class SectorFactoryTests
                 }
             }
         }
+
         Assert.That(sector.Subsectors.Count, Is.EqualTo(16));
     }
 
     private string GetPlanetDetails(Hex hex, RttWorldgenPlanet planet, StarSystem starSystem)
     {
         var primaryStar = (RttWorldgenStar) starSystem.PrimaryStar;
-        return $"{GetCoordinates(hex)},{planet.Name},{planet.PopulatedBy},{GetUWP(planet)},{GetTradeCodes(planet)},{GetImportance(planet)},{GetEconomicExtension(planet, starSystem.Planets.Count(x => x.PlanetType == PlanetType.Jovian), starSystem.Planets.Count(x => x.PlanetType == PlanetType.AsteroidBelt))},{GetCulturalExtension(planet)},{GetNobility(planet)},{GetBases(planet)},{GetTravelZone(planet)},{planet.PBG},{GetWorlds(starSystem)},{GetAllegiance(planet)},{GetStarData(starSystem)},{planet.WorldType},{planet.Biosphere},{planet.Chemistry},{planet.Temperature},{primaryStar.Age}\n";
+        return
+            $"{GetCoordinates(hex)},{planet.Name},{planet.Allegiance},{GetUWP(planet)},{GetTradeCodes(planet)},{GetImportance(planet)},{GetEconomicExtension(planet, starSystem.Planets.Count(x => x.PlanetType == PlanetType.Jovian), starSystem.Planets.Count(x => x.PlanetType == PlanetType.AsteroidBelt))},{GetCulturalExtension(planet)},{GetNobility(planet)},{GetBases(planet)},{GetTravelZone(planet)},{planet.PBG},{GetWorlds(starSystem)},{GetAllegiance(planet)},{GetStarData(starSystem)},{planet.WorldType},{planet.Biosphere},{planet.Chemistry},{planet.Temperature},{primaryStar.Age}\n";
     }
 
     private string GetStarData(StarSystem starSystem)
     {
         var primaryStar = (RttWorldgenStar) starSystem.PrimaryStar;
-        var starDataString = $"{primaryStar.SpectralType}-{primaryStar.Luminosity} ";
+        var starDataString = $"{primaryStar.SpectralType}-{primaryStar.LuminosityClass} ";
 
-        return starSystem.CompanionStars.Cast<RttWorldgenStar>().Aggregate(starDataString, (current, star) => current + $"{star.SpectralType}-{star.Luminosity} ");
+        return starSystem.CompanionStars.Cast<RttWorldgenStar>()
+            .Aggregate(starDataString, (current, star) => current + $"{star.SpectralType}-{star.LuminosityClass} ");
     }
 
     private string GetAllegiance(RttWorldgenPlanet planet)
@@ -120,7 +123,7 @@ public class SectorFactoryTests
 
     private string GetTravelZone(RttWorldgenPlanet planet)
     {
-        return ((char)planet.TravelCode).ToString();
+        return ((char) planet.TravelZone).ToString();
     }
 
     private string GetBases(RttWorldgenPlanet planet)
@@ -140,7 +143,7 @@ public class SectorFactoryTests
 
     private string GetEconomicExtension(RttWorldgenPlanet planet, int gasGiantCount, int beltCount)
     {
-        planet.SetEconomicExtension(new RollingService(), gasGiantCount, beltCount);
+        planet.GenerateEconomicExtension(gasGiantCount, beltCount);
         return planet.EconomicExtension;
     }
 
@@ -163,7 +166,8 @@ public class SectorFactoryTests
 
     private string GetUWP(Planet planet)
     {
-        return $"{planet.Starport},{ExtendedHex.values[planet.Size]},{ExtendedHex.values[planet.Atmosphere]},{ExtendedHex.values[planet.Hydrographics]},{ExtendedHex.values[planet.Population]},{ExtendedHex.values[planet.Government]},{ExtendedHex.values[planet.LawLevel]},{ExtendedHex.values[planet.TechLevel]}";
+        return
+            $"{planet.Starport},{ExtendedHex.values[planet.Size]},{ExtendedHex.values[planet.Atmosphere]},{ExtendedHex.values[planet.Hydrographics]},{ExtendedHex.values[planet.Population]},{ExtendedHex.values[planet.Government]},{ExtendedHex.values[planet.LawLevel]},{ExtendedHex.values[planet.TechLevel]}";
     }
 
     [Test]

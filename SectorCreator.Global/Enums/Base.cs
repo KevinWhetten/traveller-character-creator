@@ -2,13 +2,11 @@
 
 public class Base
 {
+    public static readonly string NavalDepot = "D";
+    public static readonly string Military = "M";
     public static readonly string Naval = "N";
     public static readonly string Scout = "S";
-    public static readonly string Research = "R";
-    public static readonly string Tas = "T";
-    public static readonly string Shipyard = "S";
-    public static readonly string MegaCorporateHeadquarters = "M";
-    public static readonly string AncientSite = "A";
-    public static readonly string DataRepository = "D";
+    public static readonly string Exploration = "V";
     public static readonly string WayStation = "W";
+    public static readonly string Corsair = "C";
 }

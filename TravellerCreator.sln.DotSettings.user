@@ -4,11 +4,62 @@
   &lt;Assembly Path="C:\Users\krwhe\.nuget\packages\microsoft.aspnetcore.app.ref\6.0.14\ref\net6.0\Microsoft.AspNetCore.Components.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\krwhe\AppData\Local\JetBrains\Rider2022.1\resharper-host\temp\Rider\vAny\CoverageData\_TravellerCreator.-1607514821\Snapshot\snapshot.utdcvr</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d8860bb1_002De69f_002D4328_002Db8ac_002Dc9c12a09b432/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="WhenGeneratingRttWorldgenSectorSector" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::BAF61E01-99E4-4A9F-AC38-F25944860387::net6.0::SectorCreator.Models.Tests.Factories.Basic.SectorFactoryTests.WhenGeneratingRttWorldgenSectorSector&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0b82939f_002D6e35_002D4349_002Dbcd1_002D7bf3ec84caa7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5a62c427_002D69ee_002D4b4f_002Da6b4_002Da7d5137cfc0b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestRunner/SpawnedProcessesKnownList/=WerFault_002Eexe/@EntryIndexedValue">KillOrphaned</s:String>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

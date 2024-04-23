@@ -3,5 +3,9 @@
 public enum StarType
 {
     Primary,
-    Companion
+    Companion,
+    Close,
+    Near,
+    Far,
+    None
 }

@@ -1,9 +1,8 @@
 ﻿using Moq;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models.Factories.t5;
+using SectorCreator.Models.Factories.T5;
 
 namespace SectorCreator.Models.Tests.Factories.T5;
 
@@ -57,165 +56,165 @@ public class T5StarSystemFactoryTests
         Assert.That(_classUnderTest.Star.SpectralType, Is.EqualTo(expectedSpectralType));
     }
 
-    [TestCase(-6, Luminosity.Ia)]
-    [TestCase(-5, Luminosity.Ia)]
-    [TestCase(-4, Luminosity.Ib)]
-    [TestCase(-3, Luminosity.II)]
-    [TestCase(-2, Luminosity.III)]
-    [TestCase(-1, Luminosity.III)]
-    [TestCase(0, Luminosity.III)]
-    [TestCase(1, Luminosity.V)]
-    [TestCase(2, Luminosity.V)]
-    [TestCase(3, Luminosity.V)]
-    [TestCase(4, Luminosity.IV)]
-    [TestCase(5, Luminosity.D)]
-    [TestCase(6, Luminosity.D)]
-    public void WhenGeneratingOStarLuminosity(int flux, Luminosity expectedLuminosity)
+    [TestCase(-6, LuminosityClass.Ia)]
+    [TestCase(-5, LuminosityClass.Ia)]
+    [TestCase(-4, LuminosityClass.Ib)]
+    [TestCase(-3, LuminosityClass.II)]
+    [TestCase(-2, LuminosityClass.III)]
+    [TestCase(-1, LuminosityClass.III)]
+    [TestCase(0, LuminosityClass.III)]
+    [TestCase(1, LuminosityClass.V)]
+    [TestCase(2, LuminosityClass.V)]
+    [TestCase(3, LuminosityClass.V)]
+    [TestCase(4, LuminosityClass.IV)]
+    [TestCase(5, LuminosityClass.D)]
+    [TestCase(6, LuminosityClass.D)]
+    public void WhenGeneratingOStarLuminosity(int flux, LuminosityClass expectedLuminosityClass)
     {
         _mockRollingService.Setup(x => x.Flux()).Returns(flux);
         _classUnderTest.Star.SpectralType = SpectralType.O;
 
         _classUnderTest.GenerateLuminosity();
 
-        Assert.That(_classUnderTest.Star.Luminosity, Is.EqualTo(expectedLuminosity));
+        Assert.That(_classUnderTest.Star.LuminosityClass, Is.EqualTo(expectedLuminosityClass));
     }
 
-    [TestCase(-6, Luminosity.Ia)]
-    [TestCase(-5, Luminosity.Ia)]
-    [TestCase(-4, Luminosity.Ib)]
-    [TestCase(-3, Luminosity.II)]
-    [TestCase(-2, Luminosity.III)]
-    [TestCase(-1, Luminosity.III)]
-    [TestCase(0, Luminosity.III)]
-    [TestCase(1, Luminosity.III)]
-    [TestCase(2, Luminosity.V)]
-    [TestCase(3, Luminosity.V)]
-    [TestCase(4, Luminosity.IV)]
-    [TestCase(5, Luminosity.D)]
-    [TestCase(6, Luminosity.D)]
-    public void WhenGeneratingBStarLuminosity(int flux, Luminosity expectedLuminosity)
+    [TestCase(-6, LuminosityClass.Ia)]
+    [TestCase(-5, LuminosityClass.Ia)]
+    [TestCase(-4, LuminosityClass.Ib)]
+    [TestCase(-3, LuminosityClass.II)]
+    [TestCase(-2, LuminosityClass.III)]
+    [TestCase(-1, LuminosityClass.III)]
+    [TestCase(0, LuminosityClass.III)]
+    [TestCase(1, LuminosityClass.III)]
+    [TestCase(2, LuminosityClass.V)]
+    [TestCase(3, LuminosityClass.V)]
+    [TestCase(4, LuminosityClass.IV)]
+    [TestCase(5, LuminosityClass.D)]
+    [TestCase(6, LuminosityClass.D)]
+    public void WhenGeneratingBStarLuminosity(int flux, LuminosityClass expectedLuminosityClass)
     {
         _mockRollingService.Setup(x => x.Flux()).Returns(flux);
         _classUnderTest.Star.SpectralType = SpectralType.B;
 
         _classUnderTest.GenerateLuminosity();
 
-        Assert.That(_classUnderTest.Star.Luminosity, Is.EqualTo(expectedLuminosity));
+        Assert.That(_classUnderTest.Star.LuminosityClass, Is.EqualTo(expectedLuminosityClass));
     }
 
-    [TestCase(-6, Luminosity.Ia)]
-    [TestCase(-5, Luminosity.Ia)]
-    [TestCase(-4, Luminosity.Ib)]
-    [TestCase(-3, Luminosity.II)]
-    [TestCase(-2, Luminosity.III)]
-    [TestCase(-1, Luminosity.IV)]
-    [TestCase(0, Luminosity.V)]
-    [TestCase(1, Luminosity.V)]
-    [TestCase(2, Luminosity.V)]
-    [TestCase(3, Luminosity.V)]
-    [TestCase(4, Luminosity.V)]
-    [TestCase(5, Luminosity.D)]
-    [TestCase(6, Luminosity.D)]
-    public void WhenGeneratingAStarLuminosity(int flux, Luminosity expectedLuminosity)
+    [TestCase(-6, LuminosityClass.Ia)]
+    [TestCase(-5, LuminosityClass.Ia)]
+    [TestCase(-4, LuminosityClass.Ib)]
+    [TestCase(-3, LuminosityClass.II)]
+    [TestCase(-2, LuminosityClass.III)]
+    [TestCase(-1, LuminosityClass.IV)]
+    [TestCase(0, LuminosityClass.V)]
+    [TestCase(1, LuminosityClass.V)]
+    [TestCase(2, LuminosityClass.V)]
+    [TestCase(3, LuminosityClass.V)]
+    [TestCase(4, LuminosityClass.V)]
+    [TestCase(5, LuminosityClass.D)]
+    [TestCase(6, LuminosityClass.D)]
+    public void WhenGeneratingAStarLuminosity(int flux, LuminosityClass expectedLuminosityClass)
     {
         _mockRollingService.Setup(x => x.Flux()).Returns(flux);
         _classUnderTest.Star.SpectralType = SpectralType.A;
 
         _classUnderTest.GenerateLuminosity();
 
-        Assert.That(_classUnderTest.Star.Luminosity, Is.EqualTo(expectedLuminosity));
+        Assert.That(_classUnderTest.Star.LuminosityClass, Is.EqualTo(expectedLuminosityClass));
     }
 
-    [TestCase(-6, Luminosity.II)]
-    [TestCase(-5, Luminosity.II)]
-    [TestCase(-4, Luminosity.III)]
-    [TestCase(-3, Luminosity.IV)]
-    [TestCase(-2, Luminosity.V)]
-    [TestCase(-1, Luminosity.V)]
-    [TestCase(0, Luminosity.V)]
-    [TestCase(1, Luminosity.V)]
-    [TestCase(2, Luminosity.V)]
-    [TestCase(3, Luminosity.V)]
-    [TestCase(4, Luminosity.VI)]
-    [TestCase(5, Luminosity.D)]
-    [TestCase(6, Luminosity.D)]
-    public void WhenGeneratingFStarLuminosity(int flux, Luminosity expectedLuminosity)
+    [TestCase(-6, LuminosityClass.II)]
+    [TestCase(-5, LuminosityClass.II)]
+    [TestCase(-4, LuminosityClass.III)]
+    [TestCase(-3, LuminosityClass.IV)]
+    [TestCase(-2, LuminosityClass.V)]
+    [TestCase(-1, LuminosityClass.V)]
+    [TestCase(0, LuminosityClass.V)]
+    [TestCase(1, LuminosityClass.V)]
+    [TestCase(2, LuminosityClass.V)]
+    [TestCase(3, LuminosityClass.V)]
+    [TestCase(4, LuminosityClass.VI)]
+    [TestCase(5, LuminosityClass.D)]
+    [TestCase(6, LuminosityClass.D)]
+    public void WhenGeneratingFStarLuminosity(int flux, LuminosityClass expectedLuminosityClass)
     {
         _mockRollingService.Setup(x => x.Flux()).Returns(flux);
         _classUnderTest.Star.SpectralType = SpectralType.F;
 
         _classUnderTest.GenerateLuminosity();
 
-        Assert.That(_classUnderTest.Star.Luminosity, Is.EqualTo(expectedLuminosity));
+        Assert.That(_classUnderTest.Star.LuminosityClass, Is.EqualTo(expectedLuminosityClass));
     }
 
-    [TestCase(-6, Luminosity.II)]
-    [TestCase(-5, Luminosity.II)]
-    [TestCase(-4, Luminosity.III)]
-    [TestCase(-3, Luminosity.IV)]
-    [TestCase(-2, Luminosity.V)]
-    [TestCase(-1, Luminosity.V)]
-    [TestCase(0, Luminosity.V)]
-    [TestCase(1, Luminosity.V)]
-    [TestCase(2, Luminosity.V)]
-    [TestCase(3, Luminosity.V)]
-    [TestCase(4, Luminosity.VI)]
-    [TestCase(5, Luminosity.D)]
-    [TestCase(6, Luminosity.D)]
-    public void WhenGeneratingGStarLuminosity(int flux, Luminosity expectedLuminosity)
+    [TestCase(-6, LuminosityClass.II)]
+    [TestCase(-5, LuminosityClass.II)]
+    [TestCase(-4, LuminosityClass.III)]
+    [TestCase(-3, LuminosityClass.IV)]
+    [TestCase(-2, LuminosityClass.V)]
+    [TestCase(-1, LuminosityClass.V)]
+    [TestCase(0, LuminosityClass.V)]
+    [TestCase(1, LuminosityClass.V)]
+    [TestCase(2, LuminosityClass.V)]
+    [TestCase(3, LuminosityClass.V)]
+    [TestCase(4, LuminosityClass.VI)]
+    [TestCase(5, LuminosityClass.D)]
+    [TestCase(6, LuminosityClass.D)]
+    public void WhenGeneratingGStarLuminosity(int flux, LuminosityClass expectedLuminosityClass)
     {
         _mockRollingService.Setup(x => x.Flux()).Returns(flux);
         _classUnderTest.Star.SpectralType = SpectralType.G;
 
         _classUnderTest.GenerateLuminosity();
 
-        Assert.That(_classUnderTest.Star.Luminosity, Is.EqualTo(expectedLuminosity));
+        Assert.That(_classUnderTest.Star.LuminosityClass, Is.EqualTo(expectedLuminosityClass));
     }
 
-    [TestCase(-6, Luminosity.II)]
-    [TestCase(-5, Luminosity.II)]
-    [TestCase(-4, Luminosity.III)]
-    [TestCase(-3, Luminosity.IV)]
-    [TestCase(-2, Luminosity.V)]
-    [TestCase(-1, Luminosity.V)]
-    [TestCase(0, Luminosity.V)]
-    [TestCase(1, Luminosity.V)]
-    [TestCase(2, Luminosity.V)]
-    [TestCase(3, Luminosity.V)]
-    [TestCase(4, Luminosity.VI)]
-    [TestCase(5, Luminosity.D)]
-    [TestCase(6, Luminosity.D)]
-    public void WhenGeneratingKStarLuminosity(int flux, Luminosity expectedLuminosity)
+    [TestCase(-6, LuminosityClass.II)]
+    [TestCase(-5, LuminosityClass.II)]
+    [TestCase(-4, LuminosityClass.III)]
+    [TestCase(-3, LuminosityClass.IV)]
+    [TestCase(-2, LuminosityClass.V)]
+    [TestCase(-1, LuminosityClass.V)]
+    [TestCase(0, LuminosityClass.V)]
+    [TestCase(1, LuminosityClass.V)]
+    [TestCase(2, LuminosityClass.V)]
+    [TestCase(3, LuminosityClass.V)]
+    [TestCase(4, LuminosityClass.VI)]
+    [TestCase(5, LuminosityClass.D)]
+    [TestCase(6, LuminosityClass.D)]
+    public void WhenGeneratingKStarLuminosity(int flux, LuminosityClass expectedLuminosityClass)
     {
         _mockRollingService.Setup(x => x.Flux()).Returns(flux);
         _classUnderTest.Star.SpectralType = SpectralType.K;
 
         _classUnderTest.GenerateLuminosity();
 
-        Assert.That(_classUnderTest.Star.Luminosity, Is.EqualTo(expectedLuminosity));
+        Assert.That(_classUnderTest.Star.LuminosityClass, Is.EqualTo(expectedLuminosityClass));
     }
 
-    [TestCase(-6, Luminosity.II)]
-    [TestCase(-5, Luminosity.II)]
-    [TestCase(-4, Luminosity.II)]
-    [TestCase(-3, Luminosity.II)]
-    [TestCase(-2, Luminosity.III)]
-    [TestCase(-1, Luminosity.V)]
-    [TestCase(0, Luminosity.V)]
-    [TestCase(1, Luminosity.V)]
-    [TestCase(2, Luminosity.V)]
-    [TestCase(3, Luminosity.V)]
-    [TestCase(4, Luminosity.VI)]
-    [TestCase(5, Luminosity.D)]
-    [TestCase(6, Luminosity.D)]
-    public void WhenGeneratingMStarLuminosity(int flux, Luminosity expectedLuminosity)
+    [TestCase(-6, LuminosityClass.II)]
+    [TestCase(-5, LuminosityClass.II)]
+    [TestCase(-4, LuminosityClass.II)]
+    [TestCase(-3, LuminosityClass.II)]
+    [TestCase(-2, LuminosityClass.III)]
+    [TestCase(-1, LuminosityClass.V)]
+    [TestCase(0, LuminosityClass.V)]
+    [TestCase(1, LuminosityClass.V)]
+    [TestCase(2, LuminosityClass.V)]
+    [TestCase(3, LuminosityClass.V)]
+    [TestCase(4, LuminosityClass.VI)]
+    [TestCase(5, LuminosityClass.D)]
+    [TestCase(6, LuminosityClass.D)]
+    public void WhenGeneratingMStarLuminosity(int flux, LuminosityClass expectedLuminosityClass)
     {
         _mockRollingService.Setup(x => x.Flux()).Returns(flux);
         _classUnderTest.Star.SpectralType = SpectralType.M;
 
         _classUnderTest.GenerateLuminosity();
 
-        Assert.That(_classUnderTest.Star.Luminosity, Is.EqualTo(expectedLuminosity));
+        Assert.That(_classUnderTest.Star.LuminosityClass, Is.EqualTo(expectedLuminosityClass));
     }
 
     [TestCase(-6, -2, Temperature.Boiling)]

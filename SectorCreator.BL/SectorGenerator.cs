@@ -1,6 +1,6 @@
 using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
-using SectorCreator.Models.Factories.Basic;
+using SectorCreator.Models.Basic.Factories;
 
 namespace SectorCreator.BL;
 

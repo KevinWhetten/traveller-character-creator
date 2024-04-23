@@ -1,80 +1,81 @@
 ﻿using SectorCreator.Global.Enums;
 using SectorCreator.Models.Basic;
+using SectorCreator.Models.RTTWorldgen;
 
 namespace SectorCreator.Models.Services.TradeCodeService;
 
 public partial class TradeCodeService
 {
-    public void AddAsteroidTradeCode(Planet planet)
+    public static void AddAsteroidTradeCode(Planet planet)
     {
-        if (planet.Size is 0 && planet.Atmosphere is 0 && planet.Hydrographics is 0)
-        {
+        if (planet.Size is 0) {
             planet.TradeCodes.Add(TradeCode.Asteroid);
         }
     }
 
-    public void AddDesertTradeCode(Planet planet)
+    public static void AddDesertTradeCode(Planet planet)
     {
-        if (planet is { Atmosphere: >= 2, Hydrographics: 0 })
-        {
+        if (planet is {Atmosphere: >= 2 and <= 9, Hydrographics: 0}) {
             planet.TradeCodes.Add(TradeCode.Desert);
         }
     }
 
-    public void AddFluidOceansTradeCode(Planet planet)
+    public static void AddFluidOceansTradeCode(Planet planet)
     {
-        if (planet is { Atmosphere: >= 10, Hydrographics: >= 1 })
-        {
+        if (planet is {Atmosphere: >= 10 and <= 12, Hydrographics: >= 1 and < 15}) {
             planet.TradeCodes.Add(TradeCode.FluidOceans);
         }
     }
 
-    public void AddGardenTradeCode(Planet planet)
+    public static void AddGardenTradeCode(Planet planet)
     {
-        if (planet is { Atmosphere: >= 5, Hydrographics: >= 4 and <= 9, Population: >= 4 and <= 8 })
-        {
+        if (planet is {Size: >= 6 and <= 8, Atmosphere: 5 or 6 or 8, Hydrographics: >= 5 and <= 7}) {
             planet.TradeCodes.Add(TradeCode.Garden);
         }
     }
 
-    public void AddHellworldTradeCode(Planet planet)
+    public static void AddHellworldTradeCode(Planet planet)
     {
-        if (planet is { Size: >= 3, Atmosphere: 2 or 4 or 7 or >= 9 and <= 12, Hydrographics: >= 0 and <= 2 })
-        {
+        if (planet is {
+                Size: >= 3,
+                Atmosphere: 2 or 4 or 7 or 9 or 10 or 11 or 12,
+                Hydrographics: 0 or 1 or 2 or 15
+            }) {
             planet.TradeCodes.Add(TradeCode.Hellworld);
         }
     }
 
-    public void AddIceCappedTradeCode(Planet planet)
+    public static void AddIceCappedTradeCode(Planet planet)
     {
-        if (planet.Atmosphere is >= 0 and <= 1
-            && planet.Hydrographics >= 1)
-        {
+        if (planet.Atmosphere is 0 or 1
+            && planet.Hydrographics is >= 1 and < 15) {
             planet.TradeCodes.Add(TradeCode.IceCapped);
         }
     }
 
-    public void AddOceanWorldTradeCode(Planet planet)
+    public static void AddOceanWorldTradeCode(Planet planet)
     {
-        if (planet.Atmosphere is 0 or 1
-            && planet.Hydrographics >= 10)
-        {
+        if (planet is {
+                Size: >= 10,
+                Atmosphere: (>= 3 and <= 9) or (>= 13 and <= 15),
+                Hydrographics: >= 10 and < 15
+            }) {
             planet.TradeCodes.Add(TradeCode.OceanWorld);
         }
     }
 
-    public void AddVacuumTradeCode(Planet planet)
+    public static void AddVacuumTradeCode(Planet planet)
     {
-        if (planet.Atmosphere == 0)
-        {
+        if (planet.Atmosphere == 0) {
             planet.TradeCodes.Add(TradeCode.Vacuum);
         }
     }
 
-    public void AddWaterWorldTradeCode(Planet planet)
+    public static void AddWaterWorldTradeCode(Planet planet)
     {
-        if (planet.Hydrographics is >= 10 and <= 15)
-        {
+        if (planet.Size is >= 3 and <= 9
+            && planet.Atmosphere is (>= 3 and <= 9) or (>= 13 and <= 15)
+            && planet.Hydrographics is >= 10 and <= 15) {
             planet.TradeCodes.Add(TradeCode.WaterWorld);
         }
     }

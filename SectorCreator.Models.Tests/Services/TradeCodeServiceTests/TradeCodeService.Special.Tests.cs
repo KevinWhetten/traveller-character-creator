@@ -12,8 +12,6 @@ namespace SectorCreator.Models.Tests.Services.TradeCodeServiceTests;
 [TestFixture]
 public class TradeCodeService_SpecialTests
 {
-    private TradeCodeService _classUnderTest = new(new RollingService());
-
     [TestCase(true, true)]
     [TestCase(false, false)]
     public void AddSatelliteTradeCode(bool parent, bool expected)
@@ -21,42 +19,38 @@ public class TradeCodeService_SpecialTests
         var planet = new RttWorldgenPlanet {
             ParentId = parent ? Guid.NewGuid() : Guid.Empty
         };
-        _classUnderTest.AddSatelliteTradeCode(planet);
+        TradeCodeService.AddSatelliteTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.Satellite), Is.EqualTo(expected));
     }
 
-    [TestCase(TravelCode.None, false)]
-    [TestCase(TravelCode.Amber, false)]
-    [TestCase(TravelCode.Red, true)]
-    public void AddForbiddenTradeCode(TravelCode travelCode, bool expected)
+    [TestCase(TravelZone.None, false)]
+    [TestCase(TravelZone.Amber, false)]
+    [TestCase(TravelZone.Red, true)]
+    public void AddForbiddenTradeCode(TravelZone travelCode, bool expected)
     {
         var planet = new Planet {
-            TravelCode = travelCode
+            TravelZone = travelCode
         };
-        _classUnderTest.AddForbiddenTradeCode(planet);
+        TradeCodeService.AddForbiddenTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.Forbidden), Is.EqualTo(expected));
     }
 
-    [TestCase(TravelCode.None, 2, false, false)]
-    [TestCase(TravelCode.Amber, 2, true, false)]
-    [TestCase(TravelCode.Red, 2, false, false)]
-    [TestCase(TravelCode.None, 11, false, false)]
-    [TestCase(TravelCode.None, 12, false, true)]
-    [TestCase(TravelCode.Red, 11, false, false)]
-    [TestCase(TravelCode.Red, 12, false, true)]
-    public void AddAmberTradeCode(TravelCode travelCode, int roll, bool expectedDanger, bool expectedPuzzle)
+    [TestCase(TravelZone.None, 2, false, false)]
+    [TestCase(TravelZone.Amber, 2, true, false)]
+    [TestCase(TravelZone.Red, 2, false, false)]
+    [TestCase(TravelZone.None, 11, false, false)]
+    [TestCase(TravelZone.None, 12, false, true)]
+    [TestCase(TravelZone.Red, 11, false, false)]
+    [TestCase(TravelZone.Red, 12, false, true)]
+    public void AddAmberTradeCode(TravelZone travelCode, int roll, bool expectedDanger, bool expectedPuzzle)
     {
-        // Setup
-        var mockRollingService = new Mock<IRollingService>();
-        mockRollingService.Setup(x => x.D6(2)).Returns(roll);
-        _classUnderTest = new TradeCodeService(mockRollingService.Object);
         var planet = new Planet {
-            TravelCode = travelCode
+            TravelZone = travelCode
         };
-        
+
         // Act
-        _classUnderTest.AddAmberTradeCode(planet);
-        
+        TradeCodeService.AddAmberTradeCode(planet);
+
         // Assert
         Assert.That(planet.TradeCodes.Contains(TradeCode.Danger), Is.EqualTo(expectedDanger));
         Assert.That(planet.TradeCodes.Contains(TradeCode.Puzzle), Is.EqualTo(expectedPuzzle));
@@ -73,14 +67,12 @@ public class TradeCodeService_SpecialTests
         var planet = new Planet();
         var mockRollingService = new Mock<IRollingService>();
         mockRollingService.Setup(x => x.D6(3)).Returns(roll);
-        _classUnderTest = new TradeCodeService(mockRollingService.Object);
 
         // Act
-        _classUnderTest.AddDataRepositoryTradeCode(planet);
-        
+        TradeCodeService.AddDataRepositoryTradeCode(planet);
+
         // Assert
         Assert.That(planet.TradeCodes.Contains(TradeCode.DataRepository), Is.EqualTo(expected));
-        Assert.That(planet.Bases.Contains(Base.DataRepository), Is.EqualTo(expected));
     }
 
     [TestCase(3, false)]
@@ -94,44 +86,42 @@ public class TradeCodeService_SpecialTests
         var planet = new Planet();
         var mockRollingService = new Mock<IRollingService>();
         mockRollingService.Setup(x => x.D6(3)).Returns(roll);
-        _classUnderTest = new TradeCodeService(mockRollingService.Object);
 
         // Act
-        _classUnderTest.AddAncientSiteTradeCode(planet);
-        
+        TradeCodeService.AddAncientSiteTradeCode(planet);
+
         // Assert
         Assert.That(planet.TradeCodes.Contains(TradeCode.AncientSite), Is.EqualTo(expected));
-        Assert.That(planet.Bases.Contains(Base.AncientSite), Is.EqualTo(expected));
     }
 
-    [TestCase('A', 5, false, false, false)]
-    [TestCase('A', 6, true, false, false)]
-    [TestCase('A', 8, true, false, false)]
-    [TestCase('A', 9, true, true, false)]
-    [TestCase('A', 11, true, true, false)]
-    [TestCase('A', 12, true, true, true)]
-    [TestCase('B', 7, false, false, false)]
-    [TestCase('B', 8, true, false, false)]
-    [TestCase('B', 10, true, false, false)]
-    [TestCase('B', 11, true, true, false)]
-    [TestCase('C', 9, false, false, false)]
-    [TestCase('C', 10, true, false, false)]
-    [TestCase('D', 12, false, false, false)]
-    public void AddResearchStationTradeCode(char starport, int roll, bool expected, bool expectedShipyard, bool expectedMegaCorporate)
+    [TestCase(StarportClass.A, 5, false, false, false)]
+    [TestCase(StarportClass.A, 6, true, false, false)]
+    [TestCase(StarportClass.A, 8, true, false, false)]
+    [TestCase(StarportClass.A, 9, true, true, false)]
+    [TestCase(StarportClass.A, 11, true, true, false)]
+    [TestCase(StarportClass.A, 12, true, true, true)]
+    [TestCase(StarportClass.B, 7, false, false, false)]
+    [TestCase(StarportClass.B, 8, true, false, false)]
+    [TestCase(StarportClass.B, 10, true, false, false)]
+    [TestCase(StarportClass.B, 11, true, true, false)]
+    [TestCase(StarportClass.C, 9, false, false, false)]
+    [TestCase(StarportClass.C, 10, true, false, false)]
+    [TestCase(StarportClass.D, 12, false, false, false)]
+    public void AddResearchStationTradeCode(StarportClass starportClass, int roll, bool expected, bool expectedShipyard, bool expectedMegaCorporate)
     {
         // Setup
-        var planet = new Planet {Starport = starport};
+        var planet = new Planet {
+            Starport = new Starport {Class = starportClass}
+        };
         var mockRollingService = new Mock<IRollingService>();
         mockRollingService.Setup(x => x.D6(2)).Returns(roll);
-        _classUnderTest = new TradeCodeService(mockRollingService.Object);
 
         // Act
-        _classUnderTest.AddResearchStationTradeCode(planet);
-        
+        TradeCodeService.AddResearchStationTradeCode(planet);
+
         // Assert
         Assert.That(planet.TradeCodes.Contains(TradeCode.ResearchStation), Is.EqualTo(expected));
-        Assert.That(planet.Bases.Contains(Base.Research), Is.EqualTo(expected));
-        Assert.That(planet.Bases.Contains(Base.Shipyard), Is.EqualTo(expectedShipyard));
-        Assert.That(planet.Bases.Contains(Base.MegaCorporateHeadquarters), Is.EqualTo(expectedMegaCorporate));
+        Assert.That(planet.Starport.Installations.Contains(StarportInstallation.Shipyard), Is.EqualTo(expectedShipyard));
+        Assert.That(planet.Starport.Installations.Contains(StarportInstallation.MegaCorporateHeadquarters), Is.EqualTo(expectedMegaCorporate));
     }
 }

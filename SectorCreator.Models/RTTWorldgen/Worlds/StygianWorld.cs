@@ -11,7 +11,7 @@ public interface IStygianWorld
 public class StygianWorld : IStygianWorld
 {
     private readonly IRollingService _rollingService;
-
+    
     public StygianWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;

@@ -12,22 +12,18 @@ public interface IStarFrontiersStarFactory
 public class StarFrontiersStarFactory : IStarFrontiersStarFactory
 {
     private readonly IRollingService _rollingService;
-    private Star Star = new();
-
     public StarFrontiersStarFactory(IRollingService rollingService)
     {
         _rollingService = rollingService;
     }
+    
+    private Star Star = new();
 
     public Star Generate()
     {
-        // Magnetar 1.0%
-        // Magnetar&Pulsar 0.2 %
-        // Pulsar = 98.8%
-        
         Star = new Star {
             SpectralType = _rollingService.D10(1) switch {
-                1 => SpectralType.Wd,
+                1 => SpectralType.D,
                 2 => SpectralType.M,
                 3 => SpectralType.K,
                 4 => SpectralType.G,

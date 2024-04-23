@@ -9,8 +9,6 @@ namespace SectorCreator.Models.Tests.Services.TradeCodeServiceTests;
 [TestFixture]
 public class TradeCodeService_PlanetaryTests
 {
-    private readonly TradeCodeService _classUnderTest = new(new RollingService());
-
     [TestCase(0, 0, 0, true)]
     [TestCase(1, 0, 0, false)]
     [TestCase(0, 1, 0, false)]
@@ -27,7 +25,7 @@ public class TradeCodeService_PlanetaryTests
             Hydrographics = hydrographics
         };
 
-        _classUnderTest.AddAsteroidTradeCode(planet);
+        TradeCodeService.AddAsteroidTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.Asteroid), Is.EqualTo(expected));
     }
@@ -51,7 +49,7 @@ public class TradeCodeService_PlanetaryTests
             Hydrographics = hydrographics
         };
 
-        _classUnderTest.AddDesertTradeCode(planet);
+        TradeCodeService.AddDesertTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.Desert), Is.EqualTo(expected));
     }
@@ -69,7 +67,7 @@ public class TradeCodeService_PlanetaryTests
             Hydrographics = hydrographics
         };
 
-        _classUnderTest.AddFluidOceansTradeCode(planet);
+        TradeCodeService.AddFluidOceansTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.FluidOceans), Is.EqualTo(expected));
     }
@@ -95,7 +93,7 @@ public class TradeCodeService_PlanetaryTests
             Population = population
         };
 
-        _classUnderTest.AddGardenTradeCode(planet);
+        TradeCodeService.AddGardenTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.Garden), Is.EqualTo(expected));
     }
@@ -117,7 +115,7 @@ public class TradeCodeService_PlanetaryTests
             Hydrographics = hydrographics
         };
 
-        _classUnderTest.AddHellworldTradeCode(planet);
+        TradeCodeService.AddHellworldTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.Hellworld), Is.EqualTo(expected));
     }
@@ -142,7 +140,7 @@ public class TradeCodeService_PlanetaryTests
             Hydrographics = hydrographics
         };
 
-        _classUnderTest.AddIceCappedTradeCode(planet);
+        TradeCodeService.AddIceCappedTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.IceCapped), Is.EqualTo(expected));
     }
@@ -158,7 +156,7 @@ public class TradeCodeService_PlanetaryTests
             Hydrographics = hydrographics
         };
 
-        _classUnderTest.AddOceanWorldTradeCode(planet);
+        TradeCodeService.AddOceanWorldTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.OceanWorld), Is.EqualTo(expected));
     }
@@ -175,7 +173,7 @@ public class TradeCodeService_PlanetaryTests
             Atmosphere = atmosphere
         };
 
-        _classUnderTest.AddVacuumTradeCode(planet);
+        TradeCodeService.AddVacuumTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.Vacuum), Is.EqualTo(expected));
     }
@@ -192,7 +190,7 @@ public class TradeCodeService_PlanetaryTests
             Hydrographics = hydrographics
         };
 
-        _classUnderTest.AddWaterWorldTradeCode(planet);
+        TradeCodeService.AddWaterWorldTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.WaterWorld), Is.EqualTo(expected));
     }

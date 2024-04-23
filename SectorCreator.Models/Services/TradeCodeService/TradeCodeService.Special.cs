@@ -6,80 +6,77 @@ namespace SectorCreator.Models.Services.TradeCodeService;
 
 public partial class TradeCodeService
 {
-    public void AddSatelliteTradeCode(Planet planet)
+    public static void AddSatelliteTradeCode(Planet planet)
     {
-        if (planet is RttWorldgenPlanet worldgenPlanet
-            && worldgenPlanet.ParentId != Guid.Empty) {
+        if (planet is RttWorldgenPlanet  worldgenPlanet
+            && !worldgenPlanet.IsMainWorld) {
             planet.TradeCodes.Add(TradeCode.Satellite);
         }
     }
 
-    public void AddForbiddenTradeCode(Planet planet)
+    public static void AddForbiddenTradeCode(Planet planet)
     {
-        if (planet.TravelCode == TravelCode.Red) {
+        if (planet.TravelZone == TravelZone.Red) {
+            planet.TradeCodes.Add(TradeCode.Forbidden);
+        } else if (_rollingService.D6(3) == 18) {
             planet.TradeCodes.Add(TradeCode.Forbidden);
         }
     }
 
-    public void AddAmberTradeCode(Planet planet)
+    public static void AddAmberTradeCode(Planet planet)
     {
-        if (planet.TravelCode == TravelCode.Amber) {
-            planet.TradeCodes.Add(TradeCode.Danger);
-        } else if (_rollingService.D6(2) == 12) {
-            planet.TradeCodes.Add(TradeCode.Puzzle);
+        if (planet.TravelZone == TravelZone.Amber) {
+            planet.TradeCodes.Add(planet.Population <= 6 ? TradeCode.Danger : TradeCode.Puzzle);
+        } else if (_rollingService.D6(3) >= 17) {
+            planet.TradeCodes.Add(planet.Population <= 6 ? TradeCode.Danger : TradeCode.Puzzle);
         }
     }
 
-    public void AddDataRepositoryTradeCode(Planet planet)
+    public static void AddDataRepositoryTradeCode(Planet planet)
     {
         if (_rollingService.D6(3) == 18) {
             planet.TradeCodes.Add(TradeCode.DataRepository);
-            planet.Bases.Add(Base.DataRepository);
         }
     }
 
-    public void AddAncientSiteTradeCode(Planet planet)
+    public static void AddAncientSiteTradeCode(Planet planet)
     {
         if (_rollingService.D6(3) == 18) {
             planet.TradeCodes.Add(TradeCode.AncientSite);
-            planet.Bases.Add(Base.AncientSite);
         }
     }
 
-    public void AddResearchStationTradeCode(Planet planet)
+    public static void AddResearchStationTradeCode(Planet planet)
     {
         var roll = _rollingService.D6(2);
-        switch (planet.Starport) {
-            case 'A':
+        switch (planet.Starport.Class) {
+            case StarportClass.A:
                 if (roll >= 6) {
                     planet.TradeCodes.Add(TradeCode.ResearchStation);
-                    planet.Bases.Add(Base.Research);
                 }
 
                 if (roll >= 9) {
-                    planet.Bases.Add(Base.Shipyard);
+                    planet.Starport.Installations.Add(StarportInstallation.Shipyard);
                 }
 
                 if (roll >= 12) {
-                    planet.Bases.Add(Base.MegaCorporateHeadquarters);
+                    planet.Starport.Installations.Add(StarportInstallation.MegaCorporateHeadquarters);
                 }
 
                 break;
-            case 'B':
+            case StarportClass.B:
                 if (roll >= 8) {
                     planet.TradeCodes.Add(TradeCode.ResearchStation);
-                    planet.Bases.Add(Base.Research);
                 }
 
                 if (roll >= 11) {
-                    planet.Bases.Add(Base.Shipyard);
+                    planet.Starport.Installations.Add(StarportInstallation.Shipyard);
                 }
 
                 break;
-            case 'C':
+            case StarportClass.C:
                 if (roll >= 10) {
                     planet.TradeCodes.Add(TradeCode.ResearchStation);
-                    planet.Bases.Add(Base.Research);
                 }
 
                 break;

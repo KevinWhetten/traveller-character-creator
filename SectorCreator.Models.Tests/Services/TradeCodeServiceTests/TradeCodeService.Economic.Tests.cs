@@ -9,8 +9,6 @@ namespace SectorCreator.Models.Tests.Services.TradeCodeServiceTests;
 [TestFixture]
 public class TradeCodeService_EconomicTests
 {
-    private readonly TradeCodeService _classUnderTest = new(new RollingService());
-    
     [TestCase(0, 0, 0, false)]
     [TestCase(3, 0, 0, false)]
     [TestCase(4, 0, 0, false)]
@@ -43,7 +41,7 @@ public class TradeCodeService_EconomicTests
             Hydrographics = hydrographics,
             Population = population
         };
-        _classUnderTest.AddPreAgriculturalTradeCode(planet);
+        TradeCodeService.AddPreAgriculturalTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.PreAgricultural), Is.EqualTo(expected));
     }
@@ -71,7 +69,7 @@ public class TradeCodeService_EconomicTests
             Population = population
         };
 
-        _classUnderTest.AddAgriculturalTradeCode(planet);
+        TradeCodeService.AddAgriculturalTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.Agricultural), Is.EqualTo(expected));
     }
@@ -92,7 +90,7 @@ public class TradeCodeService_EconomicTests
             Population = population
         };
 
-        _classUnderTest.AddNonAgriculturalTradeCode(planet);
+        TradeCodeService.AddNonAgriculturalTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.NonAgricultural), Is.EqualTo(expected));
     }
@@ -115,7 +113,7 @@ public class TradeCodeService_EconomicTests
             Atmosphere = atmosphere,
             Population = population
         };
-        _classUnderTest.AddPreIndustrialTradeCode(planet);
+        TradeCodeService.AddPreIndustrialTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.PreIndustrial), Is.EqualTo(expected));
     }
@@ -151,7 +149,7 @@ public class TradeCodeService_EconomicTests
             Population = population
         };
 
-        _classUnderTest.AddIndustrialTradeCode(planet);
+        TradeCodeService.AddIndustrialTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.Industrial), Is.EqualTo(expected));
     }
@@ -170,7 +168,7 @@ public class TradeCodeService_EconomicTests
             Hydrographics = hydrographics
         };
 
-        _classUnderTest.AddPoorTradeCode(planet);
+        TradeCodeService.AddPoorTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.Poor), Is.EqualTo(expected));
     }
@@ -187,7 +185,7 @@ public class TradeCodeService_EconomicTests
             Atmosphere = atmosphere,
             Population = population
         };
-        _classUnderTest.AddPreRichTradeCode(planet);
+        TradeCodeService.AddPreRichTradeCode(planet);
         Assert.That(planet.TradeCodes.Contains(TradeCode.PreRich), Is.EqualTo(expected));
     }
 
@@ -212,7 +210,7 @@ public class TradeCodeService_EconomicTests
             Population = population
         };
 
-        _classUnderTest.AddRichTradeCode(planet);
+        TradeCodeService.AddRichTradeCode(planet);
 
         Assert.That(planet.TradeCodes.Contains(TradeCode.Rich), Is.EqualTo(expected));
     }

@@ -12,7 +12,7 @@ public interface IAridWorld
 public class AridWorld : IAridWorld
 {
     private readonly IRollingService _rollingService;
-
+    
     public AridWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;
@@ -33,11 +33,11 @@ public class AridWorld : IAridWorld
     private PlanetChemistry GetChemistry(RttWorldgenStar primaryStar, RttWorldgenPlanet planet)
     {
         var roll = _rollingService.D6(1);
-        if (primaryStar.SpectralType == SpectralType.K && primaryStar.Luminosity == Luminosity.V) {
+        if (primaryStar.SpectralType == SpectralType.K && primaryStar.LuminosityClass == LuminosityClass.V) {
             roll += 2;
-        } else if (primaryStar.SpectralType == SpectralType.M && primaryStar.Luminosity == Luminosity.V) {
+        } else if (primaryStar.SpectralType == SpectralType.M && primaryStar.LuminosityClass == LuminosityClass.V) {
             roll += 4;
-        } else if (primaryStar.SpectralType == SpectralType.L) {
+        } else if (primaryStar.SpectralType == SpectralType.BD) {
             roll += 5;
         }
 

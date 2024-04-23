@@ -5,5 +5,5 @@ namespace SectorCreator.Models.T5;
 
 public class T5Star : Star
 {
-    public Luminosity Luminosity { get; set; }
+    public LuminosityClass LuminosityClass { get; set; }
 }

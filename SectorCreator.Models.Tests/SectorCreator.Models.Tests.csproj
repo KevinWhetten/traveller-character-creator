@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
 
         <IsPackable>false</IsPackable>
@@ -23,6 +23,12 @@
 
     <ItemGroup>
       <Folder Include="Factories\StarFrontiers" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.VisualStudio.TestPlatform.ObjectModel">
+        <HintPath>..\SectorCreator.WorldBuilder.Tests\bin\Debug\net7.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

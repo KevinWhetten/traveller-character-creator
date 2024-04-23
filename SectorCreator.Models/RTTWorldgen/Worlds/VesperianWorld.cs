@@ -10,7 +10,7 @@ public interface IVesperianWorld
 
 public class VesperianWorld : IVesperianWorld
 {
-    private static IRollingService _rollingService;
+    private readonly IRollingService _rollingService;
 
     public VesperianWorld(IRollingService rollingService)
     {
@@ -29,7 +29,7 @@ public class VesperianWorld : IVesperianWorld
         return planet;
     }
 
-    private static PlanetChemistry GetChemistry()
+    private PlanetChemistry GetChemistry()
     {
         return _rollingService.D6(2) switch {
             (<= 11) => PlanetChemistry.Water,
@@ -37,7 +37,7 @@ public class VesperianWorld : IVesperianWorld
         };
     }
 
-    private static int GetBiosphere(RttWorldgenStar primaryStar)
+    private int GetBiosphere(RttWorldgenStar primaryStar)
     {
         if (primaryStar.Age >= 4) {
             return _rollingService.D6(2);
@@ -50,7 +50,7 @@ public class VesperianWorld : IVesperianWorld
         return 0;
     }
 
-    private static int GetAtmosphere(RttWorldgenPlanet planet)
+    private int GetAtmosphere(RttWorldgenPlanet planet)
     {
         if (planet.Biosphere >= 3) {
             if (planet.Chemistry != PlanetChemistry.Water) return 11;

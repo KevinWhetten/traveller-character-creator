@@ -11,7 +11,7 @@ public interface IJaniLithicWorld
 public class JaniLithicWorld : IJaniLithicWorld
 {
     private readonly IRollingService _rollingService;
-
+    
     public JaniLithicWorld(IRollingService rollingService)
     {
         _rollingService = rollingService;

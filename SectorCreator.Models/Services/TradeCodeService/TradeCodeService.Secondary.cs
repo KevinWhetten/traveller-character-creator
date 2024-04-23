@@ -6,7 +6,8 @@ namespace SectorCreator.Models.Services.TradeCodeService;
 
 public partial class TradeCodeService
 {
-    public void AddFarmingTradeCode(Planet planet)
+    
+    public static void AddFarmingTradeCode(Planet planet)
     {
         if (planet is RttWorldgenPlanet {
                 Atmosphere: >= 4 and <= 9,
@@ -19,7 +20,7 @@ public partial class TradeCodeService
         }
     }
 
-    public void AddMiningTradeCode(Planet planet)
+    public static void AddMiningTradeCode(Planet planet)
     {
         if (planet is RttWorldgenPlanet {
                 Population: >= 2 and <= 6,
@@ -30,12 +31,12 @@ public partial class TradeCodeService
         }
     }
 
-    public void AddCaptiveTradeCode(Planet planet)
+    public static void AddCaptiveTradeCode(Planet planet)
     {
         if (planet.Government != 6) return;
 
         string? captiveType = planet switch {
-            RttWorldgenPlanet worldgenPlanet =>
+            RttWorldgenPlanet  worldgenPlanet =>
                 _rollingService.D6(1) switch {
                     <= 3 => TradeCode.MilitaryRule,
                     >= 4 => worldgenPlanet.IsMainWorld ? TradeCode.PrisonCamp : TradeCode.PenalColony
@@ -51,10 +52,10 @@ public partial class TradeCodeService
         planet.TradeCodes.Add(captiveType);
     }
 
-    public void AddReserveTradeCode(Planet planet)
+    public static void AddReserveTradeCode(Planet planet)
     {
-        if (planet is {TechLevel: <= 5, Starport: 'X', Population: >= 1} 
-            and (RttWorldgenPlanet {Biosphere: >= 7} or not RttWorldgenPlanet)) {
+        if (planet is {TechLevel: <= 5, Starport.Class: StarportClass.X, Population: >= 1} 
+            and (RttWorldgenPlanet  {Biosphere: >= 7} or not RttWorldgenPlanet)) {
             planet.TradeCodes.Add(TradeCode.Reserve);
         }
     }

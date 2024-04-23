@@ -3,8 +3,8 @@ using Moq;
 using NUnit.Framework;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
-using SectorCreator.Models.Factories.RttWorldgen;
 using SectorCreator.Models.RTTWorldgen;
+using SectorCreator.Models.RTTWorldgen.Factories;
 using SectorCreator.Models.RTTWorldgen.Worlds;
 
 namespace SectorCreator.Models.Tests.Factories.RttWorldgen;
@@ -261,7 +261,7 @@ public class RttWorldgenPlanetFactoryTests
         };
         var planet = new RttWorldgenPlanet();
 
-        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar {Luminosity = Luminosity.III});
+        planet = _classUnderTest.GenerateWorldType(planet, new RttWorldgenStar {LuminosityClass = LuminosityClass.III});
 
         Assert.That(planet.WorldType, Is.EqualTo(expectedWorldType));
     }
