@@ -70,8 +70,8 @@ public partial class WorldBuilderTerrestrialPlanet
     
         return compositionDM;
     }
-    
-    private void GenerateDensity()
+
+    protected void GenerateDensity()
     {
         Density = Composition switch {
             Composition.ExoticIce => _rollingService.D6(2) switch {

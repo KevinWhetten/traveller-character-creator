@@ -9,10 +9,10 @@ public partial class WorldBuilderPlanet
 {
     public int Size { get; set; }
     public int Diameter { get; set; }
-    public double Mass => Density * Math.Pow(Diameter / 12742.0, 3);
+    public double Mass => Density * (Diameter / 12742.0);
     public double Density { get; set; }
     public double Gravity => (Density * Diameter) / 12742.0;
-    public double EscapeVelocity => Math.Sqrt(Mass / (Diameter / 12742.0)) * 11186 / 1000.0;
+    public double EscapeVelocity => Diameter > 0 ? Math.Sqrt(Mass / (Diameter / 12742.0)) * 11186 : 0;
     public double OrbitalVelocity => EscapeVelocity / Math.Sqrt(2);
     public string SizeProfile => $"{Size}-{Diameter}-{Density:N2}-{Gravity:N2}-{Mass:N2}";
 

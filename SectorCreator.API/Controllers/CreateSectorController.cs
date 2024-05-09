@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ClassLibrary1;
+using Microsoft.AspNetCore.Mvc;
 using SectorCreator.BL;
 using SectorCreator.Global;
 using SectorCreator.Global.Enums;
@@ -86,7 +87,9 @@ public class CreateSectorController : ControllerBase
     public IActionResult GetWorldBuilderSector()
     {
         try {
-            return Ok(new WorldBuilderSector());
+            var sector = new WorldBuilderSector();
+            WorldBuilderDatabase.WriteSectorToDB(sector);
+            return Ok(sector.Id);
         }
         catch (Exception) {
             return StatusCode(500);
@@ -112,7 +115,7 @@ public class CreateSectorController : ControllerBase
     public IActionResult GetRttWorldgenSector()
     {
         try {
-            return Ok(_sectorGenerator.GenerateRttWorldgenSector());
+            return Ok();
         }
         catch (Exception ex) {
             return StatusCode(500, $"{ex.Message}{ex.StackTrace}");

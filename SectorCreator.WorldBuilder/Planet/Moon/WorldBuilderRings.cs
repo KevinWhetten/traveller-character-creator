@@ -8,10 +8,7 @@ public class WorldBuilderRings : WorldBuilderMoon
     public double InnerLimit => OrbitNumber - RingSpan / 2.0;
     public double OuterLimit => OrbitNumber + RingSpan / 2.0;
 
-    public WorldBuilderRings()
-    {
-        Size = 25;
-    }
+    public WorldBuilderRings(): base(25) { }
 
     public void Generate(WorldBuilderPlanet parent)
     {

@@ -6,9 +6,9 @@ namespace SectorCreator.WorldBuilder.Planet.Planet;
 
 public partial class WorldBuilderPlanet
 {
-    public double HillSphere { get; set; }
-    public double HillSphereDistance => 149597870.9 / Diameter;
-    public double HillSphereMoonLimit => HillSphereDistance / 2.0;
+    public double HillSphereAU { get; set; }
+    public double HillSpherePD => Diameter > 0 ? HillSphereAU * 149597870.9 / Diameter : 0;
+    public int HillSphereMoonLimit => (int)Math.Floor(HillSpherePD / 2.0);
     public int MoonOrbitRange { get; set; }
     public List<WorldBuilderMoon> Moons { get; set; } = new();
     public int Sub => Moons.Count(x => x.Size != 25);
@@ -18,8 +18,8 @@ public partial class WorldBuilderPlanet
         if (PlanetType == PlanetType.AsteroidBelt) {
             ((WorldBuilderAsteroidBelt) this).GenerateSignificantBodies(starSystem, starSystem.Planets.Max(x => x.OrbitNumber));
         } else {
-            HillSphere = OrbitDistance * (1 - Eccentricity) * Math.Pow(Mass * 0.000003 / 3 * starSystem.Mass, 1.0 / 3.0);
-            MoonOrbitRange = Math.Min((int) Math.Floor(HillSphereMoonLimit - 2), 200);
+            HillSphereAU = OrbitDistance * (1 - Eccentricity) * Math.Pow((Mass * 0.000003) / (3 * starSystem.Mass), 1.0 / 3.0);
+            MoonOrbitRange = Math.Min(HillSphereMoonLimit - 2, 200);
 
             var moonDM = GetMoonDM(HasMoonDMPenalty(starSystem));
 
@@ -35,7 +35,7 @@ public partial class WorldBuilderPlanet
                 GenerateMoon(starSystem, 25);
             }
 
-            if (HillSphere < 1.5 && moonQuantity >= 1) {
+            if (HillSpherePD < 1.5 && moonQuantity >= 1) {
                 GenerateMoon(starSystem, 25);
                 moonQuantity = 0;
             }
@@ -82,7 +82,8 @@ public partial class WorldBuilderPlanet
 
     private void GenerateMoon(WorldBuilderStarSystem starSystem, int size = 0)
     {
-        var moon = new WorldBuilderMoon();
+        WorldBuilderMoon moon;
+        moon = new WorldBuilderMoon();
         if (size == 0) {
             size = _rollingService.D6(1) switch {
                 <= 3 => 26,
@@ -100,12 +101,10 @@ public partial class WorldBuilderPlanet
 
         moon = size == 25
             ? new WorldBuilderRings()
-            : new WorldBuilderMoon {
-                Size = size
-            };
+            : new WorldBuilderMoon(size);
 
         if (moon.Size == 25) {
-            ((WorldBuilderRings) moon).Generate(starSystem, this);
+            ((WorldBuilderRings) moon).Generate(this);
         } else {
             moon.Generate(starSystem, this);
         }

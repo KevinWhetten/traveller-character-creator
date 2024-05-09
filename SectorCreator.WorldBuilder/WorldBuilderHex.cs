@@ -12,19 +12,20 @@ namespace SectorCreator.WorldBuilder;
 
 public class WorldBuilderHex
 {
+    public Guid Id = Guid.NewGuid();
     // Orbits
-    public double TotalAvailableOrbits => StarSystems.Select(x => x.Star).Sum(star => star.GetTotalAvailableOrbits());
-
-    public double Age => Stars.Max(x => x.Age);
+    public double TotalAvailableOrbits => StarSystems.Select(x => x.Star).Sum(star => star == null ? 0 : star.GetTotalAvailableOrbits());
+    public string Name => Stars.Count > 0 ? StarSystems.SelectMany(x => x.Planets).MaxBy(x => x.Importance).Name : "";
+    public double Age => Stars.Count > 0 ? Stars.Max(x => x != null ? x.Age : 0) : 0;
     public Coordinates Coordinates { get; } = new();
     private int StarNum => StarSystems.Select(x => x.Star).Sum(star => star.CompanionStar != null ? 2 : 1);
-
     public List<WorldBuilderStar> Stars
     {
         get
         {
-            var stars = new List<WorldBuilderStar> {MainSystem.Star};
-            if (MainSystem.Star.CompanionStar != null) {
+            var stars = new List<WorldBuilderStar>();
+            if(MainSystem.Star != null) stars.Add(MainSystem.Star);
+            if (MainSystem.Star != null && MainSystem.Star.CompanionStar != null) {
                 stars.Add(MainSystem.Star.CompanionStar);
             }
 
@@ -38,7 +39,6 @@ public class WorldBuilderHex
             return stars;
         }
     }
-
     public List<WorldBuilderPlanet> Planets
     {
         get
@@ -51,17 +51,19 @@ public class WorldBuilderHex
             return planets;
         }
     }
-
-    private List<WorldBuilderStarSystem> StarSystems
+    public List<WorldBuilderStarSystem> StarSystems
     {
         get
         {
-            var starSystems = new List<WorldBuilderStarSystem> {MainSystem};
+            var starSystems = new List<WorldBuilderStarSystem>();
+            if (MainSystem != null) {
+                starSystems.Add(MainSystem);
+            }
+
             starSystems.AddRange(SecondarySystems);
             return starSystems;
         }
     }
-
     public WorldBuilderStarSystem MainSystem { get; set; } = new(new RollingService());
     public List<WorldBuilderStarSystem> SecondarySystems { get; set; } = new();
     public int GasGiantQuantity { get; set; }
@@ -99,8 +101,19 @@ public class WorldBuilderHex
         AllocatePlanetsForEachSystem();
 
         foreach (var starSystem in StarSystems) {
+            var number = 1;
+            var asteroidBeltNumber = 1;
             foreach (var planet in starSystem.Planets) {
                 planet.GeneratePlanet(this, starSystem);
+                planet.Primary = starSystem.Star.CompanionStar != null ? starSystem.Star.Component + "b" : starSystem.Star.Component;
+                planet.GenerateObject(planet.PlanetType == PlanetType.AsteroidBelt ? asteroidBeltNumber++ : number++);
+                planet.GenerateNotes(starSystem.HZCO);
+                var moonNum = 0;
+                foreach (var moon in planet.Moons) {
+                    moon.Primary = planet.Object;
+                    moon.Object = planet.Object + " " + (char)('a' + moonNum++);
+                    moon.GenerateNotes(starSystem.HZCO);
+                }
             }
         }
 
@@ -429,7 +442,7 @@ public class WorldBuilderHex
         WorldBuilderStarSystem starSystem;
         do {
             starSystem = new WorldBuilderStarSystem(_rollingService) {
-                Star = new WorldBuilderStar(new RollingService(), starType, currentComponent)
+                Star = new WorldBuilderStar(new RollingService(), starType, StarSystems.Sum(x => x.Mass), currentComponent)
             };
         } while (starSystem.Star.Mass > MainSystem.Star.Mass);
 
@@ -507,19 +520,19 @@ public class WorldBuilderHex
         var companionMass = doneStarSystems.Last().Star.Mass;
 
         return
-            $"\t{component}\t---\t{mass:N3}\t---\t---\t{doneStarSystems.Sum(x => x.Luminosity):N3}\t{distance:N2}\t{doneStarSystems.Select(x => x.Star).Max(x => x.OrbitDistance):N3}\t{doneStarSystems.Select(x => x.Star).Max(x => x.Eccentricity):N2}\t{doneStarSystems.Select(x => x.Star).Max(x => x.GetPeriodInYears(mass - companionMass)):N2}\t{MainSystem.Star.AvailableOrbits.FirstOrDefault(x => x > distance):N2}\t---\n";
+            $"\t{component}\t---\t{mass:N3}\t---\t---\t{doneStarSystems.Sum(x => x.Luminosity):N3}\t{distance:N2}\t{doneStarSystems.Select(x => x.Star).Max(x => x.OrbitDistance):N3}\t{doneStarSystems.Select(x => x.Star).Max(x => x.Eccentricity):N2}\t{doneStarSystems.Select(x => x.Star).Max(x => x.Period):N2}\t{MainSystem.Star.AvailableOrbits.FirstOrDefault(x => x > distance):N2}\t---\n";
     }
 
     private string GetStarSystemString(WorldBuilderStarSystem starSystem, double totalMass)
     {
         return
-            $"\t{starSystem.Component + $" ({starSystem.Star.Component.First()})"}\t---\t{starSystem.Mass:N3}\t---\t---\t{starSystem.Luminosity:N3}\t{starSystem.OrbitNumber:N2}\t{starSystem.OrbitDistance:N3}\t{starSystem.Eccentricity:N2}\t{starSystem.GetPeriodInYears(totalMass):N3}y\t{starSystem.MAO:N2}\t{starSystem.HZCO:N2}\n";
+            $"\t{starSystem.Component + $" ({starSystem.Star.Component.First()})"}\t---\t{starSystem.Mass:N3}\t---\t---\t{starSystem.Luminosity:N3}\t{starSystem.OrbitNumber:N2}\t{starSystem.OrbitDistance:N3}\t{starSystem.Eccentricity:N2}\t{starSystem.Period:N3}y\t{starSystem.MAO:N2}\t{starSystem.HZCO:N2}\n";
     }
 
     private string GetStarString(WorldBuilderStar star, double totalMass)
     {
         return
-            $"{star.Name}\t{star.Component}\t{star.Class}\t{star.Mass:N3}\t{star.Temperature:N0}\t{star.Diameter:N3}\t{star.Luminosity:N3}\t{(star.StarType == StarType.Primary ? "" : $"{star.OrbitNumber:N2}")}\t{(star.StarType == StarType.Primary ? "" : $"{star.OrbitDistance:N3}")}\t{(star.StarType == StarType.Primary ? "" : $"{star.Eccentricity:N2}")}\t{(star.StarType == StarType.Primary ? "" : $"{star.GetPeriodInYears(totalMass):N3}y")}\t{(star.CompanionStar == null && star.StarType != StarType.Companion ? $"{star.MAO:N2}" : "---")}\t{(star.CompanionStar == null && star.StarType != StarType.Companion ? star.HZCO : "---")}\n";
+            $"{star.Name}\t{star.Component}\t{star.Class}\t{star.Mass:N3}\t{star.Temperature:N0}\t{star.Diameter:N3}\t{star.Luminosity:N3}\t{(star.StarType == StarType.Primary ? "" : $"{star.OrbitNumber:N2}")}\t{(star.StarType == StarType.Primary ? "" : $"{star.OrbitDistance:N3}")}\t{(star.StarType == StarType.Primary ? "" : $"{star.Eccentricity:N2}")}\t{(star.StarType == StarType.Primary ? "" : $"{star.Period:N3}y")}\t{(star.CompanionStar == null && star.StarType != StarType.Companion ? $"{star.MAO:N2}" : "---")}\t{(star.CompanionStar == null && star.StarType != StarType.Companion ? star.HZCO : "---")}\n";
     }
 
     public string GetPlanetDetails()
@@ -533,7 +546,7 @@ public class WorldBuilderHex
     private static string GetPlanetString(WorldBuilderPlanet planet, WorldBuilderStarSystem starSystem)
     {
         return
-            $"{planet.Name}\t{planet.Primary}\t{planet.GetObject(GetObjectNum(planet, starSystem))}\t{planet.OrbitNumber:N2}{(planet.Anomaly == PlanetAnomaly.Retrograde ? "R" : "")}\t{planet.OrbitDistance:N2}\t{(planet.PlanetType != PlanetType.AsteroidBelt ? $"{planet.Eccentricity:N2}" : "n/a")}\t{planet.Period:N3}\t{planet.SAH}\t{planet.Sub}\t{planet.GetNotes(starSystem.Star.HZCO)}\n";
+            $"{planet.Name}\t{planet.Primary}\t{planet.Object}\t{planet.OrbitNumber:N2}{(planet.Anomaly == PlanetAnomaly.Retrograde ? "R" : "")}\t{planet.OrbitDistance:N2}\t{(planet.PlanetType != PlanetType.AsteroidBelt ? $"{planet.Eccentricity:N2}" : "n/a")}\t{planet.Period:N3}\t{planet.SAH}\t{planet.Sub}\t{planet.Notes}\n";
     }
 
     private static int GetObjectNum(WorldBuilderPlanet planet, WorldBuilderStarSystem starSystem)

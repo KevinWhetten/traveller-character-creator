@@ -2,7 +2,7 @@
 
 public partial class WorldBuilderPlanet
 {
-    public int LawLevel => Governments.First().LawLevel;
+    public int LawLevel => Governments.Count > 0 ? Governments.First().LawLevel : 0;
 
     private void GenerateLawLevel(Government government)
     {
@@ -29,7 +29,7 @@ public partial class WorldBuilderPlanet
             _ => 0
         };
 
-        if (Governments.First().Authorities.Where(x => x.IsMainAuthority).Select(x => x.Authority).Contains(Authority.Judicial)) dm -= 2;
+        if (Governments.First().Authorities.Where(x => x.IsMainAuthority).Select(x => x.Authority.Code).Contains('J')) dm -= 2;
 
         government.JusticeSystem = (_rollingService.D6(2) + dm) switch {
             <= 5 => JusticeSystem.Inquisitorial,
@@ -115,19 +115,4 @@ public partial class WorldBuilderPlanet
 
         government.PersonalRightsLevel = Math.Max(LawLevel + _rollingService.D3(2) - 4 + dm, 0);
     }
-}
-
-public enum Uniformity
-{
-    Personal,
-    Territorial,
-    Universal
-}
-
-public enum JusticeSystem
-{
-    None,
-    Inquisitorial,
-    Adversarial,
-    Traditional
 }

@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\SectorCreator.BL\SectorCreator.BL.csproj" />
+      <ProjectReference Include="..\SectorCreator.DataAccess\SectorCreator.DataAccess.csproj" />
       <ProjectReference Include="..\SectorCreator.WorldBuilder\SectorCreator.WorldBuilder.csproj" />
     </ItemGroup>
 

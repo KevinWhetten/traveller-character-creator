@@ -4,6 +4,7 @@ namespace SectorCreator.WorldBuilder;
 
 public class WorldBuilderSubsector
 {
+    public Guid Id = Guid.NewGuid();
     public List<WorldBuilderHex> Hexes { get; set; } = new();
     public Coordinates Coordinates { get; set; }
     
@@ -16,6 +17,8 @@ public class WorldBuilderSubsector
             }
         }
     }
+
+    public WorldBuilderSubsector() { }
 
 
     private Coordinates GetHexCoordinates(int i, int j)

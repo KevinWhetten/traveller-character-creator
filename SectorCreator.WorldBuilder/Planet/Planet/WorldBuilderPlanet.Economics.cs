@@ -13,7 +13,7 @@ public partial class WorldBuilderPlanet
     public int Importance { get; set; }
     public string ImportanceExtension => $"{{ {Importance} }}";
     public int ResourceFactor { get; set; }
-    public int LaborFactor => Population - 1;
+    public int LaborFactor => Math.Max(Population - 1, 0);
     public int InfrastructureFactor { get; set; }
     public int EfficiencyFactor { get; set; }
     public int ResourceUnits { get; set; }
@@ -379,17 +379,4 @@ public partial class WorldBuilderPlanet
             >= 14 => _rollingService.D6(2) * 20
         };
     }
-}
-
-public enum TariffRate
-{
-    Free,
-    Foreign,
-    Class,
-    Low,
-    Moderate,
-    Varying,
-    High,
-    Extreme,
-    Prohibitive
 }

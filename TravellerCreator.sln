@@ -22,6 +22,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.WorldBuilder"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.WorldBuilder.Tests", "SectorCreator.WorldBuilder.Tests\SectorCreator.WorldBuilder.Tests.csproj", "{D5008D25-0EB0-44D9-B149-369A53E0217E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCreator", "TravellerCreator\TravellerCreator.csproj", "{5F9564B3-03C8-491B-8FC9-6B37EBE2D23D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SectorCreator.DataAccess", "SectorCreator.DataAccess\SectorCreator.DataAccess.csproj", "{4087B337-9B36-4DF6-A581-0F7B08F11105}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +76,13 @@ Global
 		{D5008D25-0EB0-44D9-B149-369A53E0217E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5008D25-0EB0-44D9-B149-369A53E0217E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5008D25-0EB0-44D9-B149-369A53E0217E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F9564B3-03C8-491B-8FC9-6B37EBE2D23D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F9564B3-03C8-491B-8FC9-6B37EBE2D23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F9564B3-03C8-491B-8FC9-6B37EBE2D23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F9564B3-03C8-491B-8FC9-6B37EBE2D23D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4087B337-9B36-4DF6-A581-0F7B08F11105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4087B337-9B36-4DF6-A581-0F7B08F11105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4087B337-9B36-4DF6-A581-0F7B08F11105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4087B337-9B36-4DF6-A581-0F7B08F11105}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

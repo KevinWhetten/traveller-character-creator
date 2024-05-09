@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using SectorCreator.Global;
 
 namespace SectorCreator.WorldBuilder.Planet.Planet;
 
@@ -7,7 +6,6 @@ public partial class WorldBuilderPlanet
 {
     public int Government { get; set; }
     public List<Government> Governments { get; set; } = new();
-    public int[,] GovernmentRelationships { get; set; } = new int [0, 0];
 
     private void GenerateBasicGovernment()
     {
@@ -41,13 +39,11 @@ public partial class WorldBuilderPlanet
         }
 
         Governments.RemoveAll(x => x.Code == 7);
-        Governments = Governments.OrderBy(x => x.FactionStrength).ToList();
-
-        GovernmentRelationships = new int[Governments.Count, Governments.Count];
+        Governments = Governments.OrderByDescending(x => x.FactionStrength.Power).ToList();
 
         for (var i = 0; i < Governments.Count; i++) {
             Governments[i].Id = i;
-            GenerateRelationships(i);
+            GenerateRelationships(Governments[i]);
         }
 
         foreach (var government in Governments) {
@@ -55,23 +51,23 @@ public partial class WorldBuilderPlanet
         }
     }
 
-    private void GenerateRelationships(int governmentNumber)
+    private void GenerateRelationships(Government government)
     {
         for (var i = 0; i < Governments.Count; i++) {
-            if (governmentNumber == i) {
-                GovernmentRelationships[governmentNumber, i] = -1;
-            } else if (governmentNumber > i) {
-                GovernmentRelationships[governmentNumber, i] = GovernmentRelationships[i, governmentNumber];
+            if (government.Id == i) {
+                government.Relationships.Add(-1);
+            } else if (government.Id > i) {
+                government.Relationships.Add(Governments[i].Relationships[government.Id]);
             } else {
                 var dm = 0;
-                if (governmentNumber == 0) dm++;
-                if (Governments[governmentNumber].Code == Governments[i].Code) dm--;
-                dm += (int) Math.Floor(Math.Abs(Governments[governmentNumber].Code - Governments[i].Code) / 2.0);
+                if (government.Id == 0) dm++;
+                if (Governments[government.Id].Code == Governments[i].Code) dm--;
+                dm += (int) Math.Floor(Math.Abs(Governments[government.Id].Code - Governments[i].Code) / 2.0);
 
                 var relationship = Math.Max(_rollingService.D3(2) + dm, 1);
                 relationship = Math.Min(relationship, 9);
 
-                GovernmentRelationships[governmentNumber, i] = relationship;
+                government.Relationships.Add(relationship);
             }
         }
     }
@@ -82,6 +78,7 @@ public partial class WorldBuilderPlanet
         if (Governments.Count == 0) {
             government = new Government {Code = Government};
         }
+
         if (government.Code == 7) return government;
         GenerateDegreeOfCentralization(government);
         GenerateAuthority(government);
@@ -92,15 +89,15 @@ public partial class WorldBuilderPlanet
     private void GenerateGovernmentPower(Government government)
     {
         if (Governments.Count == 0) {
-            government.FactionStrength = FactionStrength.OfficialGovernment;
+            government.FactionStrength = FactionStrength.FactionStrengths[6];
         } else {
             government.FactionStrength = _rollingService.D6(2) switch {
-                <= 3 => FactionStrength.Obscure,
-                <= 5 => FactionStrength.Fringe,
-                <= 7 => FactionStrength.Minor,
-                <= 9 => FactionStrength.Notable,
-                <= 11 => FactionStrength.Significant,
-                >= 12 => FactionStrength.PopularSupport
+                <= 3 => FactionStrength.FactionStrengths[0],
+                <= 5 => FactionStrength.FactionStrengths[1],
+                <= 7 => FactionStrength.FactionStrengths[2],
+                <= 9 => FactionStrength.FactionStrengths[3],
+                <= 11 => FactionStrength.FactionStrengths[4],
+                >= 12 => FactionStrength.FactionStrengths[5]
             };
         }
     }
@@ -131,9 +128,9 @@ public partial class WorldBuilderPlanet
         };
 
         government.Centralization = (_rollingService.D6(2) + dm) switch {
-            <= 5 => Centralization.Confederal,
-            <= 8 => Centralization.Federal,
-            >= 9 => Centralization.Unitary
+            <= 5 => Centralization.Centralizations[0],
+            <= 8 => Centralization.Centralizations[1],
+            >= 9 => Centralization.Centralizations[2]
         };
     }
 
@@ -147,145 +144,37 @@ public partial class WorldBuilderPlanet
             _ => 0
         };
 
-        dm += government.Centralization switch {
-            Centralization.Confederal => -2,
-            Centralization.Federal => 0,
-            Centralization.Unitary => 2,
+        dm += government.Centralization.Code switch {
+            'C' => -2,
+            'F' => 0,
+            'U' => 2,
             _ => throw new ArgumentOutOfRangeException()
         };
 
         var mainAuthority = (_rollingService.D6(2) + dm) switch {
-            <= 4 or 8 => Authority.Legislative,
-            5 or 10 or >= 12 => Authority.Executive,
-            6 or 11 => Authority.Judicial,
-            7 or 9 => Authority.Balance
+            <= 4 or 8 => Authority.Authorities[0],
+            5 or 10 or >= 12 => Authority.Authorities[1],
+            6 or 11 => Authority.Authorities[2],
+            7 or 9 => Authority.Authorities[3]
         };
 
         government.Authorities.Add(new GovernmentAuthority {
-            IsMainAuthority = mainAuthority is Authority.Balance or Authority.Legislative,
-            Authority = Authority.Legislative
+            IsMainAuthority = mainAuthority.Code is 'B' or 'L',
+            Authority = Authority.Authorities[0]
         });
         government.Authorities.Add(new GovernmentAuthority {
-            IsMainAuthority = mainAuthority is Authority.Balance or Authority.Executive,
-            Authority = Authority.Executive
+            IsMainAuthority = mainAuthority.Code is 'B' or 'E',
+            Authority = Authority.Authorities[1]
         });
         government.Authorities.Add(new GovernmentAuthority {
-            IsMainAuthority = mainAuthority is Authority.Balance or Authority.Judicial,
-            Authority = Authority.Judicial
+            IsMainAuthority = mainAuthority.Code is 'B' or 'J',
+            Authority = Authority.Authorities[2]
         });
 
         government.Authorities = government.Authorities.OrderByDescending(x => x.IsMainAuthority).ToList();
 
         foreach (var authority in government.Authorities) {
-            authority.GenerateStructure(government, government.Authorities.First().FunctionalStructure == Structure.Ruler);
+            authority.GenerateStructure(government, government.Authorities.First().FunctionalStructure == Structure.Structures[3]);
         }
     }
-}
-
-public class Government
-{
-    public int Code { get; set; }
-    public Centralization Centralization { get; set; }
-    public List<GovernmentAuthority> Authorities { get; set; } = new();
-    public FactionStrength FactionStrength { get; set; }
-    public int LawLevel { get; set; }
-    public JusticeSystem JusticeSystem { get; set; }
-    public Uniformity UniformityOfLaw { get; set; }
-    public bool PresumptionOfInnocence { get; set; }
-    public bool DeathPenalty { get; set; }
-    public int EconomicLawLevel { get; set; }
-    public int CriminalLawLevel { get; set; }
-    public int PrivateLawLevel { get; set; }
-    public int PersonalRightsLevel { get; set; }
-    public int TechLevel { get; set; }
-    public int LowCommonTechLevel { get; set; }
-    public int Id { get; set; }
-    public int Enforcement { get; set; }
-    public int Militia { get; set; }
-    public int Army { get; set; }
-    public int WetNavy { get; set; }
-    public int AirForce { get; set; }
-    public int SystemDefense { get; set; }
-    public int Navy { get; set; }
-    public int Marine { get; set; }
-}
-
-public enum FactionStrength
-{
-    OfficialGovernment,
-    PopularSupport,
-    Significant,
-    Notable,
-    Minor,
-    Fringe,
-    Obscure
-}
-
-public class GovernmentAuthority
-{
-    private readonly IRollingService _rollingService = new RollingService();
-    public bool IsMainAuthority { get; set; } = false;
-    public Authority Authority { get; set; }
-    public Structure FunctionalStructure { get; set; }
-
-    public void GenerateStructure(Government government, bool mainFunctionIsRuler)
-    {
-        if (mainFunctionIsRuler) {
-            FunctionalStructure = Structure.Ruler;
-            return;
-        }
-
-        FunctionalStructure = government.Code switch {
-            2 => Structure.Demos,
-            8 or 9 => Structure.MultipleCouncils,
-            3 or 12 or 15 => _rollingService.D6(1) switch {
-                <= 4 => Structure.SingleCouncil,
-                >= 5 => Structure.MultipleCouncils
-            },
-            10 or 11 or 13 or 14 => IsMainAuthority switch {
-                true => _rollingService.D6(1) switch {
-                    <= 5 => Structure.Ruler,
-                    >= 6 => Structure.SingleCouncil
-                },
-                false => GetFunctionalStructure(2)
-            },
-            _ => GetFunctionalStructure(0)
-        };
-    }
-
-    private Structure GetFunctionalStructure(int dm)
-    {
-        return (_rollingService.D6(2) + dm) switch {
-            <= 3 => Structure.Demos,
-            7 or 8 => Structure.Ruler,
-            5 or 6 or 9 or 11 => Structure.MultipleCouncils,
-            4 or 10 or >= 12 => Structure.SingleCouncil
-        };
-    }
-}
-
-public enum Structure
-{
-    None,
-    Demos,
-    SingleCouncil,
-    MultipleCouncils,
-    Ruler
-}
-
-public enum Authority
-{
-    None,
-    Legislative,
-    Executive,
-    Judicial,
-    Balance
-}
-
-public enum Centralization
-{
-    None,
-    Confederal,
-    Federal,
-    Unitary
 }

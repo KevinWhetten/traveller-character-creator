@@ -23,7 +23,7 @@ public partial class WorldBuilderPlanet
 
     private double VarianceFactors => AxialTiltFactor + RotationFactor + GeographicFactor;
     protected double AtmosphericFactor => 1 + BAR;
-    protected double LuminosityModifier => VarianceFactors / AtmosphericFactor;
+    protected double LuminosityModifier => AtmosphericFactor != 0 ? VarianceFactors / AtmosphericFactor : 0;
 
 
     private void GenerateTemperature(WorldBuilderStarSystem starSystem)
@@ -86,7 +86,7 @@ public partial class WorldBuilderPlanet
 
             if (!IsTidallyLocked) {
                 var highLuminosity = starSystem.Luminosity * (1 + LuminosityModifier);
-                var lowLuminosity = starSystem.Luminosity * (1 - LuminosityModifier);
+                var lowLuminosity = Math.Max(starSystem.Luminosity * (1 - LuminosityModifier), 0.00001);
 
                 HighTemperature = (int) (279 * Math.Pow(highLuminosity * (1 - Albedo) * (1 + GreenhouseFactor) / NearAU, 1.0 / 4.0));
                 Temperature = (int) (279 * Math.Pow(starSystem.Luminosity * (1 - Albedo) * (1 + GreenhouseFactor) / OrbitDistance, 1.0 / 4.0));

@@ -7,7 +7,7 @@ namespace SectorCreator.WorldBuilder.Planet.Moon;
 public partial class WorldBuilderMoon
 {
     public double OrbitDistanceInKM => ParentDiameter * OrbitNumber;
-    public new double OrbitDistanceInDiamters => OrbitDistanceInKM / ParentDiameter;
+    public new double OrbitDistanceInDiameters => ParentDiameter > 0 ? OrbitDistanceInKM / ParentDiameter : 0;
     
     private void GenerateOrbitLocation(WorldBuilderPlanet parent)
     {

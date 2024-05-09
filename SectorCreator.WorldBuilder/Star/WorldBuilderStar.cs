@@ -11,6 +11,7 @@ public class WorldBuilderStar : IWorldBuilderStar
     private readonly IRollingService _rollingService;
     private readonly WorldBuilderStarMassCalculator _worldBuilderStarMassCalculator;
 
+    public Guid Id = Guid.NewGuid();
     public string Component { get; set; }
     public SpectralType SpectralType { get; set; }
     public int SpectralSubclass { get; set; }
@@ -31,10 +32,9 @@ public class WorldBuilderStar : IWorldBuilderStar
     public readonly List<double> AvailableOrbits = new();
     public double MAO => AvailableOrbits.FirstOrDefault();
     public double HZCO { get; set; }
-    public string Name { get; set; }
+    public string Name { get; set; } = "";
     public string Class => $"{SpectralType}{SpectralSubclass} {LuminosityClass}";
-    public double GetPeriodInYears(double orbitsAroundMass) =>
-        Math.Sqrt(Math.Pow(OrbitDistance, 3) / (Mass + orbitsAroundMass));
+    public double Period { get; set; }
 
     private double GetOrbitDistance()
     {
@@ -67,7 +67,7 @@ public class WorldBuilderStar : IWorldBuilderStar
     public WorldBuilderStar()
     { }
 
-    public WorldBuilderStar(IRollingService rollingService, StarType starType = StarType.Primary, char currentComponent = 'A')
+    public WorldBuilderStar(IRollingService rollingService, StarType starType = StarType.Primary, double orbitsAroundMass = 0, char currentComponent = 'A')
     {
         StarType = starType;
         _rollingService = rollingService;
@@ -93,9 +93,13 @@ public class WorldBuilderStar : IWorldBuilderStar
             Diameter = worldBuilderStarDiameterCalculator.GenerateDiameter();
             GenerateAge();
         }
+        
+
+        GenerateOrbitNum();
+        GeneratePeriod(orbitsAroundMass);
 
         if (StarType != StarType.Companion) {
-            GenerateCompanionStar();
+            GenerateCompanionStar(currentComponent);
         }
 
         if (CompanionStar != null) {
@@ -105,9 +109,12 @@ public class WorldBuilderStar : IWorldBuilderStar
         } else {
             Component = currentComponent.ToString();
         }
-
-        GenerateOrbitNum();
         GenerateEccentricity();
+    }
+
+    private void GeneratePeriod(double orbitsAroundMass)
+    {
+        Period = Math.Sqrt(Math.Pow(OrbitDistance, 3) / (Mass + orbitsAroundMass));
     }
 
 
@@ -340,12 +347,12 @@ public class WorldBuilderStar : IWorldBuilderStar
                 break;
         }
     }
-    
-    private void GenerateCompanionStar()
+
+    private void GenerateCompanionStar(char currentComponent)
     {
         if (_rollingService.D6(2) >= 10) {
             do {
-                CompanionStar = new WorldBuilderStar(new RollingService(), StarType.Companion);
+                CompanionStar = new WorldBuilderStar(new RollingService(), StarType.Companion, Mass, currentComponent);
             } while (CompanionStar.Mass > Mass);
         }
     }

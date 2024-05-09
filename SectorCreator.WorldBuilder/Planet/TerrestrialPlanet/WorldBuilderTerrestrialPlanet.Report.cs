@@ -113,6 +113,6 @@ public partial class WorldBuilderTerrestrialPlanet
         return Moons.Aggregate("",
             (current, moon) =>
                 current +
-                $"{moon.Name}\t{moon.SAH}\t{moon.OrbitDistanceInDiamters:N0}\t{moon.OrbitDistanceInKM:N0}\t{moon.Eccentricity:N3}\t{moon.Diameter:N0}\t{moon.Density:N3}\t{moon.Mass:N4}\t{moon.Period:N2}\t{moon.Size}\n");
+                $"{moon.Name}\t{moon.SAH}\t{moon.OrbitDistanceInDiameters:N0}\t{moon.OrbitDistanceInKM:N0}\t{moon.Eccentricity:N3}\t{moon.Diameter:N0}\t{moon.Density:N3}\t{moon.Mass:N4}\t{moon.Period:N2}\t{moon.Size}\n");
     }
 }

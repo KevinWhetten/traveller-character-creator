@@ -8,6 +8,7 @@ public partial class WorldBuilderPlanet
 {
     public double OrbitNumber { get; set; }
     public double OrbitDistance => CalculateOrbitDistance();
+    public double OrbitDistanceInMKm => OrbitDistance * 149.5979;
     public double Eccentricity { get; set; }
     public double Period { get; set; }
     public double NearAU => OrbitDistance * (1 - Eccentricity);

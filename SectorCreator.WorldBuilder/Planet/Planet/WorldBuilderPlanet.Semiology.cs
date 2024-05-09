@@ -26,8 +26,8 @@ public partial class WorldBuilderPlanet
                 ResidualSeismicStress = Math.Pow(seismicStressBase, 2);
             }
 
-            TidalHeatingFactor = (Math.Pow(starSystem.Mass, 2) * Math.Pow(Size, 5) * Eccentricity) /
-                                 (Math.Pow(OrbitDistance, 5) * Period * Mass);
+            TidalHeatingFactor = (Math.Pow(starSystem.Mass * 333000, 2) * Math.Pow(Size, 5) * Math.Pow(Eccentricity, 2)) /
+                                 (3000 * (Math.Pow(OrbitDistanceInMKm, 5) * Period * Mass));
 
             LowTemperature = (int) Math.Pow(Math.Pow(LowTemperature, 4) + Math.Pow(TotalSeismicStress, 4), 1.0 / 4.0);
             Temperature = (int) Math.Pow(Math.Pow(Temperature, 4) + Math.Pow(TotalSeismicStress, 4), 1.0 / 4.0);

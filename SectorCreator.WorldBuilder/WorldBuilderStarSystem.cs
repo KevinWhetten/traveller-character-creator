@@ -1,7 +1,6 @@
 ﻿using SectorCreator.Global;
 using SectorCreator.Global.Enums;
 using SectorCreator.WorldBuilder.Enums;
-using SectorCreator.WorldBuilder.Planet;
 using SectorCreator.WorldBuilder.Planet.Planet;
 using SectorCreator.WorldBuilder.Planet.TerrestrialPlanet;
 using SectorCreator.WorldBuilder.Star;
@@ -12,6 +11,7 @@ public class WorldBuilderStarSystem
 {
     private readonly IRollingService _rollingService;
 
+    public Guid Id = Guid.NewGuid();
     public WorldBuilderStar Star { get; set; }
     public List<WorldBuilderPlanet> Planets { get; set; } = new();
     public int WorldNum { get; set; }
@@ -19,16 +19,17 @@ public class WorldBuilderStarSystem
     public double BaselineNumber { get; set; }
     public double BaselineOrbit { get; set; }
     public double Spread { get; set; }
-    public double Age => Star.CompanionStar != null ? Math.Max(Star.Age, Star.CompanionStar.Age) : Star.Age;
-    public double Mass => Star.CompanionStar != null ? Star.Mass + Star.CompanionStar.Mass : Star.Mass;
-    public double Luminosity => Star.CompanionStar != null ? Star.Luminosity + Star.CompanionStar.Luminosity : Star.Luminosity;
-    public double OrbitNumber => Star.CompanionStar?.OrbitNumber ?? Star.OrbitNumber;
-    public string Component => Star.CompanionStar != null ? Star.Component + Star.CompanionStar.Component.Last() : Star.Component;
-    public double OrbitDistance => Star.CompanionStar?.OrbitDistance ?? Star.OrbitDistance;
-    public double Eccentricity => Star.CompanionStar?.Eccentricity ?? Star.Eccentricity;
-    public double MAO => Star.AvailableOrbits.FirstOrDefault();
-    public double HZCO => Star.HZCO;
-    public string Name { get; set; }
+    public double Age => Star != null ? Star.CompanionStar != null ? Math.Max(Star.Age, Star.CompanionStar.Age) : Star.Age : 0;
+    public double Mass => Star != null ? Star.CompanionStar != null ? Star.Mass + Star.CompanionStar.Mass : Star.Mass : 0;
+    public double Luminosity => Star != null ? Star.CompanionStar != null ? Star.Luminosity + Star.CompanionStar.Luminosity : Star.Luminosity : 0;
+    public double OrbitNumber => Star != null ? Star.CompanionStar?.OrbitNumber ?? Star.OrbitNumber : 0;
+    public string Component => Star != null ? Star.CompanionStar != null ? Star.Component + Star.CompanionStar.Component.Last() : Star.Component : "";
+    public double OrbitDistance => Star != null ? Star.CompanionStar?.OrbitDistance ?? Star.OrbitDistance : 0;
+    public double Eccentricity => Star != null ? Star.CompanionStar?.Eccentricity ?? Star.Eccentricity : 0;
+    public double MAO => Star != null ? Star.AvailableOrbits.FirstOrDefault() : 0;
+    public double HZCO => Star != null ? Star.HZCO : 0;
+    public string Name { get; set; } = "";
+    public double Period => Star!= null ? Star.CompanionStar?.Period ?? Star.Period : 0;
 
     public WorldBuilderStarSystem(IRollingService rollingService)
     {
@@ -255,11 +256,6 @@ public class WorldBuilderStarSystem
         }
 
         return planetsRemoved;
-    }
-
-    public double GetPeriodInYears(double orbitsAroundMass)
-    {
-        return Star.CompanionStar?.GetPeriodInYears(orbitsAroundMass) ?? 0;
     }
 
     public bool IsPrimordial()

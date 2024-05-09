@@ -13,9 +13,10 @@ namespace SectorCreator.WorldBuilder.Planet.Planet;
 public partial class WorldBuilderPlanet
 {
     protected readonly IRollingService _rollingService = new RollingService();
+    public Guid Id = Guid.NewGuid();
     public string Name { get; set; } = "";
     public Coordinates Coordinates { get; set; } = new();
-    private string PBG => $"{PValue}{ExtendedHex.values[Belts]}{ExtendedHex.values[GasGiants]}";
+    public string PBG => $"{PValue}{ExtendedHex.values[Belts]}{ExtendedHex.values[GasGiants]}";
     public bool IsMoon { get; set; }
     public PlanetType PlanetType { get; set; }
     public string Primary { get; set; } = "";
@@ -30,54 +31,50 @@ public partial class WorldBuilderPlanet
         _ => $"{ExtendedHex.values[Size]}{ExtendedHex.values[Atmosphere]}{ExtendedHex.values[Hydrographics]}"
     };
 
-    private string ModifiedSAH => PlanetType switch {
+    public string ModifiedSAH => PlanetType switch {
         PlanetType.Jovian => $"GGA",
         _ => $"{ExtendedHex.values[Size]}{ExtendedHex.values[Atmosphere]}{ExtendedHex.values[Hydrographics]}"
     };
 
-    public string UWP =>
+    public string ModifiedUWP =>
         $"{Starport.Class}{ModifiedSAH}{ExtendedHex.values[Population]}{ExtendedHex.values[Government]}{ExtendedHex.values[LawLevel]}-{ExtendedHex.values[TechLevel]}";
 
+    public string UWP =>
+        $"{Starport.Class}{SAH}{ExtendedHex.values[Population]}{ExtendedHex.values[Government]}{ExtendedHex.values[LawLevel]}-{ExtendedHex.values[TechLevel]}";
+
     public string Details =>
-        $"{Coordinates}\t{Name}\t{UWP}\t{string.Join(" ", TradeCodes)}\t{ImportanceExtension}\t{EconomicExtension}\t{CulturalExtension}\t{Nobility}\t{string.Join(" ", Bases)}\t{(char) TravelZone}\t{PBG}\t{Worlds}\t{Allegiance}\t{StellarData}\n";
+        $"{Coordinates}\t{Name}\t{ModifiedUWP}\t{string.Join(" ", TradeCodes)}\t{ImportanceExtension}\t{EconomicExtension}\t{CulturalExtension}\t{Nobility}\t{string.Join(" ", Bases)}\t{(char) TravelZone}\t{PBG}\t{Worlds}\t{Allegiance}\t{StellarData}\n";
 
     public string StellarData { get; set; } = "";
     public string Allegiance { get; set; } = "----";
     public int Worlds { get; set; } = 0;
-    public TravelZone TravelZone { get; set; } = TravelZone.None;
     public List<string?> Bases { get; set; } = new();
     public string Nobility => "-";
+    public string Object { get; set; }
 
-    public string GetObject(int num) => PlanetType switch {
-        PlanetType.AsteroidBelt => Primary + " P" + RomanNumeralService.values[num],
-        _ => Primary + " " + RomanNumeralService.values[num]
-    };
-
-    public string GetNotes(double starHzco)
+    public void GenerateObject(int num)
     {
-        return PlanetType switch {
+        Object = PlanetType switch {
+            PlanetType.AsteroidBelt => Primary + " P" + RomanNumeralService.values[num],
+            _ => Primary + " " + RomanNumeralService.values[num]
+        };
+    }
+
+    public void GenerateNotes(double starHzco)
+    {
+        Notes = PlanetType switch {
             PlanetType.AsteroidBelt => ((WorldBuilderAsteroidBelt) this).GetNotes(),
             PlanetType.Jovian => ((WorldBuilderGasGiantPlanet) this).GetNotes(starHzco),
             PlanetType.Terrestrial => ((WorldBuilderTerrestrialPlanet) this).GetNotes(starHzco),
         };
     }
 
+    public string Notes { get; set; }
+
     public void GeneratePlanet(WorldBuilderHex hex, WorldBuilderStarSystem starSystem)
     {
         GasGiants = hex.GasGiantQuantity;
         Belts = hex.BeltQuantity;
-
-        if (PlanetType == PlanetType.AsteroidBelt) {
-            int i = 0;
-        } else if (PlanetType == PlanetType.Jovian) {
-            int i = 0;
-        } else if (PlanetType == PlanetType.Terrestrial) {
-            int i = 0;
-        }
-
-        if (IsMoon) {
-            int i = 0;
-        }
 
         GenerateSizeCharacteristics(starSystem);
         GenerateBasicCharacteristics(starSystem);

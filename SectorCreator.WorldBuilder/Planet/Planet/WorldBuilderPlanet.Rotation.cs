@@ -7,8 +7,9 @@ namespace SectorCreator.WorldBuilder.Planet.Planet;
 public partial class WorldBuilderPlanet
 {
     public double SiderealDay { get; set; }
-    protected double SolarDaysInLocalYear => ((Period * 365.25 * 24) / SiderealDay) - 1.0;
-    protected double SolarDayInHours => ((Period * 365.25 * 24) / SolarDaysInLocalYear);
+    public double YearInHours => Period * 365.25 * 24;
+    protected double SolarDaysInLocalYear => SiderealDay > 0 ? YearInHours / SiderealDay - 1.0 : 0;
+    protected double SolarDayInHours => SolarDaysInLocalYear > 0 ? YearInHours / SolarDaysInLocalYear : 0;
 
     public double TidalForce { get; set; }
     public double AxialTilt { get; set; }
@@ -130,11 +131,11 @@ public partial class WorldBuilderPlanet
         dm -= 10;
 
         if (moon.Size >= 1) dm += moon.Size;
-        if (moon.OrbitDistanceInDiamters < 5) dm += (int) Math.Ceiling(5 + (5 - moon.OrbitDistanceInDiamters) * 5);
-        if (moon.OrbitDistanceInDiamters is >= 5 and < 10) dm += 4;
-        if (moon.OrbitDistanceInDiamters is >= 10 and < 20) dm += 2;
-        if (moon.OrbitDistanceInDiamters is >= 20 and < 40) dm += 1;
-        if (moon.OrbitDistanceInDiamters > 60) dm -= 6;
+        if (moon.OrbitDistanceInDiameters < 5) dm += (int) Math.Ceiling(5 + (5 - moon.OrbitDistanceInDiameters) * 5);
+        if (moon.OrbitDistanceInDiameters is >= 5 and < 10) dm += 4;
+        if (moon.OrbitDistanceInDiameters is >= 10 and < 20) dm += 2;
+        if (moon.OrbitDistanceInDiameters is >= 20 and < 40) dm += 1;
+        if (moon.OrbitDistanceInDiameters > 60) dm -= 6;
         dm -= 2 * (Moons.Count - 1);
 
         if (dm > -10) {
@@ -286,7 +287,7 @@ public partial class WorldBuilderPlanet
 
         foreach (var moon in Moons) {
             if (!IsTidallyLockedWithMoon || Math.Abs(moon.Period - SiderealDay) > .001) {
-                MoonTidalEffect += (moon.Mass * Size) / Math.Pow((3.2 * (moon.OrbitDistanceInKM)) / 1000000.0, 3);
+                MoonTidalEffect += moon.OrbitDistanceInKM > 0 ? (moon.Mass * Size) / Math.Pow((3.2 * (moon.OrbitDistanceInKM)) / 1000000.0, 3) : 0;
             }
         }
     }

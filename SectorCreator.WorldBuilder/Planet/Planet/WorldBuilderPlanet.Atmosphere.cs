@@ -14,7 +14,7 @@ public partial class WorldBuilderPlanet
     public double PartialPressureOfOxygen => OxygenFraction * BAR;
     public List<AtmosphereTaint> AtmosphereTaints { get; set; } = new();
     public List<Taint> AtmosphereHazards { get; set; } = new();
-    public double ScaleHeight => (8.5 * (Temperature / 288.0)) / Gravity;
+    public double ScaleHeight => Gravity > 0 ? (8.5 * Temperature) / (Gravity * 288.0)  : 0;
     public double GetPressure(double height) => BAR / Math.Pow(Math.E, height / ScaleHeight);
     public List<UnusualSubtype> UnusualSubtypes { get; set; } = new();
     public List<PlanetElement> AtmosphereChemicals { get; set; } = new();

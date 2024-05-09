@@ -57,9 +57,9 @@ public partial class WorldBuilderPlanet
             <= 9 => 5.0 // Total war
         };
 
-        MilitaryBudgetPercent = (0.02 * (1 + (EfficiencyFactor / 10.0)) * (1 + Math.Max(_rollingService.Flux() + dm, -9) / 10.0)) * stateOfReadinessModifier;
+        MilitaryBudgetPercent = (0.02 * (1 + (EfficiencyFactor / 10.0)) * (1 + Math.Max(_rollingService.Flux() + dm, -9) / 10.0)) *
+                                stateOfReadinessModifier;
     }
-
 
 
     private int GetBasicDM(Government government)
@@ -87,12 +87,7 @@ public partial class WorldBuilderPlanet
 
     private List<int> GetRelationships(Government government)
     {
-        var relationships = new List<int>();
-        for (var i = 0; i < Governments.Count; i++) {
-            relationships.Add(GovernmentRelationships[government.Id, i]);
-        }
-
-        return relationships;
+        return Governments[government.Id].Relationships;
     }
 
     private void GenerateEnforcementBranch(Government government)

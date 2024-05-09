@@ -5,6 +5,8 @@ namespace SectorCreator.WorldBuilder.Planet.Planet;
 
 public partial class WorldBuilderPlanet
 {
+    public TravelZone TravelZone { get; set; } = TravelZone.None;
+    
     private void GenerateTravelZone(WorldBuilderStarSystem starSystem)
     {
         GenerateAmberZone(starSystem);

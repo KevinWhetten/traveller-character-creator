@@ -119,25 +119,6 @@ public partial class WorldBuilderPlanet
         MinorContinents = _rollingService.D((int) Math.Floor((double) (maxMinorBodies + minorFactor) / minorFactor), minorFactor) -
                           minorFactor;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     private void GenerateLiquidMakeup()
     {

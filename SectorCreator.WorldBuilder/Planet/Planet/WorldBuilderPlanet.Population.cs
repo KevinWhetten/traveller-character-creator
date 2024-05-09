@@ -9,7 +9,7 @@ public partial class WorldBuilderPlanet
 {
     public int Population { get; set; }
     public int PValue { get; set; }
-    private long TotalWorldPopulation => (long) (PValue * Math.Pow(10, Population));
+    public long TotalWorldPopulation => (long) (PValue * Math.Pow(10, Population));
     public int PopulationConcentrationRating { get; set; }
     public int UrbanizationPercentage { get; set; }
     public long TotalUrbanPopulation => (long) (TotalWorldPopulation * (UrbanizationPercentage / 100.0));
@@ -278,22 +278,8 @@ public partial class WorldBuilderPlanet
         foreach (var city in MajorCities) {
             if (_rollingService.D6(2) + dm >= 12) {
                 var qualifiedAnomaliesCount = CityAnomalyService.Anomalies.Count(x => x.MinimumTechLevel <= TechLevel);
-                city.Anomaly = CityAnomalyService.Anomalies.Where(x => x.MinimumTechLevel <= TechLevel).ToArray()[_rollingService.D(qualifiedAnomaliesCount, 1) - 1];
+                city.CityAnomaly = CityAnomalyService.Anomalies.Where(x => x.MinimumTechLevel <= TechLevel).ToArray()[_rollingService.D(qualifiedAnomaliesCount, 1) - 1];
             }
         }
     }
-}
-
-public class City
-{
-    public string Name { get; set; } = "";
-    public long Population { get; set; }
-    public Anomaly Anomaly { get; set; }
-}
-
-public class Anomaly
-{
-    public string CityType { get; set; } = "";
-    public int MinimumTechLevel { get; set; } = 0;
-    public string CityCode { get; set; } = "";
 }
